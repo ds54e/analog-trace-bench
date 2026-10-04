@@ -58,12 +58,12 @@
   text-align: left;
 }
 
-.token-cost-table th:first-child {
-  width: 46%;
+.run-summary > .summary-table > tbody > tr:first-child > * {
+  border-top-color: var(--rule);
 }
 
-.token-cost-table th:not(:first-child) {
-  width: 27%;
+.token-cost-table thead th:not(:first-child) {
+  width: auto;
 }
 
 .token-cost-table td {

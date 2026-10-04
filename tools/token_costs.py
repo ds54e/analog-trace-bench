@@ -167,5 +167,5 @@ def render_token_summary(record, pricing):
         price = '$' + format(decimal_cost(rate), 'f') if rate is not None else 'Included'
         markup += '<tr><th scope="row">' + html.escape(label) + '</th><td class="mono-value">' + quantity + \
                   '</td><td class="mono-value">' + price + '</td></tr>\n'
-    return markup + '</tbody><tfoot><tr><th colspan="2" scope="row">Total token cost</th><td class="mono-value">' + \
+    return markup + '</tbody><tfoot><tr><th scope="row">Total token cost</th><td></td><td class="mono-value">' + \
            format_token_cost(record) + '</td></tr></tfoot></table>\n'

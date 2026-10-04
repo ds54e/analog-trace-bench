@@ -28,6 +28,21 @@
   vertical-align: top;
 }
 
+.results-table thead th:nth-child(1),
+.results-table thead th:nth-child(3) {
+  width: 22%;
+}
+
+.results-table thead th:nth-child(2),
+.results-table thead th:nth-child(4) {
+  width: 12%;
+}
+
+.results-table thead th:nth-child(5),
+.results-table thead th:nth-child(6) {
+  width: 16%;
+}
+
 .results-table tbody th,
 .results-table td {
   white-space: nowrap;
