@@ -59,11 +59,11 @@ every missing file. Numerical resolution and grid limitations remain recorded.
 ## Website maintenance
 
 All selected trials appear in the result index and have downloadable evidence.
-Four accepted OTA-WIDE traces have complete prepared HTML views. Other trace
-pages can be imported from these public archives using the task-specific source
-definitions and [trace guide](TRACE_GUIDE.md); an absent HTML view is not an absent
-trial. Existing adapters cover Astra and Sonnet fixtures; use the archive reader
-to implement and source-check other formats. Never assume example metric limits,
+All 54 selected trials have prepared HTML views, including failed trials. The
+four accepted OTA-WIDE reference pages are preserved. The campaign importer
+uses the verified archive reader, supports the captured Codex and Claude
+formats, and source-checks saved fragments before keeping an existing page.
+See [all-result import checks](ALL_RESULTS_IMPORT.md) for coverage and omissions. Never assume example metric limits,
 counts, task prefixes or transcript semantics for another task.
 
 Raw waveforms remain on the evaluation/design hosts. They are needed for a fresh

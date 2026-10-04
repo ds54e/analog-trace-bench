@@ -92,15 +92,16 @@ class SiteBuildTests(unittest.TestCase):
     def test_export_contains_dependencies_and_preserves_payloads(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / 'preview'
-            self.assertEqual(build_site.build(output=output), 5)
-            self.assertEqual(len(check_site.check_links(output)), 5)
+            expected_count = len(build_site.generated_pages())
+            self.assertEqual(build_site.build(output=output), expected_count)
+            self.assertEqual(len(check_site.check_links(output)), expected_count)
             profiles = json.loads((check_site.ROOT / 'data/trace-validation.json').read_text())['traces']
             for profile in profiles:
                 path = output / profile['page']
                 check_site.check_trace(path, profile, check_site.Document(path.read_text()))
             self.assertTrue((output / 'assets/trace.js').is_file())
             self.assertTrue((output / '.nojekyll').is_file())
-            self.assertEqual(build_site.build(output=output, check=True), 5)
+            self.assertEqual(build_site.build(output=output, check=True), expected_count)
 
     def test_changed_command_fails_even_after_regeneration(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -3,27 +3,2894 @@
   "snapshot_date": "2026-10-04",
   "traces": [
     {
-      "id": "ota-wide-sky130-astra-r1",
-      "page": "traces/ota-wide-sky130-astra-raw.html",
+      "id": "ldo-always-on-sky130-opus-5-5-r1",
+      "page": "traces/ldo-always-on-sky130-opus-5-5-raw.html",
+      "counts": {
+        "MODEL": 5,
+        "ACTION": 21,
+        "RESULT": 21
+      },
+      "submitted_spice_bytes": 1095,
+      "submitted_spice_sha256": "dc13b27106f0af059a362a2ea962d8d280c8100faaf4045903a4a86297059c22",
+      "revision": "dut-c70e59829a7c41c0d2902679",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "dd3e7a6fa28d385abf6d9d9b7ce93327c0803e79157bbd416cc04e435f51067f",
+        "trace.html": "9da3c581159e7d8557538d7e530df69ae9eb99ccf44d08e27d32084c3498a4c9"
+      },
+      "evaluation_sha256": "d01cdfe745fc7bf898ce1e3740c6e077431803f6c3b19ea8f8ea00f621442ba2",
+      "source_archive_sha256": "542a8699c5e5a278de6b1a364407b94f38c4ad8468516168db2c7548b4bc3971",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 21,
+        "read_line_number_prefixes_removed": 289,
+        "omissions": {
+          "transport_rows": 2549,
+          "private_reasoning_blocks": 12
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-astra-r1",
+      "page": "traces/ldo-always-on-sky130-astra-raw.html",
+      "counts": {
+        "MODEL": 7,
+        "ACTION": 15,
+        "RESULT": 15
+      },
+      "submitted_spice_bytes": 624,
+      "submitted_spice_sha256": "61eed336f602f60125d9eb4777a8220d5f3d932ff212c7b9c0b1842709193578",
+      "revision": "dut-d8c2abf402819bc669c536f5",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "4b21d535a6a9a02e50377ca1e7b4c457b69835713ac69991fd3bbb99590e2f39",
+        "trace.html": "5c894e6fbc1e1ab193eec55cb402e1d4785bb2da9bd0f2b72e2d426215cd464a"
+      },
+      "evaluation_sha256": "0c7f3fb57a0d1b2d4a4bc7fea2311eecca593c43637c623627b14184ee1b5469",
+      "source_archive_sha256": "828693807582381c4ca9a87a00bb0f8a6a9474db9304501e741e8e6fb3af1bc5",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 15,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-sonnet-5-5-r1",
+      "page": "traces/ldo-always-on-sky130-sonnet-5-5-raw.html",
+      "counts": {
+        "MODEL": 8,
+        "ACTION": 33,
+        "RESULT": 33
+      },
+      "submitted_spice_bytes": 547,
+      "submitted_spice_sha256": "7c439cede06ec2660a410a9ebcb8c64b6515b3779c3f5b517f90421702bfe4d1",
+      "revision": "dut-9ab9d2a5cb972fd8d376576b",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "5c891364d1436c5929ee74aae9d9ff630b4c3ace7bdb0d925dd3db882b2dc98f",
+        "trace.html": "269d281247aa62ab78d96ac91479f75d52cecfa525bf8dd1e8b78c72ca906a36"
+      },
+      "evaluation_sha256": "efb34d5551ac5e92d739fc531d9711bb407881a24d088add9fcebafc9a272d1f",
+      "source_archive_sha256": "50ea40a43189f3b6635bf1fb6ff9b14e74dc85e04842f63f080c1c587bbd15fe",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 33,
+        "read_line_number_prefixes_removed": 304,
+        "omissions": {
+          "transport_rows": 4818,
+          "private_reasoning_blocks": 35
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-sol-6-1-r1",
+      "page": "traces/ldo-always-on-sky130-sol-6-1-raw.html",
+      "counts": {
+        "MODEL": 7,
+        "ACTION": 27,
+        "RESULT": 22
+      },
+      "submitted_spice_bytes": 609,
+      "submitted_spice_sha256": "d6bd1a255ee93a938265ecaf48fbfea213e4a4f146db135bfebf2aaf0e234a87",
+      "revision": "dut-9cde6538331d526b1e80f030",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "ade9bfb5937ba57495bf9e6cee004dea9894c8c1884b74c8f656b925907f4189",
+        "trace.html": "0b2a866c53aff9875e8b0b533877ddb51f953ee211b490c0ba0f6cc00946dc4a"
+      },
+      "evaluation_sha256": "8394971e6583450d78a085c64a419b5f1bdaad59d2c3aca1c2e6d5d50b5739cd",
+      "source_archive_sha256": "c721a2b6923ef2b8f80f883d2452380785a97a0d281a0743f8b238201fdc27a8",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 24,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 5,
+          "file_edits_without_patch_text": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-luna-6-r1",
+      "page": "traces/ldo-always-on-sky130-luna-6-raw.html",
+      "counts": {
+        "MODEL": 10,
+        "ACTION": 36,
+        "RESULT": 36
+      },
+      "submitted_spice_bytes": 934,
+      "submitted_spice_sha256": "2cdc72f3571370f3e0fed34773037ba6909a0a1bcf80fffacecaa94b09e47407",
+      "revision": "dut-fc92366431eba48d2815e4d6",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "eb4dd9f6f77ef9c04cbe43f9e064758c520623e34081b56edc5f0258a097db75",
+        "trace.html": "90b5e3cf562b481f8bd64e083ae39e8a2e6620c00b91b13cfb16887c2bbe0117"
+      },
+      "evaluation_sha256": "e8835800e2173bd8f9db9465feb31aeca5de400a2c7f93193ae6ed20c7c4c379",
+      "source_archive_sha256": "cee4f05b330eaf2fda389bede39ab2081174b916c748710155f656caa89b1907",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 36,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-sol-6-r1",
+      "page": "traces/ldo-always-on-sky130-sol-6-raw.html",
+      "counts": {
+        "MODEL": 13,
+        "ACTION": 148,
+        "RESULT": 145
+      },
+      "submitted_spice_bytes": 728,
+      "submitted_spice_sha256": "d85ca5b6f368d19af11cb944a2f20032bc8a1e75635f55b2dd57710b1bd718f3",
+      "revision": "dut-59b70be6abeda72d058a6723",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "c070ef5fab1f7c0a06357b360c260999fc929f72685961ed1aec40453cc93778",
+        "trace.html": "7e86e1e7bca876b2aee736ad8a2d50feae20af1e0d9493de07c48ff6bea06cd2"
+      },
+      "evaluation_sha256": "37726e997e549787e652e569057f609e376abb9a9d5f8d33a5fe56002fc31efb",
+      "source_archive_sha256": "dfefd4c5e1c5c8e1540b3e7793428d748f7190227ec8e55900459d057cc933b6",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 125,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 3,
+          "file_edits_without_patch_text": 23
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-core-sky130-opus-5-5-r1",
+      "page": "traces/ldo-core-sky130-opus-5-5-raw.html",
+      "counts": {
+        "MODEL": 9,
+        "ACTION": 49,
+        "RESULT": 49
+      },
+      "submitted_spice_bytes": 1475,
+      "submitted_spice_sha256": "b36fadf1b9a7df0b4ed70c468e4021f7d1822ad15199e5947ccab59b0efc4327",
+      "revision": "dut-9e480819a21963917fd3eb06",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "1aae337093d206850e7fe60517cdf4a2041a0dbe30276b247174037d4cf373e3",
+        "trace.html": "295c6bbb96a12c68cee60b361ab5f777a3832881fd95d3e44db91004da8b1224"
+      },
+      "evaluation_sha256": "eac190f353f92ad40f2428fd9d5d7b1b5e0427c0e6c11e838d303b27f8309249",
+      "source_archive_sha256": "cef8452a0f9f49efac780c14ffcd97f7e4e06d584c238b85e23b13053e94c931",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 49,
+        "read_line_number_prefixes_removed": 381,
+        "omissions": {
+          "transport_rows": 10057,
+          "private_reasoning_blocks": 68
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-core-sky130-astra-r1",
+      "page": "traces/ldo-core-sky130-astra-raw.html",
+      "counts": {
+        "MODEL": 9,
+        "ACTION": 49,
+        "RESULT": 44
+      },
+      "submitted_spice_bytes": 1309,
+      "submitted_spice_sha256": "e7e6a46bb08980dbab65ac7b48b5b87c5b0c9bcd0154fbad094afef81ac35315",
+      "revision": "dut-34333986f9f7384dc859fc34",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "47e074504b3b8d1bd1a6b824f540e95ff7d60774b1b019a110aa110048028da6",
+        "trace.html": "8a09e63aa8219970323c1bd14d431b253fd2d68989a94f663b79a4aa2c0e40e5"
+      },
+      "evaluation_sha256": "578776c11dc348e9358e8423c2dfea80662116a93c3b65a3b774083c1a382bd8",
+      "source_archive_sha256": "a351eedfa69e52dc487910f86de723b57f0c497501daae759a5f84295e3e80c4",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 49,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 5
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-core-sky130-sonnet-5-5-r1",
+      "page": "traces/ldo-core-sky130-sonnet-5-5-raw.html",
+      "counts": {
+        "MODEL": 15,
+        "ACTION": 65,
+        "RESULT": 65
+      },
+      "submitted_spice_bytes": 643,
+      "submitted_spice_sha256": "1120708b2532d5c5457dcc2ee1e25263cf7a9a224dfab2bc8b503bb7eed1e121",
+      "revision": "dut-751da8e0555a19d80fb90f33",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "13d4783e4d8dd5fd83674c2dfd50cffaff147dcd5900231310097ea1b7561828",
+        "trace.html": "7823759cf515378d3beac6115915d302a6bcce62eacc9c66eb559fad33596d33"
+      },
+      "evaluation_sha256": "e8533eed3d916e492599116d241901c4cf1db944772e417c13545ca98895fa7f",
+      "source_archive_sha256": "ece689e097fbe23d7272374fd18389810c1149e459140cd8c516464c0c69efd5",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 65,
+        "read_line_number_prefixes_removed": 395,
+        "omissions": {
+          "transport_rows": 9188,
+          "private_reasoning_blocks": 61,
+          "notifications": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-core-sky130-sol-6-1-r1",
+      "page": "traces/ldo-core-sky130-sol-6-1-raw.html",
       "counts": {
         "MODEL": 19,
-        "ACTION": 117,
-        "RESULT": 60
+        "ACTION": 65,
+        "RESULT": 61
       },
-      "submitted_spice_bytes": 1566,
-      "submitted_spice_sha256": "fb5c99ecd0dbaadf40bc847db21e642ff7014934f58e86ca0dfa0c4c16eb58bf",
-      "revision": "dut-4845d3de80ca1849ec4bdadc",
-      "evaluation_categories": 26,
+      "submitted_spice_bytes": 1585,
+      "submitted_spice_sha256": "88297caa1002affda967ca171fd3e3c6272cbd0da9513d2baaf1cec2e635ab3f",
+      "revision": "dut-fb596015821520856abb9fae",
+      "evaluation_categories": 8,
       "evaluation_row_counts": {
-        "published": 432,
-        "hidden": 225
+        "published": 360,
+        "hidden": 60
       },
-      "baseline_html_sha256": "cadf61260d9c4e2c54f4f16d904c2a5d20ae8438e8b076498e72fbf951c0696b",
       "content_sha256": {
-        "summary.html": "078979aaa52e0a9433fedf4651644914fa884b871271d93c282b7173ad21119c",
-        "trace.html": "7ff4225a745c499d8a58e30d74bbf076e411a5044150ae64ced5767ac379d68d"
+        "summary.html": "3f1316c4e83e37c21a31824927ca5e9c9651e90d2262f9305443b4d02c31d3c0",
+        "trace.html": "df259eeb856b2f79b3a40d50b5aad4fb322de4b429e1f278907a495dbe8fd981"
       },
-      "evaluation_sha256": "d1e90c57c29cd8aed4045004954b500e34caee32531e02ad8e45a53ffdc6233c"
+      "evaluation_sha256": "39d1af3ad82856500c20c7734d2b88edb277520369b13af0c1ad9650b3b92e38",
+      "source_archive_sha256": "7e8a3563c410f354644bcd87b023d03e2659c5268aa2402d7bbd992eec17d401",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 65,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 4
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-core-sky130-luna-6-r1",
+      "page": "traces/ldo-core-sky130-luna-6-raw.html",
+      "counts": {
+        "MODEL": 55,
+        "ACTION": 158,
+        "RESULT": 158
+      },
+      "submitted_spice_bytes": 974,
+      "submitted_spice_sha256": "fdabc8a6a5ca060912e760270c070ed665bd923fa256925bb5a0019c0c1ccf8b",
+      "revision": "dut-36d5cd51d6a3f6f20737d185",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "5480f705a00aa537ddde7810d1201a3ae5b1d4213a71d02ea08c9f6c74c423cd",
+        "trace.html": "644a70050bfef1396652887092783f9b8999d8e0a51b64eba880b09ad2cee38a"
+      },
+      "evaluation_sha256": "d65f16bfa0714207ec27a8357f21c5d8ef31eb71c5b6f94de15275087ce55357",
+      "source_archive_sha256": "f8f4be1b50930ecc7b27b354f4e59e5610d08d62fe5ea50abbcc920043b3dade",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 158,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 23,
+          "hidden": 1
+        }
+      }
+    },
+    {
+      "id": "ldo-core-sky130-sol-6-r1",
+      "page": "traces/ldo-core-sky130-sol-6-raw.html",
+      "counts": {
+        "MODEL": 33,
+        "ACTION": 88,
+        "RESULT": 87
+      },
+      "submitted_spice_bytes": 1017,
+      "submitted_spice_sha256": "3a528aa8d6f67dd8fa240b467906b7b523185e598822e584135aae531ab7dfcb",
+      "revision": "dut-176611f59b08156906751449",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "7a9b95b496b0ca551c1cb68f8ed63a8e4f36b542702f098f19fa54298229cc32",
+        "trace.html": "bec500050172cb6ace6259a5f698aa6c62e710e584eacdd1470ccd899de46308"
+      },
+      "evaluation_sha256": "00536d0079c94c5ef1a7abd1db7bc96da930b38006a170d896fb8ed0c97c4d86",
+      "source_archive_sha256": "b73bf0fb25fee6093a48dee554820ee42e46fae2c5dae9732fdf9a4786448cc1",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 76,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1,
+          "file_edits_without_patch_text": 12
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-opus-5-5-r1",
+      "page": "traces/ldo-low-voltage-sky130-opus-5-5-raw.html",
+      "counts": {
+        "MODEL": 6,
+        "ACTION": 44,
+        "RESULT": 44
+      },
+      "submitted_spice_bytes": 1412,
+      "submitted_spice_sha256": "ea81ea5f46587bbaf5f1aea608fb6f81bccdeb7fec1544dcf72f47f36f4b8021",
+      "revision": "dut-f34423ffa2d7657b66673dd3",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "1b90054c0d71be9d816aaa9f0b88b813bcec5d36c7c8947182d4ba7c1226c55b",
+        "trace.html": "8c470c86b6daca1c72a3c78649bceb286c47b4c8c9684779d6196e2e6ec2d6aa"
+      },
+      "evaluation_sha256": "c5728003ef1fcaebe3d821e1a0c5ec59aedca8ca012cc0b0f8fefce97c075c3d",
+      "source_archive_sha256": "d01b14fd2e0d25298797376b0233c2c27cae07c9f338b121405e7e5743cdd78f",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 44,
+        "read_line_number_prefixes_removed": 299,
+        "omissions": {
+          "transport_rows": 7535,
+          "private_reasoning_blocks": 43
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-astra-r1",
+      "page": "traces/ldo-low-voltage-sky130-astra-raw.html",
+      "counts": {
+        "MODEL": 10,
+        "ACTION": 51,
+        "RESULT": 44
+      },
+      "submitted_spice_bytes": 782,
+      "submitted_spice_sha256": "e25d24b05975baa3605c8b1417bdd4aed7e4b951c119279c5e0ef41ad3deb680",
+      "revision": "dut-14d38904a3c838632aadae9a",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "8e659ebd831cb7a5f7ee24064c9b1bb1a53ce2f312174f0174aa929cea48e563",
+        "trace.html": "4717ed76727c01e2bd56ea0197ade6662d3b97e0efb34aebaee8aae1fe084463"
+      },
+      "evaluation_sha256": "ea1d77fd2f6ade10dcbd7710b7a8b442a0f6bf8de64fa2c2f89481b29f695358",
+      "source_archive_sha256": "22706695b5abd2e993501e4e7d210157d1fbe2b8cadba2e8821beb5444263ad6",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 51,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 7
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-sonnet-5-5-r1",
+      "page": "traces/ldo-low-voltage-sky130-sonnet-5-5-raw.html",
+      "counts": {
+        "MODEL": 10,
+        "ACTION": 152,
+        "RESULT": 152
+      },
+      "submitted_spice_bytes": 1204,
+      "submitted_spice_sha256": "096e56177364b5f5e92528836eeec6c1e8d3081a451e96d502eee1aca7c6f487",
+      "revision": "dut-585166d21e597c3fe839f08f",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "715f620cf53a46bfb4e5ab527de05cfc459a595d4d8a16826ebf6dfe694edad1",
+        "trace.html": "d261714e6606a74f17b07bf24b5b928da21a841c2298b9f6c56d51b898fb28c8"
+      },
+      "evaluation_sha256": "37cdaea7943f6717929c88ef068e3ff6fdc207edb006b0505598560930f9a4a2",
+      "source_archive_sha256": "314c95382764222ce5920f3265af393d8546dd4617994d4a0c7dec9f78790c5f",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 152,
+        "read_line_number_prefixes_removed": 346,
+        "omissions": {
+          "transport_rows": 17525,
+          "private_reasoning_blocks": 131,
+          "notifications": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-sol-6-1-r1",
+      "page": "traces/ldo-low-voltage-sky130-sol-6-1-raw.html",
+      "counts": {
+        "MODEL": 18,
+        "ACTION": 86,
+        "RESULT": 41
+      },
+      "submitted_spice_bytes": 964,
+      "submitted_spice_sha256": "8c244d48e95c83edaafb363e24d3b7d46f4b5ab0ddb615221afd02aa07f1bce5",
+      "revision": "dut-c5816a674b82d98569d5df86",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "23c19a079e9768ffef3e8ec528b53885a980f3e7e1e633c9dce2b997304fa566",
+        "trace.html": "aa21b94359d2d503013959ab2d6d231e8f2178e272baa27555a0bdea83f70817"
+      },
+      "evaluation_sha256": "91c0f02501ba920ad23f33b098255df76df946d41d046199b7d954f16b1a918e",
+      "source_archive_sha256": "790f0a0056561985fa0bbfe0bf5c15792b1469329e45a3a5e2d557423538d31b",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 86,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 45
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-luna-6-r1",
+      "page": "traces/ldo-low-voltage-sky130-luna-6-raw.html",
+      "counts": {
+        "MODEL": 53,
+        "ACTION": 216,
+        "RESULT": 216
+      },
+      "submitted_spice_bytes": 1411,
+      "submitted_spice_sha256": "d8cce84300bbed9ab07a4c30ce28d9f5cc1195ad72ccf248f6ff54c54a2f11f2",
+      "revision": "dut-a58c6d40ade3d3e15aa3504f",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "619327ac4c110fe36828babfdc2a8f605489815358adf1d9c5525f9ce7efbbcf",
+        "trace.html": "b00c2d3093420910e5c7414f5aa04e9c4db9be6106898947ea5b845e71531afc"
+      },
+      "evaluation_sha256": "c3d04c691b652bd56a2db16352e60ec6fd6e21e151e48e691930a33b1f087069",
+      "source_archive_sha256": "97395a5dacaa93eaecf64d7b5a4ab79ab04873c95dd2fbd2c801a942e3c240f9",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 125,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "file_edits_without_patch_text": 91
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 53,
+          "hidden": 6
+        }
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-sol-6-r1",
+      "page": "traces/ldo-low-voltage-sky130-sol-6-raw.html",
+      "counts": {
+        "MODEL": 44,
+        "ACTION": 109,
+        "RESULT": 108
+      },
+      "submitted_spice_bytes": 935,
+      "submitted_spice_sha256": "4084b2040bbf1fc00131a50d73faf59aa548f81e21c6478dc23e1a2e3224da60",
+      "revision": "dut-17fc26003a228c4f33b9063e",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "98bdae66d308b0ad6bc67ae4dc649529ccc4f4b304db87bc58e8ea748b32796e",
+        "trace.html": "7ca06f7eed5163b3abab69ee0fe6175e7842db1c1eeea5788068dc134e2ec319"
+      },
+      "evaluation_sha256": "3d78e17991f11babb0f4af7b54e2737b0ede02a259aa80ad90a132a351f6fbdd",
+      "source_archive_sha256": "093794f3b2e6159527fb5dab372549ebab827fc9eeb29cfb5e4dc2b104b5e4bb",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 104,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1,
+          "file_edits_without_patch_text": 5
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-opus-5-5-r1",
+      "page": "traces/ldo-quiet-sky130-opus-5-5-raw.html",
+      "counts": {
+        "MODEL": 4,
+        "ACTION": 36,
+        "RESULT": 36
+      },
+      "submitted_spice_bytes": 1077,
+      "submitted_spice_sha256": "004719ea585cfea32159c6a3f820db7690bc0f0433a5241323e9ffd8f025f5d4",
+      "revision": "dut-eb03cb082e54201a38cba648",
+      "evaluation_categories": 12,
+      "evaluation_row_counts": {
+        "published": 612,
+        "hidden": 102
+      },
+      "content_sha256": {
+        "summary.html": "8ad077108b75b949714bde656fde6c54a180a3fd01912eacd64ce4c4c8923ce9",
+        "trace.html": "9e6bbbfaa60bd614bf7d9cc44d215f9f0a07fa13c2ccc503ab188358a2687755"
+      },
+      "evaluation_sha256": "4f77238949ae90d771cd03babc3af1bec72aa119958ca7faeb971be49e744e59",
+      "source_archive_sha256": "38ec420dc6930dcc3ff3f200e00978c117c460d637e687706f21824eca9376f4",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 36,
+        "read_line_number_prefixes_removed": 339,
+        "omissions": {
+          "transport_rows": 7178,
+          "private_reasoning_blocks": 37
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-astra-r1",
+      "page": "traces/ldo-quiet-sky130-astra-raw.html",
+      "counts": {
+        "MODEL": 16,
+        "ACTION": 87,
+        "RESULT": 73
+      },
+      "submitted_spice_bytes": 1299,
+      "submitted_spice_sha256": "9b4a3f53581f471be9e0114de22663bf3e6160ed5f2ed70750e52880cd62a82e",
+      "revision": "dut-436432bbf58957117c448107",
+      "evaluation_categories": 12,
+      "evaluation_row_counts": {
+        "published": 612,
+        "hidden": 102
+      },
+      "content_sha256": {
+        "summary.html": "31f55df28d3e12ba9b88ed1379c8d92da06e0b4b974fc639bbf090017c04f174",
+        "trace.html": "15ee3f134ef37b09ccf4bcbd09fcc8a85134e677fe41ae2b82b08e2684e4023c"
+      },
+      "evaluation_sha256": "cbfec70722dd3f3277ece6a704dae35a6b7d4f5491cace6e8d3d6018893bca4d",
+      "source_archive_sha256": "47dffb8d1451b7b13c3a8158bf0b8db4825566ae846ba4a5c36eee833f67c92f",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 85,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 14,
+          "file_edits_without_patch_text": 2
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-sonnet-5-5-r1",
+      "page": "traces/ldo-quiet-sky130-sonnet-5-5-raw.html",
+      "counts": {
+        "MODEL": 14,
+        "ACTION": 53,
+        "RESULT": 53
+      },
+      "submitted_spice_bytes": 585,
+      "submitted_spice_sha256": "b1daa8695d441cd9f9164e2480ae45deb504cb7ce1d8a32a71992be3cc24b9c4",
+      "revision": "dut-5524af4ca4747ddf1d5a2783",
+      "evaluation_categories": 12,
+      "evaluation_row_counts": {
+        "published": 612,
+        "hidden": 102
+      },
+      "content_sha256": {
+        "summary.html": "6fd620b2d1be04a8ac901ee0a1c6022f840b644903031c6fd7ac57d0c30fd9b9",
+        "trace.html": "de9fcbb7212797af4dbcebfb42525d1e8150c07ecd0ae7ecc1a5c48bcedaf246"
+      },
+      "evaluation_sha256": "a623284b11639adc9fe60b3d4f51baa91936f74e62cb54357d4923c12b2f073b",
+      "source_archive_sha256": "1de18ccbaa4c0811ad32c3fc33f4c80492708010acd5e58681925141fcf898fc",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 53,
+        "read_line_number_prefixes_removed": 399,
+        "omissions": {
+          "transport_rows": 7027,
+          "private_reasoning_blocks": 44,
+          "notifications": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-sol-6-1-r1",
+      "page": "traces/ldo-quiet-sky130-sol-6-1-raw.html",
+      "counts": {
+        "MODEL": 17,
+        "ACTION": 178,
+        "RESULT": 70
+      },
+      "submitted_spice_bytes": 2195,
+      "submitted_spice_sha256": "44504065b5a4f53e9bba8693075246a86a0ca218982ad0d3d1264e00cded9bbc",
+      "revision": "dut-72b38a34152f191f23b8e959",
+      "evaluation_categories": 12,
+      "evaluation_row_counts": {
+        "published": 612,
+        "hidden": 102
+      },
+      "content_sha256": {
+        "summary.html": "2c7557de0add9fe0286b6f9a1756441e58f102bbff06b21813fb2039899125e7",
+        "trace.html": "1982aa2135e163388ce81474d053ffff914ebfd284752541d213db34971acc32"
+      },
+      "evaluation_sha256": "c7d337d9c36bba34a26013754b7a85622e7d0398dac58da77af96eaf63fc7aaa",
+      "source_archive_sha256": "1cd3585ee89db5bf71e69371a23050036aaa9b71469bad253591e1e2df2d090c",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 178,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 108
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-luna-6-r1",
+      "page": "traces/ldo-quiet-sky130-luna-6-raw.html",
+      "counts": {
+        "MODEL": 33,
+        "ACTION": 248,
+        "RESULT": 196
+      },
+      "submitted_spice_bytes": 829,
+      "submitted_spice_sha256": "95844e8694f8735559727c5485aa828dea3a9edad04df8a628e2322c9884db81",
+      "revision": "dut-22d6461e710157adbc72cd36",
+      "evaluation_categories": 12,
+      "evaluation_row_counts": {
+        "published": 612,
+        "hidden": 102
+      },
+      "content_sha256": {
+        "summary.html": "a62b674975bb43d32e488cf05341429e9e727f330788b92bdc00e0332ced61b4",
+        "trace.html": "7f3d2bc04dd807df010c90050c735aada01a85cc425d5317e25dc8d474960ab5"
+      },
+      "evaluation_sha256": "58161e9770c304470d551358286bb63ab850cfc2bcc4f8176208a509ce1198ca",
+      "source_archive_sha256": "6924b6b03ead4b478b65e98d54b6d63b8df9bf976c47475d16856e620e1285dc",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 202,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 52,
+          "file_edits_without_patch_text": 46
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-sol-6-r1",
+      "page": "traces/ldo-quiet-sky130-sol-6-raw.html",
+      "counts": {
+        "MODEL": 81,
+        "ACTION": 154,
+        "RESULT": 153
+      },
+      "submitted_spice_bytes": 888,
+      "submitted_spice_sha256": "4950f56719baa64a1ff29cfdb9220f25360d08a5e049327dcfb1a31238abf89c",
+      "revision": "dut-6b26f6ad0a0daa803f7c2050",
+      "evaluation_categories": 12,
+      "evaluation_row_counts": {
+        "published": 612,
+        "hidden": 102
+      },
+      "content_sha256": {
+        "summary.html": "999d5a3df6adae3bec30a1faa1c6149316fca98f8946b369e8cac6da726b6c0d",
+        "trace.html": "17f3310daca455b3a8e1f7d3c210a497b4b4498e74946c6dc5ffee651bce38fe"
+      },
+      "evaluation_sha256": "4968f6c65e8dcf492f455d2bc2862b0abfc7a168d95faf37d6215b3216aee3b4",
+      "source_archive_sha256": "4b5b1207ecc339b21fbd9d9bdbf81389c2d50ac88ceca59d751284d3cb12ed52",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 153,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1,
+          "file_edits_without_patch_text": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-drive-sky130-opus-5-5-r1",
+      "page": "traces/ota-drive-sky130-opus-5-5-raw.html",
+      "counts": {
+        "MODEL": 6,
+        "ACTION": 36,
+        "RESULT": 36
+      },
+      "submitted_spice_bytes": 1712,
+      "submitted_spice_sha256": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
+      "revision": "dut-537f3d10ed0b3ed223d6c207",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "773d4786f5ce11b19cc25e7dc2f23361a1562199aa1050cfd24184d53b13cb7e",
+        "trace.html": "17cf398397991e2dbfd94559e154bc8f706b5006050a6d2b8a51864ad875fcdf"
+      },
+      "evaluation_sha256": "e8a79f6db5145d61da4f3c33851adabc4a98bc0c2b1c33722c1035afca82cf8e",
+      "source_archive_sha256": "5edc94155feff9d1cbba94305b5b9af28561308246cd2af5e528422cb1d745b6",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 36,
+        "read_line_number_prefixes_removed": 424,
+        "omissions": {
+          "transport_rows": 5075,
+          "private_reasoning_blocks": 32
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-drive-sky130-astra-r1",
+      "page": "traces/ota-drive-sky130-astra-raw.html",
+      "counts": {
+        "MODEL": 19,
+        "ACTION": 94,
+        "RESULT": 58
+      },
+      "submitted_spice_bytes": 1508,
+      "submitted_spice_sha256": "7c4e04fd498950b7853c681cfe72bf042c2fcc97705c777dfb1ab061e768b451",
+      "revision": "dut-8f79ca61b71be91b0360bb11",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "44c56b04dd1efb6aadd93edbfb550c473bd487ce57d6523a7faf61f3c0a3b727",
+        "trace.html": "7baf8b819fbef543d5d29e66f172e1c0964d9269f765034b84fb13b6f6d7df8a"
+      },
+      "evaluation_sha256": "b6bb77404fe5b735defce37e0456af4ede2ab1661dd1649d13eca3151c35a12b",
+      "source_archive_sha256": "c24c47556b67e2563cbca981238ad3b1728f85333f31464881eea15639f0bde0",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 94,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 36
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-drive-sky130-sonnet-5-5-r1",
+      "page": "traces/ota-drive-sky130-sonnet-5-5-raw.html",
+      "counts": {
+        "MODEL": 23,
+        "ACTION": 83,
+        "RESULT": 83
+      },
+      "submitted_spice_bytes": 1845,
+      "submitted_spice_sha256": "c1d4f6b986a8ff86b682b7a2da2a0e39764649adb35e202ed1c6e4e177a1e202",
+      "revision": "dut-a9adfc5ae94b32f68a93ba75",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "45798a4dd0585ecd4a7f45d14f6a47f94de3baa5ce0cacd2f4ce78ac29f19805",
+        "trace.html": "78186127123548dcc5049d5a20be4fd99e91b32c8335811a2a93828860985bec"
+      },
+      "evaluation_sha256": "dcee9b072763661d05a456d10982a0be76cb53bbe4d8d372c76d5f2ab106dfea",
+      "source_archive_sha256": "d602f58610211637cc19f967100b10e558060bec93ae2e7cb90e8f208498d87d",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 83,
+        "read_line_number_prefixes_removed": 454,
+        "omissions": {
+          "transport_rows": 12840,
+          "private_reasoning_blocks": 70,
+          "notifications": 2
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-drive-sky130-sol-6-1-r1",
+      "page": "traces/ota-drive-sky130-sol-6-1-raw.html",
+      "counts": {
+        "MODEL": 9,
+        "ACTION": 36,
+        "RESULT": 27
+      },
+      "submitted_spice_bytes": 652,
+      "submitted_spice_sha256": "b3063e645a06b71863ee1711c268c29649feea430509114b189caf82dca3d858",
+      "revision": "dut-40c2c95bb575e390e6446e5a",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "529df9ded75f2ece36778e1a5373dc399f2e026c619a39574c7eb1b6a8b5648c",
+        "trace.html": "9979fc7975762977e877fe1201da79a6fef7552086e1330634647e15eefeaec4"
+      },
+      "evaluation_sha256": "39c0ada0b84d556d045441a6f005fa38184187a2b99b6b4b42ccfd1f46e3bd2f",
+      "source_archive_sha256": "011ae2391990238d3f10a23772dbd20178eda4d79ff3b12a22541a3ad55706ca",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 31,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 9,
+          "file_edits_without_patch_text": 5
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-drive-sky130-luna-6-r1",
+      "page": "traces/ota-drive-sky130-luna-6-raw.html",
+      "counts": {
+        "MODEL": 16,
+        "ACTION": 77,
+        "RESULT": 72
+      },
+      "submitted_spice_bytes": 983,
+      "submitted_spice_sha256": "f816d903d46e8f187147af43b9e2f8193362526110e24d64b16d50601526d614",
+      "revision": "dut-13539c7234ab9c0062278876",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "884303492f322fe8ffbad506210e3cf6239ca3ab53d5535fded0b7cb13d787c7",
+        "trace.html": "864c9be1ededffea3087bdb439369f81062d46eb5a89df9a4f2409853a264064"
+      },
+      "evaluation_sha256": "8f64d1170bed3841df7acadbbd4222e0e0a3f74047c396a15b91ad3e45703cc2",
+      "source_archive_sha256": "82f7f85483ac2d538303fc6587cd3897cdd486a7f851723831a7c188a045aaf3",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 77,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 5
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-drive-sky130-sol-6-r1",
+      "page": "traces/ota-drive-sky130-sol-6-raw.html",
+      "counts": {
+        "MODEL": 21,
+        "ACTION": 64,
+        "RESULT": 64
+      },
+      "submitted_spice_bytes": 1166,
+      "submitted_spice_sha256": "b1c34606fd2f9c7ff9e6b7be924cf54f79cb2ef89057659d11c9eac3ece8ee74",
+      "revision": "dut-cfe1251fbe10f4d87a37ea93",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "5af0523246eed99dc7e816b44d68ed4d189bdcd5c4188dd9c69f4c7050c3eba1",
+        "trace.html": "e791bb2c7e24decbd6f603abbcc1d2e2e56c9a1d2faf29c57dae0ed7609d9803"
+      },
+      "evaluation_sha256": "32228a3829e0e62742c39e5ea4cd0c4915fa08a83beb93079fb2567eb660b191",
+      "source_archive_sha256": "c47eb674c8fa0086b61371bd210788ad40403502520297de3a096692dacb0edf",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 56,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "file_edits_without_patch_text": 8
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-opus-5-5-r1",
+      "page": "traces/ota-fixed-sky130-opus-5-5-raw.html",
+      "counts": {
+        "MODEL": 8,
+        "ACTION": 39,
+        "RESULT": 39
+      },
+      "submitted_spice_bytes": 2029,
+      "submitted_spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5",
+      "revision": "ota-83cf4cce9e0e5f265ed7",
+      "evaluation_categories": 19,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153,
+        "robustness": 1
+      },
+      "content_sha256": {
+        "summary.html": "2481cb1cb39a433a48e438926c8e0ddcf420a469c9b247affc67569b4c62c465",
+        "trace.html": "3747a3d6cbff555c2bda8cfe629744198934000570702f59fd648f17fd25a825"
+      },
+      "evaluation_sha256": "1804b047d227c0b7acbc13b014fd53521e731e2c6231081e1b14fe5fe1ac23e6",
+      "source_archive_sha256": "7177d7bf3cf67ca38e6d6ca340278b2b1cebd200ea516a8129e4da935f29cb07",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 39,
+        "read_line_number_prefixes_removed": 507,
+        "omissions": {
+          "transport_rows": 6511,
+          "private_reasoning_blocks": 39
+        },
+        "robustness_sample_circuits": [
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53001",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53002",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53003",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53004",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53005",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53006",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53007",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53008",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53009",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53010",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53011",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53012",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53013",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53014",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53015",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53016",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53017",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53018",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53019",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53020",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53021",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53022",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53023",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53024",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53025",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53026",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53027",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53028",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53029",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53030",
+            "revision": "ota-83cf4cce9e0e5f265ed7",
+            "spice_sha256": "151f277dbfd1b0017ee5ae583057405486c467568d0f321f501a9f1ab81f63a5"
+          }
+        ],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-astra-r1",
+      "page": "traces/ota-fixed-sky130-astra-raw.html",
+      "counts": {
+        "MODEL": 10,
+        "ACTION": 26,
+        "RESULT": 26
+      },
+      "submitted_spice_bytes": 2033,
+      "submitted_spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3",
+      "revision": "ota-f5ff3d68f1d18112211e",
+      "evaluation_categories": 19,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153,
+        "robustness": 1
+      },
+      "content_sha256": {
+        "summary.html": "18da77a7d721014bf8ffcd9f929702377890e57895e4e68902b9334458c03555",
+        "trace.html": "b142f598056208cdb8e75b44cf19bbb391d42a40e14908f6d6e28e516713620b"
+      },
+      "evaluation_sha256": "e5b2fc27e848019fb03d5d76948df5726c6b65520d1ba1f50450e65785185bc7",
+      "source_archive_sha256": "4920f8008112303eea33808468608716e3f574c77fd4a199558d1b1dccedba43",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 26,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53001",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53002",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53003",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53004",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53005",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53006",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53007",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53008",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53009",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53010",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53011",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53012",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53013",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53014",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53015",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53016",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53017",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53018",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53019",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53020",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53021",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53022",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53023",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53024",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53025",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53026",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53027",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53028",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53029",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53030",
+            "revision": "ota-f5ff3d68f1d18112211e",
+            "spice_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3"
+          }
+        ],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-sonnet-5-5-r1",
+      "page": "traces/ota-fixed-sky130-sonnet-5-5-raw.html",
+      "counts": {
+        "MODEL": 14,
+        "ACTION": 84,
+        "RESULT": 84
+      },
+      "submitted_spice_bytes": 2032,
+      "submitted_spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528",
+      "revision": "ota-8bf7624177975ffe68b9",
+      "evaluation_categories": 19,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153,
+        "robustness": 1
+      },
+      "content_sha256": {
+        "summary.html": "542b831d58a66018e1f0c53d18c7bec900c48ad5bdbf22edf790a00c4731edcc",
+        "trace.html": "956578bbe10e919dd0dea86ccdd36bf863a4a06477b44b14fb89518ee44879ff"
+      },
+      "evaluation_sha256": "6e0e8f400125161ffbcc4ead85400520b6f9570f67c434b498ec0f93903ea95d",
+      "source_archive_sha256": "d9ec28754cf079111912651ad8fbd242ac13d60ac66d3e5b94e8670f60313de0",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 84,
+        "read_line_number_prefixes_removed": 355,
+        "omissions": {
+          "transport_rows": 10839,
+          "private_reasoning_blocks": 69,
+          "notifications": 2
+        },
+        "robustness_sample_circuits": [
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53001",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53002",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53003",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53004",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53005",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53006",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53007",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53008",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53009",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53010",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53011",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53012",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53013",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53014",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53015",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53016",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53017",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53018",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53019",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53020",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53021",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53022",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53023",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53024",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53025",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53026",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53027",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53028",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53029",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53030",
+            "revision": "ota-8bf7624177975ffe68b9",
+            "spice_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528"
+          }
+        ],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-sol-6-1-r1",
+      "page": "traces/ota-fixed-sky130-sol-6-1-raw.html",
+      "counts": {
+        "MODEL": 9,
+        "ACTION": 24,
+        "RESULT": 24
+      },
+      "submitted_spice_bytes": 2035,
+      "submitted_spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e",
+      "revision": "ota-8f8d89ee2d79093fd6a1",
+      "evaluation_categories": 19,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153,
+        "robustness": 1
+      },
+      "content_sha256": {
+        "summary.html": "c5192b0e185dbadd0034e25baa4a67af7c82dad8d60f62ee6929dbed156ae020",
+        "trace.html": "d57081ad00b386bf3d1e10140f2e96e6c3e3ad53b1f205b9e51da864b4d6bd41"
+      },
+      "evaluation_sha256": "e739bb447f5a5625238747fbf062fbc66dcace4c57931954500141216e596338",
+      "source_archive_sha256": "69a8cd258b06fc5e73ddbf8eb102a8fb9e4748c8fdca5dc226d6aeb53ff99d0f",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 24,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53001",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53002",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53003",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53004",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53005",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53006",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53007",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53008",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53009",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53010",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53011",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53012",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53013",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53014",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53015",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53016",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53017",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53018",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53019",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53020",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53021",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53022",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53023",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53024",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53025",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53026",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53027",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53028",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53029",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53030",
+            "revision": "ota-8f8d89ee2d79093fd6a1",
+            "spice_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e"
+          }
+        ],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-luna-6-r1",
+      "page": "traces/ota-fixed-sky130-luna-6-raw.html",
+      "counts": {
+        "MODEL": 18,
+        "ACTION": 92,
+        "RESULT": 69
+      },
+      "submitted_spice_bytes": 2034,
+      "submitted_spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3",
+      "revision": "ota-4a51da095a13972255cb",
+      "evaluation_categories": 19,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153,
+        "robustness": 1
+      },
+      "content_sha256": {
+        "summary.html": "444e0039df4ab3980fd978b130c11f79ce65dcce5adba032121fc3f2dba6bfd5",
+        "trace.html": "cff61e1d435af63443cdf0b63739f9f18202a4cc5049e4b13b0b07e81850a77d"
+      },
+      "evaluation_sha256": "63679f127338428a8c037fe86eb27ec5e42420eea1dfd2c4de55179c58976bc8",
+      "source_archive_sha256": "aa7b6625f694cb698d1ce5df724b63f613eee0bd840a9159b6b026f214db4107",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 92,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 23
+        },
+        "robustness_sample_circuits": [
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53001",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53002",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53003",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53004",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53005",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53006",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53007",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53008",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53009",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53010",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53011",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53012",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53013",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53014",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53015",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53016",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53017",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53018",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53019",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53020",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53021",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53022",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53023",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53024",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53025",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53026",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53027",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53028",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53029",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53030",
+            "revision": "ota-4a51da095a13972255cb",
+            "spice_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3"
+          }
+        ],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-sol-6-r1",
+      "page": "traces/ota-fixed-sky130-sol-6-raw.html",
+      "counts": {
+        "MODEL": 18,
+        "ACTION": 74,
+        "RESULT": 73
+      },
+      "submitted_spice_bytes": 2032,
+      "submitted_spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323",
+      "revision": "ota-955dafba05b234a9dd78",
+      "evaluation_categories": 19,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153,
+        "robustness": 1
+      },
+      "content_sha256": {
+        "summary.html": "c43763b26d9dde823ff3609b1830e1106583a1a78cb9c23b031044d9a260275c",
+        "trace.html": "fce91b8d4aaeaa1ab187b8231ac69b2095995c744e5b765723ae55c318f3c58d"
+      },
+      "evaluation_sha256": "45062add7ed7059af72b403a7c1845d5283dba9baee69810294c28a799dc3c12",
+      "source_archive_sha256": "52828a78669db6dcde0101e5b51e3c120161f15500cf4268e807276d931f9b77",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 74,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1
+        },
+        "robustness_sample_circuits": [
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53001",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53002",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53003",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53004",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53005",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53006",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53007",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53008",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53009",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53010",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53011",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53012",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53013",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53014",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53015",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53016",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53017",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53018",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53019",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53020",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53021",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53022",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53023",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53024",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53025",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53026",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53027",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53028",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53029",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53030",
+            "revision": "ota-955dafba05b234a9dd78",
+            "spice_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323"
+          }
+        ],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-free-sky130-opus-5-5-r1",
+      "page": "traces/ota-free-sky130-opus-5-5-raw.html",
+      "counts": {
+        "MODEL": 6,
+        "ACTION": 28,
+        "RESULT": 28
+      },
+      "submitted_spice_bytes": 655,
+      "submitted_spice_sha256": "e3bfbf141fde52954c8b5208b9919b947ab5853fbcca777501a4b351368c2be3",
+      "revision": "dut-a593455c417320e86719f293",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "ad8fa2c362fab92c2183d86bfca9080f67cef4d5cad82802187b4881065e188d",
+        "trace.html": "36b2d7db2b5fa763e7dfc44f4752cb311bcbc6003c81289464abfa361aa7f445"
+      },
+      "evaluation_sha256": "4980e6817d11d0dbf04947a24b5f54220258c1639bf7e5e423f0ff8f4f6dc5f6",
+      "source_archive_sha256": "43fb5e178f29136e102ed88ffd3055802b181b59dc63c4a9c2e3d7eb04fe016c",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 28,
+        "read_line_number_prefixes_removed": 427,
+        "omissions": {
+          "transport_rows": 3550,
+          "private_reasoning_blocks": 24
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-free-sky130-astra-r1",
+      "page": "traces/ota-free-sky130-astra-raw.html",
+      "counts": {
+        "MODEL": 9,
+        "ACTION": 38,
+        "RESULT": 33
+      },
+      "submitted_spice_bytes": 654,
+      "submitted_spice_sha256": "07051b51d35298b860f3104c968d3284dc87e4f290a5b5ad0287f3247f6013ba",
+      "revision": "dut-e8355b8973fb974c29016b87",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "335560c6ac2367e1b2f8a260cf55ac04b013a3e3cdf266e7e02d65b2eac3bf7c",
+        "trace.html": "1fce1a19b0cf961d11a3db006e9df4e6de2fb511b4a6d102a8d0448fe3c4315c"
+      },
+      "evaluation_sha256": "2918f98f7ba15a5b46d199ab0742aa6c073d4aa3acd7ab759a4defebaa62af36",
+      "source_archive_sha256": "146cf7e3882c15e93559f42324006e80153948926effbce1837136fdfebb3e46",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 38,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 5
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-free-sky130-sonnet-5-5-r1",
+      "page": "traces/ota-free-sky130-sonnet-5-5-raw.html",
+      "counts": {
+        "MODEL": 18,
+        "ACTION": 66,
+        "RESULT": 66
+      },
+      "submitted_spice_bytes": 925,
+      "submitted_spice_sha256": "c90dac4f170360856dfdc4e93174bde1a1c165c912c98e662292ac8c97c5fd18",
+      "revision": "dut-073203a3a44b194f21911672",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "0262462880ef0bd2b83565bafe280369940b517532cba8f88928b5c0bfa40017",
+        "trace.html": "a8dbbfffeb0f727c45e7e31aa39a00be3a4fc3a4a9e09f267ef13b77758032c6"
+      },
+      "evaluation_sha256": "b1e6f1516525b41a095a85874a6d04d480bf664a84060210a565c365186ef406",
+      "source_archive_sha256": "0533c10fbcf3bc2f1572105b6faf7096cdb08e3bc1c706b0eca2189ec3bbb65c",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 66,
+        "read_line_number_prefixes_removed": 427,
+        "omissions": {
+          "transport_rows": 7474,
+          "private_reasoning_blocks": 54,
+          "notifications": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-free-sky130-sol-6-1-r1",
+      "page": "traces/ota-free-sky130-sol-6-1-raw.html",
+      "counts": {
+        "MODEL": 12,
+        "ACTION": 14,
+        "RESULT": 13
+      },
+      "submitted_spice_bytes": 667,
+      "submitted_spice_sha256": "01b82bb9f9ee843d2c18e2778ca4948def5358fe42cc31446853d27dba5126c0",
+      "revision": "dut-610317ef5a74c73f1db56e56",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "8c625c63eba5efac4803a58a70cee1cfe36e2fbf72f38762689c0a638a9f3fc4",
+        "trace.html": "b4204dddf7ced7dd00cb14bbe47ec2798503c6be692b31fbcd2f4db547b21b7c"
+      },
+      "evaluation_sha256": "615c6814d55a489ebb0a422ba0a83883b1a4876cbdd0d1829fa78037f781b5fe",
+      "source_archive_sha256": "0e4ee07ce698b076a976b785061d805322fb1c9ad0adfe4ed00bbf6f646ff1ca",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 14,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-free-sky130-luna-6-r1",
+      "page": "traces/ota-free-sky130-luna-6-raw.html",
+      "counts": {
+        "MODEL": 15,
+        "ACTION": 83,
+        "RESULT": 83
+      },
+      "submitted_spice_bytes": 805,
+      "submitted_spice_sha256": "7ebf50cdf8a4977427e9011565efca8839d2ee57788fc336434d462771129fb0",
+      "revision": "dut-93e96b1c3002e8746fa5ad9c",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "feb38a45fbc011503e7421fba39c7b992b8eb5f83cdeb92e32f868c12b1761eb",
+        "trace.html": "4c20cff0f4eae60d432898206d43011ba8f2835d3dad36829faf0a84fb259753"
+      },
+      "evaluation_sha256": "0185d099c40bc91c6f1a310fece6c247377d1d0ce62081dc045339dddf7f8a8a",
+      "source_archive_sha256": "0d44c3eb04d134c41d7266bf2bcb722a978a9abbc90d2fd14158a64cbb1f9873",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 83,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-free-sky130-sol-6-r1",
+      "page": "traces/ota-free-sky130-sol-6-raw.html",
+      "counts": {
+        "MODEL": 44,
+        "ACTION": 238,
+        "RESULT": 177
+      },
+      "submitted_spice_bytes": 1487,
+      "submitted_spice_sha256": "b69440c30011285beef0fa5dec4db37ed49020004b046c2f738250b7103274bd",
+      "revision": "dut-5fd4fc02633150d277811a8f",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "44bca361625a5eba285d784704f374ae46726d6e99a82167a476e49d809e9338",
+        "trace.html": "9f0b0c51b6ef0453ee3123604c27ccae425d37c892d5013461bb8efc465646a9"
+      },
+      "evaluation_sha256": "2b106d02c70e7691d9ad329960397ea2b80986e5d55ffab874ab102714176414",
+      "source_archive_sha256": "da932969ca02ef56771abf0de582a86fa3eff9d82a92d5ecd786cb0752c3d74b",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 193,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 61,
+          "file_edits_without_patch_text": 45
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-precision-sky130-opus-5-5-r1",
+      "page": "traces/ota-precision-sky130-opus-5-5-raw.html",
+      "counts": {
+        "MODEL": 5,
+        "ACTION": 25,
+        "RESULT": 25
+      },
+      "submitted_spice_bytes": 1319,
+      "submitted_spice_sha256": "9125be74bf9dfe1326f99c52ea38aa2540c6445ad2c2860268f38164570d4276",
+      "revision": "dut-1a41e345c8d245f2842929c9",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "4143481165810a31515e3c99452ac1b7050fc879d98637de9280f2e6d88c4aae",
+        "trace.html": "0821d3f4f4384a3252e8088194a186c541f11dfd32405d65a0610538a44d7a88"
+      },
+      "evaluation_sha256": "778153b2c852df56a5f8ca1132f285523f0531d097aab073efe5f9e378eb7419",
+      "source_archive_sha256": "79b3ec24aed40feb0ed78e2edf7cbb6120d95ef978ed7bb2d7b954c3962712fc",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 25,
+        "read_line_number_prefixes_removed": 429,
+        "omissions": {
+          "transport_rows": 4378,
+          "private_reasoning_blocks": 23
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-precision-sky130-astra-r1",
+      "page": "traces/ota-precision-sky130-astra-raw.html",
+      "counts": {
+        "MODEL": 7,
+        "ACTION": 31,
+        "RESULT": 26
+      },
+      "submitted_spice_bytes": 1497,
+      "submitted_spice_sha256": "86a6b4bba5bd0116d4fe964d1f681f5adf0d7538fc1f4eb125f3f840151ad458",
+      "revision": "dut-01c1dabc9caa237c2492006c",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "5f21f321e3e2f52a9c7a75388c4a7df467efe37f9445d1302ffea3cbae5d2c39",
+        "trace.html": "31385bd7251637fd0720962b9ea118cfa2124187b0e8b4e621b91919f534db31"
+      },
+      "evaluation_sha256": "f053ebe536501cf0f1ece6195fa1a66bc2bbe594a4eb143d01dca0bd57f3b4b2",
+      "source_archive_sha256": "75b109df79497898764e7651baa9f19d322f142d80b89fb79ccce538a485027c",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 31,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 5
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-precision-sky130-sonnet-5-5-r1",
+      "page": "traces/ota-precision-sky130-sonnet-5-5-raw.html",
+      "counts": {
+        "MODEL": 12,
+        "ACTION": 53,
+        "RESULT": 53
+      },
+      "submitted_spice_bytes": 1455,
+      "submitted_spice_sha256": "25e5df8f2078a218db099d676da0f5d43516200e8a781f61c1ac903d4dcc4a4b",
+      "revision": "dut-cc1439bbab098ff4817fbdbe",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "c664d6c0f6a536fd7cde6d1b1f71e4ba2fdc6828f5f4c619aeff82bbc9f81d17",
+        "trace.html": "85519206ae741359424217b010959b014aa0e2c45ab20187919294a057beb606"
+      },
+      "evaluation_sha256": "6dba2cbe5657be4a6a7c278e0e19f94c8b2a54dec3473fff1feefe73ff3e59ca",
+      "source_archive_sha256": "3a915147b34b62435be107eff98e3fedcfe072bd89b089827f55220afc102ea3",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 53,
+        "read_line_number_prefixes_removed": 429,
+        "omissions": {
+          "transport_rows": 7796,
+          "private_reasoning_blocks": 47,
+          "notifications": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-1-r1",
+      "page": "traces/ota-precision-sky130-sol-6-1-raw.html",
+      "counts": {
+        "MODEL": 8,
+        "ACTION": 25,
+        "RESULT": 25
+      },
+      "submitted_spice_bytes": 697,
+      "submitted_spice_sha256": "719ae2e205cc62b0741bb5f4d728f3ab07fe03d2330f63fb73b34e356245b1de",
+      "revision": "dut-e95265d2b738d10e02227666",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "c95bf09dee5660c88b9d4b19bfcf3b4498658615625f6e75da750c636f33a5e1",
+        "trace.html": "7c43706c66773c1d0eca09d5b7b39bb82f8f79d16aa597255c40fd6a29977c6a"
+      },
+      "evaluation_sha256": "b405dad19253ce0558fc430dfd53a3d2abeb643c956eed99f52e938fa26faf9c",
+      "source_archive_sha256": "e57b04c46f8c314cdb15a7f2ab27cc7f2653aa7862bbb6614800b994903e5fea",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 25,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-precision-sky130-luna-6-r1",
+      "page": "traces/ota-precision-sky130-luna-6-raw.html",
+      "counts": {
+        "MODEL": 32,
+        "ACTION": 166,
+        "RESULT": 166
+      },
+      "submitted_spice_bytes": 693,
+      "submitted_spice_sha256": "0e4dbcb8a374da0dda0c4e0b5fe347f847c1866efe5baa6b9784f8e3af705d68",
+      "revision": "dut-95cedb85b906b36c1648ae8b",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "600c6f2eb952f96f3eb42b8c3fdef6bec9f09a326cbbd6e5ade2be791634db23",
+        "trace.html": "e267304c8239412be0441e876bf670ff237bc269ea15154010a3ce9918d6b361"
+      },
+      "evaluation_sha256": "92fc4ba299f80f5c9ec0761299c72908bc0414c47053c2504b00ca0d94d94cac",
+      "source_archive_sha256": "7103fbfb2f2208070e7a3a7cf25bb8b22516d02cea943211c42a197f8f90671d",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 127,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "file_edits_without_patch_text": 39
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-r1",
+      "page": "traces/ota-precision-sky130-sol-6-raw.html",
+      "counts": {
+        "MODEL": 15,
+        "ACTION": 108,
+        "RESULT": 78
+      },
+      "submitted_spice_bytes": 628,
+      "submitted_spice_sha256": "ed1917b53be6330bcb5f1fd91402243e9c07652361144b528070800b5c27302d",
+      "revision": "dut-09b62d4f013722d958a66fa5",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "c7216816f7a8afe2e984722182f19ced07549276350d6e5fe06376f98ce8d4fc",
+        "trace.html": "c9cb16fd53af31951d728f079636809b950cfffc1818cbed75d828db58b005b2"
+      },
+      "evaluation_sha256": "99ed7ea0b62ad52f7e458b2587345988aed29418ee9e6a9fe9f0f3fe67bea330",
+      "source_archive_sha256": "ab94057260ec228478815cfb75e219d9a874bf1c21b872230289b87055de57fc",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 88,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 30,
+          "file_edits_without_patch_text": 20
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
     },
     {
       "id": "ota-wide-sky130-opus-5-5-r1",
@@ -49,27 +2916,27 @@
       "evaluation_sha256": "633a711c230e6ee240b4990ab1cbd1091b2cb46bf5d2ebb4c41d1db0f38e6bab"
     },
     {
-      "id": "ota-wide-sky130-sol-6-1-r1",
-      "page": "traces/ota-wide-sky130-sol-6-1-raw.html",
+      "id": "ota-wide-sky130-astra-r1",
+      "page": "traces/ota-wide-sky130-astra-raw.html",
       "counts": {
-        "MODEL": 18,
-        "ACTION": 48,
-        "RESULT": 45
+        "MODEL": 19,
+        "ACTION": 117,
+        "RESULT": 60
       },
-      "submitted_spice_bytes": 1526,
-      "submitted_spice_sha256": "03537d1719d3d8ef19cba89840c4e79936656a9dbc1d01969e8fea447885f96c",
-      "revision": "dut-8cc53582c8d2f94ac46f84c3",
+      "submitted_spice_bytes": 1566,
+      "submitted_spice_sha256": "fb5c99ecd0dbaadf40bc847db21e642ff7014934f58e86ca0dfa0c4c16eb58bf",
+      "revision": "dut-4845d3de80ca1849ec4bdadc",
       "evaluation_categories": 26,
       "evaluation_row_counts": {
         "published": 432,
         "hidden": 225
       },
-      "baseline_html_sha256": "d4a17e78fe27c257186d6e0ecb21690336f32c6780c1360018017ebb8f9d7503",
+      "baseline_html_sha256": "cadf61260d9c4e2c54f4f16d904c2a5d20ae8438e8b076498e72fbf951c0696b",
       "content_sha256": {
-        "summary.html": "c95e3a837cc6d5085eab95710ca2135e02dbb2a3e07f081f4e2de9864481f0e0",
-        "trace.html": "53c1760e3b4beca7ab0b9544026b46795afcfce695649437216206956d10ef7f"
+        "summary.html": "078979aaa52e0a9433fedf4651644914fa884b871271d93c282b7173ad21119c",
+        "trace.html": "7ff4225a745c499d8a58e30d74bbf076e411a5044150ae64ced5767ac379d68d"
       },
-      "evaluation_sha256": "418a6e19493c44bff87a794c28754db1d724045747aec8ab406ea96a9c3c1126"
+      "evaluation_sha256": "d1e90c57c29cd8aed4045004954b500e34caee32531e02ad8e45a53ffdc6233c"
     },
     {
       "id": "ota-wide-sky130-sonnet-5-5-r1",
@@ -93,6 +2960,111 @@
         "trace.html": "c9328532b614c82c813fb0e9a529c25f58c3aae7bd1569690c6be95e6fc273a7"
       },
       "evaluation_sha256": "53c66c5ec1e7e0eb3625170e1821a44894e40eddf2f0d01a176cda18a3774956"
+    },
+    {
+      "id": "ota-wide-sky130-sol-6-1-r1",
+      "page": "traces/ota-wide-sky130-sol-6-1-raw.html",
+      "counts": {
+        "MODEL": 18,
+        "ACTION": 48,
+        "RESULT": 45
+      },
+      "submitted_spice_bytes": 1526,
+      "submitted_spice_sha256": "03537d1719d3d8ef19cba89840c4e79936656a9dbc1d01969e8fea447885f96c",
+      "revision": "dut-8cc53582c8d2f94ac46f84c3",
+      "evaluation_categories": 26,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "baseline_html_sha256": "d4a17e78fe27c257186d6e0ecb21690336f32c6780c1360018017ebb8f9d7503",
+      "content_sha256": {
+        "summary.html": "c95e3a837cc6d5085eab95710ca2135e02dbb2a3e07f081f4e2de9864481f0e0",
+        "trace.html": "53c1760e3b4beca7ab0b9544026b46795afcfce695649437216206956d10ef7f"
+      },
+      "evaluation_sha256": "418a6e19493c44bff87a794c28754db1d724045747aec8ab406ea96a9c3c1126"
+    },
+    {
+      "id": "ota-wide-sky130-luna-6-r1",
+      "page": "traces/ota-wide-sky130-luna-6-raw.html",
+      "counts": {
+        "MODEL": 29,
+        "ACTION": 160,
+        "RESULT": 160
+      },
+      "submitted_spice_bytes": 1043,
+      "submitted_spice_sha256": "cad506a938aef40d4451de759537d7fd5359ab2ea13af7eea34df6959b2681a0",
+      "revision": "dut-802a0b2733eae30d051c5d23",
+      "evaluation_categories": 27,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "content_sha256": {
+        "summary.html": "56c5cfd394d9e3c8a2ed40705169d7d67351eeb4efd36ff444797a67db74d144",
+        "trace.html": "58f3e2d05f4a86592e0b8e155323c53d4f846ae4b4dadac6e164dd4315e07c35"
+      },
+      "evaluation_sha256": "c4497ff0ba398ef68d9c96cd24abf2f7d1279d46a8f5ed418e17d737e2eef17d",
+      "source_archive_sha256": "888efa6c36f00b99d99f142e737c9d75ef48d0d6734e102a8a307e10800bea4c",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 160,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 2,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 5,
+          "hidden": 2
+        }
+      }
+    },
+    {
+      "id": "ota-wide-sky130-sol-6-r1",
+      "page": "traces/ota-wide-sky130-sol-6-raw.html",
+      "counts": {
+        "MODEL": 46,
+        "ACTION": 301,
+        "RESULT": 296
+      },
+      "submitted_spice_bytes": 1628,
+      "submitted_spice_sha256": "84bfda7b09b49dfdda0c419db57ee0beffac079e79d78b56aa41243973e1e0b2",
+      "revision": "dut-71f593dff39151af8f1c6a9a",
+      "evaluation_categories": 26,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "content_sha256": {
+        "summary.html": "30ade1138f13585fbd16ded5e3d04325e124e6c8e9f45c6f5b3c525866abc4fa",
+        "trace.html": "76d5a25cb59e1bbb5d9b9eb021e8c8d26e1da74ea04b06e4b5ba59d3e1b75f6f"
+      },
+      "evaluation_sha256": "e6e2f625c8cd1b92ad997c73c39f48a3e5d64e428440f060ce208f3adea7952d",
+      "source_archive_sha256": "000a6267f04d6dcf9a3c85340223d1fae7e088197fcf623ab399cdfc430db64d",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 300,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 5,
+          "file_edits_without_patch_text": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
     }
   ]
 }

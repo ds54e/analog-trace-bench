@@ -487,6 +487,11 @@ pre {
   vertical-align: top;
 }
 
+.evaluation-metrics th:first-child {
+  min-width: 160px;
+  overflow-wrap: normal;
+}
+
 .evaluation-metrics td {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;

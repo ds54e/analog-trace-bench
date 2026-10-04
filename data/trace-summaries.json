@@ -1,0 +1,902 @@
+{
+  "ldo-always-on-sky130-opus-5-5-r1": [
+    [
+      "Architecture",
+      "PMOS-input error amplifier · NMOS mirror load · current-mode pass drive"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor · 50:1 gate-drive mirror · load-adaptive bias"
+    ],
+    [
+      "Compensation",
+      "External-capacitor dominant pole · 1 pF feedback lead capacitor"
+    ],
+    [
+      "Bias / feedback",
+      "VIN-referenced resistor bias · 3 MΩ / 3 MΩ output divider"
+    ]
+  ],
+  "ldo-always-on-sky130-astra-r1": [
+    [
+      "Architecture",
+      "NMOS differential error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "Directly driven PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "1 pF feedback lead capacitor"
+    ],
+    [
+      "Bias / feedback",
+      "Resistor-fed NMOS bias · 1.98 MΩ / 2 MΩ feedback divider"
+    ]
+  ],
+  "ldo-always-on-sky130-sonnet-5-5-r1": [
+    [
+      "Architecture",
+      "NMOS-input five-transistor error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "Short-channel PMOS pass device"
+    ],
+    [
+      "Compensation",
+      "External-capacitor dominant pole · no explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "Resistor-fed 4:1 NMOS tail mirror · 3 MΩ / 3 MΩ divider"
+    ]
+  ],
+  "ldo-always-on-sky130-sol-6-1-r1": [
+    [
+      "Architecture",
+      "NMOS differential error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "Short-channel PMOS pass device"
+    ],
+    [
+      "Compensation",
+      "2 pF feedback lead capacitor"
+    ],
+    [
+      "Bias / feedback",
+      "Resistor-fed NMOS bias · 5.91 MΩ / 6 MΩ feedback divider"
+    ]
+  ],
+  "ldo-always-on-sky130-luna-6-r1": [
+    [
+      "Architecture",
+      "NMOS differential error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS pass bank · four 100 µm / 0.25 µm copies"
+    ],
+    [
+      "Compensation",
+      "1 pF gate-to-output capacitor · 1 pF feedback lead capacitor"
+    ],
+    [
+      "Bias / feedback",
+      "Resistor / diode NMOS bias · equal feedback divider"
+    ]
+  ],
+  "ldo-always-on-sky130-sol-6-r1": [
+    [
+      "Architecture",
+      "PMOS differential error amplifier · NMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS high-side pass device"
+    ],
+    [
+      "Compensation",
+      "0.1 pF gate-to-output capacitor · 5 pF feedback lead capacitor"
+    ],
+    [
+      "Bias / feedback",
+      "Low-current resistor bias · 4 MΩ / 4 MΩ feedback divider"
+    ]
+  ],
+  "ldo-core-sky130-opus-5-5-r1": [
+    [
+      "Architecture",
+      "Cascoded PMOS-input error amplifier · current-mode PI regulation"
+    ],
+    [
+      "Output stage",
+      "PMOS pass device · approximately 120:1 drive mirror"
+    ],
+    [
+      "Compensation",
+      "Series R/C PI network at amplifier output"
+    ],
+    [
+      "Bias / feedback",
+      "VIN-referenced bias · 50 kΩ divider resistors also discharge the output"
+    ]
+  ],
+  "ldo-core-sky130-astra-r1": [
+    [
+      "Architecture",
+      "NMOS differential error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "300 µm total-width PMOS pass device"
+    ],
+    [
+      "Compensation",
+      "1 pF feedback lead · 0.3 pF / 50 kΩ series branch"
+    ],
+    [
+      "Bias / feedback",
+      "Supply-weighted input dividers · 5 pF reference bypass · 2.2 pF / 40 kΩ supply path"
+    ]
+  ],
+  "ldo-core-sky130-sonnet-5-5-r1": [
+    [
+      "Architecture",
+      "NMOS-input five-transistor error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "Directly driven 166 µm / 0.15 µm PMOS pass device"
+    ],
+    [
+      "Compensation",
+      "1.5 pF / 92.6 kΩ PI branch · 2 pF feedback lead"
+    ],
+    [
+      "Bias / feedback",
+      "VOUT-derived NMOS bias with VIN startup resistor · 150 kΩ / 150 kΩ divider"
+    ]
+  ],
+  "ldo-core-sky130-sol-6-1-r1": [
+    [
+      "Architecture",
+      "PMOS-input current-mirror amplifier · current gain of five"
+    ],
+    [
+      "Output stage",
+      "PMOS pass device · load-sensed bias boost · active discharge"
+    ],
+    [
+      "Compensation",
+      "4 pF / 8 kΩ series branch · 3 pF feedback lead"
+    ],
+    [
+      "Bias / feedback",
+      "Half-reference input · 353 kΩ / 120 kΩ feedback · 150 fF transient bias boost"
+    ]
+  ],
+  "ldo-core-sky130-luna-6-r1": [
+    [
+      "Architecture",
+      "PMOS differential error amplifier · NMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "Short-channel PMOS pass bank"
+    ],
+    [
+      "Compensation",
+      "0.65 pF Miller capacitor · 36 kΩ series resistor"
+    ],
+    [
+      "Bias / feedback",
+      "400 kΩ resistor-set PMOS bias · 10:1 tail mirror · half-output feedback"
+    ]
+  ],
+  "ldo-core-sky130-sol-6-r1": [
+    [
+      "Architecture",
+      "PMOS differential error amplifier · complementary current-mirror drive"
+    ],
+    [
+      "Output stage",
+      "PMOS pass device"
+    ],
+    [
+      "Compensation",
+      "0.5 pF feedback lead · 0.2 pF series-resistor gate-to-output branch"
+    ],
+    [
+      "Bias / feedback",
+      "Divided reference · resistor-fed NMOS bias · source-degenerated tail"
+    ]
+  ],
+  "ldo-low-voltage-sky130-opus-5-5-r1": [
+    [
+      "Architecture",
+      "NMOS-pair integral amplifier · fast class-AB load-response path"
+    ],
+    [
+      "Output stage",
+      "500 µm / 0.15 µm PMOS pass device · low-impedance mirrored gate drive"
+    ],
+    [
+      "Compensation",
+      "2 pF integral capacitor · AC-coupled push/pull sensors"
+    ],
+    [
+      "Bias / feedback",
+      "VOUT-derived sensor bias · 25 kΩ / 25 kΩ feedback divider"
+    ]
+  ],
+  "ldo-low-voltage-sky130-astra-r1": [
+    [
+      "Architecture",
+      "NMOS differential error amplifier · resistive common-mode translation"
+    ],
+    [
+      "Output stage",
+      "400 µm / 0.15 µm PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "10 pF feedback lead · 3 pF series-R Miller branch"
+    ],
+    [
+      "Bias / feedback",
+      "Resistor-derived tail bias · 5 pF reference decoupling"
+    ]
+  ],
+  "ldo-low-voltage-sky130-sonnet-5-5-r1": [
+    [
+      "Architecture",
+      "Cascoded NMOS-input error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "800 µm / 0.15 µm PMOS pass device"
+    ],
+    [
+      "Compensation",
+      "3 pF / 8 kΩ gate lag network · 10 pF feedback lead"
+    ],
+    [
+      "Bias / feedback",
+      "VIN-shifted input dividers · VOUT-derived bias with VIN startup resistor"
+    ]
+  ],
+  "ldo-low-voltage-sky130-sol-6-1-r1": [
+    [
+      "Architecture",
+      "PMOS differential error amplifier · separate NMOS gate driver"
+    ],
+    [
+      "Output stage",
+      "800 µm / 0.15 µm PMOS pass bank"
+    ],
+    [
+      "Compensation",
+      "0.5 pF / 10 kΩ Miller branch · 1 pF / 20 kΩ fast feedback path"
+    ],
+    [
+      "Bias / feedback",
+      "150 mV scaled inputs · 0.5 pF divider bypass · 5 pF reference decoupling"
+    ]
+  ],
+  "ldo-low-voltage-sky130-luna-6-r1": [
+    [
+      "Architecture",
+      "Short-channel NMOS differential error amplifier · shifted feedback"
+    ],
+    [
+      "Output stage",
+      "High-side PMOS pass bank"
+    ],
+    [
+      "Compensation",
+      "29.8 pF output-to-pass-gate capacitor · small output-node shunt capacitor"
+    ],
+    [
+      "Bias / feedback",
+      "Resistor-set tail bias · VIN-level-shifted feedback"
+    ]
+  ],
+  "ldo-low-voltage-sky130-sol-6-r1": [
+    [
+      "Architecture",
+      "PMOS differential error amplifier · NMOS mirror load and gate driver"
+    ],
+    [
+      "Output stage",
+      "PMOS high-side pass device"
+    ],
+    [
+      "Compensation",
+      "10 pF gate-to-output capacitor · 1.15 pF mirror feedforward"
+    ],
+    [
+      "Bias / feedback",
+      "Matched shifted input dividers · 33 kΩ output bleed"
+    ]
+  ],
+  "ldo-quiet-sky130-opus-5-5-r1": [
+    [
+      "Architecture",
+      "Cascoded NMOS-input error amplifier · current-mode gate drive"
+    ],
+    [
+      "Output stage",
+      "12,800 µm / 0.35 µm PMOS pass device · 32:1 drive mirror"
+    ],
+    [
+      "Compensation",
+      "External-capacitor dominant pole · no explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "VIN-tracking cascode bias · resistor tail · trimmed 15 kΩ feedback divider"
+    ]
+  ],
+  "ldo-quiet-sky130-astra-r1": [
+    [
+      "Architecture",
+      "Cascoded PMOS-input error amplifier · matched input source resistances"
+    ],
+    [
+      "Output stage",
+      "NMOS-controlled 24:1 PMOS pass mirror"
+    ],
+    [
+      "Compensation",
+      "80 pF / 130 kΩ series branch · 10 pF shunt"
+    ],
+    [
+      "Bias / feedback",
+      "VIN-derived operating bias · reference / feedback resistance matching"
+    ]
+  ],
+  "ldo-quiet-sky130-sonnet-5-5-r1": [
+    [
+      "Architecture",
+      "NMOS-input five-transistor error amplifier · large input area"
+    ],
+    [
+      "Output stage",
+      "Directly driven PMOS pass bank · 25 copies of 100 µm / 0.25 µm"
+    ],
+    [
+      "Compensation",
+      "60 pF / 50 kΩ supply-referenced PI branch"
+    ],
+    [
+      "Bias / feedback",
+      "8:1 NMOS tail mirror · 22.07 kΩ / 22.2 kΩ feedback divider"
+    ]
+  ],
+  "ldo-quiet-sky130-sol-6-1-r1": [
+    [
+      "Architecture",
+      "PMOS-input folded error amplifier · cascoded folding mirror"
+    ],
+    [
+      "Output stage",
+      "3,200 µm PMOS pass transistor · locally regulated NMOS gate buffer"
+    ],
+    [
+      "Compensation",
+      "88 pF feedback lead · 12 pF / 70 kΩ supply-referenced branch"
+    ],
+    [
+      "Bias / feedback",
+      "Supply-shifted buffer comparison · equal output-divider resistors"
+    ]
+  ],
+  "ldo-quiet-sky130-luna-6-r1": [
+    [
+      "Architecture",
+      "NMOS differential error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "High-side PMOS pass device · local resistive feedback"
+    ],
+    [
+      "Compensation",
+      "10 pF feedback capacitor"
+    ],
+    [
+      "Bias / feedback",
+      "VREF-biased tail · trimmed feedback divider"
+    ]
+  ],
+  "ldo-quiet-sky130-sol-6-r1": [
+    [
+      "Architecture",
+      "PMOS differential error amplifier · source-degenerated NMOS mirror"
+    ],
+    [
+      "Output stage",
+      "Wide PMOS pass device"
+    ],
+    [
+      "Compensation",
+      "95 pF feedback capacitor · 5 pF series gate compensation"
+    ],
+    [
+      "Bias / feedback",
+      "Two low-current bias paths · 3.6 MΩ supply-to-feedback cancellation path"
+    ]
+  ],
+  "ota-drive-sky130-opus-5-5-r1": [
+    [
+      "Architecture",
+      "Single-stage NMOS-input symmetrical current-mirror OTA"
+    ],
+    [
+      "Output stage",
+      "3:1 signal mirrors · wide-swing cascoded class-A output"
+    ],
+    [
+      "Compensation",
+      "External-load dominant pole · no Miller capacitor"
+    ],
+    [
+      "Bias / input network",
+      "10 µA reference · 32:1 tail mirror · resistor-shifted replica cascode bias"
+    ]
+  ],
+  "ota-drive-sky130-astra-r1": [
+    [
+      "Architecture",
+      "Single-stage NMOS-input current-mirror OTA"
+    ],
+    [
+      "Output stage",
+      "3:1 PMOS signal mirrors · wide-swing cascoded output branches"
+    ],
+    [
+      "Compensation",
+      "6 pF output capacitor · two 2 pF bias bypass capacitors"
+    ],
+    [
+      "Bias / input network",
+      "10 µA reference · 38:1 tail mirror · resistor-shifted cascode bias"
+    ]
+  ],
+  "ota-drive-sky130-sonnet-5-5-r1": [
+    [
+      "Architecture",
+      "Single-stage NMOS-input folded-cascode OTA"
+    ],
+    [
+      "Output stage",
+      "1:2 wide-swing NMOS cascode mirror"
+    ],
+    [
+      "Compensation",
+      "External-load compensation"
+    ],
+    [
+      "Bias / input network",
+      "Cascoded tail · IBIAS-referenced replica diode bias legs"
+    ]
+  ],
+  "ota-drive-sky130-sol-6-1-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · mirrored NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "12 pF Miller capacitor · 450 Ω series resistor"
+    ],
+    [
+      "Bias / input network",
+      "10 µA reference · NMOS tail and output-current mirrors"
+    ]
+  ],
+  "ota-drive-sky130-luna-6-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · scaled NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "8.5 pF Miller capacitor · 800 Ω series resistor"
+    ],
+    [
+      "Bias / input network",
+      "Mirrored tail and output bias"
+    ]
+  ],
+  "ota-drive-sky130-sol-6-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · widened PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS source and NMOS sink sized for 50 pF drive"
+    ],
+    [
+      "Compensation",
+      "4.5 pF Miller capacitor · 1.5 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "Auxiliary differential pair and filtered supply divider for ripple cancellation"
+    ]
+  ],
+  "ota-free-sky130-opus-5-5-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "3 pF Miller capacitor · 1 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "10 µA reference · 6:1 tail mirror · 18:1 output-current mirror"
+    ]
+  ],
+  "ota-free-sky130-astra-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "2.5 pF Miller capacitor · 1.5 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "Matched PMOS mirror / output channel lengths · scaled NMOS bias mirrors"
+    ]
+  ],
+  "ota-free-sky130-sonnet-5-5-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · source-degenerated input pair"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "2.2 pF Miller capacitor · 1.9 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "1.5 kΩ input source degeneration · 80 µA tail · 160 µA output bias"
+    ]
+  ],
+  "ota-free-sky130-sol-6-1-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · mirrored NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "4.5 pF Miller capacitor · 1 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "Low-overdrive bias devices · matched NMOS mirror channel lengths"
+    ]
+  ],
+  "ota-free-sky130-luna-6-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "Wide PMOS common-source gain stage · 228 µA NMOS sink"
+    ],
+    [
+      "Compensation",
+      "2 pF Miller capacitor · 1.5 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "40 µA mirrored tail bias"
+    ]
+  ],
+  "ota-free-sky130-sol-6-r1": [
+    [
+      "Architecture",
+      "Single-stage NMOS-input folded-cascode OTA"
+    ],
+    [
+      "Output stage",
+      "Cascoded NMOS current-mirror load"
+    ],
+    [
+      "Compensation",
+      "1.3 pF output damping capacitor"
+    ],
+    [
+      "Bias / input network",
+      "Resistive folding-gate bias for low-supply headroom"
+    ]
+  ],
+  "ota-precision-sky130-opus-5-5-r1": [
+    [
+      "Architecture",
+      "Two-stage OTA · NMOS-input folded-cascode first stage"
+    ],
+    [
+      "Output stage",
+      "NMOS common-source gain stage · 120 µA PMOS load"
+    ],
+    [
+      "Compensation",
+      "16 pF Miller capacitor · 1.2 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "40 µA tail · VDD-referenced PMOS diode / resistor bias"
+    ]
+  ],
+  "ota-precision-sky130-astra-r1": [
+    [
+      "Architecture",
+      "Single-stage NMOS-input folded-cascode OTA"
+    ],
+    [
+      "Output stage",
+      "Wide-swing cascoded NMOS mirror load"
+    ],
+    [
+      "Compensation",
+      "6 pF output capacitor"
+    ],
+    [
+      "Bias / input network",
+      "10 µA reference · two 25 kΩ bias resistors · large input area"
+    ]
+  ],
+  "ota-precision-sky130-sonnet-5-5-r1": [
+    [
+      "Architecture",
+      "Single-stage NMOS-input folded-cascode OTA"
+    ],
+    [
+      "Output stage",
+      "Wide-swing NMOS cascode mirror"
+    ],
+    [
+      "Compensation",
+      "6 pF output capacitor"
+    ],
+    [
+      "Bias / input network",
+      "40 µA mirrored tail · resistor / diode cascode bias"
+    ]
+  ],
+  "ota-precision-sky130-sol-6-1-r1": [
+    [
+      "Architecture",
+      "Two-stage long-channel NMOS-input OTA · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · mirrored NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "8 pF Miller capacitor · 2.5 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "4:1 tail and 10:1 output bias · matched 8 pF mirror-node supply-cancellation capacitor"
+    ]
+  ],
+  "ota-precision-sky130-luna-6-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "11 pF Miller capacitor · 1.8 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "Mirrored tail and output-current bias"
+    ]
+  ],
+  "ota-precision-sky130-sol-6-r1": [
+    [
+      "Architecture",
+      "Two-stage NMOS-input OTA · long-channel tail · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "7 pF Miller capacitor · 2 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "12.8 pF VDD-to-IBIAS supply-rejection capacitor"
+    ]
+  ],
+  "ota-wide-sky130-luna-6-r1": [
+    [
+      "Architecture",
+      "Two-stage complementary NMOS / PMOS-input OTA · mirrored active loads"
+    ],
+    [
+      "Output stage",
+      "NMOS common-source gain stage · PMOS current-source load"
+    ],
+    [
+      "Compensation",
+      "9 pF Miller capacitor · 9.5 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "Mirrored bias · NMOS output shunt for high-range transfer"
+    ]
+  ],
+  "ota-wide-sky130-sol-6-r1": [
+    [
+      "Architecture",
+      "Two-stage complementary NMOS / PMOS-input OTA · folded mirror loads"
+    ],
+    [
+      "Output stage",
+      "Source-degenerated CMOS gain stage"
+    ],
+    [
+      "Compensation",
+      "5.2 pF Miller capacitor · 16.8 kΩ series resistor · MOS shunt"
+    ],
+    [
+      "Bias / input network",
+      "35 kΩ / 43 kΩ input gate damping · 0.5 pF input shunt · 2 pF output-stage bypass"
+    ]
+  ],
+  "ota-fixed-sky130-opus-5-5-r1": [
+    [
+      "Architecture",
+      "Fixed two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "2.5 pF Miller capacitor · 2 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "IBIAS-referenced NMOS mirrors · input W/L = 100/2 µm · load W/L = 100/1 µm"
+    ]
+  ],
+  "ota-fixed-sky130-astra-r1": [
+    [
+      "Architecture",
+      "Fixed two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "3.5 pF Miller capacitor · 1.2 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "IBIAS-referenced NMOS mirrors · input W/L = 100/2 µm · load W/L = 13.5/0.5 µm"
+    ]
+  ],
+  "ota-fixed-sky130-sonnet-5-5-r1": [
+    [
+      "Architecture",
+      "Fixed two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "3 pF Miller capacitor · 1.6 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "IBIAS-referenced NMOS mirrors · input W/L = 72/1.2 µm · load W/L = 75.93/1 µm"
+    ]
+  ],
+  "ota-fixed-sky130-sol-6-1-r1": [
+    [
+      "Architecture",
+      "Fixed two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "5 pF Miller capacitor · 2 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "IBIAS-referenced NMOS mirrors · input W/L = 100/1.2 µm · load W/L = 25.6/0.8 µm"
+    ]
+  ],
+  "ota-fixed-sky130-luna-6-r1": [
+    [
+      "Architecture",
+      "Fixed two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "1 pF Miller capacitor · 5.1 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "IBIAS-referenced NMOS mirrors · input W/L = 100/0.25 µm · load W/L = 6/0.5 µm"
+    ]
+  ],
+  "ota-fixed-sky130-sol-6-r1": [
+    [
+      "Architecture",
+      "Fixed two-stage NMOS-input OTA · PMOS current-mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source gain stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "4 pF Miller capacitor · 2.2 kΩ series resistor"
+    ],
+    [
+      "Bias / input network",
+      "IBIAS-referenced NMOS mirrors · input W/L = 72/1.2 µm · load W/L = 90/1.5 µm"
+    ]
+  ]
+}

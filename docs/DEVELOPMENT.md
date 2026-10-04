@@ -58,6 +58,29 @@ CI and the manual Pages workflow build before checking. `main` and `refactor/**`
 5. Add source-derived counts, submitted-SPICE byte/hash, submitted revision, and evaluation category/stage row counts to `data/trace-validation.json`. Record SHA-256 of `summary.html`, `trace.html`, and the exact saved report bytes after comparing them to the archive. Do not approve an unverified result merely by updating hashes until checks pass.
 6. Build, check, and inspect affected browser behavior when available. Record actual coverage and approved omissions. Commit to the requested branch; use `main` when no different branch was requested.
 
+Campaign import (all currently catalogued results):
+
+```sh
+npm install --ignore-scripts
+python3 tools/trace/import_results.py --all
+python3 tools/trace/import_results.py --all --verify-only
+```
+
+The importer verifies the Release asset SHA-256 and the unpacked inventory,
+expands factored records, and joins streams in manifest order. It adds missing
+pages and source-checks existing pages without changing accepted fragments.
+Supply catalog run IDs to process selected results. Reviewed circuit summaries
+live in `data/trace-summaries.json`; these describe the submitted circuits,
+not measured outcomes. Use Python 3.10+ (`python3.12` in the import workspace).
+
+The captured campaign includes Codex file-change events without patch text,
+Claude Read decoration, task-specific LDO limit variants, censored recovery
+measurements, a failed OTA balanced-point measurement, and OTA-FIXED's sizing
+and robustness format. These have explicit handling and focused tests. The
+importer rejects unknown public transcript formats instead of silently omitting
+them. See [import checks](ALL_RESULTS_IMPORT.md) before extending it to a new
+campaign or task. Archived commands are never executed.
+
 Existing adapters:
 
 ```sh

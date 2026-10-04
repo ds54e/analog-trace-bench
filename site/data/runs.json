@@ -10,37 +10,37 @@
           "id": "ldo-always-on-sky130-opus-5-5-r1",
           "model": "Opus 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-always-on-sky130-opus-5-5-raw.html"
         },
         {
           "id": "ldo-always-on-sky130-astra-r1",
           "model": "Astra",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-always-on-sky130-astra-raw.html"
         },
         {
           "id": "ldo-always-on-sky130-sonnet-5-5-r1",
           "model": "Sonnet 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-always-on-sky130-sonnet-5-5-raw.html"
         },
         {
           "id": "ldo-always-on-sky130-sol-6-1-r1",
           "model": "Sol 6.1",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-always-on-sky130-sol-6-1-raw.html"
         },
         {
           "id": "ldo-always-on-sky130-luna-6-r1",
           "model": "Luna 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-always-on-sky130-luna-6-raw.html"
         },
         {
           "id": "ldo-always-on-sky130-sol-6-r1",
           "model": "Sol 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-always-on-sky130-sol-6-raw.html"
         }
       ]
     },
@@ -53,37 +53,37 @@
           "id": "ldo-core-sky130-opus-5-5-r1",
           "model": "Opus 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-core-sky130-opus-5-5-raw.html"
         },
         {
           "id": "ldo-core-sky130-astra-r1",
           "model": "Astra",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-core-sky130-astra-raw.html"
         },
         {
           "id": "ldo-core-sky130-sonnet-5-5-r1",
           "model": "Sonnet 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-core-sky130-sonnet-5-5-raw.html"
         },
         {
           "id": "ldo-core-sky130-sol-6-1-r1",
           "model": "Sol 6.1",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-core-sky130-sol-6-1-raw.html"
         },
         {
           "id": "ldo-core-sky130-luna-6-r1",
           "model": "Luna 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-core-sky130-luna-6-raw.html"
         },
         {
           "id": "ldo-core-sky130-sol-6-r1",
           "model": "Sol 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-core-sky130-sol-6-raw.html"
         }
       ]
     },
@@ -96,37 +96,37 @@
           "id": "ldo-low-voltage-sky130-opus-5-5-r1",
           "model": "Opus 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-low-voltage-sky130-opus-5-5-raw.html"
         },
         {
           "id": "ldo-low-voltage-sky130-astra-r1",
           "model": "Astra",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-low-voltage-sky130-astra-raw.html"
         },
         {
           "id": "ldo-low-voltage-sky130-sonnet-5-5-r1",
           "model": "Sonnet 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-low-voltage-sky130-sonnet-5-5-raw.html"
         },
         {
           "id": "ldo-low-voltage-sky130-sol-6-1-r1",
           "model": "Sol 6.1",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-low-voltage-sky130-sol-6-1-raw.html"
         },
         {
           "id": "ldo-low-voltage-sky130-luna-6-r1",
           "model": "Luna 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-low-voltage-sky130-luna-6-raw.html"
         },
         {
           "id": "ldo-low-voltage-sky130-sol-6-r1",
           "model": "Sol 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-low-voltage-sky130-sol-6-raw.html"
         }
       ]
     },
@@ -139,37 +139,37 @@
           "id": "ldo-quiet-sky130-opus-5-5-r1",
           "model": "Opus 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-quiet-sky130-opus-5-5-raw.html"
         },
         {
           "id": "ldo-quiet-sky130-astra-r1",
           "model": "Astra",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-quiet-sky130-astra-raw.html"
         },
         {
           "id": "ldo-quiet-sky130-sonnet-5-5-r1",
           "model": "Sonnet 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-quiet-sky130-sonnet-5-5-raw.html"
         },
         {
           "id": "ldo-quiet-sky130-sol-6-1-r1",
           "model": "Sol 6.1",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-quiet-sky130-sol-6-1-raw.html"
         },
         {
           "id": "ldo-quiet-sky130-luna-6-r1",
           "model": "Luna 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-quiet-sky130-luna-6-raw.html"
         },
         {
           "id": "ldo-quiet-sky130-sol-6-r1",
           "model": "Sol 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ldo-quiet-sky130-sol-6-raw.html"
         }
       ]
     },
@@ -182,37 +182,37 @@
           "id": "ota-drive-sky130-opus-5-5-r1",
           "model": "Opus 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-drive-sky130-opus-5-5-raw.html"
         },
         {
           "id": "ota-drive-sky130-astra-r1",
           "model": "Astra",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-drive-sky130-astra-raw.html"
         },
         {
           "id": "ota-drive-sky130-sonnet-5-5-r1",
           "model": "Sonnet 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-drive-sky130-sonnet-5-5-raw.html"
         },
         {
           "id": "ota-drive-sky130-sol-6-1-r1",
           "model": "Sol 6.1",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-drive-sky130-sol-6-1-raw.html"
         },
         {
           "id": "ota-drive-sky130-luna-6-r1",
           "model": "Luna 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-drive-sky130-luna-6-raw.html"
         },
         {
           "id": "ota-drive-sky130-sol-6-r1",
           "model": "Sol 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-drive-sky130-sol-6-raw.html"
         }
       ]
     },
@@ -225,37 +225,37 @@
           "id": "ota-fixed-sky130-opus-5-5-r1",
           "model": "Opus 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-fixed-sky130-opus-5-5-raw.html"
         },
         {
           "id": "ota-fixed-sky130-astra-r1",
           "model": "Astra",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-fixed-sky130-astra-raw.html"
         },
         {
           "id": "ota-fixed-sky130-sonnet-5-5-r1",
           "model": "Sonnet 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-fixed-sky130-sonnet-5-5-raw.html"
         },
         {
           "id": "ota-fixed-sky130-sol-6-1-r1",
           "model": "Sol 6.1",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-fixed-sky130-sol-6-1-raw.html"
         },
         {
           "id": "ota-fixed-sky130-luna-6-r1",
           "model": "Luna 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-fixed-sky130-luna-6-raw.html"
         },
         {
           "id": "ota-fixed-sky130-sol-6-r1",
           "model": "Sol 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-fixed-sky130-sol-6-raw.html"
         }
       ]
     },
@@ -268,37 +268,37 @@
           "id": "ota-free-sky130-opus-5-5-r1",
           "model": "Opus 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-free-sky130-opus-5-5-raw.html"
         },
         {
           "id": "ota-free-sky130-astra-r1",
           "model": "Astra",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-free-sky130-astra-raw.html"
         },
         {
           "id": "ota-free-sky130-sonnet-5-5-r1",
           "model": "Sonnet 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-free-sky130-sonnet-5-5-raw.html"
         },
         {
           "id": "ota-free-sky130-sol-6-1-r1",
           "model": "Sol 6.1",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-free-sky130-sol-6-1-raw.html"
         },
         {
           "id": "ota-free-sky130-luna-6-r1",
           "model": "Luna 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-free-sky130-luna-6-raw.html"
         },
         {
           "id": "ota-free-sky130-sol-6-r1",
           "model": "Sol 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-free-sky130-sol-6-raw.html"
         }
       ]
     },
@@ -311,37 +311,37 @@
           "id": "ota-precision-sky130-opus-5-5-r1",
           "model": "Opus 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-precision-sky130-opus-5-5-raw.html"
         },
         {
           "id": "ota-precision-sky130-astra-r1",
           "model": "Astra",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-precision-sky130-astra-raw.html"
         },
         {
           "id": "ota-precision-sky130-sonnet-5-5-r1",
           "model": "Sonnet 5.5",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-precision-sky130-sonnet-5-5-raw.html"
         },
         {
           "id": "ota-precision-sky130-sol-6-1-r1",
           "model": "Sol 6.1",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-precision-sky130-sol-6-1-raw.html"
         },
         {
           "id": "ota-precision-sky130-luna-6-r1",
           "model": "Luna 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-precision-sky130-luna-6-raw.html"
         },
         {
           "id": "ota-precision-sky130-sol-6-r1",
           "model": "Sol 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-precision-sky130-sol-6-raw.html"
         }
       ]
     },
@@ -378,13 +378,13 @@
           "id": "ota-wide-sky130-luna-6-r1",
           "model": "Luna 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-wide-sky130-luna-6-raw.html"
         },
         {
           "id": "ota-wide-sky130-sol-6-r1",
           "model": "Sol 6",
           "run": 1,
-          "trace": null
+          "trace": "traces/ota-wide-sky130-sol-6-raw.html"
         }
       ]
     }

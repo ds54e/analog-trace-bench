@@ -2,7 +2,7 @@
 
 Public recorded circuit-design traces and website development tools.
 
-The generated website lives in `site/`. It currently contains the accepted OTA-WIDE-SKY130 pages for Astra, Opus 5.5, Sol 6.1, and Sonnet 5.5. Each trace retains saved messages, actions and results, the submitted SPICE, and the recorded independent evaluation.
+The generated website lives in `site/`. It contains recorded pages for all 54 selected trials across nine SKY130 tasks and six models, preserving the four accepted OTA-WIDE-SKY130 reference pages. Each trace retains saved public messages, actions and results, the submitted SPICE, and the recorded independent evaluation, including failed trials and available robustness records.
 
 Original evidence archives belong in GitHub Release assets. They are not committed to this repository or included in the Pages deployment.
 
@@ -31,7 +31,7 @@ Open `http://localhost:8000/`. Building and checking saved pages need only Pytho
 | `data/evidence.json` | Source archive names, SHA-256 hashes, and exact release-asset URLs when available. |
 | `data/trace-validation.json` | Expected source-derived counts, submitted hashes, and evaluation revisions. |
 | `tools/` | Deterministic site generation, validation, and evidence retrieval. |
-| `tools/trace/` | Astra shared builder and the Sonnet example adapter. |
+| `tools/trace/` | Campaign importer, shared rendering helpers, and fixture adapters. |
 | `docs/` | Development, trace fidelity, publication, and task handoff. |
 | `tests/` | Focused tooling checks. |
 
@@ -41,7 +41,7 @@ Use [the task prompt](docs/SOL_TASK_PROMPT.md) with the requested evidence and o
 
 For other website changes, use [the website task prompt](docs/WEB_TASK_PROMPT.md).
 
-The supplied builders demonstrate two recorded transcript formats. Task prefixes, architecture summaries and metric definitions still require adaptation for a new benchmark. Do not treat example counts or OTA limits as universal.
+The campaign importer in `tools/trace/import_results.py` handles the captured Codex and Claude formats, including file-change events. The supplied fixture builders also demonstrate these formats. Task prefixes, architecture summaries and metric definitions still require adaptation for a new benchmark. Do not treat example counts or OTA limits as universal.
 
 ## Evidence and publication
 

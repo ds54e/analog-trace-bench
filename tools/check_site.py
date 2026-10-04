@@ -106,8 +106,21 @@ def check_trace(path, expected, document, root=ROOT):
         require(len(report['rows']) == count, f'Evaluation row count differs: {path.name} {stage}')
         require(dict(Counter(row['verdict'] for row in report['rows'])) == report['counts'],
                 f'Evaluation verdict count differs: {path.name} {stage}')
-        require(all(row['revision'] == expected['revision'] for row in report['rows']),
-                f'Evaluation revision differs: {path.name} {stage}')
+        if stage == 'robustness':
+            # This campaign's aggregate row has no revision. Import verification
+            # matches every native sample's variant, sizing and circuit hash;
+            # retain those identities in the offline validation profile.
+            proofs = expected['source_verification']['robustness_sample_circuits']
+            require(len(proofs) == len(report['samples']) == report['robustness']['attempted'],
+                    f'Robustness sample coverage differs: {path.name}')
+            require(all(proof['revision'] == expected['revision'] and
+                        proof['spice_sha256'] == expected['submitted_spice_sha256'] for proof in proofs),
+                    f'Robustness circuit identity differs: {path.name}')
+            require(all(row['metric'] == 'mismatch_pass_count_min' for row in report['rows']),
+                    f'Unexpected revisionless aggregate: {path.name}')
+        else:
+            require(all(row['revision'] == expected['revision'] for row in report['rows']),
+                    f'Evaluation revision differs: {path.name} {stage}')
     require(len(re.findall(r'<tr data-metric=', text)) == expected['evaluation_categories'],
             f'Evaluation category count differs: {path.name}')
     require(text.index('data-submission="final"') < text.index('data-evaluation="independent"'),
