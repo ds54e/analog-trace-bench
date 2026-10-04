@@ -12,16 +12,6 @@ from token_costs import decimal_cost, load_token_costs
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def run_values(runs, formatter):
-    values = []
-    for run in runs:
-        number = run['run']
-        label = f'<span class="run-label">Run {number}</span> ' if len(runs) > 1 else ''
-        values.append(f'<span class="run-value" data-run="{number}" title="Run {number}">' +
-                      label + formatter(run) + '</span>')
-    return ' · '.join(values)
-
-
 def value_range(values, formatter):
     if not values or any(value is None for value in values):
         return 'Not recorded'
@@ -59,18 +49,18 @@ def render_index(root=ROOT):
                 raise ValueError('Duplicate model/run identity: ' + model)
             outcomes = [evaluation_label(evidence[run['id']].get('electrical_status', 'Not recorded'))
                         for run in trials]
-            result = (f'{outcomes.count("PASS")}/{len(trials)} PASS'
+            result = (f'{outcomes.count("PASS")} / {len(trials)}'
                       if all(outcome in ('PASS', 'FAIL') for outcome in outcomes) else 'Not recorded')
             times = [evidence[run['id']].get('design_model_calls_s') for run in trials]
             totals = [costs[run['id']]['total_cost_usd'] for run in trials]
             amounts = [decimal_cost(total) if total is not None else None for total in totals]
-            def trace(run):
-                return ('<a href="' + html.escape(run['trace'], quote=True) + '">Read trace</a>'
-                        if run.get('trace') else '<span class="unavailable">Not available yet</span>')
             cells = [result, value_range(times, format_duration),
-                     value_range(amounts, lambda amount: format(amount, '.2f')),
-                     run_values(trials, trace)]
-            rows.append('<tr><th scope="row">' + html.escape(model) + '</th>' +
+                     value_range(amounts, lambda amount: format(amount, '.2f'))]
+            model_label = html.escape(model)
+            trace_href = next((run['trace'] for run in trials if run.get('trace')), None)
+            if trace_href:
+                model_label = '<a href="' + html.escape(trace_href, quote=True) + '">' + model_label + '</a>'
+            rows.append('<tr><th scope="row">' + model_label + '</th>' +
                         ''.join('<td>' + cell + '</td>' for cell in cells) + '</tr>')
         task_id = html.escape(task['id'], quote=True)
         sections.append('<section class="task-section" aria-labelledby="' + task_id + '">'
@@ -78,9 +68,8 @@ def render_index(root=ROOT):
                         '<p class="task-description">' + html.escape(task['description']) + '</p>'
                         '<div class="table-scroll" tabindex="0" role="region" aria-labelledby="' + task_id + '">'
                         '<table class="summary-table results-table"><thead><tr><th scope="col">AI model</th>'
-                        '<th scope="col">Result</th><th scope="col">Model-call time</th>'
-                        '<th scope="col">USD</th>'
-                        '<th scope="col">Design</th></tr></thead>'
+                        '<th scope="col">Pass</th><th scope="col">Model-call time</th>'
+                        '<th scope="col">USD</th></tr></thead>'
                         '<tbody>' + '\n'.join(rows) + '</tbody></table></div></section>')
     content = '<main class="page-shell">\n'
     content += '\n'.join(sections)

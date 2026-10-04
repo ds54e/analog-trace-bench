@@ -145,7 +145,7 @@ class TokenCostTests(unittest.TestCase):
 
 
 class IndexRunTests(unittest.TestCase):
-    def test_three_runs_show_pass_fraction_and_ranges_with_individual_links(self):
+    def test_three_runs_show_pass_fraction_ranges_and_a_model_trace_link(self):
         root = build_index.ROOT
         catalog = json.loads((root / 'site/data/runs.json').read_text())
         evidence = json.loads((root / 'data/evidence.json').read_text())
@@ -176,23 +176,21 @@ class IndexRunTests(unittest.TestCase):
                 page = build_index.render_index(fixture)
         self.assertNotIn('<th scope="col">Run</th>', page)
         self.assertNotIn('<th scope="col">Archive</th>', page)
+        self.assertNotIn('<th scope="col">Design</th>', page)
         self.assertEqual(page.count('<tr><th scope="row">'), 1)
         cells = re.findall(r'<td>(.*?)</td>', page, re.S)
-        self.assertEqual(len(cells), 4)
+        self.assertEqual(len(cells), 3)
         visible = [html.unescape(re.sub(r'<[^>]+>', '', cell)) for cell in cells]
-        self.assertEqual(visible[0], '1/3 PASS')
+        self.assertEqual(visible[0], '1 / 3')
         self.assertEqual(visible[1], '0:01:00 - ' +
                          build_index.format_duration(max(120, entry['design_model_calls_s'])))
         self.assertEqual(visible[2], '1.00 - 3.00')
         for cell in cells[:3]:
             self.assertNotIn('run-label', cell)
-        for cell in cells[3:]:
-            for number in (1, 2, 3):
-                self.assertIn(f'Run {number}</span>', cell)
-        for run in task['runs']:
-            self.assertIn('href="' + run['trace'] + '"', page)
+        first = next(run for run in task['runs'] if run['run'] == 1)
+        self.assertIn('<th scope="row"><a href="' + first['trace'] + '">' + first['model'] + '</a></th>', page)
+        self.assertEqual(page.count('<a href='), 1)
         self.assertLess(page.index('>Model-call time<'), page.index('>USD<'))
-        self.assertLess(page.index('>USD<'), page.index('>Design<'))
 
     def test_ranges_compare_numeric_values_and_keep_missing_values_unknown(self):
         formatter = lambda amount: format(amount, '.2f')

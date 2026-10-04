@@ -55,19 +55,20 @@ Use the shared `page-shell`, `summary-table`, and `table-scroll` classes for
 layout and tables instead of repeating base rules in page styles. Index
 headings use the same display font and weight as trace headings; the compact
 index tables scroll horizontally on narrow screens and remain focusable.
-The index uses `AI model`, `Result`, `Model-call time`, `USD`, and `Design`
+The index uses `AI model`, `Pass`, `Model-call time`, and `USD`
 headers. Evidence archives remain available in the GitHub Releases and source
 catalog; the index has no Archive column. Run summaries keep their longer labels. Both duration
 renderers use `format_duration` (`H:MM:SS`), and
 derived evaluation labels use `PASS` / `FAIL`. Archived transcript text,
 prepared fragments, and complete JSON reports retain their original values.
 
-The index has one row per model and no Run column. Result shows passed runs
-divided by recorded runs (`1/3 PASS`, `1/1 PASS`). Model-call time and USD
+The index has one row per model and no Run column. Pass shows passed runs
+divided by recorded runs (`1 / 3`, `1 / 1`). Model-call time and USD
 show `minimum - maximum` across recorded runs; a single run repeats its value as
 both endpoints. Missing values remain unknown rather than producing partial
-ranges. USD shows plain numeric amounts (`2.01 - 3.01`). Design links retain
-Run labels when several are present.
+ranges. USD shows plain numeric amounts (`2.01 - 3.01`). The model name links
+to its earliest available trace; the trace's tabs give access to other recorded
+runs. The index has no separate Design column.
 Unavailable runs are not fabricated. The concise
 task descriptions in `site/data/runs.json` describe the captured specifications.
 
