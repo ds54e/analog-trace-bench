@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-10-04",
+  "traces": [
+    {
+      "id": "ota-wide-sky130-astra-r1",
+      "page": "traces/ota-wide-sky130-astra-raw.html",
+      "counts": {
+        "MODEL": 19,
+        "ACTION": 117,
+        "RESULT": 60
+      },
+      "submitted_spice_bytes": 1566,
+      "submitted_spice_sha256": "fb5c99ecd0dbaadf40bc847db21e642ff7014934f58e86ca0dfa0c4c16eb58bf",
+      "revision": "dut-4845d3de80ca1849ec4bdadc",
+      "evaluation_categories": 26,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "baseline_html_sha256": "cadf61260d9c4e2c54f4f16d904c2a5d20ae8438e8b076498e72fbf951c0696b"
+    },
+    {
+      "id": "ota-wide-sky130-opus-5-5-r1",
+      "page": "traces/ota-wide-sky130-opus-5-5-raw.html",
+      "counts": {
+        "MODEL": 8,
+        "ACTION": 36,
+        "RESULT": 36
+      },
+      "submitted_spice_bytes": 2024,
+      "submitted_spice_sha256": "dc21891ea51a9fbceb247bd7ec55d8fa51e1ccc439e097021378b3c6701aa329",
+      "revision": "dut-1978b943ca2ac72e16128c7e",
+      "evaluation_categories": 26,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "baseline_html_sha256": "1c0c4472536d72d50d1ae4b16e4cc28157d1ecc733d3e17ef5c3a07d3f13fdd2"
+    },
+    {
+      "id": "ota-wide-sky130-sol-6-1-r1",
+      "page": "traces/ota-wide-sky130-sol-6-1-raw.html",
+      "counts": {
+        "MODEL": 18,
+        "ACTION": 48,
+        "RESULT": 45
+      },
+      "submitted_spice_bytes": 1526,
+      "submitted_spice_sha256": "03537d1719d3d8ef19cba89840c4e79936656a9dbc1d01969e8fea447885f96c",
+      "revision": "dut-8cc53582c8d2f94ac46f84c3",
+      "evaluation_categories": 26,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "baseline_html_sha256": "d4a17e78fe27c257186d6e0ecb21690336f32c6780c1360018017ebb8f9d7503"
+    },
+    {
+      "id": "ota-wide-sky130-sonnet-5-5-r1",
+      "page": "traces/ota-wide-sky130-sonnet-5-5-raw.html",
+      "counts": {
+        "MODEL": 12,
+        "ACTION": 83,
+        "RESULT": 83
+      },
+      "submitted_spice_bytes": 1787,
+      "submitted_spice_sha256": "df36c5a00114936aca3bdaeaeb9c2f4ca49daec5ece44f0b4fef9da53026475c",
+      "revision": "dut-d5d69b5a7d7229af08a21d14",
+      "evaluation_categories": 26,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "baseline_html_sha256": "db07ebcd5953e918b2426038994c95abee05320853db8385d3cfd8b1d869da79"
+    }
+  ]
+}

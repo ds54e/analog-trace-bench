@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": "OTA-WIDE-SKY130",
+      "description": "Continuous-time OTA design across supply, temperature, input, and load conditions.",
+      "pdk": "SKY130",
+      "runs": [
+        {
+          "id": "ota-wide-sky130-astra-r1",
+          "model": "Astra",
+          "run": 1,
+          "trace": "traces/ota-wide-sky130-astra-raw.html"
+        },
+        {
+          "id": "ota-wide-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": "traces/ota-wide-sky130-opus-5-5-raw.html"
+        },
+        {
+          "id": "ota-wide-sky130-sol-6-1-r1",
+          "model": "Sol 6.1",
+          "run": 1,
+          "trace": "traces/ota-wide-sky130-sol-6-1-raw.html"
+        },
+        {
+          "id": "ota-wide-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
+          "run": 1,
+          "trace": "traces/ota-wide-sky130-sonnet-5-5-raw.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+/evidence/
+/out/
+/.cache/
+/node_modules/
+__pycache__/
+*.py[cod]
+*.xz
+*.tar
+*.tar.gz
+*.tar.zst
+*.zip
+*.log

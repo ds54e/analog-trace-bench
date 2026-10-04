@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repository": "ds54e/analog-trace-bench-public",
+  "runs": [
+    {
+      "id": "ota-wide-sky130-astra-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Astra",
+      "run": 1,
+      "filename": "ota-wide-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
+      "sha256": "d3ed91cfe3150483b2d6d6f0041cd03f31410ffd6603e74a1d46d6974aace94c",
+      "url": null
+    },
+    {
+      "id": "ota-wide-sky130-opus-5-5-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Opus 5.5",
+      "run": 1,
+      "filename": "ota-wide-sky130-opus-r1-20261003-model-time.tar.xz",
+      "sha256": "7ab25f4c74c5f2f15e8e6e3830ca5e16286c51d1eec15cbad6724d96a8d551c8",
+      "url": null
+    },
+    {
+      "id": "ota-wide-sky130-sol-6-1-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "filename": "ota-wide-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "bdb9b4175c3f000a022b3a36db49dad8deab0382e79246aa45527e6c11cd0ce2",
+      "url": null
+    },
+    {
+      "id": "ota-wide-sky130-sonnet-5-5-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Sonnet 5.5",
+      "run": 1,
+      "filename": "ota-wide-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "f7861de19278911370db4755622d3d6dc0ec0bb74cb302d625cd68fd9c799bc8",
+      "url": null
+    }
+  ]
+}
