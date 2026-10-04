@@ -1,0 +1,34 @@
+{
+  "task_id": "OTA-WIDE-SKY130",
+  "definition_sha256": "ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+  "files": {
+    "docs/ota-wide-sky130/contract.md": {
+      "bytes": 567,
+      "sha256": "8b1756491d5be20fbac841c0c4157643c20abd91dc5c3ab118b7a03fb4a937b7"
+    },
+    "docs/ota-wide-sky130/measurement.md": {
+      "bytes": 7405,
+      "sha256": "5f76dcb25e5e0f7c7e2cbdba3b34baf18f6bbedcae79266a6e7e54721494420f"
+    },
+    "specs/ota-adm45.json": {
+      "bytes": 2772,
+      "sha256": "45cf48ca080dcbe880cd5377a6e2a5f9e86433ef82ca598d2216ea4e1a4ecfce"
+    },
+    "specs/ota-sky130-conditions.json": {
+      "bytes": 990,
+      "sha256": "e68571d2f28d2ddf43b2054715c5ad8570aeac09bfbd42ae2aca4a5eea8fed65"
+    },
+    "specs/ota-sky130.json": {
+      "bytes": 3671,
+      "sha256": "7fe3858aa141dd82698d855bbe7c74bec7b70d5ba2cf2c13774eeba72609e88b"
+    },
+    "specs/ota-wide-sky130-verification.json": {
+      "bytes": 1479,
+      "sha256": "e3e55c1786089c09116f7c166c4e57e42fe3986df05089f880c7707da5d7a94e"
+    },
+    "specs/ota-wide-sky130.json": {
+      "bytes": 5436,
+      "sha256": "456439da8a5fef5596070a578579377d02578b24994970d94a2d40a27ca1c662"
+    }
+  }
+}

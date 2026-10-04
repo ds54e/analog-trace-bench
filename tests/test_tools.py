@@ -19,14 +19,14 @@ class EvidenceTests(unittest.TestCase):
     def entry(self, payload=b'expected'):
         return {'id': 'run-1', 'filename': 'run-1.tar.xz',
                 'sha256': hashlib.sha256(payload).hexdigest(),
-                'url': 'https://github.com/ds54e/analog-trace-bench-public/releases/download/v1/run-1.tar.xz'}
+                'url': 'https://github.com/ds54e/analog-trace-bench/releases/download/v1/run-1.tar.xz'}
 
     def test_missing_asset_does_not_request_network(self):
         entry = self.entry()
         entry['url'] = None
         with tempfile.TemporaryDirectory() as directory, patch.object(fetch_evidence, 'urlopen') as request:
             with self.assertRaisesRegex(ValueError, 'not been uploaded'):
-                fetch_evidence.fetch_entry(entry, 'ds54e/analog-trace-bench-public', directory)
+                fetch_evidence.fetch_entry(entry, 'ds54e/analog-trace-bench', directory)
             request.assert_not_called()
 
     def test_failed_hash_does_not_replace_existing_bytes(self):
@@ -36,7 +36,7 @@ class EvidenceTests(unittest.TestCase):
             output.write_bytes(b'existing')
             with patch.object(fetch_evidence, 'urlopen', return_value=io.BytesIO(b'wrong')):
                 with self.assertRaisesRegex(ValueError, 'SHA-256 mismatch'):
-                    fetch_evidence.fetch_entry(entry, 'ds54e/analog-trace-bench-public', directory)
+                    fetch_evidence.fetch_entry(entry, 'ds54e/analog-trace-bench', directory)
             self.assertEqual(output.read_bytes(), b'existing')
             self.assertEqual(list(Path(directory).iterdir()), [output])
 
@@ -44,16 +44,16 @@ class EvidenceTests(unittest.TestCase):
         entry = self.entry()
         with tempfile.TemporaryDirectory() as directory:
             with patch.object(fetch_evidence, 'urlopen', return_value=io.BytesIO(b'expected')):
-                output = fetch_evidence.fetch_entry(entry, 'ds54e/analog-trace-bench-public', directory)
+                output = fetch_evidence.fetch_entry(entry, 'ds54e/analog-trace-bench', directory)
             with patch.object(fetch_evidence, 'urlopen') as request:
-                self.assertEqual(fetch_evidence.fetch_entry(entry, 'ds54e/analog-trace-bench-public', directory), output)
+                self.assertEqual(fetch_evidence.fetch_entry(entry, 'ds54e/analog-trace-bench', directory), output)
                 request.assert_not_called()
 
     def test_wrong_repository_or_filename_is_rejected(self):
         for url in ['https://github.com/another/repository/releases/download/v1/run-1.tar.xz',
-                    'https://github.com/ds54e/analog-trace-bench-public/releases/download/v1/other.tar.xz']:
+                    'https://github.com/ds54e/analog-trace-bench/releases/download/v1/other.tar.xz']:
             with self.assertRaises(ValueError):
-                fetch_evidence.validate_url(url, 'ds54e/analog-trace-bench-public', 'run-1.tar.xz')
+                fetch_evidence.validate_url(url, 'ds54e/analog-trace-bench', 'run-1.tar.xz')
 
 
 class LinkTests(unittest.TestCase):
@@ -75,6 +75,20 @@ class LinkTests(unittest.TestCase):
 
 
 class SiteBuildTests(unittest.TestCase):
+    def test_changed_captured_task_definition_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ('site', 'content', 'data', 'tools/templates'):
+                shutil.copytree(check_site.ROOT / name, root / name)
+            catalog=json.loads((root/'data/evidence.json').read_text())
+            folder=root/catalog['runs'][0]['task_definition']
+            definition=json.loads((folder/'manifest.json').read_text())
+            file=folder/next(iter(definition['files']))
+            file.write_bytes(file.read_bytes()+b'\nChanged definition\n')
+            build_site.build(root)
+            with self.assertRaisesRegex(ValueError,'Captured task definition differs'):
+                check_site.check(root)
+
     def test_export_contains_dependencies_and_preserves_payloads(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / 'preview'

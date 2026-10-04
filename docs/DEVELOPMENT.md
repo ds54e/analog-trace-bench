@@ -14,7 +14,7 @@ The website uses deterministic static generation. Presentation is shared; record
 | `content/traces/<run-id>/trace.html` | Complete MODEL/ACTION/RESULT markup, original MODEL source templates, final SPICE, and the rendered evaluation table. |
 | `site/data/evaluations/<run-id>.json` | Complete original evaluation precision, rows, conditions, revision, completeness and timing. |
 | `site/data/runs.json` | Task/run identity and stable page routes. |
-| `data/evidence.json` | Original archive identity, hash, and actual asset URL. |
+| `data/evidence.json` | All selected trial identities, verdicts, timing, task definitions, hashes, and actual asset URLs. |
 | `data/trace-validation.json` | Source-derived counts, circuit hash/revision, and accepted content/report hashes. |
 | `site/index.html`, `site/traces/*.html` | Generated output, excluded from Git. |
 
@@ -36,7 +36,7 @@ python3 -m http.server 8000 --directory site
 
 Open `http://localhost:8000/`. Building and checking saved pages require Python 3.10+ and its standard library. The tab-event tests require Node 20+ and no installed packages. They verify event behavior, not browser layout.
 
-The build creates the index and all catalogued trace pages. `--check` detects stale output without writing. `check_site.py` also checks relative links/fragments, unique DOM IDs, run identity, payload counts, content hashes, submitted-SPICE bytes/hash, report hashes, and evaluation revision/rows. Changing a saved command and regenerating HTML still fails the content check.
+The build creates the index for all catalogued results and trace pages whose `trace` route is present. A null route retains downloadable evidence without claiming an imported HTML trace. Every rendered trace still requires its source-derived validation profile. `--check` detects stale output without writing. `check_site.py` also checks relative links/fragments, unique DOM IDs, run identity, payload counts, content hashes, submitted-SPICE bytes/hash, report hashes, and evaluation revision/rows. Changing a saved command and regenerating HTML still fails the content check.
 
 For a portable review copy:
 
@@ -88,3 +88,7 @@ Continuous checks are offline. They do not download archives, run simulations, o
 For a larger adapter change, keep a short progress note with schema assumptions and remaining acceptance checks so another session can resume from repository state.
 
 The workflow follows OpenAI's [progressive-disclosure guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) and [GPT-6 prompting/verification guidance](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6.1-sol), checked on 2026-10-04: concise repository routing, relevant task references, explicit completion criteria, and proportionate verification.
+
+## Standalone evidence analysis
+
+[Analysis](ANALYSIS.md) documents public-only downloading, verified unpacking, record expansion and timing interpretation. `tools/atb_analysis_archive.py`, `tools/atb_analysis_export.py` and `tools/analysis_read.py` require only Python. `data/tasks/` retains byte-exact captured specifications and measurement documents with per-file hashes. Public site builds do not access the development repository or execution hosts.

@@ -45,7 +45,7 @@ The supplied builders demonstrate two recorded transcript formats. Task prefixes
 
 ## Evidence and publication
 
-The four archive entries currently have `url: null` until the source files are uploaded. Add their actual immutable release download URLs after uploading; `tools/fetch_evidence.py` verifies the recorded SHA-256 before making a download available locally.
+The result index covers 54 selected trials across nine SKY130 tasks and six models. Original archives are public Release assets; `tools/fetch_evidence.py` checks SHA-256 before installing a download. [Analysis](docs/ANALYSIS.md) explains the records and standalone reader. Exact task definitions are indexed in [data/tasks/index.json](data/tasks/index.json).
 
 GitHub Pages deployment is prepared but manual. Follow [Publication](docs/PUBLISHING.md) when ready. Changes to `main` and `refactor/**` branches run a build and validation; they do not publish the website automatically.
 

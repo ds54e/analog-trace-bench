@@ -1,0 +1,34 @@
+{
+  "task_id": "LDO-CORE-SKY130",
+  "definition_sha256": "1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+  "files": {
+    "docs/ldo-core/contract.md": {
+      "bytes": 6750,
+      "sha256": "7a2c9dc748540485a24d20bce9e425385299e67ed4682b4b14f292d6ba7e5a23"
+    },
+    "docs/ldo-core/measurement.md": {
+      "bytes": 7701,
+      "sha256": "c7415c971068cce9bba5052f8d66d077320da4784d6fa06015d374ee360f449a"
+    },
+    "specs/ldo-core-sky130.json": {
+      "bytes": 3747,
+      "sha256": "bd668a2054dbfa6af0f6e68e2c55b4736eda9780034f387f390b922b44e062c3"
+    },
+    "specs/ldo-core-verification.json": {
+      "bytes": 2262,
+      "sha256": "fd104e41f8fec08ac47f3217816a8d2b800456e47e650fd2499ae0ee5890a942"
+    },
+    "specs/ota-adm45.json": {
+      "bytes": 2772,
+      "sha256": "45cf48ca080dcbe880cd5377a6e2a5f9e86433ef82ca598d2216ea4e1a4ecfce"
+    },
+    "specs/ota-sky130-conditions.json": {
+      "bytes": 990,
+      "sha256": "e68571d2f28d2ddf43b2054715c5ad8570aeac09bfbd42ae2aca4a5eea8fed65"
+    },
+    "specs/ota-sky130.json": {
+      "bytes": 3671,
+      "sha256": "7fe3858aa141dd82698d855bbe7c74bec7b70d5ba2cf2c13774eeba72609e88b"
+    }
+  }
+}

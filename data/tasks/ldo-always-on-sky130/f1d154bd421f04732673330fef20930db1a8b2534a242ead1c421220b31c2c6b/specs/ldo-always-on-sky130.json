@@ -1,0 +1,119 @@
+{
+  "kind": "formal_implementation_specification",
+  "specification_id": "LDO-ALWAYS-ON-SKY130-2026-09-29-r2",
+  "task_id": "LDO-ALWAYS-ON-SKY130",
+  "technology": "sky130",
+  "specification_status": "FIXED_FOR_IMPLEMENTATION",
+  "ports": [
+    "VIN",
+    "VOUT",
+    "VSS",
+    "VREF"
+  ],
+  "rtl_required": false,
+  "load_model": "prescribed_finite_slew_current_sink",
+  "device_environment": {
+    "source_config": "env/sky130.json",
+    "models": [
+      "sky130_fd_pr__nfet_01v8",
+      "sky130_fd_pr__pfet_01v8"
+    ],
+    "nominal_include_style": "lib_section",
+    "geometry_units": "numeric_micrometres_under_PDK_scale_1u",
+    "parallel_copies": "qualified_SKY130_instance_semantics",
+    "process_semantics": "pinned_continuous_tt_ss_ff",
+    "open_pdks_commit": "c6d73a35f524070e85faff4a6a9eef49553ebc2b",
+    "geometry_admission": "Use per-polarity geometry membership shared by every selected pinned continuous section; intersect with W<=100um, L>=0.15um. Do not use OTA device-role parameter names."
+  },
+  "operating": {
+    "vin_nominal_v": 1.6,
+    "vin_range_v": [
+      1.4,
+      1.8
+    ],
+    "vout_target_v": 1.2,
+    "vref_v": 0.6,
+    "load_levels_a": [
+      1e-06,
+      2e-05,
+      0.0001
+    ],
+    "external_decap_range_f": [
+      1e-08,
+      1e-07
+    ],
+    "example_decap_f": 3e-08,
+    "external_esr_ohm": 0,
+    "temperature_range_c": [
+      -20,
+      85
+    ],
+    "nominal_temperature_c": 27,
+    "process_modes": [
+      "tt",
+      "ss",
+      "ff"
+    ]
+  },
+  "waveform": {
+    "initial_hold_s": 0.0001,
+    "load_edge_s": 2e-06,
+    "step_plateau_s": 0.0002,
+    "burst_high_s": 2e-05,
+    "burst_low_s": 2e-05,
+    "burst_count": 8,
+    "burst_tail_s": 0.0002,
+    "line_edge_s": 2e-06,
+    "output_step_s": 5e-08,
+    "maximum_step_s": 5e-08
+  },
+  "limits": {
+    "dc_error_fraction": 0.02,
+    "transient_error_fraction": 0.08,
+    "recovery_band_fraction": 0.02,
+    "recovery_limit_s": 0.0001,
+    "dc_overhead_current_max_a": 1e-05,
+    "vref_dc_current_abs_max_a": 1e-06,
+    "added_explicit_capacitance_max_f": 2e-11,
+    "mos_wl_proxy_max_um2": 5000,
+    "dc_light_load_overhead_max_a": 2e-06,
+    "light_load_limit_applies_at_a": 1e-06
+  },
+  "electrical_acceptance": "All required DC and transient checks pass for one frozen submitted DUT; no weighted tradeoff between failed requirements.",
+  "characterization_only": [
+    "line_transient",
+    "psrr_1kHz_1MHz",
+    "signed_dissipation"
+  ],
+  "out_of_scope": [
+    "real_RTL",
+    "standard_cell_timing",
+    "DVFS",
+    "power_gating",
+    "startup_sequence",
+    "PGOOD",
+    "protection",
+    "bandgap",
+    "Monte_Carlo",
+    "common_phase_margin_score",
+    "layout",
+    "noise_score",
+    "new_network_controls"
+  ],
+  "exploration_budget": {
+    "native_cases": 300,
+    "wall_seconds": 5400
+  },
+  "packet_policy": "Only the selected public specification, device use, methods, client and own results; no completed circuit, reference results or independent coordinates. Reuse existing sandbox/login; disable Web tools.",
+  "change_control": "Implement these limits, not an easy-tier substitute. A necessary change requires native evidence, an explicit revised specification identity and a new frozen task before participant admission.",
+  "qualification_required": [
+    "Pinned model closure and geometry/multiplicity correctness",
+    "One native feasible witness per technology on the entire required matrix",
+    "Independent raw re-extraction and a known failing circuit",
+    "Integrated capture, packet, planner, accounting and report checks"
+  ],
+  "comparison_policy": "Same task concept and measurement rules; task-specific electrical calibration. No equal difficulty or cross-process score claim.",
+  "verification_file": "specs/ldo-always-on-sky130-verification.json",
+  "measurement_document": "docs/ldo-always-on-sky130/measurement.md",
+  "contract_document": "docs/ldo-always-on-sky130/contract.md"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "OTA-FIXED-SKY130",
+  "definition_sha256": "a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+  "files": {
+    "docs/ota-sky130-contract.md": {
+      "bytes": 11797,
+      "sha256": "6d732230943076088008a2251a1cae487c0e32f70dc56318f449e81ffbf1c4d3"
+    },
+    "specs/ota-sky130-conditions.json": {
+      "bytes": 990,
+      "sha256": "e68571d2f28d2ddf43b2054715c5ad8570aeac09bfbd42ae2aca4a5eea8fed65"
+    },
+    "specs/ota-sky130.json": {
+      "bytes": 3671,
+      "sha256": "7fe3858aa141dd82698d855bbe7c74bec7b70d5ba2cf2c13774eeba72609e88b"
+    }
+  }
+}

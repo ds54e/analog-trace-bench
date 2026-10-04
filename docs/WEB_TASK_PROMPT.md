@@ -3,7 +3,7 @@
 Select GPT-6.1 Sol in the working interface, then provide the task below. Use `SOL_TASK_PROMPT.md` instead when importing a recorded design run.
 
 ```text
-Work in ds54e/analog-trace-bench-public.
+Work in ds54e/analog-trace-bench.
 
 Task: [specific requested page or behavior change]
 Inputs: [source material, evidence/run IDs, or relevant paths]

@@ -71,6 +71,8 @@ def rendered_traces(root=ROOT):
     outputs = {}
     for task in catalog['tasks']:
         for run in task['runs']:
+            if run.get('trace') is None:
+                continue
             page = Path(run['trace'])
             if page.parent != Path('traces') or page.suffix != '.html':
                 raise ValueError('Trace route must be traces/<filename>.html')
@@ -79,7 +81,7 @@ def rendered_traces(root=ROOT):
             content, report = trace_paths(run['id'], root)
             if not report.is_file():
                 raise ValueError('Missing evaluation source: ' + run['id'])
-            peers = [peer for peer in task['runs'] if peer['model'] == run['model']]
+            peers = [peer for peer in task['runs'] if peer['model'] == run['model'] and peer.get('trace')]
             outputs[page.as_posix()] = render_trace_page(
                 task['id'], run['model'], (content / 'summary.html').read_text(encoding='utf-8'),
                 (content / 'trace.html').read_text(encoding='utf-8'), run=run['run'],

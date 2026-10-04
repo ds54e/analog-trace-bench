@@ -1,42 +1,2819 @@
 {
   "schema_version": 1,
-  "repository": "ds54e/analog-trace-bench-public",
+  "repository": "ds54e/analog-trace-bench",
+  "repository_id": 1402905748,
+  "campaign_id": "sky130-six-models9-1run-20261004-model-time-capacity-retry1",
   "runs": [
     {
-      "id": "ota-wide-sky130-astra-r1",
-      "task": "OTA-WIDE-SKY130",
+      "id": "ldo-always-on-sky130-opus-5-5-r1",
+      "task": "LDO-ALWAYS-ON-SKY130",
+      "model": "Opus 5.5",
+      "run": 1,
+      "attempt_id": "ldo-always-on-sky130-opus-r1-20261003-model-time-full9",
+      "slot": "opus-01",
+      "filename": "ldo-always-on-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "542a8699c5e5a278de6b1a364407b94f38c4ad8468516168db2c7548b4bc3971",
+      "bytes": 509420,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "057e903f12563c355047b4a744877cba6ad537d865916f0648b7e15597132480",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "5e84e5f3c08bb21f149c61e36ff3ab941b00e17901a4f2458f4e5e6eada9b2c7",
+      "capture_manifest_sha256": "b505c28cc1737790dec08bf2c627be62c4ab0d24af9d36f97ca1a6375a1c9ac8",
+      "analysis_manifest_sha256": "fb255bc1d3716a81efda49667dbbd1155773daf02f0bed6598f2a5151c2a136d",
+      "configuration": {
+        "run_id": "opus-01",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 559.2644069194794,
+      "design_wall_s": 776.3350465297699,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539500,
+      "release_id": 402943827
+    },
+    {
+      "id": "ldo-always-on-sky130-astra-r1",
+      "task": "LDO-ALWAYS-ON-SKY130",
       "model": "Astra",
       "run": 1,
-      "filename": "ota-wide-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
-      "sha256": "d3ed91cfe3150483b2d6d6f0041cd03f31410ffd6603e74a1d46d6974aace94c",
-      "url": null
+      "attempt_id": "ldo-always-on-sky130-astra-r1-20261003-model-time-full9",
+      "slot": "astra-01",
+      "filename": "ldo-always-on-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "828693807582381c4ca9a87a00bb0f8a6a9474db9304501e741e8e6fb3af1bc5",
+      "bytes": 390320,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "241f48bb389bf27d303e49e619feb814f37316a325213562568ef654a33bcb61",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "9a3dea1cece15c03bbbe6353da48723faf815c22bf58625323ceae0e6be5f30e",
+      "capture_manifest_sha256": "4bcff79a511888acd7e178f644a896c64bd4a12d2d7ce6b43052eee61ac98375",
+      "analysis_manifest_sha256": "7b52f2a78193e9c6b9d29c23332efadf28df7abdfc3a6caa763d6e3a69057e25",
+      "configuration": {
+        "run_id": "astra-01",
+        "provider": "codex-astra",
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 532.1084980964661,
+      "design_wall_s": 565.4555466175079,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539554,
+      "release_id": 402943827
+    },
+    {
+      "id": "ldo-always-on-sky130-sonnet-5-5-r1",
+      "task": "LDO-ALWAYS-ON-SKY130",
+      "model": "Sonnet 5.5",
+      "run": 1,
+      "attempt_id": "ldo-always-on-sky130-sonnet-r1-20261003-model-time-full9",
+      "slot": "sonnet-01",
+      "filename": "ldo-always-on-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "50ea40a43189f3b6635bf1fb6ff9b14e74dc85e04842f63f080c1c587bbd15fe",
+      "bytes": 1052192,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "4c94746c6de081277c771de255ef5016450562edc582659c42e8d5ca42ecf39e",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "4fa77ca8bf9da62387c967eec9150d48fbf81d4acaa17915fb388521af255451",
+      "capture_manifest_sha256": "5ac86c5c056b98e539753f17d8771f2291ae2df11046dee939db609db9a2a9be",
+      "analysis_manifest_sha256": "5c3beda0ee9d65899c140a49e264d79747f6d42cd88781dae72a02eb40f99450",
+      "configuration": {
+        "run_id": "sonnet-01",
+        "provider": "claude-sonnet",
+        "model": "claude-sonnet-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 747.009486913681,
+      "design_wall_s": 1104.154926776886,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539615,
+      "release_id": 402943827
+    },
+    {
+      "id": "ldo-always-on-sky130-sol-6-1-r1",
+      "task": "LDO-ALWAYS-ON-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "attempt_id": "ldo-always-on-sky130-sol61-r1-20261003-model-time-full9",
+      "slot": "sol61-01",
+      "filename": "ldo-always-on-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "c721a2b6923ef2b8f80f883d2452380785a97a0d281a0743f8b238201fdc27a8",
+      "bytes": 445628,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "d3f0c2717902fa10f7bc6e8f1ed46f05720310eeb5edf55a8f8918b434980e88",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "5ebd47652d0c5126ad0fb23915ab9428b82d6ecd9998aa39c088363a7ea5cb19",
+      "capture_manifest_sha256": "cd3898135b945121f7f21fd051913537f848db12237a915fd6a4dd7ebfa5ad9b",
+      "analysis_manifest_sha256": "0dd59c1ea6c6cafb2cbd483e162c94a0bdbcd3a9142dc1e3d9ec321c3d5bf494",
+      "configuration": {
+        "run_id": "sol61-01",
+        "provider": "codex-sol61",
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 598.2344725131989,
+      "design_wall_s": 648.3651986122131,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539682,
+      "release_id": 402943827
+    },
+    {
+      "id": "ldo-always-on-sky130-luna-6-r1",
+      "task": "LDO-ALWAYS-ON-SKY130",
+      "model": "Luna 6",
+      "run": 1,
+      "attempt_id": "ldo-always-on-sky130-luna-r1-20261004-model-time-recovery1",
+      "slot": "luna-01",
+      "filename": "ldo-always-on-sky130-luna-r1-20261004-model-time-recovery1.tar.xz",
+      "sha256": "cee4f05b330eaf2fda389bede39ab2081174b916c748710155f656caa89b1907",
+      "bytes": 382140,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-luna-r1-20261004-model-time-recovery1.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "b8e283d3d58595646c1739d96763185be693c9de32ce2190ac087572407b7268",
+      "source_sha": "fc5856258b8e4d791accc4c1db5d846f2642d035",
+      "configuration_sha256": "14088b8c9967ae33da0e02651ba05dc7d38352746e371b9baebe1c5cece32250",
+      "capture_manifest_sha256": "d16546f936089e9f0ad116b9054d49474d5358fa9284abd73f0f7d671f697a66",
+      "analysis_manifest_sha256": "06420ab1770a5a7e796a7a9368d80bbfc036ae79b13ed47a0f311e2387425391",
+      "configuration": {
+        "run_id": "luna-01",
+        "provider": "codex-luna",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 797.7405307292938,
+      "design_wall_s": 903.3589448928833,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540806,
+      "release_id": 402943827
+    },
+    {
+      "id": "ldo-always-on-sky130-sol-6-r1",
+      "task": "LDO-ALWAYS-ON-SKY130",
+      "model": "Sol 6",
+      "run": 1,
+      "attempt_id": "ldo-always-on-sky130-sol-r1-20261004-model-time-recovery2",
+      "slot": "sol-01",
+      "filename": "ldo-always-on-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "dfefd4c5e1c5c8e1540b3e7793428d748f7190227ec8e55900459d057cc933b6",
+      "bytes": 1006308,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "48845de1c246a2616ab7ab408f26da240d9e5be17755980925c51d7cc1b3ca7f",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "fc26f1501b78d27d974907abdcd7cc4a6558d0bd84dea0d28230bdab6e36da7c",
+      "capture_manifest_sha256": "787eeec2610fd4d33e4d8747b5cf0873cdbf840507b99658fb17adc8f8d83440",
+      "analysis_manifest_sha256": "8f2de5c1543333411cd2101700518f9351191f10c5754eb5fbef0eb03fbc5292",
+      "configuration": {
+        "run_id": "sol-01",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 771.6712601184845,
+      "design_wall_s": 1100.740561246872,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541394,
+      "release_id": 402943827
+    },
+    {
+      "id": "ldo-core-sky130-opus-5-5-r1",
+      "task": "LDO-CORE-SKY130",
+      "model": "Opus 5.5",
+      "run": 1,
+      "attempt_id": "ldo-core-sky130-opus-r1-20261003-model-time",
+      "slot": "opus-01",
+      "filename": "ldo-core-sky130-opus-r1-20261003-model-time.tar.xz",
+      "sha256": "cef8452a0f9f49efac780c14ffcd97f7e4e06d584c238b85e23b13053e94c931",
+      "bytes": 3424780,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-opus-r1-20261003-model-time.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "b403b82a9b88db5b608483aa95c0be83b4e9b9ca546528031fb5464d32ea2c86",
+      "source_sha": "7fdb8dc5388b60150f8043c0295a756911cf5441",
+      "configuration_sha256": "d378173523ea5ada4b3d62bbc722cdb9451fa87b8529a8a107f5671b12b344a7",
+      "capture_manifest_sha256": "46699d76f43af8000f7412ab35e9c1257f0fe4772987d38b65a49e0d05d23bb6",
+      "analysis_manifest_sha256": "e94c7b003aac3a3761ca4a60ee379a3f3074ff54aa6b1201b8b879a9be75541f",
+      "configuration": {
+        "run_id": "opus-01",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1713.9985482692719,
+      "design_wall_s": 4836.204318284988,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538689,
+      "release_id": 402943836
+    },
+    {
+      "id": "ldo-core-sky130-astra-r1",
+      "task": "LDO-CORE-SKY130",
+      "model": "Astra",
+      "run": 1,
+      "attempt_id": "ldo-core-sky130-astra-r1-20261003-model-time-recovery3",
+      "slot": "astra-01",
+      "filename": "ldo-core-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
+      "sha256": "a351eedfa69e52dc487910f86de723b57f0c497501daae759a5f84295e3e80c4",
+      "bytes": 539900,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "6e7273a9ae7c863e4f5c1165bab85987efe1d28ad6145b1fb4651e334c64650e",
+      "source_sha": "5f5b906c16c5b1d0fb3208df4861ee8b395b869d",
+      "configuration_sha256": "1d2133c9aba6e66c8d6b77367447c1e8833b9f1b2fe4f5e1d4136733819251a2",
+      "capture_manifest_sha256": "b1642da05bfe00f44f769a863ee651645012905d24c21f6edd869177b085b64e",
+      "analysis_manifest_sha256": "b42be1609f2d5eefc0ee0a3bdcc27388091e46af05dcc6fff5a6d25e7308309d",
+      "configuration": {
+        "run_id": "astra-01",
+        "provider": "codex-astra",
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1035.507575750351,
+      "design_wall_s": 1092.512142419815,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538752,
+      "release_id": 402943836
+    },
+    {
+      "id": "ldo-core-sky130-sonnet-5-5-r1",
+      "task": "LDO-CORE-SKY130",
+      "model": "Sonnet 5.5",
+      "run": 1,
+      "attempt_id": "ldo-core-sky130-sonnet-r1-20261003-model-time-full9",
+      "slot": "sonnet-01",
+      "filename": "ldo-core-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "ece689e097fbe23d7272374fd18389810c1149e459140cd8c516464c0c69efd5",
+      "bytes": 6960772,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "90a7f478fe085fdae6957085bd8dcdbf5cb4138b7a00fbfe15272ab705864ce6",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "eb1d33196494cde2cc19b798c0690ad5afdff019ccb8825dfdeeed0d06441dc1",
+      "capture_manifest_sha256": "c0b1dbd8c5454cbb4d1aae220959da8030f414ace109c1c33d7782666eb6d86d",
+      "analysis_manifest_sha256": "ab6d3c1bec1cd18b58b381a836911508759ebce78b0b72f089374b2dbbf805d0",
+      "configuration": {
+        "run_id": "sonnet-01",
+        "provider": "claude-sonnet",
+        "model": "claude-sonnet-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1440.5913512706757,
+      "design_wall_s": 6081.758109331131,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540442,
+      "release_id": 402943836
+    },
+    {
+      "id": "ldo-core-sky130-sol-6-1-r1",
+      "task": "LDO-CORE-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "attempt_id": "ldo-core-sky130-sol61-r1-20261003-model-time-full9",
+      "slot": "sol61-01",
+      "filename": "ldo-core-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "7e8a3563c410f354644bcd87b023d03e2659c5268aa2402d7bbd992eec17d401",
+      "bytes": 1813152,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "8e8277bb6f30e0f04848244fc1f1e58c68e51042343ae5946ce00f54f8772aad",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "06273c7d72b8ea21b9f19737c21b22c94b9467d92a3152533f436081daaa4b45",
+      "capture_manifest_sha256": "1e2bde8cd441b077ae0c2ed86fd3490c522d93aa218756c082811c2963908d8e",
+      "analysis_manifest_sha256": "7b40c8db8b0b077932a706ee9aa0b7731e6829159638e8e9894ffd54c92bfc7b",
+      "configuration": {
+        "run_id": "sol61-01",
+        "provider": "codex-sol61",
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 5415.620767354965,
+      "design_wall_s": 5837.151300668716,
+      "submission_model_late": true,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540514,
+      "release_id": 402943836
+    },
+    {
+      "id": "ldo-core-sky130-luna-6-r1",
+      "task": "LDO-CORE-SKY130",
+      "model": "Luna 6",
+      "run": 1,
+      "attempt_id": "ldo-core-sky130-luna-r1-20261004-model-time-recovery2",
+      "slot": "luna-01",
+      "filename": "ldo-core-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "f8f4be1b50930ecc7b27b354f4e59e5610d08d62fe5ea50abbcc920043b3dade",
+      "bytes": 2740520,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "786b8f1b00f3591839320a78ee1b15c6fd06bc57b39b1ca8e26a812bb765b427",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "3638771cde7dd64629a551e5b9c53578c2d8881189a2572b4937802d82403e2a",
+      "capture_manifest_sha256": "440d19ee4ae308cb2d35e7ba1a1593d3385c5e0b4dd453c2681603303396f318",
+      "analysis_manifest_sha256": "f73cf8894b338f76ac2512f74376d310d4ae98c3069c669f73b1b8602877bd17",
+      "configuration": {
+        "run_id": "luna-01",
+        "provider": "codex-luna",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 4911.948454141617,
+      "design_wall_s": 5123.832818031311,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 284,
+            "MISS": 76
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 50,
+            "MISS": 10
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541135,
+      "release_id": 402943836
+    },
+    {
+      "id": "ldo-core-sky130-sol-6-r1",
+      "task": "LDO-CORE-SKY130",
+      "model": "Sol 6",
+      "run": 1,
+      "attempt_id": "ldo-core-sky130-sol-r1-20261004-model-time-capacity-retry1",
+      "slot": "sol-01",
+      "filename": "ldo-core-sky130-sol-r1-20261004-model-time-capacity-retry1.tar.xz",
+      "sha256": "b73bf0fb25fee6093a48dee554820ee42e46fae2c5dae9732fdf9a4786448cc1",
+      "bytes": 3054384,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-sol-r1-20261004-model-time-capacity-retry1.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "14aeebaa9e3df1691bb5637b0fcabe9dc39ea2e07b016d9f047f9ab96d387438",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "ca5fc9400e35840b163b73161a6fe8c34914f590236ce099b69ae641238144d8",
+      "capture_manifest_sha256": "146378d8c5c7b5bb9353775af3d2e1b1a9648dd05efec64a4cf2f4cbaf20169a",
+      "analysis_manifest_sha256": "b4c294c5d83a6ac0359534ec1f72d896abb6efe68903c7fd14f93a8599526d57",
+      "configuration": {
+        "run_id": "sol-01",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 2479.942389011383,
+      "design_wall_s": 3975.510231256485,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541720,
+      "release_id": 402943836
+    },
+    {
+      "id": "ldo-low-voltage-sky130-opus-5-5-r1",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Opus 5.5",
+      "run": 1,
+      "attempt_id": "ldo-low-voltage-sky130-opus-r1-20261003-model-time",
+      "slot": "opus-01",
+      "filename": "ldo-low-voltage-sky130-opus-r1-20261003-model-time.tar.xz",
+      "sha256": "d01b14fd2e0d25298797376b0233c2c27cae07c9f338b121405e7e5743cdd78f",
+      "bytes": 1618656,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-opus-r1-20261003-model-time.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "bdaac122370064eb19d58923f648389992d57af3913828c53c610938f4f02641",
+      "source_sha": "7fdb8dc5388b60150f8043c0295a756911cf5441",
+      "configuration_sha256": "ef1f9e06349763b21f0aa9da3099faa0dc5fb641a2e83cb824f7c2ef1ee725c5",
+      "capture_manifest_sha256": "9836442d2051cf702b3ffb120f24947f4929e20aa3d86818bffa6f72c8bb57cc",
+      "analysis_manifest_sha256": "fda1fb5fff38b8dadad7b540ae6f0bcb39b27c8235c7dce37e325de574e672b2",
+      "configuration": {
+        "run_id": "opus-01",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1655.8561279773712,
+      "design_wall_s": 4190.003787279129,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538088,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-low-voltage-sky130-astra-r1",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Astra",
+      "run": 1,
+      "attempt_id": "ldo-low-voltage-sky130-astra-r1-20261003-model-time-recovery3",
+      "slot": "astra-01",
+      "filename": "ldo-low-voltage-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
+      "sha256": "22706695b5abd2e993501e4e7d210157d1fbe2b8cadba2e8821beb5444263ad6",
+      "bytes": 656468,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "ede936049e8ad49e4376931889e923598e866cad1e2b787b72b67595f3eb9859",
+      "source_sha": "5f5b906c16c5b1d0fb3208df4861ee8b395b869d",
+      "configuration_sha256": "d6cd46cf3dc7eb916805e122757a7a263e34b6cc124d7b60819807dc0a193c9b",
+      "capture_manifest_sha256": "40f1ff80df03768770468f1e4a1bf371e0806353acef56a0b8ca2ebfd7724ae4",
+      "analysis_manifest_sha256": "30d0365b3500c7bcad71d956eef429862304eebbca5847ee7fabe1125deb7c24",
+      "configuration": {
+        "run_id": "astra-01",
+        "provider": "codex-astra",
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1457.1686544418335,
+      "design_wall_s": 1569.5312232971191,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538200,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-low-voltage-sky130-sonnet-5-5-r1",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Sonnet 5.5",
+      "run": 1,
+      "attempt_id": "ldo-low-voltage-sky130-sonnet-r1-20261003-model-time-full9",
+      "slot": "sonnet-01",
+      "filename": "ldo-low-voltage-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "314c95382764222ce5920f3265af393d8546dd4617994d4a0c7dec9f78790c5f",
+      "bytes": 3321168,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "f8b9ecc533511f5aef298ab0bb796c27b86dbdaf3457e8df302f72eff4378c35",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "ba766181fd45e411d96ee8d2dd42a8cc6a58b674bf6f7ae3012d7194a6762cdd",
+      "capture_manifest_sha256": "7c0964ef01f727053b4d73187bcf8225d207879dd7ff77bb6fcda2d8c7948b20",
+      "analysis_manifest_sha256": "80798a663e9aa0b12333e8156fd6ce2d88c5637c2e0c71de02cb2df918d0b1f4",
+      "configuration": {
+        "run_id": "sonnet-01",
+        "provider": "claude-sonnet",
+        "model": "claude-sonnet-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 4024.272043943405,
+      "design_wall_s": 8681.137325525284,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540010,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-low-voltage-sky130-sol-6-1-r1",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "attempt_id": "ldo-low-voltage-sky130-sol61-r1-20261003-model-time-full9",
+      "slot": "sol61-01",
+      "filename": "ldo-low-voltage-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "790f0a0056561985fa0bbfe0bf5c15792b1469329e45a3a5e2d557423538d31b",
+      "bytes": 977912,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "b9521258102ba6b3e13d55f49c71af66ad8520c7ff264c200cdbf225858e1bac",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "e4a8de7bdebb6b3094b1e729ceb474a19c4009c4cf3077210b9329ac561bb6b5",
+      "capture_manifest_sha256": "86f179c4c6490c0db3075783a90bf8c44d38b3b28d4fc4aa75d9b84b0a61317d",
+      "analysis_manifest_sha256": "d184cb43c745ddc36aaac6fbe110bc58365b61a47b10a7ce557d97cf52e7aa3e",
+      "configuration": {
+        "run_id": "sol61-01",
+        "provider": "codex-sol61",
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 3302.7924857139587,
+      "design_wall_s": 3532.4851262569427,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540106,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-low-voltage-sky130-luna-6-r1",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Luna 6",
+      "run": 1,
+      "attempt_id": "ldo-low-voltage-sky130-luna-r1-20261004-model-time-recovery2",
+      "slot": "luna-01",
+      "filename": "ldo-low-voltage-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "97395a5dacaa93eaecf64d7b5a4ab79ab04873c95dd2fbd2c801a942e3c240f9",
+      "bytes": 1990284,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "b3daf7cf370afeb0fc349ce34b96d1c793e7dfd07f40b5f9ecafedc94ced47a7",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "98e5ca7badcdbf38373c5bced39a0238889c562507a77f780d009b0c2fa4faf0",
+      "capture_manifest_sha256": "cb27b013e98a346720c5f01bb67a50e1d9bfb224e45ec501bc95a466ab4b787e",
+      "analysis_manifest_sha256": "c65b92304eafd483244aeb84610eb40720f5ffae9b4403daf13eb4569fc7a99e",
+      "configuration": {
+        "run_id": "luna-01",
+        "provider": "codex-luna",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 4493.480063676834,
+      "design_wall_s": 5106.431902885437,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 211,
+            "MISS": 149
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 44,
+            "MISS": 16
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540939,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-low-voltage-sky130-sol-6-r1",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Sol 6",
+      "run": 1,
+      "attempt_id": "ldo-low-voltage-sky130-sol-r1-20261004-model-time-capacity-retry1",
+      "slot": "sol-01",
+      "filename": "ldo-low-voltage-sky130-sol-r1-20261004-model-time-capacity-retry1.tar.xz",
+      "sha256": "093794f3b2e6159527fb5dab372549ebab827fc9eeb29cfb5e4dc2b104b5e4bb",
+      "bytes": 3642400,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-sol-r1-20261004-model-time-capacity-retry1.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "5fd28dd5fd2c00feed148bf1476c526f7fd6a9c0362180e95f970fec1e82bcc2",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "56559360c9ef8dd40de05f835986cc4ac175609a333b992dade507b1a01610cd",
+      "capture_manifest_sha256": "fe772277ac3db86c368aaad532ed02383c355c6c6b4e913db97580d05e8db553",
+      "analysis_manifest_sha256": "e9a773ef8a4d4ba1f2d694706b6f6835bda78124afb423212df5f6c81f0e2f8a",
+      "configuration": {
+        "run_id": "sol-01",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 2543.444214105606,
+      "design_wall_s": 5056.1455891132355,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541510,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-quiet-sky130-opus-5-5-r1",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Opus 5.5",
+      "run": 1,
+      "attempt_id": "ldo-quiet-sky130-opus-r1-20261003-model-time",
+      "slot": "opus-01",
+      "filename": "ldo-quiet-sky130-opus-r1-20261003-model-time.tar.xz",
+      "sha256": "38ec420dc6930dcc3ff3f200e00978c117c460d637e687706f21824eca9376f4",
+      "bytes": 2399452,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-opus-r1-20261003-model-time.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "e9f1413ff0fbf0e0e0ea50ad0f3448469d1eb2bdbf2c96d20e3f024b34d7c897",
+      "source_sha": "7fdb8dc5388b60150f8043c0295a756911cf5441",
+      "configuration_sha256": "9463e6a668eb083b008b23250457a504e891479bb8598f0a6d08a52ef16c29a0",
+      "capture_manifest_sha256": "25887073a5615caf8cdbdd36e4300e0526588bd512268052e57b9d306f671df8",
+      "analysis_manifest_sha256": "1c864fd2661987216c4221cc52b26c9cd5d43233edebd27fd38e671bf14f4545",
+      "configuration": {
+        "run_id": "opus-01",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 2421.197203874588,
+      "design_wall_s": 5300.997146368027,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538262,
+      "release_id": 402943854
+    },
+    {
+      "id": "ldo-quiet-sky130-astra-r1",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Astra",
+      "run": 1,
+      "attempt_id": "ldo-quiet-sky130-astra-r1-20261003-model-time-recovery3",
+      "slot": "astra-01",
+      "filename": "ldo-quiet-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
+      "sha256": "47dffb8d1451b7b13c3a8158bf0b8db4825566ae846ba4a5c36eee833f67c92f",
+      "bytes": 1154856,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "f1c8ef45747dcfa72159ee8e7db59a2b5a246e10d2b4dbc73bc2943c98eddc9f",
+      "source_sha": "5f5b906c16c5b1d0fb3208df4861ee8b395b869d",
+      "configuration_sha256": "354f9055c7e9d2a8a54f03930ac1b351c0a36311f1c94aed9f4bcf67818e0d3e",
+      "capture_manifest_sha256": "0fbe6070e8cd8326a79169ef741130a43fa60a10e8228e08a3bcd42476f65a75",
+      "analysis_manifest_sha256": "a48985cbf3c4832cfea6d0b15ae068d82d5bf8669516a9d7a80b02f820324d44",
+      "configuration": {
+        "run_id": "astra-01",
+        "provider": "codex-astra",
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 3261.9254047870636,
+      "design_wall_s": 3485.1033046245575,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538340,
+      "release_id": 402943854
+    },
+    {
+      "id": "ldo-quiet-sky130-sonnet-5-5-r1",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Sonnet 5.5",
+      "run": 1,
+      "attempt_id": "ldo-quiet-sky130-sonnet-r1-20261003-model-time-full9",
+      "slot": "sonnet-01",
+      "filename": "ldo-quiet-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "1de18ccbaa4c0811ad32c3fc33f4c80492708010acd5e58681925141fcf898fc",
+      "bytes": 2287584,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "b7aeefcd267afc6e94ab60777284053c43c3f2450deaec475a6eb72b1f2f448d",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "1285b58e510d99e706975e4ffa7be7a0e38468353aaced6b33df7d1542b91925",
+      "capture_manifest_sha256": "bdd2f4afc9678ec3552ac870bd7066b0bf6f5006b8cc3b8fadbfa39012c393dc",
+      "analysis_manifest_sha256": "f99725507c847cca8aaeae78d4fd7503e713d14e991af29c2539df902ffe5bf6",
+      "configuration": {
+        "run_id": "sonnet-01",
+        "provider": "claude-sonnet",
+        "model": "claude-sonnet-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1529.4179508686066,
+      "design_wall_s": 4888.363245487213,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540189,
+      "release_id": 402943854
+    },
+    {
+      "id": "ldo-quiet-sky130-sol-6-1-r1",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "attempt_id": "ldo-quiet-sky130-sol61-r1-20261003-model-time-full9",
+      "slot": "sol61-01",
+      "filename": "ldo-quiet-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "1cd3585ee89db5bf71e69371a23050036aaa9b71469bad253591e1e2df2d090c",
+      "bytes": 1960312,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "223751ad54f4bffabf1c8d96b35e4a724f93ef0ecceb1da5fdda992791322779",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "9032944f59202042fa6fcb9fb15ce0cbc624c23b209bba0089eec7f06350a756",
+      "capture_manifest_sha256": "1e35f3b40cfddcc9cafb96801ed09789390a9a184272e7f8d379a6728948bba4",
+      "analysis_manifest_sha256": "937f57c0a0611957c1c20eaaa1aed384f132bd6475afb253ecb9e222fef13208",
+      "configuration": {
+        "run_id": "sol61-01",
+        "provider": "codex-sol61",
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 5468.34091424942,
+      "design_wall_s": 5959.50869512558,
+      "submission_model_late": true,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540234,
+      "release_id": 402943854
+    },
+    {
+      "id": "ldo-quiet-sky130-luna-6-r1",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Luna 6",
+      "run": 1,
+      "attempt_id": "ldo-quiet-sky130-luna-r1-20261004-model-time-recovery2",
+      "slot": "luna-01",
+      "filename": "ldo-quiet-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "6924b6b03ead4b478b65e98d54b6d63b8df9bf976c47475d16856e620e1285dc",
+      "bytes": 3684052,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "3592ccea5cd2c629521b1c091c019666e6cf502331249d0b49276a10950ef931",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "174d0faca43e30ad83836025016072e12b5b00bcfb575747a69d550154a9f261",
+      "capture_manifest_sha256": "67688629749635d67011818024a685c2f9da6969921a95f585e520fda7be0d91",
+      "analysis_manifest_sha256": "3da899105ec0fbdb127d602fbc5af0c20bf784396b4bc241eb2d1c264a858c87",
+      "configuration": {
+        "run_id": "luna-01",
+        "provider": "codex-luna",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 4391.155583381653,
+      "design_wall_s": 5472.582966804504,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 577,
+            "MISS": 35
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 97,
+            "MISS": 5
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541014,
+      "release_id": 402943854
+    },
+    {
+      "id": "ldo-quiet-sky130-sol-6-r1",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Sol 6",
+      "run": 1,
+      "attempt_id": "ldo-quiet-sky130-sol-r1-20261004-model-time-capacity-retry1",
+      "slot": "sol-01",
+      "filename": "ldo-quiet-sky130-sol-r1-20261004-model-time-capacity-retry1.tar.xz",
+      "sha256": "4b5b1207ecc339b21fbd9d9bdbf81389c2d50ac88ceca59d751284d3cb12ed52",
+      "bytes": 8095516,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-sol-r1-20261004-model-time-capacity-retry1.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "8fefe81824b5d731f09f60c94438316d7487f8e9c2420bee34e605464de301f3",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "7d70bd92c53b8ba63d64749226e59e8d8a159866e300d7ae7b745844594e2e96",
+      "capture_manifest_sha256": "18cf5e7ca156fbf4061a6513ce27b69104018100b2db38518aa5ee08c083e111",
+      "analysis_manifest_sha256": "326ef986785908251bdc4a2555aea1cd6a5bc1265606a918b3b330fbd26d9925",
+      "configuration": {
+        "run_id": "sol-01",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 4410.7853307724,
+      "design_wall_s": 10084.580736160278,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541564,
+      "release_id": 402943854
+    },
+    {
+      "id": "ota-drive-sky130-opus-5-5-r1",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "Opus 5.5",
+      "run": 1,
+      "attempt_id": "ota-drive-sky130-opus-r1-20261003-model-time-full9",
+      "slot": "opus-01",
+      "filename": "ota-drive-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "5edc94155feff9d1cbba94305b5b9af28561308246cd2af5e528422cb1d745b6",
+      "bytes": 1754952,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "c55aeef508cbc90d11b2f4790f5cea4804af11b51a6e3f4610d2611f2eb8a133",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "fdac46fcbd5eef539879991204c6f599c060acbc439d5fff53920e8d877e5f79",
+      "capture_manifest_sha256": "98966ad1400b0f09e35337f3f81e7a72bd151d2075dc5c1c73b46319f352a0da",
+      "analysis_manifest_sha256": "9893f030d0fb2be680b3579b60a281425c505d55e7ca9dca7affaec857306f70",
+      "configuration": {
+        "run_id": "opus-01",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 910.4563021659851,
+      "design_wall_s": 5511.155088424683,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539266,
+      "release_id": 402943863
+    },
+    {
+      "id": "ota-drive-sky130-astra-r1",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "Astra",
+      "run": 1,
+      "attempt_id": "ota-drive-sky130-astra-r1-20261003-model-time-full9",
+      "slot": "astra-01",
+      "filename": "ota-drive-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "c24c47556b67e2563cbca981238ad3b1728f85333f31464881eea15639f0bde0",
+      "bytes": 1004596,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "cfa3ef6265d97f2805a33b95800d9c9b0fb96c656a990d9976b4be3719e63021",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "4163ffbb46a6ef0b41bc009d104ccd322f24615f48e68b8e83ae501ccfd1631b",
+      "capture_manifest_sha256": "6917f1cdb19c14a71e85f87c1ad7ab8503795d6baf22bcec9799eecfdb0f6cfd",
+      "analysis_manifest_sha256": "b584d7b49c8d814159cab0cb633e338878d19584fd2365db87935fb207371cde",
+      "configuration": {
+        "run_id": "astra-01",
+        "provider": "codex-astra",
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1652.6549384593964,
+      "design_wall_s": 2253.7676928043365,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539330,
+      "release_id": 402943863
+    },
+    {
+      "id": "ota-drive-sky130-sonnet-5-5-r1",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "Sonnet 5.5",
+      "run": 1,
+      "attempt_id": "ota-drive-sky130-sonnet-r1-20261003-model-time-full9",
+      "slot": "sonnet-01",
+      "filename": "ota-drive-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "d602f58610211637cc19f967100b10e558060bec93ae2e7cb90e8f208498d87d",
+      "bytes": 3205592,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "f443024e029da5306104c122046b702a953ff461c193dbede6de278df57c51a0",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "797a9cd1d4e5a760fbff4df5ee7bc2f9cdcd54b5f45e3fc59906cc299968cdcc",
+      "capture_manifest_sha256": "fcde6e58786fc557f1845d47a5314e6e5d1e725f92652e8e9f104785bc46222f",
+      "analysis_manifest_sha256": "5b80022ca5ce44e0d24c9a95110a6c3b7fe7342aac6589c851dba19682a94658",
+      "configuration": {
+        "run_id": "sonnet-01",
+        "provider": "claude-sonnet",
+        "model": "claude-sonnet-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 2924.9883892536163,
+      "design_wall_s": 10450.358915090561,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539388,
+      "release_id": 402943863
+    },
+    {
+      "id": "ota-drive-sky130-sol-6-1-r1",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "attempt_id": "ota-drive-sky130-sol61-r1-20261003-model-time-full9",
+      "slot": "sol61-01",
+      "filename": "ota-drive-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "011ae2391990238d3f10a23772dbd20178eda4d79ff3b12a22541a3ad55706ca",
+      "bytes": 554400,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "c8b026c7720ea729e6cfcc6e8620eabb47a5c087decb5a87aa451778acae2343",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "c2fed2c26038ecd1d8370994270e887021505ec4b526de4a671bcc876c8bbed8",
+      "capture_manifest_sha256": "6560bd32caa1c809f827e8a6386490a4818b540fca91f4825f09586290f0dd4f",
+      "analysis_manifest_sha256": "d8481d3d09eb3b4aba9020c4c6e4770d9a4c1ac4ec66d177a2951cd4569c7c71",
+      "configuration": {
+        "run_id": "sol61-01",
+        "provider": "codex-sol61",
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 829.1354036331177,
+      "design_wall_s": 1028.0353257656097,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539453,
+      "release_id": 402943863
+    },
+    {
+      "id": "ota-drive-sky130-luna-6-r1",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "Luna 6",
+      "run": 1,
+      "attempt_id": "ota-drive-sky130-luna-r1-20261004-model-time-recovery1",
+      "slot": "luna-01",
+      "filename": "ota-drive-sky130-luna-r1-20261004-model-time-recovery1.tar.xz",
+      "sha256": "82f7f85483ac2d538303fc6587cd3897cdd486a7f851723831a7c188a045aaf3",
+      "bytes": 802348,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-luna-r1-20261004-model-time-recovery1.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "a33f60db84f2eed1c8fe09bf0facbcafdfd298952018e33689c35da91cfd3fa3",
+      "source_sha": "fc5856258b8e4d791accc4c1db5d846f2642d035",
+      "configuration_sha256": "634c9bc4a6d20d5260f6832037ac22c9592a4e0e6b6bdd82f0b918989e4a485e",
+      "capture_manifest_sha256": "612eca2efce594a2efa988feb803568b4b76c547b8c56269a814da0e3e2169c9",
+      "analysis_manifest_sha256": "409277ad30af42f171a72187a686ea552cfa2b971329b494ce5c7b399d12a218",
+      "configuration": {
+        "run_id": "luna-01",
+        "provider": "codex-luna",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1590.1176347732544,
+      "design_wall_s": 2792.1815066337585,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540752,
+      "release_id": 402943863
+    },
+    {
+      "id": "ota-drive-sky130-sol-6-r1",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "Sol 6",
+      "run": 1,
+      "attempt_id": "ota-drive-sky130-sol-r1-20261004-model-time-recovery2",
+      "slot": "sol-01",
+      "filename": "ota-drive-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "c47eb674c8fa0086b61371bd210788ad40403502520297de3a096692dacb0edf",
+      "bytes": 1557816,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "dc0d564dc42514e4d5c2f3302f3bc5751b64ead4f22cf182617ea972e7dc5be3",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "6c807396c409cafd6d5ede3aea53b5fc71a48c921ef96c45378aeab1a81c3996",
+      "capture_manifest_sha256": "69a6df493f0fdaf7a0bc76ec157797ee9a736fcd228e9c3c0e9f0b14732603dd",
+      "analysis_manifest_sha256": "1d8b4361c3523ef675fe344f46a42c54b90eb1f9b573a130612eb9cdc784d04e",
+      "configuration": {
+        "run_id": "sol-01",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1461.4390890598297,
+      "design_wall_s": 2751.720178127289,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541310,
+      "release_id": 402943863
+    },
+    {
+      "id": "ota-fixed-sky130-opus-5-5-r1",
+      "task": "OTA-FIXED-SKY130",
+      "model": "Opus 5.5",
+      "run": 1,
+      "attempt_id": "ota-fixed-sky130-opus-r1-20261003-model-time-full9",
+      "slot": "opus-01",
+      "filename": "ota-fixed-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "7177d7bf3cf67ca38e6d6ca340278b2b1cebd200ea516a8129e4da935f29cb07",
+      "bytes": 2775880,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "8ba152d1454f90be7cd4017554261c13001431bfb7a65a9e9d60b280628558ff",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "e896d97a5d6a452ec6e3f6e8aac45b27e02feff25253f09e0891db7465410fc2",
+      "capture_manifest_sha256": "5741d8f6de0cc718a87b1242bf7d5ad4bb312620aeebc539886bd5c0986015bc",
+      "analysis_manifest_sha256": "f285b9802f3f8c63fa63286870dea0dd1c665717fd2d58ae2c3eb23f24e9c570",
+      "configuration": {
+        "run_id": "opus-01",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 709.745495557785,
+      "design_wall_s": 3387.9066214561462,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        },
+        "robustness": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538804,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-fixed-sky130-astra-r1",
+      "task": "OTA-FIXED-SKY130",
+      "model": "Astra",
+      "run": 1,
+      "attempt_id": "ota-fixed-sky130-astra-r1-20261003-model-time-full9",
+      "slot": "astra-01",
+      "filename": "ota-fixed-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "4920f8008112303eea33808468608716e3f574c77fd4a199558d1b1dccedba43",
+      "bytes": 832188,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "e385851f95d12060cdd58a4e8bfe6dac91f04d3bb2f94675bce4b8ade71a8b1d",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "ea1caabe8346a156820fc9a209f24c6184435b2f98f2b5a2a5fb0533ab62e50b",
+      "capture_manifest_sha256": "09b8fe5ff7008d0a217373d2b386b7b6975d7097e129a8742b996993f6a6648b",
+      "analysis_manifest_sha256": "47ec85b7f35c7ef18ea3aa7ad341bb9cff44a2f0951b2a3181de9d539c7c2851",
+      "configuration": {
+        "run_id": "astra-01",
+        "provider": "codex-astra",
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 429.94512486457825,
+      "design_wall_s": 621.3582396507263,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        },
+        "robustness": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538862,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-fixed-sky130-sonnet-5-5-r1",
+      "task": "OTA-FIXED-SKY130",
+      "model": "Sonnet 5.5",
+      "run": 1,
+      "attempt_id": "ota-fixed-sky130-sonnet-r1-20261003-model-time-full9",
+      "slot": "sonnet-01",
+      "filename": "ota-fixed-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "d9ec28754cf079111912651ad8fbd242ac13d60ac66d3e5b94e8670f60313de0",
+      "bytes": 3030652,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "81aead6cf11699dfd1c4a8965a9f4f2b547a75fff7c7253c1420e9acabc3c2ec",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "73aff4ba794a20da171bac012228d1c8ed192c5b888c208c82f554bd6a12686e",
+      "capture_manifest_sha256": "844381a0c9aa5a9befa9974fde8383643bf82b3f74679823e298290ba043dace",
+      "analysis_manifest_sha256": "815f98419ce9591150427f7cd04a8a8f78ca1d2e4d658d01d1d9287c70c1ff27",
+      "configuration": {
+        "run_id": "sonnet-01",
+        "provider": "claude-sonnet",
+        "model": "claude-sonnet-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1632.5428204536438,
+      "design_wall_s": 4286.449536323547,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        },
+        "robustness": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538923,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-fixed-sky130-sol-6-1-r1",
+      "task": "OTA-FIXED-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "attempt_id": "ota-fixed-sky130-sol61-r1-20261003-model-time-full9",
+      "slot": "sol61-01",
+      "filename": "ota-fixed-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "69a8cd258b06fc5e73ddbf8eb102a8fb9e4748c8fdca5dc226d6aeb53ff99d0f",
+      "bytes": 904396,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "2ea0f17834b7718596d346fca0cf7d1476ef85224fdad99bf96065101e31cc6a",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "dc57394449e477e5ff5d04f2477df06e8c9d839125f5e783e9dfe3995f5604a1",
+      "capture_manifest_sha256": "809598ab4101dfbf85f1061d2e64e673be6867d2ee4c60678dfafab3f6b65364",
+      "analysis_manifest_sha256": "6d8a0bd7d045e6353baeff866700a6a0086b55431988a61ba453918160677ed9",
+      "configuration": {
+        "run_id": "sol61-01",
+        "provider": "codex-sol61",
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1151.6674020290375,
+      "design_wall_s": 1259.8736927509308,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        },
+        "robustness": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538980,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-fixed-sky130-luna-6-r1",
+      "task": "OTA-FIXED-SKY130",
+      "model": "Luna 6",
+      "run": 1,
+      "attempt_id": "ota-fixed-sky130-luna-r1-20261004-model-time-full9",
+      "slot": "luna-01",
+      "filename": "ota-fixed-sky130-luna-r1-20261004-model-time-full9.tar.xz",
+      "sha256": "aa7b6625f694cb698d1ce5df724b63f613eee0bd840a9159b6b026f214db4107",
+      "bytes": 1251936,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-luna-r1-20261004-model-time-full9.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "c438cf3b2e2158ca1df92bad16b36e5ed1d08ea8fd4d902c362b2ee9c3443425",
+      "source_sha": "f04b97ec64f329755eda0b4277e51c6eca5d7362",
+      "configuration_sha256": "94fc502226facb1a270842cb69f123bda432e7f68979921f5009977cb3600184",
+      "capture_manifest_sha256": "8fca71b2926fa4198d14284a75597ba82af1bb3c349a4d49b9a79bee3df90a21",
+      "analysis_manifest_sha256": "88611369f95e0d6cddc030a0550acf161873fb96cb02390d49e31359d47c772d",
+      "configuration": {
+        "run_id": "luna-01",
+        "provider": "codex-luna",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 3041.6293020248413,
+      "design_wall_s": 3542.2855899333954,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        },
+        "robustness": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540582,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-fixed-sky130-sol-6-r1",
+      "task": "OTA-FIXED-SKY130",
+      "model": "Sol 6",
+      "run": 1,
+      "attempt_id": "ota-fixed-sky130-sol-r1-20261004-model-time-recovery2",
+      "slot": "sol-01",
+      "filename": "ota-fixed-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "52828a78669db6dcde0101e5b51e3c120161f15500cf4268e807276d931f9b77",
+      "bytes": 1617308,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "858d862713dec6b4120fcf73078a85ef0405076a1da2f88d13086a731e05d21b",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "0796cc87c5dfbdc2b715a33e7b8c144fd0773d72ff8b1837d546dae3c167fcd7",
+      "capture_manifest_sha256": "532610f2ac794301928e036ee5e7b4c4b33d9b8487c1ae90868818fdb2578d10",
+      "analysis_manifest_sha256": "2dbf57e28ce32d310fae12743477b76acf91803b2469b68fa1c1c78f379b5dd0",
+      "configuration": {
+        "run_id": "sol-01",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 916.8560101985931,
+      "design_wall_s": 1707.1653139591217,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        },
+        "robustness": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541177,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-free-sky130-opus-5-5-r1",
+      "task": "OTA-FREE-SKY130",
+      "model": "Opus 5.5",
+      "run": 1,
+      "attempt_id": "ota-free-sky130-opus-r1-20261003-model-time-full9",
+      "slot": "opus-01",
+      "filename": "ota-free-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "43fb5e178f29136e102ed88ffd3055802b181b59dc63c4a9c2e3d7eb04fe016c",
+      "bytes": 1005612,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "bdb7cc9ab1be3f2cf9c64b3546ec4511468e3fd0fd68ee3a72e39d020688cbb0",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "7a366b5e94a3bcaa6d2e5192f33da669b6da3ec716ced6e413bd6433fad15f8b",
+      "capture_manifest_sha256": "ebbb542e61a93088c232f6298f18619fac25058df0734beacaa4e6e8bf293d3e",
+      "analysis_manifest_sha256": "975e0d7570eb8cdf9eff1458af01443499d50dc7d5a3eeb88c6a315e577097d0",
+      "configuration": {
+        "run_id": "opus-01",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 530.5093410015106,
+      "design_wall_s": 1716.522268295288,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539052,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-free-sky130-astra-r1",
+      "task": "OTA-FREE-SKY130",
+      "model": "Astra",
+      "run": 1,
+      "attempt_id": "ota-free-sky130-astra-r1-20261003-model-time-full9",
+      "slot": "astra-01",
+      "filename": "ota-free-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "146cf7e3882c15e93559f42324006e80153948926effbce1837136fdfebb3e46",
+      "bytes": 543008,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "6dfdc419ac7017dbe77fbe5c76a572b46a44bfc8b123a5be86ac875d6c87735e",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "fc6fdf2deaa9bb22529131f6a50f70654e345ea719019fb7cb194d97f9a3b9a1",
+      "capture_manifest_sha256": "46fee93871415e58aa493b9fadc2b6d592e9eb4d5f306d3ac08e94156677ce83",
+      "analysis_manifest_sha256": "183b9755260940bb70010a49de92497186694de709a31fb83aa48022bbb2a313",
+      "configuration": {
+        "run_id": "astra-01",
+        "provider": "codex-astra",
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 550.5066974163055,
+      "design_wall_s": 688.6475749015808,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539093,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-free-sky130-sonnet-5-5-r1",
+      "task": "OTA-FREE-SKY130",
+      "model": "Sonnet 5.5",
+      "run": 1,
+      "attempt_id": "ota-free-sky130-sonnet-r1-20261003-model-time-full9",
+      "slot": "sonnet-01",
+      "filename": "ota-free-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "0533c10fbcf3bc2f1572105b6faf7096cdb08e3bc1c706b0eca2189ec3bbb65c",
+      "bytes": 1783408,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "89e52c3374fa31f8658f5d72b507ccbe19a2f9e0b4033008ab1dcb34c28cde5e",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "49943996c01dc8090f6bad9655bd50a3667a3198e13df6838db9c41c6f77d990",
+      "capture_manifest_sha256": "3c80b8fda3d1b421165f47e8880cd5c00be0fc969d8b62f548a9971181e7b276",
+      "analysis_manifest_sha256": "71aa77e383ddeb42fe5219157aa55f0b5f114d2c988a37a6a42ff5d60de4f2cf",
+      "configuration": {
+        "run_id": "sonnet-01",
+        "provider": "claude-sonnet",
+        "model": "claude-sonnet-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1721.3661968708038,
+      "design_wall_s": 3702.910757780075,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539122,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-free-sky130-sol-6-1-r1",
+      "task": "OTA-FREE-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "attempt_id": "ota-free-sky130-sol61-r1-20261003-model-time-full9",
+      "slot": "sol61-01",
+      "filename": "ota-free-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "0e4ee07ce698b076a976b785061d805322fb1c9ad0adfe4ed00bbf6f646ff1ca",
+      "bytes": 531952,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "2426f56ccbe5526925b2a002b7d9a602e8b28627e8a03391db6fd12717e129f9",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "b92bb73e01bfc40667857f1dfb6d7fd7b2b496afdb959505ad28643a353b202b",
+      "capture_manifest_sha256": "8e41e4aae9be6223bb1861e4703587d2082f56ac6a6280e44f189a95b22cdd4c",
+      "analysis_manifest_sha256": "35af1fca906bcd5722f568dbea1b85cadd4754179885a91e4a0f90287021550e",
+      "configuration": {
+        "run_id": "sol61-01",
+        "provider": "codex-sol61",
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 879.7907214164734,
+      "design_wall_s": 1208.148342847824,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539215,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-free-sky130-luna-6-r1",
+      "task": "OTA-FREE-SKY130",
+      "model": "Luna 6",
+      "run": 1,
+      "attempt_id": "ota-free-sky130-luna-r1-20261004-model-time-recovery1",
+      "slot": "luna-01",
+      "filename": "ota-free-sky130-luna-r1-20261004-model-time-recovery1.tar.xz",
+      "sha256": "0d44c3eb04d134c41d7266bf2bcb722a978a9abbc90d2fd14158a64cbb1f9873",
+      "bytes": 734096,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-luna-r1-20261004-model-time-recovery1.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "7c63edb9a453b247e35f4b3c059f1b7c2f4b5bb951e8563449653877ababf8a8",
+      "source_sha": "fc5856258b8e4d791accc4c1db5d846f2642d035",
+      "configuration_sha256": "3abd644ad692485e5980a8b729a8979faa38c87f48fa5538b49dcd1c4ceb934b",
+      "capture_manifest_sha256": "29f07195c3d0d0fee0a8439cdf41900f1851fed8f42fb3789bacf56e03f890a3",
+      "analysis_manifest_sha256": "78c86518c47a292380e172617a63cf9f5fcafd09fd094ab8ce755dbcc8878203",
+      "configuration": {
+        "run_id": "luna-01",
+        "provider": "codex-luna",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1834.1109428405762,
+      "design_wall_s": 2256.1389286518097,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540638,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-free-sky130-sol-6-r1",
+      "task": "OTA-FREE-SKY130",
+      "model": "Sol 6",
+      "run": 1,
+      "attempt_id": "ota-free-sky130-sol-r1-20261004-model-time-recovery2",
+      "slot": "sol-01",
+      "filename": "ota-free-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "da932969ca02ef56771abf0de582a86fa3eff9d82a92d5ecd786cb0752c3d74b",
+      "bytes": 2626308,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "6004ff019f1813aad8545150adda3f1efffbbe27ca3b3477aed4677c84b9332c",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "59dd3442a194bf58f7f8361294d3e90632b81182e0daa2d4ac7cbb0fb9247e76",
+      "capture_manifest_sha256": "9b919654738e82aa12fe0d8b82b63cb9856e770e3a5b2afe145f131fdea72d71",
+      "analysis_manifest_sha256": "3e659b5e588229e7a752973679f06715f361b608865ee9aa308130df52e1c0ec",
+      "configuration": {
+        "run_id": "sol-01",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 2421.102524995804,
+      "design_wall_s": 4434.275320768356,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541254,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-precision-sky130-opus-5-5-r1",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Opus 5.5",
+      "run": 1,
+      "attempt_id": "ota-precision-sky130-opus-r1-20261003-model-time-full9",
+      "slot": "opus-01",
+      "filename": "ota-precision-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "79b3ec24aed40feb0ed78e2edf7cbb6120d95ef978ed7bb2d7b954c3962712fc",
+      "bytes": 809504,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-opus-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "b6d960aa2251785dcac895d06358c467c14c34b75fbb4d17560e5917cb599743",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "d918c60c756234b79e0adde34ab29f326a181957e2e42365daa7c5e3cf630a0e",
+      "capture_manifest_sha256": "6a1784902e98bdb1ea47957bfbfbf871f17ad4499c01f7196a4a525f02ede170",
+      "analysis_manifest_sha256": "cf1871562590e66b8b3d311c2589731bea87008f6fd180dc6864e068921cb89a",
+      "configuration": {
+        "run_id": "opus-01",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 846.3812682628632,
+      "design_wall_s": 1574.4603419303894,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539728,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-precision-sky130-astra-r1",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Astra",
+      "run": 1,
+      "attempt_id": "ota-precision-sky130-astra-r1-20261003-model-time-full9",
+      "slot": "astra-01",
+      "filename": "ota-precision-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "75b109df79497898764e7651baa9f19d322f142d80b89fb79ccce538a485027c",
+      "bytes": 501580,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-astra-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "831b395ef53fa1f12c87428669d1f0b829b8d1c84479a5748fbefb1b47af4d05",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "1a035f67f7e45990d9165b565df4e05be1c570173d0963c4306de699f439dbfd",
+      "capture_manifest_sha256": "b79c2dae67effac37c5003306661f57335f9ecf79c5b137fe3c39cb047f3351d",
+      "analysis_manifest_sha256": "54fbef3f74710007472d63437dd832a7a96aa8efe1349cbc241ae8ee1f3c150d",
+      "configuration": {
+        "run_id": "astra-01",
+        "provider": "codex-astra",
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 548.5032935142517,
+      "design_wall_s": 638.8697309494019,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539815,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-precision-sky130-sonnet-5-5-r1",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Sonnet 5.5",
+      "run": 1,
+      "attempt_id": "ota-precision-sky130-sonnet-r1-20261003-model-time-full9",
+      "slot": "sonnet-01",
+      "filename": "ota-precision-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "3a915147b34b62435be107eff98e3fedcfe072bd89b089827f55220afc102ea3",
+      "bytes": 1842988,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "6c594ecb43e137ff88087157f7a6135735bd86d68e3d6013f2f4a1666849b0cd",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "204941e0f0ee0d2bf2c87c4a53d4dea894ead0d39d0754838350661057c11e3c",
+      "capture_manifest_sha256": "f50659309453d188233aeaea5750ff2a6ef441177244238d3204986917b51042",
+      "analysis_manifest_sha256": "542f1e3bf507015019fc9bd1f84fe70602ea7a68eeaa7e93d79003b99ab0009c",
+      "configuration": {
+        "run_id": "sonnet-01",
+        "provider": "claude-sonnet",
+        "model": "claude-sonnet-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1655.442242860794,
+      "design_wall_s": 3100.8143186569214,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539886,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-1-r1",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "attempt_id": "ota-precision-sky130-sol61-r1-20261003-model-time-full9",
+      "slot": "sol61-01",
+      "filename": "ota-precision-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "e57b04c46f8c314cdb15a7f2ab27cc7f2653aa7862bbb6614800b994903e5fea",
+      "bytes": 510684,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "c6dcf81cd77da8175500db9e1d81b82ee6ea18912bd3c19926c7b07d6d7c8b4a",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "60ecbc390dff3ed1044643b1bd6c63d0f488daca8d34a9bd436be76f5074e8eb",
+      "capture_manifest_sha256": "260b5f33377e19454b1dca3df2f3cacab5c71ab2833c2780bddb9958129ad18b",
+      "analysis_manifest_sha256": "feb3abca849ec124b51147d2a9ffa5b5d46f16afe97440c0f04ba57aa4f8c2c0",
+      "configuration": {
+        "run_id": "sol61-01",
+        "provider": "codex-sol61",
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 724.2820508480072,
+      "design_wall_s": 797.8352913856506,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609539944,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-precision-sky130-luna-6-r1",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Luna 6",
+      "run": 1,
+      "attempt_id": "ota-precision-sky130-luna-r1-20261004-model-time-recovery2",
+      "slot": "luna-01",
+      "filename": "ota-precision-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "7103fbfb2f2208070e7a3a7cf25bb8b22516d02cea943211c42a197f8f90671d",
+      "bytes": 5150992,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "ef86f9583cd5230086a550968c90a7d0453ee67dfb0a57d653563031135f0051",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "2ab8a698ebca27a2739058abf250adbd0ec51d046472488329fde69fb4e1e663",
+      "capture_manifest_sha256": "2eefef4af2538daa40f05e9586149d73aa912c502a2b8490ba8e856c929632c2",
+      "analysis_manifest_sha256": "998fd84afe58b16c96d6fcf316ba2d7af85277f0bdbf467a745f79a483371bc5",
+      "configuration": {
+        "run_id": "luna-01",
+        "provider": "codex-luna",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 4656.996888637543,
+      "design_wall_s": 6340.1003131866455,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "MISS",
+          "counts": {
+            "MISS": 24,
+            "PASS": 264
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "MISS",
+          "counts": {
+            "MISS": 18,
+            "PASS": 135
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540885,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-r1",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Sol 6",
+      "run": 1,
+      "attempt_id": "ota-precision-sky130-sol-r1-20261004-model-time-recovery2",
+      "slot": "sol-01",
+      "filename": "ota-precision-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "ab94057260ec228478815cfb75e219d9a874bf1c21b872230289b87055de57fc",
+      "bytes": 1317320,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-sol-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "d5147e7cb11353cf9ef1ad87c874bd1d316cf478f1f3bd71e5cfd7057daa777e",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "1c8f705a6d9eb05cdb25aafdce6e51b93e8506ef6d3cb15b03589037ec72985e",
+      "capture_manifest_sha256": "335323a6d4841daf831bac1fccd5a4bda2669165e56fe8df2136c402a8b5a8c1",
+      "analysis_manifest_sha256": "8c28214224fac6bba8220b3d4601de1f1596eb7dc56d1705dc1ddcea4797c652",
+      "configuration": {
+        "run_id": "sol-01",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1040.533524274826,
+      "design_wall_s": 1536.0214536190033,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541454,
+      "release_id": 402943896
     },
     {
       "id": "ota-wide-sky130-opus-5-5-r1",
       "task": "OTA-WIDE-SKY130",
       "model": "Opus 5.5",
       "run": 1,
+      "attempt_id": "ota-wide-sky130-opus-r1-20261003-model-time",
+      "slot": "opus-01",
       "filename": "ota-wide-sky130-opus-r1-20261003-model-time.tar.xz",
       "sha256": "7ab25f4c74c5f2f15e8e6e3830ca5e16286c51d1eec15cbad6724d96a8d551c8",
-      "url": null
+      "bytes": 1408624,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-opus-r1-20261003-model-time.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "e7dd73e41cb9d1b36a22dd4e18ed683d0cca162582c18ff8d4b24177e643a8d6",
+      "source_sha": "7fdb8dc5388b60150f8043c0295a756911cf5441",
+      "configuration_sha256": "9db092a0489eda349bcb2907dbef5d13d7debbe2a440087d975b4b0c29234fdc",
+      "capture_manifest_sha256": "9e1a4c3fcffd84c638b696c7d593d7c0794c1f36ecd9581b8ca8972ccdde8538",
+      "analysis_manifest_sha256": "64e0de37ad5307ed5fb1314f96185d28b2be5bca17ce6cc6f97991c2cc077028",
+      "configuration": {
+        "run_id": "opus-01",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1233.7996797561646,
+      "design_wall_s": 2562.7921917438507,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 432
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 225
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538489,
+      "release_id": 402943903
     },
     {
-      "id": "ota-wide-sky130-sol-6-1-r1",
+      "id": "ota-wide-sky130-astra-r1",
       "task": "OTA-WIDE-SKY130",
-      "model": "Sol 6.1",
+      "model": "Astra",
       "run": 1,
-      "filename": "ota-wide-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
-      "sha256": "bdb9b4175c3f000a022b3a36db49dad8deab0382e79246aa45527e6c11cd0ce2",
-      "url": null
+      "attempt_id": "ota-wide-sky130-astra-r1-20261003-model-time-recovery3",
+      "slot": "astra-01",
+      "filename": "ota-wide-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
+      "sha256": "d3ed91cfe3150483b2d6d6f0041cd03f31410ffd6603e74a1d46d6974aace94c",
+      "bytes": 1663952,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-astra-r1-20261003-model-time-recovery3.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "13b0f8e340e52539f8cd81d693aebc692f265bb58ed55011145f52f5f06d2299",
+      "source_sha": "5f5b906c16c5b1d0fb3208df4861ee8b395b869d",
+      "configuration_sha256": "8577518530c86e3ef6eefdd01cc9ad59b8278517e1b0163dbfadbc0f2fa7e20f",
+      "capture_manifest_sha256": "d123973b678121d897249d738f4c1fcb6aaa2742e942f58a287c0b80d83a1611",
+      "analysis_manifest_sha256": "2db16925884bdb8872bbdbcb4ebda3c82eadf3532a8da24abd8f1bb8a9017cec",
+      "configuration": {
+        "run_id": "astra-01",
+        "provider": "codex-astra",
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 3706.2460436820984,
+      "design_wall_s": 4180.423122644424,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 432
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 225
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609538596,
+      "release_id": 402943903
     },
     {
       "id": "ota-wide-sky130-sonnet-5-5-r1",
       "task": "OTA-WIDE-SKY130",
       "model": "Sonnet 5.5",
       "run": 1,
+      "attempt_id": "ota-wide-sky130-sonnet-r1-20261003-model-time-full9",
+      "slot": "sonnet-01",
       "filename": "ota-wide-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
       "sha256": "f7861de19278911370db4755622d3d6dc0ec0bb74cb302d625cd68fd9c799bc8",
-      "url": null
+      "bytes": 3152836,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-sonnet-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "01c60b86546a45819f8cb32963c8a32653074540e2392641203e6a9bdc061198",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "8f246aab2283dd377c6e8c7403144450b7eac595037b8ff9ea7ca86a29049fda",
+      "capture_manifest_sha256": "8478141bd10e3c81b05e1fb1154cc095459cec26948f2295a80a5f18f9d67efe",
+      "analysis_manifest_sha256": "66c4c3b18df8534dcb149008c3ac448525718b70750cf523bd028106c39e4e8f",
+      "configuration": {
+        "run_id": "sonnet-01",
+        "provider": "claude-sonnet",
+        "model": "claude-sonnet-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 2783.5400326251984,
+      "design_wall_s": 7594.67169046402,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 432
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 225
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540281,
+      "release_id": 402943903
+    },
+    {
+      "id": "ota-wide-sky130-sol-6-1-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Sol 6.1",
+      "run": 1,
+      "attempt_id": "ota-wide-sky130-sol61-r1-20261003-model-time-full9",
+      "slot": "sol61-01",
+      "filename": "ota-wide-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "sha256": "bdb9b4175c3f000a022b3a36db49dad8deab0382e79246aa45527e6c11cd0ce2",
+      "bytes": 1220888,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-sol61-r1-20261003-model-time-full9.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "c28a016335de8b69d64e232cc8971e9ff41c58c970c92e1eabbe757cc0adb9f2",
+      "source_sha": "0833fde65f15a0eece638a1e84d95856a2b3470a",
+      "configuration_sha256": "be7554acf63bc22d359d46d2fb29218552555eb2badb81c3c9a81a168aa11c8e",
+      "capture_manifest_sha256": "9770317cc2b129fcacb10b14453c26553de029d57fd93e506bbe803845e8af15",
+      "analysis_manifest_sha256": "0cf3a446fc89b4b6c0d371ffb4454f70d7b1f796fefd2e51c011b4ca4d50384b",
+      "configuration": {
+        "run_id": "sol61-01",
+        "provider": "codex-sol61",
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 2808.4716103076935,
+      "design_wall_s": 3540.0979528427124,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 432
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 225
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609540350,
+      "release_id": 402943903
+    },
+    {
+      "id": "ota-wide-sky130-luna-6-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Luna 6",
+      "run": 1,
+      "attempt_id": "ota-wide-sky130-luna-r1-20261004-model-time-recovery2",
+      "slot": "luna-01",
+      "filename": "ota-wide-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "sha256": "888efa6c36f00b99d99f142e737c9d75ef48d0d6734e102a8a307e10800bea4c",
+      "bytes": 2759972,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-luna-r1-20261004-model-time-recovery2.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "390f389edcf0ccc7c0a60a4ded69d88b07361b72b4d4f82b5332e099c2f1a886",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "17b2d2f7f3aaecfb95266ed6e9d2f99ab59186bc52b82d3840270827c5fdafa1",
+      "capture_manifest_sha256": "2dc6d843c9826ca43b5aa947dd1585ef1521db58e67880c0a5f13b77093d75ae",
+      "analysis_manifest_sha256": "8954b2a4b6a1fe0644c1b391a274d034e6232508348e4de5797cce9e57e85cd9",
+      "configuration": {
+        "run_id": "luna-01",
+        "provider": "codex-luna",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "MEASUREMENT_FAILURE",
+      "design_pass": false,
+      "design_model_calls_s": 4230.1803023815155,
+      "design_wall_s": 5131.237076997757,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "MEASUREMENT_FAILURE",
+          "counts": {
+            "MISS": 131,
+            "PASS": 299,
+            "MEASUREMENT_FAILURE": 2
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "MISS",
+          "counts": {
+            "MISS": 64,
+            "PASS": 161
+          },
+          "execution_complete": true
+        }
+      },
+      "failure_category": "dut_no_balanced_operating_point",
+      "diagnosis": "Contract DC balance search failed at published SLH 2pF and 5pF; AC was skipped.",
+      "asset_id": 609541085,
+      "release_id": 402943903
+    },
+    {
+      "id": "ota-wide-sky130-sol-6-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Sol 6",
+      "run": 1,
+      "attempt_id": "ota-wide-sky130-sol-r1-20261004-model-time-capacity-retry1",
+      "slot": "sol-01",
+      "filename": "ota-wide-sky130-sol-r1-20261004-model-time-capacity-retry1.tar.xz",
+      "sha256": "000a6267f04d6dcf9a3c85340223d1fae7e088197fcf623ab399cdfc430db64d",
+      "bytes": 4925324,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-sol-r1-20261004-model-time-capacity-retry1.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "85a1a73eb5c195a41cc53976f1c82c7ebe79bdfcb7fda82b477e13b95f30bcbc",
+      "source_sha": "de23537d699d1ff0d30e8c53702bc3bed514d548",
+      "configuration_sha256": "9e13e8d57d941287c2d70c1c5299b1c35942d92d9c72fbc7f486568c714d88e2",
+      "capture_manifest_sha256": "37b14832e423e8fd19f82ff9065bd73bc4c88b99ad7459a74533e05a679e20fc",
+      "analysis_manifest_sha256": "c221648f08ebc9363576226c9ccb24f34afdd2b42bddead58fd5db67882420b8",
+      "configuration": {
+        "run_id": "sol-01",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 5395.780324935913,
+      "design_wall_s": 8606.708355903625,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 424,
+            "MISS": 8
+          },
+          "execution_complete": true
+        },
+        "hidden": {
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 219,
+            "MISS": 6
+          },
+          "execution_complete": true
+        }
+      },
+      "asset_id": 609541685,
+      "release_id": 402943903
     }
   ]
 }

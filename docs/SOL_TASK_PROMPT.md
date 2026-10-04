@@ -6,7 +6,7 @@ Replace the bracketed inputs, then paste the following prompt. Select GPT-6.1 So
 Add an Analog Trace Bench recorded-design page to the shared static website from the supplied evidence.
 
 Inputs:
-- Repository: [path to the analog-trace-bench-public checkout]
+- Repository: [path to the analog-trace-bench checkout]
 - Evidence archive(s): [path(s), or attached file(s)]
 - Task / model / run(s): [identify these, or infer them from authoritative archive metadata]
 - Output destination: [directory or requested filename]

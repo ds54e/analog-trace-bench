@@ -2,10 +2,360 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "OTA-WIDE-SKY130",
-      "description": "Continuous-time OTA design across supply, temperature, input, and load conditions.",
+      "id": "LDO-ALWAYS-ON-SKY130",
+      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
+        {
+          "id": "ldo-always-on-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-always-on-sky130-astra-r1",
+          "model": "Astra",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-always-on-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-always-on-sky130-sol-6-1-r1",
+          "model": "Sol 6.1",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-always-on-sky130-luna-6-r1",
+          "model": "Luna 6",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-always-on-sky130-sol-6-r1",
+          "model": "Sol 6",
+          "run": 1,
+          "trace": null
+        }
+      ]
+    },
+    {
+      "id": "LDO-CORE-SKY130",
+      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
+      "pdk": "SKY130",
+      "runs": [
+        {
+          "id": "ldo-core-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-core-sky130-astra-r1",
+          "model": "Astra",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-core-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-core-sky130-sol-6-1-r1",
+          "model": "Sol 6.1",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-core-sky130-luna-6-r1",
+          "model": "Luna 6",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-core-sky130-sol-6-r1",
+          "model": "Sol 6",
+          "run": 1,
+          "trace": null
+        }
+      ]
+    },
+    {
+      "id": "LDO-LOW-VOLTAGE-SKY130",
+      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
+      "pdk": "SKY130",
+      "runs": [
+        {
+          "id": "ldo-low-voltage-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-low-voltage-sky130-astra-r1",
+          "model": "Astra",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-low-voltage-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-low-voltage-sky130-sol-6-1-r1",
+          "model": "Sol 6.1",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-low-voltage-sky130-luna-6-r1",
+          "model": "Luna 6",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-low-voltage-sky130-sol-6-r1",
+          "model": "Sol 6",
+          "run": 1,
+          "trace": null
+        }
+      ]
+    },
+    {
+      "id": "LDO-QUIET-SKY130",
+      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
+      "pdk": "SKY130",
+      "runs": [
+        {
+          "id": "ldo-quiet-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-quiet-sky130-astra-r1",
+          "model": "Astra",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-quiet-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-quiet-sky130-sol-6-1-r1",
+          "model": "Sol 6.1",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-quiet-sky130-luna-6-r1",
+          "model": "Luna 6",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ldo-quiet-sky130-sol-6-r1",
+          "model": "Sol 6",
+          "run": 1,
+          "trace": null
+        }
+      ]
+    },
+    {
+      "id": "OTA-DRIVE-SKY130",
+      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
+      "pdk": "SKY130",
+      "runs": [
+        {
+          "id": "ota-drive-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-drive-sky130-astra-r1",
+          "model": "Astra",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-drive-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-drive-sky130-sol-6-1-r1",
+          "model": "Sol 6.1",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-drive-sky130-luna-6-r1",
+          "model": "Luna 6",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-drive-sky130-sol-6-r1",
+          "model": "Sol 6",
+          "run": 1,
+          "trace": null
+        }
+      ]
+    },
+    {
+      "id": "OTA-FIXED-SKY130",
+      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
+      "pdk": "SKY130",
+      "runs": [
+        {
+          "id": "ota-fixed-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-fixed-sky130-astra-r1",
+          "model": "Astra",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-fixed-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-fixed-sky130-sol-6-1-r1",
+          "model": "Sol 6.1",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-fixed-sky130-luna-6-r1",
+          "model": "Luna 6",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-fixed-sky130-sol-6-r1",
+          "model": "Sol 6",
+          "run": 1,
+          "trace": null
+        }
+      ]
+    },
+    {
+      "id": "OTA-FREE-SKY130",
+      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
+      "pdk": "SKY130",
+      "runs": [
+        {
+          "id": "ota-free-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-free-sky130-astra-r1",
+          "model": "Astra",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-free-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-free-sky130-sol-6-1-r1",
+          "model": "Sol 6.1",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-free-sky130-luna-6-r1",
+          "model": "Luna 6",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-free-sky130-sol-6-r1",
+          "model": "Sol 6",
+          "run": 1,
+          "trace": null
+        }
+      ]
+    },
+    {
+      "id": "OTA-PRECISION-SKY130",
+      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
+      "pdk": "SKY130",
+      "runs": [
+        {
+          "id": "ota-precision-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-precision-sky130-astra-r1",
+          "model": "Astra",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-precision-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-precision-sky130-sol-6-1-r1",
+          "model": "Sol 6.1",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-precision-sky130-luna-6-r1",
+          "model": "Luna 6",
+          "run": 1,
+          "trace": null
+        },
+        {
+          "id": "ota-precision-sky130-sol-6-r1",
+          "model": "Sol 6",
+          "run": 1,
+          "trace": null
+        }
+      ]
+    },
+    {
+      "id": "OTA-WIDE-SKY130",
+      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
+      "pdk": "SKY130",
+      "runs": [
+        {
+          "id": "ota-wide-sky130-opus-5-5-r1",
+          "model": "Opus 5.5",
+          "run": 1,
+          "trace": "traces/ota-wide-sky130-opus-5-5-raw.html"
+        },
         {
           "id": "ota-wide-sky130-astra-r1",
           "model": "Astra",
@@ -13,10 +363,10 @@
           "trace": "traces/ota-wide-sky130-astra-raw.html"
         },
         {
-          "id": "ota-wide-sky130-opus-5-5-r1",
-          "model": "Opus 5.5",
+          "id": "ota-wide-sky130-sonnet-5-5-r1",
+          "model": "Sonnet 5.5",
           "run": 1,
-          "trace": "traces/ota-wide-sky130-opus-5-5-raw.html"
+          "trace": "traces/ota-wide-sky130-sonnet-5-5-raw.html"
         },
         {
           "id": "ota-wide-sky130-sol-6-1-r1",
@@ -25,10 +375,16 @@
           "trace": "traces/ota-wide-sky130-sol-6-1-raw.html"
         },
         {
-          "id": "ota-wide-sky130-sonnet-5-5-r1",
-          "model": "Sonnet 5.5",
+          "id": "ota-wide-sky130-luna-6-r1",
+          "model": "Luna 6",
           "run": 1,
-          "trace": "traces/ota-wide-sky130-sonnet-5-5-raw.html"
+          "trace": null
+        },
+        {
+          "id": "ota-wide-sky130-sol-6-r1",
+          "model": "Sol 6",
+          "run": 1,
+          "trace": null
         }
       ]
     }

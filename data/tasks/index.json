@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "tasks": {
+    "LDO-LOW-VOLTAGE-SKY130": [
+      {
+        "path": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+        "definition_sha256": "471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5"
+      }
+    ],
+    "LDO-QUIET-SKY130": [
+      {
+        "path": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+        "definition_sha256": "5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0"
+      }
+    ],
+    "OTA-WIDE-SKY130": [
+      {
+        "path": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+        "definition_sha256": "ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560"
+      }
+    ],
+    "LDO-CORE-SKY130": [
+      {
+        "path": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+        "definition_sha256": "1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf"
+      }
+    ],
+    "OTA-FIXED-SKY130": [
+      {
+        "path": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+        "definition_sha256": "a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217"
+      }
+    ],
+    "OTA-FREE-SKY130": [
+      {
+        "path": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+        "definition_sha256": "0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1"
+      }
+    ],
+    "OTA-DRIVE-SKY130": [
+      {
+        "path": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+        "definition_sha256": "0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4"
+      }
+    ],
+    "LDO-ALWAYS-ON-SKY130": [
+      {
+        "path": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+        "definition_sha256": "f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b"
+      }
+    ],
+    "OTA-PRECISION-SKY130": [
+      {
+        "path": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+        "definition_sha256": "aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222"
+      }
+    ]
+  }
+}

@@ -131,12 +131,33 @@ def check(root=ROOT):
         validate_entry(entry)
         if entry['url']:
             validate_url(entry['url'], manifest['repository'], entry['filename'])
+    checked_definitions = set()
+    for entry in manifest['runs']:
+        if not entry.get('task_definition'):
+            continue
+        folder = (root / entry['task_definition']).resolve()
+        require(folder.is_relative_to((root / 'data/tasks').resolve()), 'Task definition escapes public data')
+        definition = json.loads((folder / 'manifest.json').read_text())
+        require(definition['task_id'] == entry['task'], 'Task definition identity differs')
+        if folder in checked_definitions:
+            continue
+        for name, expected in definition['files'].items():
+            path = folder / name
+            require(not path.is_symlink() and path.resolve().is_relative_to(folder), 'Unsafe task definition file')
+            data = path.read_bytes()
+            require(len(data) == expected['bytes'] and hashlib.sha256(data).hexdigest() == expected['sha256'],
+                    'Captured task definition differs: ' + name)
+        inventory = json.dumps(definition['files'], sort_keys=True, separators=(',', ':')).encode()
+        require(hashlib.sha256(inventory).hexdigest() == definition['definition_sha256'], 'Task inventory differs')
+        checked_definitions.add(folder)
     profiles = json.loads((root / 'data/trace-validation.json').read_text())['traces']
     require(len({profile['id'] for profile in profiles}) == len(profiles), 'Duplicate validation IDs')
     catalog = json.loads((site / 'data/runs.json').read_text())
     runs = {run['id']: run for task in catalog['tasks'] for run in task['runs']}
-    require(set(runs) == {profile['id'] for profile in profiles} == {entry['id'] for entry in manifest['runs']},
-            'Catalog, evidence and validation run IDs differ')
+    require(len(runs) == sum(len(task['runs']) for task in catalog['tasks']), 'Duplicate catalog run IDs')
+    require(set(runs) == {entry['id'] for entry in manifest['runs']}, 'Catalog and evidence run IDs differ')
+    require({run['id'] for run in runs.values() if run.get('trace')} == {profile['id'] for profile in profiles},
+            'Rendered traces and validation run IDs differ')
     for profile in profiles:
         require(profile['page'] == runs[profile['id']]['trace'], 'Catalog and validation paths differ')
         path = (site / profile['page']).resolve()

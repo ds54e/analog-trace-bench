@@ -1,0 +1,92 @@
+{
+  "kind": "operator_only_verification_definition",
+  "specification_id": "LDO-ALWAYS-ON-SKY130-2026-09-29",
+  "participant_visible": false,
+  "public": {
+    "nominal_id": "N",
+    "nominal_temperature_c": 27,
+    "stress_axes": {
+      "process": [
+        "slow",
+        "fast"
+      ],
+      "vin": [
+        "minimum",
+        "maximum"
+      ],
+      "temperature": [
+        "minimum",
+        "maximum"
+      ]
+    },
+    "capacitance_f": [
+      1e-08,
+      1e-07
+    ],
+    "dc_loads": "three_card_levels",
+    "transient_profiles": [
+      "light_heavy",
+      "mid_heavy",
+      "burst"
+    ]
+  },
+  "independent": [
+    {
+      "id": "I1",
+      "process": "nominal",
+      "vin_fraction": 0.25,
+      "temperature_c": 20,
+      "capacitance_f": 3e-08,
+      "load_fractions": [
+        0,
+        0.3,
+        0.8
+      ]
+    },
+    {
+      "id": "I2",
+      "process": "slow",
+      "vin_fraction": 0.5,
+      "temperature_c": 50,
+      "capacitance_f": 5e-08,
+      "load_fractions": [
+        0,
+        0.4,
+        0.9
+      ]
+    },
+    {
+      "id": "I3",
+      "process": "fast",
+      "vin_fraction": 0.75,
+      "temperature_c": 60,
+      "capacitance_f": 7e-08,
+      "load_fractions": [
+        0,
+        0.5,
+        0.85
+      ]
+    }
+  ],
+  "fraction_definition": "xmin + fraction*(xmax-xmin); load minimum is retained so the light-load overhead limit remains exercised.",
+  "characterization": {
+    "process": "nominal",
+    "temperature_c": 27,
+    "capacitance_f": 3e-08,
+    "line_profiles": 1,
+    "psrr_loads": "minimum_and_maximum"
+  },
+  "case_unit": "one ngspice process per deck; DC is one load OP; each transient is one full profile including its initial OP; PSRR includes its OP.",
+  "expected_native_invocations": {
+    "public": 108,
+    "independent": 18,
+    "characterization": 3,
+    "total": 129
+  },
+  "policy": "Execute all required cases after submission freeze; no early stop on electrical MISS. Failed/interrupted invocations count; no free retries. Characterization never changes electrical PASS/MISS. Operational failures remain explicit.",
+  "numerical_policy": {
+    "policy_id": "fixed-grid-v1",
+    "automatic_refinement": false,
+    "precision_checks": "separately_authorized_developer_qualification"
+  }
+}

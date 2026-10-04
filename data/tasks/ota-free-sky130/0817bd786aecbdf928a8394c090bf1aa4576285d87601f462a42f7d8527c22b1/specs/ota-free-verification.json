@@ -1,0 +1,74 @@
+{
+  "kind": "operator_only_verification_definition",
+  "specification_id": "OTA-FREE-2026-09-29",
+  "participant_visible": false,
+  "public": {
+    "pvt_ids": [
+      "N",
+      "SLC",
+      "SLH",
+      "SHC",
+      "SHH",
+      "FLC",
+      "FLH",
+      "FHC",
+      "FHH"
+    ],
+    "load_fractions": [
+      0,
+      1
+    ],
+    "base_analyses": [
+      "dc",
+      "loop",
+      "small_up",
+      "small_down",
+      "large_up",
+      "large_down",
+      "noise"
+    ],
+    "rejection_pvt_ids": [
+      "N",
+      "SLH",
+      "FHC"
+    ],
+    "rejection_analyses": [
+      "psrr",
+      "cmrr"
+    ]
+  },
+  "independent": {
+    "pvt_ids": [
+      "N",
+      "SLH",
+      "FHC"
+    ],
+    "loads_f_by_technology": {
+      "sky130": [
+        3e-12,
+        3.5e-12,
+        4e-12
+      ],
+      "adm45": [
+        1.25e-12,
+        1.5e-12,
+        1.75e-12
+      ]
+    },
+    "additional_analyses": [
+      "psrr"
+    ]
+  },
+  "expected_native_invocations": {
+    "public": 138,
+    "independent": 72,
+    "total": 210
+  },
+  "case_unit": "One process per deck. Loop/PSRR have two AC paths; CMRR has <=35 explicit OP commands plus two AC paths in the same process. Log all internal work.",
+  "policy": "Freeze one DUT and evaluate all required cases on the captured standard grid. Count failed/interrupted launches; no free retries or early stop on electrical MISS.",
+  "numerical_policy": {
+    "policy_id": "fixed-grid-v1",
+    "automatic_refinement": false,
+    "precision_checks": "separately_authorized_developer_qualification"
+  }
+}

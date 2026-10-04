@@ -1,0 +1,85 @@
+{
+  "kind": "operator_only_verification_definition",
+  "specification_id": "LDO-QUIET-SKY130-2026-09-29-R5",
+  "participant_visible": false,
+  "public": {
+    "nominal_id": "N",
+    "nominal_temperature_c": 27,
+    "stress_axes": {
+      "process": [
+        "slow",
+        "fast"
+      ],
+      "vin": [
+        "minimum",
+        "maximum"
+      ],
+      "temperature": [
+        "minimum",
+        "maximum"
+      ]
+    },
+    "capacitance_f": [
+      1e-07,
+      1e-06
+    ],
+    "dc_loads": "three_card_levels",
+    "transient_profiles": [
+      "light_heavy",
+      "mid_heavy",
+      "burst"
+    ]
+  },
+  "independent": [
+    {
+      "id": "I1",
+      "process": "nominal",
+      "vin_fraction": 0.25,
+      "temperature_c": 20,
+      "capacitance_f": 3e-07,
+      "load_fractions": [
+        0,
+        0.3,
+        0.8
+      ]
+    },
+    {
+      "id": "I2",
+      "process": "slow",
+      "vin_fraction": 0.5,
+      "temperature_c": 50,
+      "capacitance_f": 5e-07,
+      "load_fractions": [
+        0,
+        0.4,
+        0.9
+      ]
+    },
+    {
+      "id": "I3",
+      "process": "fast",
+      "vin_fraction": 0.75,
+      "temperature_c": 60,
+      "capacitance_f": 7.000000000000001e-07,
+      "load_fractions": [
+        0,
+        0.5,
+        0.85
+      ]
+    }
+  ],
+  "fraction_definition": "xmin + fraction*(xmax-xmin); load minimum is retained so the light-load overhead limit remains exercised.",
+  "case_unit": "one ngspice process per deck; DC is one load OP; each transient is one full profile including its initial OP; PSRR includes its OP.",
+  "expected_native_invocations": {
+    "public": 198,
+    "independent": 33,
+    "total": 231
+  },
+  "policy": "Execute all 231 scored cases on one frozen DUT. PSRR, output noise and line response are scored at every group. No separate characterization stage. Failures and partial execution remain explicit; no free retries.",
+  "line_coverage": "Each group sweeps the same VIN endpoints at its process, temperature, capacitance and highest load; low/high starting VIN groups repeat line trajectories, not distinct coverage.",
+  "numerical_policy": {
+    "policy_id": "fixed-grid-v1",
+    "automatic_refinement": false,
+    "precision_checks": "separately_authorized_developer_qualification"
+  }
+}

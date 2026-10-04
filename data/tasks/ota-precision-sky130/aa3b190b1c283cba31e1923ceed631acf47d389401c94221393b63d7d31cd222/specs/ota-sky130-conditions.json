@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN",
+  "coverage": "Selected PVT9, not exhaustive PVT coverage",
+  "conditions": [
+    {
+      "id": "N",
+      "process": "tt",
+      "vdd_v": 1.8,
+      "temp_c": 27
+    },
+    {
+      "id": "SLC",
+      "process": "ss",
+      "vdd_v": 1.62,
+      "temp_c": -40
+    },
+    {
+      "id": "SLH",
+      "process": "ss",
+      "vdd_v": 1.62,
+      "temp_c": 125
+    },
+    {
+      "id": "SHC",
+      "process": "ss",
+      "vdd_v": 1.98,
+      "temp_c": -40
+    },
+    {
+      "id": "SHH",
+      "process": "ss",
+      "vdd_v": 1.98,
+      "temp_c": 125
+    },
+    {
+      "id": "FLC",
+      "process": "ff",
+      "vdd_v": 1.62,
+      "temp_c": -40
+    },
+    {
+      "id": "FLH",
+      "process": "ff",
+      "vdd_v": 1.62,
+      "temp_c": 125
+    },
+    {
+      "id": "FHC",
+      "process": "ff",
+      "vdd_v": 1.98,
+      "temp_c": -40
+    },
+    {
+      "id": "FHH",
+      "process": "ff",
+      "vdd_v": 1.98,
+      "temp_c": 125
+    }
+  ]
+}

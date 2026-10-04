@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "task_id": "OTA-FIXED-SKY130",
+  "status": "FROZEN",
+  "model_dependency": "env/sky130.json",
+  "conditions_file": "ota-sky130-conditions.json",
+  "topology": "NMOS differential input, PMOS mirror load, mirrored bias, common-source second stage, Miller compensation",
+  "units": "SI except device W/L in micrometres",
+  "allowed_changes": [
+    "paired and individual W/L in defined topology",
+    "bias mirror ratios",
+    "compensation capacitor",
+    "nulling resistor",
+    "Miller or Miller+Rz"
+  ],
+  "measurement": {
+    "iref_a": 1e-05,
+    "ac_input_bias_v": 0.9,
+    "loop_gain_frequency_hz": 10,
+    "small_step_endpoints_v": [
+      0.8,
+      1.0
+    ],
+    "large_step_endpoints_v": [
+      0.75,
+      1.05
+    ],
+    "dc_input_range_v": [
+      0.75,
+      1.05
+    ],
+    "dc_grid_v": 0.005,
+    "noise_band_hz": [
+      10.0,
+      10000000.0
+    ],
+    "settling_target": "independent DC solution; track DC error separately",
+    "input_edge_s": 1e-09,
+    "post_edge_observation_s": 2e-06,
+    "cmrr": {
+      "frequency_hz": 1000,
+      "vcm_v": 0.9,
+      "differential_input_ac_v": [
+        0.5,
+        -0.5
+      ],
+      "common_input_ac_v": [
+        1,
+        1
+      ],
+      "operating_point": "natural open-loop",
+      "pvt": [
+        "N",
+        "SLH",
+        "FHC"
+      ],
+      "loads_f": [
+        2e-12,
+        5e-12
+      ]
+    },
+    "mismatch": {
+      "name": "closed-loop follower offset/error",
+      "lib_section": "mc",
+      "MC_MM_SWITCH": 1,
+      "vdd_v": 1.8,
+      "temperature_c": 27,
+      "cload_f": 2e-12,
+      "vinp_v": 0.9,
+      "public_diagnostic_seeds": [
+        52001,
+        52002,
+        52003,
+        52004
+      ],
+      "independent_sample_count": 30,
+      "required_passes": 27,
+      "score_name": "deterministic robustness pass fraction",
+      "invalid_sample": "failure",
+      "power": "characterization only",
+      "model_policy": "deterministic native process-switch plus local-mismatch robustness",
+      "MC_PR_SWITCH": 1,
+      "global_process_correlation": "not validated; process random expressions are re-evaluated per reference"
+    },
+    "loads_f": [
+      2e-12,
+      5e-12
+    ],
+    "load_range_f": [
+      2e-12,
+      5e-12
+    ],
+    "ac_frequency_range_hz": [
+      10.0,
+      1000000000.0
+    ],
+    "ac_points": 20,
+    "pre_edge_hold_s": 1e-07,
+    "transient_stop_s": 2.1e-06,
+    "transient_step_s": 2.5e-11,
+    "transient_max_step_s": 2.5e-11,
+    "dc_targets_v": [
+      0.75,
+      0.8,
+      0.9,
+      1.0,
+      1.05
+    ],
+    "noise_points": 50,
+    "case_accounting": "One DC sweep including signed-port power and device OP per load; nominal is seven native cases per PVT/load."
+  },
+  "thresholds": {
+    "loop_gain_db_min": 60,
+    "phase_margin_deg_min": 60,
+    "settling_band_ratio": 0.01,
+    "overshoot_ratio_max": 0.1,
+    "large_step_20_80_slope_v_per_s_min": 10000000.0,
+    "dc_tracking_error_v_max": 0.002,
+    "input_noise_rms_v_max": 0.0001,
+    "quiescent_power_w_max": 0.0006,
+    "unity_loop_gain_hz_min": 15000000.0,
+    "settling_time_s_max": 1e-07,
+    "large_settling_time_s_max": 2e-07,
+    "no_0db_recross_min": 1,
+    "psrr_plus_db_min": {
+      "1000": 60,
+      "1000000": 24
+    },
+    "cmrr_db_min": 50,
+    "mismatch_abs_follower_error_v_max": 0.005,
+    "mismatch_pass_count_min": 27
+  },
+  "bounds": {
+    "cc_f_min": 1e-13,
+    "cc_f_max": 5e-12,
+    "rz_ohm_min": 0,
+    "rz_ohm_max": 50000,
+    "mos_gate_area_um2_max": 2000,
+    "wl_ranges": "Fixed OTA-SKY130 geometry domain in packet bounds.json"
+  },
+  "pdk": "SKY130",
+  "evaluator_implemented": true,
+  "reference_qualified": true
+}

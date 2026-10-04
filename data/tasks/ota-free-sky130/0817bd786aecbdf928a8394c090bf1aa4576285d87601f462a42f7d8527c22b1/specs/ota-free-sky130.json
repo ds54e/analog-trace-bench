@@ -1,0 +1,179 @@
+{
+  "kind": "formal_implementation_specification",
+  "specification_id": "OTA-FREE-2026-09-29",
+  "task_id": "OTA-FREE-SKY130",
+  "technology": "sky130",
+  "specification_status": "FIXED_FOR_IMPLEMENTATION",
+  "design_freedom": "topology_connectivity_bias_conversion_compensation_and_sizing",
+  "completed_circuit_supplied": false,
+  "ports": [
+    "VINP",
+    "VINN",
+    "VOUT",
+    "VDD",
+    "VSS",
+    "IBIAS"
+  ],
+  "device_environment": {
+    "source_config": "env/sky130.json",
+    "models": [
+      "sky130_fd_pr__nfet_01v8",
+      "sky130_fd_pr__pfet_01v8"
+    ],
+    "geometry_units": "numeric_micrometres_under_PDK_scale_1u",
+    "multiplicity_parameter": "m",
+    "nf": 1,
+    "model_include": "pinned_combined_continuous_lib_sections",
+    "process_semantics": "continuous_tt_ss_ff",
+    "open_pdks_commit": "c6d73a35f524070e85faff4a6a9eef49553ebc2b",
+    "geometry_admission": "Per-polarity intersection of all selected continuous sections, W<=100um and L>=0.15um; no device-role bounds."
+  },
+  "operating": {
+    "vdd_nominal_v": 1.8,
+    "vdd_range_v": [
+      1.62,
+      1.98
+    ],
+    "temperature_nominal_c": 27,
+    "temperature_range_c": [
+      -40,
+      125
+    ],
+    "vcm_v": 0.9,
+    "iref_a": 1e-05,
+    "iref_direction": "VSS_to_IBIAS",
+    "iref_ac_a": 0,
+    "reference_noise": "ideal_noiseless",
+    "load_interval_f": [
+      2e-12,
+      5e-12
+    ],
+    "dc_input_range_v": [
+      0.75,
+      1.05
+    ],
+    "dc_step_v": 0.005,
+    "small_step_levels_v": [
+      0.8,
+      1.0
+    ],
+    "large_step_levels_v": [
+      0.75,
+      1.05
+    ]
+  },
+  "limits": {
+    "low_frequency_return_ratio_db_min": 60,
+    "unity_gain_frequency_hz_min": 15000000.0,
+    "dc_tracking_error_v_max": 0.002,
+    "signed_port_power_w_max": 0.0006,
+    "small_step_overshoot_fraction_max": 0.1,
+    "large_step_slew_v_per_s_min": 10000000.0,
+    "small_step_settling_s_max": 1e-07,
+    "large_step_settling_s_max": 2e-07,
+    "input_referred_noise_rms_v_max": 0.0001,
+    "psrr_db_min_at_1khz": 60,
+    "psrr_db_min_at_1mhz": 24,
+    "balanced_open_loop_cmrr_db_min_at_1khz": 50,
+    "input_dc_current_abs_a_max": 1e-06,
+    "ibias_compliance": "VSS<=V(IBIAS)<=VDD"
+  },
+  "resources": {
+    "mos_wl_sum_um2_max": 2000,
+    "explicit_capacitance_sum_f_max": 5e-12,
+    "resistance_ohm": [
+      1.0,
+      100000000.0
+    ],
+    "capacitance_f": [
+      1e-15,
+      5e-12
+    ],
+    "maximum_expanded_elements": 512,
+    "maximum_multiplicity": 32,
+    "maximum_hierarchy_depth": 12,
+    "maximum_source_bytes": 65536,
+    "maximum_statements": 2048,
+    "maximum_subcircuits": 32,
+    "maximum_expansion_visits": 2048,
+    "bulk_connections": "NFET_to_VSS_PFET_to_VDD",
+    "meaning": "schematic_resource_proxies_not_layout_area"
+  },
+  "measurement": {
+    "solver_options": {
+      "reltol": 0.0001,
+      "abstol": 1e-13,
+      "vntol": 1e-09,
+      "chgtol": 1e-16
+    },
+    "dc_kcl_tolerance_a": 1e-09,
+    "loop": {
+      "method": "two_injection_1_plus_L",
+      "frequency_hz": [
+        10.0,
+        1000000000.0
+      ],
+      "points_per_decade": 50,
+      "relative_cancellation_floor": 1e-10,
+      "endpoint_relative_tolerance": 1e-07,
+      "maximum_log10_gap": 0.020001,
+      "recross_slack_db": 1e-06
+    },
+    "transient": {
+      "edge_start_s": 1e-07,
+      "edge_duration_s": 1e-09,
+      "stop_s": 2.1e-06,
+      "maximum_step_s": 2.5e-11,
+      "settling_band_fraction_of_input_step": 0.01,
+      "target": "independent_destination_DC_output",
+      "both_directions": true
+    },
+    "noise": {
+      "frequency_hz": [
+        10.0,
+        10000000.0
+      ],
+      "points_per_decade": 50,
+      "integration": "linear_frequency_trapezoid_PSD"
+    },
+    "cmrr_balance": {
+      "input_difference_bounds_v": [
+        -0.01,
+        0.01
+      ],
+      "output_target": "VCM",
+      "output_tolerance_v": 1e-05,
+      "maximum_bisection_steps": 32,
+      "maximum_explicit_op_commands": 35,
+      "implementation": "bounded_control_loop_and_two_AC_paths_in_one_native_invocation",
+      "same_model_realization": true
+    }
+  },
+  "exploration_budget": {
+    "native_cases": 300,
+    "wall_seconds": 5400,
+    "maximum_concurrent_ngspice": 2
+  },
+  "characterization_only": [
+    "external_loop_crossings_and_phase",
+    "no_0db_recross",
+    "large_step_overshoot",
+    "device_operating_points"
+  ],
+  "out_of_scope": [
+    "Monte_Carlo",
+    "startup",
+    "independent_ICMR_or_swing",
+    "dynamic_energy_score",
+    "topology_classifier",
+    "network_hardening"
+  ],
+  "qualification_required": [
+    "native_model_geometry_and_multiplicity",
+    "cross_topology_external_measurements",
+    "native_feasible_witness_for_this_technology",
+    "actual_runner_plan_packet_freeze_and_old_task_regressions"
+  ],
+  "change_control": "Targets are fixed for implementation; necessary corrections require native evidence and an explicit new identity before scored participants. No silent relaxation.",
+  "comparison_policy": "Compare agents within a task; neither equal difficulty nor equivalence to fixed-topology results is established."
+}

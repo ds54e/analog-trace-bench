@@ -2,12 +2,12 @@
 
 ## Evidence archives
 
-Upload the original `.tar.xz` files as assets of a GitHub Release in `ds54e/analog-trace-bench-public`. Keep filenames and SHA-256 hashes consistent with `data/evidence.json`. The initial four entries deliberately have no URL because those assets have not been uploaded yet.
+Upload the original `.tar.xz` files as assets of a GitHub Release in `ds54e/analog-trace-bench`. Keep filenames and SHA-256 hashes consistent with `data/evidence.json`. Each task uses a `results-<task-slug>` release; each independently evaluated run has one immutable archive. The catalog includes 54 selected trials.
 
 After uploading, copy each asset's actual download URL into its entry:
 
 ```text
-https://github.com/ds54e/analog-trace-bench-public/releases/download/<tag>/<filename>.tar.xz
+https://github.com/ds54e/analog-trace-bench/releases/download/<tag>/<filename>.tar.xz
 ```
 
 Use a specific release tag and filename, not a `latest` alias. Keep an existing filename's bytes stable; if evidence changes, use a new archive identity and update the hash after reviewing the change.
@@ -31,7 +31,7 @@ The website shows evidence as unavailable until its URL is recorded. No speculat
 3. In **Actions → Deploy GitHub Pages → Run workflow**, select `main` and run the workflow.
 4. Check the deployment job and open the URL it reports.
 
-The expected project-site URL is `https://ds54e.github.io/analog-trace-bench-public/` once deployment succeeds. This is a planned URL, not a claim that the site is live.
+The expected project-site URL is `https://ds54e.github.io/analog-trace-bench/` once deployment succeeds. This is a planned URL, not a claim that the site is live.
 
 The Pages workflow uses `configure-pages`, `upload-pages-artifact`, and `deploy-pages`. It builds the static pages from the committed content and templates, validates them, and uploads only `site/`. It needs `pages: write` and `id-token: write` in the deployment job and uses the `github-pages` environment. See [custom Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) and [publishing-source configuration](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), checked on 2026-10-04.
 
