@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import re
 
-from site_templates import ROOT, asset_url, render_page, template
+from site_templates import ROOT, asset_url, evaluation_label, render_page, template
 
 EVALUATION_PATTERN = r'<script type="application/json" id="independent-evaluation-data">(.*?)</script>'
 
@@ -38,6 +38,17 @@ def write_run_sources(run_id, summary, trace, root=ROOT):
 def render_trace_page(task, model, summary, trace, run=1, report_href=None, peers=(), root=ROOT):
     if not isinstance(run, int) or run < 1:
         raise ValueError('Run number must be a positive integer')
+    # Simplify presentation while preserving captured fragments and reports.
+    summary = re.sub(
+        r'(<th>Evaluation result</th><td>)(.*?)(</td>)',
+        lambda match: match[1] + re.sub(r'\b(?:MISS|MEASUREMENT_FAILURE)\b', 'FAIL', match[2]) + match[3],
+        summary)
+    trace = re.sub(
+        r'<table class="summary-table evaluation-metrics">.*?</table>',
+        lambda table: re.sub(
+            r'<td>((?:PASS|MISS|MEASUREMENT_FAILURE)(?: / (?:PASS|MISS|MEASUREMENT_FAILURE))*)</td></tr>',
+            lambda cell: '<td>' + evaluation_label(cell[1]) + '</td></tr>', table[0]),
+        trace, flags=re.S)
     available = {peer['run']: peer for peer in peers}
     tabs, empty_panels = [], []
     for number in range(1, max(3, run, *available.keys()) + 1):

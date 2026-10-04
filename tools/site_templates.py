@@ -7,6 +7,11 @@ from string import Template
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def evaluation_label(status):
+    return 'FAIL' if any(value in {'MISS', 'MEASUREMENT_FAILURE'}
+                         for value in status.split(' / ')) else status
+
+
 def template(name, root=ROOT, **values):
     return Template((root / 'tools/templates' / name).read_text(encoding='utf-8')).substitute(values)
 

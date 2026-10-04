@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 from fetch_evidence import validate_entry, validate_url
-from site_templates import asset_url, render_page
+from site_templates import asset_url, evaluation_label, render_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -37,7 +37,7 @@ def render_index(root=ROOT):
                 source = '<span class="unavailable">Not available yet</span>'
             trace = ('<a href="' + html.escape(run['trace'], quote=True) + '">Read trace</a>'
                      if run.get('trace') else '<span class="unavailable">Archive available</span>')
-            outcome = html.escape(entry.get('electrical_status', 'Not recorded'))
+            outcome = html.escape(evaluation_label(entry.get('electrical_status', 'Not recorded')))
             seconds = entry.get('design_model_calls_s')
             minutes = f'{seconds / 60:.1f}' if seconds is not None else 'Unknown'
             rows.append('<tr><td>' + html.escape(run['model']) + '</td><td>' + str(run['run']) +
