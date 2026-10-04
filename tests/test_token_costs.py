@@ -181,8 +181,8 @@ class IndexRunTests(unittest.TestCase):
         self.assertIn('Run 3</span> $3.00', page)
         for run in task['runs']:
             self.assertIn('href="' + run['trace'] + '"', page)
-        self.assertLess(page.index('>Model-call time<'), page.index('>Total token cost<'))
-        self.assertLess(page.index('>Total token cost<'), page.index('>Design trace<'))
+        self.assertLess(page.index('>Model-call time<'), page.index('>Cost<'))
+        self.assertLess(page.index('>Cost<'), page.index('>Design<'))
 
 
 if __name__ == '__main__':

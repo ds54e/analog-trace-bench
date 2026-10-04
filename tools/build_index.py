@@ -73,9 +73,9 @@ def render_index(root=ROOT):
                         '<p class="task-description">' + html.escape(task['description']) + '</p>'
                         '<div class="table-scroll" tabindex="0" role="region" aria-labelledby="' + task_id + '">'
                         '<table class="summary-table results-table"><thead><tr><th scope="col">AI model</th>'
-                        '<th scope="col">Evaluation result</th><th scope="col">Model-call time</th>'
-                        '<th scope="col">Total token cost</th>'
-                        '<th scope="col">Design trace</th><th scope="col">Evidence archive</th></tr></thead>'
+                        '<th scope="col">Result</th><th scope="col">Model-call time</th>'
+                        '<th scope="col">Cost</th>'
+                        '<th scope="col">Design</th><th scope="col">Archive</th></tr></thead>'
                         '<tbody>' + '\n'.join(rows) + '</tbody></table></div></section>')
     content = '<main class="page-shell">\n'
     content += '\n'.join(sections)

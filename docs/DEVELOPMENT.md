@@ -55,8 +55,9 @@ Use the shared `page-shell`, `summary-table`, and `table-scroll` classes for
 layout and tables instead of repeating base rules in page styles. Index
 headings use the same display font and weight as trace headings; the compact
 index tables scroll horizontally on narrow screens and remain focusable.
-The index uses `AI model`, `Evaluation result`, and `Model-call time` to match
-run summaries. Both duration renderers use `format_duration` (`H:MM:SS`), and
+The index uses `AI model`, `Result`, `Model-call time`, `Cost`, `Design`, and
+`Archive` headers. Run summaries keep their longer labels. Both duration
+renderers use `format_duration` (`H:MM:SS`), and
 derived evaluation labels use `PASS` / `FAIL`. Archived transcript text,
 prepared fragments, and complete JSON reports retain their original values.
 
