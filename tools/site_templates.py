@@ -12,6 +12,11 @@ def evaluation_label(status):
                          for value in status.split(' / ')) else status
 
 
+def format_duration(seconds):
+    seconds = int(round(seconds))
+    return f'{seconds // 3600}:{seconds // 60 % 60:02d}:{seconds % 60:02d}'
+
+
 def template(name, root=ROOT, **values):
     return Template((root / 'tools/templates' / name).read_text(encoding='utf-8')).substitute(values)
 
@@ -22,5 +27,8 @@ def asset_url(name, prefix='', root=ROOT):
 
 
 def render_page(title, content, head, home_href, root=ROOT):
+    parent = Path(home_href).parent.as_posix()
+    prefix = '' if parent == '.' else parent + '/'
+    head = '<link rel="stylesheet" href="' + asset_url('site.css', prefix, root) + '"/>\n' + head
     return template('page.html', root, title=html.escape(title), content=content,
                     head=head, home_href=html.escape(home_href, quote=True))

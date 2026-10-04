@@ -43,6 +43,7 @@ def render_trace_page(task, model, summary, trace, run=1, report_href=None, peer
         r'(<th>Evaluation result</th><td>)(.*?)(</td>)',
         lambda match: match[1] + re.sub(r'\b(?:MISS|MEASUREMENT_FAILURE)\b', 'FAIL', match[2]) + match[3],
         summary)
+    trace = trace.replace('class="evaluation-table-wrap"', 'class="table-scroll evaluation-table-wrap"')
     trace = re.sub(
         r'<table class="summary-table evaluation-metrics">.*?</table>',
         lambda table: re.sub(

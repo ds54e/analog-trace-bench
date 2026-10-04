@@ -26,6 +26,7 @@ RUN_ID = 'ota-wide-sky130-astra-r1'
 sys.path.insert(0, str(REPO_ROOT / 'tools'))
 from build_traces import render_trace_page, write_run_sources
 from build_site import build as build_site
+from site_templates import format_duration as clock
 EVIDENCE_PREFIX = 'analysis/astra-01/evidence/'
 ENTRY_CLASSES = {'MODEL': 'trace-ai', 'ACTION': 'trace-tool', 'RESULT': 'trace-result'}
 MODEL_TIME_NOTE = 'Statement timestamp is not recorded; original transcript order is preserved'
@@ -155,11 +156,6 @@ def calculate_timing(evidence: Evidence) -> RunTiming:
     outside_s = wall_s - model_s - measurement_s + overlap
     require(outside_s >= 0, 'Timing intervals exceed the recorded submission window')
     return RunTiming(start, wall_s, model_s, measurement_s, overlap, outside_s)
-
-
-def clock(seconds: float) -> str:
-    seconds = int(round(seconds))
-    return f'{seconds // 3600}:{seconds // 60 % 60:02d}:{seconds % 60:02d}'
 
 
 def time_tag(timestamp: str, run_start: dt.datetime) -> str:

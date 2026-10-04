@@ -128,7 +128,8 @@ def check_trace(path, expected, document, root=ROOT):
     require(not document.details, f'Unexpected folding controls: {path.name}')
     require(all(box.get('tabindex') == '0' for box in document.code_boxes),
             f'Code box cannot receive keyboard focus: {path.name}')
-    css = (root / 'site/assets/trace.css').read_text(encoding='utf-8')
+    css = (root / 'site/assets/site.css').read_text(encoding='utf-8') + \
+          (root / 'site/assets/trace.css').read_text(encoding='utf-8')
     require('.turn-group::before' in css and re.search(r'--trace-rail-width:\s*4px', css),
             f'Trace rail missing: {path.name}')
     require(re.search(r'scrollbar-width:\s*none', css), f'Hidden-scrollbar rule missing: {path.name}')

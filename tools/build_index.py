@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 from fetch_evidence import validate_entry, validate_url
-from site_templates import asset_url, evaluation_label, render_page
+from site_templates import asset_url, evaluation_label, format_duration, render_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -39,16 +39,19 @@ def render_index(root=ROOT):
                      if run.get('trace') else '<span class="unavailable">Archive available</span>')
             outcome = html.escape(evaluation_label(entry.get('electrical_status', 'Not recorded')))
             seconds = entry.get('design_model_calls_s')
-            minutes = f'{seconds / 60:.1f}' if seconds is not None else 'Unknown'
-            rows.append('<tr><td>' + html.escape(run['model']) + '</td><td>' + str(run['run']) +
-                        '</td><td>' + outcome + '</td><td>' + minutes + '</td><td>' + trace +
+            duration = format_duration(seconds) if seconds is not None else 'Not recorded'
+            rows.append('<tr><th scope="row">' + html.escape(run['model']) + '</th><td>' + str(run['run']) +
+                        '</td><td>' + outcome + '</td><td>' + duration + '</td><td>' + trace +
                         '</td><td>' + source + '</td></tr>')
-        sections.append('<section><h2>' + html.escape(task['id']) + '</h2><div class="table-wrap" tabindex="0">'
-                        '<table><thead><tr><th scope="col">Model</th><th scope="col">Run</th>'
-                        '<th scope="col">Evaluation</th><th scope="col">AI time (min)</th>'
-                        '<th scope="col">Design trace</th><th scope="col">Evidence</th></tr></thead>'
+        task_id = html.escape(task['id'], quote=True)
+        sections.append('<section class="task-section" aria-labelledby="' + task_id + '">'
+                        '<h2 class="task-heading" id="' + task_id + '">' + task_id + '</h2>'
+                        '<div class="table-scroll" tabindex="0" role="region" aria-labelledby="' + task_id + '">'
+                        '<table class="summary-table results-table"><thead><tr><th scope="col">AI model</th><th scope="col">Run</th>'
+                        '<th scope="col">Evaluation result</th><th scope="col">Model-call time</th>'
+                        '<th scope="col">Design trace</th><th scope="col">Evidence archive</th></tr></thead>'
                         '<tbody>' + '\n'.join(rows) + '</tbody></table></div></section>')
-    content = '<main>\n'
+    content = '<main class="page-shell">\n'
     content += '\n'.join(sections)
     content += '\n</main>'
     head = '<link rel="stylesheet" href="' + asset_url('home.css', root=root) + '"/>'

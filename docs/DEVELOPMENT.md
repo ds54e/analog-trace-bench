@@ -8,8 +8,9 @@ The website uses deterministic static generation. Presentation is shared; record
 | :--- | :--- |
 | `tools/templates/page.html` | Shared document head and site header for the index and traces. |
 | `tools/templates/trace.html` | Shared trace heading, summary, tabs, and panels. |
-| `site/assets/trace.css`, `trace.js` | Accepted trace styles and accessible tab behavior. |
-| `site/assets/home.css` | Index-specific styles. |
+| `site/assets/site.css` | Shared colors, fonts, page layout, headings, tables, and focus/scroll behavior. |
+| `site/assets/trace.css`, `trace.js` | Trace-specific styles and accessible tab behavior. |
+| `site/assets/home.css` | Result-index headings and table columns. |
 | `content/traces/<run-id>/summary.html` | Verified summary-table rows. |
 | `content/traces/<run-id>/trace.html` | Complete MODEL/ACTION/RESULT markup, original MODEL source templates, final SPICE, and the rendered evaluation table. |
 | `site/data/evaluations/<run-id>.json` | Complete original evaluation precision, rows, conditions, revision, completeness and timing. |
@@ -46,6 +47,16 @@ python3 -m http.server 8000 --directory out/preview
 ```
 
 An export includes shared assets and JSON reports. Its output directory must be outside `site/`. Asset URLs include content hashes so updated CSS/JavaScript do not reuse an older cache entry. Relative URLs work under the GitHub Pages project path.
+
+`site_templates.render_page` loads `site.css` before each page's component CSS.
+Use the shared `page-shell`, `summary-table`, and `table-scroll` classes for
+layout and tables instead of repeating base rules in page styles. Index
+headings use the same display font and weight as trace headings; the compact
+index tables scroll horizontally on narrow screens and remain focusable.
+The index uses `AI model`, `Evaluation result`, and `Model-call time` to match
+run summaries. Both duration renderers use `format_duration` (`H:MM:SS`), and
+derived evaluation labels use `PASS` / `FAIL`. Archived transcript text,
+prepared fragments, and complete JSON reports retain their original values.
 
 CI and the manual Pages workflow build before checking. `main` and `refactor/**` pushes run checks; publication remains a separate manual action. Commit sources and shared assets, not generated HTML. For a style or layout change, edit the corresponding shared asset/template and rebuild.
 
