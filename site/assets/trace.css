@@ -18,7 +18,7 @@
   appearance: none;
   padding: 6px 12px;
   border: 1px solid var(--table-border);
-  border-radius: 4px;
+  border-radius: 0;
   background: transparent;
   color: var(--muted);
   font: 500 13px/1.2 var(--font-display);
@@ -31,8 +31,8 @@
 }
 
 .run-tab.is-active {
-  border-color: var(--muted);
-  background: color-mix(in srgb, var(--surface) 65%, transparent);
+  border-color: var(--rule-strong);
+  background: var(--bar-track);
   color: var(--text);
 }
 
@@ -52,22 +52,27 @@
 }
 
 .run-summary caption {
-  padding-bottom: 8px;
+  padding: 0 14px 10px;
   color: var(--text);
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
 }
 
 .run-summary > .summary-table > tbody > tr:first-child > * {
-  border-top-color: var(--rule);
+  border-top: 1px solid var(--rule);
 }
 
 .token-cost-table thead th:not(:first-child) {
   width: auto;
 }
 
+.token-cost-table thead th {
+  border-bottom-color: var(--rule);
+}
+
 .token-cost-table td {
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Trace */
@@ -265,6 +270,8 @@ pre {
 }
 
 @media (max-width: 520px) {
+  .run-summary caption { padding-inline: 8px; }
+
   .title-model {
     white-space: normal;
   }

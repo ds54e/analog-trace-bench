@@ -145,7 +145,7 @@ class TokenCostTests(unittest.TestCase):
 
 
 class IndexRunTests(unittest.TestCase):
-    def test_three_runs_show_pass_fraction_ranges_and_a_model_trace_link(self):
+    def test_three_runs_show_pass_fraction_means_and_a_model_trace_link(self):
         root = build_index.ROOT
         catalog = json.loads((root / 'site/data/runs.json').read_text())
         evidence = json.loads((root / 'data/evidence.json').read_text())
@@ -181,10 +181,15 @@ class IndexRunTests(unittest.TestCase):
         cells = re.findall(r'<td>(.*?)</td>', page, re.S)
         self.assertEqual(len(cells), 3)
         visible = [html.unescape(re.sub(r'<[^>]+>', '', cell)) for cell in cells]
-        self.assertEqual(visible[0], '1 / 3')
-        self.assertEqual(visible[1], '0:01:00 - ' +
-                         build_index.format_duration(max(120, entry['design_model_calls_s'])))
-        self.assertEqual(visible[2], '1.00 - 3.00')
+        self.assertEqual(visible[0], 'FAIL 1 / 3')
+        expected_time = (Decimal(str(entry['design_model_calls_s'])) + 60 + 120) / 3
+        expected_cost = (Decimal(records[entry['id']]['total_cost_usd']) + 1 + 3) / 3
+        self.assertEqual(visible[1], f'{expected_time / 60:.1f} min')
+        self.assertEqual(visible[2], f'${expected_cost:.2f}')
+        self.assertIn(f'data-value="{expected_time}"', cells[1])
+        self.assertIn(f'data-value="{expected_cost}"', cells[2])
+        self.assertIn('width: 100.0000%', cells[1])
+        self.assertIn('Mean of 3 recorded runs', cells[2])
         for cell in cells[:3]:
             self.assertNotIn('run-label', cell)
         first = next(run for run in task['runs'] if run['run'] == 1)
@@ -192,15 +197,22 @@ class IndexRunTests(unittest.TestCase):
         self.assertEqual(page.count('<a href='), 1)
         self.assertLess(page.index('>Model-call time<'), page.index('>USD<'))
 
-    def test_ranges_compare_numeric_values_and_keep_missing_values_unknown(self):
-        formatter = lambda amount: format(amount, '.2f')
-        rendered = build_index.value_range([Decimal('9'), Decimal('10'), Decimal('2')], formatter)
-        visible = re.sub(r'<[^>]+>', '', rendered)
-        self.assertEqual(visible, '2.00 - 10.00')
-        self.assertEqual(re.sub(r'<[^>]+>', '', build_index.value_range([Decimal('2')], formatter)),
-                         '2.00 - 2.00')
-        self.assertEqual(build_index.value_range([Decimal('2'), None], formatter), 'Not recorded')
-        self.assertEqual(build_index.value_range([], formatter), 'Not recorded')
+    def test_means_use_unrounded_values_and_keep_missing_values_unknown(self):
+        self.assertEqual(build_index.mean_value([Decimal('9'), Decimal('10'), Decimal('2')]), 7)
+        self.assertEqual(build_index.mean_value([Decimal('2')]), 2)
+        self.assertEqual(build_index.mean_value([Decimal('0')]), 0)
+        self.assertEqual(build_index.mean_value([Decimal('1.004'), Decimal('1.014')]), Decimal('1.009'))
+        self.assertEqual(build_index.mean_value([0.1, 0.2]), Decimal('0.15'))
+        self.assertIsNone(build_index.mean_value([Decimal('2'), None]))
+        self.assertIsNone(build_index.mean_value([]))
+
+    def test_bars_scale_to_the_task_max_and_handle_zero_and_unknown(self):
+        rendered = build_index.metric_cell(Decimal('2'), Decimal('8'), '$2.00', 'cost', 2)
+        self.assertIn('width: 25.0000%', rendered)
+        self.assertIn('aria-hidden="true"', rendered)
+        self.assertIn('width: 0.0000%', build_index.metric_cell(Decimal(0), Decimal(0), '$0.00', 'cost', 1))
+        self.assertIn('Not recorded', build_index.metric_cell(None, Decimal('8'), '', 'cost', 1))
+        self.assertNotIn('metric-fill', build_index.metric_cell(None, Decimal('8'), '', 'cost', 1))
 
 
 if __name__ == '__main__':

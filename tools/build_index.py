@@ -3,19 +3,32 @@
 import argparse
 import html
 import json
+from decimal import Decimal
 from pathlib import Path
 
 from fetch_evidence import validate_entry, validate_url
-from site_templates import asset_url, evaluation_label, format_duration, render_page
+from site_templates import asset_url, evaluation_label, render_page
 from token_costs import decimal_cost, load_token_costs
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def value_range(values, formatter):
+def mean_value(values):
     if not values or any(value is None for value in values):
-        return 'Not recorded'
-    return formatter(min(values)) + ' - ' + formatter(max(values))
+        return None
+    return sum((Decimal(str(value)) for value in values), Decimal(0)) / len(values)
+
+
+def metric_cell(value, maximum, label, kind, count):
+    if value is None:
+        return '<span class="unavailable">Not recorded</span>'
+    percent = value / maximum * 100 if maximum else Decimal(0)
+    suffix = 's' if count != 1 else ''
+    return (f'<div class="metric metric--{kind}" data-value="{value}" '
+            f'title="Mean of {count} recorded run{suffix}">'
+            '<span class="metric-track" aria-hidden="true">'
+            f'<span class="metric-fill" style="width: {percent:.4f}%"></span></span>'
+            f'<span class="metric-value">{label}</span></div>')
 
 
 def render_index(root=ROOT):
@@ -42,24 +55,34 @@ def render_index(root=ROOT):
             if run['run'] not in (1, 2, 3):
                 raise ValueError('The result index supports Run 1–3: ' + run['id'])
             groups.setdefault(run['model'], []).append(run)
-        rows = []
+        models = []
         for model, trials in groups.items():
             trials = sorted(trials, key=lambda run: run['run'])
             if len({run['run'] for run in trials}) != len(trials):
                 raise ValueError('Duplicate model/run identity: ' + model)
             outcomes = [evaluation_label(evidence[run['id']].get('electrical_status', 'Not recorded'))
                         for run in trials]
-            result = (f'{outcomes.count("PASS")} / {len(trials)}'
-                      if all(outcome in ('PASS', 'FAIL') for outcome in outcomes) else 'Not recorded')
+            if all(outcome in ('PASS', 'FAIL') for outcome in outcomes):
+                verdict = 'PASS' if all(outcome == 'PASS' for outcome in outcomes) else 'FAIL'
+                result = (f'<span class="pass-badge pass-badge--{verdict.lower()}">'
+                          f'{verdict} <span>{outcomes.count("PASS")} / {len(trials)}</span></span>')
+            else:
+                result = '<span class="unavailable">Not recorded</span>'
             times = [evidence[run['id']].get('design_model_calls_s') for run in trials]
             totals = [costs[run['id']]['total_cost_usd'] for run in trials]
             amounts = [decimal_cost(total) if total is not None else None for total in totals]
-            cells = [result, value_range(times, format_duration),
-                     value_range(amounts, lambda amount: format(amount, '.2f'))]
             model_label = html.escape(model)
             trace_href = next((run['trace'] for run in trials if run.get('trace')), None)
             if trace_href:
                 model_label = '<a href="' + html.escape(trace_href, quote=True) + '">' + model_label + '</a>'
+            models.append((model_label, result, mean_value(times), mean_value(amounts), len(trials)))
+        max_time = max((time for _, _, time, _, _ in models if time is not None), default=Decimal(0))
+        max_cost = max((cost for _, _, _, cost, _ in models if cost is not None), default=Decimal(0))
+        rows = []
+        for model_label, result, time, cost, count in models:
+            cells = [result,
+                     metric_cell(time, max_time, f'{time / 60:.1f} min' if time is not None else '', 'time', count),
+                     metric_cell(cost, max_cost, f'${cost:.2f}' if cost is not None else '', 'cost', count)]
             rows.append('<tr><th scope="row">' + model_label + '</th>' +
                         ''.join('<td>' + cell + '</td>' for cell in cells) + '</tr>')
         task_id = html.escape(task['id'], quote=True)

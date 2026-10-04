@@ -54,19 +54,23 @@ An export includes shared assets and JSON reports. Its output directory must be 
 Use the shared `page-shell`, `summary-table`, and `table-scroll` classes for
 layout and tables instead of repeating base rules in page styles. Index
 headings use the same display font and weight as trace headings; the compact
-index tables scroll horizontally on narrow screens and remain focusable.
+index tables scroll horizontally on narrow screens and remain focusable. The
+shared sans-serif typography, warm background, and horizontal table rules apply
+to both the index and individual traces.
 The index uses `AI model`, `Pass`, `Model-call time`, and `USD`
 headers. Evidence archives remain available in the GitHub Releases and source
-catalog; the index has no Archive column. Run summaries keep their longer labels. Both duration
-renderers use `format_duration` (`H:MM:SS`), and
+catalog; the index has no Archive column. Run summaries keep their longer labels
+and `format_duration` (`H:MM:SS`); the index shows minutes to one decimal. All
 derived evaluation labels use `PASS` / `FAIL`. Archived transcript text,
 prepared fragments, and complete JSON reports retain their original values.
 
 The index has one row per model and no Run column. Pass shows passed runs
-divided by recorded runs (`1 / 3`, `1 / 1`). Model-call time and USD
-show `minimum - maximum` across recorded runs; a single run repeats its value as
-both endpoints. Missing values remain unknown rather than producing partial
-ranges. USD shows plain numeric amounts (`2.01 - 3.01`). The model name links
+divided by recorded runs (`1 / 3`, `1 / 1`) in a PASS or FAIL badge; PASS means
+all recorded runs passed. Model-call time and USD show arithmetic means across
+recorded runs, calculated before display rounding. A single run shows its own
+value. Missing values remain unknown rather than producing partial means.
+USD uses `$2.01` labels. The blue time and brown cost bars scale to the largest
+mean for that metric within each task; zero values have no fill. The model name links
 to its earliest available trace; the trace's tabs give access to other recorded
 runs. The index has no separate Design column.
 Unavailable runs are not fabricated. The concise
