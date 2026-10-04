@@ -35,7 +35,7 @@ class TokenCostTests(unittest.TestCase):
         record = token_costs.make_cost_record(ENTRY, usage(), PRICING)
         self.assertEqual(record['uncached_input_tokens'], 1_000_000)
         self.assertEqual(Decimal(record['total_cost_usd']), Decimal('16'))
-        self.assertEqual(token_costs.format_token_cost(record), '≈ $16.00')
+        self.assertEqual(token_costs.format_token_cost(record), '$16.00')
 
     def test_cumulative_run_tokens_do_not_trigger_long_context_pricing(self):
         value = usage()
@@ -43,7 +43,7 @@ class TokenCostTests(unittest.TestCase):
         value['normalized']['cache_read_tokens'] = 19_000_000
         record = token_costs.make_cost_record(ENTRY, value, PRICING)
         self.assertEqual(Decimal(record['total_cost_usd']), Decimal('34'))
-        self.assertEqual(record['cost_basis'], 'standard_short_context_estimate')
+        self.assertEqual(record['cost_basis'], 'list_price_calculation')
 
     def test_provider_total_is_preserved_and_not_summed_with_duplicate_observations(self):
         value = usage()
@@ -51,10 +51,31 @@ class TokenCostTests(unittest.TestCase):
         value['normalized']['input_tokens'] = 24
         value['normalized']['cache_write_tokens'] = 89_864
         value['raw_final_usage'] = [{'cost_usd': '2.0084728'}, {'cost_usd': '2.0084728'}]
-        record = token_costs.make_cost_record(ENTRY, value, PRICING)
+        record = token_costs.make_cost_record(ENTRY, value, {'models': {}})
         self.assertEqual(record['uncached_input_tokens'], 24)
         self.assertEqual(record['total_cost_usd'], '2.0084728')
         self.assertEqual(token_costs.format_token_cost(record), '$2.01')
+
+    def test_list_price_total_keeps_reported_cost_as_separate_evidence(self):
+        value = usage()
+        value['raw_final_usage'] = [{'cost_usd': '99.5'}]
+        record = token_costs.make_cost_record(ENTRY, value, PRICING)
+        self.assertEqual(Decimal(record['total_cost_usd']), Decimal('16'))
+        self.assertEqual(record['reported_cost_usd'], '99.5')
+
+    def test_cache_write_durations_use_their_own_rates(self):
+        value = usage()
+        value['normalized'].update(input_semantics='uncached input excludes cache read/write',
+                                   cache_write_tokens=300_000, cache_write_ttl_tokens={
+                                       'ephemeral_5m_input_tokens': 100_000,
+                                       'ephemeral_1h_input_tokens': 200_000})
+        pricing = deepcopy(PRICING)
+        pricing['models']['gpt-6-astra']['usd_per_million']['cache_write_1h'] = '20'
+        record = token_costs.make_cost_record(ENTRY, value, pricing)
+        self.assertEqual(Decimal(record['total_cost_usd']), Decimal('31.25'))
+        value['normalized']['cache_write_ttl_tokens']['ephemeral_1h_input_tokens'] -= 1
+        with self.assertRaisesRegex(ValueError, 'durations do not reconcile'):
+            token_costs.make_cost_record(ENTRY, value, pricing)
 
     def test_missing_usage_is_unknown_but_recorded_zero_is_zero(self):
         value = usage()

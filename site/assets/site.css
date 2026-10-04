@@ -157,13 +157,6 @@ table {
   white-space: nowrap;
 }
 
-.cost-note {
-  display: block;
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
 a {
   color: var(--action);
   text-underline-offset: 0.18em;

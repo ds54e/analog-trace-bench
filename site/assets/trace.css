@@ -47,6 +47,29 @@
   margin-top: 24px;
 }
 
+.run-summary > table + table {
+  margin-top: 22px;
+}
+
+.run-summary caption {
+  padding-bottom: 8px;
+  color: var(--text);
+  font-weight: 600;
+  text-align: left;
+}
+
+.token-cost-table th:first-child {
+  width: 46%;
+}
+
+.token-cost-table th:not(:first-child) {
+  width: 27%;
+}
+
+.token-cost-table td {
+  white-space: nowrap;
+}
+
 /* Trace */
 .run-trace {
   margin-top: 26px;

@@ -36,7 +36,18 @@ def write_run_sources(run_id, summary, trace, root=ROOT):
     report.write_text(evaluation, encoding='utf-8')
 
 
-def render_trace_page(task, model, summary, trace, run=1, report_href=None, peers=(), root=ROOT):
+def summary_tables(summary):
+    boundary = re.search(r'<tr[^>]*><th>Architecture</th>', summary)
+    if boundary is None:
+        raise ValueError('Run summary has no circuit architecture')
+    return ''.join('<table class="summary-table"><caption>' + caption + '</caption>\n' +
+                   rows.strip() + '\n</table>\n' for caption, rows in [
+                       ('Run &amp; evaluation', summary[:boundary.start()]),
+                       ('Circuit design', summary[boundary.start():])])
+
+
+def render_trace_page(task, model, summary, trace, run=1, report_href=None, peers=(), root=ROOT,
+                      token_summary=''):
     if not isinstance(run, int) or run < 1:
         raise ValueError('Run number must be a positive integer')
     # Simplify presentation while preserving captured fragments and reports.
@@ -70,7 +81,7 @@ def render_trace_page(task, model, summary, trace, run=1, report_href=None, peer
                             f'id="run-panel-{number}" role="tabpanel">\n<p class="run-empty">{message}</p>\n</div>')
     content = template('trace.html', root, task=html.escape(task), model=html.escape(model),
                        run=run, tabs='\n'.join(tabs), empty_panels='\n'.join(empty_panels),
-                       summary=summary, trace=trace)
+                       summary=summary_tables(summary) + token_summary, trace=trace)
     head = '<link rel="stylesheet" href="' + asset_url('trace.css', '../', root) + '"/>\n'
     head += '<script defer src="' + asset_url('trace.js', '../', root) + '"></script>'
     if report_href:
@@ -100,8 +111,8 @@ def rendered_traces(root=ROOT):
                 costs, pricing = load_token_costs(root)
             peers = [peer for peer in task['runs'] if peer['model'] == run['model'] and peer.get('trace')]
             outputs[page.as_posix()] = render_trace_page(
-                task['id'], run['model'], (content / 'summary.html').read_text(encoding='utf-8') +
-                render_token_summary(costs[run['id']], pricing),
+                task['id'], run['model'], (content / 'summary.html').read_text(encoding='utf-8'),
                 (content / 'trace.html').read_text(encoding='utf-8'), run=run['run'],
-                report_href='../data/evaluations/' + report.name, peers=peers, root=root)
+                report_href='../data/evaluations/' + report.name, peers=peers, root=root,
+                token_summary=render_token_summary(costs[run['id']], pricing))
     return outputs

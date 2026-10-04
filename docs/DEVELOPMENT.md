@@ -66,8 +66,10 @@ column and does not aggregate worst values. Labels identify individual runs
 when several are present; unavailable runs are not fabricated. The concise
 task descriptions in `site/data/runs.json` describe the captured specifications.
 
-Token usage is appended at the end of generated run summaries without editing
-the verified fragments. Import and source-check it with:
+Generated run summaries have three tables: run/evaluation, circuit design, and
+token cost. Presentation splits the verified fragments without editing them.
+The compact token table shows counts, USD per million tokens, and the total,
+without pricing links or a separate pricing row. Import and source-check it with:
 
 ```sh
 python3 tools/import_token_costs.py
@@ -76,11 +78,12 @@ python3 tools/import_token_costs.py --check
 
 This importer verifies the archive hash, package/index/shared-record hashes,
 trial identity, and final usage reconciliation before expanding `usage.json`.
-Claude totals come from the recorded provider cost. OpenAI totals are explicitly
-marked `≈`: the archived CLI-turn aggregates do not reveal per-request context
-lengths or effective billing tiers, so the comparison uses the dated Standard
-short-context rates. Do not apply long-context multipliers to cumulative run
-tokens. Cached OpenAI input is subtracted from the input total; Claude input
+All displayed totals use the dated Standard list rates and are formatted as
+plain USD amounts. Recorded provider costs remain separately available in JSON.
+These comparison costs are guidelines: OpenAI CLI-turn aggregates do not reveal
+per-request context lengths or effective billing tiers. Do not apply long-context
+multipliers to cumulative run tokens. Claude cache writes use their recorded
+5-minute or 1-hour duration. Cached OpenAI input is subtracted from the input total; Claude input
 already excludes cached reads/writes. Reasoning is included in output and is
 never billed twice. Missing usage remains unknown. The build validates cost
 arithmetic offline; the importer's `--check` validates against original assets.

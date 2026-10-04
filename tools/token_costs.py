@@ -43,14 +43,31 @@ def token_counts(normalized):
     return {**result, 'uncached_input_tokens': uncached}
 
 
+def cost_components(counts, rates):
+    rows = [('Input (uncached)', counts['uncached_input_tokens'], rates['input']),
+            ('Cache read', counts['cache_read_tokens'], rates['cache_read'])]
+    writes = counts['cache_write_tokens']
+    if 'cache_write_1h' in rates and writes not in (None, 0):
+        ttl = counts.get('cache_write_ttl_tokens') or {}
+        short, long = ttl.get('ephemeral_5m_input_tokens'), ttl.get('ephemeral_1h_input_tokens')
+        if (type(short) is not int or type(long) is not int or min(short, long) < 0 or
+                short + long != writes):
+            raise ValueError('Cache-write durations do not reconcile')
+        rows.extend((label, count, rate) for label, count, rate in [
+            ('Cache write (5m)', short, rates['cache_write']),
+            ('Cache write (1h)', long, rates['cache_write_1h'])] if count)
+    else:
+        rows.append(('Cache write', writes, rates['cache_write']))
+    return rows + [('Output', counts['output_tokens'], rates['output'])]
+
+
 def estimate_cost(counts, rates):
-    fields = {'input': 'uncached_input_tokens', 'cache_read': 'cache_read_tokens',
-              'cache_write': 'cache_write_tokens', 'output': 'output_tokens'}
-    if any(counts[field] is None for field in fields.values()):
+    components = cost_components(counts, rates)
+    if any(count is None for _, count, _ in components):
         return None
     # Reasoning is a subset of output, not an additional billable category.
-    return sum(Decimal(counts[field]) * decimal_cost(rates[kind])
-               for kind, field in fields.items()) / Decimal(1_000_000)
+    return sum(Decimal(count) * decimal_cost(rate)
+               for _, count, rate in components) / Decimal(1_000_000)
 
 
 def make_cost_record(entry, usage, pricing):
@@ -64,11 +81,13 @@ def make_cost_record(entry, usage, pricing):
                 if item.get('cost_usd') is not None}
     if len(reported) > 1:
         raise ValueError('Ambiguous provider cost totals')
-    if reported:
-        cost, basis = reported.pop(), 'provider_reported'
-    elif model in pricing['models']:
-        cost = estimate_cost(counts, pricing['models'][model]['usd_per_million'])
-        basis = 'standard_short_context_estimate'
+    reported_cost = reported.pop() if reported else None
+    if model in pricing['models']:
+        cost = estimate_cost({**counts, 'cache_write_ttl_tokens': usage['normalized'].get('cache_write_ttl_tokens')},
+                             pricing['models'][model]['usd_per_million'])
+        basis = 'list_price_calculation'
+    elif reported_cost is not None:
+        cost, basis = reported_cost, 'provider_reported'
     else:
         cost, basis = None, 'unavailable'
     return {
@@ -79,7 +98,7 @@ def make_cost_record(entry, usage, pricing):
         'effective_service_tier': usage['normalized'].get('effective_service_tier'),
         'model_identity_status': usage['model_identity_status'],
         'cost_basis': basis, 'total_cost_usd': str(cost) if cost is not None else None,
-        'reported_cost_usd': str(cost) if basis == 'provider_reported' else None,
+        'reported_cost_usd': str(reported_cost) if reported_cost is not None else None,
     }
 
 
@@ -104,8 +123,8 @@ def load_token_costs(root=ROOT):
         if counts['uncached_input_tokens'] != record['uncached_input_tokens']:
             raise ValueError('Uncached token count differs: ' + entry['id'])
         basis = record['cost_basis']
-        if basis == 'standard_short_context_estimate':
-            expected = estimate_cost(counts, pricing['models'][record['model_id']]['usd_per_million'])
+        if basis == 'list_price_calculation':
+            expected = estimate_cost(record, pricing['models'][record['model_id']]['usd_per_million'])
         elif basis == 'provider_reported':
             expected = decimal_cost(record['reported_cost_usd'])
         elif basis == 'unavailable':
@@ -121,31 +140,18 @@ def load_token_costs(root=ROOT):
 def format_token_cost(record):
     if record['total_cost_usd'] is None:
         return 'Not recorded'
-    prefix = '≈ ' if record['cost_basis'] == 'standard_short_context_estimate' else ''
-    return prefix + '$' + format(decimal_cost(record['total_cost_usd']), '.2f')
+    return '$' + format(decimal_cost(record['total_cost_usd']), '.2f')
 
 
 def render_token_summary(record, pricing):
-    def count(field):
-        return f'{record[field]:,}' if record[field] is not None else 'Not recorded'
-    rows = [
-        ('Input tokens (uncached)', count('uncached_input_tokens')),
-        ('Cache read tokens', count('cache_read_tokens')),
-        ('Cache write tokens', count('cache_write_tokens')),
-        ('Output tokens', count('output_tokens')),
-        ('Reasoning tokens (included in output)', count('reasoning_tokens')),
-    ]
-    markup = ''.join('<tr' + (' class="summary-group-start"' if i == 0 else '') +
-                     '><th>' + label + '</th><td class="mono-value">' + value + '</td></tr>\n'
-                     for i, (label, value) in enumerate(rows))
-    if record['cost_basis'] == 'standard_short_context_estimate':
-        model = pricing['models'][record['model_id']]
-        rates = model['usd_per_million']
-        basis = ('<a href="' + html.escape(model['source_url'], quote=True) + '">Standard short-context estimate</a>'
-                 ' · per 1M tokens: input $' + rates['input'] + ', cache read $' + rates['cache_read'] +
-                 ', cache write $' + rates['cache_write'] + ', output $' + rates['output'])
-        basis += '<span class="cost-note">Actual request context and billing tier are not recorded.</span>'
-    else:
-        basis = 'Provider-reported cost' if record['cost_basis'] == 'provider_reported' else 'Not recorded'
-    markup += '<tr><th>Token pricing</th><td>' + basis + '</td></tr>\n'
-    return markup + '<tr><th>Total token cost</th><td class="mono-value">' + format_token_cost(record) + '</td></tr>\n'
+    rates = pricing['models'][record['model_id']]['usd_per_million']
+    rows = cost_components(record, rates) + [('Reasoning (in output)', record['reasoning_tokens'], None)]
+    markup = '<table class="summary-table token-cost-table"><caption>Token cost</caption>\n'
+    markup += '<thead><tr><th scope="col">Type</th><th scope="col">Tokens</th><th scope="col">USD / 1M</th></tr></thead>\n<tbody>\n'
+    for label, count, rate in rows:
+        quantity = f'{count:,}' if count is not None else 'Not recorded'
+        price = '$' + format(decimal_cost(rate), 'f') if rate is not None else 'Included'
+        markup += '<tr><th scope="row">' + html.escape(label) + '</th><td class="mono-value">' + quantity + \
+                  '</td><td class="mono-value">' + price + '</td></tr>\n'
+    return markup + '</tbody><tfoot><tr><th colspan="2" scope="row">Total token cost</th><td class="mono-value">' + \
+           format_token_cost(record) + '</td></tr></tfoot></table>\n'
