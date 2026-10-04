@@ -145,7 +145,21 @@ def format_token_cost(record):
 
 def render_token_summary(record, pricing):
     rates = pricing['models'][record['model_id']]['usd_per_million']
-    rows = cost_components(record, rates) + [('Reasoning (in output)', record['reasoning_tokens'], None)]
+    components = cost_components(record, rates)
+    if record['model_id'].startswith('claude-'):
+        writes = [(count, rate) for label, count, rate in components if label.startswith('Cache write')]
+        quantity = record['cache_write_tokens']
+        # A single visible cache-write row retains its duration-specific rate.
+        write_rate = writes[0][1]
+        if len(writes) > 1:
+            write_rate = sum(Decimal(count) * decimal_cost(rate) for count, rate in writes) / Decimal(quantity)
+            write_rate = format(write_rate.quantize(Decimal('0.000001')), 'f')
+        rows = [('Input', record['uncached_input_tokens'], rates['input']),
+                ('Cache read', record['cache_read_tokens'], rates['cache_read']),
+                ('Cache write', quantity, write_rate),
+                ('Output', record['output_tokens'], rates['output'])]
+    else:
+        rows = [row for row in components if not row[0].startswith('Cache write')]
     markup = '<table class="summary-table token-cost-table"><caption>Token cost</caption>\n'
     markup += '<thead><tr><th scope="col">Type</th><th scope="col">Tokens</th><th scope="col">USD / 1M</th></tr></thead>\n<tbody>\n'
     for label, count, rate in rows:

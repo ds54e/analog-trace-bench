@@ -69,7 +69,14 @@ task descriptions in `site/data/runs.json` describe the captured specifications.
 Generated run summaries have three tables: run/evaluation, circuit design, and
 token cost. Presentation splits the verified fragments without editing them.
 The compact token table shows counts, USD per million tokens, and the total,
-without pricing links or a separate pricing row. Import and source-check it with:
+without pricing links or a separate pricing row.
+
+Claude displays Input / Cache read / Cache write / Output; OpenAI displays
+Input (uncached) / Cache read / Output. Reasoning counts are hidden in both
+tables and retained in the source JSON. Cache-write duration affects the unit
+rate without adding a duration suffix to its row label.
+
+Import and source-check it with:
 
 ```sh
 python3 tools/import_token_costs.py
