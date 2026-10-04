@@ -16,7 +16,7 @@ Run:
 
 ```sh
 python3 tools/fetch_evidence.py <run-id>
-python3 tools/build_index.py
+python3 tools/build_site.py
 python3 tools/check_site.py
 ```
 
@@ -27,13 +27,13 @@ The website shows evidence as unavailable until its URL is recorded. No speculat
 ## Publish when ready
 
 1. In repository **Settings → Pages → Build and deployment**, choose **GitHub Actions** as the source.
-2. Verify that the desired site is committed to `main` and that the **Check website** workflow passes.
+2. Verify that the desired site sources are committed to `main` and that the **Check website** workflow passes.
 3. In **Actions → Deploy GitHub Pages → Run workflow**, select `main` and run the workflow.
 4. Check the deployment job and open the URL it reports.
 
 The expected project-site URL is `https://ds54e.github.io/analog-trace-bench-public/` once deployment succeeds. This is a planned URL, not a claim that the site is live.
 
-The Pages workflow uses `configure-pages`, `upload-pages-artifact`, and `deploy-pages`. Its artifact contains only `site/`. It needs `pages: write` and `id-token: write` in the deployment job and uses the `github-pages` environment. See [custom Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) and [publishing-source configuration](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), checked on 2026-10-04.
+The Pages workflow uses `configure-pages`, `upload-pages-artifact`, and `deploy-pages`. It builds the static pages from the committed content and templates, validates them, and uploads only `site/`. It needs `pages: write` and `id-token: write` in the deployment job and uses the `github-pages` environment. See [custom Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) and [publishing-source configuration](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), checked on 2026-10-04.
 
 The workflow is manual-only. Ordinary `main` updates validate the website without publishing it. To enable automatic deployment later, make that an explicit change to the workflow after the initial publication decision.
 

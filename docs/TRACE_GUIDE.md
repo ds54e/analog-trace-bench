@@ -4,7 +4,7 @@ Version 1.0 · 2026-10-04 · Intended operator: Codex with GPT-6.1 Sol.
 
 ## 1. Goal and scope
 
-Produce a standalone HTML page that lets a reader follow the recorded design process, inspect the exact saved commands and results, recover the final submitted circuit, and inspect its independent evaluation. The page is a readable view of saved evidence. It must not replace the evidence with a retrospective narrative.
+Produce a static website page that lets a reader follow the recorded design process, inspect the exact saved commands and results, recover the final submitted circuit, and inspect its independent evaluation. The page is a readable view of saved evidence. It must not replace the evidence with a retrospective narrative.
 
 The visual design was accepted through repeated user review. Preserve that design when adding another model, run, or benchmark task. Adapt the data and task-specific meaning; do not redesign the page as part of routine import work.
 
@@ -132,7 +132,7 @@ For the current OTA task, `ibias_compliance` is a binary check of `VSS ≤ V(IBI
 
 Do not add the removed Published/Hidden/Native simulations/Evaluation time/Revision summary table below SPICE. Do not add `Worst values across Published and Hidden` above the metric table. Published/Hidden status may remain in the existing top summary.
 
-Retain full report precision, every recorded metric row, completeness information, conditions, revision, and independent-evaluation timing in `<script type="application/json" id="independent-evaluation-data">`. Keep the existing horizontally scrollable table wrapper and hidden scrollbar. For multiple runs, scope DOM IDs and source-data identifiers per panel so no duplicate IDs occur; a single-run page uses the existing ID.
+Retain full report precision, every recorded metric row, completeness information, conditions, revision, and independent-evaluation timing in `site/data/evaluations/<run-id>.json`. The generated head links to it with `rel="alternate"`, `type="application/json"`, and `id="independent-evaluation-data"`. The visible worst-value table is generated at import time and does not fetch or execute this report. Keep the existing horizontally scrollable table wrapper and hidden scrollbar. Keep one complete report per run. If composing several runs into one page, scope source-data links and panel IDs so no duplicate IDs occur.
 
 Recalculate verdict counts from rows, check group/execution completeness, and compare source limits/units across a metric. Do not fabricate missing Hidden evaluation, declare an incomplete run complete, or mark invalid/missing measurements PASS. The reference renderer rejects invalid/incomplete reports; extend it explicitly for a task with recorded invalid results, showing an accurate unavailable/failure state while retaining its evidence.
 
@@ -142,9 +142,9 @@ The current example has 26 metric categories and 657 scored rows: 432 Published 
 
 ### What the supplied code can do
 
-`tools/trace/build_astra_page.py` is the actual shared implementation used for the accepted Astra page. It includes the standalone template, rendering helpers, metric formatting, final submission/evaluation sections, interval accounting, and source validation. Its default source path, prefix, transcript adapter, title, metric definitions, and circuit summary are Astra/OTA-specific.
+`tools/trace/build_astra_page.py` is the actual shared implementation used for the accepted Astra page. It uses the shared website templates and includes rendering helpers, metric formatting, final submission/evaluation sections, interval accounting, and source validation. Its default source path, prefix, transcript adapter, title, metric definitions, and circuit summary are Astra/OTA-specific.
 
-`tools/trace/build_sonnet_example.py` is a portable version of the Sonnet adapter used in this session. It imports the shared helpers, accepts an archive/output path, and uses the bundled Opus CSS. It demonstrates Claude `assistant/text`, `assistant/tool_use`, and `user/tool_result` handling, descriptions/options, timestamps, Read decoration removal, and MODEL tables. Its task prefix, summary, and fixture-count assertions are intentionally example-specific.
+`tools/trace/build_sonnet_example.py` is a portable version of the Sonnet adapter used in this session. It imports the shared helpers, accepts an archive and imports source-verified fragments into the shared website. It demonstrates Claude `assistant/text`, `assistant/tool_use`, and `user/tool_result` handling, descriptions/options, timestamps, Read decoration removal, and MODEL tables. Its task prefix, summary, and fixture-count assertions are intentionally example-specific.
 
 The Codex transcript adapter recognizes completed `agent_message` entries and started/completed `command_execution` entries. The Claude adapter recognizes completed text/tool blocks, omitting private thinking and transport fragments. Inspect a new producer's schema instead of choosing by model branding alone.
 
@@ -156,7 +156,7 @@ The reference implementation was checked with Python 3.12.14, Node v24.19.0, and
 2. **Choose the closest reference.** Use Astra/Sol for the recorded Codex format and Opus/Sonnet for the recorded Claude format. Inspect the relevant CSS and payload structure programmatically. Preserve the accepted presentation.
 3. **Build or adapt the parser.** Normalize completed public text, tool actions/results, timestamps, submission, reports, and accounting. Preserve order and IDs; document approved display transformations and omissions.
 4. **Adapt task meaning.** Read the task's specification and final circuit. Update heading, summary, device/resource units, metric labels/limits/directions, categorical checks, and evaluation completeness handling. Do not import example circuits or scores.
-5. **Generate.** Use local deterministic rendering, inline CSS/JS, and complete escaped payloads. Populate final SPICE and evaluation from their authoritative records.
+5. **Generate.** Use local deterministic rendering, shared templates/CSS/JavaScript, and complete escaped payloads. Store canonical summary/trace fragments in `content/traces/<run-id>/`, then build pages with `tools/build_site.py`; do not commit generated HTML. Populate final SPICE and evaluation from their authoritative records.
 6. **Verify.** Run the source and structure checks in section 9. Check the browser behavior when a browser is available. Refactor only after the generated output is correct; repeat checks affected by the change.
 7. **Deliver.** Save HTML, reusable code, and a verification report. Include source coverage, actual gaps/omissions, hashes, revision checks, sizes, and verification performed. In ChatGPT Work, follow the currently available Library workflow; in a repository workflow, use the requested project destination. Publishing/deployment is a separate task.
 
@@ -165,11 +165,11 @@ Use a descriptive filename such as `<task-slug>-<model-slug>-raw.html`; include 
 For these exact example archives, from the repository root:
 
 ```sh
-python3 tools/trace/build_astra_page.py /absolute/path/to/astra-evidence.tar.xz --output out/astra.html
-python3 tools/trace/build_sonnet_example.py /absolute/path/to/sonnet-evidence.tar.xz --output out/sonnet.html
+python3 tools/trace/build_astra_page.py /absolute/path/to/astra-evidence.tar.xz
+python3 tools/trace/build_sonnet_example.py /absolute/path/to/sonnet-evidence.tar.xz
 ```
 
-The source archives are supplied separately; default paths from the original workspace are not included. These commands reproduce the fixture formats, not arbitrary new tasks.
+The source archives are supplied separately; default paths from the original workspace are not included. These commands import the verified fixture content and rebuild the website. They do not support arbitrary new tasks without adapting the parser and task semantics.
 
 ## 9. Acceptance and focused verification
 
@@ -182,7 +182,7 @@ The source archives are supplied separately; default paths from the original wor
 | Omission accounting | Empty successes, notifications, and fragments have explicit counts/reasons; failures remain visible. |
 | Submitted circuit | Decoded final SPICE bytes and SHA-256 equal `submitted.spice`; submission netlist agrees. |
 | Evaluation identity | Report/row revision equals submitted revision; no stale candidate results used as final evaluation. |
-| Evaluation content | Embedded JSON equals the original reports and timing; counts/completeness and worst selection agree. |
+| Evaluation content | Linked JSON equals the original reports and timing; counts/completeness and worst selection agree. |
 | Numerical display | Worst values use two significant digits; limits and units retain their specified meaning. |
 | DOM and tabs | Unique IDs, correct tab/panel references, accessible names, working click/arrow/Home/End behavior. |
 | Presentation | Rails remain; metadata order/fonts agree; descriptions are prose; code is unwrapped and scrollable. |
@@ -206,7 +206,7 @@ Use meaningful checks proportionate to the change. A new transcript adapter warr
 
 Astra includes five empty failures among its 60 RESULT cards. Opus omits seven redundant background notifications. Sonnet includes four nonempty tool failures, removes 456 Read line-number prefixes, and retains 12 public text blocks; private thinking blocks are excluded. These counts describe the supplied fixtures only.
 
-All four final submitted circuits match their source archive bytes, and each embedded final evaluation contains the full 657 scored rows. See `data/trace-validation.json` and `data/evidence.json` for exact file/source hashes and submitted revisions. The input archives are not bundled.
+All four final submitted circuits match their source archive bytes, and each linked final evaluation contains the full 657 scored rows. See `data/trace-validation.json` and `data/evidence.json` for exact file/source hashes and submitted revisions. The input archives are not bundled.
 
 ## 11. OpenAI guidance used and its application
 

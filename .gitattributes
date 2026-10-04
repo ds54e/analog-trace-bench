@@ -1,1 +1,3 @@
 site/traces/*.html -text -whitespace
+content/traces/**/*.html -text -whitespace
+site/data/evaluations/*.json -text

@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from fetch_evidence import validate_entry, validate_url
+from site_templates import asset_url, render_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -42,16 +43,12 @@ def render_index(root=ROOT):
                         '<table><thead><tr><th scope="col">Model</th><th scope="col">Run</th>'
                         '<th scope="col">Design trace</th><th scope="col">Evidence</th></tr></thead>'
                         '<tbody>' + '\n'.join(rows) + '</tbody></table></div></section>')
-    return '''<!doctype html>
-<html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Analog Trace Bench</title><link rel="stylesheet" href="assets/home.css"></head>
-<body><header class="site-header"><a class="brand" href="index.html">Analog Trace Bench</a></header>
-<main><h1>Recorded design traces</h1><p>Saved circuit-design sessions, submitted SPICE, and independent evaluation.</p>
-''' + '\n'.join(sections) + '''
-<footer><a href="https://github.com/ds54e/analog-trace-bench-public">Repository</a> · <a href="https://github.com/ds54e/analog-trace-bench-public/releases">Evidence releases</a></footer>
-</main></body></html>
-'''
+    content = '<main><h1>Recorded design traces</h1><p>Saved circuit-design sessions, submitted SPICE, and independent evaluation.</p>\n'
+    content += '\n'.join(sections)
+    content += '\n<footer><a href="https://github.com/ds54e/analog-trace-bench-public">Repository</a> · <a href="https://github.com/ds54e/analog-trace-bench-public/releases">Evidence releases</a></footer>\n</main>'
+    head = '<link rel="stylesheet" href="' + asset_url('home.css', root=root) + '"/>'
+    return render_page('Analog Trace Bench', content, head, 'index.html', root)
+
 
 
 def main():

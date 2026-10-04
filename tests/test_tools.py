@@ -1,14 +1,18 @@
 import hashlib
 import io
+import json
 from pathlib import Path
 import sys
 import tempfile
 import unittest
 from unittest.mock import patch
+import shutil
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import check_site
 import fetch_evidence
+import build_site
+import build_traces
 
 
 class EvidenceTests(unittest.TestCase):
@@ -68,6 +72,54 @@ class LinkTests(unittest.TestCase):
                 (site / 'index.html').write_text('<a href="' + href + '">Broken</a>')
                 with self.assertRaisesRegex(ValueError, 'Broken'):
                     check_site.check_links(site)
+
+
+class SiteBuildTests(unittest.TestCase):
+    def test_export_contains_dependencies_and_preserves_payloads(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'preview'
+            self.assertEqual(build_site.build(output=output), 5)
+            self.assertEqual(len(check_site.check_links(output)), 5)
+            profiles = json.loads((check_site.ROOT / 'data/trace-validation.json').read_text())['traces']
+            for profile in profiles:
+                path = output / profile['page']
+                check_site.check_trace(path, profile, check_site.Document(path.read_text()))
+            self.assertTrue((output / 'assets/trace.js').is_file())
+            self.assertTrue((output / '.nojekyll').is_file())
+            self.assertEqual(build_site.build(output=output, check=True), 5)
+
+    def test_changed_command_fails_even_after_regeneration(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ('site', 'content', 'data', 'tools/templates'):
+                shutil.copytree(check_site.ROOT / name, root / name)
+            trace = root / 'content/traces/ota-wide-sky130-astra-r1/trace.html'
+            content = trace.read_text()
+            self.assertIn('/bin/bash -lc', content)
+            trace.write_text(content.replace('/bin/bash -lc', '/bin/bash -c', 1))
+            build_site.build(root)
+            with self.assertRaisesRegex(ValueError, 'Recorded content differs'):
+                check_site.check(root)
+
+    def test_missing_report_fails_before_generating_pages(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'site/data').mkdir(parents=True)
+            shutil.copyfile(check_site.ROOT / 'site/data/runs.json', root / 'site/data/runs.json')
+            with self.assertRaisesRegex(ValueError, 'Missing evaluation source'):
+                build_traces.rendered_traces(root)
+
+    def test_export_detects_stale_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            build_site.build(output=output)
+            (output / 'index.html').write_text('stale')
+            with self.assertRaisesRegex(ValueError, 'Generated page is stale'):
+                build_site.build(output=output, check=True)
+
+    def test_export_rejects_a_directory_inside_its_source(self):
+        with self.assertRaisesRegex(ValueError, 'outside site/'):
+            build_site.build(output=check_site.ROOT / 'site/nested-preview')
 
 
 if __name__ == '__main__':

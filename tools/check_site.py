@@ -9,7 +9,8 @@ from pathlib import Path
 import re
 from urllib.parse import unquote, urlsplit
 
-from build_index import render_index
+from build_site import build as check_build
+from build_traces import trace_paths
 from fetch_evidence import validate_entry, validate_url
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,7 +74,7 @@ def check_links(site):
     return documents
 
 
-def check_trace(path, expected, document):
+def check_trace(path, expected, document, root=ROOT):
     text = path.read_text()
     articles = document.articles
     actual = Counter(entry.get('data-kind') for entry in articles)
@@ -91,9 +92,15 @@ def check_trace(path, expected, document):
     require(len(spice) == expected['submitted_spice_bytes'] and
             hashlib.sha256(spice).hexdigest() == expected['submitted_spice_sha256'],
             f'Submitted SPICE differs: {path.name}')
-    saved = re.findall(r'<script type="application/json" id="independent-evaluation-data">(.*?)</script>', text, re.S)
-    require(len(saved) == 1, f'Missing independent evaluation: {path.name}')
-    reports = json.loads(saved[0])
+    content, report_path = trace_paths(expected['id'], root)
+    for name, digest in expected['content_sha256'].items():
+        require(hashlib.sha256((content / name).read_bytes()).hexdigest() == digest,
+                f'Recorded content differs: {path.name} {name}')
+    require(hashlib.sha256(report_path.read_bytes()).hexdigest() == expected['evaluation_sha256'],
+            f'Independent evaluation source differs: {path.name}')
+    reports = json.loads(report_path.read_text(encoding='utf-8'))
+    require('../data/evaluations/' + report_path.name in document.links,
+            f'Missing independent evaluation link: {path.name}')
     for stage, count in expected['evaluation_row_counts'].items():
         report = reports[stage]
         require(len(report['rows']) == count, f'Evaluation row count differs: {path.name} {stage}')
@@ -108,14 +115,16 @@ def check_trace(path, expected, document):
     require(not document.details, f'Unexpected folding controls: {path.name}')
     require(all(box.get('tabindex') == '0' for box in document.code_boxes),
             f'Code box cannot receive keyboard focus: {path.name}')
-    require('.turn-group::before' in text and re.search(r'--trace-rail-width:\s*4px', text),
+    css = (root / 'site/assets/trace.css').read_text(encoding='utf-8')
+    require('.turn-group::before' in css and re.search(r'--trace-rail-width:\s*4px', css),
             f'Trace rail missing: {path.name}')
-    require(re.search(r'scrollbar-width:\s*none', text), f'Hidden-scrollbar rule missing: {path.name}')
+    require(re.search(r'scrollbar-width:\s*none', css), f'Hidden-scrollbar rule missing: {path.name}')
+    require(not re.search(r'<style\b|<script\s*>', text), f'Duplicated presentation code: {path.name}')
 
 
 def check(root=ROOT):
     site = root / 'site'
-    require((site / 'index.html').read_text() == render_index(root), 'Index is stale; run tools/build_index.py')
+    check_build(root, check=True)
     documents = check_links(site)
     manifest = json.loads((root / 'data/evidence.json').read_text())
     for entry in manifest['runs']:
@@ -132,7 +141,7 @@ def check(root=ROOT):
         require(profile['page'] == runs[profile['id']]['trace'], 'Catalog and validation paths differ')
         path = (site / profile['page']).resolve()
         require(path in documents, 'Trace page is missing')
-        check_trace(path, profile, documents[path])
+        check_trace(path, profile, documents[path], root)
     for path in site.rglob('*'):
         require(not path.is_symlink(), 'Pages files must not be symlinks')
         require(not path.name.endswith(('.xz', '.zip', '.tar', '.tar.gz', '.tar.zst')),

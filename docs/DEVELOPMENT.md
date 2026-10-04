@@ -1,42 +1,64 @@
 # Development
 
-## Layout and commands
+## Sources and generated pages
 
-`site/` is a static website and the deployment boundary. Files under `docs/`, `data/`, `tools/`, and `tests/` support development and are not uploaded to Pages.
+The website uses deterministic static generation. Presentation is shared; recorded content is separate. It does not use a client-side application framework or fetch the trace before displaying it.
 
-Run commands from the repository root:
+| Path | Role |
+| :--- | :--- |
+| `tools/templates/page.html` | Shared document head and site header for the index and traces. |
+| `tools/templates/trace.html` | Shared trace heading, summary, tabs, and panels. |
+| `site/assets/trace.css`, `trace.js` | Accepted trace styles and accessible tab behavior. |
+| `site/assets/home.css` | Index-specific styles. |
+| `content/traces/<run-id>/summary.html` | Verified summary-table rows. |
+| `content/traces/<run-id>/trace.html` | Complete MODEL/ACTION/RESULT markup, original MODEL source templates, final SPICE, and the rendered evaluation table. |
+| `site/data/evaluations/<run-id>.json` | Complete original evaluation precision, rows, conditions, revision, completeness and timing. |
+| `site/data/runs.json` | Task/run identity and stable page routes. |
+| `data/evidence.json` | Original archive identity, hash, and actual asset URL. |
+| `data/trace-validation.json` | Source-derived counts, circuit hash/revision, and accepted content/report hashes. |
+| `site/index.html`, `site/traces/*.html` | Generated output, excluded from Git. |
+
+Prepared fragments are intentional: the transcript formats differ, so archive adapters handle their semantics once and verify them against the source. The static-site build reuses verified markup without reparsing archived commands or repeatedly rendering MODEL Markdown. It is not a universal transcript importer.
+
+Visible trace text and submitted SPICE are already in generated HTML. JavaScript controls only the run tabs. Complete evaluation JSON is linked from each page's head using `rel="alternate"`; its visible table does not require a fetch. Existing page routes and the accepted presentation are preserved. Open the website through a server or export the complete directory; copying one HTML file omits shared dependencies.
+
+## Build and check
+
+Run from the repository root:
 
 ```sh
-python3 tools/build_index.py
+python3 tools/build_site.py
 python3 tools/check_site.py
 python3 -m unittest discover -s tests -v
+node --test tests/trace-tabs.test.cjs
 python3 -m http.server 8000 --directory site
 ```
 
-The index is generated from `site/data/runs.json` and the evidence-URL mapping in `data/evidence.json`. Edit those inputs or `tools/build_index.py`, then regenerate. `check_site.py` detects a stale index, broken local links/fragments, inconsistent run metadata, and trace payload/hash/count regressions.
+Open `http://localhost:8000/`. Building and checking saved pages require Python 3.10+ and its standard library. The tab-event tests require Node 20+ and no installed packages. They verify event behavior, not browser layout.
 
-Static development uses Python 3.10+ and the standard library. For trace regeneration, install Node 20+ and the pinned Markdown dependency:
+The build creates the index and all catalogued trace pages. `--check` detects stale output without writing. `check_site.py` also checks relative links/fragments, unique DOM IDs, run identity, payload counts, content hashes, submitted-SPICE bytes/hash, report hashes, and evaluation revision/rows. Changing a saved command and regenerating HTML still fails the content check.
+
+For a portable review copy:
 
 ```sh
-npm install --ignore-scripts
+python3 tools/build_site.py --output out/preview
+python3 -m http.server 8000 --directory out/preview
 ```
 
-The existing Codex runtime can instead supply its Node and module paths through `CODEX_PRIMARY_RUNTIME_NODE` and `CODEX_PRIMARY_RUNTIME_NODE_MODULES`. The reference implementation was checked with Python 3.12.14, Node v24.19.0, and marked 17.0.5.
+An export includes shared assets and JSON reports. Its output directory must be outside `site/`. Asset URLs include content hashes so updated CSS/JavaScript do not reuse an older cache entry. Relative URLs work under the GitHub Pages project path.
 
-## Add a run
+CI and the manual Pages workflow build before checking. `main` and `refactor/**` pushes run checks; publication remains a separate manual action. Commit sources and shared assets, not generated HTML. For a style or layout change, edit the corresponding shared asset/template and rebuild.
 
-1. Inventory the source archive and determine its task/model/run, schema, submission and final evaluation.
-2. Generate `site/traces/<task>-<model>-raw.html` using an adapted parser and the approved presentation from `docs/TRACE_GUIDE.md`.
-3. Add the run to `site/data/runs.json`; add its archive filename/hash to `data/evidence.json`. Use `url: null` until an actual Release asset exists.
-4. Add a source-derived record to `data/trace-validation.json`: MODEL/ACTION/displayed-RESULT counts, final-SPICE byte count/hash, submitted revision, evaluation category count, and row counts by stage. Do not obtain these expectations merely by copying an unverified generated page.
-5. Verify source strings and original circuit bytes through the generation adapter. Regenerate the index and run the site checks. Inspect affected browser behavior when available.
-6. Commit the requested files to `main`. Keep raw evidence, local downloads, temporary outputs and personal environment state out of Git.
+## Import a run
 
-Existing trace source data is intentionally embedded in the HTML. A cosmetic edit must preserve decoded MODEL, ACTION, RESULT, final-SPICE and evaluation payloads. Keep the final-SPICE and evaluation sections after the historical trace.
+1. Inventory the evidence and identify its task/model/run, transcript schema, authoritative submission, evaluation, and timing.
+2. Adapt a source parser and task semantics using `docs/TRACE_GUIDE.md`. Use the existing rendering helpers and shared website presentation.
+3. Produce verified summary rows and trace markup. `build_traces.write_run_sources` separates complete inert evaluation JSON from prepared markup and writes the canonical fragments/report for a run ID. An adapter can also write those files directly after source verification.
+4. Add the run to `site/data/runs.json` and `data/evidence.json`. Keep `url: null` until an actual Release asset exists. Use a unique `traces/<filename>.html` route.
+5. Add source-derived counts, submitted-SPICE byte/hash, submitted revision, and evaluation category/stage row counts to `data/trace-validation.json`. Record SHA-256 of `summary.html`, `trace.html`, and the exact saved report bytes after comparing them to the archive. Do not approve an unverified result merely by updating hashes until checks pass.
+6. Build, check, and inspect affected browser behavior when available. Record actual coverage and approved omissions. Commit to the requested branch; use `main` when no different branch was requested.
 
-The trace-file Git attributes preserve original line endings and exclude saved payload whitespace from Git's whitespace checks. Do not trim or normalize recorded content.
-
-## Existing example adapters
+Existing adapters:
 
 ```sh
 python3 tools/fetch_evidence.py --list
@@ -45,14 +67,24 @@ python3 tools/trace/build_astra_page.py evidence/ota-wide-sky130-astra-r1-202610
 python3 tools/trace/build_sonnet_example.py evidence/ota-wide-sky130-sonnet-r1-20261003-model-time-full9.tar.xz
 ```
 
-Fetching requires the matching entry's actual asset URL. These are example-specific adapters, not a universal importer; inspect their assumptions before reuse. Opus and Sol pages are preserved as accepted reference snapshots, with no regeneration adapter for those exact fixtures in this initial repository.
+Fetching requires the actual asset URL. Adapters source-verify their fixture, update canonical fragments/reports, and rebuild the site. Optional `--output` writes a diagnostic intermediate page instead of importing; it is for source checks and is not a portable standalone export. Use `build_site.py --output` for review copies. Opus and Sol use verified prepared fragments; no exact-fixture archive adapter is included for them initially.
 
-For a larger adapter change, keep a short progress note with the current schema assumptions and remaining acceptance checks. A new session can resume from repository state and that note; it should not depend on the previous conversation.
+Importing MODEL Markdown requires Node 20+ and the pinned dependency:
 
-## Verification scope
+```sh
+npm install --ignore-scripts
+```
 
-The continuous check is offline and does not download evidence or run circuit simulation. Source fidelity is checked while importing/regenerating from an available archive. The offline check verifies committed page invariants against the source-derived records.
+The Codex runtime can alternatively supply `CODEX_PRIMARY_RUNTIME_NODE` and `CODEX_PRIMARY_RUNTIME_NODE_MODULES`. Adapters were checked with Python 3.12.14, Node v24.19.0, and marked 17.0.5. Their OTA prefixes, summaries, metric definitions and count assertions require adaptation for other tasks.
 
-A new parser warrants focused fixture tests and byte/string comparisons. A small label or spacing change warrants an affected-output diff. Broaden tests only when a failure, new behavior, or unresolved concern justifies it.
+## Fidelity and verification scope
 
-The workflow layout follows OpenAI's [progressive-disclosure guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) and [GPT-6 prompting/verification guidance](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6.1-sol), checked on 2026-10-04: a short repository router, relevant task references, explicit completion criteria, and proportionate verification.
+Preserve decoded MODEL/ACTION/RESULT and final-SPICE strings, including whitespace and final newlines. Git attributes disable line-ending normalization and whitespace cleanup for canonical fragments. Keep final SPICE and evaluation after the historical trace.
+
+Accepted content/report hashes guard prepared fragments. Presentation edits normally leave them unchanged. If an adapter or corrected source changes content, compare against authoritative evidence and update validation records with a documented reason. Never alter archived payloads to satisfy a visual or whitespace check.
+
+Continuous checks are offline. They do not download archives, run simulations, or establish fidelity to evidence that has never been inspected. Source fidelity is verified during import; static checks then protect accepted records. A new parser warrants focused fixture tests and source comparisons. A cosmetic change needs affected-output verification. Broaden checks for new behavior, failures, or unresolved concerns.
+
+For a larger adapter change, keep a short progress note with schema assumptions and remaining acceptance checks so another session can resume from repository state.
+
+The workflow follows OpenAI's [progressive-disclosure guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) and [GPT-6 prompting/verification guidance](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6.1-sol), checked on 2026-10-04: concise repository routing, relevant task references, explicit completion criteria, and proportionate verification.

@@ -10,3 +10,5 @@ __pycache__/
 *.tar.zst
 *.zip
 *.log
+/site/index.html
+/site/traces/*.html

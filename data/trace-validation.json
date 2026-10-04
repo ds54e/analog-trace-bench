@@ -18,7 +18,12 @@
         "published": 432,
         "hidden": 225
       },
-      "baseline_html_sha256": "cadf61260d9c4e2c54f4f16d904c2a5d20ae8438e8b076498e72fbf951c0696b"
+      "baseline_html_sha256": "cadf61260d9c4e2c54f4f16d904c2a5d20ae8438e8b076498e72fbf951c0696b",
+      "content_sha256": {
+        "summary.html": "078979aaa52e0a9433fedf4651644914fa884b871271d93c282b7173ad21119c",
+        "trace.html": "7ff4225a745c499d8a58e30d74bbf076e411a5044150ae64ced5767ac379d68d"
+      },
+      "evaluation_sha256": "d1e90c57c29cd8aed4045004954b500e34caee32531e02ad8e45a53ffdc6233c"
     },
     {
       "id": "ota-wide-sky130-opus-5-5-r1",
@@ -36,7 +41,12 @@
         "published": 432,
         "hidden": 225
       },
-      "baseline_html_sha256": "1c0c4472536d72d50d1ae4b16e4cc28157d1ecc733d3e17ef5c3a07d3f13fdd2"
+      "baseline_html_sha256": "1c0c4472536d72d50d1ae4b16e4cc28157d1ecc733d3e17ef5c3a07d3f13fdd2",
+      "content_sha256": {
+        "summary.html": "04a7ca6fb93405eb4ab695ce489c9894b4d4a248b7881622ff2142d2f2bc3d2d",
+        "trace.html": "9cc68d42d3520de6d5ef9403ea40df9c2c459a653002ad410827ffc9f3b57b18"
+      },
+      "evaluation_sha256": "633a711c230e6ee240b4990ab1cbd1091b2cb46bf5d2ebb4c41d1db0f38e6bab"
     },
     {
       "id": "ota-wide-sky130-sol-6-1-r1",
@@ -54,7 +64,12 @@
         "published": 432,
         "hidden": 225
       },
-      "baseline_html_sha256": "d4a17e78fe27c257186d6e0ecb21690336f32c6780c1360018017ebb8f9d7503"
+      "baseline_html_sha256": "d4a17e78fe27c257186d6e0ecb21690336f32c6780c1360018017ebb8f9d7503",
+      "content_sha256": {
+        "summary.html": "c95e3a837cc6d5085eab95710ca2135e02dbb2a3e07f081f4e2de9864481f0e0",
+        "trace.html": "53c1760e3b4beca7ab0b9544026b46795afcfce695649437216206956d10ef7f"
+      },
+      "evaluation_sha256": "418a6e19493c44bff87a794c28754db1d724045747aec8ab406ea96a9c3c1126"
     },
     {
       "id": "ota-wide-sky130-sonnet-5-5-r1",
@@ -72,7 +87,12 @@
         "published": 432,
         "hidden": 225
       },
-      "baseline_html_sha256": "db07ebcd5953e918b2426038994c95abee05320853db8385d3cfd8b1d869da79"
+      "baseline_html_sha256": "db07ebcd5953e918b2426038994c95abee05320853db8385d3cfd8b1d869da79",
+      "content_sha256": {
+        "summary.html": "a2854ef61502f0c5ca2b71abd53a55069bf08fbae56e6c80baa5c4b773750137",
+        "trace.html": "c9328532b614c82c813fb0e9a529c25f58c3aae7bd1569690c6be95e6fc273a7"
+      },
+      "evaluation_sha256": "53c66c5ec1e7e0eb3625170e1821a44894e40eddf2f0d01a176cda18a3774956"
     }
   ]
 }

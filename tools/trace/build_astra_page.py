@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the standalone Astra trace page without an existing Opus HTML.
+"""Import the recorded Astra fixture using the shared website presentation.
 
 Usage: python3 build_astra_page.py [evidence.tar.xz] [--output page.html]
 Requires Python 3.10+, Node.js and marked (or the Codex runtime).
@@ -16,12 +16,16 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import sys
 import tarfile
 
 ROOT = Path(__file__).resolve().parent
 REPO_ROOT = ROOT.parents[1]
 DEFAULT_SOURCE = REPO_ROOT / 'evidence/ota-wide-sky130-astra-r1-20261003-model-time-recovery3.tar.xz'
-DEFAULT_OUTPUT = REPO_ROOT / 'site/traces/ota-wide-sky130-astra-raw.html'
+RUN_ID = 'ota-wide-sky130-astra-r1'
+sys.path.insert(0, str(REPO_ROOT / 'tools'))
+from build_traces import render_trace_page, write_run_sources
+from build_site import build as build_site
 EVIDENCE_PREFIX = 'analysis/astra-01/evidence/'
 ENTRY_CLASSES = {'MODEL': 'trace-ai', 'ACTION': 'trace-tool', 'RESULT': 'trace-result'}
 MODEL_TIME_NOTE = 'Statement timestamp is not recorded; original transcript order is preserved'
@@ -449,8 +453,7 @@ def validate_page(page: str, evidence: Evidence, trace: Trace) -> None:
 def build_page(evidence: Evidence) -> tuple[str, Trace, RunTiming]:
     timing = calculate_timing(evidence)
     trace = render_trace(evidence, timing)
-    page = PAGE_TEMPLATE.replace('<!-- RUN_SUMMARY -->', render_summary(evidence, timing), 1)
-    page = page.replace('<!-- DESIGN_TRACE -->', trace.markup, 1)
+    page = render_trace_page('OTA-WIDE-SKY130', 'Astra', render_summary(evidence, timing), trace.markup)
     validate_page(page, evidence, trace)
     return page, trace, timing
 
@@ -458,15 +461,22 @@ def build_page(evidence: Evidence) -> tuple[str, Trace, RunTiming]:
 def main() -> None:
     parser = argparse.ArgumentParser(description='Rebuild the Astra OTA trace from its saved evidence archive.')
     parser.add_argument('source', nargs='?', type=Path, default=DEFAULT_SOURCE)
-    parser.add_argument('--output', type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument('--output', type=Path, help='Write a diagnostic page instead of importing website content.')
     arguments = parser.parse_args()
-    page, trace, timing = build_page(load_evidence(arguments.source))
-    arguments.output.parent.mkdir(parents=True, exist_ok=True)
-    arguments.output.write_text(page, encoding='utf-8')
+    evidence = load_evidence(arguments.source)
+    page, trace, timing = build_page(evidence)
+    if arguments.output:
+        arguments.output.parent.mkdir(parents=True, exist_ok=True)
+        arguments.output.write_text(page, encoding='utf-8')
+        output = arguments.output
+    else:
+        write_run_sources(RUN_ID, render_summary(evidence, timing), trace.markup)
+        build_site()
+        output = REPO_ROOT / 'site/traces/ota-wide-sky130-astra-raw.html'
     print(json.dumps({
-        'output': str(arguments.output.resolve()),
-        'html_bytes': len(page.encode('utf-8')),
-        'gzip_bytes': len(gzip.compress(page.encode('utf-8'), mtime=0)),
+        'output': str(output.resolve()),
+        'html_bytes': output.stat().st_size,
+        'gzip_bytes': len(gzip.compress(output.read_bytes(), mtime=0)),
         'models': len(trace.models), 'actions': len(trace.commands),
         'nonempty_results': len(trace.results), 'recorded_results': trace.recorded_results,
         'displayed_results': trace.displayed_results, 'groups': trace.groups,
@@ -492,545 +502,7 @@ const input = JSON.parse(fs.readFileSync(0, 'utf8'));
 process.stdout.write(JSON.stringify(input.map(text => marked.parse(text))));
 """
 
-PAGE_TEMPLATE = r"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width" name="viewport"/>
-<title>OTA-WIDE-SKY130 / Astra — Recorded trace</title>
-<style id="atb-styles">/* Analog Trace Bench — recorded design trace */
-:root {
-  color-scheme: light dark;
 
-  --page-bg: #faf9f6;
-  --surface: #fffefb;
-  --text: #1c1c1b;
-  --copy: #272725;
-  --muted: #706d67;
-  --rule: #ddd9d1;
-  --rule-strong: #bdb8ae;
-  --table-border: #c9c5bc;
-
-  --model: #1f6a5b;
-  --action: #1f4f9a;
-  --result: #9a4e1f;
-  --focus: #315f9a;
-
-  --font-display: "Helvetica Neue", Arial, sans-serif;
-  --font-body: Georgia, "Times New Roman", serif;
-  --font-mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
-
-  --content-width: 800px;
-  --page-gutter: 32px;
-  --trace-rail-width: 4px;
-  --trace-inset: 18px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --page-bg: #171816;
-    --surface: #1d1e1b;
-    --text: #f0efe9;
-    --copy: #dddcd6;
-    --muted: #aaa79f;
-    --rule: #3b3c38;
-    --rule-strong: #55564f;
-    --table-border: #55564f;
-    --model: #8fb6aa;
-    --action: #91abc0;
-    --result: #c49a81;
-    --focus: #91abc0;
-  }
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  background: var(--page-bg);
-  color: var(--text);
-  scrollbar-gutter: stable;
-  text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-  background: var(--page-bg);
-  color: var(--text);
-  font: 400 17px/1.68 var(--font-body);
-}
-
-button,
-table {
-  font: inherit;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 3px;
-}
-
-::selection {
-  background: color-mix(in srgb, var(--model) 22%, transparent);
-}
-
-.site-header,
-.page-shell {
-  width: min(var(--content-width), calc(100% - 2 * var(--page-gutter)));
-  margin-inline: auto;
-}
-
-.site-header {
-  padding-block: 18px;
-  border-bottom: 1px solid var(--rule);
-}
-
-.brand {
-  color: var(--text);
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  text-decoration: none;
-}
-
-.page-shell {
-  padding-block: 32px 72px;
-}
-
-.document-header {
-  margin-bottom: 18px;
-}
-
-.document-header h1 {
-  margin: 0 0 10px;
-  color: var(--text);
-  font: 650 37px/1.06 var(--font-display);
-  letter-spacing: -0.032em;
-  overflow-wrap: anywhere;
-}
-
-.title-model {
-  white-space: nowrap;
-}
-
-/* Run switcher */
-.run-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 22px 0 18px;
-}
-
-.run-tab {
-  appearance: none;
-  padding: 6px 12px;
-  border: 1px solid var(--table-border);
-  border-radius: 4px;
-  background: transparent;
-  color: var(--muted);
-  font: 500 13px/1.2 var(--font-display);
-  cursor: pointer;
-}
-
-.run-tab:hover {
-  border-color: var(--muted);
-  color: var(--text);
-}
-
-.run-tab.is-active {
-  border-color: var(--muted);
-  background: color-mix(in srgb, var(--surface) 65%, transparent);
-  color: var(--text);
-}
-
-.run-empty {
-  margin: 34px 0;
-  color: var(--muted);
-  font: 400 15px/1.6 var(--font-display);
-}
-
-/* Summary */
-.run-summary {
-  margin-top: 24px;
-}
-
-.summary-table {
-  width: 100%;
-  table-layout: fixed;
-  border: 1px solid var(--table-border);
-  border-collapse: collapse;
-  font: 400 15px/1.5 var(--font-display);
-}
-
-.summary-table th,
-.summary-table td {
-  padding: 8px 10px;
-  border: 1px solid var(--rule);
-  font-weight: 400;
-  text-align: left;
-  vertical-align: middle;
-  overflow-wrap: anywhere;
-}
-
-.summary-table th {
-  width: 28.5%;
-  color: var(--muted);
-}
-
-.summary-table td {
-  color: var(--text);
-}
-
-.summary-table .summary-group-start > * {
-  border-top-color: var(--rule-strong);
-}
-
-.mono-value {
-  font-variant-numeric: tabular-nums;
-}
-
-.time-pct {
-  margin-left: 0.28em;
-  color: var(--muted);
-  font-size: 15px;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-/* Trace */
-.run-trace {
-  margin-top: 26px;
-}
-
-.turn-group {
-  position: relative;
-  margin-top: 24px;
-  padding-left: var(--trace-inset);
-}
-
-.run-trace > .turn-group:first-of-type {
-  margin-top: 0;
-}
-
-.turn-group::before {
-  content: "";
-  position: absolute;
-  inset-block: 2px;
-  left: 0;
-  width: var(--trace-rail-width);
-  border-radius: 3px;
-  background: var(--rule-strong);
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-.trace-entry {
-  padding-block: 9px;
-}
-
-.trace-entry + .trace-entry {
-  margin-top: 4px;
-}
-
-.trace-meta {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin-bottom: 9px;
-}
-
-.trace-time,
-.trace-tool-name {
-  color: var(--muted);
-  font: 400 12px/1.2 var(--font-display);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.trace-tag {
-  display: inline-block;
-  padding: 2px 6px;
-  border: 1px solid currentColor;
-  border-radius: 4px;
-  background: transparent;
-  font: 600 10px/1.25 var(--font-display);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.trace-tag--model {
-  color: var(--model);
-}
-
-.trace-tag--action {
-  color: var(--action);
-}
-
-.trace-tag--result {
-  color: var(--result);
-}
-
-.trace-content {
-  min-width: 0;
-  margin: 0;
-}
-
-.ai-text {
-  color: var(--copy);
-  font: 400 15.5px/1.68 var(--font-body);
-  overflow-wrap: anywhere;
-}
-
-.ai-text strong,
-.ai-text b {
-  color: inherit;
-  font-weight: inherit;
-}
-
-.ai-text p {
-  margin: 0 0 10px;
-}
-
-.ai-text p:last-child {
-  margin-bottom: 0;
-}
-
-.ai-text ul,
-.ai-text ol {
-  margin: 0 0 14px;
-  padding-left: 1.35em;
-}
-
-.ai-text li {
-  margin: 5px 0;
-}
-
-.ai-text code {
-  padding: 0.06em 0.25em;
-  border-radius: 3px;
-  background: color-mix(in srgb, var(--rule) 45%, transparent);
-  font: 400 0.9em/1.4 var(--font-mono);
-}
-
-pre {
-  max-width: 100%;
-  margin: 0;
-  padding: 11px 13px;
-  border: 0;
-  border-radius: 0;
-  background: var(--surface);
-  color: color-mix(in srgb, var(--text) 82%, var(--page-bg));
-  font: 400 12.5px/1.56 var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  tab-size: 4;
-  --code-padding-block: 11px;
-  max-height: calc(5lh + 2 * var(--code-padding-block));
-  overflow: auto;
-  white-space: pre;
-  overflow-wrap: normal;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-@media (max-width: 760px) {
-  :root {
-    --page-gutter: 18px;
-  }
-
-  .site-header {
-    padding-block: 16px;
-  }
-
-  .page-shell {
-    padding-block: 26px 56px;
-  }
-
-  .document-header h1 {
-    font-size: 31px;
-  }
-
-  .summary-table th {
-    width: 33%;
-  }
-
-  pre {
-    padding: 10px 11px;
-    --code-padding-block: 10px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 520px) {
-  body {
-    font-size: 16px;
-  }
-
-  .document-header h1 {
-    font-size: 27px;
-  }
-
-  .title-model {
-    white-space: normal;
-  }
-
-  .summary-table {
-    font-size: 14px;
-  }
-
-  .summary-table th {
-    width: 36%;
-  }
-
-  .summary-table th,
-  .summary-table td {
-    padding: 7px 8px;
-  }
-}
-
-@media (forced-colors: active) {
-  .turn-group::before {
-    background: GrayText;
-    opacity: 0.7;
-  }
-
-  .trace-tag {
-    color: CanvasText;
-    border-color: CanvasText;
-  }
-
-}
-
-/* Raw trace: original strings, including multiline commands and file content. */
-.raw-model { white-space: normal; }
-
-.action-description {
-  margin: 0;
-  color: var(--copy);
-  font: 400 14px/1.6 var(--font-display);
-  overflow-wrap: anywhere;
-  white-space: pre-wrap;
-}
-
-/* Independent evaluation */
-.evaluation-table-wrap {
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.summary-table.evaluation-metrics {
-  min-width: 700px;
-  table-layout: auto;
-  font-size: 12px;
-}
-
-.summary-table.evaluation-metrics th,
-.summary-table.evaluation-metrics td {
-  width: auto;
-  vertical-align: top;
-}
-
-.evaluation-metrics td {
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.evaluation-table-wrap::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-pre::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
-pre > code { font: inherit; color: inherit; }
-</style>
-</head>
-<body>
-<header class="site-header">
-<a class="brand" href="../index.html">Analog Trace Bench</a>
-</header>
-<main class="page-shell">
-<article class="document-page">
-<header class="document-header">
-<h1>OTA-WIDE-SKY130 / <span class="title-model">Astra</span></h1>
-</header>
-<div aria-label="Trial" class="run-tabs" data-run-tabs="" role="tablist">
-<button aria-controls="run-panel-1" aria-selected="true" class="run-tab is-active" data-run="1" id="run-tab-1" role="tab" type="button">Run 1</button>
-<button aria-controls="run-panel-2" aria-selected="false" class="run-tab" data-run="2" id="run-tab-2" role="tab" type="button">Run 2</button>
-<button aria-controls="run-panel-3" aria-selected="false" class="run-tab" data-run="3" id="run-tab-3" role="tab" type="button">Run 3</button>
-</div>
-<div aria-labelledby="run-tab-1" class="run-panel" id="run-panel-1" role="tabpanel">
-<section aria-label="Run summary" class="run-summary" id="run-1-summary">
-<table class="summary-table">
-<!-- RUN_SUMMARY -->
-</table>
-</section>
-<section aria-label="Design trace" class="run-trace" id="run-1-trace">
-<!-- DESIGN_TRACE -->
-</section>
-</div>
-<div aria-labelledby="run-tab-2" class="run-panel" hidden="" id="run-panel-2" role="tabpanel">
-<p class="run-empty">Run 2 is not available yet.</p>
-</div>
-<div aria-labelledby="run-tab-3" class="run-panel" hidden="" id="run-panel-3" role="tabpanel">
-<p class="run-empty">Run 3 is not available yet.</p>
-</div>
-</article>
-</main>
-<script>(() => {
-  const tablist = document.querySelector('[data-run-tabs]');
-  if (!tablist) return;
-
-  const tabs = [...tablist.querySelectorAll('[role="tab"]')];
-  const panels = tabs
-    .map((tab) => document.getElementById(tab.getAttribute('aria-controls')))
-    .filter(Boolean);
-
-  const activate = (nextTab, moveFocus = false) => {
-    tabs.forEach((tab) => {
-      const selected = tab === nextTab;
-      tab.classList.toggle('is-active', selected);
-      tab.setAttribute('aria-selected', String(selected));
-      tab.tabIndex = selected ? 0 : -1;
-    });
-
-    panels.forEach((panel) => {
-      panel.hidden = panel.id !== nextTab.getAttribute('aria-controls');
-    });
-
-    if (moveFocus) nextTab.focus();
-  };
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab));
-    tab.addEventListener('keydown', (event) => {
-      const keyMap = {
-        ArrowLeft: index - 1,
-        ArrowRight: index + 1,
-        Home: 0,
-        End: tabs.length - 1,
-      };
-
-      if (!(event.key in keyMap)) return;
-      event.preventDefault();
-      const nextIndex = (keyMap[event.key] + tabs.length) % tabs.length;
-      activate(tabs[nextIndex], true);
-    });
-  });
-})();</script>
-</body>
-</html>
-"""
 
 
 if __name__ == "__main__":

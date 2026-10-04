@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Portable example for the saved Sonnet OTA fixture. See ATB_TRACE_HANDOFF.md."""
+"""Portable example for the saved Sonnet OTA fixture. See docs/TRACE_GUIDE.md."""
 import argparse
 from pathlib import Path
 import gzip
@@ -16,7 +16,7 @@ import build_astra_page as shared
 
 parser = argparse.ArgumentParser(description='Rebuild the saved Sonnet 5.5 OTA fixture; not a general importer.')
 parser.add_argument('source', type=Path)
-parser.add_argument('--output', type=Path, default=ROOT.parents[1] / 'site/traces/ota-wide-sky130-sonnet-5-5-raw.html')
+parser.add_argument('--output', type=Path, help='Write a diagnostic page instead of importing website content.')
 arguments = parser.parse_args()
 SOURCE = arguments.source
 OUTPUT = arguments.output
@@ -147,12 +147,7 @@ for label, (new_label, value) in values.items():
                             '<th>' + shared.escape(new_label) + '</th><td>' + shared.escape(value) + '</td>',
                             summary, count=1, flags=re.S)
     assert count == 1
-page = shared.PAGE_TEMPLATE.replace('OTA-WIDE-SKY130 / Astra', 'OTA-WIDE-SKY130 / Sonnet 5.5', 1)
-page = page.replace('<span class="title-model">Astra</span>', '<span class="title-model">Sonnet 5.5</span>', 1)
-page = page.replace('<!-- RUN_SUMMARY -->', summary, 1).replace('<!-- DESIGN_TRACE -->', trace, 1)
-style_pattern = r'<style[^>]*>(.*?)</style>'
-opus_css = re.search(style_pattern, (ROOT.parents[1] / 'site/traces/ota-wide-sky130-opus-5-5-raw.html').read_text(), re.S)[1]
-page = re.sub(style_pattern, lambda m: m[0].replace(m[1], opus_css, 1), page, count=1, flags=re.S)
+page = shared.render_trace_page('OTA-WIDE-SKY130', 'Sonnet 5.5', summary, trace)
 
 # Compare displayed payloads with the exact source, applying only the approved
 # removal of Read's line-number prefixes.
@@ -175,8 +170,13 @@ for tool in evidence.tools:
             assert actual[key] == value
 assert 'Statement timestamp is not recorded' not in page
 assert 'raw-trace-note' not in page and 'evaluation-summary' not in page
-OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-OUTPUT.write_text(page, encoding='utf-8')
+if OUTPUT:
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(page, encoding='utf-8')
+else:
+    shared.write_run_sources('ota-wide-sky130-sonnet-5-5-r1', summary, trace)
+    shared.build_site()
+    OUTPUT = ROOT.parents[1] / 'site/traces/ota-wide-sky130-sonnet-5-5-raw.html'
 print(json.dumps({
     'output': str(OUTPUT), 'html_bytes': OUTPUT.stat().st_size,
     'gzip_bytes': len(gzip.compress(OUTPUT.read_bytes(), mtime=0)),
