@@ -109,7 +109,7 @@ table {
 .task-heading {
   margin: 0 0 10px;
   color: var(--text);
-  font: 650 37px/1.06 var(--font-display);
+  font: 650 27px/1.06 var(--font-display);
   letter-spacing: -0.032em;
   overflow-wrap: anywhere;
 }
@@ -157,6 +157,13 @@ table {
   white-space: nowrap;
 }
 
+.cost-note {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 a {
   color: var(--action);
   text-underline-offset: 0.18em;
@@ -178,13 +185,12 @@ a {
   :root { --page-gutter: 18px; }
   .site-header { padding-block: 16px; }
   .page-shell { padding-block: 26px 56px; }
-  .document-header h1 { font-size: 31px; }
   .summary-table th { width: 33%; }
 }
 
 @media (max-width: 520px) {
   body { font-size: 16px; }
-  .document-header h1 { font-size: 27px; }
+  .document-header h1, .task-heading { font-size: 24px; }
   .summary-table { font-size: 14px; }
   .summary-table th { width: 36%; }
   .summary-table th, .summary-table td { padding: 7px 8px; }

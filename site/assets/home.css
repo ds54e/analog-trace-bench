@@ -4,18 +4,32 @@
 }
 
 .task-heading {
-  margin-bottom: 18px;
-  font-size: 27px;
+  margin-bottom: 8px;
+}
+
+.task-description {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font: 400 15px/1.5 var(--font-display);
 }
 
 .results-table {
-  min-width: 720px;
+  min-width: 800px;
   table-layout: auto;
 }
 
 .results-table th,
 .results-table td {
   width: auto;
+  overflow-wrap: normal;
+}
+
+.results-table thead th {
+  vertical-align: top;
+}
+
+.results-table tbody th,
+.results-table td {
   white-space: nowrap;
 }
 
@@ -23,8 +37,7 @@
   color: var(--text);
 }
 
-.results-table td:nth-child(2),
-.results-table td:nth-child(4) {
+.results-table td {
   font-variant-numeric: tabular-nums;
 }
 
@@ -32,6 +45,7 @@
   color: var(--muted);
 }
 
-@media (max-width: 520px) {
-  .task-heading { font-size: 24px; }
+.run-label {
+  color: var(--muted);
+  font-size: 12px;
 }

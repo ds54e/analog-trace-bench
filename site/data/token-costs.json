@@ -1,0 +1,1544 @@
+{
+  "schema_version": 1,
+  "currency": "USD",
+  "pricing": {
+    "currency": "USD",
+    "checked_on": "2026-10-04",
+    "basis": "Standard short-context list-price estimate",
+    "limitation": "OpenAI records expose CLI-turn totals, not request-level context lengths or effective billing tiers. These rates give a comparison estimate, not an invoice total; long-context, processing-tier, and regional adjustments are not inferred from cumulative token counts.",
+    "models": {
+      "gpt-6-astra": {
+        "source_url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+        "usd_per_million": {
+          "input": "10.00",
+          "cache_read": "1.00",
+          "cache_write": "12.50",
+          "output": "50.00"
+        }
+      },
+      "gpt-6.1-sol": {
+        "source_url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "usd_per_million": {
+          "input": "2.00",
+          "cache_read": "0.10",
+          "cache_write": "2.50",
+          "output": "10.00"
+        }
+      },
+      "gpt-6-sol": {
+        "source_url": "https://developers.openai.com/api/docs/models/gpt-6-sol",
+        "usd_per_million": {
+          "input": "2.00",
+          "cache_read": "0.20",
+          "cache_write": "2.50",
+          "output": "10.00"
+        }
+      },
+      "gpt-6-luna": {
+        "source_url": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+        "usd_per_million": {
+          "input": "0.10",
+          "cache_read": "0.01",
+          "cache_write": "0.125",
+          "output": "0.50"
+        }
+      }
+    }
+  },
+  "runs": [
+    {
+      "id": "ldo-always-on-sky130-opus-5-5-r1",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 24,
+      "cache_read_tokens": 533024,
+      "cache_write_tokens": 89864,
+      "output_tokens": 59143,
+      "reasoning_tokens": 52761,
+      "uncached_input_tokens": 24,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 89864
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "2.0084728",
+      "reported_cost_usd": "2.0084728",
+      "source": {
+        "archive_sha256": "542a8699c5e5a278de6b1a364407b94f38c4ad8468516168db2c7548b4bc3971",
+        "analysis_manifest_sha256": "fb255bc1d3716a81efda49667dbbd1155773daf02f0bed6598f2a5151c2a136d",
+        "usage_path": "opus-01/evidence/usage.json",
+        "usage_sha256": "576623e33f22c1db6ca9a642d20ec5ce471083487973746bc4f0d7d44595a4b8",
+        "expanded_usage_sha256": "785b6dc1b776e4875932e4ddbc0c46ee0c243bd717251d205f8b812d04678881",
+        "observations_sha256": "57befd291e90ac175f331dc06604941768136ada23d740aa9832fed28fbcd55f"
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-astra-r1",
+      "model_id": "gpt-6-astra",
+      "input_tokens": 1183399,
+      "cache_read_tokens": 1103104,
+      "cache_write_tokens": 0,
+      "output_tokens": 12142,
+      "reasoning_tokens": 7134,
+      "uncached_input_tokens": 80295,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "2.513154",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "828693807582381c4ca9a87a00bb0f8a6a9474db9304501e741e8e6fb3af1bc5",
+        "analysis_manifest_sha256": "7b52f2a78193e9c6b9d29c23332efadf28df7abdfc3a6caa763d6e3a69057e25",
+        "usage_path": "astra-01/evidence/usage.json",
+        "usage_sha256": "6fb6d805efc78e1c0fa38c671fa901dfc68ca3e6a78cba71d0627f7bbce29bc9",
+        "expanded_usage_sha256": "921a74e56b86733297fe2082b95c8bd68799eb9ff3f31c8f0201a8d5a8df869f",
+        "observations_sha256": "7389613222dd37aa97719af26bcee9e53f2f5546af8a04abd5696fc94ae2daca"
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-sonnet-5-5-r1",
+      "model_id": "claude-sonnet-5-5",
+      "input_tokens": 50,
+      "cache_read_tokens": 1656693,
+      "cache_write_tokens": 134322,
+      "output_tokens": 95895,
+      "reasoning_tokens": 83344,
+      "uncached_input_tokens": 50,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 134322
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "3.3240145999999995",
+      "reported_cost_usd": "3.3240145999999995",
+      "source": {
+        "archive_sha256": "50ea40a43189f3b6635bf1fb6ff9b14e74dc85e04842f63f080c1c587bbd15fe",
+        "analysis_manifest_sha256": "5c3beda0ee9d65899c140a49e264d79747f6d42cd88781dae72a02eb40f99450",
+        "usage_path": "sonnet-01/evidence/usage.json",
+        "usage_sha256": "2f48794285427c1cbba8805fd86d2aaaf4d9382db9e861ba35824408697caacf",
+        "expanded_usage_sha256": "3887b90878b306935e6fb7ad2f02c98d8b286d65987ef757b9e95a5ee831eab3",
+        "observations_sha256": "65a80f8a86a3d66c5470670b9bce018f80ccb2dc14255f0e898c9f6affc80fea"
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-sol-6-1-r1",
+      "model_id": "gpt-6.1-sol",
+      "input_tokens": 975556,
+      "cache_read_tokens": 910208,
+      "cache_write_tokens": 0,
+      "output_tokens": 11282,
+      "reasoning_tokens": 5192,
+      "uncached_input_tokens": 65348,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.3345368",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "c721a2b6923ef2b8f80f883d2452380785a97a0d281a0743f8b238201fdc27a8",
+        "analysis_manifest_sha256": "0dd59c1ea6c6cafb2cbd483e162c94a0bdbcd3a9142dc1e3d9ec321c3d5bf494",
+        "usage_path": "sol61-01/evidence/usage.json",
+        "usage_sha256": "01071d8b740c6ceacb5ed4ac9ee8146b218c05d429a24473195a5f3461b5fed4",
+        "expanded_usage_sha256": "71e8b67f5fe939da1abd4a9a14b19aed6f611710d5056fae1c292439d3e36fb5",
+        "observations_sha256": "0bde511afa973538db1c62c1ac9707a733868aeb8537d0d414aa91a68243b5c6"
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-luna-6-r1",
+      "model_id": "gpt-6-luna",
+      "input_tokens": 2629095,
+      "cache_read_tokens": 2496000,
+      "cache_write_tokens": 0,
+      "output_tokens": 42715,
+      "reasoning_tokens": 32252,
+      "uncached_input_tokens": 133095,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.059627",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "cee4f05b330eaf2fda389bede39ab2081174b916c748710155f656caa89b1907",
+        "analysis_manifest_sha256": "06420ab1770a5a7e796a7a9368d80bbfc036ae79b13ed47a0f311e2387425391",
+        "usage_path": "luna-01/evidence/usage.json",
+        "usage_sha256": "384164276b9b9a5dcdac447fccaf1f4f77b8b1cbb9e2488e20e3f72f5fddb070",
+        "expanded_usage_sha256": "5ddefcfec2dcfc4993ee3b926d28986140c45a000490bdf2c7bf97f693395d73",
+        "observations_sha256": "f5335eb43a3fa0019f35a0b1b5d9f965c8d531298a32cd0b8077d5d272cce687"
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-sol-6-r1",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 3312505,
+      "cache_read_tokens": 3208704,
+      "cache_write_tokens": 0,
+      "output_tokens": 28132,
+      "reasoning_tokens": 18343,
+      "uncached_input_tokens": 103801,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "1.1306628",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "dfefd4c5e1c5c8e1540b3e7793428d748f7190227ec8e55900459d057cc933b6",
+        "analysis_manifest_sha256": "8f2de5c1543333411cd2101700518f9351191f10c5754eb5fbef0eb03fbc5292",
+        "usage_path": "sol-01/evidence/usage.json",
+        "usage_sha256": "168b313b49e7ea9b48d608992bcf93c8dd9384fe6b4dd348e73807940697790f",
+        "expanded_usage_sha256": "da2bae92fb5328e26511ed14c6caf51a37b5314e27a5010b6d0739b36663f665",
+        "observations_sha256": "6083f03196399cf270fd5e5d156f2e7e6a0baa5af980307c9801966894ed0737"
+      }
+    },
+    {
+      "id": "ldo-core-sky130-opus-5-5-r1",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 84,
+      "cache_read_tokens": 6572298,
+      "cache_write_tokens": 251871,
+      "output_tokens": 175711,
+      "reasoning_tokens": 151308,
+      "uncached_input_tokens": 84,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 251871
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "6.843983600000001",
+      "reported_cost_usd": "6.843983600000001",
+      "source": {
+        "archive_sha256": "cef8452a0f9f49efac780c14ffcd97f7e4e06d584c238b85e23b13053e94c931",
+        "analysis_manifest_sha256": "e94c7b003aac3a3761ca4a60ee379a3f3074ff54aa6b1201b8b879a9be75541f",
+        "usage_path": "opus-01/evidence/usage.json",
+        "usage_sha256": "80c12ee07a072b1f8db68e0ccf0fbfd0858d28584db2a2094982e26a064ac197",
+        "expanded_usage_sha256": "181a145210e05c4e13cec91c5b516a5097b5f485224f9b7100d14e2bbfed0ff0",
+        "observations_sha256": "308beb4136667c9d8d79a002984aff3b87166d4d68f104437c3336e0e09e6842"
+      }
+    },
+    {
+      "id": "ldo-core-sky130-astra-r1",
+      "model_id": "gpt-6-astra",
+      "input_tokens": 2373222,
+      "cache_read_tokens": 2272256,
+      "cache_write_tokens": 0,
+      "output_tokens": 23637,
+      "reasoning_tokens": 13723,
+      "uncached_input_tokens": 100966,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "4.463766",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "a351eedfa69e52dc487910f86de723b57f0c497501daae759a5f84295e3e80c4",
+        "analysis_manifest_sha256": "b42be1609f2d5eefc0ee0a3bdcc27388091e46af05dcc6fff5a6d25e7308309d",
+        "usage_path": "astra-01/evidence/usage.json",
+        "usage_sha256": "98b648fa4b5517d48e99ce36a41a67ad65c8cb43568db45050b8abfe3967a5e6",
+        "expanded_usage_sha256": "aa261548485e5e1ca70a0a95bac10e5769bbdfc1dd150d4bf4f037fac1c388ac",
+        "observations_sha256": "72b7369bcef86546342b7fa65dc28713429616101e1aa36f49473a1c24826dfd"
+      }
+    },
+    {
+      "id": "ldo-core-sky130-sonnet-5-5-r1",
+      "model_id": "claude-sonnet-5-5",
+      "input_tokens": 114,
+      "cache_read_tokens": 4221918,
+      "cache_write_tokens": 237733,
+      "output_tokens": 163123,
+      "reasoning_tokens": 136784,
+      "uncached_input_tokens": 114,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 237733,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "6.224555",
+      "reported_cost_usd": "6.224555",
+      "source": {
+        "archive_sha256": "ece689e097fbe23d7272374fd18389810c1149e459140cd8c516464c0c69efd5",
+        "analysis_manifest_sha256": "ab6d3c1bec1cd18b58b381a836911508759ebce78b0b72f089374b2dbbf805d0",
+        "usage_path": "sonnet-01/evidence/usage.json",
+        "usage_sha256": "40ac008cffd07051948a3bbede663a4c20e214a2454bd30ee72e0b638ca0eb33",
+        "expanded_usage_sha256": "dbebd6d00340b3d987e29a723f50de93d4ce7d5ba054858a44306f6d3b9f6117",
+        "observations_sha256": "eb6b800e571608568fcd861ef474f3e603f3c807bc4bb9848a01b254c14886f0"
+      }
+    },
+    {
+      "id": "ldo-core-sky130-sol-6-1-r1",
+      "model_id": "gpt-6.1-sol",
+      "input_tokens": 7905289,
+      "cache_read_tokens": 7595520,
+      "cache_write_tokens": 0,
+      "output_tokens": 81894,
+      "reasoning_tokens": 67955,
+      "uncached_input_tokens": 309769,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "2.19803",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "7e8a3563c410f354644bcd87b023d03e2659c5268aa2402d7bbd992eec17d401",
+        "analysis_manifest_sha256": "7b40c8db8b0b077932a706ee9aa0b7731e6829159638e8e9894ffd54c92bfc7b",
+        "usage_path": "sol61-01/evidence/usage.json",
+        "usage_sha256": "f9c18a3e96501506bc3dfe5884e9d908069b9763a33d1899b67e023a62dffbe3",
+        "expanded_usage_sha256": "196ba18b7704e93f91ae7530a7d7b0a9fb49c9c838ef2c57b30bfe9372838863",
+        "observations_sha256": "588b44724e6a3e21272e150420d7ef22c9a7faf38b4d002ebff099898a483352"
+      }
+    },
+    {
+      "id": "ldo-core-sky130-luna-6-r1",
+      "model_id": "gpt-6-luna",
+      "input_tokens": 36529659,
+      "cache_read_tokens": 35893760,
+      "cache_write_tokens": 0,
+      "output_tokens": 206596,
+      "reasoning_tokens": 141808,
+      "uncached_input_tokens": 635899,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.5258255",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "f8f4be1b50930ecc7b27b354f4e59e5610d08d62fe5ea50abbcc920043b3dade",
+        "analysis_manifest_sha256": "f73cf8894b338f76ac2512f74376d310d4ae98c3069c669f73b1b8602877bd17",
+        "usage_path": "luna-01/evidence/usage.json",
+        "usage_sha256": "9a61f8ff0214793cd76e4c85d1c26ea63ba678d36bd7b106959f724e0b2af8bb",
+        "expanded_usage_sha256": "8794bce6c3ca97a3fd6334e014ff72c194814cd20ae3d482ef0e4454af997cb2",
+        "observations_sha256": "ba3aacb03414d5314b1de4a089ccda9fb858a96f1c9fbcb2860f1ee04af94b7b"
+      }
+    },
+    {
+      "id": "ldo-core-sky130-sol-6-r1",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 19330907,
+      "cache_read_tokens": 19101568,
+      "cache_write_tokens": 0,
+      "output_tokens": 86500,
+      "reasoning_tokens": 52173,
+      "uncached_input_tokens": 229339,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "5.1439916",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "b73bf0fb25fee6093a48dee554820ee42e46fae2c5dae9732fdf9a4786448cc1",
+        "analysis_manifest_sha256": "b4c294c5d83a6ac0359534ec1f72d896abb6efe68903c7fd14f93a8599526d57",
+        "usage_path": "sol-01/evidence/usage.json",
+        "usage_sha256": "cef3c095c7df38d0cd3b387d2764d0138144472ac6022751aa936747317f8607",
+        "expanded_usage_sha256": "1af3612d6fee126d74c5194d10264f193b8f744f1a62d246317331bb66568e2c",
+        "observations_sha256": "85b9f81f1e69701d1bb906b4ba9dd44af2cfedb8a234b566abb8997d846ab0bc"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-opus-5-5-r1",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 72,
+      "cache_read_tokens": 4932395,
+      "cache_write_tokens": 239779,
+      "output_tokens": 170652,
+      "reasoning_tokens": 151943,
+      "uncached_input_tokens": 72,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 239779
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "6.3180390000000015",
+      "reported_cost_usd": "6.3180390000000015",
+      "source": {
+        "archive_sha256": "d01b14fd2e0d25298797376b0233c2c27cae07c9f338b121405e7e5743cdd78f",
+        "analysis_manifest_sha256": "fda1fb5fff38b8dadad7b540ae6f0bcb39b27c8235c7dce37e325de574e672b2",
+        "usage_path": "opus-01/evidence/usage.json",
+        "usage_sha256": "73cbb052eaf2afa4c6df9cc3717e9b5a562a9d73fc8b5d7b7a8b5da16dd00ccd",
+        "expanded_usage_sha256": "9234786e2a3d432b0bcb965a179d768c24147bbf39201fcd9f21baa05a09a00d",
+        "observations_sha256": "ade8359e13906fbfebf6a351fcc37b894bc97fd93ee862dbf33fef8c3381beb5"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-astra-r1",
+      "model_id": "gpt-6-astra",
+      "input_tokens": 3059291,
+      "cache_read_tokens": 2955648,
+      "cache_write_tokens": 0,
+      "output_tokens": 32159,
+      "reasoning_tokens": 20861,
+      "uncached_input_tokens": 103643,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "5.600028",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "22706695b5abd2e993501e4e7d210157d1fbe2b8cadba2e8821beb5444263ad6",
+        "analysis_manifest_sha256": "30d0365b3500c7bcad71d956eef429862304eebbca5847ee7fabe1125deb7c24",
+        "usage_path": "astra-01/evidence/usage.json",
+        "usage_sha256": "2bb928db5d4429d4ce833dc044309a7e92772374f46f90358e8ac1175f432ba1",
+        "expanded_usage_sha256": "dd7ea74937143c48bac01085b870d154e302fb6cd659ec580d0e6b1393fa296f",
+        "observations_sha256": "aad2039d6cf0173ac8933c11492de1555d87efcc59522bdf8e427882d2f40510"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-sonnet-5-5-r1",
+      "model_id": "claude-sonnet-5-5",
+      "input_tokens": 290,
+      "cache_read_tokens": 13118140,
+      "cache_write_tokens": 558613,
+      "output_tokens": 476733,
+      "reasoning_tokens": 428153,
+      "uncached_input_tokens": 290,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 558613
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "17.4753474",
+      "reported_cost_usd": "17.4753474",
+      "source": {
+        "archive_sha256": "314c95382764222ce5920f3265af393d8546dd4617994d4a0c7dec9f78790c5f",
+        "analysis_manifest_sha256": "80798a663e9aa0b12333e8156fd6ce2d88c5637c2e0c71de02cb2df918d0b1f4",
+        "usage_path": "sonnet-01/evidence/usage.json",
+        "usage_sha256": "8ff690dab287a2792fe6f8c736d489b344e60dd7c45a7e99a48bf0d10a014470",
+        "expanded_usage_sha256": "3af638f406cc77b355eec8caf905000a5a1bbee1e2c08cad2bc383df8359f872",
+        "observations_sha256": "85b52bfd51e8a0eaf712fe0427df51158213fe1c8e8f430cddc00ccb8f5ac224"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-sol-6-1-r1",
+      "model_id": "gpt-6.1-sol",
+      "input_tokens": 5610104,
+      "cache_read_tokens": 5462656,
+      "cache_write_tokens": 0,
+      "output_tokens": 54755,
+      "reasoning_tokens": 40096,
+      "uncached_input_tokens": 147448,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "1.3887116",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "790f0a0056561985fa0bbfe0bf5c15792b1469329e45a3a5e2d557423538d31b",
+        "analysis_manifest_sha256": "d184cb43c745ddc36aaac6fbe110bc58365b61a47b10a7ce557d97cf52e7aa3e",
+        "usage_path": "sol61-01/evidence/usage.json",
+        "usage_sha256": "ef66741a6e3f31ebfea5ced8ac08e790c2becb50d23a289d246e3913f42b25b1",
+        "expanded_usage_sha256": "34d0319ab57d2b91d21f9d7e439f135bc22c693d23485139a4afa98d453c0c79",
+        "observations_sha256": "86c7ff9e40a4d92a61c04f227ca7453fc5022467f038ce5988273048cbf1c171"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-luna-6-r1",
+      "model_id": "gpt-6-luna",
+      "input_tokens": 20194976,
+      "cache_read_tokens": 19543552,
+      "cache_write_tokens": 0,
+      "output_tokens": 197470,
+      "reasoning_tokens": 152983,
+      "uncached_input_tokens": 651424,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.35931292",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "97395a5dacaa93eaecf64d7b5a4ab79ab04873c95dd2fbd2c801a942e3c240f9",
+        "analysis_manifest_sha256": "c65b92304eafd483244aeb84610eb40720f5ffae9b4403daf13eb4569fc7a99e",
+        "usage_path": "luna-01/evidence/usage.json",
+        "usage_sha256": "ece145ca16fbc229526c89bf095422136661e070e6c4fd2c1dcd51353da7f4cc",
+        "expanded_usage_sha256": "dafea2710c6dcac6db0e42944c8a5e44b66fd942b89d10a8b9077e1093888f5e",
+        "observations_sha256": "216f2284a0b7ca1d74069c38ba687ad88baa863182f42eb4253750c62b4dc3ee"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-sol-6-r1",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 19845237,
+      "cache_read_tokens": 19439744,
+      "cache_write_tokens": 0,
+      "output_tokens": 92126,
+      "reasoning_tokens": 45247,
+      "uncached_input_tokens": 405493,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "5.6201948",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "093794f3b2e6159527fb5dab372549ebab827fc9eeb29cfb5e4dc2b104b5e4bb",
+        "analysis_manifest_sha256": "e9a773ef8a4d4ba1f2d694706b6f6835bda78124afb423212df5f6c81f0e2f8a",
+        "usage_path": "sol-01/evidence/usage.json",
+        "usage_sha256": "08f693148cbb8d79ead8be6a0c54bd8c2ad64cb0992d5697ed2b2c36efa47f10",
+        "expanded_usage_sha256": "125e420108fd442f17fc4debf9f044246ee7b2ba8900d26dc538e2ac8576d778",
+        "observations_sha256": "147de6f8d656d1657477c11a2444a5bb035ac519c75a8e3eb78b842c548e40fc"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-opus-5-5-r1",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 58,
+      "cache_read_tokens": 3251384,
+      "cache_write_tokens": 221302,
+      "output_tokens": 176997,
+      "reasoning_tokens": 160966,
+      "uncached_input_tokens": 58,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 221302,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "5.9608648",
+      "reported_cost_usd": "5.9608648",
+      "source": {
+        "archive_sha256": "38ec420dc6930dcc3ff3f200e00978c117c460d637e687706f21824eca9376f4",
+        "analysis_manifest_sha256": "1c864fd2661987216c4221cc52b26c9cd5d43233edebd27fd38e671bf14f4545",
+        "usage_path": "opus-01/evidence/usage.json",
+        "usage_sha256": "5e8fa8898fa3959b78ac0340d45a08cf9fb8077f78772ca351094f908b7ce9a8",
+        "expanded_usage_sha256": "786c1c00a6a754c75b501c1bfd5958da7269c65b0442c8239a92b49c20449c70",
+        "observations_sha256": "c2684319d9b30e00ebd7270c498159ab5153eecc67acd4d54c4d9213c85bca57"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-astra-r1",
+      "model_id": "gpt-6-astra",
+      "input_tokens": 8865099,
+      "cache_read_tokens": 8673408,
+      "cache_write_tokens": 0,
+      "output_tokens": 77172,
+      "reasoning_tokens": 62636,
+      "uncached_input_tokens": 191691,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "14.448918",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "47dffb8d1451b7b13c3a8158bf0b8db4825566ae846ba4a5c36eee833f67c92f",
+        "analysis_manifest_sha256": "a48985cbf3c4832cfea6d0b15ae068d82d5bf8669516a9d7a80b02f820324d44",
+        "usage_path": "astra-01/evidence/usage.json",
+        "usage_sha256": "767a8d8e37b0838917c23a1384c78165c05eaca8a2cc0db7ab087d333516c9d1",
+        "expanded_usage_sha256": "2957f363425ae2d18912700f3200bd145b594ea670037579f30b4e28a8e13402",
+        "observations_sha256": "ee4d1e6641dd1b2b315fd401de5d628e143b27ed4719f8ff34f1febe2115a078"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-sonnet-5-5-r1",
+      "model_id": "claude-sonnet-5-5",
+      "input_tokens": 96,
+      "cache_read_tokens": 3225624,
+      "cache_write_tokens": 227312,
+      "output_tokens": 174872,
+      "reasoning_tokens": 156893,
+      "uncached_input_tokens": 96,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 227312
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "6.236530800000001",
+      "reported_cost_usd": "6.236530800000001",
+      "source": {
+        "archive_sha256": "1de18ccbaa4c0811ad32c3fc33f4c80492708010acd5e58681925141fcf898fc",
+        "analysis_manifest_sha256": "f99725507c847cca8aaeae78d4fd7503e713d14e991af29c2539df902ffe5bf6",
+        "usage_path": "sonnet-01/evidence/usage.json",
+        "usage_sha256": "201e4bd7aac34a65b442148ece0afe75a15773c6d17a37918bc37d6b110ea5e4",
+        "expanded_usage_sha256": "3700b9125eebc94bfc31338034252a8a70a7fe7bb8a151dc43346a0996e253b6",
+        "observations_sha256": "c393d9810aaa9e9953e3329d9560642a9c9251d5453cccf986251b0f52a09fdf"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-sol-6-1-r1",
+      "model_id": "gpt-6.1-sol",
+      "input_tokens": 8257880,
+      "cache_read_tokens": 7924736,
+      "cache_write_tokens": 0,
+      "output_tokens": 89072,
+      "reasoning_tokens": 68197,
+      "uncached_input_tokens": 333144,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "2.3494816",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "1cd3585ee89db5bf71e69371a23050036aaa9b71469bad253591e1e2df2d090c",
+        "analysis_manifest_sha256": "937f57c0a0611957c1c20eaaa1aed384f132bd6475afb253ecb9e222fef13208",
+        "usage_path": "sol61-01/evidence/usage.json",
+        "usage_sha256": "8c3a5c23ff6a9e2b248d8733b1f49fb5ed88502835962625978ae2908fc26fa5",
+        "expanded_usage_sha256": "5bedd88858493f6df90d7dc42dd01a685989e649b6e9f809b630f8898d38b55c",
+        "observations_sha256": "9c4495b35f7e95d74816453da44c29c31456414bcef023122c3caf0f2d9c170c"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-luna-6-r1",
+      "model_id": "gpt-6-luna",
+      "input_tokens": 43207804,
+      "cache_read_tokens": 42576384,
+      "cache_write_tokens": 0,
+      "output_tokens": 210393,
+      "reasoning_tokens": 154765,
+      "uncached_input_tokens": 631420,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.59410234",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "6924b6b03ead4b478b65e98d54b6d63b8df9bf976c47475d16856e620e1285dc",
+        "analysis_manifest_sha256": "3da899105ec0fbdb127d602fbc5af0c20bf784396b4bc241eb2d1c264a858c87",
+        "usage_path": "luna-01/evidence/usage.json",
+        "usage_sha256": "b7dbca5abad927695834bed84564a3b446132f7e6e9f86b748f40177575d1414",
+        "expanded_usage_sha256": "0f212efb1c9a7bc35fb9d6b85bed5a30adb6c86df8800ec86f9962d922cf52ce",
+        "observations_sha256": "a6e0d668d7e3d5534517502968d27f61d3588ecc3c7f1e8e4152b0abb5af6b3d"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-sol-6-r1",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 37444324,
+      "cache_read_tokens": 37037184,
+      "cache_write_tokens": 0,
+      "output_tokens": 143989,
+      "reasoning_tokens": 75702,
+      "uncached_input_tokens": 407140,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "9.6616068",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "4b5b1207ecc339b21fbd9d9bdbf81389c2d50ac88ceca59d751284d3cb12ed52",
+        "analysis_manifest_sha256": "326ef986785908251bdc4a2555aea1cd6a5bc1265606a918b3b330fbd26d9925",
+        "usage_path": "sol-01/evidence/usage.json",
+        "usage_sha256": "72350221ac1054d56f187afc1d98450a7292fffae80a12373cabb426fd480124",
+        "expanded_usage_sha256": "daed9d1dba2dadfd9ea2c790727d5ae7efd40db12af389f2c969658c5c3ff6db",
+        "observations_sha256": "c7afcba96b1decf36f2008bdf09dc678b3459728c30c2aa18065140962cf5b9f"
+      }
+    },
+    {
+      "id": "ota-drive-sky130-opus-5-5-r1",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 58,
+      "cache_read_tokens": 2760572,
+      "cache_write_tokens": 134052,
+      "output_tokens": 94837,
+      "reasoning_tokens": 81717,
+      "uncached_input_tokens": 58,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 134052,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "3.5215024",
+      "reported_cost_usd": "3.5215024",
+      "source": {
+        "archive_sha256": "5edc94155feff9d1cbba94305b5b9af28561308246cd2af5e528422cb1d745b6",
+        "analysis_manifest_sha256": "9893f030d0fb2be680b3579b60a281425c505d55e7ca9dca7affaec857306f70",
+        "usage_path": "opus-01/evidence/usage.json",
+        "usage_sha256": "d6e9fe25adc76434e5bef1a5fa9ee1bb07365b7f619d8ee8ff01d4077517abea",
+        "expanded_usage_sha256": "1cdbb7a9b27508597695f8d066f6fb8c785f419f58907500c36137119e771716",
+        "observations_sha256": "958f3997681100d4781cf30d53a429ee8e8c62c8942cf62a895337ff1a6da30b"
+      }
+    },
+    {
+      "id": "ota-drive-sky130-astra-r1",
+      "model_id": "gpt-6-astra",
+      "input_tokens": 5805892,
+      "cache_read_tokens": 5659904,
+      "cache_write_tokens": 0,
+      "output_tokens": 37071,
+      "reasoning_tokens": 25004,
+      "uncached_input_tokens": 145988,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "8.973334",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "c24c47556b67e2563cbca981238ad3b1728f85333f31464881eea15639f0bde0",
+        "analysis_manifest_sha256": "b584d7b49c8d814159cab0cb633e338878d19584fd2365db87935fb207371cde",
+        "usage_path": "astra-01/evidence/usage.json",
+        "usage_sha256": "beb801179243a5d0e6b3df8d1d57b4bbdef498e0c4f4c57c7c83fabefb369aa3",
+        "expanded_usage_sha256": "8335a5f9c9823c8f3013a94c23413b619749bf1439e87de21038675ee4d148f7",
+        "observations_sha256": "2bbc5430fd46d213406032a49c1256b8466e61864f76c0a1be1ae345b45b5a61"
+      }
+    },
+    {
+      "id": "ota-drive-sky130-sonnet-5-5-r1",
+      "model_id": "claude-sonnet-5-5",
+      "input_tokens": 150,
+      "cache_read_tokens": 6463402,
+      "cache_write_tokens": 451290,
+      "output_tokens": 359508,
+      "reasoning_tokens": 329029,
+      "uncached_input_tokens": 150,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 451290
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "12.663748",
+      "reported_cost_usd": "12.663748",
+      "source": {
+        "archive_sha256": "d602f58610211637cc19f967100b10e558060bec93ae2e7cb90e8f208498d87d",
+        "analysis_manifest_sha256": "5b80022ca5ce44e0d24c9a95110a6c3b7fe7342aac6589c851dba19682a94658",
+        "usage_path": "sonnet-01/evidence/usage.json",
+        "usage_sha256": "1d8c1eb07552a99c73f30a200bebc71faada5ea35a2dfa76b62ff671f313021d",
+        "expanded_usage_sha256": "af2286dfd959e5dc24a49fbeb54b56a2d903a589f2ed9efc450a7ecabf6e1c0c",
+        "observations_sha256": "96412ba779c587581e647710c2c03ac7bbe4401ef366031a3610941128b4ca43"
+      }
+    },
+    {
+      "id": "ota-drive-sky130-sol-6-1-r1",
+      "model_id": "gpt-6.1-sol",
+      "input_tokens": 1606926,
+      "cache_read_tokens": 1528704,
+      "cache_write_tokens": 0,
+      "output_tokens": 15285,
+      "reasoning_tokens": 8779,
+      "uncached_input_tokens": 78222,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.4621644",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "011ae2391990238d3f10a23772dbd20178eda4d79ff3b12a22541a3ad55706ca",
+        "analysis_manifest_sha256": "d8481d3d09eb3b4aba9020c4c6e4770d9a4c1ac4ec66d177a2951cd4569c7c71",
+        "usage_path": "sol61-01/evidence/usage.json",
+        "usage_sha256": "17daa2a9c308657a112f346e7af1ea599a19a604dd60dd441c28739bd3fdd380",
+        "expanded_usage_sha256": "47a39ae9fa3cf1308cfd8f6f758fed428b45332ed43455fad8ea173de10d1cec",
+        "observations_sha256": "c3b1b12fa5bb453a766c7f02a90fc4e115fa57b428d42ab56a2a0c433055d350"
+      }
+    },
+    {
+      "id": "ota-drive-sky130-luna-6-r1",
+      "model_id": "gpt-6-luna",
+      "input_tokens": 12632110,
+      "cache_read_tokens": 12420352,
+      "cache_write_tokens": 0,
+      "output_tokens": 80472,
+      "reasoning_tokens": 61816,
+      "uncached_input_tokens": 211758,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.18561532",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "82f7f85483ac2d538303fc6587cd3897cdd486a7f851723831a7c188a045aaf3",
+        "analysis_manifest_sha256": "409277ad30af42f171a72187a686ea552cfa2b971329b494ce5c7b399d12a218",
+        "usage_path": "luna-01/evidence/usage.json",
+        "usage_sha256": "b33c3a14172567dd1ce7dcc4a4d90f2a7a760202624090362d45c2e252678bea",
+        "expanded_usage_sha256": "080e3e0ef5d76ec9ae1f25fa85d66d33f7a5f659dfe4c6ef90e7cdf8c00b6c4b",
+        "observations_sha256": "0db42a16e6c7b9c8f2aa00285fd28de86c8d806c90e78d5956f4a93f412c5dbe"
+      }
+    },
+    {
+      "id": "ota-drive-sky130-sol-6-r1",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 7640268,
+      "cache_read_tokens": 7509120,
+      "cache_write_tokens": 0,
+      "output_tokens": 54891,
+      "reasoning_tokens": 35008,
+      "uncached_input_tokens": 131148,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "2.31303",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "c47eb674c8fa0086b61371bd210788ad40403502520297de3a096692dacb0edf",
+        "analysis_manifest_sha256": "1d8b4361c3523ef675fe344f46a42c54b90eb1f9b573a130612eb9cdc784d04e",
+        "usage_path": "sol-01/evidence/usage.json",
+        "usage_sha256": "5a626d95a2fdd2f7f7129046236c60bd7de11d8fa577dd3f926ddca593eecad2",
+        "expanded_usage_sha256": "c1b253351e9dee8f423e6126ffda675ee4cb94bd1585575e4d19ba4f833355e4",
+        "observations_sha256": "485e2e921f8bcf96982225d4cf7bbe1977a47b083062f29c815bba3753322fad"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-opus-5-5-r1",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 62,
+      "cache_read_tokens": 2533874,
+      "cache_write_tokens": 141987,
+      "output_tokens": 75515,
+      "reasoning_tokens": 57056,
+      "uncached_input_tokens": 62,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 141987
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "3.1532188000000003",
+      "reported_cost_usd": "3.1532188000000003",
+      "source": {
+        "archive_sha256": "7177d7bf3cf67ca38e6d6ca340278b2b1cebd200ea516a8129e4da935f29cb07",
+        "analysis_manifest_sha256": "f285b9802f3f8c63fa63286870dea0dd1c665717fd2d58ae2c3eb23f24e9c570",
+        "usage_path": "opus-01/evidence/usage.json",
+        "usage_sha256": "94608ce1603ddcc95d4231413ffcaaeb74ee50d025212b5a8b09f811302f246c",
+        "expanded_usage_sha256": "0b1b762168326db5a3ccb52f38e11d9279a7f880762330d38a228c2f4f6f75b8",
+        "observations_sha256": "fe7718c8f3620eb59cd0a9417aa53b74ae91595c67de418aa6abf04329faa878"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-astra-r1",
+      "model_id": "gpt-6-astra",
+      "input_tokens": 2408931,
+      "cache_read_tokens": 2293376,
+      "cache_write_tokens": 0,
+      "output_tokens": 16367,
+      "reasoning_tokens": 9116,
+      "uncached_input_tokens": 115555,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "4.267276",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "4920f8008112303eea33808468608716e3f574c77fd4a199558d1b1dccedba43",
+        "analysis_manifest_sha256": "47ec85b7f35c7ef18ea3aa7ad341bb9cff44a2f0951b2a3181de9d539c7c2851",
+        "usage_path": "astra-01/evidence/usage.json",
+        "usage_sha256": "6d5e2e7ae0d63fbbf7e69ebcd60ea38bce36995cd1c0a08f5c64fd6ceb26ec82",
+        "expanded_usage_sha256": "46fcba7929c23adc46106972f70fa7777780d35868e605d4b53a27bd098b7b4a",
+        "observations_sha256": "057ec90b6e31dcb12f0ea14e1715ef1cd5718717bc6ff533657f7010aee67a16"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-sonnet-5-5-r1",
+      "model_id": "claude-sonnet-5-5",
+      "input_tokens": 160,
+      "cache_read_tokens": 7395327,
+      "cache_write_tokens": 305689,
+      "output_tokens": 198108,
+      "reasoning_tokens": 166645,
+      "uncached_input_tokens": 160,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 305689,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "8.345244599999997",
+      "reported_cost_usd": "8.345244599999997",
+      "source": {
+        "archive_sha256": "d9ec28754cf079111912651ad8fbd242ac13d60ac66d3e5b94e8670f60313de0",
+        "analysis_manifest_sha256": "815f98419ce9591150427f7cd04a8a8f78ca1d2e4d658d01d1d9287c70c1ff27",
+        "usage_path": "sonnet-01/evidence/usage.json",
+        "usage_sha256": "b1021b8fc02ec650294a5ccb150a0b9e01e96faaa73b6e50bb42be1662c70a4e",
+        "expanded_usage_sha256": "220c9fa85d1467e37f6d3187381535711d5430197f8c372a81ce5711612789d9",
+        "observations_sha256": "4dcf30cc4a00bb2c29ddfd4fb852bc28229fe1c7aac9353049fb408dbdfd6adc"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-sol-6-1-r1",
+      "model_id": "gpt-6.1-sol",
+      "input_tokens": 3081631,
+      "cache_read_tokens": 2966400,
+      "cache_write_tokens": 0,
+      "output_tokens": 19777,
+      "reasoning_tokens": 11710,
+      "uncached_input_tokens": 115231,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.724872",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "69a8cd258b06fc5e73ddbf8eb102a8fb9e4748c8fdca5dc226d6aeb53ff99d0f",
+        "analysis_manifest_sha256": "6d8a0bd7d045e6353baeff866700a6a0086b55431988a61ba453918160677ed9",
+        "usage_path": "sol61-01/evidence/usage.json",
+        "usage_sha256": "fcd78e2c423516e9712c67ba547c4cc7d53e137122a2067fb2d8dd95dbac7b40",
+        "expanded_usage_sha256": "8b0058d7cd17280bf889f59579609f4ce9f98d1ea6e3189686001f3e22b1cf1f",
+        "observations_sha256": "9941d7c35bc34b1b5d6e572d65af34aa8dd30c934ca2381033b70c880ca61d6c"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-luna-6-r1",
+      "model_id": "gpt-6-luna",
+      "input_tokens": 10314956,
+      "cache_read_tokens": 10091264,
+      "cache_write_tokens": 0,
+      "output_tokens": 68692,
+      "reasoning_tokens": 48877,
+      "uncached_input_tokens": 223692,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.15762784",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "aa7b6625f694cb698d1ce5df724b63f613eee0bd840a9159b6b026f214db4107",
+        "analysis_manifest_sha256": "88611369f95e0d6cddc030a0550acf161873fb96cb02390d49e31359d47c772d",
+        "usage_path": "luna-01/evidence/usage.json",
+        "usage_sha256": "6868c3fb71439a3c82460ad912ad7bd86cbf7aebb22459eadac8da9ceb45f88b",
+        "expanded_usage_sha256": "273c247c8f05f632b8e7ad1333b8c94f1740219b41ccb416c10060dd4971bb66",
+        "observations_sha256": "9e282214079ee4fd1e0b9c002984febf5164cbf8807d90b9ca5c8a0b4cffd9be"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-sol-6-r1",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 5704085,
+      "cache_read_tokens": 5598464,
+      "cache_write_tokens": 0,
+      "output_tokens": 30879,
+      "reasoning_tokens": 13874,
+      "uncached_input_tokens": 105621,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "1.6397248",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "52828a78669db6dcde0101e5b51e3c120161f15500cf4268e807276d931f9b77",
+        "analysis_manifest_sha256": "2dbf57e28ce32d310fae12743477b76acf91803b2469b68fa1c1c78f379b5dd0",
+        "usage_path": "sol-01/evidence/usage.json",
+        "usage_sha256": "0d55010da058f2cc3bd2fe5f9326ecb71c8ccc633840b8d0735ea9899ef5132a",
+        "expanded_usage_sha256": "2b717a6835d1744a8c9061db5b79a14b4731fd2d2f9d37939841f03203a6e030",
+        "observations_sha256": "bedaa453a335f24f6b058468e2e70fea3a8cd17b691740b55c8befcdd110934e"
+      }
+    },
+    {
+      "id": "ota-free-sky130-opus-5-5-r1",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 40,
+      "cache_read_tokens": 1068522,
+      "cache_write_tokens": 95887,
+      "output_tokens": 55575,
+      "reasoning_tokens": 45280,
+      "uncached_input_tokens": 40,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 95887,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "2.0924603999999998",
+      "reported_cost_usd": "2.0924603999999998",
+      "source": {
+        "archive_sha256": "43fb5e178f29136e102ed88ffd3055802b181b59dc63c4a9c2e3d7eb04fe016c",
+        "analysis_manifest_sha256": "975e0d7570eb8cdf9eff1458af01443499d50dc7d5a3eeb88c6a315e577097d0",
+        "usage_path": "opus-01/evidence/usage.json",
+        "usage_sha256": "70f79f8c6145e3cc5bc95811e5765ba27f01b7bf87dbfcce8f380ce0f73e564e",
+        "expanded_usage_sha256": "4b0cfbd4c6d11cf023c675cc481323097ab7c5096dcac4df73173bed8f5a1d86",
+        "observations_sha256": "06509041c63f40d8471158ea4b8f2f06068199c2a6c3d3a0481ba013ed54d6cf"
+      }
+    },
+    {
+      "id": "ota-free-sky130-astra-r1",
+      "model_id": "gpt-6-astra",
+      "input_tokens": 1313468,
+      "cache_read_tokens": 1224320,
+      "cache_write_tokens": 0,
+      "output_tokens": 11477,
+      "reasoning_tokens": 6141,
+      "uncached_input_tokens": 89148,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "2.68965",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "146cf7e3882c15e93559f42324006e80153948926effbce1837136fdfebb3e46",
+        "analysis_manifest_sha256": "183b9755260940bb70010a49de92497186694de709a31fb83aa48022bbb2a313",
+        "usage_path": "astra-01/evidence/usage.json",
+        "usage_sha256": "1e1266534d253e147d394ea0a8f57ee61633fc20fb60e72f4c2f1814f22b8946",
+        "expanded_usage_sha256": "d8b6fefe4b8ddecf9687e595c6eb22516d76d120c2d5c0f5ab127bdf9ec91064",
+        "observations_sha256": "af5ca7d5e12a68854edd7a9e8f43a9dd616ac98cf5ee5b380c9cc7fab5b9164a"
+      }
+    },
+    {
+      "id": "ota-free-sky130-sonnet-5-5-r1",
+      "model_id": "claude-sonnet-5-5",
+      "input_tokens": 118,
+      "cache_read_tokens": 5044690,
+      "cache_write_tokens": 244721,
+      "output_tokens": 202022,
+      "reasoning_tokens": 182530,
+      "uncached_input_tokens": 118,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 244721,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "7.300526",
+      "reported_cost_usd": "7.300526",
+      "source": {
+        "archive_sha256": "0533c10fbcf3bc2f1572105b6faf7096cdb08e3bc1c706b0eca2189ec3bbb65c",
+        "analysis_manifest_sha256": "71aa77e383ddeb42fe5219157aa55f0b5f114d2c988a37a6a42ff5d60de4f2cf",
+        "usage_path": "sonnet-01/evidence/usage.json",
+        "usage_sha256": "4bd304e78425d2fff7a3a2f2a2df1cd8fbf93ad60aa04faf0df561c7000a993f",
+        "expanded_usage_sha256": "b5c8509043a27f2ec43ce9d385c6b7077eb9cfdb5b397bcf913309c3d4171511",
+        "observations_sha256": "4af8c5682d99e11ab074e1de1ef065fe633a6e74fada94555c1d7cebe447dd3d"
+      }
+    },
+    {
+      "id": "ota-free-sky130-sol-6-1-r1",
+      "model_id": "gpt-6.1-sol",
+      "input_tokens": 1474705,
+      "cache_read_tokens": 1400960,
+      "cache_write_tokens": 0,
+      "output_tokens": 15824,
+      "reasoning_tokens": 10803,
+      "uncached_input_tokens": 73745,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.445826",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "0e4ee07ce698b076a976b785061d805322fb1c9ad0adfe4ed00bbf6f646ff1ca",
+        "analysis_manifest_sha256": "35af1fca906bcd5722f568dbea1b85cadd4754179885a91e4a0f90287021550e",
+        "usage_path": "sol61-01/evidence/usage.json",
+        "usage_sha256": "2bce90b0307724022e2d67cb7a27a89bd5b8c4f2c57648340a68bbf462bf9636",
+        "expanded_usage_sha256": "bab3de0989f3e701f590f6f21823dbe2b2957bb3899eafe59e2fc618762a184d",
+        "observations_sha256": "390e7999dd71ba40524a983bf193b42f29e1c0d470d201fb68030c242d61509d"
+      }
+    },
+    {
+      "id": "ota-free-sky130-luna-6-r1",
+      "model_id": "gpt-6-luna",
+      "input_tokens": 13148349,
+      "cache_read_tokens": 12961024,
+      "cache_write_tokens": 0,
+      "output_tokens": 52270,
+      "reasoning_tokens": 33605,
+      "uncached_input_tokens": 187325,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.17447774",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "0d44c3eb04d134c41d7266bf2bcb722a978a9abbc90d2fd14158a64cbb1f9873",
+        "analysis_manifest_sha256": "78c86518c47a292380e172617a63cf9f5fcafd09fd094ab8ce755dbcc8878203",
+        "usage_path": "luna-01/evidence/usage.json",
+        "usage_sha256": "9f2be99c245dd34a37db8e42ebcee2324fa6fbc8ed0d9179c96e45b1251b1261",
+        "expanded_usage_sha256": "89643fc3f8d4d13621d9df5585393e2c6869d38f03c8411fd305007af66a9144",
+        "observations_sha256": "c94fa13d158a5309c20640bd829d0d9709723c5e678a94e39ce31e6f45223ab8"
+      }
+    },
+    {
+      "id": "ota-free-sky130-sol-6-r1",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 29581639,
+      "cache_read_tokens": 29227008,
+      "cache_write_tokens": 0,
+      "output_tokens": 77025,
+      "reasoning_tokens": 48016,
+      "uncached_input_tokens": 354631,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "7.3249136",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "da932969ca02ef56771abf0de582a86fa3eff9d82a92d5ecd786cb0752c3d74b",
+        "analysis_manifest_sha256": "3e659b5e588229e7a752973679f06715f361b608865ee9aa308130df52e1c0ec",
+        "usage_path": "sol-01/evidence/usage.json",
+        "usage_sha256": "fbfcacd2ab63d689b3a68ade6aee4676e6374f44a35e877c76034c07422dd28e",
+        "expanded_usage_sha256": "57e3564fe33f6385b6fd0e31b890f2fea9a7ae090c0a2038609aa4745ae6f78a",
+        "observations_sha256": "97195808d164b5efac5ac10c7022f4b3075cb00b05566c243bd07512a5b295c9"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-opus-5-5-r1",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 36,
+      "cache_read_tokens": 1275736,
+      "cache_write_tokens": 129301,
+      "output_tokens": 89871,
+      "reasoning_tokens": 78605,
+      "uncached_input_tokens": 36,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 129301,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "3.087119199999999",
+      "reported_cost_usd": "3.087119199999999",
+      "source": {
+        "archive_sha256": "79b3ec24aed40feb0ed78e2edf7cbb6120d95ef978ed7bb2d7b954c3962712fc",
+        "analysis_manifest_sha256": "cf1871562590e66b8b3d311c2589731bea87008f6fd180dc6864e068921cb89a",
+        "usage_path": "opus-01/evidence/usage.json",
+        "usage_sha256": "c5c0c53e82091ef8c781286915ec55cf8a4d9bb64324dd097b3a4061ac9df410",
+        "expanded_usage_sha256": "512ed05c3470b434d7cde9aeb1a111b469c36b092a051e0dbcb73c05d345944c",
+        "observations_sha256": "273b2a62335d9c4882187dc5d5e5280b09d92540d24c304596cf605a10ec5a4d"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-astra-r1",
+      "model_id": "gpt-6-astra",
+      "input_tokens": 1289640,
+      "cache_read_tokens": 1214592,
+      "cache_write_tokens": 0,
+      "output_tokens": 12297,
+      "reasoning_tokens": 6721,
+      "uncached_input_tokens": 75048,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "2.579922",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "75b109df79497898764e7651baa9f19d322f142d80b89fb79ccce538a485027c",
+        "analysis_manifest_sha256": "54fbef3f74710007472d63437dd832a7a96aa8efe1349cbc241ae8ee1f3c150d",
+        "usage_path": "astra-01/evidence/usage.json",
+        "usage_sha256": "5a3c454f3b834100b05a6ef89a23ead26ec2a883468666becd52e8c41698b9fe",
+        "expanded_usage_sha256": "70661cbeff817e14cd5b88493d3c30e01edd5034e6daeda853648c443bd5e860",
+        "observations_sha256": "b67e330fc973b708743cb21f42689c7e08311328807b593e61b7da22d05dcc8c"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-sonnet-5-5-r1",
+      "model_id": "claude-sonnet-5-5",
+      "input_tokens": 94,
+      "cache_read_tokens": 2983311,
+      "cache_write_tokens": 218164,
+      "output_tokens": 199843,
+      "reasoning_tokens": 180373,
+      "uncached_input_tokens": 94,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 218164
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "6.623892000000001",
+      "reported_cost_usd": "6.623892000000001",
+      "source": {
+        "archive_sha256": "3a915147b34b62435be107eff98e3fedcfe072bd89b089827f55220afc102ea3",
+        "analysis_manifest_sha256": "542f1e3bf507015019fc9bd1f84fe70602ea7a68eeaa7e93d79003b99ab0009c",
+        "usage_path": "sonnet-01/evidence/usage.json",
+        "usage_sha256": "c25acc087b90502fa6ce740ee09fda65fb8003de0ba60767f402f820d97527e7",
+        "expanded_usage_sha256": "18247af124f147184ce567fda453e410edc5112185cd2aa5366a4965376aeaa2",
+        "observations_sha256": "53af2b2e9dd53a4ca39c9d079edb9bc3fb944cded8f5305526a84951e63ecc6e"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-1-r1",
+      "model_id": "gpt-6.1-sol",
+      "input_tokens": 1718144,
+      "cache_read_tokens": 1645952,
+      "cache_write_tokens": 0,
+      "output_tokens": 12515,
+      "reasoning_tokens": 6979,
+      "uncached_input_tokens": 72192,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.4341292",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "e57b04c46f8c314cdb15a7f2ab27cc7f2653aa7862bbb6614800b994903e5fea",
+        "analysis_manifest_sha256": "feb3abca849ec124b51147d2a9ffa5b5d46f16afe97440c0f04ba57aa4f8c2c0",
+        "usage_path": "sol61-01/evidence/usage.json",
+        "usage_sha256": "0f11ba1bc0104f80bbcc3289e5e17da4d92c535156c4fc08962094c6aadf2f9b",
+        "expanded_usage_sha256": "8db7e971cbb7e6f04a8ce83b6daf3b192acdb5241ba1e0a3a1cb62bd714efc79",
+        "observations_sha256": "4b85d27aa48e89231282a833e6272848874ed533f174df7214bdbe9d886a35c9"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-luna-6-r1",
+      "model_id": "gpt-6-luna",
+      "input_tokens": 22366388,
+      "cache_read_tokens": 21638656,
+      "cache_write_tokens": 0,
+      "output_tokens": 227552,
+      "reasoning_tokens": 173757,
+      "uncached_input_tokens": 727732,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.40293576",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "7103fbfb2f2208070e7a3a7cf25bb8b22516d02cea943211c42a197f8f90671d",
+        "analysis_manifest_sha256": "998fd84afe58b16c96d6fcf316ba2d7af85277f0bdbf467a745f79a483371bc5",
+        "usage_path": "luna-01/evidence/usage.json",
+        "usage_sha256": "1f301d38483996194f9269a34e1fe0adff9fd5a4273bd5af2e141997dde08c1a",
+        "expanded_usage_sha256": "08713943dd5a2e182de1da4e23816c9d66cd07c31dea03c68ce437d1cc94f98a",
+        "observations_sha256": "f6ee5a07174b07713c715517df5a87d7cd74b3cbedf0741cdb512fed2ab36936"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-r1",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 8485232,
+      "cache_read_tokens": 8352896,
+      "cache_write_tokens": 0,
+      "output_tokens": 34542,
+      "reasoning_tokens": 20801,
+      "uncached_input_tokens": 132336,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "2.2806712",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "ab94057260ec228478815cfb75e219d9a874bf1c21b872230289b87055de57fc",
+        "analysis_manifest_sha256": "8c28214224fac6bba8220b3d4601de1f1596eb7dc56d1705dc1ddcea4797c652",
+        "usage_path": "sol-01/evidence/usage.json",
+        "usage_sha256": "9dc2da9aebafcc867686574ec41fbef9b8b84f3d23b808993d3867a75eebcfb0",
+        "expanded_usage_sha256": "514844bece8c599569834751864bfa354f4ee8418f171584c5fb3b2c339ad00b",
+        "observations_sha256": "e2a2218319aef118258e27ee2d34dfaf208b6ee37fad6ff79f63835d18cdcaa6"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-opus-5-5-r1",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 56,
+      "cache_read_tokens": 2840826,
+      "cache_write_tokens": 175857,
+      "output_tokens": 130847,
+      "reasoning_tokens": 115727,
+      "uncached_input_tokens": 56,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 175857
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "4.592185200000001",
+      "reported_cost_usd": "4.592185200000001",
+      "source": {
+        "archive_sha256": "7ab25f4c74c5f2f15e8e6e3830ca5e16286c51d1eec15cbad6724d96a8d551c8",
+        "analysis_manifest_sha256": "64e0de37ad5307ed5fb1314f96185d28b2be5bca17ce6cc6f97991c2cc077028",
+        "usage_path": "opus-01/evidence/usage.json",
+        "usage_sha256": "f2a6c2a4bd38381442de201c3bf130e30d2488714b950e19d5469166db3c2dea",
+        "expanded_usage_sha256": "104e01c0d8e47ed4cedc6e48574b4a6742ff7b5b6f223eb770ee6cd5b64fe6e6",
+        "observations_sha256": "2eaa73b684c852254517f903254a0d84a4b286b1aeebbdfe890a41b6340524f5"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-astra-r1",
+      "model_id": "gpt-6-astra",
+      "input_tokens": 8150305,
+      "cache_read_tokens": 7858432,
+      "cache_write_tokens": 0,
+      "output_tokens": 87626,
+      "reasoning_tokens": 69616,
+      "uncached_input_tokens": 291873,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "15.158462",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "d3ed91cfe3150483b2d6d6f0041cd03f31410ffd6603e74a1d46d6974aace94c",
+        "analysis_manifest_sha256": "2db16925884bdb8872bbdbcb4ebda3c82eadf3532a8da24abd8f1bb8a9017cec",
+        "usage_path": "astra-01/evidence/usage.json",
+        "usage_sha256": "eaa2595439737c600bd2b61b1ed4545946c38111ea7095972c18867e1e9d6bfe",
+        "expanded_usage_sha256": "e6763a5267ebbb3b5eaedcbaf7fa3084a5377f346cee53bbd056f21281b092d5",
+        "observations_sha256": "7e816a4e8c7ea7e65914f39828d3e2eb4b14bef59c0d8c8156e01eb4a7172d6f"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-sonnet-5-5-r1",
+      "model_id": "claude-sonnet-5-5",
+      "input_tokens": 148,
+      "cache_read_tokens": 6281408,
+      "cache_write_tokens": 422991,
+      "output_tokens": 340101,
+      "reasoning_tokens": 305921,
+      "uncached_input_tokens": 148,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 422991,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "provider_reported",
+      "total_cost_usd": "12.052760799999996",
+      "reported_cost_usd": "12.052760799999996",
+      "source": {
+        "archive_sha256": "f7861de19278911370db4755622d3d6dc0ec0bb74cb302d625cd68fd9c799bc8",
+        "analysis_manifest_sha256": "66c4c3b18df8534dcb149008c3ac448525718b70750cf523bd028106c39e4e8f",
+        "usage_path": "sonnet-01/evidence/usage.json",
+        "usage_sha256": "dd7eb750ac538834b4d1dc407aa422e097fdb1e135869b80739c5e9d8cc71706",
+        "expanded_usage_sha256": "4da598b4eebd3cb1795657548c96821e3441f9616b74980d593c3f6c984893f7",
+        "observations_sha256": "b7ae032380920c10233ecdbe9f70486cf58af547b426bf435fc7a5cd4fb9350b"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-sol-6-1-r1",
+      "model_id": "gpt-6.1-sol",
+      "input_tokens": 4918547,
+      "cache_read_tokens": 4782592,
+      "cache_write_tokens": 0,
+      "output_tokens": 46289,
+      "reasoning_tokens": 36185,
+      "uncached_input_tokens": 135955,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "1.2130592",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "bdb9b4175c3f000a022b3a36db49dad8deab0382e79246aa45527e6c11cd0ce2",
+        "analysis_manifest_sha256": "0cf3a446fc89b4b6c0d371ffb4454f70d7b1f796fefd2e51c011b4ca4d50384b",
+        "usage_path": "sol61-01/evidence/usage.json",
+        "usage_sha256": "65dd3ed29f0daa9bb504b77ca47883ff30f426cb5a7f201a23229df0a54e2a73",
+        "expanded_usage_sha256": "91bee4150473fb2f3447c883dcb709891545743efa81537261e8b50f2e302ac3",
+        "observations_sha256": "6bc87c03e8f233ae2709a3135dd4e85bef6f9f90c81b79d2baf1db11851b5c9d"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-luna-6-r1",
+      "model_id": "gpt-6-luna",
+      "input_tokens": 18129614,
+      "cache_read_tokens": 17706752,
+      "cache_write_tokens": 0,
+      "output_tokens": 220655,
+      "reasoning_tokens": 175215,
+      "uncached_input_tokens": 422862,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "0.32968122",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "888efa6c36f00b99d99f142e737c9d75ef48d0d6734e102a8a307e10800bea4c",
+        "analysis_manifest_sha256": "8954b2a4b6a1fe0644c1b391a274d034e6232508348e4de5797cce9e57e85cd9",
+        "usage_path": "luna-01/evidence/usage.json",
+        "usage_sha256": "85c8668995de1d42615479606abfa95ec693988a2a9f96c89a5af2422328a1db",
+        "expanded_usage_sha256": "85c81b86abe3e18d5202f3a359a70f5981fd53ce5f266bb7dcefb6bb1cce60d8",
+        "observations_sha256": "8e45c2df0ec97982fa183fb93a6f0e32ad4e47b169f2dbb64a65440213e1cb86"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-sol-6-r1",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 58768778,
+      "cache_read_tokens": 58348800,
+      "cache_write_tokens": 0,
+      "output_tokens": 166215,
+      "reasoning_tokens": 91686,
+      "uncached_input_tokens": 419978,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "standard_short_context_estimate",
+      "total_cost_usd": "14.171866",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "000a6267f04d6dcf9a3c85340223d1fae7e088197fcf623ab399cdfc430db64d",
+        "analysis_manifest_sha256": "c221648f08ebc9363576226c9ccb24f34afdd2b42bddead58fd5db67882420b8",
+        "usage_path": "sol-01/evidence/usage.json",
+        "usage_sha256": "cedfee9eecae67af650ae9ffae0eeb00b991c3e71a3179b71cb07d82a1ac6a0b",
+        "expanded_usage_sha256": "7f9a10ed09f37db2ea7525728e40702049c24a44c7cefe2213468981a6e66f7e",
+        "observations_sha256": "f6269855304cd5b9252b4cb1f5bb8487c62d4412d8d2f70d6ae994f0a009e5b3"
+      }
+    }
+  ]
+}

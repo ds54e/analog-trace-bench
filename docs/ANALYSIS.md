@@ -37,6 +37,11 @@ from recorded values. Missing values remain unknown and never become zero.
   evaluation, conditions, units, limits, missing measurements and verdicts.
 - `requests.json`, `revisions.json`, `experiments/`: exploration and design edits.
 - `submission-timing.json`, `model-call-timing.json`: AI-side time and lateness.
+- `usage.json`: provider-normalized token usage, cached input/write semantics,
+  final total reconciliation, and provider cost where exposed. Reasoning tokens
+  are already included in output. The site's `token-costs.json` retains verified
+  counts/source hashes and distinguishes recorded totals from Standard-rate
+  comparison estimates; see the token-cost workflow in [development](DEVELOPMENT.md).
 - `measurement-timing.json`: measurement intervals, native CPU and waiting time.
 - `campaigns/`: environment, host resources and controller/evaluation/storage time.
 - `audit.json`, `storage-link-audit.json`: recorded integrity checks.

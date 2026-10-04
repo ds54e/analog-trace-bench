@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 
 from site_templates import ROOT, asset_url, evaluation_label, render_page, template
+from token_costs import load_token_costs, render_token_summary
 
 EVALUATION_PATTERN = r'<script type="application/json" id="independent-evaluation-data">(.*?)</script>'
 
@@ -75,12 +76,14 @@ def render_trace_page(task, model, summary, trace, run=1, report_href=None, peer
     if report_href:
         head += '\n<link rel="alternate" type="application/json" id="independent-evaluation-data" href="' + \
                 html.escape(report_href, quote=True) + '" title="Independent evaluation source"/>'
+        head += '\n<link rel="alternate" type="application/json" id="token-cost-data" href="../data/token-costs.json" title="Token usage and cost source"/>'
     return render_page(task + ' / ' + model + ' — Recorded trace', content, head, '../index.html', root)
 
 
 def rendered_traces(root=ROOT):
     catalog = json.loads((root / 'site/data/runs.json').read_text(encoding='utf-8'))
     outputs = {}
+    costs = None
     for task in catalog['tasks']:
         for run in task['runs']:
             if run.get('trace') is None:
@@ -93,9 +96,12 @@ def rendered_traces(root=ROOT):
             content, report = trace_paths(run['id'], root)
             if not report.is_file():
                 raise ValueError('Missing evaluation source: ' + run['id'])
+            if costs is None:
+                costs, pricing = load_token_costs(root)
             peers = [peer for peer in task['runs'] if peer['model'] == run['model'] and peer.get('trace')]
             outputs[page.as_posix()] = render_trace_page(
-                task['id'], run['model'], (content / 'summary.html').read_text(encoding='utf-8'),
+                task['id'], run['model'], (content / 'summary.html').read_text(encoding='utf-8') +
+                render_token_summary(costs[run['id']], pricing),
                 (content / 'trace.html').read_text(encoding='utf-8'), run=run['run'],
                 report_href='../data/evaluations/' + report.name, peers=peers, root=root)
     return outputs

@@ -15,6 +15,8 @@ The website uses deterministic static generation. Presentation is shared; record
 | `content/traces/<run-id>/trace.html` | Complete MODEL/ACTION/RESULT markup, original MODEL source templates, final SPICE, and the rendered evaluation table. |
 | `site/data/evaluations/<run-id>.json` | Complete original evaluation precision, rows, conditions, revision, completeness and timing. |
 | `site/data/runs.json` | Task/run identity and stable page routes. |
+| `site/data/token-costs.json` | Verified token counts, reported/estimated USD costs, and source hashes. |
+| `data/token-pricing.json` | Dated official Standard short-context rates for reproducible estimates. |
 | `data/evidence.json` | All selected trial identities, verdicts, timing, task definitions, hashes, and actual asset URLs. |
 | `data/trace-validation.json` | Source-derived counts, circuit hash/revision, and accepted content/report hashes. |
 | `site/index.html`, `site/traces/*.html` | Generated output, excluded from Git. |
@@ -57,6 +59,31 @@ The index uses `AI model`, `Evaluation result`, and `Model-call time` to match
 run summaries. Both duration renderers use `format_duration` (`H:MM:SS`), and
 derived evaluation labels use `PASS` / `FAIL`. Archived transcript text,
 prepared fragments, and complete JSON reports retain their original values.
+
+The index has one row per model, with each recorded Run 1–3 shown separately
+inside the evaluation, time, cost, trace, and archive columns. It has no Run
+column and does not aggregate worst values. Labels identify individual runs
+when several are present; unavailable runs are not fabricated. The concise
+task descriptions in `site/data/runs.json` describe the captured specifications.
+
+Token usage is appended at the end of generated run summaries without editing
+the verified fragments. Import and source-check it with:
+
+```sh
+python3 tools/import_token_costs.py
+python3 tools/import_token_costs.py --check
+```
+
+This importer verifies the archive hash, package/index/shared-record hashes,
+trial identity, and final usage reconciliation before expanding `usage.json`.
+Claude totals come from the recorded provider cost. OpenAI totals are explicitly
+marked `≈`: the archived CLI-turn aggregates do not reveal per-request context
+lengths or effective billing tiers, so the comparison uses the dated Standard
+short-context rates. Do not apply long-context multipliers to cumulative run
+tokens. Cached OpenAI input is subtracted from the input total; Claude input
+already excludes cached reads/writes. Reasoning is included in output and is
+never billed twice. Missing usage remains unknown. The build validates cost
+arithmetic offline; the importer's `--check` validates against original assets.
 
 CI and the manual Pages workflow build before checking. `main` and `refactor/**` pushes run checks; publication remains a separate manual action. Commit sources and shared assets, not generated HTML. For a style or layout change, edit the corresponding shared asset/template and rebuild.
 
