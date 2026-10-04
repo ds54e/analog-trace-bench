@@ -175,13 +175,15 @@ class IndexRunTests(unittest.TestCase):
                     patch.object(build_index, 'render_page', side_effect=lambda title, content, *args: content):
                 page = build_index.render_index(fixture)
         self.assertNotIn('<th scope="col">Run</th>', page)
+        self.assertNotIn('<th scope="col">Archive</th>', page)
         self.assertEqual(page.count('<tr><th scope="row">'), 1)
         cells = re.findall(r'<td>(.*?)</td>', page, re.S)
+        self.assertEqual(len(cells), 4)
         visible = [html.unescape(re.sub(r'<[^>]+>', '', cell)) for cell in cells]
         self.assertEqual(visible[0], '1/3 PASS')
         self.assertEqual(visible[1], '0:01:00 - ' +
                          build_index.format_duration(max(120, entry['design_model_calls_s'])))
-        self.assertEqual(visible[2], '$1.00 - $3.00')
+        self.assertEqual(visible[2], '1.00 - 3.00')
         for cell in cells[:3]:
             self.assertNotIn('run-label', cell)
         for cell in cells[3:]:
@@ -189,16 +191,16 @@ class IndexRunTests(unittest.TestCase):
                 self.assertIn(f'Run {number}</span>', cell)
         for run in task['runs']:
             self.assertIn('href="' + run['trace'] + '"', page)
-        self.assertLess(page.index('>Model-call time<'), page.index('>Cost<'))
-        self.assertLess(page.index('>Cost<'), page.index('>Design<'))
+        self.assertLess(page.index('>Model-call time<'), page.index('>USD<'))
+        self.assertLess(page.index('>USD<'), page.index('>Design<'))
 
     def test_ranges_compare_numeric_values_and_keep_missing_values_unknown(self):
-        formatter = lambda amount: '$' + format(amount, '.2f')
+        formatter = lambda amount: format(amount, '.2f')
         rendered = build_index.value_range([Decimal('9'), Decimal('10'), Decimal('2')], formatter)
         visible = re.sub(r'<[^>]+>', '', rendered)
-        self.assertEqual(visible, '$2.00 - $10.00')
+        self.assertEqual(visible, '2.00 - 10.00')
         self.assertEqual(re.sub(r'<[^>]+>', '', build_index.value_range([Decimal('2')], formatter)),
-                         '$2.00 - $2.00')
+                         '2.00 - 2.00')
         self.assertEqual(build_index.value_range([Decimal('2'), None], formatter), 'Not recorded')
         self.assertEqual(build_index.value_range([], formatter), 'Not recorded')
 

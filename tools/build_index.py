@@ -67,13 +67,9 @@ def render_index(root=ROOT):
             def trace(run):
                 return ('<a href="' + html.escape(run['trace'], quote=True) + '">Read trace</a>'
                         if run.get('trace') else '<span class="unavailable">Not available yet</span>')
-            def source(run):
-                url = evidence[run['id']]['url']
-                return ('<a href="' + html.escape(url, quote=True) + '">Download</a>'
-                        if url else '<span class="unavailable">Not available yet</span>')
             cells = [result, value_range(times, format_duration),
-                     value_range(amounts, lambda amount: '$' + format(amount, '.2f')),
-                     run_values(trials, trace), run_values(trials, source)]
+                     value_range(amounts, lambda amount: format(amount, '.2f')),
+                     run_values(trials, trace)]
             rows.append('<tr><th scope="row">' + html.escape(model) + '</th>' +
                         ''.join('<td>' + cell + '</td>' for cell in cells) + '</tr>')
         task_id = html.escape(task['id'], quote=True)
@@ -83,8 +79,8 @@ def render_index(root=ROOT):
                         '<div class="table-scroll" tabindex="0" role="region" aria-labelledby="' + task_id + '">'
                         '<table class="summary-table results-table"><thead><tr><th scope="col">AI model</th>'
                         '<th scope="col">Result</th><th scope="col">Model-call time</th>'
-                        '<th scope="col">Cost</th>'
-                        '<th scope="col">Design</th><th scope="col">Archive</th></tr></thead>'
+                        '<th scope="col">USD</th>'
+                        '<th scope="col">Design</th></tr></thead>'
                         '<tbody>' + '\n'.join(rows) + '</tbody></table></div></section>')
     content = '<main class="page-shell">\n'
     content += '\n'.join(sections)
