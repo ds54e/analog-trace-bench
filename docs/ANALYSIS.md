@@ -9,8 +9,7 @@ provider authentication, a private repository, a PDK and ngspice are unnecessary
 
 `data/evidence.json` lists every selected trial, exact archive URL and SHA-256,
 original electrical status, captured source/configuration identities, model time,
-and the matching task definition under `data/tasks/`. The four existing trace
-pages use shorter display IDs; each catalog entry also names its full attempt ID.
+and the matching task definition under `data/tasks/`. Display IDs identify each public trace; each catalog entry also names its full attempt ID.
 
 ```sh
 python3 tools/fetch_evidence.py --list
@@ -38,10 +37,11 @@ from recorded values. Missing values remain unknown and never become zero.
 - `requests.json`, `revisions.json`, `experiments/`: exploration and design edits.
 - `submission-timing.json`, `model-call-timing.json`: AI-side time and lateness.
 - `usage.json`: provider-normalized token usage, cached input/write semantics,
-  final total reconciliation, and provider cost where exposed. Reasoning tokens
+  final total reconciliation (CLI producers) or per-request raw usage (direct API),
+  and provider cost where exposed. Reasoning tokens
   are already included in output. The site's `token-costs.json` retains verified
   counts/source hashes and distinguishes recorded totals from Standard-rate
-  comparison estimates; see the token-cost workflow in [development](DEVELOPMENT.md).
+  comparison estimates; see [token cost accounting](TOKEN_COSTS.md).
 - `measurement-timing.json`: measurement intervals, native CPU and waiting time.
 - `campaigns/`: environment, host resources and controller/evaluation/storage time.
 - `audit.json`, `storage-link-audit.json`: recorded integrity checks.
@@ -63,10 +63,12 @@ every missing file. Numerical resolution and grid limitations remain recorded.
 
 ## Website maintenance
 
-All selected trials appear in the result index and have downloadable evidence.
-All 54 selected trials have prepared HTML views, including failed trials. The
+All selected trials appear in both the Model and Task indexes and have downloadable evidence.
+Index time and cost bars show arithmetic means per task/model across available
+runs; pass badges show passed / recorded runs. Individual pages show one run.
+All 63 selected trials have prepared HTML views, including failed trials. The
 four accepted OTA-WIDE reference pages are preserved. The campaign importer
-uses the verified archive reader, supports the captured Codex and Claude
+uses the verified archive reader, supports the captured Codex, Claude and OpenCode
 formats, and source-checks saved fragments before keeping an existing page.
 See [all-result import checks](ALL_RESULTS_IMPORT.md) for coverage and omissions. Never assume example metric limits,
 counts, task prefixes or transcript semantics for another task.

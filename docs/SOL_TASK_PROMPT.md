@@ -1,6 +1,6 @@
 # Task prompt for a new session
 
-Replace the bracketed inputs, then paste the following prompt. Select GPT-6.1 Sol in the available Codex interface. A practical starting point is `high` for a new archive format and `medium` for repeated runs of an already verified adapter; these effort choices are project recommendations, not OpenAI guarantees.
+Replace the bracketed inputs, then paste the following prompt in a new session.
 
 ```text
 Add an Analog Trace Bench recorded-design page to the shared static website from the supplied evidence.

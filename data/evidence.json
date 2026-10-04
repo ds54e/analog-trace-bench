@@ -2814,6 +2814,556 @@
       },
       "asset_id": 609541685,
       "release_id": 402943903
+    },
+    {
+      "id": "ldo-always-on-sky130-deepseek-r1",
+      "task": "LDO-ALWAYS-ON-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 1,
+      "campaign_id": "sky130-deepseek9-20261004-release",
+      "attempt_id": "ldo-always-on-sky130-deepseek-r1-20261004-model-time-direct-api",
+      "slot": "deepseek-01",
+      "filename": "ldo-always-on-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "sha256": "48d4edff3059f8f3b09b511601766b6e245d5b915172ef97a39ed49419952009",
+      "bytes": 933732,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "2ea1b9b09eb96b53b1f435b7c89f6d31c7a2fde644285ee547ad274b7b630940",
+      "source_sha": "7488153498346438ba376ee99583957b3d585d09",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "b5c469b15faf5c0886d2e62618c7c27b14786c7ca77c42e91ad9fb936e55c289",
+      "capture_manifest_sha256": "e87fd1f3776bb0d4f940438049fb42cadd21ea2d15009c75ed44967e5c093aab",
+      "analysis_manifest_sha256": "5f66bbc795cbc85ffb44c65821425bfa375bf93e88e56e4678383e37fd327542",
+      "configuration": {
+        "run_id": "deepseek-01",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "model_version": "DeepSeek-V4.1-Flash",
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1534.7260434627533,
+      "design_wall_s": 2111.2403705120087,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "characterization": {
+          "execution_complete": true,
+          "electrical_status": "RECORDED",
+          "counts": {
+            "CHARACTERIZATION": 8
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 610193407,
+      "release_id": 402943827
+    },
+    {
+      "id": "ldo-core-sky130-deepseek-r1",
+      "task": "LDO-CORE-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 1,
+      "campaign_id": "sky130-deepseek9-20261004-release",
+      "attempt_id": "ldo-core-sky130-deepseek-r1-20261004-model-time-direct-api",
+      "slot": "deepseek-01",
+      "filename": "ldo-core-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "sha256": "50482d2c5b00163dfb90e1abe05589f379399b3960fde58870de1333c73ad7b6",
+      "bytes": 429356,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "1ef1cad3977dffe3127322d168a1cb00680378f3487a9b83104fc0126f6fcd01",
+      "source_sha": "7488153498346438ba376ee99583957b3d585d09",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "0ca5acf4bd03e7e616e9adc8534f685152d3ac91ae5485516d7274f83161c7ac",
+      "capture_manifest_sha256": "1f6657cb85d8d9eca2b1ae08e5b38ac0cc20673fbb9ee4cfef0623999c09c402",
+      "analysis_manifest_sha256": "f9e8fbfea4d73b0e55f5140976c8eee458a7720afba0644971994cf710c7d353",
+      "configuration": {
+        "run_id": "deepseek-01",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "model_version": "DeepSeek-V4.1-Flash",
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1840.7469680309296,
+      "design_wall_s": 2023.936129808426,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 315,
+            "MISS": 45
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 56,
+            "MISS": 4
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "characterization": {
+          "execution_complete": true,
+          "electrical_status": "RECORDED",
+          "counts": {
+            "CHARACTERIZATION": 8
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 610195600,
+      "release_id": 402943836
+    },
+    {
+      "id": "ldo-low-voltage-sky130-deepseek-r1",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 1,
+      "campaign_id": "sky130-deepseek9-20261004-release",
+      "attempt_id": "ldo-low-voltage-sky130-deepseek-r1-20261004-model-time-direct-api",
+      "slot": "deepseek-01",
+      "filename": "ldo-low-voltage-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "sha256": "7787f23197833fc8f776a87b805f3d22a4e5b32745a9752a3804764e68848a7a",
+      "bytes": 1236240,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "8c0996c9fa289d8a1ff06c81ae1caa9af940ccc9a9082807eb053159a3db5c02",
+      "source_sha": "7488153498346438ba376ee99583957b3d585d09",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "eae1794174da5572ab67282d2d0014803921225eaea0b16b903c4a2a993a8b5f",
+      "capture_manifest_sha256": "57e165b7dd7c08bc72600bad98faeaa75f2f588810b503cca460a673c56610a3",
+      "analysis_manifest_sha256": "aaafa7e58605ddb764c351425ef2ec84b6169202d0982ea75b6b6d4a04d22150",
+      "configuration": {
+        "run_id": "deepseek-01",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "model_version": "DeepSeek-V4.1-Flash",
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 2477.9769084453583,
+      "design_wall_s": 7214.048164129257,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 324,
+            "MISS": 36
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 54,
+            "MISS": 6
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "characterization": {
+          "execution_complete": true,
+          "electrical_status": "RECORDED",
+          "counts": {
+            "CHARACTERIZATION": 8
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 610194422,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-quiet-sky130-deepseek-r1",
+      "task": "LDO-QUIET-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 1,
+      "campaign_id": "sky130-deepseek9-20261004-release",
+      "attempt_id": "ldo-quiet-sky130-deepseek-r1-20261004-model-time-direct-api",
+      "slot": "deepseek-01",
+      "filename": "ldo-quiet-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "sha256": "f8f04e8c486e574b02e4234d4585b513a892af0ff02762438b82ef40bc591b04",
+      "bytes": 937064,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "e859f972f230f375f76384b9d2072d5731194cfdc34c479b0f3325c79fd1968f",
+      "source_sha": "7488153498346438ba376ee99583957b3d585d09",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "f92eb27e5d3859bcd5b722714ea20cc1989861f4a97853c26e1269c23e2e301e",
+      "capture_manifest_sha256": "fa155376c830297e1ab7561cb48370f3e0c6f1a9ae5ad72013c0793ba3355eb8",
+      "analysis_manifest_sha256": "a424afa0cde57b71062ebeeeb7003d041b1c1c6d09ef3428c231200d9de759c9",
+      "configuration": {
+        "run_id": "deepseek-01",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "model_version": "DeepSeek-V4.1-Flash",
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1211.8232719898224,
+      "design_wall_s": 1580.9138836860657,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 610195044,
+      "release_id": 402943854
+    },
+    {
+      "id": "ota-drive-sky130-deepseek-r1",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 1,
+      "campaign_id": "sky130-deepseek9-20261004-release",
+      "attempt_id": "ota-drive-sky130-deepseek-r1-20261004-model-time-direct-api",
+      "slot": "deepseek-01",
+      "filename": "ota-drive-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "sha256": "927b7225d2e59a6ca08651132acb2178f654bdbd4d76831ba69beaa50796f44e",
+      "bytes": 613476,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "61d840da1fd2b29dbd51257ab9fd6f15f7fdbf89e0049cc6dafcdc28a233fa3c",
+      "source_sha": "7488153498346438ba376ee99583957b3d585d09",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "a794e96d793ddf495059d04f9bc00f1df69810aba9e7b3892afa8cc981d6b94e",
+      "capture_manifest_sha256": "916a78b7d0eb77dca5ce1b3936f7b4d4b7d50120c8d4a04ff61475b59fff7d06",
+      "analysis_manifest_sha256": "790eeeee772623048de68e00b1c1b3af5fc9c2355755e53112cde7f627c5a264",
+      "configuration": {
+        "run_id": "deepseek-01",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "model_version": "DeepSeek-V4.1-Flash",
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1757.8828563690186,
+      "design_wall_s": 1994.62038564682,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 175,
+            "MISS": 113
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 99,
+            "MISS": 54
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 610192930,
+      "release_id": 402943863
+    },
+    {
+      "id": "ota-fixed-sky130-deepseek-r1",
+      "task": "OTA-FIXED-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 1,
+      "campaign_id": "sky130-deepseek9-20261004-release",
+      "attempt_id": "ota-fixed-sky130-deepseek-r1-20261004-model-time-direct-api",
+      "slot": "deepseek-01",
+      "filename": "ota-fixed-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "sha256": "b95a5abf97a64ec928dc7cb2b44277970be9d41d4ce67315d62b2ccd141ce2ae",
+      "bytes": 2385680,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "0cf01e29d2dc6469c816d7c720adea77a78d4781e8df7b01583e1b9262aa1c32",
+      "source_sha": "7488153498346438ba376ee99583957b3d585d09",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "a0b8120ce7fa38edbc67f5bf3f6856a56156a799739a3602f7684ea01f839a04",
+      "capture_manifest_sha256": "63c7f9c3ce2719c4a2f044b4b3756afed9cd62aa8a30ebac80c9e46c05f3291e",
+      "analysis_manifest_sha256": "3f1b9c58f090ca9b7e9874853beb0b159ba9b7351b89a37257c990e158c3fe6a",
+      "configuration": {
+        "run_id": "deepseek-01",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "model_version": "DeepSeek-V4.1-Flash",
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1155.1162419319153,
+      "design_wall_s": 2518.628557920456,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "robustness": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 610191858,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-free-sky130-deepseek-r1",
+      "task": "OTA-FREE-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 1,
+      "campaign_id": "sky130-deepseek9-20261004-release",
+      "attempt_id": "ota-free-sky130-deepseek-r1-20261004-model-time-direct-api",
+      "slot": "deepseek-01",
+      "filename": "ota-free-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "sha256": "0db8bc74d6b6ea803aa831c06cc45048f3095226aee5d2f7b1bc8286e082ffeb",
+      "bytes": 1183996,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "e90894f820fa30ac808a234b02850a81d39fccc8ae58c55743ef301b986019b0",
+      "source_sha": "7488153498346438ba376ee99583957b3d585d09",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "a8be0527372f2af21db74e2941d9d13e3b2fec4b05bf0bb4f6b00fa3670c1847",
+      "capture_manifest_sha256": "1b8d9e358e85dd2be1a83a50d0550bd49267dcdddf7345484d2ea358208dcc38",
+      "analysis_manifest_sha256": "b464625e815b3a7648ae75da33a92653736ddd14d449db84b8e9e0d4d6e28c4c",
+      "configuration": {
+        "run_id": "deepseek-01",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "model_version": "DeepSeek-V4.1-Flash",
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 811.3167963027954,
+      "design_wall_s": 1845.1753644943237,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 610192623,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-precision-sky130-deepseek-r1",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 1,
+      "campaign_id": "sky130-deepseek9-20261004-release",
+      "attempt_id": "ota-precision-sky130-deepseek-r1-20261004-model-time-direct-api",
+      "slot": "deepseek-01",
+      "filename": "ota-precision-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "sha256": "a06fc952d9d539fb14e44074c81dfe9fd52c728783504fd1401c8ba09ac5e297",
+      "bytes": 402852,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "08bcd9a0649a50074bc967966e1b85b4ec20b58e0f5b17a2acec9fa0f783afad",
+      "source_sha": "7488153498346438ba376ee99583957b3d585d09",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "64bd8bcc2b953ca1e0985bc612bbb2c53b8d755246f382046f9f55472728ad51",
+      "capture_manifest_sha256": "e427ec6e73f2418bf447574693f2da0de1a49319c34b58189d6443faa9866994",
+      "analysis_manifest_sha256": "6501be972913f9835a2ece0809086237ac4c9c17cfff79ea04d1ca0c9476dddf",
+      "configuration": {
+        "run_id": "deepseek-01",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "model_version": "DeepSeek-V4.1-Flash",
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1788.8569762706757,
+      "design_wall_s": 2026.682416677475,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 269,
+            "MISS": 19
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 144,
+            "MISS": 9
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 610193635,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-wide-sky130-deepseek-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 1,
+      "campaign_id": "sky130-deepseek9-20261004-release",
+      "attempt_id": "ota-wide-sky130-deepseek-r1-20261004-model-time-direct-api",
+      "slot": "deepseek-01",
+      "filename": "ota-wide-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "sha256": "a698ee15aac4827f113f04a46bffaadea462d8529352d590e448cac0b173d1d5",
+      "bytes": 620560,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-deepseek-r1-20261004-model-time-direct-api.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "1d37a315c55112c47ddc30b2d158ad34843e5f770a4f26225f47ccb267f25a00",
+      "source_sha": "7488153498346438ba376ee99583957b3d585d09",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "5f3238f22360e865b76bea6c832e6ef74111aaa93ee7224c97c3adb232bf6334",
+      "capture_manifest_sha256": "53f6534d0d80b6b3a054152a4c7ea8c7b565afa1917dc78f0128f52733697422",
+      "analysis_manifest_sha256": "b14f42c6a3067714a9c7da7b4ed36ed1fb61a5f46a2d22a5866d168570ec61df",
+      "configuration": {
+        "run_id": "deepseek-01",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "model_version": "DeepSeek-V4.1-Flash",
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 2036.4207210540771,
+      "design_wall_s": 2183.4655554294586,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "MISS": 40,
+            "PASS": 392
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "MISS": 24,
+            "PASS": 201
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 610195360,
+      "release_id": 402943903
     }
+  ],
+  "campaign_ids": [
+    "sky130-six-models9-1run-20261004-model-time-capacity-retry1",
+    "sky130-deepseek9-20261004-release"
   ]
 }

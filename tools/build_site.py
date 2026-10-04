@@ -4,14 +4,13 @@ import argparse
 from pathlib import Path
 import shutil
 
-from build_index import render_index
+from build_index import rendered_indexes
 from build_traces import rendered_traces
 from site_templates import ROOT
 
 
 def generated_pages(root=ROOT):
-    return {'index.html': render_index(root), 'tasks.html': render_index(root, view='task'),
-            **rendered_traces(root)}
+    return {**rendered_indexes(root), **rendered_traces(root)}
 
 
 def build(root=ROOT, output=None, check=False):

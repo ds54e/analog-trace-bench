@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-10-04",
+  "snapshot_date": "2026-10-05",
   "traces": [
     {
       "id": "ldo-always-on-sky130-opus-5-5-r1",
@@ -3054,6 +3054,518 @@
           "transport_rows": 3,
           "empty_successes": 5,
           "file_edits_without_patch_text": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-deepseek-r1",
+      "page": "traces/ldo-always-on-sky130-deepseek-raw.html",
+      "counts": {
+        "ACTION": 41,
+        "RESULT": 41,
+        "MODEL": 16
+      },
+      "submitted_spice_bytes": 514,
+      "submitted_spice_sha256": "19c578d3fc7918ea908892aef376a8cdaa4710096be3e2905fa1b4183dc77e9c",
+      "revision": "dut-081c78b1be5ad6000c648c82",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "a27454e7dfd2e79bd25768d5c35cb6ade80e758008138427de62d6af101bbfbe",
+        "trace.html": "0278dd9927213e2a06b2e2ddfc4a640d14d3e3588fc8d7c161b7864d1c6efeb0"
+      },
+      "evaluation_sha256": "1d8b6f123596858805399d5eb8edfa96f66227ba838ee1543496c44e58ac0de8",
+      "source_archive_sha256": "48d4edff3059f8f3b09b511601766b6e245d5b915172ef97a39ed49419952009",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 41,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 61
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-core-sky130-deepseek-r1",
+      "page": "traces/ldo-core-sky130-deepseek-raw.html",
+      "counts": {
+        "MODEL": 16,
+        "ACTION": 41,
+        "RESULT": 41
+      },
+      "submitted_spice_bytes": 1095,
+      "submitted_spice_sha256": "44a466fdea2e8a04ed0128959e368ea2a2c121e6a41cfa7ac33436b91eb55335",
+      "revision": "dut-e36e1c5c9a8c24846535f0fe",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "5ee0d731e1217a8b6de557ec4f74f0da4f7e23f9356dfdcee44e5670c930f6b4",
+        "trace.html": "521e61727ab2bc2f1c3736947478df3f2e29996257da320ba6e4526b4a553431"
+      },
+      "evaluation_sha256": "f186c1b2b96655c0a83e1d74f8f6f99667a6cf6e3a4532f6ab2831b4006c239c",
+      "source_archive_sha256": "50482d2c5b00163dfb90e1abe05589f379399b3960fde58870de1333c73ad7b6",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 41,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 63
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 2,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-deepseek-r1",
+      "page": "traces/ldo-low-voltage-sky130-deepseek-raw.html",
+      "counts": {
+        "MODEL": 9,
+        "ACTION": 77,
+        "RESULT": 77
+      },
+      "submitted_spice_bytes": 1161,
+      "submitted_spice_sha256": "65864b37060bcd8fc22f1ccedfcc7e4da2a20bd9dbf63d91bc60f6576a241d69",
+      "revision": "dut-e15a4e05d259fc0c01a786fe",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "10678ddb63c1ebc4886d119b1ffc030906f806b24b9e0cb46fb12302f05c9ab5",
+        "trace.html": "87400d0187d15e68285de10582c9bc551c7594de23b487781f5290592b4344a6"
+      },
+      "evaluation_sha256": "269e87425d49b65d8f0c8a691dd97b9355c0c976e55e839f20186b164945e76f",
+      "source_archive_sha256": "7787f23197833fc8f776a87b805f3d22a4e5b32745a9752a3804764e68848a7a",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 77,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 139
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-deepseek-r1",
+      "page": "traces/ldo-quiet-sky130-deepseek-raw.html",
+      "counts": {
+        "ACTION": 58,
+        "RESULT": 58,
+        "MODEL": 22
+      },
+      "submitted_spice_bytes": 817,
+      "submitted_spice_sha256": "9e8a61ce856a9b0adb95d62a5e6ff80d31a711e8ca783a4327fc23e2a2b51089",
+      "revision": "dut-4e04f92b396d923aeef05eb5",
+      "evaluation_categories": 12,
+      "evaluation_row_counts": {
+        "published": 612,
+        "hidden": 102
+      },
+      "content_sha256": {
+        "summary.html": "be735bec2f9501574c6ff86008138048f49f36ea32ae2f32143878a7f5550343",
+        "trace.html": "fa23a57c2cac4fd8a2f7cf469086e40855350fb7f45265aff472422d2b6563af"
+      },
+      "evaluation_sha256": "5bf4e065eab793829a24bc11e4b20f69bcb6c2fc1bcbca956194633105feb8e5",
+      "source_archive_sha256": "f8f04e8c486e574b02e4234d4585b513a892af0ff02762438b82ef40bc591b04",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 58,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 93
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-drive-sky130-deepseek-r1",
+      "page": "traces/ota-drive-sky130-deepseek-raw.html",
+      "counts": {
+        "ACTION": 42,
+        "RESULT": 42,
+        "MODEL": 9
+      },
+      "submitted_spice_bytes": 1116,
+      "submitted_spice_sha256": "0c8c73785a4ffccbe3b6cd9b2c5b618ffb2edd07529a90b6f92f2e9efa45f16d",
+      "revision": "dut-8c7ee4f88971a9e310ef83ec",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "49d6479142910459ebf0d9116ef55837dc8d5dbf458db5a5686b4c406b87b8b5",
+        "trace.html": "0fe6e5de44834b8c3a2f4c53496a91d0a08362d0bd714c07654a7f3a964f84e1"
+      },
+      "evaluation_sha256": "e7fc52ac9722785a24c217fc8f8d99428bce95fc81aff783f0e1d8760ab2b69d",
+      "source_archive_sha256": "927b7225d2e59a6ca08651132acb2178f654bdbd4d76831ba69beaa50796f44e",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 42,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 63
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 72,
+          "hidden": 35
+        }
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-deepseek-r1",
+      "page": "traces/ota-fixed-sky130-deepseek-raw.html",
+      "counts": {
+        "ACTION": 102,
+        "RESULT": 102,
+        "MODEL": 31
+      },
+      "submitted_spice_bytes": 2031,
+      "submitted_spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb",
+      "revision": "ota-8615402792c2f0012b1b",
+      "evaluation_categories": 19,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153,
+        "robustness": 1
+      },
+      "content_sha256": {
+        "summary.html": "1d4dc575af661fb281d9d821a4b02c026da0345a783687065ba8dd5ca55af9bb",
+        "trace.html": "c2159f8678c1fb386e3335edea5a8849e0e50fecf17600989d2eb0e2291c8c39"
+      },
+      "evaluation_sha256": "3c8e713954f26cff223f1955e6262bce9a5b57d8cf3ba6c6747831066b0350cd",
+      "source_archive_sha256": "b95a5abf97a64ec928dc7cb2b44277970be9d41d4ce67315d62b2ccd141ce2ae",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 102,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 189
+        },
+        "robustness_sample_circuits": [
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53001",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53002",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53003",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53004",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53005",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53006",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53007",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53008",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53009",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53010",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53011",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53012",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53013",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53014",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53015",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53016",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53017",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53018",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53019",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53020",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53021",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53022",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53023",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53024",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53025",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53026",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53027",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53028",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53029",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53030",
+            "revision": "ota-8615402792c2f0012b1b",
+            "spice_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb"
+          }
+        ],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-free-sky130-deepseek-r1",
+      "page": "traces/ota-free-sky130-deepseek-raw.html",
+      "counts": {
+        "ACTION": 46,
+        "RESULT": 46,
+        "MODEL": 19
+      },
+      "submitted_spice_bytes": 1071,
+      "submitted_spice_sha256": "7d792106bb0fa2386bd0d933aad532eccf7e38924f303fe97b91c00351bd8ea5",
+      "revision": "dut-acfbf37b9556c2239a82d0e4",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "46d47140acbf1fe23dedefcca60ddccd14290d6fbf0e03e6cc100ac6019069ca",
+        "trace.html": "ac96c854a703a3bce2fd6d76533499907536e34832f5939c4fc45afe6b606fbd"
+      },
+      "evaluation_sha256": "25764fd94202dd39539788aa10ebdb97abb27dc621b75ca9d98b1227c41569a0",
+      "source_archive_sha256": "0db8bc74d6b6ea803aa831c06cc45048f3095226aee5d2f7b1bc8286e082ffeb",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 46,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 73
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-precision-sky130-deepseek-r1",
+      "page": "traces/ota-precision-sky130-deepseek-raw.html",
+      "counts": {
+        "MODEL": 17,
+        "ACTION": 48,
+        "RESULT": 48
+      },
+      "submitted_spice_bytes": 925,
+      "submitted_spice_sha256": "b3902d50f0d24e0f8fc1aa4b5b97fb42d5e4ed419481c4a4dfa54a03f6ecc16f",
+      "revision": "dut-b6f3a1ab29e24bf2cc262a6e",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "312552ef34af12b3226cdada230958319f3fa023ee5b8b6e090093bc9d1a9678",
+        "trace.html": "4d9f8ba1c34208a71e80b701d5dda448b50edde45661cbd53917681c776b9325"
+      },
+      "evaluation_sha256": "c5bc2de6a3495ebed539a5896f765bb619e3f467b0f0912cb3ad27333dc6bbb8",
+      "source_archive_sha256": "a06fc952d9d539fb14e44074c81dfe9fd52c728783504fd1401c8ba09ac5e297",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 48,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 77
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-wide-sky130-deepseek-r1",
+      "page": "traces/ota-wide-sky130-deepseek-raw.html",
+      "counts": {
+        "ACTION": 26,
+        "RESULT": 26,
+        "MODEL": 13
+      },
+      "submitted_spice_bytes": 1583,
+      "submitted_spice_sha256": "4eec9d9c93ea0ce9226bcd3beae6a13f3d3a96642a7639b17c837c8df29c24e1",
+      "revision": "dut-0cef503ee07e175a6d9793b3",
+      "evaluation_categories": 26,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "content_sha256": {
+        "summary.html": "f08f8132cc4efd649765d4cb0fbfe5fbfaf9e35c783f6a2a8bf2c3d6c08c68e1",
+        "trace.html": "806b3ea9016385a272413c0ee0bf73f4ec9a0bd35de1cdb124706e5eb00f6ada"
+      },
+      "evaluation_sha256": "1f0c080cf5dfb2c037115f9288a1808a475a3114386c184cd5f8833ff8190529",
+      "source_archive_sha256": "a698ee15aac4827f113f04a46bffaadea462d8529352d590e448cac0b173d1d5",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 26,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 41
         },
         "robustness_sample_circuits": [],
         "unavailable_measurement_rows": {

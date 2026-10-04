@@ -1,33 +1,8 @@
 # Development
 
-## Sources and generated pages
-
-The website uses deterministic static generation. Presentation is shared; recorded content is separate. It does not use a client-side application framework or fetch the trace before displaying it.
-
-| Path | Role |
-| :--- | :--- |
-| `tools/templates/page.html` | Shared document head and site header for the index and traces. |
-| `tools/templates/trace.html` | Shared trace heading, summary, tabs, and panels. |
-| `site/assets/site.css` | Shared colors, fonts, page layout, headings, tables, and focus/scroll behavior. |
-| `site/assets/trace.css`, `trace.js` | Trace-specific styles and accessible tab behavior. |
-| `site/assets/home.css` | Result-index headings and table columns. |
-| `content/traces/<run-id>/summary.html` | Verified summary-table rows. |
-| `content/traces/<run-id>/trace.html` | Complete MODEL/ACTION/RESULT markup, original MODEL source templates, final SPICE, and the rendered evaluation table. |
-| `site/data/evaluations/<run-id>.json` | Complete original evaluation precision, rows, conditions, revision, completeness and timing. |
-| `site/data/runs.json` | Task/run identity and stable page routes. |
-| `site/data/token-costs.json` | Verified token counts, reported/estimated USD costs, and source hashes. |
-| `data/token-pricing.json` | Dated official Standard short-context rates for reproducible estimates. |
-| `data/evidence.json` | All selected trial identities, verdicts, timing, task definitions, hashes, and actual asset URLs. |
-| `data/trace-validation.json` | Source-derived counts, circuit hash/revision, and accepted content/report hashes. |
-| `site/index.html`, `site/tasks.html`, `site/traces/*.html` | Generated output, excluded from Git. |
-
-Prepared fragments are intentional: the transcript formats differ, so archive adapters handle their semantics once and verify them against the source. The static-site build reuses verified markup without reparsing archived commands or repeatedly rendering MODEL Markdown. It is not a universal transcript importer.
-
-Visible trace text and submitted SPICE are already in generated HTML. JavaScript controls only the run tabs. Complete evaluation JSON is linked from each page's head using `rel="alternate"`; its visible table does not require a fetch. Existing page routes and the accepted presentation are preserved. Open the website through a server or export the complete directory; copying one HTML file omits shared dependencies.
-
 ## Build and check
 
-Run from the repository root:
+Run from the repository root with Python 3.10+:
 
 ```sh
 python3 tools/build_site.py
@@ -37,145 +12,123 @@ node --test tests/trace-tabs.test.cjs
 python3 -m http.server 8000 --directory site
 ```
 
-Open `http://localhost:8000/`. Building and checking saved pages require Python 3.10+ and its standard library. The tab-event tests require Node 20+ and no installed packages. They verify event behavior, not browser layout.
+Open `http://localhost:8000/`. Static generation and offline checking need only
+Python's standard library. Tab tests require Node 20+; importing new MODEL
+Markdown also requires `npm install --ignore-scripts` for pinned `marked`.
+Use `python3.12` in a workspace whose default Python is older than 3.10.
 
-The build creates model and task indexes for all catalogued results and trace pages whose `trace` route is present. A null route retains downloadable evidence without claiming an imported HTML trace. Every rendered trace still requires its source-derived validation profile. `--check` detects stale output without writing. `check_site.py` also checks relative links/fragments, unique DOM IDs, run identity, payload counts, content hashes, submitted-SPICE bytes/hash, report hashes, and evaluation revision/rows. Changing a saved command and regenerating HTML still fails the content check.
+`build_site.py --check` detects stale output without writing. `check_site.py`
+checks local links, DOM IDs, run identities, accepted content/report hashes,
+payload counts, exact submitted-SPICE bytes/hash, and evaluation revisions/rows.
+Neither command downloads archives or runs circuit simulations.
 
-For a portable review copy:
+Export a complete portable preview with `python3 tools/build_site.py --output
+out/preview`, then serve that directory. The destination must be outside `site/`.
+Shared asset URLs contain content hashes and all internal routes are relative.
+
+## Source layout
+
+| Path | Role |
+| :--- | :--- |
+| `tools/templates/` | Shared document/header and trace layout. |
+| `site/assets/site.css` | Shared typography, colors, tables, focus and scrolling. |
+| `site/assets/home.css`, `trace.css`, `trace.js` | Index and trace presentation; accessible tabs. |
+| `content/traces/<run-id>/` | Canonical verified summary rows and complete trace markup. |
+| `site/data/evaluations/` | Original independent reports at full precision. |
+| `site/data/runs.json` | Tasks, descriptions, model/run identities and stable routes. |
+| `data/evidence.json` | Exact Release URLs, hashes, configurations, verdicts and timing. |
+| `data/trace-summaries.json` | Reviewed submitted-circuit descriptions. |
+| `data/trace-validation.json` | Accepted hashes, revisions and source coverage. |
+| `data/token-pricing.json`, `site/data/token-costs.json` | Dated rates and source-derived costs. |
+| `tools/trace/transcript.py` | Captured Codex, Claude and OpenCode event semantics. |
+| `tools/trace/import_results.py` | Verified archive import, evaluation and payload checks. |
+| `tools/build_index.py` | Shared aggregation and rendering of both index views. |
+| `site/index.html`, `site/tasks.html`, `site/traces/` | Generated output, excluded from Git. |
+
+Keep source archives in Releases and ignored local `evidence/`, outside the
+Pages artifact. Build from canonical fragments; do not edit generated HTML.
+Prepared fragments avoid reparsing archives and rerendering Markdown on every
+build. Full trace text and SPICE are readable without JavaScript; the complete
+report is linked through `rel="alternate"` without a required client fetch.
+
+## Shared presentation
+
+The warm background, sans-serif typography, headings and horizontal table rules
+come from shared assets. Use `page-shell`, `summary-table` and `table-scroll`
+rather than duplicating base styles. Follow [Trace guide](TRACE_GUIDE.md) for
+payload fidelity, turn rails and five-line, unwrapped scrollable code boxes.
+
+`index.html` groups by model; `tasks.html` groups by task and shows its short
+description. Every header offers Model / Task links; the current index has
+`aria-current="page"`, and the brand returns to the Model view. Both indexes
+render from one validated result snapshot. Visible column headings are hidden;
+Task/AI model, Pass, Model-call time and USD remain semantic headers.
+
+Each task/model pair has one row. Its label links to the earliest available
+trace; trace tabs expose other recorded runs. Pass shows passed / recorded runs
+in a PASS badge when all runs pass, otherwise FAIL. Time and USD are arithmetic
+means across recorded runs, calculated before rounding. Missing values stay
+unknown rather than producing partial means. Time shows minutes to one decimal,
+USD uses `$2.01`; blue and brown bars scale to the maximum mean in that section.
+The index has no Run, Design or Archive columns.
+
+Individual summaries have Run and evaluation, Circuit design and Token cost
+tables. Their first column aligns; presentation splits verified fragments
+without changing them. Token costs use concise Type / Tokens / Cost labels,
+unit rates such as `$10.00 / 1M` and plain totals. See [Token costs](TOKEN_COSTS.md)
+for provider-specific accounting and import commands.
+
+## Import recorded runs
+
+1. Inventory the actual Release assets, task/model/run, submission, transcript
+   schema, evaluation and timing. Verify the archive identity and task files.
+2. Register evidence-derived entries in `data/evidence.json` and
+   `site/data/runs.json`, initially with `trace: null`. Use an actual immutable
+   asset URL; never copy another run's configuration, status or hashes.
+3. Review the submitted SPICE/rationale and add its circuit description to
+   `data/trace-summaries.json`. Extend transcript/task semantics when needed and
+   add focused producer-format checks; unknown public formats must be rejected.
+4. Download/unpack the selected archives and import token costs before the final
+   site build. [Analysis](ANALYSIS.md) documents standalone evidence reading.
+5. Import selected catalog run IDs, or source-check all registered results:
 
 ```sh
-python3 tools/build_site.py --output out/preview
-python3 -m http.server 8000 --directory out/preview
-```
-
-An export includes shared assets and JSON reports. Its output directory must be outside `site/`. Asset URLs include content hashes so updated CSS/JavaScript do not reuse an older cache entry. Relative URLs work under the GitHub Pages project path.
-
-`site_templates.render_page` loads `site.css` before each page's component CSS.
-Use the shared `page-shell`, `summary-table`, and `table-scroll` classes for
-layout and tables instead of repeating base rules in page styles. Index
-headings use the same display font and weight as trace headings; the compact
-index tables scroll horizontally on narrow screens and remain focusable. The
-shared sans-serif typography, warm background, and horizontal table rules apply
-to both the index and individual traces.
-The default `index.html` groups results by model, with one row per task.
-`tasks.html` groups results by task, with one row per model and each task's
-description. Model / Task links in every page header switch between these views;
-the current index has `aria-current="page"`. The brand returns to the model index.
-Both indexes hide their column headings and their row spacing. Task or AI model,
-Pass, Model-call time, and USD remain semantic headers for screen readers.
-Evidence archives remain available in the GitHub Releases and source
-catalog; the index has no Archive column. Run summaries keep their longer labels
-and `format_duration` (`H:MM:SS`); the index shows minutes to one decimal. All
-derived evaluation labels use `PASS` / `FAIL`. Archived transcript text,
-prepared fragments, and complete JSON reports retain their original values.
-
-Both indexes aggregate each task/model pair and have no Run column. Pass shows passed runs
-divided by recorded runs (`1 / 3`, `1 / 1`) in a PASS or FAIL badge; PASS means
-all recorded runs passed. Model-call time and USD show arithmetic means across
-recorded runs, calculated before display rounding. A single run shows its own
-value. Missing values remain unknown rather than producing partial means.
-USD uses `$2.01` labels. The blue time and brown cost bars scale to the largest
-mean for that metric within the displayed section (one model or one task); zero
-values have no fill. Each row label links to that task/model pair's earliest
-available trace; the trace's tabs give access to other recorded runs. Both indexes
-use the same aggregation and table renderer and have no separate Design column.
-Unavailable runs are not fabricated. The concise
-task descriptions in `site/data/runs.json` describe the captured specifications.
-
-Generated run summaries have three tables: run/evaluation, circuit design, and
-token cost. Presentation splits the verified fragments without editing them.
-The compact token table uses Type / Tokens / Cost headers, with unit costs like
-`$10.00 / 1M` and a plain USD total, without pricing links or a separate pricing row.
-
-Claude displays Uncached input / Cached input / Cache write / Output; OpenAI
-displays Uncached input / Cached input / Output. Reasoning counts are hidden in both
-tables and retained in the source JSON. Cache-write duration affects the unit
-rate without adding a duration suffix to its row label.
-
-Import and source-check it with:
-
-```sh
+npm install --ignore-scripts
 python3 tools/import_token_costs.py
+python3 tools/trace/import_results.py --all
+python3 tools/trace/import_results.py --all --verify-only
 python3 tools/import_token_costs.py --check
 ```
 
-This importer verifies the archive hash, package/index/shared-record hashes,
-trial identity, and final usage reconciliation before expanding `usage.json`.
-All displayed totals use the dated Standard list rates and are formatted as
-plain USD amounts. Recorded provider costs remain separately available in JSON.
-These comparison costs are guidelines: OpenAI CLI-turn aggregates do not reveal
-per-request context lengths or effective billing tiers. Do not apply long-context
-multipliers to cumulative run tokens. Claude cache writes use their recorded
-5-minute or 1-hour duration. Cached OpenAI input is subtracted from the input total; Claude input
-already excludes cached reads/writes. Reasoning is included in output and is
-never billed twice. Missing usage remains unknown. The build validates cost
-arithmetic offline; the importer's `--check` validates against original assets.
+The importer verifies compressed SHA-256 and the full unpacked inventory,
+expands factored JSON, and joins streams in manifest order. It compares tool
+inputs/results, completed public messages, frozen SPICE and independent reports.
+Missing pages receive canonical fragments, linked reports, routes and validation
+profiles; accepted existing fragments are source-checked and preserved.
 
-CI and the manual Pages workflow build before checking. `main` and `refactor/**` pushes run checks; publication remains a separate manual action. Commit sources and shared assets, not generated HTML. For a style or layout change, edit the corresponding shared asset/template and rebuild.
+Codex file-change records retain captured paths/status without inventing absent
+patches. Only recognized Claude Read line-number decoration is removed. OpenCode
+uses millisecond timestamps and completed/error tool states; shell exit codes
+remain authoritative, and recorded permission errors remain visible when the
+saved tools record has no result string. Step accounting and private reasoning
+are excluded from public events. See [Import checks](ALL_RESULTS_IMPORT.md) for
+current coverage and the historical fixture records.
 
-## Import a run
+Task-specific limits, censored measurements, balanced-point failures and fixed
+OTA sizing/robustness have explicit handling. Do not reuse example counts or OTA
+limits for another task. Existing Astra/Sonnet fixture builders remain examples;
+use the campaign importer for current multi-model coverage.
 
-1. Inventory the evidence and identify its task/model/run, transcript schema, authoritative submission, evaluation, and timing.
-2. Adapt a source parser and task semantics using `docs/TRACE_GUIDE.md`. Use the existing rendering helpers and shared website presentation.
-3. Produce verified summary rows and trace markup. `build_traces.write_run_sources` separates complete inert evaluation JSON from prepared markup and writes the canonical fragments/report for a run ID. An adapter can also write those files directly after source verification.
-4. Add the run to `site/data/runs.json` and `data/evidence.json`. Keep `url: null` until an actual Release asset exists. Use a unique `traces/<filename>.html` route.
-5. Add source-derived counts, submitted-SPICE byte/hash, submitted revision, and evaluation category/stage row counts to `data/trace-validation.json`. Record SHA-256 of `summary.html`, `trace.html`, and the exact saved report bytes after comparing them to the archive. Do not approve an unverified result merely by updating hashes until checks pass.
-6. Build, check, and inspect affected browser behavior when available. Record actual coverage and approved omissions. Commit to the requested branch; use `main` when no different branch was requested.
+## Verification and publishing
 
-Campaign import (all currently catalogued results):
+Preserve decoded payload strings, whitespace and final newlines. Git attributes
+protect canonical fragments from line-ending conversion. Do not change accepted
+hashes merely to make a check pass; compare any content correction to authoritative
+evidence and document its reason. Source checks require downloaded archives;
+offline CI protects already accepted records. Browser checks assess layout,
+scrolling and tabs, and must be reported separately from source/DOM checks.
 
-```sh
-npm install --ignore-scripts
-python3 tools/trace/import_results.py --all
-python3 tools/trace/import_results.py --all --verify-only
-```
-
-The importer verifies the Release asset SHA-256 and the unpacked inventory,
-expands factored records, and joins streams in manifest order. It adds missing
-pages and source-checks existing pages without changing accepted fragments.
-Supply catalog run IDs to process selected results. Reviewed circuit summaries
-live in `data/trace-summaries.json`; these describe the submitted circuits,
-not measured outcomes. Use Python 3.10+ (`python3.12` in the import workspace).
-
-The captured campaign includes Codex file-change events without patch text,
-Claude Read decoration, task-specific LDO limit variants, censored recovery
-measurements, a failed OTA balanced-point measurement, and OTA-FIXED's sizing
-and robustness format. These have explicit handling and focused tests. The
-importer rejects unknown public transcript formats instead of silently omitting
-them. See [import checks](ALL_RESULTS_IMPORT.md) before extending it to a new
-campaign or task. Archived commands are never executed.
-
-Existing adapters:
-
-```sh
-python3 tools/fetch_evidence.py --list
-python3 tools/fetch_evidence.py ota-wide-sky130-astra-r1
-python3 tools/trace/build_astra_page.py evidence/ota-wide-sky130-astra-r1-20261003-model-time-recovery3.tar.xz
-python3 tools/trace/build_sonnet_example.py evidence/ota-wide-sky130-sonnet-r1-20261003-model-time-full9.tar.xz
-```
-
-Fetching requires the actual asset URL. Adapters source-verify their fixture, update canonical fragments/reports, and rebuild the site. Optional `--output` writes a diagnostic intermediate page instead of importing; it is for source checks and is not a portable standalone export. Use `build_site.py --output` for review copies. Opus and Sol use verified prepared fragments; no exact-fixture archive adapter is included for them initially.
-
-Importing MODEL Markdown requires Node 20+ and the pinned dependency:
-
-```sh
-npm install --ignore-scripts
-```
-
-The Codex runtime can alternatively supply `CODEX_PRIMARY_RUNTIME_NODE` and `CODEX_PRIMARY_RUNTIME_NODE_MODULES`. Adapters were checked with Python 3.12.14, Node v24.19.0, and marked 17.0.5. Their OTA prefixes, summaries, metric definitions and count assertions require adaptation for other tasks.
-
-## Fidelity and verification scope
-
-Preserve decoded MODEL/ACTION/RESULT and final-SPICE strings, including whitespace and final newlines. Git attributes disable line-ending normalization and whitespace cleanup for canonical fragments. Keep final SPICE and evaluation after the historical trace.
-
-Accepted content/report hashes guard prepared fragments. Presentation edits normally leave them unchanged. If an adapter or corrected source changes content, compare against authoritative evidence and update validation records with a documented reason. Never alter archived payloads to satisfy a visual or whitespace check.
-
-Continuous checks are offline. They do not download archives, run simulations, or establish fidelity to evidence that has never been inspected. Source fidelity is verified during import; static checks then protect accepted records. A new parser warrants focused fixture tests and source comparisons. A cosmetic change needs affected-output verification. Broaden checks for new behavior, failures, or unresolved concerns.
-
-For a larger adapter change, keep a short progress note with schema assumptions and remaining acceptance checks so another session can resume from repository state.
-
-The workflow follows OpenAI's [progressive-disclosure guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) and [GPT-6 prompting/verification guidance](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6.1-sol), checked on 2026-10-04: concise repository routing, relevant task references, explicit completion criteria, and proportionate verification.
-
-## Standalone evidence analysis
-
-[Analysis](ANALYSIS.md) documents public-only downloading, verified unpacking, record expansion and timing interpretation. `tools/atb_analysis_archive.py`, `tools/atb_analysis_export.py` and `tools/analysis_read.py` require only Python. `data/tasks/` retains byte-exact captured specifications and measurement documents with per-file hashes. Public site builds do not access the development repository or execution hosts.
+Commit authorized sources and shared assets to `main` unless the task requests
+another branch. CI runs build/check and focused tests. Publication is a separate
+manual workflow; honor authorization already given in the session. Follow
+[Publishing](PUBLISHING.md) for deployment and live verification.

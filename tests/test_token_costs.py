@@ -33,6 +33,46 @@ def usage():
 
 
 class TokenCostTests(unittest.TestCase):
+    def test_direct_api_usage_reconciles_without_invented_cache_writes(self):
+        value = usage()
+        value.pop('final_total_reconciliation')
+        value.update(provider='opencode-deepseek', expected_model_id='deepseek-flash')
+        value['normalized'].update(input_semantics='prompt includes cached input',
+                                   output_semantics='completion includes reasoning; never add twice',
+                                   cache_write_tokens=None)
+        raw = {'prompt_tokens': 2_000_000, 'prompt_cache_hit_tokens': 1_000_000,
+               'prompt_cache_miss_tokens': 1_000_000, 'completion_tokens': 100_000,
+               'total_tokens': 2_100_000, 'completion_tokens_details': {'reasoning_tokens': 50_000}}
+        value['requests'] = [{'request_id': 'api/1', 'usage': raw,
+                              'forwarded_settings': {'model': 'deepseek-flash'},
+                              'models': ['deepseek-flash'],
+                              'normalized': {k: value['normalized'][k] for k in token_costs.TOKEN_FIELDS}}]
+        pricing = {'models': {'deepseek-flash': {'usd_per_million':
+                   {'input': '0.15', 'cache_read': '0.003', 'output': '0.60'}}}}
+        entry = {'id': 'deepseek', 'configuration': {'model': 'deepseek-flash'}}
+        record = token_costs.make_cost_record(entry, value, pricing)
+        self.assertIsNone(record['cache_write_tokens'])
+        self.assertEqual(Decimal(record['total_cost_usd']), Decimal('0.213'))
+        markup = token_costs.render_token_summary(record, pricing)
+        self.assertNotIn('Cache write', markup)
+        self.assertNotIn('Reasoning', markup)
+        self.assertIn('$0.003 / 1M', markup)
+        self.assertIn('$0.21', markup)
+        value['requests'][0]['usage']['prompt_cache_miss_tokens'] -= 1
+        with self.assertRaisesRegex(ValueError, 'cached input does not reconcile'):
+            token_costs.make_cost_record(entry, value, pricing)
+        value['requests'][0]['usage']['prompt_cache_miss_tokens'] += 1
+        value['normalized']['input_tokens'] += 1
+        with self.assertRaisesRegex(ValueError, 'totals do not reconcile'):
+            token_costs.make_cost_record(entry, value, pricing)
+        value['normalized']['input_tokens'] = None
+        value['requests'][0]['normalized']['input_tokens'] = None
+        raw.update(prompt_tokens=None, prompt_cache_miss_tokens=None, total_tokens=None)
+        self.assertIsNone(token_costs.make_cost_record(entry, value, pricing)['total_cost_usd'])
+        value['requests'][0]['models'] = ['other-model']
+        with self.assertRaisesRegex(ValueError, 'model differs'):
+            token_costs.make_cost_record(entry, value, pricing)
+
     def test_cached_input_and_reasoning_are_not_double_charged(self):
         record = token_costs.make_cost_record(ENTRY, usage(), PRICING)
         self.assertEqual(record['uncached_input_tokens'], 1_000_000)

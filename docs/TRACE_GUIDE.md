@@ -78,7 +78,7 @@ Preserve transcript order, including late asynchronous results. Match actions an
 
 ### Page, groups, and metadata
 
-Reuse the existing 800 px content width, colors, fonts, responsive rules, and light/dark behavior. Keep `.turn-group::before`, the 4 px left rail, and the 18 px inset. Do not delete the rail when changing metadata alignment.
+Reuse the current shared 1040 px page width, sans-serif fonts, colors, responsive rules, and light/dark behavior from `site/assets/site.css`. Keep `.turn-group::before`, the 4 px left rail, and the 18 px inset. Do not delete the rail when changing metadata alignment.
 
 Keep the reference run tabs and their keyboard behavior. Populate supplied runs; show the existing unavailable-run placeholder for absent runs where applicable. Never invent a run to fill a tab.
 
@@ -153,7 +153,7 @@ The reference implementation was checked with Python 3.12.14, Node v24.19.0, and
 ### Steps
 
 1. **Inventory evidence.** Identify the run, source prefix/schema, completed messages, tools, submission, independent evaluation, and timing. Resolve essential ambiguity; proceed with independent work while a missing input is being resolved.
-2. **Choose the closest reference.** Use Astra/Sol for the recorded Codex format and Opus/Sonnet for the recorded Claude format. Inspect the relevant CSS and payload structure programmatically. Preserve the accepted presentation.
+2. **Choose the closest reference.** Use Astra/Sol for the recorded Codex format, Opus/Sonnet for the recorded Claude format, and DeepSeek for OpenCode. The current normalizer is `tools/trace/transcript.py`; shared presentation and cost rules are documented in `docs/DEVELOPMENT.md` and `docs/TOKEN_COSTS.md`. Inspect the relevant CSS and payload structure programmatically. Preserve the accepted presentation.
 3. **Build or adapt the parser.** Normalize completed public text, tool actions/results, timestamps, submission, reports, and accounting. Preserve order and IDs; document approved display transformations and omissions.
 4. **Adapt task meaning.** Read the task's specification and final circuit. Update heading, summary, device/resource units, metric labels/limits/directions, categorical checks, and evaluation completeness handling. Do not import example circuits or scores.
 5. **Generate.** Use local deterministic rendering, shared templates/CSS/JavaScript, and complete escaped payloads. Store canonical summary/trace fragments in `content/traces/<run-id>/`, then build pages with `tools/build_site.py`; do not commit generated HTML. Populate final SPICE and evaluation from their authoritative records.

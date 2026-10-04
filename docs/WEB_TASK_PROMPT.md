@@ -1,6 +1,6 @@
 # Website task prompt
 
-Select GPT-6.1 Sol in the working interface, then provide the task below. Use `SOL_TASK_PROMPT.md` instead when importing a recorded design run.
+Replace the bracketed inputs, then provide the task below. Use `SOL_TASK_PROMPT.md` instead when importing a recorded design run.
 
 ```text
 Work in ds54e/analog-trace-bench.

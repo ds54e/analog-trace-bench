@@ -22,7 +22,7 @@ def token_counts(normalized):
            for value in result.values()):
         raise ValueError('Invalid token count')
     semantics = normalized['input_semantics']
-    if semantics == 'input includes cached input':
+    if semantics in ('input includes cached input', 'prompt includes cached input'):
         # The captured OpenAI provider exposes no cache writes. Do not guess
         # whether a future producer includes writes in its input total.
         if result['cache_write_tokens'] not in (None, 0):
@@ -38,7 +38,8 @@ def token_counts(normalized):
     if (result['reasoning_tokens'] is not None and result['output_tokens'] is not None and
             result['reasoning_tokens'] > result['output_tokens']):
         raise ValueError('Reasoning count exceeds output total')
-    if normalized['output_semantics'] != 'provider output; do not add reasoning again':
+    if normalized['output_semantics'] not in ('provider output; do not add reasoning again',
+                                             'completion includes reasoning; never add twice'):
         raise ValueError('Unknown output-token accounting')
     return {**result, 'uncached_input_tokens': uncached}
 
@@ -56,8 +57,10 @@ def cost_components(counts, rates):
         rows.extend((label, count, rate) for label, count, rate in [
             ('Cache write (5m)', short, rates['cache_write']),
             ('Cache write (1h)', long, rates['cache_write_1h'])] if count)
-    else:
+    elif 'cache_write' in rates:
         rows.append(('Cache write', writes, rates['cache_write']))
+    elif writes not in (None, 0):
+        raise ValueError('Cache-write tokens have no recorded price')
     return rows + [('Output', counts['output_tokens'], rates['output'])]
 
 
@@ -70,12 +73,51 @@ def estimate_cost(counts, rates):
                for _, count, rate in components) / Decimal(1_000_000)
 
 
+def verify_usage_totals(usage):
+    """Check producer reconciliation or direct API request usage, without guessing nulls."""
+    if 'final_total_reconciliation' in usage:
+        if any(value.get('equal') is False for value in usage['final_total_reconciliation'].values()):
+            raise ValueError('Recorded token totals do not reconcile')
+        return
+    if usage['provider'] != 'opencode-deepseek' or not usage.get('requests'):
+        raise ValueError('Unsupported token usage reconciliation')
+    requests = usage['requests']
+    if len({request['request_id'] for request in requests}) != len(requests):
+        raise ValueError('Duplicate API request usage')
+    for request in requests:
+        if (request['forwarded_settings']['model'] != usage['expected_model_id'] or
+                any(model != usage['expected_model_id'] for model in request['models'])):
+            raise ValueError('API request model differs from catalog')
+        token_counts({**request['normalized'],
+                      'input_semantics': usage['normalized']['input_semantics'],
+                      'output_semantics': usage['normalized']['output_semantics']})
+        raw = request['usage'] or {}
+        expected = {'input_tokens': raw.get('prompt_tokens'),
+                    'cache_read_tokens': raw.get('prompt_cache_hit_tokens'),
+                    'cache_write_tokens': None, 'output_tokens': raw.get('completion_tokens'),
+                    'reasoning_tokens': raw.get('completion_tokens_details', {}).get('reasoning_tokens')}
+        if any(request['normalized'][key] != value for key, value in expected.items()):
+            raise ValueError('API request token counts differ from raw usage')
+        prompt, cached, missed = (raw.get(key) for key in
+                                  ('prompt_tokens', 'prompt_cache_hit_tokens', 'prompt_cache_miss_tokens'))
+        if all(value is not None for value in (prompt, cached, missed)) and prompt != cached + missed:
+            raise ValueError('API cached input does not reconcile')
+        if (raw.get('total_tokens') is not None and prompt is not None and
+                raw.get('completion_tokens') is not None and
+                raw['total_tokens'] != prompt + raw['completion_tokens']):
+            raise ValueError('API total tokens do not reconcile')
+    for key in TOKEN_FIELDS:
+        values = [request['normalized'][key] for request in requests]
+        expected = None if any(value is None for value in values) else sum(values)
+        if usage['normalized'][key] != expected:
+            raise ValueError('Recorded token totals do not reconcile')
+
+
 def make_cost_record(entry, usage, pricing):
     model = entry['configuration']['model']
     if usage['expected_model_id'] != model:
         raise ValueError('Token usage model differs from catalog')
-    if any(value.get('equal') is False for value in usage['final_total_reconciliation'].values()):
-        raise ValueError('Recorded token totals do not reconcile')
+    verify_usage_totals(usage)
     counts = token_counts(usage['normalized'])
     reported = {decimal_cost(item['cost_usd']) for item in usage.get('raw_final_usage', [])
                 if item.get('cost_usd') is not None}

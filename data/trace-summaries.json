@@ -898,5 +898,167 @@
       "Bias / input network",
       "IBIAS-referenced NMOS mirrors · input W/L = 72/1.2 µm · load W/L = 90/1.5 µm"
     ]
+  ],
+  "ota-fixed-sky130-deepseek-r1": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "5 pF Miller capacitor · 2.5 kΩ nulling resistor"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced NMOS bias and tail mirrors"
+    ]
+  ],
+  "ota-free-sky130-deepseek-r1": [
+    [
+      "Architecture",
+      "NMOS differential pair · PMOS mirror load · two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "2.4 pF Miller capacitor · 1.1 kΩ nulling resistor"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced NMOS bias and tail mirrors"
+    ]
+  ],
+  "ota-drive-sky130-deepseek-r1": [
+    [
+      "Architecture",
+      "NMOS differential pair · PMOS mirror load · two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "19 fF Miller capacitor · 800 Ω nulling resistor"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced NMOS mirrors · auxiliary PMOS bias mirror"
+    ]
+  ],
+  "ldo-always-on-sky130-deepseek-r1": [
+    [
+      "Architecture",
+      "NMOS differential error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "15 pF gate compensation · 2 MΩ series resistor"
+    ],
+    [
+      "Bias / feedback",
+      "VIN-referenced resistor bias · 12 MΩ / 12 MΩ feedback divider"
+    ]
+  ],
+  "ota-precision-sky130-deepseek-r1": [
+    [
+      "Architecture",
+      "NMOS differential pair · PMOS mirror load · two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source stage · separately mirrored NMOS sink"
+    ],
+    [
+      "Compensation",
+      "3.5 pF Miller capacitor · 400 Ω nulling resistor"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced NMOS mirror · PMOS-to-NMOS output bias chain"
+    ]
+  ],
+  "ldo-low-voltage-sky130-deepseek-r1": [
+    [
+      "Architecture",
+      "NMOS differential error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor · load-adaptive tail bias"
+    ],
+    [
+      "Compensation",
+      "22 pF Miller capacitor · 3 kΩ nulling resistor · 4 pF feedback lead capacitor"
+    ],
+    [
+      "Bias / feedback",
+      "VIN-referenced resistor bias · 50 kΩ / 50 kΩ divider · 13 kΩ preload"
+    ]
+  ],
+  "ldo-quiet-sky130-deepseek-r1": [
+    [
+      "Architecture",
+      "Large NMOS differential pair · PMOS mirror load · resistive tail"
+    ],
+    [
+      "Output stage",
+      "Directly driven PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "2.5 pF gate shelf · 250 kΩ series resistor · 2 pF VIN feedforward"
+    ],
+    [
+      "Bias / feedback",
+      "1.5 kΩ tail resistor · 23.8 kΩ / 24 kΩ feedback divider"
+    ]
+  ],
+  "ota-wide-sky130-deepseek-r1": [
+    [
+      "Architecture",
+      "Complementary NMOS / PMOS input pairs · separate summing nodes"
+    ],
+    [
+      "Output stage",
+      "PMOS common-source stage · NMOS current sink"
+    ],
+    [
+      "Compensation",
+      "3.5 pF Miller capacitor · 1 kΩ nulling resistor · bias bypass capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced complementary mirrors · resistive DC stabilization"
+    ]
+  ],
+  "ldo-core-sky130-deepseek-r1": [
+    [
+      "Architecture",
+      "NMOS differential error amplifier · PMOS mirror load"
+    ],
+    [
+      "Output stage",
+      "Directly driven PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "12 pF Miller capacitor · 25 kΩ nulling resistor"
+    ],
+    [
+      "Bias / feedback",
+      "VOUT-referenced bias · 300 kΩ / 300 kΩ feedback divider"
+    ]
   ]
 }

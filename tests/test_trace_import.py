@@ -26,6 +26,47 @@ def command_rows(t):
 
 
 class TranscriptTests(unittest.TestCase):
+    def test_opencode_completed_tools_errors_and_public_text(self):
+        clock = 1_791_072_000_000
+        read = tool('read', {'path': '/workspace/TASK.md'}, '1: Original line\n', None, 'read')
+        failed = tool('denied', {'path': '/external/file'}, None, None, 'read')
+        shell = tool('shell', {'command': 'saved command'}, '', 2, 'shell')
+        empty = tool('write', {'path': '/workspace/file', 'content': 'complete\n'}, '', None, 'write')
+        saved = [read, failed, shell, empty]
+        for item in saved:
+            item.update(start=clock, end=clock+1)
+        rows = [dict(type='step_start', part={'type': 'step-start'}),
+                dict(type='reasoning', part={'type': 'reasoning', 'text': 'PRIVATE'}),
+                dict(type='text', timestamp=clock, part={'type': 'text', 'id': 'text', 'text': 'Public\n'})]
+        for item in saved:
+            state = dict(status='error' if item is failed else 'completed', input=item['input'])
+            state.update(error='Permission denied' if item is failed else None)
+            if item is not failed:
+                state['output'] = item['result']
+            rows.append(dict(type='tool_use', part={'type': 'tool', 'id': item['tool_call_id'],
+                                                   'tool': item['name'], 'state': state}))
+        result = importer.normalize(SimpleNamespace(tools=saved, transcript=rows))
+        results = [e for e in result.events if e.kind == 'RESULT']
+        self.assertEqual([e.payload for e in results], ['1: Original line\n', 'Permission denied', ''])
+        self.assertEqual([e.status for e in results], ['completed', 'error', 2])
+        self.assertEqual(result.events[0].timestamp, '2026-10-04T00:00:00+00:00')
+        self.assertEqual(result.omissions['empty_successes'], 1)
+        self.assertEqual(result.read_prefixes, 0)
+        self.assertNotIn('PRIVATE', str(result.events))
+        rows[3]['part']['state']['output'] = 'different'
+        with self.assertRaisesRegex(ValueError, 'result disagreement'):
+            importer.normalize(SimpleNamespace(tools=saved, transcript=rows))
+
+    def test_opencode_rejects_unknown_public_and_incomplete_tool_events(self):
+        rows = [dict(type='unknown', part={})]
+        with self.assertRaisesRegex(ValueError, 'Unsupported recorded OpenCode'):
+            importer.normalize(SimpleNamespace(tools=[], transcript=rows))
+        item = tool('read', {}, '', None, 'read')
+        rows = [dict(type='tool_use', part={'type': 'tool', 'id': 'read', 'tool': 'read',
+                                           'state': {'status': 'running', 'input': {}, 'output': ''}})]
+        with self.assertRaisesRegex(ValueError, 'Incomplete OpenCode'):
+            importer.normalize(SimpleNamespace(tools=[item], transcript=rows))
+
     def test_empty_success_is_omitted_but_failed_empty_output_and_file_edits_remain(self):
         success, failed = tool(output=''), tool('failed', output='', status=2)
         edits = [dict(type='item.started', item=dict(id='edit', type='file_change',

@@ -40,6 +40,12 @@
           "model": "Sol 6",
           "run": 1,
           "trace": "traces/ldo-always-on-sky130-sol-6-raw.html"
+        },
+        {
+          "id": "ldo-always-on-sky130-deepseek-r1",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 1,
+          "trace": "traces/ldo-always-on-sky130-deepseek-raw.html"
         }
       ],
       "description": "Design a low-quiescent-current 1.2 V LDO for 1–100 µA always-on loads."
@@ -83,6 +89,12 @@
           "model": "Sol 6",
           "run": 1,
           "trace": "traces/ldo-core-sky130-sol-6-raw.html"
+        },
+        {
+          "id": "ldo-core-sky130-deepseek-r1",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 1,
+          "trace": "traces/ldo-core-sky130-deepseek-raw.html"
         }
       ],
       "description": "Design a fast 1.2 V LDO for 50 µA–2 mA loads with minimal output capacitance."
@@ -126,6 +138,12 @@
           "model": "Sol 6",
           "run": 1,
           "trace": "traces/ldo-low-voltage-sky130-sol-6-raw.html"
+        },
+        {
+          "id": "ldo-low-voltage-sky130-deepseek-r1",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 1,
+          "trace": "traces/ldo-low-voltage-sky130-deepseek-raw.html"
         }
       ],
       "description": "Design a 1.0 V LDO that regulates from a 1.15–1.35 V supply."
@@ -169,6 +187,12 @@
           "model": "Sol 6",
           "run": 1,
           "trace": "traces/ldo-quiet-sky130-sol-6-raw.html"
+        },
+        {
+          "id": "ldo-quiet-sky130-deepseek-r1",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 1,
+          "trace": "traces/ldo-quiet-sky130-deepseek-raw.html"
         }
       ],
       "description": "Design a low-noise 1.2 V LDO with strong supply rejection and transient control."
@@ -212,6 +236,12 @@
           "model": "Sol 6",
           "run": 1,
           "trace": "traces/ota-drive-sky130-sol-6-raw.html"
+        },
+        {
+          "id": "ota-drive-sky130-deepseek-r1",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 1,
+          "trace": "traces/ota-drive-sky130-deepseek-raw.html"
         }
       ],
       "description": "Design a high-speed OTA that drives 20–50 pF capacitive loads."
@@ -255,6 +285,12 @@
           "model": "Sol 6",
           "run": 1,
           "trace": "traces/ota-fixed-sky130-sol-6-raw.html"
+        },
+        {
+          "id": "ota-fixed-sky130-deepseek-r1",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 1,
+          "trace": "traces/ota-fixed-sky130-deepseek-raw.html"
         }
       ],
       "description": "Size a fixed two-stage OTA topology for stability, accuracy, and mismatch tolerance."
@@ -298,6 +334,12 @@
           "model": "Sol 6",
           "run": 1,
           "trace": "traces/ota-free-sky130-sol-6-raw.html"
+        },
+        {
+          "id": "ota-free-sky130-deepseek-r1",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 1,
+          "trace": "traces/ota-free-sky130-deepseek-raw.html"
         }
       ],
       "description": "Design a low-power, high-speed OTA with freely chosen topology."
@@ -341,6 +383,12 @@
           "model": "Sol 6",
           "run": 1,
           "trace": "traces/ota-precision-sky130-sol-6-raw.html"
+        },
+        {
+          "id": "ota-precision-sky130-deepseek-r1",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 1,
+          "trace": "traces/ota-precision-sky130-deepseek-raw.html"
         }
       ],
       "description": "Design a high-gain OTA for accurate tracking and low input-referred noise."
@@ -384,6 +432,12 @@
           "model": "Sol 6",
           "run": 1,
           "trace": "traces/ota-wide-sky130-sol-6-raw.html"
+        },
+        {
+          "id": "ota-wide-sky130-deepseek-r1",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 1,
+          "trace": "traces/ota-wide-sky130-deepseek-raw.html"
         }
       ],
       "description": "Design a 1.5 V OTA that tracks inputs across a wide 0.25–1.1 V range."

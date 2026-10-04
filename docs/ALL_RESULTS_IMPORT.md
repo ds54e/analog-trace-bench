@@ -1,155 +1,89 @@
-# All-result trace import
+# Recorded-result import checks
 
-Verified on 2026-10-04. All 54 selected Release assets have HTML pages: nine
-SKY130 tasks, six models and one recorded run per task/model. The electrical
-labels remain 48 PASS, five MISS and one MEASUREMENT_FAILURE. The four accepted
-OTA-WIDE reference fragments and their evaluation reports are unchanged.
+Current coverage: 63 traces across nine SKY130 tasks and seven models, with one
+recorded run per task/model. The generated site has 65 HTML pages: Model index,
+Task index and 63 individual traces. Original run verdicts are 52 PASS, 10 MISS
+and one MEASUREMENT_FAILURE; derived site labels use PASS / FAIL.
 
-## Source and display coverage
+The initial 54-trial import is preserved in the
+[six-model verification snapshot](records/import-2026-10-04.md). The four accepted
+OTA-WIDE reference fragments and all other existing trace/report payloads remain
+unchanged. Current per-run hashes, revisions, counts and omissions live in
+`data/trace-validation.json`.
 
-All 54 archive SHA-256 identities and complete unpacked inventories were
-verified. Factored JSON is expanded and JSONL parts are joined in manifest order.
-Completed MODEL strings, every saved tool input/result and file-change event,
-final SPICE bytes and expanded independent reports are compared before import.
-Source verification also checks campaign summaries and visible evaluation tables.
-The generated site contains 55 HTML pages, 982 public MODEL cards, 4,517 ACTION
-cards and 4,030 displayed RESULT cards. Scored reports retain 19,656 Published
-rows, 6,714 Hidden rows and six robustness aggregates, with original precision.
+## DeepSeek addition — 2026-10-05
 
-The new 50 pages contain 925 MODEL, 4,233 ACTION and 3,806 RESULT cards. Approved
-transformations/omissions for these imports are 6,204 recognized Claude Read
-line-number prefixes, 427 empty successful tool results, 11 user notifications,
-124,442 transport/stream rows and 789 private reasoning blocks. Private reasoning
-is never rendered or summarized. Reference-page omissions remain documented in
-[the trace guide](TRACE_GUIDE.md). Long saved payloads are not shortened; output
-already truncated by a producer remains exactly as recorded.
+Nine public archives from the 2026-10-04 direct-API batch were imported as
+DeepSeek 4.1 Flash. The captured launch configuration records DeepSeek-V4.1-Flash;
+API usage records identify `deepseek-flash`. The original release aggregate is
+retained in `data/campaigns/deepseek-20261004.json` and its archive identities,
+configuration/job IDs and outcomes were compared with verified evidence.
 
-Fourteen runs contain 301 Codex file edits whose captured events expose paths,
-change kinds and status but no patch text. Those events are retained as
-ACTION/RESULT pairs. The absent patch text is a capture gap; no edit contents
-were invented. Exact final submitted SPICE remains available on every page.
+All nine compressed SHA-256 hashes and complete unpacked inventories passed.
+Every reused task-definition file matched the captured manifest and its local
+file hash. Frozen submission revisions/SPICE, Published/Hidden counts, timing,
+fixed-topology sizing and all 30 OTA-FIXED robustness samples were verified.
+DeepSeek contributes four PASS and five MISS runs.
 
-## Task-specific evaluation
+The OpenCode normalizer preserves completed public text, full tool inputs and
+results, and captured read decoration. Six recorded permission/error messages
+come from transcript state when the producer's tools record has null output.
+Numeric shell exit codes take precedence over the tool's `completed` state;
+failures remain visible. Unix millisecond timestamps are converted to UTC.
+799 step-accounting records are omitted as transport metadata. Private reasoning
+never enters public events; output token counts still include its billed tokens.
 
-LDO light-load and other-load current limits have separate table rows. QUIET's
-line/load envelope limits also remain separate. Ninety valid measurements that
-exceeded the observation window (81 Published, nine Hidden) show their recorded
-lower bounds rather than a zero or an invalid-measurement label. The two failed
-OTA-WIDE/Luna CMRR balance records show MEASUREMENT_FAILURE and unavailable
-measurements. PASS and MISS labels are preserved for the other recorded rows.
+New pages contain 152 MODEL, 481 ACTION and 481 RESULT cards. Overall coverage
+is 1,134 MODEL, 4,998 ACTION and 4,511 RESULT cards, 22,932 Published rows, 7,833
+Hidden rows and seven robustness aggregates. All linked reports retain original
+precision and available characterization/fine records, including explicit nulls.
 
-OTA-FIXED uses its saved eight-transistor topology and 14 sizing parameters,
-not the free-netlist schema. Every parameter is matched to submitted SPICE and
-its recorded circuit manifest. Each of the six independent robustness reports
-retains all 30 samples and its original aggregate. Underlying case records are
-checked for the frozen revision, parameter values and SPICE hash; the aggregate
-itself is deliberately revisionless. These are deterministic robustness results,
-not a silicon-yield estimate.
+DeepSeek direct-API usage is reconciled per request and against aggregate counts.
+Null cache-write counts remain null and have no billable/UI row. The captured
+Sunday requests use the documented off-peak schedule; see
+[Token costs](TOKEN_COSTS.md) for rates, scope and source-check commands.
 
-New linked reports also retain available characterization, fine and robustness
-records, including explicit null records. Characterization has no scored limits
-and is not merged into the scored worst-value table. Original four reference
-reports retain their accepted shape. Timing is clipped to the design window,
-compared to captured model-call accounting and kept separate from later evaluation.
-Circuit descriptions in `data/trace-summaries.json` describe the frozen circuit,
-not claims about its measured performance.
-
-## Validation and browser review
-
-Commands used (Python 3.12.13, Node v24.20.0, marked 17.0.5):
+## Current verification
 
 ```sh
-python3.12 tools/trace/import_results.py --all
 python3.12 tools/trace/import_results.py --all --verify-only
+python3.12 tools/import_token_costs.py --check
 python3.12 tools/build_site.py --check
 python3.12 tools/check_site.py
 python3.12 -m unittest discover -s tests -v
 node --test tests/trace-tabs.test.cjs
 ```
 
-The build/check covers all 55 pages, local links, unique DOM IDs, run identity,
-54 evaluation links, full payload counts, submitted-SPICE hashes, evaluation
-revisions and verdict counts, category counts, content hashes and keyboard focus.
-The Python suite has 23 passing tests; six tab behavior tests pass. No archived
-commands, circuit simulations, PDKs or model providers were executed.
+All 63 traces and token-cost records were source-checked. The offline site check
+covers 65 pages and their local dependencies; 38 Python tests and six Node tab
+tests pass. Focused regressions cover OpenCode errors, null exit status, timestamp
+units, private/transport omission, unknown/incomplete events, request token
+reconciliation, cache semantics, missing values and model identity.
 
-Actual browser checks used headless Chrome for Testing 151.0.7922.34 with
-Playwright. All 54 result pages load with the expected heading, MODEL count,
-submission, evaluation and tabs; the index links to all 54. Forty layout cases
-cover ten selected runs (all nine tasks and all six models), widths 360/1280 px
-and light/dark mode. Run-tab click and Home/End navigation, preserved 4 px rails,
-unwrapped code, hidden scrollbars and horizontal/vertical keyboard-focusable
-payload scrolling passed. Browser page errors and failed local requests: zero.
-Screenshots of summary, final SPICE and evaluation views were captured, and
-representative mobile/desktop light/dark screenshots were visually inspected.
-A minimum metric-column width prevents long conditions/limits from collapsing
-labels into individual letters; the table still scrolls horizontally.
+Actual headless Chrome/Playwright review loads all 63 traces and checks both
+indexes against source-derived results. Sixteen index cases cover Model/Task,
+360/768/1120/1280 px and light/dark mode. 76 trace layout cases cover the nine new
+DeepSeek pages plus ten existing representatives at 360/1280 px in both modes.
+44 token-table layout cases include every DeepSeek page and Claude/OpenAI
+representatives; values were checked on all 63 pages. Tabs, Home/End navigation,
+4 px rails, unwrapped keyboard-scrollable payloads, long model names and page
+width passed. Browser page errors and failed local requests: zero. Representative
+new mobile/dark and desktop/light screenshots were visually inspected.
 
-Local review artifacts are `out/browser-review/result.json` and its screenshots;
-they are excluded from Git. Generated pages remain excluded from Git. Raw archives
-and unpacked evidence stay under `evidence/`, outside the Pages artifact. This
-change prepares the local site; publication is a separately requested action.
+Local logs/screenshots remain under ignored `out/`; archives stay under ignored
+`evidence/`. No archived command or circuit simulation was executed. Generated
+HTML is excluded from Git. Publication uses the separate manual Pages workflow.
 
-## Per-run source checks
-
-Full circuit hashes, revisions, report hashes, omissions and content hashes are
-stored in `data/trace-validation.json`. This table records the rendered coverage
-and exact final circuit size; the four reference fragments retain their
-existing validation profiles.
+## DeepSeek per-run coverage
 
 | Run | MODEL | ACTION | RESULT | SPICE bytes | Published / Hidden / Robustness rows |
 | :--- | ---: | ---: | ---: | ---: | :--- |
-| ldo-always-on-sky130-opus-5-5-r1 | 5 | 21 | 21 | 1095 | 360 / 60 / 0 |
-| ldo-always-on-sky130-astra-r1 | 7 | 15 | 15 | 624 | 360 / 60 / 0 |
-| ldo-always-on-sky130-sonnet-5-5-r1 | 8 | 33 | 33 | 547 | 360 / 60 / 0 |
-| ldo-always-on-sky130-sol-6-1-r1 | 7 | 27 | 22 | 609 | 360 / 60 / 0 |
-| ldo-always-on-sky130-luna-6-r1 | 10 | 36 | 36 | 934 | 360 / 60 / 0 |
-| ldo-always-on-sky130-sol-6-r1 | 13 | 148 | 145 | 728 | 360 / 60 / 0 |
-| ldo-core-sky130-opus-5-5-r1 | 9 | 49 | 49 | 1475 | 360 / 60 / 0 |
-| ldo-core-sky130-astra-r1 | 9 | 49 | 44 | 1309 | 360 / 60 / 0 |
-| ldo-core-sky130-sonnet-5-5-r1 | 15 | 65 | 65 | 643 | 360 / 60 / 0 |
-| ldo-core-sky130-sol-6-1-r1 | 19 | 65 | 61 | 1585 | 360 / 60 / 0 |
-| ldo-core-sky130-luna-6-r1 | 55 | 158 | 158 | 974 | 360 / 60 / 0 |
-| ldo-core-sky130-sol-6-r1 | 33 | 88 | 87 | 1017 | 360 / 60 / 0 |
-| ldo-low-voltage-sky130-opus-5-5-r1 | 6 | 44 | 44 | 1412 | 360 / 60 / 0 |
-| ldo-low-voltage-sky130-astra-r1 | 10 | 51 | 44 | 782 | 360 / 60 / 0 |
-| ldo-low-voltage-sky130-sonnet-5-5-r1 | 10 | 152 | 152 | 1204 | 360 / 60 / 0 |
-| ldo-low-voltage-sky130-sol-6-1-r1 | 18 | 86 | 41 | 964 | 360 / 60 / 0 |
-| ldo-low-voltage-sky130-luna-6-r1 | 53 | 216 | 216 | 1411 | 360 / 60 / 0 |
-| ldo-low-voltage-sky130-sol-6-r1 | 44 | 109 | 108 | 935 | 360 / 60 / 0 |
-| ldo-quiet-sky130-opus-5-5-r1 | 4 | 36 | 36 | 1077 | 612 / 102 / 0 |
-| ldo-quiet-sky130-astra-r1 | 16 | 87 | 73 | 1299 | 612 / 102 / 0 |
-| ldo-quiet-sky130-sonnet-5-5-r1 | 14 | 53 | 53 | 585 | 612 / 102 / 0 |
-| ldo-quiet-sky130-sol-6-1-r1 | 17 | 178 | 70 | 2195 | 612 / 102 / 0 |
-| ldo-quiet-sky130-luna-6-r1 | 33 | 248 | 196 | 829 | 612 / 102 / 0 |
-| ldo-quiet-sky130-sol-6-r1 | 81 | 154 | 153 | 888 | 612 / 102 / 0 |
-| ota-drive-sky130-opus-5-5-r1 | 6 | 36 | 36 | 1712 | 288 / 153 / 0 |
-| ota-drive-sky130-astra-r1 | 19 | 94 | 58 | 1508 | 288 / 153 / 0 |
-| ota-drive-sky130-sonnet-5-5-r1 | 23 | 83 | 83 | 1845 | 288 / 153 / 0 |
-| ota-drive-sky130-sol-6-1-r1 | 9 | 36 | 27 | 652 | 288 / 153 / 0 |
-| ota-drive-sky130-luna-6-r1 | 16 | 77 | 72 | 983 | 288 / 153 / 0 |
-| ota-drive-sky130-sol-6-r1 | 21 | 64 | 64 | 1166 | 288 / 153 / 0 |
-| ota-fixed-sky130-opus-5-5-r1 | 8 | 39 | 39 | 2029 | 288 / 153 / 1 |
-| ota-fixed-sky130-astra-r1 | 10 | 26 | 26 | 2033 | 288 / 153 / 1 |
-| ota-fixed-sky130-sonnet-5-5-r1 | 14 | 84 | 84 | 2032 | 288 / 153 / 1 |
-| ota-fixed-sky130-sol-6-1-r1 | 9 | 24 | 24 | 2035 | 288 / 153 / 1 |
-| ota-fixed-sky130-luna-6-r1 | 18 | 92 | 69 | 2034 | 288 / 153 / 1 |
-| ota-fixed-sky130-sol-6-r1 | 18 | 74 | 73 | 2032 | 288 / 153 / 1 |
-| ota-free-sky130-opus-5-5-r1 | 6 | 28 | 28 | 655 | 288 / 153 / 0 |
-| ota-free-sky130-astra-r1 | 9 | 38 | 33 | 654 | 288 / 153 / 0 |
-| ota-free-sky130-sonnet-5-5-r1 | 18 | 66 | 66 | 925 | 288 / 153 / 0 |
-| ota-free-sky130-sol-6-1-r1 | 12 | 14 | 13 | 667 | 288 / 153 / 0 |
-| ota-free-sky130-luna-6-r1 | 15 | 83 | 83 | 805 | 288 / 153 / 0 |
-| ota-free-sky130-sol-6-r1 | 44 | 238 | 177 | 1487 | 288 / 153 / 0 |
-| ota-precision-sky130-opus-5-5-r1 | 5 | 25 | 25 | 1319 | 288 / 153 / 0 |
-| ota-precision-sky130-astra-r1 | 7 | 31 | 26 | 1497 | 288 / 153 / 0 |
-| ota-precision-sky130-sonnet-5-5-r1 | 12 | 53 | 53 | 1455 | 288 / 153 / 0 |
-| ota-precision-sky130-sol-6-1-r1 | 8 | 25 | 25 | 697 | 288 / 153 / 0 |
-| ota-precision-sky130-luna-6-r1 | 32 | 166 | 166 | 693 | 288 / 153 / 0 |
-| ota-precision-sky130-sol-6-r1 | 15 | 108 | 78 | 628 | 288 / 153 / 0 |
-| ota-wide-sky130-opus-5-5-r1 | 8 | 36 | 36 | 2024 | 432 / 225 / 0 |
-| ota-wide-sky130-astra-r1 | 19 | 117 | 60 | 1566 | 432 / 225 / 0 |
-| ota-wide-sky130-sonnet-5-5-r1 | 12 | 83 | 83 | 1787 | 432 / 225 / 0 |
-| ota-wide-sky130-sol-6-1-r1 | 18 | 48 | 45 | 1526 | 432 / 225 / 0 |
-| ota-wide-sky130-luna-6-r1 | 29 | 160 | 160 | 1043 | 432 / 225 / 0 |
-| ota-wide-sky130-sol-6-r1 | 46 | 301 | 296 | 1628 | 432 / 225 / 0 |
+| ldo-always-on-sky130-deepseek-r1 | 16 | 41 | 41 | 514 | 360 / 60 / 0 |
+| ldo-core-sky130-deepseek-r1 | 16 | 41 | 41 | 1095 | 360 / 60 / 0 |
+| ldo-low-voltage-sky130-deepseek-r1 | 9 | 77 | 77 | 1161 | 360 / 60 / 0 |
+| ldo-quiet-sky130-deepseek-r1 | 22 | 58 | 58 | 817 | 612 / 102 / 0 |
+| ota-drive-sky130-deepseek-r1 | 9 | 42 | 42 | 1116 | 288 / 153 / 0 |
+| ota-fixed-sky130-deepseek-r1 | 31 | 102 | 102 | 2031 | 288 / 153 / 1 |
+| ota-free-sky130-deepseek-r1 | 19 | 46 | 46 | 1071 | 288 / 153 / 0 |
+| ota-precision-sky130-deepseek-r1 | 17 | 48 | 48 | 925 | 288 / 153 / 0 |
+| ota-wide-sky130-deepseek-r1 | 13 | 26 | 26 | 1583 | 432 / 225 / 0 |

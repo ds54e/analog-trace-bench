@@ -1,4 +1,4 @@
-/* Result index: recorded-run means, scaled within each task. */
+/* Result indexes: recorded-run means, scaled within each displayed section. */
 .task-section + .task-section {
   margin-top: 52px;
 }
@@ -14,7 +14,7 @@
 
 .results-table {
   width: 100%;
-  min-width: 680px;
+  min-width: 800px;
 }
 
 .results-table th,

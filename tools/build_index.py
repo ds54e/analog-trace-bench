@@ -99,11 +99,11 @@ def render_result_table(results, view):
             '</tr></thead><tbody>' + '\n'.join(rows) + '</tbody></table>')
 
 
-def render_index(root=ROOT, view='model'):
+def render_index(root=ROOT, view='model', *, results=None):
     if view not in ('model', 'task'):
         raise ValueError('Unknown result view: ' + view)
     groups = {}
-    for row in load_results(root):
+    for row in load_results(root) if results is None else results:
         groups.setdefault(row[view], []).append(row)
     sections = []
     for label, results in groups.items():
@@ -125,14 +125,22 @@ def render_index(root=ROOT, view='model'):
 
 
 
+def rendered_indexes(root=ROOT):
+    """Render both views from one validated result snapshot."""
+    results = load_results(root)
+    return {filename: render_index(root, view=view, results=results)
+            for filename, view in (('index.html', 'model'), ('tasks.html', 'task'))}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true', help='Fail when the committed index is stale.')
     parser.add_argument('--view', choices=('model', 'task'), help='Build only one result view.')
     args = parser.parse_args()
-    for view in (args.view,) if args.view else ('model', 'task'):
-        content = render_index(view=view)
-        output = ROOT / 'site' / ('index.html' if view == 'model' else 'tasks.html')
+    pages = ({'index.html' if args.view == 'model' else 'tasks.html': render_index(view=args.view)}
+             if args.view else rendered_indexes())
+    for filename, content in pages.items():
+        output = ROOT / 'site' / filename
         if args.check:
             if not output.is_file() or output.read_text() != content:
                 raise SystemExit('Index is stale; run python3 tools/build_index.py')
