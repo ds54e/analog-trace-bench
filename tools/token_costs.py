@@ -161,10 +161,10 @@ def render_token_summary(record, pricing):
     else:
         rows = [row for row in components if not row[0].startswith('Cache write')]
     markup = '<table class="summary-table token-cost-table"><caption>Token cost</caption>\n'
-    markup += '<thead><tr><th scope="col">Type</th><th scope="col">Tokens</th><th scope="col">USD / 1M</th></tr></thead>\n<tbody>\n'
+    markup += '<thead><tr><th scope="col">Type</th><th scope="col">Tokens</th><th scope="col">Cost</th></tr></thead>\n<tbody>\n'
     for label, count, rate in rows:
         quantity = f'{count:,}' if count is not None else 'Not recorded'
-        price = '$' + format(decimal_cost(rate), 'f') if rate is not None else 'Included'
+        price = '$' + format(decimal_cost(rate), 'f') + ' / 1M' if rate is not None else 'Included'
         markup += '<tr><th scope="row">' + html.escape(label) + '</th><td class="mono-value">' + quantity + \
                   '</td><td class="mono-value">' + price + '</td></tr>\n'
     return markup + '</tbody><tfoot><tr><th scope="row">Total token cost</th><td></td><td class="mono-value">' + \

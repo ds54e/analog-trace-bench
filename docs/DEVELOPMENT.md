@@ -79,8 +79,8 @@ task descriptions in `site/data/runs.json` describe the captured specifications.
 
 Generated run summaries have three tables: run/evaluation, circuit design, and
 token cost. Presentation splits the verified fragments without editing them.
-The compact token table shows counts, USD per million tokens, and the total,
-without pricing links or a separate pricing row.
+The compact token table uses Type / Tokens / Cost headers, with unit costs like
+`$10.00 / 1M` and a plain USD total, without pricing links or a separate pricing row.
 
 Claude displays Uncached input / Cached input / Cache write / Output; OpenAI
 displays Uncached input / Cached input / Output. Reasoning counts are hidden in both
