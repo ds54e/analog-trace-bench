@@ -7,7 +7,7 @@ from pathlib import Path
 
 from fetch_evidence import validate_entry, validate_url
 from site_templates import asset_url, evaluation_label, format_duration, render_page
-from token_costs import format_token_cost, load_token_costs
+from token_costs import decimal_cost, load_token_costs
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -20,6 +20,12 @@ def run_values(runs, formatter):
         values.append(f'<span class="run-value" data-run="{number}" title="Run {number}">' +
                       label + formatter(run) + '</span>')
     return ' · '.join(values)
+
+
+def value_range(values, formatter):
+    if not values or any(value is None for value in values):
+        return 'Not recorded'
+    return formatter(min(values)) + ' - ' + formatter(max(values))
 
 
 def render_index(root=ROOT):
@@ -51,11 +57,13 @@ def render_index(root=ROOT):
             trials = sorted(trials, key=lambda run: run['run'])
             if len({run['run'] for run in trials}) != len(trials):
                 raise ValueError('Duplicate model/run identity: ' + model)
-            def outcome(run):
-                return html.escape(evaluation_label(evidence[run['id']].get('electrical_status', 'Not recorded')))
-            def duration(run):
-                seconds = evidence[run['id']].get('design_model_calls_s')
-                return format_duration(seconds) if seconds is not None else 'Not recorded'
+            outcomes = [evaluation_label(evidence[run['id']].get('electrical_status', 'Not recorded'))
+                        for run in trials]
+            result = (f'{outcomes.count("PASS")}/{len(trials)} PASS'
+                      if all(outcome in ('PASS', 'FAIL') for outcome in outcomes) else 'Not recorded')
+            times = [evidence[run['id']].get('design_model_calls_s') for run in trials]
+            totals = [costs[run['id']]['total_cost_usd'] for run in trials]
+            amounts = [decimal_cost(total) if total is not None else None for total in totals]
             def trace(run):
                 return ('<a href="' + html.escape(run['trace'], quote=True) + '">Read trace</a>'
                         if run.get('trace') else '<span class="unavailable">Not available yet</span>')
@@ -63,8 +71,9 @@ def render_index(root=ROOT):
                 url = evidence[run['id']]['url']
                 return ('<a href="' + html.escape(url, quote=True) + '">Download</a>'
                         if url else '<span class="unavailable">Not available yet</span>')
-            cells = [run_values(trials, formatter) for formatter in (
-                outcome, duration, lambda run: format_token_cost(costs[run['id']]), trace, source)]
+            cells = [result, value_range(times, format_duration),
+                     value_range(amounts, lambda amount: '$' + format(amount, '.2f')),
+                     run_values(trials, trace), run_values(trials, source)]
             rows.append('<tr><th scope="row">' + html.escape(model) + '</th>' +
                         ''.join('<td>' + cell + '</td>' for cell in cells) + '</tr>')
         task_id = html.escape(task['id'], quote=True)

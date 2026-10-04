@@ -1,9 +1,11 @@
 from copy import deepcopy
 from decimal import Decimal
 import hashlib
+import html
 import json
 from pathlib import Path
 import sys
+import re
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -143,7 +145,7 @@ class TokenCostTests(unittest.TestCase):
 
 
 class IndexRunTests(unittest.TestCase):
-    def test_three_runs_keep_individual_values_and_links_without_a_run_column(self):
+    def test_three_runs_show_pass_fraction_and_ranges_with_individual_links(self):
         root = build_index.ROOT
         catalog = json.loads((root / 'site/data/runs.json').read_text())
         evidence = json.loads((root / 'data/evidence.json').read_text())
@@ -153,7 +155,7 @@ class IndexRunTests(unittest.TestCase):
         entry = deepcopy(evidence['runs'][0])
         evidence['runs'] = [entry]
         records = {entry['id']: deepcopy(records[entry['id']])}
-        for number, seconds, status, cost in [(2, 60, 'MISS', '1.00'), (3, 120, 'PASS', '3.00')]:
+        for number, seconds, status, cost in [(2, 60, 'MISS', '1.00'), (3, 120, 'MISS', '3.00')]:
             run = {**task['runs'][0], 'id': 'extra-' + str(number), 'run': number,
                    'trace': 'traces/extra-' + str(number) + '.html'}
             task['runs'].append(run)
@@ -161,6 +163,7 @@ class IndexRunTests(unittest.TestCase):
                      'electrical_status': status}
             evidence['runs'].append(other)
             records[run['id']] = {**records[entry['id']], 'total_cost_usd': cost}
+        task['runs'].reverse()
         with tempfile.TemporaryDirectory() as directory:
             fixture = Path(directory)
             (fixture / 'site/data').mkdir(parents=True)
@@ -173,16 +176,31 @@ class IndexRunTests(unittest.TestCase):
                 page = build_index.render_index(fixture)
         self.assertNotIn('<th scope="col">Run</th>', page)
         self.assertEqual(page.count('<tr><th scope="row">'), 1)
-        self.assertIn('Run 2</span> FAIL', page)
-        self.assertIn('Run 3</span> PASS', page)
-        self.assertIn('Run 2</span> 0:01:00', page)
-        self.assertIn('Run 3</span> 0:02:00', page)
-        self.assertIn('Run 2</span> $1.00', page)
-        self.assertIn('Run 3</span> $3.00', page)
+        cells = re.findall(r'<td>(.*?)</td>', page, re.S)
+        visible = [html.unescape(re.sub(r'<[^>]+>', '', cell)) for cell in cells]
+        self.assertEqual(visible[0], '1/3 PASS')
+        self.assertEqual(visible[1], '0:01:00 - ' +
+                         build_index.format_duration(max(120, entry['design_model_calls_s'])))
+        self.assertEqual(visible[2], '$1.00 - $3.00')
+        for cell in cells[:3]:
+            self.assertNotIn('run-label', cell)
+        for cell in cells[3:]:
+            for number in (1, 2, 3):
+                self.assertIn(f'Run {number}</span>', cell)
         for run in task['runs']:
             self.assertIn('href="' + run['trace'] + '"', page)
         self.assertLess(page.index('>Model-call time<'), page.index('>Cost<'))
         self.assertLess(page.index('>Cost<'), page.index('>Design<'))
+
+    def test_ranges_compare_numeric_values_and_keep_missing_values_unknown(self):
+        formatter = lambda amount: '$' + format(amount, '.2f')
+        rendered = build_index.value_range([Decimal('9'), Decimal('10'), Decimal('2')], formatter)
+        visible = re.sub(r'<[^>]+>', '', rendered)
+        self.assertEqual(visible, '$2.00 - $10.00')
+        self.assertEqual(re.sub(r'<[^>]+>', '', build_index.value_range([Decimal('2')], formatter)),
+                         '$2.00 - $2.00')
+        self.assertEqual(build_index.value_range([Decimal('2'), None], formatter), 'Not recorded')
+        self.assertEqual(build_index.value_range([], formatter), 'Not recorded')
 
 
 if __name__ == '__main__':

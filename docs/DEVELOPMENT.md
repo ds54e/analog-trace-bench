@@ -61,10 +61,12 @@ renderers use `format_duration` (`H:MM:SS`), and
 derived evaluation labels use `PASS` / `FAIL`. Archived transcript text,
 prepared fragments, and complete JSON reports retain their original values.
 
-The index has one row per model, with each recorded Run 1–3 shown separately
-inside the evaluation, time, cost, trace, and archive columns. It has no Run
-column and does not aggregate worst values. Labels identify individual runs
-when several are present; unavailable runs are not fabricated. The concise
+The index has one row per model and no Run column. Result shows passed runs
+divided by recorded runs (`1/3 PASS`, `1/1 PASS`). Model-call time and Cost
+show `minimum - maximum` across recorded runs; a single run repeats its value as
+both endpoints. Missing values remain unknown rather than producing partial
+ranges. Design/archive links retain Run labels when several are present.
+Unavailable runs are not fabricated. The concise
 task descriptions in `site/data/runs.json` describe the captured specifications.
 
 Generated run summaries have three tables: run/evaluation, circuit design, and
