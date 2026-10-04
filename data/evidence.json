@@ -58,7 +58,7 @@
     {
       "id": "ldo-always-on-sky130-astra-r1",
       "task": "LDO-ALWAYS-ON-SKY130",
-      "model": "Astra",
+      "model": "Astra 6",
       "run": 1,
       "attempt_id": "ldo-always-on-sky130-astra-r1-20261003-model-time-full9",
       "slot": "astra-01",
@@ -364,7 +364,7 @@
     {
       "id": "ldo-core-sky130-astra-r1",
       "task": "LDO-CORE-SKY130",
-      "model": "Astra",
+      "model": "Astra 6",
       "run": 1,
       "attempt_id": "ldo-core-sky130-astra-r1-20261003-model-time-recovery3",
       "slot": "astra-01",
@@ -672,7 +672,7 @@
     {
       "id": "ldo-low-voltage-sky130-astra-r1",
       "task": "LDO-LOW-VOLTAGE-SKY130",
-      "model": "Astra",
+      "model": "Astra 6",
       "run": 1,
       "attempt_id": "ldo-low-voltage-sky130-astra-r1-20261003-model-time-recovery3",
       "slot": "astra-01",
@@ -980,7 +980,7 @@
     {
       "id": "ldo-quiet-sky130-astra-r1",
       "task": "LDO-QUIET-SKY130",
-      "model": "Astra",
+      "model": "Astra 6",
       "run": 1,
       "attempt_id": "ldo-quiet-sky130-astra-r1-20261003-model-time-recovery3",
       "slot": "astra-01",
@@ -1288,7 +1288,7 @@
     {
       "id": "ota-drive-sky130-astra-r1",
       "task": "OTA-DRIVE-SKY130",
-      "model": "Astra",
+      "model": "Astra 6",
       "run": 1,
       "attempt_id": "ota-drive-sky130-astra-r1-20261003-model-time-full9",
       "slot": "astra-01",
@@ -1601,7 +1601,7 @@
     {
       "id": "ota-fixed-sky130-astra-r1",
       "task": "OTA-FIXED-SKY130",
-      "model": "Astra",
+      "model": "Astra 6",
       "run": 1,
       "attempt_id": "ota-fixed-sky130-astra-r1-20261003-model-time-full9",
       "slot": "astra-01",
@@ -1942,7 +1942,7 @@
     {
       "id": "ota-free-sky130-astra-r1",
       "task": "OTA-FREE-SKY130",
-      "model": "Astra",
+      "model": "Astra 6",
       "run": 1,
       "attempt_id": "ota-free-sky130-astra-r1-20261003-model-time-full9",
       "slot": "astra-01",
@@ -2248,7 +2248,7 @@
     {
       "id": "ota-precision-sky130-astra-r1",
       "task": "OTA-PRECISION-SKY130",
-      "model": "Astra",
+      "model": "Astra 6",
       "run": 1,
       "attempt_id": "ota-precision-sky130-astra-r1-20261003-model-time-full9",
       "slot": "astra-01",
@@ -2556,7 +2556,7 @@
     {
       "id": "ota-wide-sky130-astra-r1",
       "task": "OTA-WIDE-SKY130",
-      "model": "Astra",
+      "model": "Astra 6",
       "run": 1,
       "attempt_id": "ota-wide-sky130-astra-r1-20261003-model-time-recovery3",
       "slot": "astra-01",

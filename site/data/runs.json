@@ -3,7 +3,6 @@
   "tasks": [
     {
       "id": "LDO-ALWAYS-ON-SKY130",
-      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
         {
@@ -14,7 +13,7 @@
         },
         {
           "id": "ldo-always-on-sky130-astra-r1",
-          "model": "Astra",
+          "model": "Astra 6",
           "run": 1,
           "trace": "traces/ldo-always-on-sky130-astra-raw.html"
         },
@@ -46,7 +45,6 @@
     },
     {
       "id": "LDO-CORE-SKY130",
-      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
         {
@@ -57,7 +55,7 @@
         },
         {
           "id": "ldo-core-sky130-astra-r1",
-          "model": "Astra",
+          "model": "Astra 6",
           "run": 1,
           "trace": "traces/ldo-core-sky130-astra-raw.html"
         },
@@ -89,7 +87,6 @@
     },
     {
       "id": "LDO-LOW-VOLTAGE-SKY130",
-      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
         {
@@ -100,7 +97,7 @@
         },
         {
           "id": "ldo-low-voltage-sky130-astra-r1",
-          "model": "Astra",
+          "model": "Astra 6",
           "run": 1,
           "trace": "traces/ldo-low-voltage-sky130-astra-raw.html"
         },
@@ -132,7 +129,6 @@
     },
     {
       "id": "LDO-QUIET-SKY130",
-      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
         {
@@ -143,7 +139,7 @@
         },
         {
           "id": "ldo-quiet-sky130-astra-r1",
-          "model": "Astra",
+          "model": "Astra 6",
           "run": 1,
           "trace": "traces/ldo-quiet-sky130-astra-raw.html"
         },
@@ -175,7 +171,6 @@
     },
     {
       "id": "OTA-DRIVE-SKY130",
-      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
         {
@@ -186,7 +181,7 @@
         },
         {
           "id": "ota-drive-sky130-astra-r1",
-          "model": "Astra",
+          "model": "Astra 6",
           "run": 1,
           "trace": "traces/ota-drive-sky130-astra-raw.html"
         },
@@ -218,7 +213,6 @@
     },
     {
       "id": "OTA-FIXED-SKY130",
-      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
         {
@@ -229,7 +223,7 @@
         },
         {
           "id": "ota-fixed-sky130-astra-r1",
-          "model": "Astra",
+          "model": "Astra 6",
           "run": 1,
           "trace": "traces/ota-fixed-sky130-astra-raw.html"
         },
@@ -261,7 +255,6 @@
     },
     {
       "id": "OTA-FREE-SKY130",
-      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
         {
@@ -272,7 +265,7 @@
         },
         {
           "id": "ota-free-sky130-astra-r1",
-          "model": "Astra",
+          "model": "Astra 6",
           "run": 1,
           "trace": "traces/ota-free-sky130-astra-raw.html"
         },
@@ -304,7 +297,6 @@
     },
     {
       "id": "OTA-PRECISION-SKY130",
-      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
         {
@@ -315,7 +307,7 @@
         },
         {
           "id": "ota-precision-sky130-astra-r1",
-          "model": "Astra",
+          "model": "Astra 6",
           "run": 1,
           "trace": "traces/ota-precision-sky130-astra-raw.html"
         },
@@ -347,7 +339,6 @@
     },
     {
       "id": "OTA-WIDE-SKY130",
-      "description": "Recorded SKY130 design trials with captured task definitions and independent evaluation.",
       "pdk": "SKY130",
       "runs": [
         {
@@ -358,7 +349,7 @@
         },
         {
           "id": "ota-wide-sky130-astra-r1",
-          "model": "Astra",
+          "model": "Astra 6",
           "run": 1,
           "trace": "traces/ota-wide-sky130-astra-raw.html"
         },

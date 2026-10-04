@@ -453,7 +453,7 @@ def validate_page(page: str, evidence: Evidence, trace: Trace) -> None:
 def build_page(evidence: Evidence) -> tuple[str, Trace, RunTiming]:
     timing = calculate_timing(evidence)
     trace = render_trace(evidence, timing)
-    page = render_trace_page('OTA-WIDE-SKY130', 'Astra', render_summary(evidence, timing), trace.markup)
+    page = render_trace_page('OTA-WIDE-SKY130', 'Astra 6', render_summary(evidence, timing), trace.markup)
     validate_page(page, evidence, trace)
     return page, trace, timing
 

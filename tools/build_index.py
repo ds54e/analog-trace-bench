@@ -43,16 +43,14 @@ def render_index(root=ROOT):
             rows.append('<tr><td>' + html.escape(run['model']) + '</td><td>' + str(run['run']) +
                         '</td><td>' + outcome + '</td><td>' + minutes + '</td><td>' + trace +
                         '</td><td>' + source + '</td></tr>')
-        sections.append('<section><h2>' + html.escape(task['id']) + '</h2><p>' +
-                        html.escape(task['description']) + '</p><div class="table-wrap" tabindex="0">'
+        sections.append('<section><h2>' + html.escape(task['id']) + '</h2><div class="table-wrap" tabindex="0">'
                         '<table><thead><tr><th scope="col">Model</th><th scope="col">Run</th>'
                         '<th scope="col">Evaluation</th><th scope="col">AI time (min)</th>'
                         '<th scope="col">Design trace</th><th scope="col">Evidence</th></tr></thead>'
                         '<tbody>' + '\n'.join(rows) + '</tbody></table></div></section>')
-    content = '<main><h1>Recorded design traces</h1><p>Saved circuit-design sessions, submitted SPICE, and independent evaluation.</p>\n'
+    content = '<main>\n'
     content += '\n'.join(sections)
-    content += '<p>AI time includes provider queueing and transport; local tools are excluded. Original measurement failures remain labeled. Full records are in the evidence archives.</p>'
-    content += '\n<footer><a href="https://github.com/ds54e/analog-trace-bench">Repository</a> · <a href="https://github.com/ds54e/analog-trace-bench/releases">Evidence releases</a></footer>\n</main>'
+    content += '\n</main>'
     head = '<link rel="stylesheet" href="' + asset_url('home.css', root=root) + '"/>'
     return render_page('Analog Trace Bench', content, head, 'index.html', root)
 
