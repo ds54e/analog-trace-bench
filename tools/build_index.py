@@ -90,9 +90,11 @@ def render_index(root=ROOT):
                         '<h2 class="task-heading" id="' + task_id + '">' + task_id + '</h2>'
                         '<p class="task-description">' + html.escape(task['description']) + '</p>'
                         '<div class="table-scroll" tabindex="0" role="region" aria-labelledby="' + task_id + '">'
-                        '<table class="summary-table results-table"><thead><tr><th scope="col">AI model</th>'
-                        '<th scope="col">Pass</th><th scope="col">Model-call time</th>'
-                        '<th scope="col">USD</th></tr></thead>'
+                        '<table class="summary-table results-table"><thead><tr>'
+                        '<th scope="col"><span class="column-label">AI model</span></th>'
+                        '<th scope="col"><span class="column-label">Pass</span></th>'
+                        '<th scope="col"><span class="column-label">Model-call time</span></th>'
+                        '<th scope="col"><span class="column-label">USD</span></th></tr></thead>'
                         '<tbody>' + '\n'.join(rows) + '</tbody></table></div></section>')
     content = '<main class="page-shell">\n'
     content += '\n'.join(sections)

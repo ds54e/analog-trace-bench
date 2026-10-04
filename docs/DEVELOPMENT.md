@@ -57,8 +57,9 @@ headings use the same display font and weight as trace headings; the compact
 index tables scroll horizontally on narrow screens and remain focusable. The
 shared sans-serif typography, warm background, and horizontal table rules apply
 to both the index and individual traces.
-The index uses `AI model`, `Pass`, `Model-call time`, and `USD`
-headers. Evidence archives remain available in the GitHub Releases and source
+The index hides its column headings and their row spacing; `AI model`, `Pass`,
+`Model-call time`, and `USD` remain semantic headers for screen readers.
+Evidence archives remain available in the GitHub Releases and source
 catalog; the index has no Archive column. Run summaries keep their longer labels
 and `format_duration` (`H:MM:SS`); the index shows minutes to one decimal. All
 derived evaluation labels use `PASS` / `FAIL`. Archived transcript text,
