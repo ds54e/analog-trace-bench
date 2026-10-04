@@ -44,8 +44,8 @@ def token_counts(normalized):
 
 
 def cost_components(counts, rates):
-    rows = [('Input (uncached)', counts['uncached_input_tokens'], rates['input']),
-            ('Cache read', counts['cache_read_tokens'], rates['cache_read'])]
+    rows = [('Uncached input', counts['uncached_input_tokens'], rates['input']),
+            ('Cached input', counts['cache_read_tokens'], rates['cache_read'])]
     writes = counts['cache_write_tokens']
     if 'cache_write_1h' in rates and writes not in (None, 0):
         ttl = counts.get('cache_write_ttl_tokens') or {}
@@ -154,8 +154,8 @@ def render_token_summary(record, pricing):
         if len(writes) > 1:
             write_rate = sum(Decimal(count) * decimal_cost(rate) for count, rate in writes) / Decimal(quantity)
             write_rate = format(write_rate.quantize(Decimal('0.000001')), 'f')
-        rows = [('Input', record['uncached_input_tokens'], rates['input']),
-                ('Cache read', record['cache_read_tokens'], rates['cache_read']),
+        rows = [('Uncached input', record['uncached_input_tokens'], rates['input']),
+                ('Cached input', record['cache_read_tokens'], rates['cache_read']),
                 ('Cache write', quantity, write_rate),
                 ('Output', record['output_tokens'], rates['output'])]
     else:
