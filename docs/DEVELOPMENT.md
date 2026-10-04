@@ -19,7 +19,7 @@ The website uses deterministic static generation. Presentation is shared; record
 | `data/token-pricing.json` | Dated official Standard short-context rates for reproducible estimates. |
 | `data/evidence.json` | All selected trial identities, verdicts, timing, task definitions, hashes, and actual asset URLs. |
 | `data/trace-validation.json` | Source-derived counts, circuit hash/revision, and accepted content/report hashes. |
-| `site/index.html`, `site/traces/*.html` | Generated output, excluded from Git. |
+| `site/index.html`, `site/tasks.html`, `site/traces/*.html` | Generated output, excluded from Git. |
 
 Prepared fragments are intentional: the transcript formats differ, so archive adapters handle their semantics once and verify them against the source. The static-site build reuses verified markup without reparsing archived commands or repeatedly rendering MODEL Markdown. It is not a universal transcript importer.
 
@@ -39,7 +39,7 @@ python3 -m http.server 8000 --directory site
 
 Open `http://localhost:8000/`. Building and checking saved pages require Python 3.10+ and its standard library. The tab-event tests require Node 20+ and no installed packages. They verify event behavior, not browser layout.
 
-The build creates the index for all catalogued results and trace pages whose `trace` route is present. A null route retains downloadable evidence without claiming an imported HTML trace. Every rendered trace still requires its source-derived validation profile. `--check` detects stale output without writing. `check_site.py` also checks relative links/fragments, unique DOM IDs, run identity, payload counts, content hashes, submitted-SPICE bytes/hash, report hashes, and evaluation revision/rows. Changing a saved command and regenerating HTML still fails the content check.
+The build creates model and task indexes for all catalogued results and trace pages whose `trace` route is present. A null route retains downloadable evidence without claiming an imported HTML trace. Every rendered trace still requires its source-derived validation profile. `--check` detects stale output without writing. `check_site.py` also checks relative links/fragments, unique DOM IDs, run identity, payload counts, content hashes, submitted-SPICE bytes/hash, report hashes, and evaluation revision/rows. Changing a saved command and regenerating HTML still fails the content check.
 
 For a portable review copy:
 
@@ -57,23 +57,28 @@ headings use the same display font and weight as trace headings; the compact
 index tables scroll horizontally on narrow screens and remain focusable. The
 shared sans-serif typography, warm background, and horizontal table rules apply
 to both the index and individual traces.
-The index hides its column headings and their row spacing; `AI model`, `Pass`,
-`Model-call time`, and `USD` remain semantic headers for screen readers.
+The default `index.html` groups results by model, with one row per task.
+`tasks.html` groups results by task, with one row per model and each task's
+description. Model / Task links in every page header switch between these views;
+the current index has `aria-current="page"`. The brand returns to the model index.
+Both indexes hide their column headings and their row spacing. Task or AI model,
+Pass, Model-call time, and USD remain semantic headers for screen readers.
 Evidence archives remain available in the GitHub Releases and source
 catalog; the index has no Archive column. Run summaries keep their longer labels
 and `format_duration` (`H:MM:SS`); the index shows minutes to one decimal. All
 derived evaluation labels use `PASS` / `FAIL`. Archived transcript text,
 prepared fragments, and complete JSON reports retain their original values.
 
-The index has one row per model and no Run column. Pass shows passed runs
+Both indexes aggregate each task/model pair and have no Run column. Pass shows passed runs
 divided by recorded runs (`1 / 3`, `1 / 1`) in a PASS or FAIL badge; PASS means
 all recorded runs passed. Model-call time and USD show arithmetic means across
 recorded runs, calculated before display rounding. A single run shows its own
 value. Missing values remain unknown rather than producing partial means.
 USD uses `$2.01` labels. The blue time and brown cost bars scale to the largest
-mean for that metric within each task; zero values have no fill. The model name links
-to its earliest available trace; the trace's tabs give access to other recorded
-runs. The index has no separate Design column.
+mean for that metric within the displayed section (one model or one task); zero
+values have no fill. Each row label links to that task/model pair's earliest
+available trace; the trace's tabs give access to other recorded runs. Both indexes
+use the same aggregation and table renderer and have no separate Design column.
 Unavailable runs are not fabricated. The concise
 task descriptions in `site/data/runs.json` describe the captured specifications.
 

@@ -10,7 +10,8 @@ from site_templates import ROOT
 
 
 def generated_pages(root=ROOT):
-    return {'index.html': render_index(root), **rendered_traces(root)}
+    return {'index.html': render_index(root), 'tasks.html': render_index(root, view='task'),
+            **rendered_traces(root)}
 
 
 def build(root=ROOT, output=None, check=False):

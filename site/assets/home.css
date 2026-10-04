@@ -4,6 +4,7 @@
 }
 
 .task-heading { margin-bottom: 4px; }
+.model-section .task-heading { margin-bottom: 24px; }
 
 .task-description {
   margin: 0 0 28px;
@@ -46,6 +47,12 @@
 .results-table thead th:nth-child(2) { width: 16%; }
 .results-table thead th:nth-child(3) { width: 33%; }
 .results-table thead th:nth-child(4) { width: 30%; }
+
+.results-table--model { min-width: 880px; }
+.results-table--model thead th:nth-child(1) { width: 34%; }
+.results-table--model thead th:nth-child(2) { width: 16%; }
+.results-table--model thead th:nth-child(3) { width: 26%; }
+.results-table--model thead th:nth-child(4) { width: 24%; }
 
 .results-table tbody th,
 .results-table td { padding-block: 9px; }

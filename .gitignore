@@ -11,4 +11,5 @@ __pycache__/
 *.zip
 *.log
 /site/index.html
+/site/tasks.html
 /site/traces/*.html

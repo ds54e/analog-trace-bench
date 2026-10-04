@@ -172,8 +172,9 @@ class IndexRunTests(unittest.TestCase):
             (fixture / 'data/evidence.json').write_text(json.dumps(evidence))
             with patch.object(build_index, 'load_token_costs', return_value=(records, pricing)), \
                     patch.object(build_index, 'asset_url', return_value='home.css'), \
-                    patch.object(build_index, 'render_page', side_effect=lambda title, content, *args: content):
-                page = build_index.render_index(fixture)
+                    patch.object(build_index, 'render_page', side_effect=lambda title, content, *args, **kwargs: content):
+                page = build_index.render_index(fixture, view='task')
+                model_page = build_index.render_index(fixture)
         self.assertNotIn('<th scope="col">Run</th>', page)
         self.assertNotIn('<th scope="col">Archive</th>', page)
         self.assertNotIn('<th scope="col">Design</th>', page)
@@ -196,6 +197,28 @@ class IndexRunTests(unittest.TestCase):
         self.assertIn('<th scope="row"><a href="' + first['trace'] + '">' + first['model'] + '</a></th>', page)
         self.assertEqual(page.count('<a href='), 1)
         self.assertLess(page.index('>Model-call time<'), page.index('>USD<'))
+        self.assertEqual(re.findall(r'<td>(.*?)</td>', model_page, re.S), cells)
+        self.assertIn('<th scope="row"><a href="' + first['trace'] + '">' + task['id'] + '</a></th>', model_page)
+        self.assertIn('>' + first['model'] + '</h2>', model_page)
+
+    def test_both_views_cover_the_same_trials_in_their_respective_groups(self):
+        catalog = json.loads((build_index.ROOT / 'site/data/runs.json').read_text())
+        expected = {(task['id'], run['model']): run['trace']
+                    for task in catalog['tasks'] for run in sorted(task['runs'], key=lambda run: -run['run'])}
+        for view in ('model', 'task'):
+            page = build_index.render_index(view=view)
+            actual = {}
+            for section in re.findall(r'<section\b.*?</section>', page, re.S):
+                heading = html.unescape(re.search(r'<h2[^>]*>(.*?)</h2>', section)[1])
+                for href, label in re.findall(r'<th scope="row"><a href="([^"]+)">(.*?)</a></th>', section):
+                    label = html.unescape(label)
+                    pair = (label, heading) if view == 'model' else (heading, label)
+                    self.assertNotIn(pair, actual)
+                    actual[pair] = html.unescape(href)
+            self.assertEqual(actual, expected)
+            current = 'index.html' if view == 'model' else 'tasks.html'
+            self.assertIn('href="' + current + '" aria-current="page"', page)
+            self.assertEqual(page.count('aria-current="page"'), 1)
 
     def test_means_use_unrounded_values_and_keep_missing_values_unknown(self):
         self.assertEqual(build_index.mean_value([Decimal('9'), Decimal('10'), Decimal('2')]), 7)

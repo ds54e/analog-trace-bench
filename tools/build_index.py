@@ -3,6 +3,7 @@
 import argparse
 import html
 import json
+import re
 from decimal import Decimal
 from pathlib import Path
 
@@ -31,14 +32,14 @@ def metric_cell(value, maximum, label, kind, count):
             f'<span class="metric-value">{label}</span></div>')
 
 
-def render_index(root=ROOT):
+def load_results(root=ROOT):
     catalog = json.loads((root / 'site/data/runs.json').read_text())
     entries = json.loads((root / 'data/evidence.json').read_text())
     evidence = {entry['id']: entry for entry in entries['runs']}
     costs, _ = load_token_costs(root)
     if len(evidence) != len(entries['runs']):
         raise ValueError('Duplicate evidence run IDs')
-    sections = []
+    results = []
     seen = set()
     for task in catalog['tasks']:
         groups = {}
@@ -55,7 +56,6 @@ def render_index(root=ROOT):
             if run['run'] not in (1, 2, 3):
                 raise ValueError('The result index supports Run 1–3: ' + run['id'])
             groups.setdefault(run['model'], []).append(run)
-        models = []
         for model, trials in groups.items():
             trials = sorted(trials, key=lambda run: run['run'])
             if len({run['run'] for run in trials}) != len(trials):
@@ -71,52 +71,75 @@ def render_index(root=ROOT):
             times = [evidence[run['id']].get('design_model_calls_s') for run in trials]
             totals = [costs[run['id']]['total_cost_usd'] for run in trials]
             amounts = [decimal_cost(total) if total is not None else None for total in totals]
-            model_label = html.escape(model)
             trace_href = next((run['trace'] for run in trials if run.get('trace')), None)
-            if trace_href:
-                model_label = '<a href="' + html.escape(trace_href, quote=True) + '">' + model_label + '</a>'
-            models.append((model_label, result, mean_value(times), mean_value(amounts), len(trials)))
-        max_time = max((time for _, _, time, _, _ in models if time is not None), default=Decimal(0))
-        max_cost = max((cost for _, _, _, cost, _ in models if cost is not None), default=Decimal(0))
-        rows = []
-        for model_label, result, time, cost, count in models:
-            cells = [result,
-                     metric_cell(time, max_time, f'{time / 60:.1f} min' if time is not None else '', 'time', count),
-                     metric_cell(cost, max_cost, f'${cost:.2f}' if cost is not None else '', 'cost', count)]
-            rows.append('<tr><th scope="row">' + model_label + '</th>' +
-                        ''.join('<td>' + cell + '</td>' for cell in cells) + '</tr>')
-        task_id = html.escape(task['id'], quote=True)
-        sections.append('<section class="task-section" aria-labelledby="' + task_id + '">'
-                        '<h2 class="task-heading" id="' + task_id + '">' + task_id + '</h2>'
-                        '<p class="task-description">' + html.escape(task['description']) + '</p>'
-                        '<div class="table-scroll" tabindex="0" role="region" aria-labelledby="' + task_id + '">'
-                        '<table class="summary-table results-table"><thead><tr>'
-                        '<th scope="col"><span class="column-label">AI model</span></th>'
-                        '<th scope="col"><span class="column-label">Pass</span></th>'
-                        '<th scope="col"><span class="column-label">Model-call time</span></th>'
-                        '<th scope="col"><span class="column-label">USD</span></th></tr></thead>'
-                        '<tbody>' + '\n'.join(rows) + '</tbody></table></div></section>')
-    content = '<main class="page-shell">\n'
-    content += '\n'.join(sections)
-    content += '\n</main>'
+            results.append({'task': task['id'], 'description': task['description'], 'model': model,
+                            'result': result, 'time': mean_value(times), 'cost': mean_value(amounts),
+                            'count': len(trials), 'trace': trace_href})
+    return results
+
+
+def render_result_table(results, view):
+    max_time = max((row['time'] for row in results if row['time'] is not None), default=Decimal(0))
+    max_cost = max((row['cost'] for row in results if row['cost'] is not None), default=Decimal(0))
+    rows = []
+    for row in results:
+        label = html.escape(row['task' if view == 'model' else 'model'])
+        if row['trace']:
+            label = '<a href="' + html.escape(row['trace'], quote=True) + '">' + label + '</a>'
+        time, cost, count = row['time'], row['cost'], row['count']
+        cells = [row['result'],
+                 metric_cell(time, max_time, f'{time / 60:.1f} min' if time is not None else '', 'time', count),
+                 metric_cell(cost, max_cost, f'${cost:.2f}' if cost is not None else '', 'cost', count)]
+        rows.append('<tr><th scope="row">' + label + '</th>' +
+                    ''.join('<td>' + cell + '</td>' for cell in cells) + '</tr>')
+    table_class = 'summary-table results-table' + (' results-table--model' if view == 'model' else '')
+    headers = ['Task' if view == 'model' else 'AI model', 'Pass', 'Model-call time', 'USD']
+    return ('<table class="' + table_class + '"><thead><tr>' +
+            ''.join('<th scope="col"><span class="column-label">' + label + '</span></th>' for label in headers) +
+            '</tr></thead><tbody>' + '\n'.join(rows) + '</tbody></table>')
+
+
+def render_index(root=ROOT, view='model'):
+    if view not in ('model', 'task'):
+        raise ValueError('Unknown result view: ' + view)
+    groups = {}
+    for row in load_results(root):
+        groups.setdefault(row[view], []).append(row)
+    sections = []
+    for label, results in groups.items():
+        section_id = ('model-' + re.sub(r'[^a-z0-9]+', '-', label.lower()).strip('-')
+                      if view == 'model' else label)
+        section_id = html.escape(section_id, quote=True)
+        section_class = 'task-section' + (' model-section' if view == 'model' else '')
+        description = ('<p class="task-description">' + html.escape(results[0]['description']) + '</p>'
+                       if view == 'task' else '')
+        sections.append('<section class="' + section_class + '" aria-labelledby="' + section_id + '">'
+                        '<h2 class="task-heading" id="' + section_id + '">' + html.escape(label) + '</h2>' +
+                        description +
+                        '<div class="table-scroll" tabindex="0" role="region" aria-labelledby="' + section_id + '">' +
+                        render_result_table(results, view) + '</div></section>')
+    content = '<main class="page-shell" data-view="' + view + '">\n' + '\n'.join(sections) + '\n</main>'
     head = '<link rel="stylesheet" href="' + asset_url('home.css', root=root) + '"/>'
-    return render_page('Analog Trace Bench', content, head, 'index.html', root)
+    title = 'Analog Trace Bench' + (' — Tasks' if view == 'task' else '')
+    return render_page(title, content, head, 'index.html', root, current_view=view)
 
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true', help='Fail when the committed index is stale.')
+    parser.add_argument('--view', choices=('model', 'task'), help='Build only one result view.')
     args = parser.parse_args()
-    content = render_index()
-    output = ROOT / 'site/index.html'
-    if args.check:
-        if not output.is_file() or output.read_text() != content:
-            raise SystemExit('Index is stale; run python3 tools/build_index.py')
-        print('Index is current.')
-    else:
-        output.write_text(content)
-        print('Generated site/index.html')
+    for view in (args.view,) if args.view else ('model', 'task'):
+        content = render_index(view=view)
+        output = ROOT / 'site' / ('index.html' if view == 'model' else 'tasks.html')
+        if args.check:
+            if not output.is_file() or output.read_text() != content:
+                raise SystemExit('Index is stale; run python3 tools/build_index.py')
+            print(output.name + ' is current.')
+        else:
+            output.write_text(content)
+            print('Generated site/' + output.name)
 
 
 if __name__ == '__main__':

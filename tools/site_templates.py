@@ -26,9 +26,14 @@ def asset_url(name, prefix='', root=ROOT):
     return prefix + 'assets/' + name + '?v=' + digest
 
 
-def render_page(title, content, head, home_href, root=ROOT):
+def render_page(title, content, head, home_href, root=ROOT, current_view=None):
     parent = Path(home_href).parent.as_posix()
     prefix = '' if parent == '.' else parent + '/'
     head = '<link rel="stylesheet" href="' + asset_url('site.css', prefix, root) + '"/>\n' + head
+    navigation = '<nav class="site-nav" aria-label="Browse results">'
+    for view, label, route in [('model', 'Model', 'index.html'), ('task', 'Task', 'tasks.html')]:
+        current = ' aria-current="page"' if current_view == view else ''
+        navigation += f'<a href="{prefix}{route}"{current}>{label}</a>'
+    navigation += '</nav>'
     return template('page.html', root, title=html.escape(title), content=content,
-                    head=head, home_href=html.escape(home_href, quote=True))
+                    head=head, home_href=html.escape(home_href, quote=True), navigation=navigation)
