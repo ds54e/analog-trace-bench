@@ -3577,6 +3577,1048 @@
           "hidden": 0
         }
       }
+    },
+    {
+      "id": "ldo-always-on-sky130-astra-r2",
+      "page": "traces/ldo-always-on-sky130-astra-r2-raw.html",
+      "counts": {
+        "MODEL": 7,
+        "ACTION": 25,
+        "RESULT": 24
+      },
+      "submitted_spice_bytes": 1240,
+      "submitted_spice_sha256": "9cae7684c48c7b3b407a0c489808919d60864a0c71dd68a398c7a791502d86a0",
+      "revision": "dut-2032ee72ff40b00f9fc70fb9",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "2ce2165ef6c39374170eb4f3cacf09d66619a08e6ee967fa817fcc722c135ba4",
+        "trace.html": "8b2512edd51ac797d31689c96537ed4ca87fdc6a0b659902fb6c8463448f6caf"
+      },
+      "evaluation_sha256": "ee95bc3406d3841bcb3f59d26b9852ef41698de3db69d1087d00fb881766bdd6",
+      "source_archive_sha256": "aaa295402f4c8e27f4a13bdfd57136c2a863c4bfa06505c853a4503c3c04a12c",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 25,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-astra-r3",
+      "page": "traces/ldo-always-on-sky130-astra-r3-raw.html",
+      "counts": {
+        "MODEL": 6,
+        "ACTION": 27,
+        "RESULT": 24
+      },
+      "submitted_spice_bytes": 1028,
+      "submitted_spice_sha256": "79dbe2a2420f79a0455a60888710e2462cfe7a30bed52c7f4dc296e9607962c9",
+      "revision": "dut-012def342da7f99ac693c79b",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "489c1da91e5a59faa9425b2e773195aaca2e088ed631efb81943e89485cc4b6c",
+        "trace.html": "1210a5db6f62d3fdae9ffea20e668685c1eb72a04f649cce6fb6c7b2dcb5117f"
+      },
+      "evaluation_sha256": "0edb11da8fa3ab16d3bba615e841e385b4d6c797dcb826a745a8778f18ac82ab",
+      "source_archive_sha256": "390bac5a4b754c2addd6e96ea2a8d99d7f417ae3c2fefb646656ea0be57a3e07",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 27,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-core-sky130-astra-r2",
+      "page": "traces/ldo-core-sky130-astra-r2-raw.html",
+      "counts": {
+        "MODEL": 8,
+        "ACTION": 35,
+        "RESULT": 25
+      },
+      "submitted_spice_bytes": 656,
+      "submitted_spice_sha256": "f8e7d761e63ded76e4e5d8f6afdffde8efebae21498c5560a2b065ae401bf008",
+      "revision": "dut-e19108ed8e0d97ff96472b52",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "35e7bf4a7ac2fee1a973def82c8fc629b121448637ebb4c8d0bab07e264df752",
+        "trace.html": "f212381be6070585d0e494ea158a7aa4378c4e799638c63c6eec693a69ae1ba3"
+      },
+      "evaluation_sha256": "4176cae1a649c1d28bdce5eae0d88fc327eabc9be37c66f31098ff02075c3705",
+      "source_archive_sha256": "e04ee3dc32cfd311943e580e39402d5720586f2a47eb3dddeed3c11373eed9f9",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 35,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 10
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-core-sky130-astra-r3",
+      "page": "traces/ldo-core-sky130-astra-r3-raw.html",
+      "counts": {
+        "MODEL": 11,
+        "ACTION": 24,
+        "RESULT": 24
+      },
+      "submitted_spice_bytes": 879,
+      "submitted_spice_sha256": "5988a4611ad2bcc5d1fe125cd2311db51e5a264ad0169b874009396e15acc034",
+      "revision": "dut-3a153c6e19260cf4b4cedf75",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "be03216dc2db9c1301c1c10bb41c4f8ecfc3d2651d2ee87569cffe155acbead9",
+        "trace.html": "711961d9fa6d281b7512dac6eafc05445f60bc33d6a80e2b2e4a79f50534c982"
+      },
+      "evaluation_sha256": "b3666bec4d93185b5ca54377b431fea23d6680d0ff765cb2c1bd19ae9f7eb305",
+      "source_archive_sha256": "3c93de7cf7b1f87f4f85c82d9ff4f474df962078fdf406f0c476cd3384ce5fc5",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 24,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-astra-r2",
+      "page": "traces/ldo-low-voltage-sky130-astra-r2-raw.html",
+      "counts": {
+        "MODEL": 11,
+        "ACTION": 24,
+        "RESULT": 23
+      },
+      "submitted_spice_bytes": 656,
+      "submitted_spice_sha256": "0cab1c338096f00978427242a9a08d7a718ca7e780da8e6e66e00457ec846573",
+      "revision": "dut-22c4d95553515c93a05230e3",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "d653e7c61e3e041bd13843533ea3f11c70814501d025a66a9ba736521f0aa6e6",
+        "trace.html": "17fb1f251ec779246eec19b7ccac4ee239fb202d51cdc68ef5e3c959a5d350ff"
+      },
+      "evaluation_sha256": "82e4837f4c31cfd72ca22ab6e1557d04bbfb69fdbc733bf09ef13d7182804c8f",
+      "source_archive_sha256": "09e0fcb2a0ff5639cd2f198d808b023b553fa177822147c4322fd7c037e16196",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 24,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-astra-r3",
+      "page": "traces/ldo-low-voltage-sky130-astra-r3-raw.html",
+      "counts": {
+        "MODEL": 14,
+        "ACTION": 105,
+        "RESULT": 90
+      },
+      "submitted_spice_bytes": 1157,
+      "submitted_spice_sha256": "450c5000de2437931d586c29695fcd30f588025ee13f660935e90dd677fc17d7",
+      "revision": "dut-e725ed3695837ec9c226bd98",
+      "evaluation_categories": 8,
+      "evaluation_row_counts": {
+        "published": 360,
+        "hidden": 60
+      },
+      "content_sha256": {
+        "summary.html": "0070e0f6f67ba3f586fd2a505872240cea08d7a35c118116e83bc90b3fd8f240",
+        "trace.html": "64b9adbbdbf8b4b003663b59f3dfae8073587bac029c6cb6a767312763b54a99"
+      },
+      "evaluation_sha256": "3df7d010b005425ac2dad434635a7ac83a1a0e6faffad82631756ef4ab535cf5",
+      "source_archive_sha256": "caa5b47e8c815ff720cbe9d5019b57aee436db1a8c2b8ea1dea923dcc063102a",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 105,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 15
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-astra-r2",
+      "page": "traces/ldo-quiet-sky130-astra-r2-raw.html",
+      "counts": {
+        "MODEL": 9,
+        "ACTION": 56,
+        "RESULT": 32
+      },
+      "submitted_spice_bytes": 1163,
+      "submitted_spice_sha256": "107e200cdfd9a9c5a2580890ef724ef3abcb822973f83bcb1c06e9023f155ead",
+      "revision": "dut-a24e8d3a6c0f75437739c68f",
+      "evaluation_categories": 12,
+      "evaluation_row_counts": {
+        "published": 612,
+        "hidden": 102
+      },
+      "content_sha256": {
+        "summary.html": "ca92eb519c9da4852d91651f00e3da44f0b3f95b24a2118d33b9f93515683a6a",
+        "trace.html": "a1edbcd9a8a1090d448ecd9ccd10c9fcff08d1b1112366751121c4613e051d49"
+      },
+      "evaluation_sha256": "4e06e6b984ebfb2b2d5538d91cec42125d8b83895e538d651428db47ccf76080",
+      "source_archive_sha256": "e3dd3c2fbb8dfa45cb51418680befa8e726502e248e61807e829d8631fd23d52",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 56,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 24
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-astra-r3",
+      "page": "traces/ldo-quiet-sky130-astra-r3-raw.html",
+      "counts": {
+        "MODEL": 8,
+        "ACTION": 18,
+        "RESULT": 18
+      },
+      "submitted_spice_bytes": 500,
+      "submitted_spice_sha256": "b9f7124f195803e8b8dcb77e386ae97f3fc889f6b354b5e44abb0205794c375c",
+      "revision": "dut-8861a24c327702cf82c2dfda",
+      "evaluation_categories": 12,
+      "evaluation_row_counts": {
+        "published": 612,
+        "hidden": 102
+      },
+      "content_sha256": {
+        "summary.html": "d7202854c8a7d0bdd41b0a97f1cd23937ad6a5795384637d0d13a80b5143b306",
+        "trace.html": "d9053689dd114739f57fa9d6321c67cc9ff8027d55a2c8546b30cb31ef10d1a0"
+      },
+      "evaluation_sha256": "e9e9122582f2b59d9bb1f3068f9387a773625795a2857cfda3a896b72083c1e8",
+      "source_archive_sha256": "caa0396d592f95c4d99603d680f551cfc8c55e0c28c4fb1d4946524581264196",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 18,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-drive-sky130-astra-r2",
+      "page": "traces/ota-drive-sky130-astra-r2-raw.html",
+      "counts": {
+        "MODEL": 10,
+        "ACTION": 31,
+        "RESULT": 29
+      },
+      "submitted_spice_bytes": 671,
+      "submitted_spice_sha256": "d59b9cde8ce812aa53e6717ed3717f5531231ee0d43c11ed16f3d583d773721b",
+      "revision": "dut-f9caff84f9f556a124c12ce7",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "5d30d919016151bdaa252bd118e9f5c5c3df9585c49f8f8be8886a6f80cfe6f0",
+        "trace.html": "3b3087eba9ca6429115d2ec33f526db9f5527861341f01f0914fd954e5168460"
+      },
+      "evaluation_sha256": "341d5bb61b1c8a32b8455d72da799eafa90f1dd5bc157fd553cf8027b9ae653f",
+      "source_archive_sha256": "2182b7d9087fd7d91a3f4fd7160786ae1cf5378cdeeae3184d549ee8a2864a3a",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 31,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 2
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-drive-sky130-astra-r3",
+      "page": "traces/ota-drive-sky130-astra-r3-raw.html",
+      "counts": {
+        "MODEL": 8,
+        "ACTION": 30,
+        "RESULT": 25
+      },
+      "submitted_spice_bytes": 656,
+      "submitted_spice_sha256": "5e3143d93b35304b5d4bfaa6ba3715f70b1bbbbef6cbf91da01e9e4b8e5b1e43",
+      "revision": "dut-32a28cdb12723e6d10ddba55",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "81e9712892bf0614b12f368e88a4adc1661f1a7025daf44c0912febc311cc820",
+        "trace.html": "c4ace84eb40e6fd45642dad34f720ad87da30c111c6a040b5c31ee02e2093cd7"
+      },
+      "evaluation_sha256": "534330519820acb59d8349524fcbfe90d50e579839655cb78a46acffedbac1f9",
+      "source_archive_sha256": "b57592a19f5decbb9a8734b4e20b3212982c7f6d1f5d31e5955d79335a26175c",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 30,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 5
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-astra-r2",
+      "page": "traces/ota-fixed-sky130-astra-r2-raw.html",
+      "counts": {
+        "MODEL": 10,
+        "ACTION": 43,
+        "RESULT": 40
+      },
+      "submitted_spice_bytes": 2042,
+      "submitted_spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7",
+      "revision": "ota-f8630783fbb20c706efe",
+      "evaluation_categories": 19,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153,
+        "robustness": 1
+      },
+      "content_sha256": {
+        "summary.html": "ba94fd05845e01215030b77357532d463de906933ed5d4ad7df1dc6da9536729",
+        "trace.html": "d00f7ce82cce4346ccdf0ae3145093f1e2c75c2fe75c29357fc9b456fee85606"
+      },
+      "evaluation_sha256": "e60e3a6858fa51526007f1547774a5aacd9da5bbafd5fe97ccb73aab5116f388",
+      "source_archive_sha256": "3735c619828ff03649b70c7f4b0d60179f673483d3e5eaab3c666d72172a4c67",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 43,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 3
+        },
+        "robustness_sample_circuits": [
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53001",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53002",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53003",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53004",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53005",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53006",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53007",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53008",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53009",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53010",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53011",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53012",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53013",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53014",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53015",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53016",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53017",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53018",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53019",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53020",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53021",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53022",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53023",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53024",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53025",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53026",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53027",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53028",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53029",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53030",
+            "revision": "ota-f8630783fbb20c706efe",
+            "spice_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7"
+          }
+        ],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-astra-r3",
+      "page": "traces/ota-fixed-sky130-astra-r3-raw.html",
+      "counts": {
+        "MODEL": 12,
+        "ACTION": 40,
+        "RESULT": 39
+      },
+      "submitted_spice_bytes": 2031,
+      "submitted_spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073",
+      "revision": "ota-b625f56f2975997bc7d3",
+      "evaluation_categories": 19,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153,
+        "robustness": 1
+      },
+      "content_sha256": {
+        "summary.html": "2bb7a62b60f55ccb5a46d9d298ec31469bb45e16658a86af0d2b496dc74d8be2",
+        "trace.html": "6bb2c2fa8db0e7054b9f0f324d2c40e660c8fae1fbe70d773baecdce44811728"
+      },
+      "evaluation_sha256": "0f7557adbe788b8e248cfc35fdd624161f72ce2fd5bea89d4cd38a3dbe133a61",
+      "source_archive_sha256": "7ca91c06e254091195b28ecc2c55779405cd5bb689fd231d65393c43aeb68059",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 36,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1,
+          "file_edits_without_patch_text": 4
+        },
+        "robustness_sample_circuits": [
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53001",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53002",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53003",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53004",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53005",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53006",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53007",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53008",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53009",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53010",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53011",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53012",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53013",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53014",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53015",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53016",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53017",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53018",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53019",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53020",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53021",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53022",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53023",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53024",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53025",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53026",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53027",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53028",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53029",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          },
+          {
+            "experiment": "robustness-mismatch-N-2e-12-53030",
+            "revision": "ota-b625f56f2975997bc7d3",
+            "spice_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073"
+          }
+        ],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-free-sky130-astra-r2",
+      "page": "traces/ota-free-sky130-astra-r2-raw.html",
+      "counts": {
+        "MODEL": 10,
+        "ACTION": 38,
+        "RESULT": 32
+      },
+      "submitted_spice_bytes": 669,
+      "submitted_spice_sha256": "ee7a592ed21a5e0ed32eecb428607d647e6d491a2de0c9377cc53a0c1127cd98",
+      "revision": "dut-6ac6186f9cf85eca251eda77",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "0f8e6a7863d6afe8a610081496c15f27517dd6b6cdea90d30620399285ff2d6c",
+        "trace.html": "def6c5b5630adee085cdbf64f65f14d57a2f36b269a5a75990a36d2fa99c616b"
+      },
+      "evaluation_sha256": "0af505b144238afb6c9293e2316ac4724b761df61d0e32bb6947fb2e86a094cd",
+      "source_archive_sha256": "af84d81a707fd99008330f54c86d3c76f70474739530894812535fc00a5792c2",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 38,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 6
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-free-sky130-astra-r3",
+      "page": "traces/ota-free-sky130-astra-r3-raw.html",
+      "counts": {
+        "MODEL": 8,
+        "ACTION": 31,
+        "RESULT": 31
+      },
+      "submitted_spice_bytes": 661,
+      "submitted_spice_sha256": "4949283ddeecbe364cd442ed41f3b8a4617c3c3b709f102af677349c989d17ab",
+      "revision": "dut-d1e18441088face5108ba0ed",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "b00955d1d55eadddf60a55c50049c32383c8853a99aa7415950bafb5bd867eaf",
+        "trace.html": "dcba00bcb65c8bd752a05fd7fd2361e1742826da1e2cefe4bb54b8ccc4fb7281"
+      },
+      "evaluation_sha256": "a1f746cd94478c13df0c894040afa40ea6e4abe7e7035cb76c2b6ec19bc6a2e2",
+      "source_archive_sha256": "ef80aea07bd5e3a708575f6858944df9561a7d454335bccae2eda18c7d48834c",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 25,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "file_edits_without_patch_text": 6
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-precision-sky130-astra-r2",
+      "page": "traces/ota-precision-sky130-astra-r2-raw.html",
+      "counts": {
+        "MODEL": 10,
+        "ACTION": 33,
+        "RESULT": 30
+      },
+      "submitted_spice_bytes": 1476,
+      "submitted_spice_sha256": "27d96f623117934758e3b66fc72ae4d09b2f6b5cf974b2b2fb193c0b8edad3d4",
+      "revision": "dut-18b5f4a274c602bc3671f606",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "2c630e9195f29d0c825775536d7f4664f15532ff7c8817d888b6377d21ba0eab",
+        "trace.html": "a03fd17a6b83e748ec1b1d0611ec13f905f554b050d56d34d80459cae2fb3546"
+      },
+      "evaluation_sha256": "aacf94528d7918ec8cf60014debe3337b4a1cf9c66b0f06a638440919a765ed6",
+      "source_archive_sha256": "6215f3e50644c85f64868c236036a30681d551b68a50dcaa086cadd20f9877b5",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 33,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-precision-sky130-astra-r3",
+      "page": "traces/ota-precision-sky130-astra-r3-raw.html",
+      "counts": {
+        "MODEL": 11,
+        "ACTION": 34,
+        "RESULT": 31
+      },
+      "submitted_spice_bytes": 1492,
+      "submitted_spice_sha256": "0149a1f8f41830e293da91448c3b8d2ee3a6384618cc753ebe943772b29b6fb0",
+      "revision": "dut-8592070121ba521dcc8edfe8",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "62c047ea6e8bc2faed4d8ea76fc1d398efc4776b5d3cbe348cb96777d0d19400",
+        "trace.html": "01a7b490ad04abaaea9c8737545d6a347adc2ed0c4ccea04b93a23d3286d9dc4"
+      },
+      "evaluation_sha256": "f628b764c858af9f5502d213c726a7155364a50a9a53584851bd48fd9366cead",
+      "source_archive_sha256": "2529e1639286d42a8b79e92a390203c21347b3e8bc7681c42961d507df6b43dc",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 34,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 3
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-wide-sky130-astra-r2",
+      "page": "traces/ota-wide-sky130-astra-r2-raw.html",
+      "counts": {
+        "MODEL": 10,
+        "ACTION": 26,
+        "RESULT": 25
+      },
+      "submitted_spice_bytes": 1541,
+      "submitted_spice_sha256": "bb8b3aeb7077af51ed811fbd22e0528b0217b37d7a1c51e18b2365ec1f80d9e7",
+      "revision": "dut-19285418b6339b4380b960e1",
+      "evaluation_categories": 26,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "content_sha256": {
+        "summary.html": "f0cdc6778df3b41197ee6601a9513dd6d10d78bbe9e01b01a5f9e55d4af15306",
+        "trace.html": "b057a800540a3021a777c835d13badcd8c1a3bf983dce49d4c612c8d40a0264c"
+      },
+      "evaluation_sha256": "057aac0ae7cade07004fdfc71f0a34f2248fee2f38c8a7832fdee9b2197ab7e8",
+      "source_archive_sha256": "72ba9ae6e7253728db0e5dbb2a6b9d0e8fd34f3533effa15a5174327ec8046b5",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 26,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    {
+      "id": "ota-wide-sky130-astra-r3",
+      "page": "traces/ota-wide-sky130-astra-r3-raw.html",
+      "counts": {
+        "MODEL": 18,
+        "ACTION": 67,
+        "RESULT": 62
+      },
+      "submitted_spice_bytes": 2218,
+      "submitted_spice_sha256": "cd7625c4f10a6550825e4d591b7b2bbda65adaf6f10c24d496527ba358796c19",
+      "revision": "dut-5c232ec101ddc5eb13a1e0f8",
+      "evaluation_categories": 26,
+      "evaluation_row_counts": {
+        "published": 432,
+        "hidden": 225
+      },
+      "content_sha256": {
+        "summary.html": "a1699ee3b08664d6ade33ff93b53bea299d5c0f376baf61c45717e4ed73e49b5",
+        "trace.html": "6182b7bb4dc271d86b3c29816cb21d6c414d64339724f9786864d3efcfe5c163"
+      },
+      "evaluation_sha256": "b70ae2b548638c5bf71016e33c7730fd4c93245eceaaf8107162aadc556b36e8",
+      "source_archive_sha256": "c6aedf23d32e652660eec9e1543cbe4d7066ebcf0d4ff20e7d2c5b055f0cec90",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 66,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 5,
+          "file_edits_without_patch_text": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
     }
   ]
 }

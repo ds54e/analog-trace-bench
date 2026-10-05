@@ -20,7 +20,10 @@ Additional maintained records:
   Its archive identities and aggregate outcomes were compared with all nine
   verified archives before catalog installation.
 
-`evidence.json` retains the original six-model `campaign_id` and lists both
-campaigns in `campaign_ids`; DeepSeek entries identify their additional batch.
+- `campaigns/astra-r2-r3-20261005.json`: original release summary for the 18
+  additional Astra trials, each checked against its archive.
+
+`evidence.json` retains the original six-model `campaign_id` and lists all three
+campaigns in `campaign_ids`; additional DeepSeek/Astra entries identify their batch.
 Their `source_sha` is explicitly identified as the captured task-manifest base
 revision, with actual execution implementation hashes retained in the archive.

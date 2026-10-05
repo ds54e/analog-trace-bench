@@ -2,7 +2,7 @@
 
 Public recorded circuit-design traces and website development tools.
 
-The live website is [Analog Trace Bench](https://ds54e.github.io/analog-trace-bench/). Its default view groups results by model; [Task](https://ds54e.github.io/analog-trace-bench/tasks.html) groups them by design task. The generated website lives in `site/`. It contains recorded pages for all 63 selected trials across nine SKY130 tasks and seven models, preserving the four accepted OTA-WIDE-SKY130 reference pages. Each trace retains saved public messages, actions and results, the submitted SPICE, and the recorded independent evaluation, including failed trials and available robustness records.
+The live website is [Analog Trace Bench](https://ds54e.github.io/analog-trace-bench/). Its default view groups results by model; [Task](https://ds54e.github.io/analog-trace-bench/tasks.html) groups them by design task. The generated website lives in `site/`. It contains recorded pages for all 81 selected trials across nine SKY130 tasks and seven models. Astra has three recorded runs per task; the other models have one. The site preserves the four accepted OTA-WIDE-SKY130 reference pages. Each trace retains saved public messages, actions and results, the submitted SPICE, and the recorded independent evaluation, including failed trials and available robustness records.
 
 Original evidence archives belong in GitHub Release assets. They are not committed to this repository or included in the Pages deployment.
 

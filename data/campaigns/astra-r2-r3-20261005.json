@@ -1,0 +1,785 @@
+{
+  "schema_version": 1,
+  "batch_id": "sky130-astra9-add2runs-20261005-release",
+  "generated_at": "2026-10-05T11:44:39.339086+00:00",
+  "repository": "ds54e/analog-trace-bench",
+  "model": "gpt-6-astra",
+  "route": "subscription-cli",
+  "reasoning_effort": "max",
+  "task_count": 9,
+  "trial_count": 18,
+  "repetitions_per_task_model": 2,
+  "repetitions": [
+    2,
+    3
+  ],
+  "independent_evaluation": "Completed on separate server, collected and verified",
+  "counts": {
+    "PASS": 18
+  },
+  "participant_time_budget": {
+    "clock": "model_requests",
+    "seconds": 5400
+  },
+  "numeric_resolution": "STANDARD_GRID_ONLY",
+  "numerical_limitation": "The electrical verdict uses the captured standard grid; it is not a per-submission convergence proof.",
+  "asset_format": "atb-analysis-tar-xz-v1",
+  "publication_scope_sha256": "6578987ec1ac519d0977e2fe7787595cc90da22bfeb48972225a346a1f659d48",
+  "source_scope_sha256": "4a24c1b127a6de48a165ba10543300b185812ddfe21ca21eb77f7e87e7676d4c",
+  "trials": [
+    {
+      "attempt_id": "ota-fixed-sky130-astra-r2-20261005-model-time-add2",
+      "task_id": "OTA-FIXED-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 2,
+      "run_id": "astra-02",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 1116.8315365314484,
+      "design_model_calls_s": 947.0470719337463,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "robustness": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "f7297ede25d5bbdf008ef00557b0f1d9bdb9a0e6fc18bad08969610303b13ae0",
+      "capture_manifest_sha256": "0f5da7561b1eafd5a95b7d34dbee7a3ab76bc1b3cda120e63da620459ac2af52",
+      "job_id": "fd2628c833bda64c6f9e57697cf86126bcc9e95870387f0e55f422c2e4a0741e",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-fixed-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-fixed-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "3735c619828ff03649b70c7f4b0d60179f673483d3e5eaab3c666d72172a4c67",
+      "asset_bytes": 1444272,
+      "analysis_manifest_sha256": "79c85fb6253121235c75f752e4d61fe94fd00cd81adce73eba72a8b933e752b4"
+    },
+    {
+      "attempt_id": "ota-fixed-sky130-astra-r3-20261005-model-time-add2",
+      "task_id": "OTA-FIXED-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 3,
+      "run_id": "astra-03",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 1291.5244460105896,
+      "design_model_calls_s": 1201.3416662216187,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "robustness": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "1c97131b9fec7d24a1641fb64fd0242b7053788de17c98ab084328f04f6ae8c8",
+      "capture_manifest_sha256": "944d052eb45f3cd7a191e9d828c16d2f6eb2396f05766286574069b7a5136ae0",
+      "job_id": "2164465730d7b50add489b3966fa414707c1ed533515e708a0e698e563fa685f",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-fixed-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-fixed-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "7ca91c06e254091195b28ecc2c55779405cd5bb689fd231d65393c43aeb68059",
+      "asset_bytes": 1406612,
+      "analysis_manifest_sha256": "2852d8f190ce3ba367a999cad4083725eba1b58b7e0889a5c26e26f462014480"
+    },
+    {
+      "attempt_id": "ota-free-sky130-astra-r2-20261005-model-time-add2",
+      "task_id": "OTA-FREE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 2,
+      "run_id": "astra-02",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 752.1823179721832,
+      "design_model_calls_s": 578.8069794178009,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "13da4cc3683c64f6cedfcc386b48b89a89ac09c96ccdc16cee838c159244ea75",
+      "capture_manifest_sha256": "d849e1f76cf70b1d5c723462660fe8a41f0981f9d9d6bab8786d75bf80b13e6e",
+      "job_id": "8eafcad7cb83d46cea3f372487bb9ef4cd4237aad771d93ad689e55aea8449ef",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-free-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-free-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "af84d81a707fd99008330f54c86d3c76f70474739530894812535fc00a5792c2",
+      "asset_bytes": 787880,
+      "analysis_manifest_sha256": "7d9d670b349a0ae462c80371ee41b3964b08a51a3e0f78c8facdb58c7af3f8e5"
+    },
+    {
+      "attempt_id": "ota-free-sky130-astra-r3-20261005-model-time-add2",
+      "task_id": "OTA-FREE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 3,
+      "run_id": "astra-03",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 655.2366163730621,
+      "design_model_calls_s": 581.8241603374481,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "6e53860954251a9aa69d0f60043a5da1f62865813cd3eab4850bb2bf5f6230c4",
+      "capture_manifest_sha256": "5a46ae1a14ff7341717473b285e0ea2d51983d87135b7950be7a9198a02ec71c",
+      "job_id": "209e2b2d3086307a79f27f5fba9a42e18697cafb97ca427c6489230f586f6528",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-free-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-free-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "ef80aea07bd5e3a708575f6858944df9561a7d454335bccae2eda18c7d48834c",
+      "asset_bytes": 728240,
+      "analysis_manifest_sha256": "9659dd96a8408b45122df17d02bcbd1fedc908bbd45a00846298c50dc9fa6178"
+    },
+    {
+      "attempt_id": "ota-drive-sky130-astra-r2-20261005-model-time-add2",
+      "task_id": "OTA-DRIVE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 2,
+      "run_id": "astra-02",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 731.5188221931458,
+      "design_model_calls_s": 538.1642527580261,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "69cfd65dc4fb886f6e8fb79be471978f502aa0b0dfceb041c40426bdc6342a34",
+      "capture_manifest_sha256": "2eef8a8591f0e3a959179d3969ec08c95ab2e4963c4112c96a801b62bd5cacb2",
+      "job_id": "3ab6eb3f3b944e700c1d413cacd1590d3b594971d29e22ad5a385ce41c29e669",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-drive-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-drive-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "2182b7d9087fd7d91a3f4fd7160786ae1cf5378cdeeae3184d549ee8a2864a3a",
+      "asset_bytes": 750644,
+      "analysis_manifest_sha256": "85063cf45b466bc7ab0c83b511ddc93bc4a29935c009ac0d1c15c3bfe2ec9930"
+    },
+    {
+      "attempt_id": "ota-drive-sky130-astra-r3-20261005-model-time-add2",
+      "task_id": "OTA-DRIVE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 3,
+      "run_id": "astra-03",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 861.8356115818024,
+      "design_model_calls_s": 770.6307077407837,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "7518e96d756c43b64e24dd4362ce007d29e848a4172820d2c46b458482c409c0",
+      "capture_manifest_sha256": "17bf33bcd44ebbb4adc5c6beaea4148ef4fdc0eae327085409a9d9142e8d67c6",
+      "job_id": "888169a27d339e6ab61b761979bc245aec2249322d76e9769e65f6b51c1f5d0c",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-drive-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-drive-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "b57592a19f5decbb9a8734b4e20b3212982c7f6d1f5d31e5955d79335a26175c",
+      "asset_bytes": 740716,
+      "analysis_manifest_sha256": "7ebbbbaf6b1c02e6adc8d8d03b1066568112432bc73c4aaa131f0a643aba5680"
+    },
+    {
+      "attempt_id": "ldo-always-on-sky130-astra-r2-20261005-model-time-add2",
+      "task_id": "LDO-ALWAYS-ON-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 2,
+      "run_id": "astra-02",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 820.4091856479645,
+      "design_model_calls_s": 787.0824091434479,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "62ed988a0a3d6113484a3a0f2ca5a033131ccf2b893007599b3bcaf50fbe54b8",
+      "capture_manifest_sha256": "821fd98fb0cfc70669c55c73f8ed190e1d2521bf1e68f7386ae742d92cdbe31a",
+      "job_id": "ac88f4f8c12cc88f1b237cc2104edc2a3a7a49762f045eb157903d8862e67c94",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ldo-always-on-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_name": "ldo-always-on-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "aaa295402f4c8e27f4a13bdfd57136c2a863c4bfa06505c853a4503c3c04a12c",
+      "asset_bytes": 577716,
+      "analysis_manifest_sha256": "e9ef406b55b2668879d2f33936a2bd2bcbe978aa5a15f00ad14a7b85fa0e7d5d"
+    },
+    {
+      "attempt_id": "ldo-always-on-sky130-astra-r3-20261005-model-time-add2",
+      "task_id": "LDO-ALWAYS-ON-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 3,
+      "run_id": "astra-03",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 690.5788862705231,
+      "design_model_calls_s": 622.5119426250458,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "6f29dc002ae68c15f3829ce0a7b30dfee1cd042dfef2eb7cb58178cd0dbcb0f3",
+      "capture_manifest_sha256": "7219437ede2b5a2bd0926236fabd170c9270a3b56c231bcb2e9940ad67bf6962",
+      "job_id": "9a2dc23000caf03842eacd59a8ff2cb4fefdff13106a5f9f8fb253130b8d17d5",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ldo-always-on-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_name": "ldo-always-on-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "390bac5a4b754c2addd6e96ea2a8d99d7f417ae3c2fefb646656ea0be57a3e07",
+      "asset_bytes": 650220,
+      "analysis_manifest_sha256": "5c4fe5e75d9963bc3b2292b63e77842563a074086af29e389af765d4fee01fc7"
+    },
+    {
+      "attempt_id": "ota-precision-sky130-astra-r2-20261005-model-time-add2",
+      "task_id": "OTA-PRECISION-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 2,
+      "run_id": "astra-02",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 911.9207849502563,
+      "design_model_calls_s": 838.1873977184296,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "2ee058216935be9e91decb3d10972a0fbcc4f55908a934396eab532052259b2e",
+      "capture_manifest_sha256": "0182e0775aa62844910fae99e1ee9bb314b98afb48fbc72c507590a69cbde96b",
+      "job_id": "674257cebd3dd2bfa2fab22afb781676bfefc853ca1671f086f1ad78cb8db560",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-precision-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-precision-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "6215f3e50644c85f64868c236036a30681d551b68a50dcaa086cadd20f9877b5",
+      "asset_bytes": 881968,
+      "analysis_manifest_sha256": "826f6906f7e99b9eb4f7b7674bcba8936be65095c3a90397afefcb538bc4392d"
+    },
+    {
+      "attempt_id": "ota-precision-sky130-astra-r3-20261005-model-time-add2",
+      "task_id": "OTA-PRECISION-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 3,
+      "run_id": "astra-03",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 1311.5643255710602,
+      "design_model_calls_s": 1182.3973274230957,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "afa902edeb3e5ac535fd30035820b68c69c6f117f70418c3dbccd25fe5fa256e",
+      "capture_manifest_sha256": "7e6c9ce37b263c9d262b7c1bb8b4f6594891665fc71f68dfdddbd2090bfe97a0",
+      "job_id": "3904ec9b08ae4b1b7354169315dd6f00b9ad66c80637c4a924f16a295404dc9d",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-precision-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-precision-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "2529e1639286d42a8b79e92a390203c21347b3e8bc7681c42961d507df6b43dc",
+      "asset_bytes": 908192,
+      "analysis_manifest_sha256": "2bc784d2d111cbe25f3c160ddfcb9f8527b3b9907f9188eeb6bb16ff9ea8b91b"
+    },
+    {
+      "attempt_id": "ldo-low-voltage-sky130-astra-r2-20261005-model-time-add2",
+      "task_id": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 2,
+      "run_id": "astra-02",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 1377.691130399704,
+      "design_model_calls_s": 1337.8063848018646,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "90542ad5e56375741d2d07fc8f528970a7ba99ae9fa69eef5abe47d1ad933e3d",
+      "capture_manifest_sha256": "5e0696383aebe5dbb744eaf3ec62195c3ceb17f1ddb2073ba3e35581117bb312",
+      "job_id": "560f7b7f015c3a9fc11ea0436b3b1e51ed6e3d6bd2fce1f28044029b0e44c408",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ldo-low-voltage-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_name": "ldo-low-voltage-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "09e0fcb2a0ff5639cd2f198d808b023b553fa177822147c4322fd7c037e16196",
+      "asset_bytes": 876712,
+      "analysis_manifest_sha256": "feb0f7e38d4f9b985801c73764f270e9a5700d362cb4e6c2d155e0134b42e3f2"
+    },
+    {
+      "attempt_id": "ldo-low-voltage-sky130-astra-r3-20261005-model-time-add2",
+      "task_id": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 3,
+      "run_id": "astra-03",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 2397.300923347473,
+      "design_model_calls_s": 2220.933570623398,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "8d162f72340207c9414a6e2a7dc3ceb664993357d8adf353b85ba52f4439dda4",
+      "capture_manifest_sha256": "62297380f1dd835074bb20f757a8a9d5b684d79f7f9faa85a2f56994d0c28920",
+      "job_id": "bb325d51dd7a64678c05702a4716404c4eea814c998231903534a70d2c95715e",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ldo-low-voltage-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_name": "ldo-low-voltage-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "caa5b47e8c815ff720cbe9d5019b57aee436db1a8c2b8ea1dea923dcc063102a",
+      "asset_bytes": 1230792,
+      "analysis_manifest_sha256": "9e694102f2f17540a1d15ca75b2fd1356b31b48e836db4b9876a04c7acb50a1d"
+    },
+    {
+      "attempt_id": "ldo-quiet-sky130-astra-r2-20261005-model-time-add2",
+      "task_id": "LDO-QUIET-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 2,
+      "run_id": "astra-02",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 997.6119196414948,
+      "design_model_calls_s": 914.5420942306519,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "c6fed9cfd337cd8b5c49b59039334974046da059d355c5961976f0c50e47861b",
+      "capture_manifest_sha256": "915512a76ae818d589c9ff47d59df392b7b7d55dfdaa830ac120df3959b0c1b0",
+      "job_id": "e332fcbf9bd7583737de7d7caaccd82b4c5a00f50060f7aa7ebd0b2fedadb3d2",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ldo-quiet-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_name": "ldo-quiet-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "e3dd3c2fbb8dfa45cb51418680befa8e726502e248e61807e829d8631fd23d52",
+      "asset_bytes": 1027444,
+      "analysis_manifest_sha256": "7cc3de18902cb39215d4c33d7b1d0c0c3b85a7f7c55fad994fc58e03e02c49f9"
+    },
+    {
+      "attempt_id": "ldo-quiet-sky130-astra-r3-20261005-model-time-add2",
+      "task_id": "LDO-QUIET-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 3,
+      "run_id": "astra-03",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 1096.941773891449,
+      "design_model_calls_s": 978.1377277374268,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "76a35b5fd0e74286a22a737eb1434f65783c61d6a41466dfd9f35b0c3e3dbf20",
+      "capture_manifest_sha256": "054238fd2ea42ef03525bd8fefd865dae6a74dee36b07f892f0dcd37fafba165",
+      "job_id": "3f0060862e820091ba57e9d51203f6bff5d32c0f3f220302ac711b90fdab4207",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ldo-quiet-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_name": "ldo-quiet-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "caa0396d592f95c4d99603d680f551cfc8c55e0c28c4fb1d4946524581264196",
+      "asset_bytes": 908412,
+      "analysis_manifest_sha256": "53450a95a146e79e2f27cda6ada19ba8ccb6914503fcb64ce06b92cef31d926d"
+    },
+    {
+      "attempt_id": "ota-wide-sky130-astra-r2-20261005-model-time-add2",
+      "task_id": "OTA-WIDE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 2,
+      "run_id": "astra-02",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 969.9952394962311,
+      "design_model_calls_s": 758.5877850055695,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 432
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 225
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "75d7ba8f6861c773b568d717e79b954b8b39747bf180cfb420699e2ddfe40ff0",
+      "capture_manifest_sha256": "3c7724bfed1eaf9cac66fc272cfad244a52643dbd9d8bd2f04d0251e156ad750",
+      "job_id": "ea94ada718e029335c7cf91fac83bb1eeadf79fd8351e31d2b234e9d18fcbd29",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-wide-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-wide-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "72ba9ae6e7253728db0e5dbb2a6b9d0e8fd34f3533effa15a5174327ec8046b5",
+      "asset_bytes": 996880,
+      "analysis_manifest_sha256": "ae399f0dae84e2f39ba8cf9ca1f9ad9d02c91b80a06b8f812055be89d5360d0d"
+    },
+    {
+      "attempt_id": "ota-wide-sky130-astra-r3-20261005-model-time-add2",
+      "task_id": "OTA-WIDE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 3,
+      "run_id": "astra-03",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 3168.725200176239,
+      "design_model_calls_s": 2919.589131593704,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 432
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 225
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "917ec173833b9d1c07a9b33c51ed32231eb7dcb22684ac28233d1c5ac195c33b",
+      "capture_manifest_sha256": "7982c29820f52ea862d7e25c5900df5f27b35eb88504547c055e7c82aa841477",
+      "job_id": "5491ae7ce24f49ab8396779ca43dc9bf459e1a0bc9b72bafe645ac0c567cde24",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ota-wide-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_name": "ota-wide-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "c6aedf23d32e652660eec9e1543cbe4d7066ebcf0d4ff20e7d2c5b055f0cec90",
+      "asset_bytes": 1880432,
+      "analysis_manifest_sha256": "f16dc69daf5662ce792721a78af9549ce43e0451c88057e0ed9fcdca4cf554a6"
+    },
+    {
+      "attempt_id": "ldo-core-sky130-astra-r2-20261005-model-time-add2",
+      "task_id": "LDO-CORE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 2,
+      "run_id": "astra-02",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 887.11177277565,
+      "design_model_calls_s": 852.4717688560486,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "2cbb464d7dc0ea22327413b36c83bb372c84f1e104274cb9df2327ac9b4a499b",
+      "capture_manifest_sha256": "30e52882d91165a3480dcfa15bc607a8492041921278bd52788c65af133e7dfe",
+      "job_id": "dab77586a258b8a414e94b1930a2385630b84ae795bf2b16d9861b5f804d1a00",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ldo-core-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_name": "ldo-core-sky130-astra-r2-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "e04ee3dc32cfd311943e580e39402d5720586f2a47eb3dddeed3c11373eed9f9",
+      "asset_bytes": 792252,
+      "analysis_manifest_sha256": "7863eebee5e4271d694e0be17f799ada695de4fe48adb4ced0bc816f8fc440f7"
+    },
+    {
+      "attempt_id": "ldo-core-sky130-astra-r3-20261005-model-time-add2",
+      "task_id": "LDO-CORE-SKY130",
+      "model": "gpt-6-astra",
+      "repeat": 3,
+      "run_id": "astra-03",
+      "state": "COMPLETE",
+      "electrical_status": "PASS",
+      "numeric_resolution": "STANDARD_GRID_ONLY",
+      "submission_late": false,
+      "submission_elapsed_s": 1289.4855992794037,
+      "design_model_calls_s": 1213.4946818351746,
+      "model_time_recording_state": "recorded",
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "configuration_sha256": "254040cadcc21fb55207e6fbef47be3bd82e7ef2195e43037fc6321c7b0f047d",
+      "capture_manifest_sha256": "a96076a847f52a8d29f2f5eedfd36414df11c4ef63820957330455ad9e32c838",
+      "job_id": "f97241b87fee9211919bc410f7c7428688b53e069d78bd51d59ec64830cce4ae",
+      "release_url": "https://github.com/ds54e/analog-trace-bench/releases/tag/results-ldo-core-sky130",
+      "asset_url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_name": "ldo-core-sky130-astra-r3-20261005-model-time-add2.tar.xz",
+      "asset_sha256": "3c93de7cf7b1f87f4f85c82d9ff4f474df962078fdf406f0c476cd3384ce5fc5",
+      "asset_bytes": 1021412,
+      "analysis_manifest_sha256": "8b5251eb5627b6835675c9af79dfad05cf1b0717f6fe0b6dda18ec92558f2199"
+    }
+  ]
+}

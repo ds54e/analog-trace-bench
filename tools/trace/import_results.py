@@ -581,6 +581,7 @@ def main():
             verify_payloads(clean_trace, normalized, evidence, report)
             run['trace'] = 'traces/' + entry['id'].removesuffix('-r1') + '-raw.html'
             page = render_trace_page(entry['task'], entry['model'], summary, clean_trace,
+                                     run=entry['run'],
                                      report_href='../data/evaluations/' + entry['id'] + '.json')
             require('<details' not in page and '<script>' not in page, 'Active or obsolete archived UI')
             write_run_sources(entry['id'], summary, trace)
