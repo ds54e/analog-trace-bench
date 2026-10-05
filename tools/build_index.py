@@ -20,15 +20,39 @@ def mean_value(values):
     return sum((Decimal(str(value)) for value in values), Decimal(0)) / len(values)
 
 
-def metric_cell(value, maximum, label, kind, count):
+def value_range(values):
+    if not values or any(value is None for value in values):
+        return None, None
+    values = [Decimal(str(value)) for value in values]
+    return min(values), max(values)
+
+
+def metric_label(value, kind):
+    if value is None:
+        return ''
+    return f'{value / 60:.1f} min' if kind == 'time' else f'${value:.2f}'
+
+
+def metric_cell(value, scale_max, label, kind, count, minimum=None, maximum=None):
     if value is None:
         return '<span class="unavailable">Not recorded</span>'
-    percent = value / maximum * 100 if maximum else Decimal(0)
+    percent = value / scale_max * 100 if scale_max else Decimal(0)
     suffix = 's' if count != 1 else ''
+    title = f'Mean of {count} recorded run{suffix}'
+    markers = ''
+    bounds = ''
+    if minimum is not None and maximum is not None:
+        bounds = f' data-min="{minimum}" data-max="{maximum}"'
+        if count > 1:
+            title += f'; min: {metric_label(minimum, kind)}; max: {metric_label(maximum, kind)}'
+            for endpoint, amount in [('min', minimum), ('max', maximum)]:
+                position = amount / scale_max * 100 if scale_max else Decimal(0)
+                markers += (f'<span class="metric-marker metric-marker--{endpoint}" '
+                            f'style="left: {position:.4f}%"></span>')
     return (f'<div class="metric metric--{kind}" data-value="{value}" '
-            f'title="Mean of {count} recorded run{suffix}">'
+            f'title="{title}"{bounds}>'
             '<span class="metric-track" aria-hidden="true">'
-            f'<span class="metric-fill" style="width: {percent:.4f}%"></span></span>'
+            f'<span class="metric-fill" style="width: {percent:.4f}%"></span>{markers}</span>'
             f'<span class="metric-value">{label}</span></div>')
 
 
@@ -71,16 +95,20 @@ def load_results(root=ROOT):
             times = [evidence[run['id']].get('design_model_calls_s') for run in trials]
             totals = [costs[run['id']]['total_cost_usd'] for run in trials]
             amounts = [decimal_cost(total) if total is not None else None for total in totals]
+            time_min, time_max = value_range(times)
+            cost_min, cost_max = value_range(amounts)
             trace_href = next((run['trace'] for run in trials if run.get('trace')), None)
             results.append({'task': task['id'], 'description': task['description'], 'model': model,
                             'result': result, 'time': mean_value(times), 'cost': mean_value(amounts),
+                            'time_min': time_min, 'time_max': time_max,
+                            'cost_min': cost_min, 'cost_max': cost_max,
                             'count': len(trials), 'trace': trace_href})
     return results
 
 
 def render_result_table(results, view):
-    max_time = max((row['time'] for row in results if row['time'] is not None), default=Decimal(0))
-    max_cost = max((row['cost'] for row in results if row['cost'] is not None), default=Decimal(0))
+    max_time = max((row['time_max'] for row in results if row['time_max'] is not None), default=Decimal(0))
+    max_cost = max((row['cost_max'] for row in results if row['cost_max'] is not None), default=Decimal(0))
     rows = []
     for row in results:
         label = html.escape(row['task' if view == 'model' else 'model'])
@@ -88,8 +116,10 @@ def render_result_table(results, view):
             label = '<a href="' + html.escape(row['trace'], quote=True) + '">' + label + '</a>'
         time, cost, count = row['time'], row['cost'], row['count']
         cells = [row['result'],
-                 metric_cell(time, max_time, f'{time / 60:.1f} min' if time is not None else '', 'time', count),
-                 metric_cell(cost, max_cost, f'${cost:.2f}' if cost is not None else '', 'cost', count)]
+                 metric_cell(time, max_time, metric_label(time, 'time'), 'time', count,
+                             row['time_min'], row['time_max']),
+                 metric_cell(cost, max_cost, metric_label(cost, 'cost'), 'cost', count,
+                             row['cost_min'], row['cost_max'])]
         rows.append('<tr><th scope="row">' + label + '</th>' +
                     ''.join('<td>' + cell + '</td>' for cell in cells) + '</tr>')
     table_class = 'summary-table results-table' + (' results-table--model' if view == 'model' else '')

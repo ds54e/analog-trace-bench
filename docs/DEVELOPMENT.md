@@ -69,7 +69,11 @@ trace; run links open other recorded runs directly. Pass shows passed / recorded
 in a PASS badge when all runs pass, otherwise FAIL. Time and USD are arithmetic
 means across recorded runs, calculated before rounding. Missing values stay
 unknown rather than producing partial means. Time shows minutes to one decimal,
-USD uses `$2.01`; blue and brown bars scale to the maximum mean in that section.
+USD uses `$2.01`; blue and brown bars show the mean. For multiple recorded runs,
+two short vertical lines mark their minimum and maximum; hover text includes
+both values. Bars and markers share a scale up to the largest individual run
+in that section, so the maximum marker stays within the track. Single-run rows
+have no range markers. Incomplete metrics remain unknown without partial ranges.
 The index has no Run, Design or Archive columns.
 
 Run selectors are native links, with `aria-current="page"` on the current run.

@@ -229,7 +229,16 @@ class IndexRunTests(unittest.TestCase):
         self.assertEqual(visible[2], f'${expected_cost:.2f}')
         self.assertIn(f'data-value="{expected_time}"', cells[1])
         self.assertIn(f'data-value="{expected_cost}"', cells[2])
-        self.assertIn('width: 100.0000%', cells[1])
+        time_min = min(Decimal(str(entry['design_model_calls_s'])), Decimal(60), Decimal(120))
+        time_max = max(Decimal(str(entry['design_model_calls_s'])), Decimal(60), Decimal(120))
+        cost_min = min(Decimal(records[entry['id']]['total_cost_usd']), Decimal(1), Decimal(3))
+        cost_max = max(Decimal(records[entry['id']]['total_cost_usd']), Decimal(1), Decimal(3))
+        self.assertIn(f'width: {expected_time / time_max * 100:.4f}%', cells[1])
+        for cell, lower, upper in [(cells[1], time_min, time_max), (cells[2], cost_min, cost_max)]:
+            self.assertEqual(Decimal(re.search(r'data-min="([^"]+)"', cell)[1]), lower)
+            self.assertEqual(Decimal(re.search(r'data-max="([^"]+)"', cell)[1]), upper)
+            self.assertIn(f'style="left: {lower / upper * 100:.4f}%"', cell)
+            self.assertIn('metric-marker--max" style="left: 100.0000%"', cell)
         self.assertIn('Mean of 3 recorded runs', cells[2])
         for cell in cells[:3]:
             self.assertNotIn('run-label', cell)
@@ -276,6 +285,23 @@ class IndexRunTests(unittest.TestCase):
         self.assertIn('width: 0.0000%', build_index.metric_cell(Decimal(0), Decimal(0), '$0.00', 'cost', 1))
         self.assertIn('Not recorded', build_index.metric_cell(None, Decimal('8'), '', 'cost', 1))
         self.assertNotIn('metric-fill', build_index.metric_cell(None, Decimal('8'), '', 'cost', 1))
+
+    def test_range_markers_preserve_extremes_without_changing_the_mean(self):
+        values = [Decimal('1.004'), Decimal('1.014'), Decimal('3.001')]
+        lower, upper = build_index.value_range(values)
+        mean = build_index.mean_value(values)
+        rendered = build_index.metric_cell(mean, Decimal(4), f'${mean:.2f}', 'cost', 3, lower, upper)
+        self.assertIn(f'data-value="{mean}"', rendered)
+        self.assertIn('data-min="1.004" data-max="3.001"', rendered)
+        self.assertIn('metric-marker--min" style="left: 25.1000%"', rendered)
+        self.assertIn('metric-marker--max" style="left: 75.0250%"', rendered)
+        self.assertIn('min: $1.00; max: $3.00', rendered)
+        self.assertNotIn('metric-marker', build_index.metric_cell(Decimal(2), Decimal(2), '$2.00', 'cost', 1,
+                                                                Decimal(2), Decimal(2)))
+        zero = build_index.metric_cell(Decimal(0), Decimal(0), '$0.00', 'cost', 3, Decimal(0), Decimal(0))
+        self.assertEqual(zero.count('left: 0.0000%'), 2)
+        self.assertEqual(build_index.value_range([Decimal(2), None]), (None, None))
+        self.assertEqual(build_index.value_range([]), (None, None))
 
 
 if __name__ == '__main__':

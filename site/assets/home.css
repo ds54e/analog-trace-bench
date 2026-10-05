@@ -1,4 +1,4 @@
-/* Result indexes: recorded-run means, scaled within each displayed section. */
+/* Result indexes: means and min/max markers, scaled to each section's largest run. */
 .task-section + .task-section {
   margin-top: 52px;
 }
@@ -88,6 +88,7 @@
 }
 
 .metric-track {
+  position: relative;
   display: block;
   flex: 1;
   min-width: 40px;
@@ -102,6 +103,17 @@
 }
 
 .metric--cost .metric-fill { background: var(--bar-cost); }
+
+.metric-marker {
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  background: var(--text);
+  opacity: .7;
+}
+
 .metric-value { min-width: 70px; text-align: right; }
 .metric--cost .metric-value { min-width: 58px; }
 .unavailable { color: var(--muted); }
@@ -119,4 +131,5 @@
   .pass-badge { border: 1px solid CanvasText; }
   .metric-track { outline: 1px solid GrayText; }
   .metric-fill { background: Highlight; }
+  .metric-marker { background: CanvasText; opacity: 1; }
 }
