@@ -269,41 +269,42 @@ class IndexRunTests(unittest.TestCase):
             self.assertIn('href="' + current + '" aria-current="page"', page)
             self.assertEqual(page.count('aria-current="page"'), 1)
 
-    def test_means_use_unrounded_values_and_keep_missing_values_unknown(self):
-        self.assertEqual(build_index.mean_value([Decimal('9'), Decimal('10'), Decimal('2')]), 7)
-        self.assertEqual(build_index.mean_value([Decimal('2')]), 2)
-        self.assertEqual(build_index.mean_value([Decimal('0')]), 0)
-        self.assertEqual(build_index.mean_value([Decimal('1.004'), Decimal('1.014')]), Decimal('1.009'))
-        self.assertEqual(build_index.mean_value([0.1, 0.2]), Decimal('0.15'))
-        self.assertIsNone(build_index.mean_value([Decimal('2'), None]))
-        self.assertIsNone(build_index.mean_value([]))
+    def test_statistics_use_unrounded_values_and_keep_missing_values_unknown(self):
+        summarize = build_index.summarize_metric
+        self.assertEqual(summarize([Decimal('9'), Decimal('10'), Decimal('2')]), (7, 2, 10))
+        self.assertEqual(summarize([Decimal('2')]), (2, 2, 2))
+        self.assertEqual(summarize([Decimal('0')]), (0, 0, 0))
+        self.assertEqual(summarize([Decimal('1.004'), Decimal('1.014')]).mean, Decimal('1.009'))
+        self.assertEqual(summarize([0.1, 0.2]).mean, Decimal('0.15'))
+        self.assertEqual(summarize([Decimal('2'), None]), (None, None, None))
+        self.assertEqual(summarize([]), (None, None, None))
 
     def test_bars_scale_to_the_task_max_and_handle_zero_and_unknown(self):
-        rendered = build_index.metric_cell(Decimal('2'), Decimal('8'), '$2.00', 'cost', 2)
+        metric = build_index.summarize_metric([Decimal('2')])
+        rendered = build_index.metric_cell(metric, Decimal('8'), 'cost', 1)
         self.assertIn('width: 25.0000%', rendered)
         self.assertIn('aria-hidden="true"', rendered)
-        self.assertIn('width: 0.0000%', build_index.metric_cell(Decimal(0), Decimal(0), '$0.00', 'cost', 1))
-        self.assertIn('Not recorded', build_index.metric_cell(None, Decimal('8'), '', 'cost', 1))
-        self.assertNotIn('metric-fill', build_index.metric_cell(None, Decimal('8'), '', 'cost', 1))
+        zero = build_index.summarize_metric([Decimal(0)])
+        self.assertIn('width: 0.0000%', build_index.metric_cell(zero, Decimal(0), 'cost', 1))
+        unknown = build_index.summarize_metric([None])
+        self.assertIn('Not recorded', build_index.metric_cell(unknown, Decimal('8'), 'cost', 1))
+        self.assertNotIn('metric-fill', build_index.metric_cell(unknown, Decimal('8'), 'cost', 1))
 
     def test_range_markers_preserve_extremes_without_changing_the_mean(self):
         values = [Decimal('1.004'), Decimal('1.014'), Decimal('3.001')]
-        lower, upper = build_index.value_range(values)
-        mean = build_index.mean_value(values)
-        rendered = build_index.metric_cell(mean, Decimal(4), f'${mean:.2f}', 'cost', 3, lower, upper)
-        self.assertIn(f'data-value="{mean}"', rendered)
+        metric = build_index.summarize_metric(values)
+        rendered = build_index.metric_cell(metric, Decimal(4), 'cost', 3)
+        self.assertIn(f'data-value="{metric.mean}"', rendered)
         self.assertIn('data-min="1.004" data-max="3.001"', rendered)
         self.assertIn('metric-range" style="left: 25.1000%; width: 49.9250%"', rendered)
         self.assertIn('metric-marker--min" style="left: 25.1000%"', rendered)
         self.assertIn('metric-marker--max" style="left: 75.0250%"', rendered)
         self.assertIn('min: $1.00; max: $3.00', rendered)
-        self.assertNotIn('metric-marker', build_index.metric_cell(Decimal(2), Decimal(2), '$2.00', 'cost', 1,
-                                                                Decimal(2), Decimal(2)))
-        zero = build_index.metric_cell(Decimal(0), Decimal(0), '$0.00', 'cost', 3, Decimal(0), Decimal(0))
+        single = build_index.summarize_metric([Decimal(2)])
+        self.assertNotIn('metric-marker', build_index.metric_cell(single, Decimal(2), 'cost', 1))
+        zero = build_index.metric_cell(build_index.summarize_metric([0, 0, 0]), Decimal(0), 'cost', 3)
         self.assertEqual(zero.count('metric-marker--'), 2)
         self.assertIn('metric-range" style="left: 0.0000%; width: 0.0000%"', zero)
-        self.assertEqual(build_index.value_range([Decimal(2), None]), (None, None))
-        self.assertEqual(build_index.value_range([]), (None, None))
 
 
 if __name__ == '__main__':

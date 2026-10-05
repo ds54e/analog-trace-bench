@@ -63,35 +63,60 @@ bytes remain unchanged.
 Both indexes keep one row per task/model. Astra badges show `PASS 3 / 3`; time
 and USD use the arithmetic mean of the three unrounded run values. The row
 continues to link to Run 1; all three individual pages offer working links to
-the other runs through their run tabs. Each page selects its own run on load.
+the other runs directly from the run selector. Each page identifies its own run
+on load. Repeated-run time and USD bars include minimum/maximum endpoint dots
+joined by a thin line.
 There are 1,315 MODEL, 5,685 ACTION and 5,115 RESULT cards in total, 29,484
 Published rows, 10,071 Hidden rows and nine robustness aggregates.
 
-## Current verification
+## Evidence audits — 2026-10-05
 
 ```sh
 python3.12 tools/trace/import_results.py --all --verify-only
 python3.12 tools/import_token_costs.py --check
-python3.12 tools/build_site.py --check
-python3.12 tools/check_site.py
-python3.12 -m unittest discover -s tests -v
-node --test tests/trace-tabs.test.cjs
 ```
 
 All 27 Astra traces, including the 18 new pages, were source-checked. All 81
-token-cost records were rechecked against their archives. The offline site check
-covers 83 pages and dependencies; 38 Python tests and six Node tab tests pass.
+token-cost records were rechecked against their archives.
 Earlier accepted trace/report hashes protect the unchanged non-Astra records.
 
-Actual headless Chrome/Playwright review loads all 81 traces, verifies their
+## Website verification
+
+```sh
+python3.12 tools/build_site.py
+python3.12 tools/check_site.py
+python3.12 -m unittest discover -s tests -v
+node --test tests/run-navigation.test.cjs
+```
+
+The offline check covers 83 pages and dependencies. Forty Python tests and six
+Node run-navigation tests pass. Run selectors are checked against the catalog:
+exactly one current run, direct links to the corresponding recorded peers, and
+disabled labels for missing runs. A regression check rejects a peer link pointing
+at another existing run page, which a general broken-link check cannot detect.
+
+The final presentation uses means and recorded min/max endpoint dots with a
+thin connecting line. Browser review checks both indexes at 360/1280 px in
+light/dark mode, including mean labels, line/dot positions and section scales.
+Native run links, browser back/forward, new tabs, keyboard focus/Enter and
+JavaScript-disabled navigation were also reviewed on the published site.
+
+The final maintenance refactor consolidates metric aggregation and extracts run
+navigation rendering. Before/after SHA-256 comparison confirms all 171 deployable
+files, including all 83 HTML pages, remain byte-for-byte identical. Original
+evidence, trace fragments, independent reports and rate snapshots are unchanged.
+
+The import-time browser review is retained below as a historical snapshot.
+
+The import-time headless Chrome/Playwright review loaded all 81 traces and verified their
 selected run, payload counts, exact submitted-SPICE hash, evaluation category
 count, cost total and peer links. Nine navigation chains follow Run 1 → 2 → 3 → 1.
 Sixteen index cases cover Model/Task, 360/768/1120/1280 px and light/dark mode;
 pass badges, three-run means, scaled bars and earliest-trace links match the
 source catalogs. 72 layout cases cover every new Astra page at 360/1280 px in
 both color modes, including token tables, turn rails, unwrapped scrollable code
-and keyboard tabs. Browser errors and failed local requests: zero. Representative
-new desktop/light and mobile/dark screenshots were visually inspected.
+and the then-current keyboard tabs. Browser errors and failed local requests:
+zero. Representative new desktop/light and mobile/dark screenshots were visually inspected.
 
 Local logs/screenshots remain under ignored `out/`; archives stay under ignored
 `evidence/`. No archived command or circuit simulation was executed. Generated

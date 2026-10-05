@@ -8,18 +8,19 @@ Run from the repository root with Python 3.10+:
 python3 tools/build_site.py
 python3 tools/check_site.py
 python3 -m unittest discover -s tests -v
-node --test tests/trace-tabs.test.cjs
+node --test tests/run-navigation.test.cjs
 python3 -m http.server 8000 --directory site
 ```
 
 Open `http://localhost:8000/`. Static generation and offline checking need only
-Python's standard library. Tab tests require Node 20+; importing new MODEL
-Markdown also requires `npm install --ignore-scripts` for pinned `marked`.
+Python's standard library. Run-navigation tests require Node 20+. Importing new
+MODEL Markdown also requires `npm install --ignore-scripts` for pinned `marked`.
 Use `python3.12` in a workspace whose default Python is older than 3.10.
 
 `build_site.py --check` detects stale output without writing. `check_site.py`
-checks local links, DOM IDs, run identities, accepted content/report hashes,
-payload counts, exact submitted-SPICE bytes/hash, and evaluation revisions/rows.
+checks local links, DOM IDs, current-run and peer-run navigation, run identities,
+accepted content/report hashes, payload counts, exact submitted-SPICE bytes/hash,
+and evaluation revisions/rows.
 Neither command downloads archives or runs circuit simulations.
 
 Export a complete portable preview with `python3 tools/build_site.py --output
@@ -65,16 +66,16 @@ render from one validated result snapshot. Visible column headings are hidden;
 Task/AI model, Pass, Model-call time and USD remain semantic headers.
 
 Each task/model pair has one row. Its label links to the earliest available
-trace; run links open other recorded runs directly. Pass shows passed / recorded runs
-in a PASS badge when all runs pass, otherwise FAIL. Time and USD are arithmetic
+trace; run links open other recorded runs directly. Pass shows passed / recorded
+runs in a PASS badge when all runs pass, otherwise FAIL. Time and USD are arithmetic
 means across recorded runs, calculated before rounding. Missing values stay
 unknown rather than producing partial means. Time shows minutes to one decimal,
 USD uses `$2.01`; blue and brown bars show the mean. For multiple recorded runs,
-small dots mark their minimum and maximum, joined by a thin horizontal line
+small 3 px dots mark their minimum and maximum, joined by a 1 px horizontal line
 over the mean bar; hover text includes both values. Bars and markers share a
-scale up to the largest individual run
-in that section, so the maximum marker stays within the track. Single-run rows
-have no range markers. Incomplete metrics remain unknown without partial ranges.
+scale up to the largest individual run in that section, so the maximum marker
+stays within the track. Single-run rows have no range markers. Incomplete metrics
+remain unknown without partial ranges.
 The index has no Run, Design or Archive columns.
 
 Run selectors are native links, with `aria-current="page"` on the current run.
@@ -137,7 +138,7 @@ protect canonical fragments from line-ending conversion. Do not change accepted
 hashes merely to make a check pass; compare any content correction to authoritative
 evidence and document its reason. Source checks require downloaded archives;
 offline CI protects already accepted records. Browser checks assess layout,
-scrolling and tabs, and must be reported separately from source/DOM checks.
+scrolling and run navigation, and must be reported separately from source/DOM checks.
 
 Commit authorized sources and shared assets to `main` unless the task requests
 another branch. CI runs build/check and focused tests. Publication is a separate

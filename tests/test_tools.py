@@ -57,6 +57,23 @@ class EvidenceTests(unittest.TestCase):
 
 
 class LinkTests(unittest.TestCase):
+    def test_run_navigation_rejects_wrong_peer_and_current_run(self):
+        peers = [{'id': 'example-' + str(number), 'run': number,
+                  'trace': 'traces/run-' + str(number) + '.html'} for number in (1, 2, 3)]
+        text = build_traces.render_run_navigation(1, peers)
+        check_site.check_run_navigation(peers[0], peers, check_site.Document(text))
+        for changed, error in [
+            (text.replace('href="run-2.html"', 'href="run-3.html"'), 'Run selector link differs'),
+            (text.replace(' aria-current="page"', ''), 'Current run differs'),
+        ]:
+            with self.subTest(error=error), self.assertRaisesRegex(ValueError, error):
+                check_site.check_run_navigation(peers[0], peers, check_site.Document(changed))
+        single = build_traces.render_run_navigation(1, peers[:1])
+        check_site.check_run_navigation(peers[0], peers[:1], check_site.Document(single))
+        selectable = single.replace('aria-disabled="true"', 'href="run-2.html"', 1)
+        with self.assertRaisesRegex(ValueError, 'Unavailable run is selectable'):
+            check_site.check_run_navigation(peers[0], peers[:1], check_site.Document(selectable))
+
     def test_relative_navigation_works_beneath_project_path(self):
         with tempfile.TemporaryDirectory() as directory:
             site = Path(directory)

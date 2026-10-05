@@ -46,6 +46,25 @@ def summary_tables(summary):
                        ('Circuit design', summary[boundary.start():])])
 
 
+def render_run_navigation(run, peers):
+    """Link recorded peers directly and label missing runs without inventing pages."""
+    available = {peer['run']: peer for peer in peers}
+    links = []
+    for number in range(1, max(3, run, *available.keys()) + 1):
+        selected = number == run
+        attributes = (f'class="run-tab{" is-active" if selected else ""}" '
+                      f'data-run="{number}" id="run-tab-{number}"')
+        if selected or number in available:
+            href = f'#run-panel-{number}' if selected else html.escape(
+                Path(available[number]['trace']).name, quote=True)
+            current = ' aria-current="page"' if selected else ''
+            links.append(f'<a {attributes} href="{href}"{current}>Run {number}</a>')
+        else:
+            links.append(f'<span {attributes} aria-disabled="true" '
+                         f'title="Run {number} is not available yet.">Run {number}</span>')
+    return '\n'.join(links)
+
+
 def render_trace_page(task, model, summary, trace, run=1, report_href=None, peers=(), root=ROOT,
                       token_summary=''):
     if not isinstance(run, int) or run < 1:
@@ -62,22 +81,8 @@ def render_trace_page(task, model, summary, trace, run=1, report_href=None, peer
             r'<td>((?:PASS|MISS|MEASUREMENT_FAILURE)(?: / (?:PASS|MISS|MEASUREMENT_FAILURE))*)</td></tr>',
             lambda cell: '<td>' + evaluation_label(cell[1]) + '</td></tr>', table[0]),
         trace, flags=re.S)
-    available = {peer['run']: peer for peer in peers}
-    tabs = []
-    for number in range(1, max(3, run, *available.keys()) + 1):
-        selected = number == run
-        attributes = (f'class="run-tab{" is-active" if selected else ""}" '
-                      f'data-run="{number}" id="run-tab-{number}"')
-        if selected or number in available:
-            href = f'#run-panel-{number}' if selected else html.escape(
-                Path(available[number]['trace']).name, quote=True)
-            current = ' aria-current="page"' if selected else ''
-            tabs.append(f'<a {attributes} href="{href}"{current}>Run {number}</a>')
-        else:
-            tabs.append(f'<span {attributes} aria-disabled="true" '
-                        f'title="Run {number} is not available yet.">Run {number}</span>')
     content = template('trace.html', root, task=html.escape(task), model=html.escape(model),
-                       run=run, tabs='\n'.join(tabs),
+                       run=run, run_links=render_run_navigation(run, peers),
                        summary=summary_tables(summary) + token_summary, trace=trace)
     head = '<link rel="stylesheet" href="' + asset_url('trace.css', '../', root) + '"/>\n'
     head += '<script defer src="' + asset_url('trace.js', '../', root) + '"></script>'

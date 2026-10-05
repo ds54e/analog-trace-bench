@@ -6,12 +6,17 @@ The live website is [Analog Trace Bench](https://ds54e.github.io/analog-trace-be
 
 Original evidence archives belong in GitHub Release assets. They are not committed to this repository or included in the Pages deployment.
 
+Both indexes show pass counts and mean model-call time / USD. For repeated runs,
+a thin line with small endpoint dots marks the recorded minimum and maximum.
+Run selectors open each recorded trace directly.
+
 ## Local development
 
 ```sh
 python3 tools/build_site.py
 python3 tools/check_site.py
 python3 -m unittest discover -s tests -v
+node --test tests/run-navigation.test.cjs
 python3 -m http.server 8000 --directory site
 ```
 
@@ -24,7 +29,7 @@ Open `http://localhost:8000/`. Building and checking saved pages need only Pytho
 | `site/` | The only directory deployed to GitHub Pages. |
 | `content/traces/<run-id>/` | Canonical summary rows and trace markup with complete saved payloads. |
 | `tools/templates/` | Shared page shell and trace layout. |
-| `site/assets/` | Shared styles and tab behavior. |
+| `site/assets/` | Shared styles and keyboard navigation between recorded runs. |
 | `site/traces/` | Generated trace pages, excluded from Git. |
 | `site/data/evaluations/` | Full-precision independent evaluation reports, linked from each page. |
 | `site/data/runs.json` | Task/run catalog used to generate both indexes. |
@@ -34,6 +39,20 @@ Open `http://localhost:8000/`. Building and checking saved pages need only Pytho
 | `tools/trace/` | Campaign importer, shared rendering helpers, and fixture adapters. |
 | `docs/` | Development, trace fidelity, publication, and task handoff. |
 | `tests/` | Focused tooling checks. |
+
+## Documentation
+
+| Guide | Use it for |
+| :--- | :--- |
+| [Development](docs/DEVELOPMENT.md) | Build, preview, current presentation rules and repository structure. |
+| [Publication](docs/PUBLISHING.md) | Release assets, manual Pages deployment and live verification. |
+| [Trace guide](docs/TRACE_GUIDE.md) | Faithful transcript rendering, submitted SPICE and evaluation. |
+| [Token costs](docs/TOKEN_COSTS.md) | Provider-specific counts, rate snapshots and cost calculation. |
+| [Analysis](docs/ANALYSIS.md) | Reading and exporting the recorded evidence. |
+| [Import checks](docs/ALL_RESULTS_IMPORT.md) | Current coverage, source audits and website verification. |
+
+Historical verification snapshots are under `docs/records/` and in
+[Reference checks](docs/REFERENCE_CHECKS.md). Use Development for current commands.
 
 ## Work on another task or model
 

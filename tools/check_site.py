@@ -27,7 +27,7 @@ class Document(HTMLParser):
         self.ids = []
         self.links = []
         self.articles = []
-        self.tabs = []
+        self.run_links = []
         self.code_boxes = []
         self.details = 0
         self.feed(text)
@@ -42,8 +42,8 @@ class Document(HTMLParser):
                 self.links.append(values[field])
         if tag == 'article':
             self.articles.append(values)
-        if values.get('role') == 'tab':
-            self.tabs.append(values)
+        if 'run-tab' in values.get('class', '').split():
+            self.run_links.append(values)
         if tag == 'pre':
             self.code_boxes.append(values)
         self.details += tag == 'details'
@@ -54,8 +54,6 @@ def check_links(site):
     documents = {path: Document(path.read_text()) for path in site.rglob('*.html')}
     for path, document in documents.items():
         require(len(document.ids) == len(set(document.ids)), f'Duplicate DOM IDs: {path}')
-        for tab in document.tabs:
-            require(tab.get('aria-controls') in document.ids, f'Broken tab target: {path}')
         for href in document.links:
             url = urlsplit(href)
             if url.scheme or url.netloc:
@@ -72,6 +70,29 @@ def check_links(site):
                 require(linked is not None and unquote(url.fragment) in linked.ids,
                         f'Broken fragment in {path.name}: {href}')
     return documents
+
+
+def check_run_navigation(run, peers, document):
+    """Reject a selector that opens another recorded run or mislabels the current one."""
+    available = {peer['run']: peer for peer in peers if peer.get('trace')}
+    selectors = document.run_links
+    numbers = [str(number) for number in range(1, max(3, run['run'], *available.keys()) + 1)]
+    require([link.get('data-run') for link in selectors] == numbers,
+            'Run selector coverage differs: ' + run['id'])
+    current = [link.get('data-run') for link in selectors if link.get('aria-current') == 'page']
+    require(current == [str(run['run'])], 'Current run differs: ' + run['id'])
+    for link in selectors:
+        number = int(link['data-run'])
+        if number == run['run']:
+            href = f'#run-panel-{number}'
+        elif number in available:
+            href = Path(available[number]['trace']).name
+        else:
+            require(not link.get('href') and link.get('aria-disabled') == 'true',
+                    'Unavailable run is selectable: ' + run['id'])
+            continue
+        require(link.get('href') == href and link.get('aria-disabled') != 'true',
+                'Run selector link differs: ' + run['id'])
 
 
 def check_trace(path, expected, document, root=ROOT):
@@ -167,6 +188,11 @@ def check(root=ROOT):
     profiles = json.loads((root / 'data/trace-validation.json').read_text())['traces']
     require(len({profile['id'] for profile in profiles}) == len(profiles), 'Duplicate validation IDs')
     catalog = json.loads((site / 'data/runs.json').read_text())
+    for task in catalog['tasks']:
+        for run in task['runs']:
+            if run.get('trace'):
+                peers = [peer for peer in task['runs'] if peer['model'] == run['model']]
+                check_run_navigation(run, peers, documents[(site / run['trace']).resolve()])
     runs = {run['id']: run for task in catalog['tasks'] for run in task['runs']}
     require(len(runs) == sum(len(task['runs']) for task in catalog['tasks']), 'Duplicate catalog run IDs')
     require(set(runs) == {entry['id'] for entry in manifest['runs']}, 'Catalog and evidence run IDs differ')

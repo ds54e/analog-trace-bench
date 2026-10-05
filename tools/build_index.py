@@ -6,6 +6,7 @@ import json
 import re
 from decimal import Decimal
 from pathlib import Path
+from typing import NamedTuple
 
 from fetch_evidence import validate_entry, validate_url
 from site_templates import asset_url, evaluation_label, render_page
@@ -14,17 +15,18 @@ from token_costs import decimal_cost, load_token_costs
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def mean_value(values):
-    if not values or any(value is None for value in values):
-        return None
-    return sum((Decimal(str(value)) for value in values), Decimal(0)) / len(values)
+class MetricSummary(NamedTuple):
+    mean: Decimal | None
+    minimum: Decimal | None
+    maximum: Decimal | None
 
 
-def value_range(values):
+def summarize_metric(values):
+    """Aggregate complete recorded values once, without rounding or partial ranges."""
     if not values or any(value is None for value in values):
-        return None, None
+        return MetricSummary(None, None, None)
     values = [Decimal(str(value)) for value in values]
-    return min(values), max(values)
+    return MetricSummary(sum(values, Decimal(0)) / len(values), min(values), max(values))
 
 
 def metric_label(value, kind):
@@ -33,7 +35,8 @@ def metric_label(value, kind):
     return f'{value / 60:.1f} min' if kind == 'time' else f'${value:.2f}'
 
 
-def metric_cell(value, scale_max, label, kind, count, minimum=None, maximum=None):
+def metric_cell(metric, scale_max, kind, count):
+    value, minimum, maximum = metric
     if value is None:
         return '<span class="unavailable">Not recorded</span>'
     percent = value / scale_max * 100 if scale_max else Decimal(0)
@@ -57,7 +60,7 @@ def metric_cell(value, scale_max, label, kind, count, minimum=None, maximum=None
             f'title="{title}"{bounds}>'
             '<span class="metric-track" aria-hidden="true">'
             f'<span class="metric-fill" style="width: {percent:.4f}%"></span>{markers}</span>'
-            f'<span class="metric-value">{label}</span></div>')
+            f'<span class="metric-value">{metric_label(value, kind)}</span></div>')
 
 
 def load_results(root=ROOT):
@@ -99,31 +102,23 @@ def load_results(root=ROOT):
             times = [evidence[run['id']].get('design_model_calls_s') for run in trials]
             totals = [costs[run['id']]['total_cost_usd'] for run in trials]
             amounts = [decimal_cost(total) if total is not None else None for total in totals]
-            time_min, time_max = value_range(times)
-            cost_min, cost_max = value_range(amounts)
             trace_href = next((run['trace'] for run in trials if run.get('trace')), None)
             results.append({'task': task['id'], 'description': task['description'], 'model': model,
-                            'result': result, 'time': mean_value(times), 'cost': mean_value(amounts),
-                            'time_min': time_min, 'time_max': time_max,
-                            'cost_min': cost_min, 'cost_max': cost_max,
+                            'result': result, 'time': summarize_metric(times), 'cost': summarize_metric(amounts),
                             'count': len(trials), 'trace': trace_href})
     return results
 
 
 def render_result_table(results, view):
-    max_time = max((row['time_max'] for row in results if row['time_max'] is not None), default=Decimal(0))
-    max_cost = max((row['cost_max'] for row in results if row['cost_max'] is not None), default=Decimal(0))
+    scales = {kind: max((row[kind].maximum for row in results if row[kind].maximum is not None),
+                        default=Decimal(0)) for kind in ('time', 'cost')}
     rows = []
     for row in results:
         label = html.escape(row['task' if view == 'model' else 'model'])
         if row['trace']:
             label = '<a href="' + html.escape(row['trace'], quote=True) + '">' + label + '</a>'
-        time, cost, count = row['time'], row['cost'], row['count']
-        cells = [row['result'],
-                 metric_cell(time, max_time, metric_label(time, 'time'), 'time', count,
-                             row['time_min'], row['time_max']),
-                 metric_cell(cost, max_cost, metric_label(cost, 'cost'), 'cost', count,
-                             row['cost_min'], row['cost_max'])]
+        cells = [row['result']] + [metric_cell(row[kind], scales[kind], kind, row['count'])
+                                  for kind in ('time', 'cost')]
         rows.append('<tr><th scope="row">' + label + '</th>' +
                     ''.join('<td>' + cell + '</td>' for cell in cells) + '</tr>')
     table_class = 'summary-table results-table' + (' results-table--model' if view == 'model' else '')
@@ -156,7 +151,6 @@ def render_index(root=ROOT, view='model', *, results=None):
     head = '<link rel="stylesheet" href="' + asset_url('home.css', root=root) + '"/>'
     title = 'Analog Trace Bench' + (' — Tasks' if view == 'task' else '')
     return render_page(title, content, head, 'index.html', root, current_view=view)
-
 
 
 def rendered_indexes(root=ROOT):
