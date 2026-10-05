@@ -45,6 +45,10 @@ def metric_cell(value, scale_max, label, kind, count, minimum=None, maximum=None
         bounds = f' data-min="{minimum}" data-max="{maximum}"'
         if count > 1:
             title += f'; min: {metric_label(minimum, kind)}; max: {metric_label(maximum, kind)}'
+            start = minimum / scale_max * 100 if scale_max else Decimal(0)
+            width = (maximum - minimum) / scale_max * 100 if scale_max else Decimal(0)
+            markers = (f'<span class="metric-range" '
+                       f'style="left: {start:.4f}%; width: {width:.4f}%"></span>')
             for endpoint, amount in [('min', minimum), ('max', maximum)]:
                 position = amount / scale_max * 100 if scale_max else Decimal(0)
                 markers += (f'<span class="metric-marker metric-marker--{endpoint}" '

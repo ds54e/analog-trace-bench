@@ -104,14 +104,25 @@
 
 .metric--cost .metric-fill { background: var(--bar-cost); }
 
+.metric-range,
 .metric-marker {
   position: absolute;
   top: 50%;
-  width: 1px;
-  height: 14px;
-  transform: translate(-50%, -50%);
   background: var(--text);
-  opacity: .7;
+}
+
+.metric-range {
+  height: 1px;
+  transform: translateY(-50%);
+  opacity: .55;
+}
+
+.metric-marker {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: .8;
 }
 
 .metric-value { min-width: 70px; text-align: right; }
@@ -131,5 +142,6 @@
   .pass-badge { border: 1px solid CanvasText; }
   .metric-track { outline: 1px solid GrayText; }
   .metric-fill { background: Highlight; }
+  .metric-range,
   .metric-marker { background: CanvasText; opacity: 1; }
 }
