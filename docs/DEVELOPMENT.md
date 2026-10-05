@@ -32,7 +32,7 @@ Shared asset URLs contain content hashes and all internal routes are relative.
 | :--- | :--- |
 | `tools/templates/` | Shared document/header and trace layout. |
 | `site/assets/site.css` | Shared typography, colors, tables, focus and scrolling. |
-| `site/assets/home.css`, `trace.css`, `trace.js` | Index and trace presentation; accessible tabs. |
+| `site/assets/home.css`, `trace.css`, `trace.js` | Index and trace presentation; keyboard navigation between runs. |
 | `content/traces/<run-id>/` | Canonical verified summary rows and complete trace markup. |
 | `site/data/evaluations/` | Original independent reports at full precision. |
 | `site/data/runs.json` | Tasks, descriptions, model/run identities and stable routes. |
@@ -65,12 +65,18 @@ render from one validated result snapshot. Visible column headings are hidden;
 Task/AI model, Pass, Model-call time and USD remain semantic headers.
 
 Each task/model pair has one row. Its label links to the earliest available
-trace; trace tabs expose other recorded runs. Pass shows passed / recorded runs
+trace; run links open other recorded runs directly. Pass shows passed / recorded runs
 in a PASS badge when all runs pass, otherwise FAIL. Time and USD are arithmetic
 means across recorded runs, calculated before rounding. Missing values stay
 unknown rather than producing partial means. Time shows minutes to one decimal,
 USD uses `$2.01`; blue and brown bars scale to the maximum mean in that section.
 The index has no Run, Design or Archive columns.
+
+Run selectors are native links, with `aria-current="page"` on the current run.
+Recorded runs open in one click, including without JavaScript; browser history
+and opening a new tab work normally. Arrow/Home/End keys move focus between
+recorded-run links, and Enter follows the focused link. Missing runs remain
+visible as disabled labels with an explanatory tooltip.
 
 Individual summaries have Run and evaluation, Circuit design and Token cost
 tables. Their first column aligns; presentation splits verified fragments

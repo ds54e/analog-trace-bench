@@ -22,10 +22,11 @@
   background: transparent;
   color: var(--muted);
   font: 500 13px/1.2 var(--font-display);
+  text-decoration: none;
   cursor: pointer;
 }
 
-.run-tab:hover {
+.run-tab[href]:hover {
   border-color: var(--muted);
   color: var(--text);
 }
@@ -36,10 +37,9 @@
   color: var(--text);
 }
 
-.run-empty {
-  margin: 34px 0;
-  color: var(--muted);
-  font: 400 15px/1.6 var(--font-display);
+.run-tab[aria-disabled="true"] {
+  opacity: .5;
+  cursor: default;
 }
 
 /* Summary */

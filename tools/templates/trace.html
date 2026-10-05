@@ -3,10 +3,10 @@
 <header class="document-header">
 <h1>$task / <span class="title-model">$model</span></h1>
 </header>
-<div aria-label="Trial" class="run-tabs" data-run-tabs="" role="tablist">
+<nav aria-label="Recorded runs" class="run-tabs" data-run-navigation="">
 $tabs
-</div>
-<div aria-labelledby="run-tab-$run" class="run-panel" id="run-panel-$run" role="tabpanel">
+</nav>
+<div class="run-panel" id="run-panel-$run">
 <section aria-label="Run summary" class="run-summary" id="run-$run-summary">
 $summary
 </section>
@@ -14,6 +14,5 @@ $summary
 $trace
 </section>
 </div>
-$empty_panels
 </article>
 </main>

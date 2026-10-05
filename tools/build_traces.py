@@ -63,24 +63,21 @@ def render_trace_page(task, model, summary, trace, run=1, report_href=None, peer
             lambda cell: '<td>' + evaluation_label(cell[1]) + '</td></tr>', table[0]),
         trace, flags=re.S)
     available = {peer['run']: peer for peer in peers}
-    tabs, empty_panels = [], []
+    tabs = []
     for number in range(1, max(3, run, *available.keys()) + 1):
         selected = number == run
-        tabs.append(f'<button aria-controls="run-panel-{number}" aria-selected="{str(selected).lower()}" '
-                    f'class="run-tab{" is-active" if selected else ""}" data-run="{number}" '
-                    f'id="run-tab-{number}" role="tab" tabindex="{0 if selected else -1}" '
-                    f'type="button">Run {number}</button>')
-        if selected:
-            continue
-        if number in available:
-            href = html.escape(Path(available[number]['trace']).name, quote=True)
-            message = f'<a href="{href}">Read recorded Run {number}.</a>'
+        attributes = (f'class="run-tab{" is-active" if selected else ""}" '
+                      f'data-run="{number}" id="run-tab-{number}"')
+        if selected or number in available:
+            href = f'#run-panel-{number}' if selected else html.escape(
+                Path(available[number]['trace']).name, quote=True)
+            current = ' aria-current="page"' if selected else ''
+            tabs.append(f'<a {attributes} href="{href}"{current}>Run {number}</a>')
         else:
-            message = f'Run {number} is not available yet.'
-        empty_panels.append(f'<div aria-labelledby="run-tab-{number}" class="run-panel" hidden="" '
-                            f'id="run-panel-{number}" role="tabpanel">\n<p class="run-empty">{message}</p>\n</div>')
+            tabs.append(f'<span {attributes} aria-disabled="true" '
+                        f'title="Run {number} is not available yet.">Run {number}</span>')
     content = template('trace.html', root, task=html.escape(task), model=html.escape(model),
-                       run=run, tabs='\n'.join(tabs), empty_panels='\n'.join(empty_panels),
+                       run=run, tabs='\n'.join(tabs),
                        summary=summary_tables(summary) + token_summary, trace=trace)
     head = '<link rel="stylesheet" href="' + asset_url('trace.css', '../', root) + '"/>\n'
     head += '<script defer src="' + asset_url('trace.js', '../', root) + '"></script>'

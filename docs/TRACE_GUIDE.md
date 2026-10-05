@@ -80,7 +80,7 @@ Preserve transcript order, including late asynchronous results. Match actions an
 
 Reuse the current shared 1040 px page width, sans-serif fonts, colors, responsive rules, and light/dark behavior from `site/assets/site.css`. Keep `.turn-group::before`, the 4 px left rail, and the 18 px inset. Do not delete the rail when changing metadata alignment.
 
-Keep the reference run tabs and their keyboard behavior. Populate supplied runs; show the existing unavailable-run placeholder for absent runs where applicable. Never invent a run to fill a tab.
+Keep the run selector's appearance. Recorded runs use native links that open their complete pages directly, with `aria-current="page"` on the current run. Arrow/Home/End keys move focus between recorded links; Enter follows the link. Missing runs use disabled labels with an unavailable-run tooltip. Never invent a run to fill the selector.
 
 Metadata order is `ACTION 1:09:25 Bash`, with the same order for MODEL/RESULT where applicable. Timestamps, tool names, and `Final submission` use the same muted, normal-weight, 12 px styling. ACTION/RESULT/MODEL retain their existing tag styling.
 
@@ -184,7 +184,7 @@ The source archives are supplied separately; default paths from the original wor
 | Evaluation identity | Report/row revision equals submitted revision; no stale candidate results used as final evaluation. |
 | Evaluation content | Linked JSON equals the original reports and timing; counts/completeness and worst selection agree. |
 | Numerical display | Worst values use two significant digits; limits and units retain their specified meaning. |
-| DOM and tabs | Unique IDs, correct tab/panel references, accessible names, working click/arrow/Home/End behavior. |
+| DOM and run navigation | Unique IDs, valid direct run links, current-run indication, working click/arrow/Home/End/Enter behavior. |
 | Presentation | Rails remain; metadata order/fonts agree; descriptions are prose; code is unwrapped and scrollable. |
 | Removed UI | No folding, annotation labels, visible timeout argument, redundant notices, or deleted evaluation summaries. |
 | Portability | No required remote assets, broken workspace links, unresolved placeholders, or previous-session paths. |
