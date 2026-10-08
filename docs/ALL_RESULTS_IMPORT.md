@@ -1,10 +1,14 @@
 # Recorded-result import checks
 
-Current coverage: 81 traces across nine SKY130 tasks and seven models. Astra has
-Run 1–3 for every task; all other models have one recorded run per task/model.
-The generated site has 83 HTML pages: Model index, Task index and 81 individual
-traces. Original run verdicts are 70 PASS, 10 MISS and one MEASUREMENT_FAILURE;
-derived site labels use PASS / FAIL.
+Current coverage: 183 traces across nine SKY130 tasks and seven models. Sixty
+task/model pairs have Run 1–3; three retain their existing Run 1 until three
+selected results are available. The generated site has 185 HTML pages: Model
+index, Task index and 183 individual traces. Original verdicts are 153 PASS,
+26 MISS and four MEASUREMENT_FAILURE; derived labels use PASS / FAIL.
+
+The latest [three-run import record](records/import-2026-10-08.md) documents the
+102 additions, publisher comparison numbering, incomplete pairs and retained
+unknown timing. Sections below preserve earlier import and verification history.
 
 The initial 54-trial import is preserved in the
 [six-model verification snapshot](records/import-2026-10-04.md). The four accepted

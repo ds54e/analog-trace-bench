@@ -1,0 +1,1800 @@
+<div class="turn-group" data-turn="1">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-06T03:03:45.865Z">0:00:03</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>I&#39;ll start by reading the task documentation.</p>
+</div><template class="model-source">I&#x27;ll start by reading the task documentation.</template></div></article>
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01TRhheX9SpYr14RFWX2c9B6"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:46.307125+00:00">0:00:04</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">List files in workspace</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>ls -la /workspace</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01TRhheX9SpYr14RFWX2c9B6"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:46.360659+00:00">0:00:04</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>total 88
+drwxr-xr-x.  2 admin admin  4096 Oct  6 12:03 .
+drwxr-xr-x. 13 admin admin   300 Oct  6 12:03 ..
+-rw-r--r--.  1 admin admin  1124 Oct  6 12:03 AGENTS.md
+-rw-r--r--.  1 admin admin  1124 Oct  6 12:03 CLAUDE.md
+-rw-r--r--.  1 admin admin  3716 Oct  5 15:29 CLIENT.md
+-rw-r--r--.  1 admin admin  1124 Oct  5 15:29 TASK.md
+-rw-r--r--.  1 admin admin   647 Oct  5 15:29 conditions.json
+-rw-r--r--.  1 admin admin 50576 Oct  5 15:29 devices.md
+-rw-r--r--.  1 admin admin  2282 Oct  5 15:29 measurement.md
+-rw-r--r--.  1 admin admin  3050 Oct  5 15:29 spec.json
+-rw-r--r--.  1 admin admin    94 Oct  5 15:29 task.json</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="2">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01DHdbfLtz4RFtm6Z2z4W8vB"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:46.538401+00:00">0:00:04</div><span class="trace-tool-name">Read · TASK.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/TASK.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01DHdbfLtz4RFtm6Z2z4W8vB"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:46.552667+00:00">0:00:04</div><span class="trace-tool-name">Read · TASK.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># LDO-LOW-VOLTAGE-SKY130
+
+Design a continuous-time analog LDO meeting spec.json across conditions.json and the specified load range.
+Create dut.spice with `.subckt DUT VIN VOUT VSS VREF` and `.ends DUT`.
+Choose connectivity, bias, compensation and dimensions yourself. No starting circuit is supplied.
+Use only the declared MOS family and positive R/C in devices.md. Read measurement.md.
+You have 90 minutes of cumulative model-call time with no native-case limit. Use the client to measure and submit your fixed circuit before the deadline.
+No Web search. Use only the provided task information and your own knowledge.
+Measurements consume cases even when simulation fails. Submit through the client with a rationale, then end your session.
+
+## Time accounting
+
+The budget counts model calls, including provider queuing and transport. ngspice, Python, filesystem tools and their waits do not consume this budget. Model calls overlapping local tools still count. An already admitted measurement may finish after model-budget exhaustion; new design tools close. Use client status for the latest collected model-time reading.
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="3">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01RkhBwDt3E4pj1Dxgx8iHQ7"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:46.890442+00:00">0:00:04</div><span class="trace-tool-name">Read · AGENTS.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/AGENTS.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01RkhBwDt3E4pj1Dxgx8iHQ7"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:46.901059+00:00">0:00:04</div><span class="trace-tool-name">Read · AGENTS.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># LDO-LOW-VOLTAGE-SKY130
+
+Design a continuous-time analog LDO meeting spec.json across conditions.json and the specified load range.
+Create dut.spice with `.subckt DUT VIN VOUT VSS VREF` and `.ends DUT`.
+Choose connectivity, bias, compensation and dimensions yourself. No starting circuit is supplied.
+Use only the declared MOS family and positive R/C in devices.md. Read measurement.md.
+You have 90 minutes of cumulative model-call time with no native-case limit. Use the client to measure and submit your fixed circuit before the deadline.
+No Web search. Use only the provided task information and your own knowledge.
+Measurements consume cases even when simulation fails. Submit through the client with a rationale, then end your session.
+
+## Time accounting
+
+The budget counts model calls, including provider queuing and transport. ngspice, Python, filesystem tools and their waits do not consume this budget. Model calls overlapping local tools still count. An already admitted measurement may finish after model-budget exhaustion; new design tools close. Use client status for the latest collected model-time reading.
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="4">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_015XXoja65hHSu78Ba2Zu4k7"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:47.178882+00:00">0:00:04</div><span class="trace-tool-name">Read · measurement.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/measurement.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_015XXoja65hHSu78Ba2Zu4k7"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:47.193257+00:00">0:00:04</div><span class="trace-tool-name">Read · measurement.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># LDO-LOW-VOLTAGE-SKY130 measurement contract
+
+Numerical stimuli and limits come from spec.json. Connect the same submitted
+DUT to VIN, VOUT, VSS and ideal noiseless VREF. The load is a prescribed ideal
+finite-slew current sink; the external capacitor is ideal and bench supplied.
+No startup, protection, bandgap, yield or layout checks are implied.
+
+## DC and load changes
+
+Run DC at all three loads and light/heavy, middle/heavy and burst profiles.
+Meter all DUT terminals. Input/reference currents enter DUT; output/ground
+currents leave. Verify KCL within 1 nA. Overhead is
+max(Iin-Iout,0)+max(Iref,0), including feedback and bias consumption.
+Compare voltage against the fixed 1.0 V target, never the waveform tail.
+Both isolated edge directions and the final falling burst edge have recovery
+windows. Recovery is the final interpolated entry into the absolute required
+band that remains there until the window ends. Retain overshoot, droop, initial
+hold error, profile points and all signed currents.
+
+Maximum sample gap is 5e-10 s. Every required window must be fully
+covered with finite increasing data. Unsettled complete data retains null
+recovery and an observation lower bound; it is MISS when that bound exceeds the
+limit. Missing/truncated/invalid data is measurement failure. Unexecuted cases
+are incomplete, never PASS. Inclusive limits are compared without rounding.
+
+## Supply measurements
+
+Line stimulus starts at minimum VIN, rises to maximum, and returns to minimum,
+at the group&#x27;s highest load, process, temperature and capacitance. The starting
+VIN label does not add a different line trajectory. PSRR saves native VIN/VOUT
+phasors at 1 kHz and 1 MHz and reports 20 log10(abs(VIN/VOUT)). Check the native
+regulated OP; zero/nonfinite transfers cannot produce infinite rejection.
+
+Line and light/heavy-load PSRR are unscored reference measurements. Final
+verification is 108 public, 18 independent and three characterization cases.
+Each nominal group has six cases. No noise score is imposed on this variant.
+
+## Numerical precision
+
+Independent evaluation uses the captured standard grid for every required case.
+Numerical precision comparisons use a separately authorized developer allocation.
+A standard-grid PASS is not a per-submission convergence proof.
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="5">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01H2Fc3vg1jT73giXMcdcJzg"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:49.498642+00:00">0:00:07</div><span class="trace-tool-name">Read · CLIENT.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/CLIENT.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01H2Fc3vg1jT73giXMcdcJzg"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:49.501161+00:00">0:00:07</div><span class="trace-tool-name">Read · CLIENT.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># Shared client
+
+Write request.json and call `atb-client --request request.json`.
+Commands: `atb-client help`, `atb-client status`, `atb-client validate`,
+`atb-client estimate --analysis nominal --pvt N`,
+`atb-client measure --id m001 --analysis nominal --pvt N`,
+`atb-client submit --rationale &quot;Design rationale&quot;`.
+Use `--cl` in farads and optional `--seed` only when the task supports it.
+The client reads dut.spice once for validate/measure/submit and sends its exact UTF-8 contents.
+Measure requires experiment_id, analysis and pvt; cl is optional. Use help for analyses and native case costs.
+Use a new experiment_id when changing a circuit or measurement request. Completed identical requests reuse their saved result.
+Submit requires rationale. Successful submission freezes that circuit for every independent condition and closes exploration.
+
+## Public measurement options
+
+| Analysis | PVT | Load (F) | Cases | Included native measurements |
+|---|---|---:|---:|---|
+| nominal | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 6 | dc_low, dc_mid, dc_high, light_heavy, mid_heavy, burst |
+| nominal | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 6 | dc_low, dc_mid, dc_high, light_heavy, mid_heavy, burst |
+| dc | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 3 | dc_low, dc_mid, dc_high |
+| dc | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 3 | dc_low, dc_mid, dc_high |
+| dc_low | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 1 | dc_low |
+| dc_low | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 1 | dc_low |
+| dc_mid | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 1 | dc_mid |
+| dc_mid | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 1 | dc_mid |
+| dc_high | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 1 | dc_high |
+| dc_high | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 1 | dc_high |
+| light_heavy | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 1 | light_heavy |
+| light_heavy | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 1 | light_heavy |
+| mid_heavy | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 1 | mid_heavy |
+| mid_heavy | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 1 | mid_heavy |
+| burst | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 1 | burst |
+| burst | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 1 | burst |
+| line | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 1 | line |
+| line | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 1 | line |
+| psrr_low | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 1 | psrr_low |
+| psrr_low | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 1 | psrr_low |
+| psrr_high | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-10 | 1 | psrr_high |
+| psrr_high | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-10 | 1 | psrr_high |
+
+Defaults and seed requirements:
+
+- nominal: omitted `--cl` uses 2e-10 F. No seed accepted.
+- dc: omitted `--cl` uses 2e-10 F. No seed accepted.
+- dc_low: omitted `--cl` uses 2e-10 F. No seed accepted.
+- dc_mid: omitted `--cl` uses 2e-10 F. No seed accepted.
+- dc_high: omitted `--cl` uses 2e-10 F. No seed accepted.
+- light_heavy: omitted `--cl` uses 2e-10 F. No seed accepted.
+- mid_heavy: omitted `--cl` uses 2e-10 F. No seed accepted.
+- burst: omitted `--cl` uses 2e-10 F. No seed accepted.
+- line: omitted `--cl` uses 2e-10 F. No seed accepted.
+- psrr_low: omitted `--cl` uses 2e-10 F. No seed accepted.
+- psrr_high: omitted `--cl` uses 2e-10 F. No seed accepted.
+
+One native case is one simulator process. Bundled internal analyses are retained in evidence.
+`estimate` returns the exact case plan without launching a solver. Independent evaluation conditions are not available to participants.
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="6">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01Qh7oR3GryYhyvtVGGeg3KT"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:49.873838+00:00">0:00:07</div><span class="trace-tool-name">Read · spec.json</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/spec.json</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01Qh7oR3GryYhyvtVGGeg3KT"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:49.883320+00:00">0:00:07</div><span class="trace-tool-name">Read · spec.json</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;kind&quot;: &quot;formal_implementation_specification&quot;,
+  &quot;specification_id&quot;: &quot;LDO-LOW-VOLTAGE-SKY130-2026-09-29-R4&quot;,
+  &quot;task_id&quot;: &quot;LDO-LOW-VOLTAGE-SKY130&quot;,
+  &quot;technology&quot;: &quot;sky130&quot;,
+  &quot;ports&quot;: [
+    &quot;VIN&quot;,
+    &quot;VOUT&quot;,
+    &quot;VSS&quot;,
+    &quot;VREF&quot;
+  ],
+  &quot;rtl_required&quot;: false,
+  &quot;load_model&quot;: &quot;prescribed_finite_slew_current_sink&quot;,
+  &quot;device_environment&quot;: {
+    &quot;models&quot;: [
+      &quot;sky130_fd_pr__nfet_01v8&quot;,
+      &quot;sky130_fd_pr__pfet_01v8&quot;
+    ],
+    &quot;nominal_include_style&quot;: &quot;lib_section&quot;,
+    &quot;geometry_units&quot;: &quot;numeric_micrometres_under_PDK_scale_1u&quot;,
+    &quot;parallel_copies&quot;: &quot;qualified_SKY130_instance_semantics&quot;,
+    &quot;process_semantics&quot;: &quot;pinned_continuous_tt_ss_ff&quot;,
+    &quot;geometry_admission&quot;: &quot;Use per-polarity geometry membership shared by every selected pinned continuous section; intersect with W&lt;=100um, L&gt;=0.15um. Do not use OTA device-role parameter names.&quot;
+  },
+  &quot;operating&quot;: {
+    &quot;vin_nominal_v&quot;: 1.25,
+    &quot;vin_range_v&quot;: [
+      1.15,
+      1.35
+    ],
+    &quot;vout_target_v&quot;: 1.0,
+    &quot;vref_v&quot;: 0.5,
+    &quot;load_levels_a&quot;: [
+      2.5e-05,
+      0.00025,
+      0.001
+    ],
+    &quot;external_decap_range_f&quot;: [
+      2e-10,
+      5e-10
+    ],
+    &quot;example_decap_f&quot;: 3e-10,
+    &quot;external_esr_ohm&quot;: 0,
+    &quot;temperature_range_c&quot;: [
+      -20,
+      85
+    ],
+    &quot;nominal_temperature_c&quot;: 27,
+    &quot;process_modes&quot;: [
+      &quot;tt&quot;,
+      &quot;ss&quot;,
+      &quot;ff&quot;
+    ]
+  },
+  &quot;waveform&quot;: {
+    &quot;initial_hold_s&quot;: 1e-06,
+    &quot;load_edge_s&quot;: 1e-07,
+    &quot;step_plateau_s&quot;: 5e-06,
+    &quot;burst_high_s&quot;: 5e-07,
+    &quot;burst_low_s&quot;: 5e-07,
+    &quot;burst_count&quot;: 8,
+    &quot;burst_tail_s&quot;: 5e-06,
+    &quot;line_edge_s&quot;: 1e-07,
+    &quot;output_step_s&quot;: 5e-10,
+    &quot;maximum_step_s&quot;: 5e-10
+  },
+  &quot;limits&quot;: {
+    &quot;dc_error_fraction&quot;: 0.03,
+    &quot;transient_error_fraction&quot;: 0.08,
+    &quot;recovery_band_fraction&quot;: 0.03,
+    &quot;recovery_limit_s&quot;: 5e-06,
+    &quot;dc_overhead_current_max_a&quot;: 0.0002,
+    &quot;vref_dc_current_abs_max_a&quot;: 1e-06,
+    &quot;added_explicit_capacitance_max_f&quot;: 3e-11,
+    &quot;mos_wl_proxy_max_um2&quot;: 10000,
+    &quot;dc_light_load_overhead_max_a&quot;: 0.0001,
+    &quot;light_load_limit_applies_at_a&quot;: 2.5e-05
+  },
+  &quot;electrical_acceptance&quot;: &quot;All required DC and transient checks pass for one frozen submitted DUT; no weighted tradeoff between failed requirements.&quot;,
+  &quot;characterization_only&quot;: [
+    &quot;line_transient&quot;,
+    &quot;psrr_1kHz_1MHz&quot;,
+    &quot;signed_dissipation&quot;
+  ],
+  &quot;out_of_scope&quot;: [
+    &quot;real_RTL&quot;,
+    &quot;standard_cell_timing&quot;,
+    &quot;DVFS&quot;,
+    &quot;power_gating&quot;,
+    &quot;startup_sequence&quot;,
+    &quot;PGOOD&quot;,
+    &quot;protection&quot;,
+    &quot;bandgap&quot;,
+    &quot;Monte_Carlo&quot;,
+    &quot;common_phase_margin_score&quot;,
+    &quot;layout&quot;,
+    &quot;noise_score&quot;,
+    &quot;new_network_controls&quot;
+  ],
+  &quot;exploration_budget&quot;: {
+    &quot;native_cases&quot;: null,
+    &quot;model_seconds&quot;: 5400
+  },
+  &quot;packet_policy&quot;: &quot;Only the selected public specification, device use, methods, client and own results; no completed circuit, reference results or independent coordinates. Reuse existing sandbox/login; disable Web tools.&quot;,
+  &quot;comparison_policy&quot;: &quot;Same task concept and measurement rules; task-specific electrical calibration. No equal difficulty or cross-process score claim.&quot;
+}
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="7">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01BLy5vJyVfYpdCnyBfKL9Ds"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:50.191117+00:00">0:00:07</div><span class="trace-tool-name">Read · conditions.json</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/conditions.json</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01BLy5vJyVfYpdCnyBfKL9Ds"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:50.200376+00:00">0:00:07</div><span class="trace-tool-name">Read · conditions.json</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;N&quot;: {
+    &quot;process&quot;: &quot;nominal&quot;,
+    &quot;vdd&quot;: 1.25,
+    &quot;temp&quot;: 27
+  },
+  &quot;SLC&quot;: {
+    &quot;process&quot;: &quot;slow&quot;,
+    &quot;vdd&quot;: 1.15,
+    &quot;temp&quot;: -20
+  },
+  &quot;SLH&quot;: {
+    &quot;process&quot;: &quot;slow&quot;,
+    &quot;vdd&quot;: 1.15,
+    &quot;temp&quot;: 85
+  },
+  &quot;SHC&quot;: {
+    &quot;process&quot;: &quot;slow&quot;,
+    &quot;vdd&quot;: 1.35,
+    &quot;temp&quot;: -20
+  },
+  &quot;SHH&quot;: {
+    &quot;process&quot;: &quot;slow&quot;,
+    &quot;vdd&quot;: 1.35,
+    &quot;temp&quot;: 85
+  },
+  &quot;FLC&quot;: {
+    &quot;process&quot;: &quot;fast&quot;,
+    &quot;vdd&quot;: 1.15,
+    &quot;temp&quot;: -20
+  },
+  &quot;FLH&quot;: {
+    &quot;process&quot;: &quot;fast&quot;,
+    &quot;vdd&quot;: 1.15,
+    &quot;temp&quot;: 85
+  },
+  &quot;FHC&quot;: {
+    &quot;process&quot;: &quot;fast&quot;,
+    &quot;vdd&quot;: 1.35,
+    &quot;temp&quot;: -20
+  },
+  &quot;FHH&quot;: {
+    &quot;process&quot;: &quot;fast&quot;,
+    &quot;vdd&quot;: 1.35,
+    &quot;temp&quot;: 85
+  }
+}
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="8">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01CUa4qbdttnbjvvjFTBGZQR"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:50.429497+00:00">0:00:08</div><span class="trace-tool-name">Read · task.json</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/task.json</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01CUa4qbdttnbjvvjFTBGZQR"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:50.442090+00:00">0:00:08</div><span class="trace-tool-name">Read · task.json</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{&quot;task_id&quot;: &quot;LDO-LOW-VOLTAGE-SKY130&quot;, &quot;design_format&quot;: &quot;netlist&quot;, &quot;design_file&quot;: &quot;dut.spice&quot;}
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="9">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01KTPRR7PNC6xNy9yEXLwfF9"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:52.518565+00:00">0:00:10</div><span class="trace-tool-name">Read · devices.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/devices.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01KTPRR7PNC6xNy9yEXLwfF9"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:52.804001+00:00">0:00:10</div><span class="trace-tool-name">Read · devices.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># Netlist grammar
+
+Use local .subckt/.ends, local .param and constant arithmetic + - * / in braces.
+Elements are X for approved MOS wrappers or local subcircuits, R and C. No includes, models, sources or analyses.
+MOS order is drain gate source body. NFET body connects to VSS; PFET body connects to VIN.
+Use VSS instead of global node 0. Names are case-insensitive. Full-line * comments and + continuation are supported.
+SKY130 W/L are bare numeric micrometres; nf=1 and integer m=1..32.
+ADM45 W/L use SI or SPICE suffixes; integer mult=1..32, implicit nf=1, default ad/as/pd/ps=0.
+R/C use SI or suffixes (M is milli, meg is mega). Positive R=1..1e8 ohm, C&gt;=1e-15 F; total C and MOS W*L must satisfy spec.json.
+Maximum source 65536 bytes, 2048 statements, 32 local subcircuits, depth 12, 2048 expansion visits, 512 expanded elements.</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="10">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01V1ci6S9DfqRtHZfuCQRnVr"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:55.206918+00:00">0:00:12</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Show remaining lines of devices.md truncated</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>awk &#x27;NR&gt;=11 &amp;&amp; NR&lt;=18 {print NR&quot;: &quot;substr($0,1,3000)}&#x27; devices.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01V1ci6S9DfqRtHZfuCQRnVr"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:55.237410+00:00">0:00:12</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>11: Only used subcircuits are allowed. Validation checks each physical copy and each technology&#x27;s geometry domain.
+12: 
+13: Per-polarity domains (micrometres), intersect all tt/ss/ff sections and W&lt;=100, L&gt;=0.15:
+14: 
+15: ```json
+16: {&quot;n&quot;: {&quot;tt&quot;: [{&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, 
+17: ```</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="11">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01L36hQTptJz4u5utBqWxFjP"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:03:59.652189+00:00">0:00:17</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Parse device geometry domains from devices.md</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>python3 - &lt;&lt;&#x27;EOF&#x27;
+import json,re
+txt=open(&#x27;devices.md&#x27;).read()
+m=re.search(r&#x27;```json\n(.*?)\n```&#x27;,txt,re.S)
+d=json.loads(m.group(1))
+for pol in d:
+    print(pol, list(d[pol].keys()))
+    for sec in d[pol]:
+        bins=d[pol][sec]
+        ws=sorted(set((b[&#x27;wmin&#x27;],b[&#x27;wmax&#x27;]) for b in bins))
+        ls=sorted(set((b[&#x27;lmin&#x27;],b[&#x27;lmax&#x27;]) for b in bins))
+        print(&#x27; &#x27;,sec,len(bins),&#x27;W bins:&#x27;,ws)
+        print(&#x27;   L bins:&#x27;,ls)
+EOF</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01L36hQTptJz4u5utBqWxFjP"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:03:59.691895+00:00">0:00:17</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>n [&#x27;tt&#x27;, &#x27;ss&#x27;, &#x27;ff&#x27;]
+  tt 180 W bins: [(0.36, 0.39), (0.39, 0.42), (0.42, 0.52), (0.52, 0.54), (0.54, 0.55), (0.55, 0.58), (0.58, 0.6), (0.6, 0.61), (0.61, 0.64), (0.64, 0.65), (0.65, 0.74), (0.74, 0.84), (0.84, 1.0), (1.0, 1.26), (1.26, 1.68), (1.68, 2.0), (2.0, 3.0), (3.0, 5.0), (5.0, 7.0), (7.0, 100.0)]
+   L bins: [(0.15, 0.18), (0.18, 0.25), (0.25, 0.5), (0.5, 1.0), (1.0, 2.0), (2.0, 4.0), (4.0, 8.0), (8.0, 20.0), (20.0, 100.0)]
+  ss 180 W bins: [(0.36, 0.39), (0.39, 0.42), (0.42, 0.52), (0.52, 0.54), (0.54, 0.55), (0.55, 0.58), (0.58, 0.6), (0.6, 0.61), (0.61, 0.64), (0.64, 0.65), (0.65, 0.74), (0.74, 0.84), (0.84, 1.0), (1.0, 1.26), (1.26, 1.68), (1.68, 2.0), (2.0, 3.0), (3.0, 5.0), (5.0, 7.0), (7.0, 100.0)]
+   L bins: [(0.15, 0.18), (0.18, 0.25), (0.25, 0.5), (0.5, 1.0), (1.0, 2.0), (2.0, 4.0), (4.0, 8.0), (8.0, 20.0), (20.0, 100.0)]
+  ff 180 W bins: [(0.36, 0.39), (0.39, 0.42), (0.42, 0.52), (0.52, 0.54), (0.54, 0.55), (0.55, 0.58), (0.58, 0.6), (0.6, 0.61), (0.61, 0.64), (0.64, 0.65), (0.65, 0.74), (0.74, 0.84), (0.84, 1.0), (1.0, 1.26), (1.26, 1.68), (1.68, 2.0), (2.0, 3.0), (3.0, 5.0), (5.0, 7.0), (7.0, 100.0)]
+   L bins: [(0.15, 0.18), (0.18, 0.25), (0.25, 0.5), (0.5, 1.0), (1.0, 2.0), (2.0, 4.0), (4.0, 8.0), (8.0, 20.0), (20.0, 100.0)]
+p [&#x27;tt&#x27;, &#x27;ss&#x27;, &#x27;ff&#x27;]
+  tt 108 W bins: [(0.42, 0.55), (0.55, 0.64), (0.64, 0.84), (0.84, 1.0), (1.0, 1.26), (1.26, 1.6500000000000001), (1.6500000000000001, 1.68), (1.68, 2.0), (2.0, 3.0), (3.0, 5.0), (5.0, 7.0), (7.0, 100.0)]
+   L bins: [(0.15, 0.18), (0.18, 0.25), (0.25, 0.5), (0.5, 1.0), (1.0, 2.0), (2.0, 4.0), (4.0, 8.0), (8.0, 20.0), (20.0, 100.0)]
+  ss 108 W bins: [(0.42, 0.55), (0.55, 0.64), (0.64, 0.84), (0.84, 1.0), (1.0, 1.26), (1.26, 1.6500000000000001), (1.6500000000000001, 1.68), (1.68, 2.0), (2.0, 3.0), (3.0, 5.0), (5.0, 7.0), (7.0, 100.0)]
+   L bins: [(0.15, 0.18), (0.18, 0.25), (0.25, 0.5), (0.5, 1.0), (1.0, 2.0), (2.0, 4.0), (4.0, 8.0), (8.0, 20.0), (20.0, 100.0)]
+  ff 108 W bins: [(0.42, 0.55), (0.55, 0.64), (0.64, 0.84), (0.84, 1.0), (1.0, 1.26), (1.26, 1.6500000000000001), (1.6500000000000001, 1.68), (1.68, 2.0), (2.0, 3.0), (3.0, 5.0), (5.0, 7.0), (7.0, 100.0)]
+   L bins: [(0.15, 0.18), (0.18, 0.25), (0.25, 0.5), (0.5, 1.0), (1.0, 2.0), (2.0, 4.0), (4.0, 8.0), (8.0, 20.0), (20.0, 100.0)]</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="12">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_014Hhm2QBSbqDWf4gBWhZCxf"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:04:05.787776+00:00">0:00:23</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Show client help and status</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>atb-client help 2&gt;&amp;1 | head -100; echo ---; atb-client status 2&gt;&amp;1 | head -50</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_014Hhm2QBSbqDWf4gBWhZCxf"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:04:05.908174+00:00">0:00:23</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;ok&quot;: true,
+  &quot;exploration_cases&quot;: null,
+  &quot;participant_seconds&quot;: 5400,
+  &quot;design&quot;: &quot;Create /workspace/dut.spice. Client captures its UTF-8 bytes for validate, measure and submit.&quot;,
+  &quot;actions&quot;: {
+    &quot;help&quot;: {},
+    &quot;status&quot;: {},
+    &quot;validate&quot;: {},
+    &quot;estimate&quot;: {
+      &quot;required&quot;: [
+        &quot;analysis&quot;,
+        &quot;pvt&quot;
+      ],
+      &quot;optional&quot;: [
+        &quot;cl&quot;
+      ]
+    },
+    &quot;measure&quot;: {
+      &quot;required&quot;: [
+        &quot;experiment_id&quot;,
+        &quot;analysis&quot;,
+        &quot;pvt&quot;
+      ],
+      &quot;optional&quot;: [
+        &quot;cl&quot;
+      ]
+    },
+    &quot;submit&quot;: {
+      &quot;required&quot;: [
+        &quot;rationale&quot;
+      ]
+    }
+  },
+  &quot;analyses&quot;: {
+    &quot;nominal&quot;: {
+      &quot;conditions&quot;: [
+        {
+          &quot;pvt&quot;: [
+            &quot;N&quot;,
+            &quot;SLC&quot;,
+            &quot;SLH&quot;,
+            &quot;SHC&quot;,
+            &quot;SHH&quot;,
+            &quot;FLC&quot;,
+            &quot;FLH&quot;,
+            &quot;FHC&quot;,
+            &quot;FHH&quot;
+          ],
+          &quot;cl_f&quot;: 2e-10,
+          &quot;cases&quot;: 6,
+          &quot;included_cases&quot;: [
+            &quot;dc_low&quot;,
+            &quot;dc_mid&quot;,
+            &quot;dc_high&quot;,
+            &quot;light_heavy&quot;,
+            &quot;mid_heavy&quot;,
+            &quot;burst&quot;
+          ]
+        },
+        {
+          &quot;pvt&quot;: [
+            &quot;N&quot;,
+            &quot;SLC&quot;,
+            &quot;SLH&quot;,
+            &quot;SHC&quot;,
+            &quot;SHH&quot;,
+            &quot;FLC&quot;,
+            &quot;FLH&quot;,
+            &quot;FHC&quot;,
+            &quot;FHH&quot;
+          ],
+          &quot;cl_f&quot;: 5e-10,
+          &quot;cases&quot;: 6,
+          &quot;included_cases&quot;: [
+            &quot;dc_low&quot;,
+            &quot;dc_mid&quot;,
+            &quot;dc_high&quot;,
+            &quot;light_heavy&quot;,
+            &quot;mid_heavy&quot;,
+            &quot;burst&quot;
+          ]
+        }
+      ],
+      &quot;default_load_f&quot;: 2e-10,
+      &quot;seeds&quot;: [],
+      &quot;seed_required&quot;: false
+    },
+    &quot;dc&quot;: {
+      &quot;conditions&quot;: [
+        {
+          &quot;pvt&quot;: [
+            &quot;N&quot;,
+            &quot;SLC&quot;,
+            &quot;SLH&quot;,
+            &quot;SHC&quot;,
+            &quot;SHH&quot;,
+            &quot;FLC&quot;,
+            &quot;FLH&quot;,
+            &quot;FHC&quot;,
+---
+{
+  &quot;ok&quot;: true,
+  &quot;run_id&quot;: &quot;opus-03&quot;,
+  &quot;status&quot;: &quot;running&quot;,
+  &quot;deadline_at&quot;: null,
+  &quot;remaining_seconds&quot;: 5378.114691460971,
+  &quot;exploration_cases_reserved&quot;: 0,
+  &quot;exploration_limit&quot;: null,
+  &quot;exploration_cases_remaining&quot;: null,
+  &quot;submitted_revision&quot;: null,
+  &quot;model_time_budget&quot;: {
+    &quot;used_seconds&quot;: 21.88530853902921,
+    &quot;recording_error&quot;: null,
+    &quot;active_requests&quot;: 1,
+    &quot;observed_at_monotonic_s&quot;: 648474.219193987,
+    &quot;clock&quot;: &quot;model_requests&quot;,
+    &quot;source&quot;: &quot;pinned Claude CLI API-body dispatch and llm_request spans&quot;,
+    &quot;export_latency_seconds&quot;: 1,
+    &quot;budget_reading&quot;: &quot;collected events plus elapsed time of observed active requests&quot;,
+    &quot;seconds&quot;: 5400,
+    &quot;remaining_seconds&quot;: 5378.114691460971
+  }
+}</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="13">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01GCUQYLWMR9W6sRoYs8Pvtj"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:04:07.138353+00:00">0:00:24</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Check for local ngspice and PDK availability</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>which ngspice xyce python3 2&gt;&amp;1; ngspice --version 2&gt;&amp;1 | head -5; ls / ; ls /opt /usr/local/share 2&gt;/dev/null; echo; env | grep -i -E &#x27;pdk|sky|spice&#x27; 2&gt;/dev/null</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01GCUQYLWMR9W6sRoYs8Pvtj"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:04:07.191161+00:00">0:00:24</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>which: no ngspice in (/usr/local/bin:/usr/bin:/bin)
+which: no xyce in (/usr/local/bin:/usr/bin:/bin)
+/usr/bin/python3
+/bin/bash: line 1: ngspice: command not found
+bin
+dev
+etc
+home
+lib
+lib64
+opt
+proc
+run
+sbin
+tmp
+usr
+workspace
+/opt:
+claude
+empty-skills</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="14">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01PzLRZQekrneSbN1QeET3F6"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:12:09.784665+00:00">0:08:27</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Write probe netlist and validate it</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>mkdir -p /workspace/probe &amp;&amp; cd /workspace &amp;&amp; cat &gt; dut.spice &lt;&lt;&#x27;EOF&#x27;
+* probe: PMOS diode VIN-&gt;VOUT, NMOS diode fed by resistor
+.subckt DUT VIN VOUT VSS VREF
+XP1 VOUT VOUT VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.15 m=10
+R1 VIN A 50k
+XN1 A A VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 m=1
+.ends DUT
+EOF
+atb-client validate 2&gt;&amp;1 | head -40</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01PzLRZQekrneSbN1QeET3F6"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:12:09.872876+00:00">0:08:27</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;ok&quot;: true,
+  &quot;revision&quot;: &quot;dut-0ebad6de33550eb35ef1c162&quot;,
+  &quot;normalized_params&quot;: {
+    &quot;schema&quot;: &quot;atb-netlist-1&quot;,
+    &quot;status&quot;: &quot;VALID_NETLIST&quot;,
+    &quot;elements&quot;: [
+      {
+        &quot;kind&quot;: &quot;x&quot;,
+        &quot;nodes&quot;: [
+          &quot;vout&quot;,
+          &quot;vout&quot;,
+          &quot;vin&quot;,
+          &quot;vin&quot;
+        ],
+        &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+        &quot;w_um&quot;: 10.0,
+        &quot;l_um&quot;: 0.15,
+        &quot;w_native&quot;: 10.0,
+        &quot;l_native&quot;: 0.15
+      },
+      {
+        &quot;kind&quot;: &quot;x&quot;,
+        &quot;nodes&quot;: [
+          &quot;vout&quot;,
+          &quot;vout&quot;,
+          &quot;vin&quot;,
+          &quot;vin&quot;
+        ],
+        &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+        &quot;w_um&quot;: 10.0,
+        &quot;l_um&quot;: 0.15,
+        &quot;w_native&quot;: 10.0,
+        &quot;l_native&quot;: 0.15
+      },
+      {
+        &quot;kind&quot;: &quot;x&quot;,
+        &quot;nodes&quot;: [
+          &quot;vout&quot;,
+          &quot;vout&quot;,</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="15">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_012bzg5mzpn7HJcBVEuJ17EF"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:12:15.706844+00:00">0:08:33</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Run DC probe measurement at nominal corner</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>time atb-client measure --id p001 --analysis dc --pvt N &gt; probe/p001.json 2&gt;&amp;1; head -c 6000 probe/p001.json</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_012bzg5mzpn7HJcBVEuJ17EF"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:12:17.686645+00:00">0:08:35</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>real	0m1.948s
+user	0m0.040s
+sys	0m0.004s
+{
+  &quot;ok&quot;: true,
+  &quot;experiment_id&quot;: &quot;p001&quot;,
+  &quot;revision&quot;: &quot;dut-0ebad6de33550eb35ef1c162&quot;,
+  &quot;analysis&quot;: &quot;dc&quot;,
+  &quot;pvt&quot;: &quot;N&quot;,
+  &quot;cl&quot;: 2e-10,
+  &quot;fine&quot;: false,
+  &quot;category&quot;: &quot;exploration&quot;,
+  &quot;returncode&quot;: 0,
+  &quot;timed_out&quot;: false,
+  &quot;cases_reserved&quot;: 3,
+  &quot;solver_launches&quot;: 3,
+  &quot;elapsed_s&quot;: 1.8772921562194824,
+  &quot;cases&quot;: [
+    {
+      &quot;case_id&quot;: &quot;dc_low&quot;,
+      &quot;bench&quot;: &quot;dc_low&quot;,
+      &quot;condition&quot;: {
+        &quot;process&quot;: &quot;nominal&quot;,
+        &quot;vdd&quot;: 1.25,
+        &quot;temp&quot;: 27,
+        &quot;cl&quot;: 2e-10
+      },
+      &quot;solver_status&quot;: &quot;OK&quot;,
+      &quot;status&quot;: &quot;OK&quot;,
+      &quot;measurements&quot;: {
+        &quot;overhead_a&quot;: 1.1753397290948452e-05,
+        &quot;vref_abs_a&quot;: 0.0,
+        &quot;ground_a&quot;: 1.1753397290911174e-05,
+        &quot;dissipation_w&quot;: 3.0803024808324546e-05,
+        &quot;kcl_residual_a&quot;: 3.727792000866176e-17,
+        &quot;vout_v&quot;: 0.6055488722144591,
+        &quot;signed_port_currents_a&quot;: {
+          &quot;vin&quot;: 3.675339729094917e-05,
+          &quot;vref&quot;: 0.0,
+          &quot;vout&quot;: -2.5000000000000716e-05,
+          &quot;vss&quot;: -1.1753397290911174e-05
+        }
+      },
+      &quot;units&quot;: &quot;SI except dB and degrees&quot;,
+      &quot;solver_errors&quot;: [],
+      &quot;solver_warnings&quot;: []
+    },
+    {
+      &quot;case_id&quot;: &quot;dc_mid&quot;,
+      &quot;bench&quot;: &quot;dc_mid&quot;,
+      &quot;condition&quot;: {
+        &quot;process&quot;: &quot;nominal&quot;,
+        &quot;vdd&quot;: 1.25,
+        &quot;temp&quot;: 27,
+        &quot;cl&quot;: 2e-10
+      },
+      &quot;solver_status&quot;: &quot;OK&quot;,
+      &quot;status&quot;: &quot;OK&quot;,
+      &quot;measurements&quot;: {
+        &quot;overhead_a&quot;: 1.1753397291273536e-05,
+        &quot;vref_abs_a&quot;: 0.0,
+        &quot;ground_a&quot;: 1.1753397290921365e-05,
+        &quot;dissipation_w&quot;: 0.00021106827219740884,
+        &quot;kcl_residual_a&quot;: 3.5217088847992045e-16,
+        &quot;vout_v&quot;: 0.464493897666722,
+        &quot;signed_port_currents_a&quot;: {
+          &quot;vin&quot;: 0.0002617533972912703,
+          &quot;vref&quot;: 0.0,
+          &quot;vout&quot;: -0.00024999999999999675,
+          &quot;vss&quot;: -1.1753397290921365e-05
+        }
+      },
+      &quot;units&quot;: &quot;SI except dB and degrees&quot;,
+      &quot;solver_errors&quot;: [],
+      &quot;solver_warnings&quot;: []
+    },
+    {
+      &quot;case_id&quot;: &quot;dc_high&quot;,
+      &quot;bench&quot;: &quot;dc_high&quot;,
+      &quot;condition&quot;: {
+        &quot;process&quot;: &quot;nominal&quot;,
+        &quot;vdd&quot;: 1.25,
+        &quot;temp&quot;: 27,
+        &quot;cl&quot;: 2e-10
+      },
+      &quot;solver_status&quot;: &quot;OK&quot;,
+      &quot;status&quot;: &quot;OK&quot;,
+      &quot;measurements&quot;: {
+        &quot;overhead_a&quot;: 1.1753397290912172e-05,
+        &quot;vref_abs_a&quot;: 0.0,
+        &quot;ground_a&quot;: 1.1753397290891895e-05,
+        &quot;dissipation_w&quot;: 0.0009259843297324177,
+        &quot;kcl_residual_a&quot;: 2.027627469137344e-17,
+        &quot;vout_v&quot;: 0.33870741688121686,
+        &quot;signed_port_currents_a&quot;: {
+          &quot;vin&quot;: 0.0010117533972909061,
+          &quot;vref&quot;: 0.0,
+          &quot;vout&quot;: -0.000999999999999994,
+          &quot;vss&quot;: -1.1753397290891895e-05
+        }
+      },
+      &quot;units&quot;: &quot;SI except dB and degrees&quot;,
+      &quot;solver_errors&quot;: [],
+      &quot;solver_warnings&quot;: []
+    }
+  ],
+  &quot;summary&quot;: {
+    &quot;condition&quot;: {
+      &quot;process&quot;: &quot;nominal&quot;,
+      &quot;vdd&quot;: 1.25,
+      &quot;temp&quot;: 27
+    },
+    &quot;params&quot;: {
+      &quot;schema&quot;: &quot;atb-netlist-1&quot;,
+      &quot;status&quot;: &quot;VALID_NETLIST&quot;,
+      &quot;elements&quot;: [
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.15
+        },
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.15
+        },
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.15
+        },
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.15
+        },
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.15
+        },
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.15
+        },
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.15
+        },
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.15
+        },
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.15
+        },
+        {
+          &quot;kind&quot;: &quot;x&quot;,
+          &quot;nodes&quot;: [
+            &quot;vout&quot;,
+            &quot;vout&quot;,
+            &quot;vin&quot;,
+            &quot;vin&quot;
+          ],
+          &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+          &quot;w_um&quot;: 10.0,
+          &quot;l_um&quot;: 0.15,
+          &quot;w_native&quot;: 10.0,
+          &quot;l_native&quot;: 0.1</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="16">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01DP4BU4oSSYfCz9ZdeMuHup"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:12:42.098839+00:00">0:08:59</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Run three device probes across all PVT corners and summarize</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cat &gt; runall.sh &lt;&lt;&#x27;EOF&#x27;
+#!/bin/bash
+# usage: runall.sh netlist prefix analysis [cl] [pvts...]
+NET=$1; PFX=$2; AN=$3; CL=${4:-2e-10}; shift 4
+PVTS=${@:-&quot;N SLC SLH SHC SHH FLC FLH FHC FHH&quot;}
+cp &quot;$NET&quot; /workspace/dut.spice
+mkdir -p /workspace/res
+for p in $PVTS; do
+  atb-client measure --id ${PFX}_${p}_${CL} --analysis $AN --pvt $p --cl $CL &gt; /workspace/res/${PFX}_${p}_${CL}.json 2&gt;&amp;1 &amp;
+  sleep 0.3
+done
+wait
+EOF
+chmod +x runall.sh
+cp dut.spice probe/pA.spice
+cat &gt; probe/pB.spice &lt;&lt;&#x27;EOF&#x27;
+.subckt DUT VIN VOUT VSS VREF
+XP1 VOUT VOUT VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=20
+R1 VIN A 200k
+XN1 A A VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 m=4
+.ends DUT
+EOF
+cat &gt; probe/pC.spice &lt;&lt;&#x27;EOF&#x27;
+.subckt DUT VIN VOUT VSS VREF
+XP1 VOUT VOUT VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=10
+R1 VIN A 100k
+XN1 A A VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.15 m=1
+.ends DUT
+EOF
+for x in A B C; do ./runall.sh probe/p$x.spice p$x dc 2e-10; done
+python3 - &lt;&lt;&#x27;EOF&#x27;
+import json,glob
+R={&#x27;A&#x27;:50e3,&#x27;B&#x27;:200e3,&#x27;C&#x27;:100e3}
+for x in &#x27;ABC&#x27;:
+    print(&#x27;probe&#x27;,x)
+    for p in &quot;N SLC SLH SHC SHH FLC FLH FHC FHH&quot;.split():
+        try:
+            d=json.load(open(f&#x27;res/p{x}_{p}_2e-10.json&#x27;))
+        except Exception as e:
+            print(p,&#x27;ERR&#x27;,e); continue
+        if not d.get(&#x27;ok&#x27;): print(p,d); continue
+        row=[]
+        for c in d[&#x27;cases&#x27;]:
+            m=c[&#x27;measurements&#x27;]; vdd=c[&#x27;condition&#x27;][&#x27;vdd&#x27;]
+            vsg=vdd-m[&#x27;vout_v&#x27;]; ig=m[&#x27;ground_a&#x27;]; vgs=vdd-ig*R[x]
+            row.append(f&quot;Vsg={vsg:.3f}&quot;)
+        print(f&quot;{p:4s} vdd={vdd} &quot;+&#x27; &#x27;.join(row)+f&quot;  NMOS Vgs={vgs:.3f}@{ig*1e6:.1f}uA&quot;)
+EOF</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01DP4BU4oSSYfCz9ZdeMuHup"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:13:34.763956+00:00">0:09:52</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>Exit code 1
+probe A
+N    vdd=1.25 Vsg=0.644 Vsg=0.786 Vsg=0.911  NMOS Vgs=0.662@11.8uA
+SLC  vdd=1.15 Vsg=0.820 Vsg=0.945 Vsg=1.060  NMOS Vgs=0.690@9.2uA
+SLH  vdd=1.15 Vsg=0.576 Vsg=0.745 Vsg=0.889  NMOS Vgs=0.641@10.2uA
+SHC  vdd=1.35 Vsg=0.820 Vsg=0.945 Vsg=1.060  NMOS Vgs=0.708@12.8uA
+SHH  vdd=1.35 Vsg=0.576 Vsg=0.745 Vsg=0.889  NMOS Vgs=0.662@13.8uA
+FLC  vdd=1.15 Vsg=0.679 Vsg=0.796 Vsg=0.906  NMOS Vgs=0.661@9.8uA
+FLH  vdd=1.15 Vsg=0.429 Vsg=0.589 Vsg=0.732  NMOS Vgs=0.612@10.8uA
+FHC  vdd=1.35 Vsg=0.679 Vsg=0.796 Vsg=0.906  NMOS Vgs=0.679@13.4uA
+FHH  vdd=1.35 Vsg=0.429 Vsg=0.589 Vsg=0.732  NMOS Vgs=0.632@14.4uA
+probe B
+N    vdd=1.25 Vsg=0.468 Vsg=0.608 Vsg=0.688  NMOS Vgs=0.534@3.6uA
+SLC  vdd=1.15 Vsg=0.667 Vsg=0.789 Vsg=0.859  NMOS Vgs=0.584@2.8uA
+SLH  vdd=1.15 Vsg=0.368 Vsg=0.530 Vsg=0.627  NMOS Vgs=0.498@3.3uA
+SHC  vdd=1.35 Vsg=0.667 Vsg=0.789 Vsg=0.859  NMOS Vgs=0.595@3.8uA
+SHH  vdd=1.35 Vsg=0.368 Vsg=0.530 Vsg=0.627  NMOS Vgs=0.511@4.2uA
+FLC  vdd=1.15 Vsg=0.537 Vsg=0.651 Vsg=0.716  NMOS Vgs=0.552@3.0uA
+FLH  vdd=1.15 Vsg=0.230 Vsg=0.388 Vsg=0.479  NMOS Vgs=0.466@3.4uA
+FHC  vdd=1.35 Vsg=0.537 Vsg=0.651 Vsg=0.716  NMOS Vgs=0.562@3.9uA
+FHH  vdd=1.35 Vsg=0.230 Vsg=0.388 Vsg=0.479  NMOS Vgs=0.478@4.4uA
+probe C
+N    vdd=1.25 Vsg=0.851 Vsg=0.984 Vsg=1.076  NMOS Vgs=0.594@6.6uA
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 14, in &lt;module&gt;
+KeyError: &#x27;vout_v&#x27;</code></pre><p class="action-description">Outcome: error</p></div></article>
+</div>
+<div class="turn-group" data-turn="17">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_013PUNbD6minCmktcGs8Z7zL"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:13:44.982081+00:00">0:10:02</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Summarize probe C results with failure handling</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>python3 - &lt;&lt;&#x27;EOF&#x27;
+import json
+R={&#x27;C&#x27;:100e3}
+for x in &#x27;C&#x27;:
+    for p in &quot;N SLC SLH SHC SHH FLC FLH FHC FHH&quot;.split():
+        d=json.load(open(f&#x27;res/p{x}_{p}_2e-10.json&#x27;))
+        row=[]
+        for c in d[&#x27;cases&#x27;]:
+            m=c[&#x27;measurements&#x27;]; vdd=c[&#x27;condition&#x27;][&#x27;vdd&#x27;]
+            if &#x27;vout_v&#x27; in m:
+                row.append(f&quot;Vsg={vdd-m[&#x27;vout_v&#x27;]:.3f}&quot;)
+            else:
+                row.append(f&quot;{c[&#x27;status&#x27;]}:{list(m.keys())[:4]}&quot;)
+            ig=m.get(&#x27;ground_a&#x27;,float(&#x27;nan&#x27;))
+        print(f&quot;{p:4s} vdd={vdd} &quot;+&#x27; &#x27;.join(row)+f&quot;  NMOS Vgs={vdd-ig*R[x]:.3f}@{ig*1e6:.1f}uA&quot;)
+EOF</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_013PUNbD6minCmktcGs8Z7zL"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:13:45.012715+00:00">0:10:02</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>N    vdd=1.25 Vsg=0.851 Vsg=0.984 Vsg=1.076  NMOS Vgs=0.594@6.6uA
+SLC  vdd=1.15 Vsg=0.973 Vsg=1.089 MEASUREMENT_FAILURE:[&#x27;status&#x27;, &#x27;reason&#x27;]  NMOS Vgs=nan@nanuA
+SLH  vdd=1.15 Vsg=0.743 Vsg=0.890 Vsg=0.994  NMOS Vgs=0.580@5.7uA
+SHC  vdd=1.35 Vsg=0.973 Vsg=1.089 Vsg=1.169  NMOS Vgs=0.668@6.8uA
+SHH  vdd=1.35 Vsg=0.743 Vsg=0.890 Vsg=0.994  NMOS Vgs=0.594@7.6uA
+FLC  vdd=1.15 Vsg=0.942 Vsg=1.058 Vsg=1.138  NMOS Vgs=0.589@5.6uA
+FLH  vdd=1.15 Vsg=0.711 Vsg=0.858 Vsg=0.961  NMOS Vgs=0.516@6.3uA
+FHC  vdd=1.35 Vsg=0.942 Vsg=1.058 Vsg=1.138  NMOS Vgs=0.601@7.5uA
+FHH  vdd=1.35 Vsg=0.711 Vsg=0.858 Vsg=0.961  NMOS Vgs=0.529@8.2uA</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="18">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_011sSeSAfU4QzGcMJhq9Dwrj"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:23:30.441801+00:00">0:19:48</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Check remaining model-time budget</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>atb-client status | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(d[&#x27;remaining_seconds&#x27;], d[&#x27;model_time_budget&#x27;][&#x27;used_seconds&#x27;])&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_011sSeSAfU4QzGcMJhq9Dwrj"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:23:30.515846+00:00">0:19:48</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>4268.297419977025 1131.7025800229749</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="19">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01BmZerJqKzdzp4wc8s483AC"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:26:21.165041+00:00">0:22:38</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Write v1 LDO netlist, validate, and run nominal measurement</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>mkdir -p /workspace/d &amp;&amp; cd /workspace &amp;&amp; cat &gt; d/v1.spice &lt;&lt;&#x27;EOF&#x27;
+* LDO v1: NMOS-input OTA with resistive VIN-referenced level shift, PI comp, mirror-driven PMOS pass
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=20
+XMD VG VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=2
+XM2 VG X VSS VSS sky130_fd_pr__nfet_01v8 W=30 L=0.15 m=1
+RZ X XZ 29k
+CZ XZ VSS 11p
+RA VOUT FB 16.8k
+RB FB VSS 16.5k
+RT1 VIN RU 780k
+RB1 RU VREF 420k
+CR RU VSS 1p
+RT2 VIN FU 780k
+RB2 FU FB 420k
+CAC VOUT FU 2p
+XN1 D1 RU T VSS sky130_fd_pr__nfet_01v8 W=20 L=0.5 m=2
+XN2 X FU T VSS sky130_fd_pr__nfet_01v8 W=20 L=0.5 m=2
+XP1 D1 D1 VIN VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XP2 X D1 VIN VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XNT T NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 m=1
+RBIAS VIN NB 300k
+.ends DUT
+EOF
+cp d/v1.spice dut.spice &amp;&amp; atb-client validate | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(d.get(&#x27;ok&#x27;), d.get(&#x27;normalized_params&#x27;,{}).get(&#x27;status&#x27;), {k:v for k,v in d.items() if k not in (&#x27;normalized_params&#x27;,)})&quot; 
+time atb-client measure --id v1_N_2 --analysis nominal --pvt N --cl 2e-10 &gt; res/v1_N_2e-10.json 2&gt;&amp;1
+python3 -c &quot;
+import json; d=json.load(open(&#x27;res/v1_N_2e-10.json&#x27;))
+for c in d[&#x27;cases&#x27;]:
+    print(c[&#x27;case_id&#x27;], c[&#x27;status&#x27;], json.dumps(c[&#x27;measurements&#x27;])[:1500])
+print(json.dumps(d.get(&#x27;summary&#x27;,{}).get(&#x27;verdicts&#x27;, d.get(&#x27;summary&#x27;,{}).keys() if isinstance(d.get(&#x27;summary&#x27;),dict) else &#x27;&#x27;))[:2000])
+&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01BmZerJqKzdzp4wc8s483AC"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:26:30.202565+00:00">0:22:47</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>Exit code 1
+True VALID_NETLIST {&#x27;ok&#x27;: True, &#x27;revision&#x27;: &#x27;dut-949e9058bbefab7378c6bb83&#x27;, &#x27;gate_area_um2&#x27;: 411.5}
+
+real	0m8.915s
+user	0m0.037s
+sys	0m0.007s
+Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 5, in &lt;module&gt;
+  File &quot;/usr/lib64/python3.9/json/__init__.py&quot;, line 231, in dumps
+    return _default_encoder.encode(obj)
+  File &quot;/usr/lib64/python3.9/json/encoder.py&quot;, line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File &quot;/usr/lib64/python3.9/json/encoder.py&quot;, line 257, in iterencode
+    return _iterencode(o, 0)
+  File &quot;/usr/lib64/python3.9/json/encoder.py&quot;, line 179, in default
+    raise TypeError(f&#x27;Object of type {o.__class__.__name__} &#x27;
+TypeError: Object of type dict_keys is not JSON serializable
+dc_low OK {&quot;overhead_a&quot;: 5.3048429041897303e-05, &quot;vref_abs_a&quot;: 6.249999999999999e-07, &quot;ground_a&quot;: 5.2423429034695184e-05, &quot;dissipation_w&quot;: 7.156778409735944e-05, &quot;kcl_residual_a&quot;: 7.202117862595975e-15, &quot;vout_v&quot;: 1.027210088198974, &quot;signed_port_currents_a&quot;: {&quot;vin&quot;: 7.804842904172749e-05, &quot;vref&quot;: -6.249999999999999e-07, &quot;vout&quot;: -2.4999999999830188e-05, &quot;vss&quot;: -5.2423429034695184e-05}}
+dc_mid OK {&quot;overhead_a&quot;: 0.0001059621049046932, &quot;vref_abs_a&quot;: 6.249999999999999e-07, &quot;ground_a&quot;: 0.0001053371048843074, &quot;dissipation_w&quot;: 0.00019525411933274433, &quot;kcl_residual_a&quot;: 2.0385819768375946e-14, &quot;vout_v&quot;: 0.9975440471919298, &quot;signed_port_currents_a&quot;: {&quot;vin&quot;: 0.00035596210490413966, &quot;vref&quot;: -6.249999999999999e-07, &quot;vout&quot;: -0.00024999999999944647, &quot;vss&quot;: -0.0001053371048843074}}
+dc_high OK {&quot;overhead_a&quot;: 0.00029472906561861956, &quot;vref_abs_a&quot;: 6.249999999999999e-07, &quot;ground_a&quot;: 0.000294104065608294, &quot;dissipation_w&quot;: 0.0006492369873156739, &quot;kcl_residual_a&quot;: 1.0325616230100199e-14, &quot;vout_v&quot;: 0.9688618447074047, &quot;signed_port_currents_a&quot;: {&quot;vin&quot;: 0.0012947290656179229, &quot;vref&quot;: -6.249999999999999e-07, &quot;vout&quot;: -0.0009999999999993033, &quot;vss&quot;: -0.000294104065608294}}
+light_heavy OK {&quot;overhead_a&quot;: 5.3048429041897303e-05, &quot;vref_abs_a&quot;: 6.249999999999999e-07, &quot;ground_a&quot;: 5.2423429034695184e-05, &quot;dissipation_w&quot;: 7.156778409735944e-05, &quot;kcl_residual_a&quot;: 7.202117862595975e-15, &quot;vout_v&quot;: 1.027210088198974, &quot;signed_port_currents_a&quot;: {&quot;vin&quot;: 7.804842904172749e-05, &quot;vref&quot;: -6.249999999999999e-07, &quot;vout&quot;: -2.4999999999830188e-05, &quot;vss&quot;: -5.2423429034695184e-05}, &quot;initial_hold&quot;: {&quot;min_v&quot;: 1.0272100881944062, &quot;max_v&quot;: 1.027210088198974, &quot;droop_v&quot;: 0, &quot;overshoot_v&quot;: 0.02721008819897408, &quot;peak_to_peak_v&quot;: 4.567901612517744e-12, &quot;recovery_s&quot;: 0.0, &quot;recovery_lower_bound_s&quot;: null}, &quot;envelope&quot;: {&quot;min_v&quot;: 0.9139377096294437, &quot;max_v&quot;: 1.051113260869503, &quot;droop_v&quot;: 0.08606229037055635, &quot;overshoot_v&quot;: 0.051113260869503074, &quot;peak_to_peak_v&quot;: 0.13717555124005942, &quot;recovery_s&quot;: 5.766022188933424e-06, &quot;recovery_lower_bound_s&quot;: null}, &quot;recovery_windows&quot;: [{&quot;min_v&quot;: 0.9139377096294437, &quot;max_v&quot;: 1.0272100881983728, &quot;droop_v&quot;: 0.08606229037055635, &quot;overshoot_v&quot;: 0.027210088198372784, &quot;peak_to_peak_v&quot;: 0.11327237856892913, &quot;recovery_s&quot;: null, &quot;recovery_lower_bound_s&quot;: 5.100000000000001e-06}, {&quot;min_v&quot;: 0.9687188790202311, &quot;max_v&quot;: 1.051113260869503, &quot;droop_v&quot;: 0.03128112097976887, &quot;overshoot_v&quot;: 0.051113260869503074, &quot;peak_to_peak_v&quot;: 0.08239438184927195, &quot;recovery_s&quot;: 6.660221889334232e-07, &quot;recovery_lower_bound_s&quot;: null}], &quot;profile&quot;: {&quot;points&quot;: [[0.0, 2.5e-05], [1e-06, 2.5e-05], [1.1e-06, 0.001], [6.100000000000001e-06, 0.001], [6.200000000000001e-06, 2.5e-05], [1.1200000000000001e-0
+mid_heavy OK {&quot;overhead_a&quot;: 5.3048429041897303e-05, &quot;vref_abs_a&quot;: 6.249999999999999e-07, &quot;ground_a&quot;: 5.2423429034695184e-05, &quot;dissipation_w&quot;: 7.156778409735944e-05, &quot;kcl_residual_a&quot;: 7.202117862595975e-15, &quot;vout_v&quot;: 1.027210088198974, &quot;signed_port_currents_a&quot;: {&quot;vin&quot;: 7.804842904172749e-05, &quot;vref&quot;: -6.249999999999999e-07, &quot;vout&quot;: -2.4999999999830188e-05, &quot;vss&quot;: -5.2423429034695184e-05}, &quot;initial_hold&quot;: {&quot;min_v&quot;: 0.9975440471918942, &quot;max_v&quot;: 0.9975440471946986, &quot;droop_v&quot;: 0.0024559528081058435, &quot;overshoot_v&quot;: 0, &quot;peak_to_peak_v&quot;: 2.8044233602031454e-12, &quot;recovery_s&quot;: 0.0, &quot;recovery_lower_bound_s&quot;: null}, &quot;envelope&quot;: {&quot;min_v&quot;: 0.9492276019087948, &quot;max_v&quot;: 1.0117675947630227, &quot;droop_v&quot;: 0.05077239809120515, &quot;overshoot_v&quot;: 0.011767594763022693, &quot;peak_to_peak_v&quot;: 0.06253999285422784, &quot;recovery_s&quot;: 5.108392468252206e-06, &quot;recovery_lower_bound_s&quot;: null}, &quot;recovery_windows&quot;: [{&quot;min_v&quot;: 0.9492276019087948, &quot;max_v&quot;: 0.9975440471942679, &quot;droop_v&quot;: 0.05077239809120515, &quot;overshoot_v&quot;: 0, &quot;peak_to_peak_v&quot;: 0.048316445285473075, &quot;recovery_s&quot;: null, &quot;recovery_lower_bound_s&quot;: 5.100000000000001e-06}, {&quot;min_v&quot;: 0.9688665533970674, &quot;max_v&quot;: 1.0117675947630227, &quot;droop_v&quot;: 0.031133446602932602, &quot;overshoot_v&quot;: 0.011767594763022693, &quot;peak_to_peak_v&quot;: 0.042901041365955295, &quot;recovery_s&quot;: 8.392468252204897e-09, &quot;recovery_lower_bound_s&quot;: null}], &quot;profile&quot;: {&quot;points&quot;: [[0.0, 0.00025], [1e-06, 0.00025], [1.1e-06, 0.001], [6.100000000000001e-06, 0.001], [6.200000000000001e-06, 0.00025], [1.1200000000000001e-05, 0.00025
+burst OK {&quot;overhead_a&quot;: 5.3048429041897303e-05, &quot;vref_abs_a&quot;: 6.249999999999999e-07, &quot;ground_a&quot;: 5.2423429034695184e-05, &quot;dissipation_w&quot;: 7.156778409735944e-05, &quot;kcl_residual_a&quot;: 7.202117862595975e-15, &quot;vout_v&quot;: 1.027210088198974, &quot;signed_port_currents_a&quot;: {&quot;vin&quot;: 7.804842904172749e-05, &quot;vref&quot;: -6.249999999999999e-07, &quot;vout&quot;: -2.4999999999830188e-05, &quot;vss&quot;: -5.2423429034695184e-05}, &quot;initial_hold&quot;: {&quot;min_v&quot;: 1.0272100881944062, &quot;max_v&quot;: 1.027210088198974, &quot;droop_v&quot;: 0, &quot;overshoot_v&quot;: 0.02721008819897408, &quot;peak_to_peak_v&quot;: 4.567901612517744e-12, &quot;recovery_s&quot;: 0.0, &quot;recovery_lower_bound_s&quot;: null}, &quot;envelope&quot;: {&quot;min_v&quot;: 0.9139377096294437, &quot;max_v&quot;: 1.0442219406953224, &quot;droop_v&quot;: 0.08606229037055635, &quot;overshoot_v&quot;: 0.04422194069532237, &quot;peak_to_peak_v&quot;: 0.13028423106587872, &quot;recovery_s&quot;: 9.507315287948284e-06, &quot;recovery_lower_bound_s&quot;: null}, &quot;recovery_windows&quot;: [{&quot;min_v&quot;: 0.9558657079099542, &quot;max_v&quot;: 1.0411669948108668, &quot;droop_v&quot;: 0.044134292090045824, &quot;overshoot_v&quot;: 0.04116699481086683, &quot;peak_to_peak_v&quot;: 0.08530128690091265, &quot;recovery_s&quot;: 5.073152879482799e-07, &quot;recovery_lower_bound_s&quot;: null}], &quot;profile&quot;: {&quot;points&quot;: [[0.0, 2.5e-05], [1e-06, 2.5e-05], [1.1e-06, 0.001], [1.6e-06, 0.001], [1.6999999999999998e-06, 2.5e-05], [2.1999999999999997e-06, 2.5e-05], [2.2999999999999996e-06, 0.001], [2.7999999999999994e-06, 0.001], [2.8999999999999993e-06, 2.5e-05], [3.399999999999999e-06, 2.5e-05], [3.499999999999999e-06, 0.001], [3.999999999999999e-06, 0.001], [4.099999999999999e-06, 2.5e-05], [4.</code></pre><p class="action-description">Outcome: error</p></div></article>
+</div>
+<div class="turn-group" data-turn="20">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01Ftc2MZUt9KUECuWLT4r9Rc"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:29:52.655285+00:00">0:26:10</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Generate v2 variants, run nominal measurements, summarize</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cat &gt; gen2.py &lt;&lt;&#x27;EOF&#x27;
+import sys
+def net(RZ=&#x27;28k&#x27;, CZ=&#x27;10p&#x27;, MDW=80, M2W=30, CAC=&#x27;3p&#x27;, RA=&#x27;16.8k&#x27;, RB=&#x27;16.5k&#x27;, MPM=20, RSB=&#x27;25k&#x27;, RBIAS=&#x27;300k&#x27;, extra=&#x27;&#x27;):
+    return f&quot;&quot;&quot;* LDO v2
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m={MPM}
+XMD VG VG VIN VIN sky130_fd_pr__pfet_01v8 W={MDW} L=0.15 m=1
+XM2 VG X VSS VSS sky130_fd_pr__nfet_01v8 W={M2W} L=0.15 m=1
+RZ X XZ {RZ}
+CZ XZ VSS {CZ}
+RA VOUT FB {RA}
+RB FB VSS {RB}
+RT1 VIN RU 780k
+RB1 RU VREF 420k
+CR RU VSS 1p
+RT2 VIN FU 780k
+RB2 FU FB 420k
+CAC VOUT FU {CAC}
+XN1 B RU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XN2 X FU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XP1 C1 A VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1
+XP1C A B C1 VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1
+RSB A B {RSB}
+XP2 C2 A VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1
+XP2C X B C2 VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1
+XNT T NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 m=1
+RBIAS VIN NB {RBIAS}
+{extra}
+.ends DUT
+&quot;&quot;&quot;
+if __name__==&#x27;__main__&#x27;:
+    kw=dict(a.split(&#x27;=&#x27;,1) for a in sys.argv[2:])
+    open(sys.argv[1],&#x27;w&#x27;).write(net(**kw))
+EOF
+cat &gt; summ.py &lt;&lt;&#x27;EOF&#x27;
+import json,sys,glob,os
+lim_dc=0.03; lim_tr=0.08; lim_rec=5e-6
+def summ(f):
+    try: d=json.load(open(f))
+    except Exception as e: return f&quot;{os.path.basename(f)} ERR {e}&quot;
+    if not d.get(&#x27;ok&#x27;): return f&quot;{os.path.basename(f)} NOTOK {str(d)[:300]}&quot;
+    out=[]; fails=[]
+    for c in d[&#x27;cases&#x27;]:
+        m=c[&#x27;measurements&#x27;]; cid=c[&#x27;case_id&#x27;]
+        if c[&#x27;status&#x27;]!=&#x27;OK&#x27;: out.append(f&quot;{cid}:{c[&#x27;status&#x27;]}&quot;); fails.append(cid); continue
+        if cid.startswith(&#x27;dc_&#x27;):
+            v=m[&#x27;vout_v&#x27;]; oh=m[&#x27;overhead_a&#x27;]
+            out.append(f&quot;{cid[3:]}:{v:.4f}/{oh*1e6:.0f}uA&quot;)
+            if abs(v-1)&gt;lim_dc: fails.append(cid+&#x27;V&#x27;)
+            if oh&gt;2e-4 or (cid==&#x27;dc_low&#x27; and oh&gt;1e-4): fails.append(cid+&#x27;I&#x27;)
+        else:
+            e=m[&#x27;envelope&#x27;]; mn=e[&#x27;min_v&#x27;]; mx=e[&#x27;max_v&#x27;]
+            recs=[(w[&#x27;recovery_s&#x27;],w[&#x27;recovery_lower_bound_s&#x27;]) for w in m[&#x27;recovery_windows&#x27;]]
+            rs=&#x27;,&#x27;.join(f&quot;{r*1e6:.2f}&quot; if r is not None else f&quot;&gt;{lb*1e6:.1f}&quot; for r,lb in recs)
+            out.append(f&quot;{cid}:[{mn:.3f},{mx:.3f}] rec({rs})&quot;)
+            if 1-mn&gt;lim_tr or mx-1&gt;lim_tr: fails.append(cid+&#x27;T&#x27;)
+            for r,lb in recs:
+                if r is None or r&gt;lim_rec: fails.append(cid+&#x27;R&#x27;)
+    return f&quot;{os.path.basename(f)[:-5]:22s} {&#x27;PASS&#x27; if not fails else &#x27;FAIL&#x27;+str(fails)}\n   &quot;+&#x27; &#x27;.join(out)
+for pat in sys.argv[1:]:
+    for f in sorted(glob.glob(pat)):
+        print(summ(f))
+EOF
+cat &gt; runv.sh &lt;&lt;&#x27;EOF&#x27;
+#!/bin/bash
+# usage: runv.sh netlist tag analysis &quot;pvts&quot; &quot;cls&quot;
+NET=$1; TAG=$2; AN=$3; PVTS=$4; CLS=$5
+cp &quot;$NET&quot; /workspace/dut.spice
+for p in $PVTS; do for cl in $CLS; do
+  atb-client measure --id ${TAG}_${AN}_${p}_${cl} --analysis $AN --pvt $p --cl $cl &gt; /workspace/res/${TAG}_${AN}_${p}_${cl}.json 2&gt;&amp;1 &amp;
+  sleep 0.5
+done; done
+sleep 2
+EOF
+chmod +x runv.sh
+python3 gen2.py d/v2a.spice RZ=28k
+python3 gen2.py d/v2b.spice RZ=40k
+cp d/v2a.spice dut.spice; atb-client validate | head -c 300; echo
+./runv.sh d/v2a.spice v2a nominal &quot;N&quot; &quot;2e-10 5e-10&quot;
+./runv.sh d/v2b.spice v2b nominal &quot;N&quot; &quot;2e-10 5e-10&quot;
+wait; sleep 15; while pgrep -f &quot;atb-client measure&quot; &gt;/dev/null; do sleep 2; done
+python3 summ.py &#x27;res/v2*_nominal_*.json&#x27;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01Ftc2MZUt9KUECuWLT4r9Rc"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:39:53.202998+00:00">0:36:10</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>Command did not complete within its 600s timeout and was moved to the background (ID: bbozcaiuk). Output is being written to: /tmp/claude-1001/-workspace/de0933ed-1d8d-4bff-825a-9e3c01dba5cd/tasks/bbozcaiuk.output. You will be notified when it completes. To check interim output, use Read on that file path.</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="21">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01LG9Q2hvYyd2uaQBCykStYp"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:39:57.038250+00:00">0:36:14</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Check background job output and running processes</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cat /tmp/claude-1001/-workspace/de0933ed-1d8d-4bff-825a-9e3c01dba5cd/tasks/bbozcaiuk.output | head -20; ls -la /workspace/res/ | grep v2; pgrep -af &quot;atb-client&quot; | head</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01LG9Q2hvYyd2uaQBCykStYp"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:39:57.079007+00:00">0:36:14</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;ok&quot;: true,
+  &quot;revision&quot;: &quot;dut-8fcb8962d7275abcc781b501&quot;,
+  &quot;normalized_params&quot;: {
+    &quot;schema&quot;: &quot;atb-netlist-1&quot;,
+    &quot;status&quot;: &quot;VALID_NETLIST&quot;,
+    &quot;elements&quot;: [
+      {
+        &quot;kind&quot;: &quot;x&quot;,
+        &quot;nodes&quot;: [
+          &quot;vout&quot;,
+          &quot;atb_n0&quot;,
+          &quot;vin&quot;,
+          &quot;vin&quot;
+        ],
+   Exception ignored in: &lt;_io.TextIOWrapper name=&#x27;&lt;stdout&gt;&#x27; mode=&#x27;w&#x27; encoding=&#x27;utf-8&#x27;&gt;
+BrokenPipeError: [Errno 32] Broken pipe
+
+-rw-r--r--. 1 admin admin 36702 Oct  6 12:30 v2a_nominal_N_2e-10.json
+-rw-r--r--. 1 admin admin 36712 Oct  6 12:30 v2a_nominal_N_5e-10.json
+-rw-r--r--. 1 admin admin 36668 Oct  6 12:30 v2b_nominal_N_2e-10.json
+-rw-r--r--. 1 admin admin 36674 Oct  6 12:30 v2b_nominal_N_5e-10.json
+1 bwrap --die-with-parent --new-session --unshare-pid --unshare-ipc --unshare-uts --cap-drop ALL --ro-bind /usr /usr --tmpfs /usr/local --symlink usr/bin /bin --symlink usr/sbin /sbin --proc /proc --dev /dev --tmpfs /tmp --tmpfs /home --dir /home/admin/.codex --dir /home/admin/.claude --dir /home/admin/.gemini/antigravity-cli --dir /home/admin/.gemini/config/agents --dir /opt/empty-skills --dir /etc --dir /opt --dir /run --ro-bind /lib /lib --ro-bind /lib64 /lib64 --ro-bind /etc/resolv.conf /etc/resolv.conf --ro-bind /etc/hosts /etc/hosts --ro-bind /etc/nsswitch.conf /etc/nsswitch.conf --ro-bind /etc/passwd /etc/passwd --ro-bind /etc/group /etc/group --ro-bind /etc/ssl /etc/ssl --ro-bind /etc/pki /etc/pki --ro-bind /etc/ld.so.cache /etc/ld.so.cache --ro-bind /etc/localtime /etc/localtime --bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace /workspace --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace/TASK.md /workspace/TASK.md --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace/conditions.json /workspace/conditions.json --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace/measurement.md /workspace/measurement.md --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace/devices.md /workspace/devices.md --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace/CLIENT.md /workspace/CLIENT.md --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace/spec.json /workspace/spec.json --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace/task.json /workspace/task.json --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace/AGENTS.md /workspace/AGENTS.md --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/workspace/CLAUDE.md /workspace/CLAUDE.md --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/broker /run/atb --ro-bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/tools/atb_client.py /usr/local/bin/atb-client --bind /home/admin/projects/analog-trace-bench-design-time/runs/attempts/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/runs/campaigns/ldo-low-voltage-sky130-opus-r3-20261005-model-time-add2/opus-03/runtime/auth /home/admin/.claude --ro-bind /home/admin/.local/share/claude/versions/2.1.283 /opt/claude --chdir /workspace --remount-ro / -- /opt/claude --print --model claude-opus-5-5 --effort max --output-format stream-json --verbose --include-partial-messages --setting-sources  --strict-mcp-config --mcp-config {&quot;mcpServers&quot;:{}} --disable-slash-commands --no-chrome --no-session-persistence --permission-mode dontAsk --tools Bash,Read,Write,Edit,Glob,Grep --allowedTools Bash,Read,Write,Edit,Glob,Grep
+399 /bin/bash -c source /home/admin/.claude/shell-snapshots/snapshot-bash-1791255826333-1wrngi.sh 2&gt;/dev/null || true &amp;&amp; shopt -u extglob 2&gt;/dev/null || true &amp;&amp; { \builtin unalias -- &#x27;unsetenv&#x27;; \builtin unset -f -- &#x27;unsetenv&#x27;; } &gt;/dev/null 2&gt;&amp;1 || true &amp;&amp; eval &#x27;cat &gt; gen2.py &lt;&lt;&#x27;&quot;&#x27;&quot;&#x27;EOF&#x27;&quot;&#x27;&quot;&#x27; import sys def net(RZ=&#x27;&quot;&#x27;&quot;&#x27;28k&#x27;&quot;&#x27;&quot;&#x27;, CZ=&#x27;&quot;&#x27;&quot;&#x27;10p&#x27;&quot;&#x27;&quot;&#x27;, MDW=80, M2W=30, CAC=&#x27;&quot;&#x27;&quot;&#x27;3p&#x27;&quot;&#x27;&quot;&#x27;, RA=&#x27;&quot;&#x27;&quot;&#x27;16.8k&#x27;&quot;&#x27;&quot;&#x27;, RB=&#x27;&quot;&#x27;&quot;&#x27;16.5k&#x27;&quot;&#x27;&quot;&#x27;, MPM=20, RSB=&#x27;&quot;&#x27;&quot;&#x27;25k&#x27;&quot;&#x27;&quot;&#x27;, RBIAS=&#x27;&quot;&#x27;&quot;&#x27;300k&#x27;&quot;&#x27;&quot;&#x27;, extra=&#x27;&quot;&#x27;&quot;&#x27;&#x27;&quot;&#x27;&quot;&#x27;):     return f&quot;&quot;&quot;* LDO v2 .subckt DUT VIN VOUT VSS VREF XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m={MPM} XMD VG VG VIN VIN sky130_fd_pr__pfet_01v8 W={MDW} L=0.15 m=1 XM2 VG X VSS VSS sky130_fd_pr__nfet_01v8 W={M2W} L=0.15 m=1 RZ X XZ {RZ} CZ XZ VSS {CZ} RA VOUT FB {RA} RB FB VSS {RB} RT1 VIN RU 780k RB1 RU VREF 420k CR RU VSS 1p RT2 VIN FU 780k RB2 FU FB 420k CAC VOUT FU {CAC} XN1 B RU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1 XN2 X FU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1 XP1 C1 A VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1 XP1C A B C1 VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1 RSB A B {RSB} XP2 C2 A VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1 XP2C X B C2 VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1 XNT T NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1 XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 m=1 RBIAS VIN NB {RBIAS} {extra} .ends DUT &quot;&quot;&quot; if __name__==&#x27;&quot;&#x27;&quot;&#x27;__main__&#x27;&quot;&#x27;&quot;&#x27;:     kw=dict(a.split(&#x27;&quot;&#x27;&quot;&#x27;=&#x27;&quot;&#x27;&quot;&#x27;,1) for a in sys.argv[2:])     open(sys.argv[1],&#x27;&quot;&#x27;&quot;&#x27;w&#x27;&quot;&#x27;&quot;&#x27;).write(net(**kw)) EOF cat &gt; summ.py &lt;&lt;&#x27;&quot;&#x27;&quot;&#x27;EOF&#x27;&quot;&#x27;&quot;&#x27; import json,sys,glob,os lim_dc=0.03; lim_tr=0.08; lim_rec=5e-6 def summ(f):     try: d=json.load(open(f))     except Exception as e: return f&quot;{os.path.basename(f)} ERR {e}&quot;     if not d.get(&#x27;&quot;&#x27;&quot;&#x27;ok&#x27;&quot;&#x27;&quot;&#x27;): return f&quot;{os.path.basename(f)} NOTOK {str(d)[:300]}&quot;     out=[]; fails=[]     for c in d[&#x27;&quot;&#x27;&quot;&#x27;cases&#x27;&quot;&#x27;&quot;&#x27;]:         m=c[&#x27;&quot;&#x27;&quot;&#x27;measurements&#x27;&quot;&#x27;&quot;&#x27;]; cid=c[&#x27;&quot;&#x27;&quot;&#x27;case_id&#x27;&quot;&#x27;&quot;&#x27;]         if c[&#x27;&quot;&#x27;&quot;&#x27;status&#x27;&quot;&#x27;&quot;&#x27;]!=&#x27;&quot;&#x27;&quot;&#x27;OK&#x27;&quot;&#x27;&quot;&#x27;: out.append(f&quot;{cid}:{c[&#x27;&quot;&#x27;&quot;&#x27;status&#x27;&quot;&#x27;&quot;&#x27;]}&quot;); fails.append(cid); continue         if cid.startswith(&#x27;&quot;&#x27;&quot;&#x27;dc_&#x27;&quot;&#x27;&quot;&#x27;):             v=m[&#x27;&quot;&#x27;&quot;&#x27;vout_v&#x27;&quot;&#x27;&quot;&#x27;]; oh=m[&#x27;&quot;&#x27;&quot;&#x27;overhead_a&#x27;&quot;&#x27;&quot;&#x27;]             out.append(f&quot;{cid[3:]}:{v:.4f}/{oh*1e6:.0f}uA&quot;)             if abs(v-1)&gt;lim_dc: fails.append(cid+&#x27;&quot;&#x27;&quot;&#x27;V&#x27;&quot;&#x27;&quot;&#x27;)             if oh&gt;2e-4 or (cid==&#x27;&quot;&#x27;&quot;&#x27;dc_low&#x27;&quot;&#x27;&quot;&#x27; and oh&gt;1e-4): fails.append(cid+&#x27;&quot;&#x27;&quot;&#x27;I&#x27;&quot;&#x27;&quot;&#x27;)         else:             e=m[&#x27;&quot;&#x27;&quot;&#x27;envelope&#x27;&quot;&#x27;&quot;&#x27;]; mn=e[&#x27;&quot;&#x27;&quot;&#x27;min_v&#x27;&quot;&#x27;&quot;&#x27;]; mx=e[&#x27;&quot;&#x27;&quot;&#x27;max_v&#x27;&quot;&#x27;&quot;&#x27;]             recs=[(w[&#x27;&quot;&#x27;&quot;&#x27;recovery_s&#x27;&quot;&#x27;&quot;&#x27;],w[&#x27;&quot;&#x27;&quot;&#x27;recovery_lower_bound_s&#x27;&quot;&#x27;&quot;&#x27;]) for w in m[&#x27;&quot;&#x27;&quot;&#x27;recovery_windows&#x27;&quot;&#x27;&quot;&#x27;]]             rs=&#x27;&quot;&#x27;&quot;&#x27;,&#x27;&quot;&#x27;&quot;&#x27;.join(f&quot;{r*1e6:.2f}&quot; if r is not None else f&quot;&gt;{lb*1e6:.1f}&quot; for r,lb in recs)             out.append(f&quot;{cid}:[{mn:.3f},{mx:.3f}] rec({rs})&quot;)             if 1-mn&gt;lim_tr or mx-1&gt;lim_tr: fails.append(cid+&#x27;&quot;&#x27;&quot;&#x27;T&#x27;&quot;&#x27;&quot;&#x27;)             for r,lb in recs:                 if r is None or r&gt;lim_rec: fails.append(cid+&#x27;&quot;&#x27;&quot;&#x27;R&#x27;&quot;&#x27;&quot;&#x27;)     return f&quot;{os.path.basename(f)[:-5]:22s} {&#x27;&quot;&#x27;&quot;&#x27;PASS&#x27;&quot;&#x27;&quot;&#x27; if not fails else &#x27;&quot;&#x27;&quot;&#x27;FAIL&#x27;&quot;&#x27;&quot;&#x27;+str(fails)}\n   &quot;+&#x27;&quot;&#x27;&quot;&#x27; &#x27;&quot;&#x27;&quot;&#x27;.join(out) for pat in sys.argv[1:]:     for f in sorted(glob.glob(pat)):         print(summ(f)) EOF cat &gt; runv.sh &lt;&lt;&#x27;&quot;&#x27;&quot;&#x27;EOF&#x27;&quot;&#x27;&quot;&#x27; #!/bin/bash # usage: runv.sh netlist tag analysis &quot;pvts&quot; &quot;cls&quot; NET=$1; TAG=$2; AN=$3; PVTS=$4; CLS=$5 cp &quot;$NET&quot; /workspace/dut.spice for p in $PVTS; do for cl in $CLS; do   atb-client measure --id ${TAG}_${AN}_${p}_${cl} --analysis $AN --pvt $p --cl $cl &gt; /workspace/res/${TAG}_${AN}_${p}_${cl}.json 2&gt;&amp;1 &amp;   sleep 0.5 done; done sleep 2 EOF chmod +x runv.sh python3 gen2.py d/v2a.spice RZ=28k python3 gen2.py d/v2b.spice RZ=40k cp d/v2a.spice dut.spice; atb-client validate | head -c 300; echo ./runv.sh d/v2a.spice v2a nominal &quot;N&quot; &quot;2e-10 5e-10&quot; ./runv.sh d/v2b.spice v2b nominal &quot;N&quot; &quot;2e-10 5e-10&quot; wait; sleep 15; while pgrep -f &quot;atb-client measure&quot; &gt;/dev/null; do sleep 2; done python3 summ.py &#x27;&quot;&#x27;&quot;&#x27;res/v2*_nominal_*.json&#x27;&quot;&#x27;&quot;&#x27;&#x27; &amp;&amp; pwd -P &gt;| /tmp/claude-dc2e-cwd
+1096 /bin/bash -c source /home/admin/.claude/shell-snapshots/snapshot-bash-1791255826333-1wrngi.sh 2&gt;/dev/null || true &amp;&amp; shopt -u extglob 2&gt;/dev/null || true &amp;&amp; { \builtin unalias -- &#x27;unsetenv&#x27;; \builtin unset -f -- &#x27;unsetenv&#x27;; } &gt;/dev/null 2&gt;&amp;1 || true &amp;&amp; eval &#x27;cat /tmp/claude-1001/-workspace/de0933ed-1d8d-4bff-825a-9e3c01dba5cd/tasks/bbozcaiuk.output | head -20; ls -la /workspace/res/ | grep v2; pgrep -af &quot;atb-client&quot; | head&#x27; &lt; /dev/null &amp;&amp; pwd -P &gt;| /tmp/claude-1bff-cwd</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="22">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-06T03:40:04.301Z">0:36:22</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>The results finished, but my wait loop was matching its own command line. I&#39;ll kill it and summarize directly.</p>
+</div><template class="model-source">The results finished, but my wait loop was matching its own command line. I&#x27;ll kill it and summarize directly.</template></div></article>
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01QEWc1wddhdDWRwb7z4TJPy"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:40:05.653419+00:00">0:36:23</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Kill stuck loop and summarize v2 results</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>pkill -f &quot;while pgrep&quot; ; kill 399 2&gt;/dev/null; cd /workspace &amp;&amp; python3 summ.py &#x27;res/v2*_nominal_*.json&#x27;; grep -o &#x27;&quot;revision&quot;: &quot;[^&quot;]*&quot;&#x27; res/v2a_nominal_N_2e-10.json | head -1; grep -o &#x27;&quot;revision&quot;: &quot;[^&quot;]*&quot;&#x27; res/v2b_nominal_N_2e-10.json | head -1</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01QEWc1wddhdDWRwb7z4TJPy"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:40:05.697084+00:00">0:36:23</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>Exit code 144</code></pre><p class="action-description">Outcome: error</p></div></article>
+</div>
+<div class="turn-group" data-turn="23">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01DF3U15rqiFFztCzrZCYBka"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:40:10.479173+00:00">0:36:28</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Summarize v2 nominal results</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>python3 summ.py &#x27;res/v2*_nominal_*.json&#x27;; grep -o &#x27;&quot;revision&quot;: &quot;[^&quot;]*&quot;&#x27; res/v2a_nominal_N_2e-10.json | head -1; grep -o &#x27;&quot;revision&quot;: &quot;[^&quot;]*&quot;&#x27; res/v2b_nominal_N_2e-10.json | head -1</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01DF3U15rqiFFztCzrZCYBka"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:40:10.562996+00:00">0:36:28</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>v2a_nominal_N_2e-10    PASS
+   low:1.0027/46uA mid:0.9981/67uA high:0.9938/149uA light_heavy:[0.929,1.062] rec(0.42,0.45) mid_heavy:[0.964,1.028] rec(0.16,0.00) burst:[0.929,1.052] rec(0.40)
+v2a_nominal_N_5e-10    PASS
+   low:1.0027/46uA mid:0.9981/67uA high:0.9938/149uA light_heavy:[0.928,1.051] rec(0.44,0.63) mid_heavy:[0.964,1.025] rec(0.18,0.00) burst:[0.924,1.041] rec(0.53)
+v2b_nominal_N_2e-10    PASS
+   low:1.0027/46uA mid:0.9981/67uA high:0.9938/149uA light_heavy:[0.948,1.047] rec(0.39,0.37) mid_heavy:[0.973,1.020] rec(0.00,0.00) burst:[0.948,1.038] rec(0.28)
+v2b_nominal_N_5e-10    PASS
+   low:1.0027/46uA mid:0.9981/67uA high:0.9938/149uA light_heavy:[0.947,1.039] rec(0.41,0.50) mid_heavy:[0.972,1.018] rec(0.00,0.00) burst:[0.947,1.030] rec(0.29)
+&quot;revision&quot;: &quot;dut-8fcb8962d7275abcc781b501&quot;
+&quot;revision&quot;: &quot;dut-a76c826139e97f81385856d2&quot;</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="24">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-06T03:40:15.536Z">0:36:33</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>v2 passes at N for both caps. v2b (R_z = 40k) has the most margin: droop 52 mV, overshoot 47 mV, DC spread 9 mV, overhead 46 µA light / 149 µA heavy. Next: v2b across all 9 PVT corners × 2 caps.</p>
+</div><template class="model-source">v2 passes at N for both caps. v2b (R_z = 40k) has the most margin: droop 52 mV, overshoot 47 mV, DC spread 9 mV, overhead 46 µA light / 149 µA heavy. Next: v2b across all 9 PVT corners × 2 caps.</template></div></article>
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01EfqkADF1TcGXJW6mt4kRNY"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:40:18.227681+00:00">0:36:35</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Run v2b across all PVT corners and both caps</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cat &gt; runall2.sh &lt;&lt;&#x27;EOF&#x27;
+#!/bin/bash
+# usage: runall2.sh netlist tag analysis
+NET=$1; TAG=$2; AN=${3:-nominal}
+cp &quot;$NET&quot; /workspace/dut.spice
+for p in N SLC SLH SHC SHH FLC FLH FHC FHH; do for cl in 2e-10 5e-10; do
+  atb-client measure --id ${TAG}_${AN}_${p}_${cl} --analysis $AN --pvt $p --cl $cl &gt; /workspace/res/${TAG}_${AN}_${p}_${cl}.json 2&gt;&amp;1 &amp;
+  sleep 0.3
+done; done
+wait
+EOF
+chmod +x runall2.sh
+timeout 580 ./runall2.sh d/v2b.spice v2b nominal; python3 summ.py &#x27;res/v2b_nominal_*.json&#x27;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01EfqkADF1TcGXJW6mt4kRNY"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:45:24.863504+00:00">0:41:42</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>v2b_nominal_FHC_2e-10  FAIL[&#x27;dc_highI&#x27;]
+   low:1.0037/49uA mid:0.9967/83uA high:0.9910/205uA light_heavy:[0.960,1.034] rec(0.26,0.24) mid_heavy:[0.977,1.011] rec(0.00,0.00) burst:[0.960,1.028] rec(0.00)
+v2b_nominal_FHC_5e-10  FAIL[&#x27;dc_highI&#x27;]
+   low:1.0037/49uA mid:0.9967/83uA high:0.9910/205uA light_heavy:[0.959,1.029] rec(0.27,0.00) mid_heavy:[0.977,1.010] rec(0.00,0.00) burst:[0.959,1.023] rec(0.00)
+v2b_nominal_FHH_2e-10  FAIL[&#x27;dc_lowV&#x27;, &#x27;dc_midV&#x27;, &#x27;light_heavyT&#x27;, &#x27;light_heavyR&#x27;, &#x27;mid_heavyR&#x27;, &#x27;burstR&#x27;]
+   low:1.0424/47uA mid:1.0321/59uA high:1.0249/110uA light_heavy:[0.983,1.086] rec(0.02,&gt;5.1) mid_heavy:[1.007,1.053] rec(0.01,&gt;5.1) burst:[0.983,1.080] rec(&gt;5.6)
+v2b_nominal_FHH_5e-10  FAIL[&#x27;dc_lowV&#x27;, &#x27;dc_midV&#x27;, &#x27;light_heavyR&#x27;, &#x27;mid_heavyR&#x27;, &#x27;burstR&#x27;]
+   low:1.0424/47uA mid:1.0321/59uA high:1.0249/110uA light_heavy:[0.988,1.075] rec(0.04,&gt;5.1) mid_heavy:[1.007,1.050] rec(0.02,&gt;5.1) burst:[0.988,1.069] rec(&gt;5.6)
+v2b_nominal_FLC_2e-10  FAIL[&#x27;dc_highI&#x27;]
+   low:0.9891/51uA mid:0.9814/125uA high:0.9756/332uA light_heavy:[0.921,1.030] rec(2.17,0.22) mid_heavy:[0.955,1.001] rec(0.83,0.00) burst:[0.921,1.020] rec(0.03)
+v2b_nominal_FLC_5e-10  FAIL[&#x27;dc_highI&#x27;, &#x27;light_heavyT&#x27;, &#x27;burstT&#x27;]
+   low:0.9891/51uA mid:0.9814/125uA high:0.9756/332uA light_heavy:[0.919,1.024] rec(2.18,0.00) mid_heavy:[0.955,0.999] rec(0.84,0.00) burst:[0.919,1.014] rec(0.04)
+v2b_nominal_FLH_2e-10  FAIL[&#x27;light_heavyT&#x27;]
+   low:1.0279/45uA mid:1.0196/67uA high:1.0119/155uA light_heavy:[0.953,1.084] rec(0.24,4.63) mid_heavy:[0.983,1.049] rec(0.00,0.60) burst:[0.953,1.072] rec(3.35)
+v2b_nominal_FLH_5e-10  PASS
+   low:1.0279/45uA mid:1.0196/67uA high:1.0119/155uA light_heavy:[0.951,1.074] rec(0.27,4.57) mid_heavy:[0.983,1.046] rec(0.00,0.62) burst:[0.951,1.063] rec(3.23)
+v2b_nominal_N_2e-10    PASS
+   low:1.0027/46uA mid:0.9981/67uA high:0.9938/149uA light_heavy:[0.948,1.047] rec(0.39,0.37) mid_heavy:[0.973,1.020] rec(0.00,0.00) burst:[0.948,1.038] rec(0.28)
+v2b_nominal_N_5e-10    PASS
+   low:1.0027/46uA mid:0.9981/67uA high:0.9938/149uA light_heavy:[0.947,1.039] rec(0.41,0.50) mid_heavy:[0.972,1.018] rec(0.00,0.00) burst:[0.947,1.030] rec(0.29)
+v2b_nominal_SHC_2e-10  PASS
+   low:0.9921/47uA mid:0.9892/67uA high:0.9865/139uA light_heavy:[0.954,1.025] rec(0.40,0.00) mid_heavy:[0.971,1.005] rec(0.00,0.00) burst:[0.954,1.019] rec(0.00)
+v2b_nominal_SHC_5e-10  PASS
+   low:0.9921/47uA mid:0.9892/67uA high:0.9865/139uA light_heavy:[0.955,1.020] rec(0.42,0.00) mid_heavy:[0.971,1.004] rec(0.00,0.00) burst:[0.955,1.013] rec(0.00)
+v2b_nominal_SHH_2e-10  PASS
+   low:1.0103/47uA mid:1.0060/59uA high:1.0025/104uA light_heavy:[0.952,1.058] rec(0.22,0.45) mid_heavy:[0.982,1.029] rec(0.00,0.00) burst:[0.952,1.049] rec(0.38)
+v2b_nominal_SHH_5e-10  PASS
+   low:1.0103/47uA mid:1.0060/59uA high:1.0025/104uA light_heavy:[0.956,1.048] rec(0.23,0.66) mid_heavy:[0.982,1.026] rec(0.00,0.00) burst:[0.956,1.039] rec(0.53)
+v2b_nominal_SLC_2e-10  PASS
+   low:0.9860/45uA mid:0.9827/75uA high:0.9797/174uA light_heavy:[0.928,1.030] rec(1.29,0.19) mid_heavy:[0.958,1.005] rec(0.52,0.00) burst:[0.928,1.020] rec(0.01)
+v2b_nominal_SLC_5e-10  PASS
+   low:0.9860/45uA mid:0.9827/75uA high:0.9797/174uA light_heavy:[0.927,1.024] rec(1.30,0.00) mid_heavy:[0.957,1.003] rec(0.53,0.00) burst:[0.927,1.014] rec(0.02)
+v2b_nominal_SLH_2e-10  PASS
+   low:1.0057/44uA mid:1.0013/60uA high:0.9975/120uA light_heavy:[0.931,1.065] rec(0.52,0.57) mid_heavy:[0.968,1.031] rec(0.11,0.13) burst:[0.931,1.052] rec(0.46)
+v2b_nominal_SLH_5e-10  PASS
+   low:1.0057/44uA mid:1.0013/60uA high:0.9975/120uA light_heavy:[0.931,1.054] rec(0.54,0.80) mid_heavy:[0.969,1.027] rec(0.12,0.00) burst:[0.931,1.042] rec(0.64)</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="25">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01JsUtSbjRLuocoqZTKFNcNH"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T03:48:25.330862+00:00">0:44:43</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Generate v3 variants and run full PVT sweep for both</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cat &gt; gen3.py &lt;&lt;&#x27;EOF&#x27;
+import sys
+def net(RZ=&#x27;40k&#x27;, CZ=&#x27;10p&#x27;, MDW=80, M2W=6, CAC=&#x27;3p&#x27;, RA=&#x27;16.73k&#x27;, RB=&#x27;16.5k&#x27;, MPM=20, RSB=&#x27;25k&#x27;, RBIAS=&#x27;300k&#x27;, RE=&#x27;4k&#x27;, RT=&#x27;648k&#x27;, RBOT=&#x27;552k&#x27;, extra=&#x27;&#x27;):
+    return f&quot;&quot;&quot;* LDO v3: VOUT-referenced level shift, NMOS-input cascoded OTA, PI comp, mirror-driven PMOS pass with drain-degenerated diode
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m={MPM}
+XMD E VG VIN VIN sky130_fd_pr__pfet_01v8 W={MDW} L=0.15 m=1
+RE E VG {RE}
+XM2 VG X VSS VSS sky130_fd_pr__nfet_01v8 W={M2W} L=0.15 m=1
+RZ X XZ {RZ}
+CZ XZ VSS {CZ}
+RA VOUT FB {RA}
+RB FB VSS {RB}
+RT1 VOUT RU {RT}
+RB1 RU VREF {RBOT}
+CR RU VSS 1p
+RT2 VOUT FU {RT}
+RB2 FU FB {RBOT}
+CAC VOUT FU {CAC}
+XN1 B RU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XN2 X FU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XP1 C1 A VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1
+XP1C A B C1 VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1
+RSB A B {RSB}
+XP2 C2 A VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1
+XP2C X B C2 VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1
+XNT T NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 m=1
+RBIAS VIN NB {RBIAS}
+{extra}
+.ends DUT
+&quot;&quot;&quot;
+if __name__==&#x27;__main__&#x27;:
+    kw=dict(a.split(&#x27;=&#x27;,1) for a in sys.argv[2:])
+    open(sys.argv[1],&#x27;w&#x27;).write(net(**kw))
+EOF
+python3 gen3.py d/v3a.spice RZ=40k
+python3 gen3.py d/v3b.spice RZ=55k
+cp d/v3a.spice dut.spice; atb-client validate | head -c 200; echo
+(timeout 580 ./runall2.sh d/v3a.spice v3a nominal) &amp; sleep 8; (timeout 580 ./runall2.sh d/v3b.spice v3b nominal) ; wait
+python3 summ.py &#x27;res/v3a_nominal_*.json&#x27; &#x27;res/v3b_nominal_*.json&#x27;
+for f in res/v3a_nominal_N_2e-10.json res/v3b_nominal_N_2e-10.json; do grep -o &#x27;&quot;revision&quot;: &quot;[^&quot;]*&quot;&#x27; $f | head -1; done</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01JsUtSbjRLuocoqZTKFNcNH"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T03:58:13.621696+00:00">0:54:31</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;ok&quot;: true,
+  &quot;revision&quot;: &quot;dut-d2a5c4828248f64c2b455db3&quot;,
+  &quot;normalized_params&quot;: {
+    &quot;schema&quot;: &quot;atb-netlist-1&quot;,
+    &quot;status&quot;: &quot;VALID_NETLIST&quot;,
+    &quot;elements&quot;: [
+      {
+        &quot;kind&quot;: &quot;x&quot;,
+    Exception ignored in: &lt;_io.TextIOWrapper name=&#x27;&lt;stdout&gt;&#x27; mode=&#x27;w&#x27; encoding=&#x27;utf-8&#x27;&gt;
+BrokenPipeError: [Errno 32] Broken pipe
+
+v3a_nominal_FHC_2e-10  PASS
+   low:1.0035/48uA mid:0.9960/70uA high:0.9905/111uA light_heavy:[0.961,1.030] rec(0.34,0.00) mid_heavy:[0.978,1.008] rec(0.00,0.00) burst:[0.961,1.022] rec(0.00)
+v3a_nominal_FHC_5e-10  PASS
+   low:1.0035/48uA mid:0.9960/70uA high:0.9905/111uA light_heavy:[0.962,1.026] rec(0.35,0.00) mid_heavy:[0.978,1.007] rec(0.00,0.00) burst:[0.962,1.019] rec(0.00)
+v3a_nominal_FHH_2e-10  FAIL[&#x27;dc_lowV&#x27;, &#x27;dc_midV&#x27;, &#x27;light_heavyT&#x27;, &#x27;light_heavyR&#x27;, &#x27;mid_heavyR&#x27;, &#x27;burstR&#x27;]
+   low:1.0431/47uA mid:1.0340/57uA high:1.0265/87uA light_heavy:[0.980,1.088] rec(0.02,&gt;5.1) mid_heavy:[1.008,1.055] rec(0.01,&gt;5.1) burst:[0.980,1.076] rec(&gt;5.6)
+v3a_nominal_FHH_5e-10  FAIL[&#x27;dc_lowV&#x27;, &#x27;dc_midV&#x27;, &#x27;light_heavyR&#x27;, &#x27;mid_heavyR&#x27;, &#x27;burstR&#x27;]
+   low:1.0431/47uA mid:1.0340/57uA high:1.0265/87uA light_heavy:[0.984,1.078] rec(0.04,&gt;5.1) mid_heavy:[1.008,1.052] rec(0.02,&gt;5.1) burst:[0.984,1.067] rec(&gt;5.6)
+v3a_nominal_FLC_2e-10  FAIL[&#x27;dc_highV&#x27;, &#x27;light_heavyR&#x27;, &#x27;mid_heavyR&#x27;]
+   low:0.9829/49uA mid:0.9747/84uA high:0.9691/136uA light_heavy:[0.921,1.019] rec(&gt;5.1,0.01) mid_heavy:[0.952,0.992] rec(&gt;5.1,0.01) burst:[0.921,1.007] rec(0.06)
+v3a_nominal_FLC_5e-10  FAIL[&#x27;dc_highV&#x27;, &#x27;light_heavyR&#x27;, &#x27;mid_heavyR&#x27;]
+   low:0.9829/49uA mid:0.9747/84uA high:0.9691/136uA light_heavy:[0.920,1.014] rec(&gt;5.1,0.02) mid_heavy:[0.952,0.990] rec(&gt;5.1,0.02) burst:[0.920,1.004] rec(0.07)
+v3a_nominal_FLH_2e-10  FAIL[&#x27;light_heavyT&#x27;]
+   low:1.0261/45uA mid:1.0162/62uA high:1.0079/103uA light_heavy:[0.947,1.081] rec(0.46,3.67) mid_heavy:[0.980,1.044] rec(0.00,0.63) burst:[0.947,1.064] rec(2.73)
+v3a_nominal_FLH_5e-10  PASS
+   low:1.0261/45uA mid:1.0162/62uA high:1.0079/103uA light_heavy:[0.945,1.072] rec(0.49,3.58) mid_heavy:[0.981,1.040] rec(0.00,0.66) burst:[0.945,1.057] rec(2.67)
+v3a_nominal_N_2e-10    PASS
+   low:1.0004/45uA mid:0.9947/63uA high:0.9900/106uA light_heavy:[0.940,1.045] rec(0.87,0.48) mid_heavy:[0.969,1.016] rec(0.11,0.00) burst:[0.940,1.031] rec(0.23)
+v3a_nominal_N_5e-10    PASS
+   low:1.0004/45uA mid:0.9947/63uA high:0.9900/106uA light_heavy:[0.941,1.038] rec(0.88,0.62) mid_heavy:[0.969,1.014] rec(0.12,0.00) burst:[0.941,1.026] rec(0.00)
+v3a_nominal_SHC_2e-10  PASS
+   low:0.9912/46uA mid:0.9875/63uA high:0.9844/107uA light_heavy:[0.948,1.026] rec(0.90,0.00) mid_heavy:[0.968,1.004] rec(0.16,0.00) burst:[0.948,1.016] rec(0.00)
+v3a_nominal_SHC_5e-10  PASS
+   low:0.9912/46uA mid:0.9875/63uA high:0.9844/107uA light_heavy:[0.949,1.021] rec(0.92,0.00) mid_heavy:[0.969,1.002] rec(0.16,0.00) burst:[0.949,1.011] rec(0.00)
+v3a_nominal_SHH_2e-10  PASS
+   low:1.0104/46uA mid:1.0056/57uA high:1.0016/91uA light_heavy:[0.945,1.062] rec(0.47,0.91) mid_heavy:[0.979,1.030] rec(0.00,0.12) burst:[0.945,1.048] rec(0.54)
+v3a_nominal_SHH_5e-10  PASS
+   low:1.0104/46uA mid:1.0056/57uA high:1.0016/91uA light_heavy:[0.949,1.053] rec(0.49,1.01) mid_heavy:[0.979,1.027] rec(0.00,0.00) burst:[0.949,1.039] rec(0.73)
+v3a_nominal_SLC_2e-10  FAIL[&#x27;dc_mid&#x27;, &#x27;dc_high&#x27;, &#x27;light_heavyT&#x27;, &#x27;mid_heavyT&#x27;, &#x27;mid_heavyR&#x27;, &#x27;mid_heavyR&#x27;, &#x27;burstT&#x27;]
+   low:0.9801/44uA dc_mid:MEASUREMENT_FAILURE dc_high:MEASUREMENT_FAILURE light_heavy:[0.918,1.026] rec(4.74,0.00) mid_heavy:[-1.141,-0.223] rec(&gt;5.1,&gt;5.1) burst:[0.918,1.011] rec(0.05)
+v3a_nominal_SLC_5e-10  FAIL[&#x27;dc_mid&#x27;, &#x27;dc_high&#x27;, &#x27;light_heavyT&#x27;, &#x27;mid_heavyT&#x27;, &#x27;mid_heavyR&#x27;, &#x27;mid_heavyR&#x27;, &#x27;burstT&#x27;]
+   low:0.9801/44uA dc_mid:MEASUREMENT_FAILURE dc_high:MEASUREMENT_FAILURE light_heavy:[0.917,1.020] rec(4.75,0.00) mid_heavy:[-1.140,-0.223] rec(&gt;5.1,&gt;5.1) burst:[0.917,1.006] rec(0.06)
+v3a_nominal_SLH_2e-10  FAIL[&#x27;light_heavyT&#x27;, &#x27;burstT&#x27;]
+   low:1.0018/44uA mid:0.9963/58uA high:0.9916/100uA light_heavy:[0.920,1.065] rec(1.25,0.88) mid_heavy:[0.960,1.027] rec(0.37,0.00) burst:[0.920,1.045] rec(0.54)
+v3a_nominal_SLH_5e-10  FAIL[&#x27;light_heavyT&#x27;, &#x27;burstT&#x27;]
+   low:1.0018/44uA mid:0.9963/58uA high:0.9916/100uA light_heavy:[0.919,1.055] rec(1.27,1.06) mid_heavy:[0.961,1.024] rec(0.39,0.00) burst:[0.919,1.037] rec(0.74)
+v3b_nominal_FHC_2e-10.json ERR Expecting value: line 1 column 1 (char 0)
+v3b_nominal_FHC_5e-10.json ERR Expecting value: line 1 column 1 (char 0)
+v3b_nominal_FHH_2e-10.json ERR Expecting value: line 1 column 1 (char 0)
+v3b_nominal_FHH_5e-10.json ERR Expecting value: line 1 column 1 (char 0)
+v3b_nominal_FLC_2e-10.json ERR Expecting value: line 1 column 1 (char 0)
+v3b_nominal_FLC_5e-10.json ERR Expecting value: line 1 column 1 (char 0)
+v3b_nominal_FLH_2e-10.json ERR Expecting value: line 1 column 1 (char 0)
+v3b_nominal_FLH_5e-10.json ERR Expecting value: line 1 column 1 (char 0)
+v3b_nominal_N_2e-10    PASS
+   low:1.0004/45uA mid:0.9947/63uA high:0.9900/106uA light_heavy:[0.951,1.034] rec(0.89,0.25) mid_heavy:[0.974,1.011] rec(0.00,0.00) burst:[0.951,1.022] rec(0.00)
+v3b_nominal_N_5e-10    PASS
+   low:1.0004/45uA mid:0.9947/63uA high:0.9900/106uA light_heavy:[0.956,1.029] rec(0.89,0.00) mid_heavy:[0.975,1.009] rec(0.00,0.00) burst:[0.956,1.018] rec(0.00)
+v3b_nominal_SHC_2e-10  FAIL[&#x27;light_heavyR&#x27;, &#x27;mid_heavyR&#x27;]
+   low:0.9912/46uA mid:0.9875/63uA high:0.9844/107uA light_heavy:[0.934,1.016] rec(&gt;5.1,0.04) mid_heavy:[0.964,1.005] rec(5.08,0.01) burst:[0.934,1.015] rec(0.06)
+v3b_nominal_SHC_5e-10  PASS
+   low:0.9912/46uA mid:0.9875/63uA high:0.9844/107uA light_heavy:[0.959,1.013] rec(0.95,0.00) mid_heavy:[0.973,0.999] rec(0.00,0.00) burst:[0.959,1.005] rec(0.00)
+v3b_nominal_SHH_2e-10  PASS
+   low:1.0104/46uA mid:1.0056/57uA high:1.0016/91uA light_heavy:[0.953,1.051] rec(0.72,0.94) mid_heavy:[0.984,1.024] rec(0.00,0.00) burst:[0.953,1.037] rec(0.29)
+v3b_nominal_SHH_5e-10  PASS
+   low:1.0104/46uA mid:1.0056/57uA high:1.0016/91uA light_heavy:[0.963,1.043] rec(0.31,1.04) mid_heavy:[0.985,1.022] rec(0.00,0.00) burst:[0.963,1.031] rec(0.42)
+v3b_nominal_SLC_2e-10  FAIL[&#x27;dc_mid&#x27;, &#x27;dc_high&#x27;, &#x27;mid_heavyT&#x27;, &#x27;mid_heavyR&#x27;, &#x27;mid_heavyR&#x27;]
+   low:0.9801/44uA dc_mid:MEASUREMENT_FAILURE dc_high:MEASUREMENT_FAILURE light_heavy:[0.932,1.014] rec(4.91,0.00) mid_heavy:[-1.141,-0.223] rec(&gt;5.1,&gt;5.1) burst:[0.932,1.002] rec(0.06)
+v3b_nominal_SLC_5e-10  FAIL[&#x27;dc_mid&#x27;, &#x27;dc_high&#x27;, &#x27;mid_heavyT&#x27;, &#x27;mid_heavyR&#x27;, &#x27;mid_heavyR&#x27;]
+   low:0.9801/44uA dc_mid:MEASUREMENT_FAILURE dc_high:MEASUREMENT_FAILURE light_heavy:[0.934,1.010] rec(4.92,0.00) mid_heavy:[-1.140,-0.223] rec(&gt;5.1,&gt;5.1) burst:[0.934,0.999] rec(0.06)
+v3b_nominal_SLH_2e-10  PASS
+   low:1.0018/44uA mid:0.9963/58uA high:0.9916/100uA light_heavy:[0.934,1.050] rec(1.35,0.87) mid_heavy:[0.968,1.020] rec(0.15,0.00) burst:[0.934,1.033] rec(0.27)
+v3b_nominal_SLH_5e-10  PASS
+   low:1.0018/44uA mid:0.9963/58uA high:0.9916/100uA light_heavy:[0.939,1.043] rec(1.36,1.01) mid_heavy:[0.969,1.017] rec(0.13,0.00) burst:[0.939,1.028] rec(0.00)
+&quot;revision&quot;: &quot;dut-d2a5c4828248f64c2b455db3&quot;
+&quot;revision&quot;: &quot;dut-601eee4a65dd9e9e78ce5988&quot;</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="26">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01M1KbunpYxE9Vx339KGJRri"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T04:00:10.465178+00:00">0:56:28</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Build v4 folded-cascode design and run full corner sweep</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cat &gt; gen4.py &lt;&lt;&#x27;EOF&#x27;
+import sys
+def net(RZ=&#x27;45k&#x27;, CZ=&#x27;10p&#x27;, MDW=80, M2W=30, CAC=&#x27;3p&#x27;, RA=&#x27;16.8k&#x27;, RB=&#x27;16.5k&#x27;, MPM=20, RC=&#x27;15k&#x27;, RBIAS=&#x27;300k&#x27;, RE=&#x27;4k&#x27;, RT=&#x27;780k&#x27;, RBOT=&#x27;420k&#x27;, NMW=10, extra=&#x27;&#x27;):
+    return f&quot;&quot;&quot;* LDO v4: folded-cascode NMOS-input EA with VIN-referenced matched level shift, PI comp, mirror-driven PMOS pass
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m={MPM}
+XMD E VG VIN VIN sky130_fd_pr__pfet_01v8 W={MDW} L=0.15 m=1
+RE E VG {RE}
+XM2 VG X VSS VSS sky130_fd_pr__nfet_01v8 W={M2W} L=0.15 m=1
+RZ X XZ {RZ}
+CZ XZ VSS {CZ}
+RA VOUT FB {RA}
+RB FB VSS {RB}
+RT1 VIN RU {RT}
+RB1 RU VREF {RBOT}
+CR RU VSS 1p
+RT2 VIN FU {RT}
+RB2 FU FB {RBOT}
+CAC VOUT FU {CAC}
+* input pair
+XN1 F1 RU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XN2 F2 FU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XNT T NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+* folded cascode: PMOS sources + PMOS cascodes + NMOS mirror
+XPS1 F1 VBP VIN VIN sky130_fd_pr__pfet_01v8 W=20 L=0.15 m=1
+XPS2 F2 VBP VIN VIN sky130_fd_pr__pfet_01v8 W=20 L=0.15 m=1
+XPC1 O1 VBC F1 VIN sky130_fd_pr__pfet_01v8 W=20 L=0.15 m=1
+XPC2 X VBC F2 VIN sky130_fd_pr__pfet_01v8 W=20 L=0.15 m=1
+XNM1 O1 O1 VSS VSS sky130_fd_pr__nfet_01v8 W={NMW} L=1 m=1
+XNM2 X O1 VSS VSS sky130_fd_pr__nfet_01v8 W={NMW} L=1 m=1
+* bias: self-biased PMOS cascode reference
+XPB Q1 VBP VIN VIN sky130_fd_pr__pfet_01v8 W=20 L=0.15 m=1
+XPBC VBP VBC Q1 VIN sky130_fd_pr__pfet_01v8 W=20 L=0.15 m=1
+RCB VBP VBC {RC}
+XNPB VBC NB VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 m=1
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 m=1
+RBIAS VIN NB {RBIAS}
+{extra}
+.ends DUT
+&quot;&quot;&quot;
+if __name__==&#x27;__main__&#x27;:
+    kw=dict(a.split(&#x27;=&#x27;,1) for a in sys.argv[2:])
+    open(sys.argv[1],&#x27;w&#x27;).write(net(**kw))
+EOF
+python3 gen4.py d/v4a.spice RZ=45k
+cp d/v4a.spice dut.spice; atb-client validate | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(d.get(&#x27;ok&#x27;), d.get(&#x27;revision&#x27;), d.get(&#x27;gate_area_um2&#x27;), d.get(&#x27;error&#x27;, &#x27;&#x27;))&quot;
+timeout 590 ./runall2.sh d/v4a.spice v4a nominal; python3 summ.py &#x27;res/v4a_nominal_*.json&#x27;; atb-client status | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(&#x27;remaining&#x27;, d[&#x27;remaining_seconds&#x27;])&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01M1KbunpYxE9Vx339KGJRri"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T04:05:20.916510+00:00">1:01:38</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>True dut-1a57e734f2a287220d6183a8 555.5 
+v4a_nominal_FHC_2e-10  PASS
+   low:1.0086/64uA mid:0.9982/86uA high:0.9916/128uA light_heavy:[0.966,1.027] rec(1.44,0.00) mid_heavy:[0.971,1.018] rec(0.00,0.00) burst:[0.966,1.025] rec(0.01)
+v4a_nominal_FHC_5e-10  PASS
+   low:1.0086/64uA mid:0.9982/86uA high:0.9916/128uA light_heavy:[0.968,1.027] rec(0.14,0.00) mid_heavy:[0.983,1.007] rec(0.00,0.00) burst:[0.968,1.023] rec(0.00)
+v4a_nominal_FHH_2e-10  PASS
+   low:1.0230/66uA mid:1.0111/75uA high:1.0014/104uA light_heavy:[0.964,1.062] rec(0.13,0.89) mid_heavy:[0.987,1.028] rec(0.00,0.00) burst:[0.964,1.055] rec(0.75)
+v4a_nominal_FHH_5e-10  PASS
+   low:1.0230/66uA mid:1.0111/75uA high:1.0014/104uA light_heavy:[0.966,1.052] rec(0.13,0.95) mid_heavy:[0.986,1.026] rec(0.00,0.00) burst:[0.966,1.046] rec(0.87)
+v4a_nominal_FLC_2e-10  FAIL[&#x27;light_heavyR&#x27;, &#x27;mid_heavyR&#x27;]
+   low:1.0022/61uA mid:0.9927/97uA high:0.9871/150uA light_heavy:[0.947,1.030] rec(5.09,0.24) mid_heavy:[0.968,1.009] rec(5.08,0.01) burst:[0.947,1.025] rec(0.00)
+v4a_nominal_FLC_5e-10  PASS
+   low:1.0022/61uA mid:0.9927/97uA high:0.9871/150uA light_heavy:[0.945,1.028] rec(0.53,0.00) mid_heavy:[0.974,1.005] rec(0.00,0.00) burst:[0.945,1.021] rec(0.00)
+v4a_nominal_FLH_2e-10  PASS
+   low:1.0179/58uA mid:1.0056/74uA high:0.9959/115uA light_heavy:[0.939,1.066] rec(0.47,0.98) mid_heavy:[0.973,1.028] rec(0.00,0.00) burst:[0.939,1.055] rec(0.77)
+v4a_nominal_FLH_5e-10  PASS
+   low:1.0179/58uA mid:1.0056/74uA high:0.9959/115uA light_heavy:[0.939,1.057] rec(0.50,1.13) mid_heavy:[0.973,1.025] rec(0.00,0.00) burst:[0.939,1.047] rec(0.99)
+v4a_nominal_N_2e-10    PASS
+   low:1.0042/59uA mid:0.9983/77uA high:0.9937/121uA light_heavy:[0.953,1.042] rec(0.36,0.38) mid_heavy:[0.977,1.015] rec(0.00,0.00) burst:[0.953,1.033] rec(0.26)
+v4a_nominal_N_5e-10    PASS
+   low:1.0042/59uA mid:0.9983/77uA high:0.9937/121uA light_heavy:[0.953,1.036] rec(0.37,0.49) mid_heavy:[0.977,1.014] rec(0.00,0.00) burst:[0.953,1.028] rec(0.00)
+v4a_nominal_SHC_2e-10  FAIL[&#x27;light_heavyR&#x27;, &#x27;mid_heavyR&#x27;]
+   low:0.9988/61uA mid:0.9957/79uA high:0.9932/123uA light_heavy:[0.950,1.034] rec(5.09,0.02) mid_heavy:[0.956,1.038] rec(5.09,0.04) burst:[0.950,1.033] rec(0.04)
+v4a_nominal_SHC_5e-10  PASS
+   low:0.9988/61uA mid:0.9957/79uA high:0.9932/123uA light_heavy:[0.966,1.022] rec(0.18,0.00) mid_heavy:[0.981,1.007] rec(0.00,0.00) burst:[0.966,1.017] rec(0.00)
+v4a_nominal_SHH_2e-10  PASS
+   low:1.0027/63uA mid:0.9986/74uA high:0.9952/108uA light_heavy:[0.949,1.047] rec(0.37,0.38) mid_heavy:[0.976,1.018] rec(0.00,0.00) burst:[0.949,1.038] rec(0.30)
+v4a_nominal_SHH_5e-10  PASS
+   low:1.0027/63uA mid:0.9986/74uA high:0.9952/108uA light_heavy:[0.951,1.038] rec(0.39,0.53) mid_heavy:[0.977,1.016] rec(0.00,0.00) burst:[0.951,1.029] rec(0.00)
+v4a_nominal_SLC_2e-10  PASS
+   low:0.9998/55uA mid:0.9963/80uA high:0.9938/134uA light_heavy:[0.950,1.033] rec(3.71,0.27) mid_heavy:[0.970,1.017] rec(0.92,0.00) burst:[0.950,1.027] rec(0.01)
+v4a_nominal_SLC_5e-10  PASS
+   low:0.9998/55uA mid:0.9963/80uA high:0.9938/134uA light_heavy:[0.949,1.032] rec(0.43,0.40) mid_heavy:[0.977,1.012] rec(0.00,0.00) burst:[0.949,1.023] rec(0.00)
+v4a_nominal_SLH_2e-10  PASS
+   low:1.0039/56uA mid:0.9994/70uA high:0.9957/112uA light_heavy:[0.931,1.059] rec(0.63,0.61) mid_heavy:[0.970,1.025] rec(0.00,0.00) burst:[0.931,1.045] rec(0.46)
+v4a_nominal_SLH_5e-10  PASS
+   low:1.0039/56uA mid:0.9994/70uA high:0.9957/112uA light_heavy:[0.931,1.050] rec(0.65,0.82) mid_heavy:[0.970,1.022] rec(0.00,0.00) burst:[0.931,1.037] rec(0.61)
+remaining 3572.953451316105</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="27">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01NL99UpvFbyK43jooDjoPdt"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T04:06:39.124083+00:00">1:02:56</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Build v5 with doubled OTA current and lower R_z, run full sweep</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cat &gt; gen5.py &lt;&lt;&#x27;EOF&#x27;
+import sys
+def net(RZ=&#x27;25k&#x27;, CZ=&#x27;18p&#x27;, MDW=80, M2W=20, CAC=&#x27;3p&#x27;, RA=&#x27;16.8k&#x27;, RB=&#x27;16.5k&#x27;, MPM=20, RC=&#x27;30k&#x27;, RBIAS=&#x27;300k&#x27;, RE=&#x27;4k&#x27;, RT=&#x27;780k&#x27;, RBOT=&#x27;420k&#x27;, NMW=20, NTW=40, PSW=40, NPBW=8, PBW=10, extra=&#x27;&#x27;):
+    return f&quot;&quot;&quot;* LDO v5: folded-cascode NMOS-input EA with VIN-referenced matched level shift, PI comp, mirror-driven PMOS pass
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m={MPM}
+XMD E VG VIN VIN sky130_fd_pr__pfet_01v8 W={MDW} L=0.15 m=1
+RE E VG {RE}
+XM2 VG X VSS VSS sky130_fd_pr__nfet_01v8 W={M2W} L=0.15 m=1
+RZ X XZ {RZ}
+CZ XZ VSS {CZ}
+RA VOUT FB {RA}
+RB FB VSS {RB}
+RT1 VIN RU {RT}
+RB1 RU VREF {RBOT}
+CR RU VSS 1p
+RT2 VIN FU {RT}
+RB2 FU FB {RBOT}
+CAC VOUT FU {CAC}
+XN1 F1 RU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XN2 F2 FU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XNT T NB VSS VSS sky130_fd_pr__nfet_01v8 W={NTW} L=1 m=1
+XPS1 F1 VBP VIN VIN sky130_fd_pr__pfet_01v8 W={PSW} L=0.15 m=1
+XPS2 F2 VBP VIN VIN sky130_fd_pr__pfet_01v8 W={PSW} L=0.15 m=1
+XPC1 O1 VBC F1 VIN sky130_fd_pr__pfet_01v8 W={PSW} L=0.15 m=1
+XPC2 X VBC F2 VIN sky130_fd_pr__pfet_01v8 W={PSW} L=0.15 m=1
+XNM1 O1 O1 VSS VSS sky130_fd_pr__nfet_01v8 W={NMW} L=1 m=1
+XNM2 X O1 VSS VSS sky130_fd_pr__nfet_01v8 W={NMW} L=1 m=1
+XPB Q1 VBP VIN VIN sky130_fd_pr__pfet_01v8 W={PBW} L=0.15 m=1
+XPBC VBP VBC Q1 VIN sky130_fd_pr__pfet_01v8 W={PBW} L=0.15 m=1
+RCB VBP VBC {RC}
+XNPB VBC NB VSS VSS sky130_fd_pr__nfet_01v8 W={NPBW} L=1 m=1
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 m=1
+RBIAS VIN NB {RBIAS}
+{extra}
+.ends DUT
+&quot;&quot;&quot;
+if __name__==&#x27;__main__&#x27;:
+    kw=dict(a.split(&#x27;=&#x27;,1) for a in sys.argv[2:])
+    open(sys.argv[1],&#x27;w&#x27;).write(net(**kw))
+EOF
+python3 gen5.py d/v5a.spice
+cp d/v5a.spice dut.spice; atb-client validate | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(d.get(&#x27;ok&#x27;), d.get(&#x27;revision&#x27;), d.get(&#x27;gate_area_um2&#x27;), d.get(&#x27;error&#x27;, &#x27;&#x27;))&quot;
+timeout 590 ./runall2.sh d/v5a.spice v5a nominal; python3 summ.py &#x27;res/v5a_nominal_*.json&#x27;; atb-client status | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(&#x27;remaining&#x27;, d[&#x27;remaining_seconds&#x27;])&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01NL99UpvFbyK43jooDjoPdt"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T04:11:29.027993+00:00">1:07:46</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>True dut-398909f7e5f2b9ee4bd0762b 595.0 
+v5a_nominal_FHC_2e-10  PASS
+   low:1.0054/75uA mid:0.9949/96uA high:0.9883/138uA light_heavy:[0.964,1.027] rec(0.21,0.00) mid_heavy:[0.979,1.004] rec(0.00,0.00) burst:[0.964,1.023] rec(0.00)
+v5a_nominal_FHC_5e-10  PASS
+   low:1.0054/75uA mid:0.9949/96uA high:0.9883/138uA light_heavy:[0.964,1.023] rec(0.22,0.00) mid_heavy:[0.979,1.003] rec(0.00,0.00) burst:[0.964,1.019] rec(0.00)
+v5a_nominal_FHH_2e-10  PASS
+   low:1.0195/81uA mid:1.0075/90uA high:0.9975/118uA light_heavy:[0.963,1.057] rec(0.17,0.59) mid_heavy:[0.983,1.024] rec(0.00,0.00) burst:[0.963,1.051] rec(0.50)
+v5a_nominal_FHH_5e-10  PASS
+   low:1.0195/81uA mid:1.0075/90uA high:0.9975/118uA light_heavy:[0.963,1.048] rec(0.19,0.81) mid_heavy:[0.983,1.022] rec(0.00,0.00) burst:[0.963,1.042] rec(0.72)
+v5a_nominal_FLC_2e-10  PASS
+   low:0.9992/68uA mid:0.9896/104uA high:0.9841/157uA light_heavy:[0.944,1.030] rec(0.65,0.00) mid_heavy:[0.971,1.003] rec(0.00,0.00) burst:[0.944,1.022] rec(0.00)
+v5a_nominal_FLC_5e-10  PASS
+   low:0.9992/68uA mid:0.9896/104uA high:0.9841/157uA light_heavy:[0.942,1.025] rec(0.67,0.00) mid_heavy:[0.970,1.002] rec(0.00,0.00) burst:[0.942,1.018] rec(0.00)
+v5a_nominal_FLH_2e-10  PASS
+   low:1.0145/69uA mid:1.0019/84uA high:0.9919/124uA light_heavy:[0.936,1.062] rec(0.57,0.79) mid_heavy:[0.969,1.024] rec(0.11,0.00) burst:[0.936,1.051] rec(0.64)
+v5a_nominal_FLH_5e-10  PASS
+   low:1.0145/69uA mid:1.0019/84uA high:0.9919/124uA light_heavy:[0.936,1.053] rec(0.60,1.00) mid_heavy:[0.969,1.022] rec(0.13,0.00) burst:[0.936,1.043] rec(0.85)
+v5a_nominal_N_2e-10    PASS
+   low:1.0024/69uA mid:0.9964/87uA high:0.9917/130uA light_heavy:[0.952,1.040] rec(0.41,0.36) mid_heavy:[0.975,1.013] rec(0.00,0.00) burst:[0.952,1.031] rec(0.23)
+v5a_nominal_N_5e-10    PASS
+   low:1.0024/69uA mid:0.9964/87uA high:0.9917/130uA light_heavy:[0.951,1.034] rec(0.43,0.45) mid_heavy:[0.975,1.012] rec(0.00,0.00) burst:[0.951,1.026] rec(0.00)
+v5a_nominal_SHC_2e-10  PASS
+   low:0.9978/71uA mid:0.9946/89uA high:0.9921/133uA light_heavy:[0.964,1.026] rec(0.21,0.00) mid_heavy:[0.980,1.007] rec(0.00,0.00) burst:[0.964,1.020] rec(0.00)
+v5a_nominal_SHC_5e-10  PASS
+   low:0.9978/71uA mid:0.9946/89uA high:0.9921/133uA light_heavy:[0.964,1.022] rec(0.22,0.00) mid_heavy:[0.980,1.006] rec(0.00,0.00) burst:[0.964,1.016] rec(0.00)
+v5a_nominal_SHH_2e-10  PASS
+   low:1.0013/75uA mid:0.9972/86uA high:0.9939/120uA light_heavy:[0.952,1.044] rec(0.38,0.36) mid_heavy:[0.976,1.016] rec(0.00,0.00) burst:[0.952,1.035] rec(0.27)
+v5a_nominal_SHH_5e-10  PASS
+   low:1.0013/75uA mid:0.9972/86uA high:0.9939/120uA light_heavy:[0.953,1.036] rec(0.40,0.47) mid_heavy:[0.976,1.014] rec(0.00,0.00) burst:[0.953,1.027] rec(0.00)
+v5a_nominal_SLC_2e-10  PASS
+   low:0.9987/62uA mid:0.9953/86uA high:0.9927/141uA light_heavy:[0.949,1.036] rec(0.45,0.33) mid_heavy:[0.975,1.012] rec(0.00,0.00) burst:[0.949,1.027] rec(0.00)
+v5a_nominal_SLC_5e-10  PASS
+   low:0.9987/62uA mid:0.9953/86uA high:0.9927/141uA light_heavy:[0.947,1.031] rec(0.47,0.37) mid_heavy:[0.975,1.011] rec(0.00,0.00) burst:[0.947,1.023] rec(0.00)
+v5a_nominal_SLH_2e-10  PASS
+   low:1.0025/65uA mid:0.9980/79uA high:0.9943/121uA light_heavy:[0.934,1.055] rec(0.64,0.56) mid_heavy:[0.969,1.022] rec(0.11,0.00) burst:[0.934,1.042] rec(0.42)
+v5a_nominal_SLH_5e-10  PASS
+   low:1.0025/65uA mid:0.9980/79uA high:0.9943/121uA light_heavy:[0.933,1.047] rec(0.66,0.76) mid_heavy:[0.969,1.020] rec(0.12,0.00) burst:[0.933,1.035] rec(0.55)
+remaining 3494.707874660031</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="28">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_0172XmKfR1DrkNWBqkUNmrhG"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T04:11:51.573907+00:00">1:08:09</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Run v5b variant with higher proportional gain across corners</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>python3 gen5.py d/v5b.spice RZ=30k CZ=15p
+timeout 590 ./runall2.sh d/v5b.spice v5b nominal; python3 summ.py &#x27;res/v5b_nominal_*.json&#x27;; atb-client status | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(&#x27;remaining&#x27;, d[&#x27;remaining_seconds&#x27;])&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_0172XmKfR1DrkNWBqkUNmrhG"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T04:15:54.838032+00:00">1:12:12</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>v5b_nominal_FHC_2e-10  PASS
+   low:1.0054/75uA mid:0.9949/96uA high:0.9883/138uA light_heavy:[0.970,1.023] rec(0.00,0.00) mid_heavy:[0.981,1.003] rec(0.00,0.00) burst:[0.970,1.020] rec(0.00)
+v5b_nominal_FHC_5e-10  PASS
+   low:1.0054/75uA mid:0.9949/96uA high:0.9883/138uA light_heavy:[0.970,1.020] rec(0.11,0.00) mid_heavy:[0.981,1.002] rec(0.00,0.00) burst:[0.970,1.017] rec(0.00)
+v5b_nominal_FHH_2e-10  PASS
+   low:1.0195/81uA mid:1.0075/90uA high:0.9975/118uA light_heavy:[0.970,1.051] rec(0.00,0.45) mid_heavy:[0.986,1.021] rec(0.00,0.00) burst:[0.970,1.047] rec(0.41)
+v5b_nominal_FHH_5e-10  PASS
+   low:1.0195/81uA mid:1.0075/90uA high:0.9975/118uA light_heavy:[0.972,1.042] rec(0.00,0.66) mid_heavy:[0.986,1.019] rec(0.00,0.00) burst:[0.972,1.038] rec(0.59)
+v5b_nominal_FLC_2e-10  PASS
+   low:0.9992/68uA mid:0.9896/104uA high:0.9841/157uA light_heavy:[0.953,1.024] rec(0.47,0.00) mid_heavy:[0.973,1.000] rec(0.00,0.00) burst:[0.953,1.018] rec(0.00)
+v5b_nominal_FLC_5e-10  PASS
+   low:0.9992/68uA mid:0.9896/104uA high:0.9841/157uA light_heavy:[0.952,1.020] rec(0.48,0.00) mid_heavy:[0.973,0.999] rec(0.00,0.00) burst:[0.952,1.015] rec(0.00)
+v5b_nominal_FLH_2e-10  PASS
+   low:1.0145/69uA mid:1.0019/84uA high:0.9919/124uA light_heavy:[0.949,1.053] rec(0.40,0.62) mid_heavy:[0.974,1.020] rec(0.00,0.00) burst:[0.949,1.045] rec(0.51)
+v5b_nominal_FLH_5e-10  PASS
+   low:1.0145/69uA mid:1.0019/84uA high:0.9919/124uA light_heavy:[0.948,1.046] rec(0.42,0.81) mid_heavy:[0.974,1.018] rec(0.00,0.00) burst:[0.948,1.038] rec(0.69)
+v5b_nominal_N_2e-10    PASS
+   low:1.0024/69uA mid:0.9964/87uA high:0.9917/130uA light_heavy:[0.960,1.033] rec(0.28,0.25) mid_heavy:[0.978,1.010] rec(0.00,0.00) burst:[0.960,1.027] rec(0.00)
+v5b_nominal_N_5e-10    PASS
+   low:1.0024/69uA mid:0.9964/87uA high:0.9917/130uA light_heavy:[0.959,1.028] rec(0.29,0.00) mid_heavy:[0.978,1.009] rec(0.00,0.00) burst:[0.959,1.022] rec(0.00)
+v5b_nominal_SHC_2e-10  PASS
+   low:0.9978/71uA mid:0.9946/89uA high:0.9921/133uA light_heavy:[0.969,1.018] rec(0.11,0.00) mid_heavy:[0.975,1.010] rec(0.00,0.00) burst:[0.969,1.016] rec(0.00)
+v5b_nominal_SHC_5e-10  PASS
+   low:0.9978/71uA mid:0.9946/89uA high:0.9921/133uA light_heavy:[0.970,1.018] rec(0.11,0.00) mid_heavy:[0.982,1.004] rec(0.00,0.00) burst:[0.970,1.013] rec(0.00)
+v5b_nominal_SHH_2e-10  PASS
+   low:1.0013/75uA mid:0.9972/86uA high:0.9939/120uA light_heavy:[0.959,1.038] rec(0.25,0.28) mid_heavy:[0.979,1.013] rec(0.00,0.00) burst:[0.959,1.031] rec(0.20)
+v5b_nominal_SHH_5e-10  PASS
+   low:1.0013/75uA mid:0.9972/86uA high:0.9939/120uA light_heavy:[0.961,1.031] rec(0.27,0.29) mid_heavy:[0.979,1.011] rec(0.00,0.00) burst:[0.961,1.024] rec(0.00)
+v5b_nominal_SLC_2e-10  PASS
+   low:0.9987/62uA mid:0.9953/86uA high:0.9927/141uA light_heavy:[0.958,1.030] rec(0.31,0.00) mid_heavy:[0.979,1.009] rec(0.00,0.00) burst:[0.958,1.023] rec(0.00)
+v5b_nominal_SLC_5e-10  PASS
+   low:0.9987/62uA mid:0.9953/86uA high:0.9927/141uA light_heavy:[0.957,1.026] rec(0.33,0.00) mid_heavy:[0.979,1.008] rec(0.00,0.00) burst:[0.957,1.019] rec(0.00)
+v5b_nominal_SLH_2e-10  PASS
+   low:1.0025/65uA mid:0.9980/79uA high:0.9943/121uA light_heavy:[0.946,1.047] rec(0.47,0.44) mid_heavy:[0.974,1.019] rec(0.00,0.00) burst:[0.946,1.037] rec(0.32)
+v5b_nominal_SLH_5e-10  PASS
+   low:1.0025/65uA mid:0.9980/79uA high:0.9943/121uA light_heavy:[0.945,1.040] rec(0.49,0.59) mid_heavy:[0.974,1.017] rec(0.00,0.00) burst:[0.945,1.030] rec(0.32)
+remaining 3472.1625544941053</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="29">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01CtQf5rwpCXUabmpsz8Ka1Q"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T04:16:22.407073+00:00">1:12:40</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Run v5c variant with longer bottom mirror across corners</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>sed -i &#x27;s/NPBW=8, PBW=10, extra/NPBW=8, PBW=10, NML=1, extra/; s/W={NMW} L=1 m=1/W={NMW} L={NML} m=1/g&#x27; gen5.py
+grep -n &quot;NML&quot; gen5.py | head
+python3 gen5.py d/v5c.spice RZ=30k CZ=15p NMW=40 NML=2
+diff d/v5b.spice d/v5c.spice
+timeout 590 ./runall2.sh d/v5c.spice v5c nominal; python3 summ.py &#x27;res/v5c_nominal_*.json&#x27;; atb-client status | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(&#x27;remaining&#x27;, d[&#x27;remaining_seconds&#x27;])&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01CtQf5rwpCXUabmpsz8Ka1Q"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T04:20:57.261949+00:00">1:17:14</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>2:def net(RZ=&#x27;25k&#x27;, CZ=&#x27;18p&#x27;, MDW=80, M2W=20, CAC=&#x27;3p&#x27;, RA=&#x27;16.8k&#x27;, RB=&#x27;16.5k&#x27;, MPM=20, RC=&#x27;30k&#x27;, RBIAS=&#x27;300k&#x27;, RE=&#x27;4k&#x27;, RT=&#x27;780k&#x27;, RBOT=&#x27;420k&#x27;, NMW=20, NTW=40, PSW=40, NPBW=8, PBW=10, NML=1, extra=&#x27;&#x27;):
+26:XNM1 O1 O1 VSS VSS sky130_fd_pr__nfet_01v8 W={NMW} L={NML} m=1
+27:XNM2 X O1 VSS VSS sky130_fd_pr__nfet_01v8 W={NMW} L={NML} m=1
+24,25c24,25
+&lt; XNM1 O1 O1 VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+&lt; XNM2 X O1 VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+---
+&gt; XNM1 O1 O1 VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=2 m=1
+&gt; XNM2 X O1 VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=2 m=1
+v5c_nominal_FHC_2e-10  PASS
+   low:1.0031/75uA mid:0.9926/96uA high:0.9859/137uA light_heavy:[0.966,1.021] rec(0.16,0.00) mid_heavy:[0.979,1.001] rec(0.00,0.00) burst:[0.966,1.018] rec(0.00)
+v5c_nominal_FHC_5e-10  PASS
+   low:1.0031/75uA mid:0.9926/96uA high:0.9859/137uA light_heavy:[0.967,1.017] rec(0.15,0.00) mid_heavy:[0.979,1.000] rec(0.00,0.00) burst:[0.967,1.015] rec(0.00)
+v5c_nominal_FHH_2e-10  PASS
+   low:1.0158/81uA mid:1.0039/90uA high:0.9940/117uA light_heavy:[0.962,1.048] rec(0.14,0.40) mid_heavy:[0.982,1.018] rec(0.00,0.00) burst:[0.962,1.044] rec(0.36)
+v5c_nominal_FHH_5e-10  PASS
+   low:1.0158/81uA mid:1.0039/90uA high:0.9940/117uA light_heavy:[0.966,1.039] rec(0.12,0.56) mid_heavy:[0.982,1.016] rec(0.00,0.00) burst:[0.966,1.034] rec(0.47)
+v5c_nominal_FLC_2e-10  PASS
+   low:0.9972/68uA mid:0.9875/104uA high:0.9819/156uA light_heavy:[0.949,1.022] rec(0.56,0.00) mid_heavy:[0.971,0.999] rec(0.00,0.00) burst:[0.949,1.016] rec(0.00)
+v5c_nominal_FLC_5e-10  PASS
+   low:0.9972/68uA mid:0.9875/104uA high:0.9819/156uA light_heavy:[0.947,1.018] rec(0.57,0.00) mid_heavy:[0.971,0.998] rec(0.00,0.00) burst:[0.947,1.013] rec(0.00)
+v5c_nominal_FLH_2e-10  PASS
+   low:1.0110/69uA mid:0.9984/84uA high:0.9884/124uA light_heavy:[0.943,1.051] rec(0.49,0.53) mid_heavy:[0.970,1.017] rec(0.10,0.00) burst:[0.943,1.042] rec(0.43)
+v5c_nominal_FLH_5e-10  PASS
+   low:1.0110/69uA mid:0.9984/84uA high:0.9884/124uA light_heavy:[0.942,1.042] rec(0.52,0.71) mid_heavy:[0.970,1.015] rec(0.11,0.00) burst:[0.942,1.035] rec(0.56)
+v5c_nominal_N_2e-10    PASS
+   low:1.0008/69uA mid:0.9948/87uA high:0.9901/130uA light_heavy:[0.956,1.033] rec(0.31,0.22) mid_heavy:[0.976,1.010] rec(0.00,0.00) burst:[0.956,1.026] rec(0.00)
+v5c_nominal_N_5e-10    PASS
+   low:1.0008/69uA mid:0.9948/87uA high:0.9901/130uA light_heavy:[0.957,1.027] rec(0.33,0.00) mid_heavy:[0.976,1.008] rec(0.00,0.00) burst:[0.957,1.021] rec(0.00)
+v5c_nominal_SHC_2e-10  PASS
+   low:0.9970/71uA mid:0.9938/89uA high:0.9912/133uA light_heavy:[0.967,1.021] rec(0.13,0.00) mid_heavy:[0.976,1.007] rec(0.00,0.00) burst:[0.967,1.017] rec(0.00)
+v5c_nominal_SHC_5e-10  PASS
+   low:0.9970/71uA mid:0.9938/89uA high:0.9912/133uA light_heavy:[0.968,1.017] rec(0.12,0.00) mid_heavy:[0.981,1.004] rec(0.00,0.00) burst:[0.968,1.012] rec(0.00)
+v5c_nominal_SHH_2e-10  PASS
+   low:1.0000/75uA mid:0.9959/86uA high:0.9926/120uA light_heavy:[0.953,1.038] rec(0.29,0.27) mid_heavy:[0.977,1.013] rec(0.00,0.00) burst:[0.953,1.031] rec(0.19)
+v5c_nominal_SHH_5e-10  PASS
+   low:1.0000/75uA mid:0.9959/86uA high:0.9926/120uA light_heavy:[0.957,1.030] rec(0.30,0.00) mid_heavy:[0.978,1.011] rec(0.00,0.00) burst:[0.957,1.023] rec(0.00)
+v5c_nominal_SLC_2e-10  PASS
+   low:0.9979/62uA mid:0.9944/86uA high:0.9917/141uA light_heavy:[0.955,1.030] rec(0.33,0.00) mid_heavy:[0.977,1.009] rec(0.00,0.00) burst:[0.955,1.023] rec(0.00)
+v5c_nominal_SLC_5e-10  PASS
+   low:0.9979/62uA mid:0.9944/86uA high:0.9917/141uA light_heavy:[0.954,1.025] rec(0.35,0.00) mid_heavy:[0.977,1.008] rec(0.00,0.00) burst:[0.954,1.018] rec(0.00)
+v5c_nominal_SLH_2e-10  PASS
+   low:1.0011/65uA mid:0.9966/79uA high:0.9929/121uA light_heavy:[0.939,1.047] rec(0.51,0.41) mid_heavy:[0.972,1.018] rec(0.00,0.00) burst:[0.939,1.037] rec(0.30)
+v5c_nominal_SLH_5e-10  PASS
+   low:1.0011/65uA mid:0.9966/79uA high:0.9929/121uA light_heavy:[0.940,1.039] rec(0.53,0.55) mid_heavy:[0.972,1.016] rec(0.00,0.00) burst:[0.940,1.029] rec(0.00)
+remaining 3444.5550036381464</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="30">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01VJ1UR8DYJbP1M9VbRZxJXd"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T04:21:22.321586+00:00">1:17:40</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Verify centered v5d across all corners and summarize margins</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>python3 gen5.py d/v5d.spice RZ=30k CZ=15p RA=16.74k
+diff d/v5b.spice d/v5d.spice
+timeout 590 ./runall2.sh d/v5d.spice v5d nominal; python3 summ.py &#x27;res/v5d_nominal_*.json&#x27;
+python3 - &lt;&lt;&#x27;EOF&#x27;
+import json,glob
+dcmax=-1;dcmin=9;trmin=9;trmax=-1;ohl=0;ohh=0;rec=0;iref=0
+for f in glob.glob(&#x27;res/v5d_nominal_*.json&#x27;):
+    d=json.load(open(f))
+    for c in d[&#x27;cases&#x27;]:
+        m=c[&#x27;measurements&#x27;]
+        iref=max(iref,m.get(&#x27;vref_abs_a&#x27;,0))
+        if c[&#x27;case_id&#x27;].startswith(&#x27;dc_&#x27;):
+            v=m[&#x27;vout_v&#x27;]; dcmax=max(dcmax,v); dcmin=min(dcmin,v)
+            if c[&#x27;case_id&#x27;]==&#x27;dc_low&#x27;: ohl=max(ohl,m[&#x27;overhead_a&#x27;])
+            else: ohh=max(ohh,m[&#x27;overhead_a&#x27;])
+        else:
+            e=m[&#x27;envelope&#x27;]; trmin=min(trmin,e[&#x27;min_v&#x27;]); trmax=max(trmax,e[&#x27;max_v&#x27;])
+            for w in m[&#x27;recovery_windows&#x27;]:
+                rec=max(rec,w[&#x27;recovery_s&#x27;] if w[&#x27;recovery_s&#x27;] is not None else 99)
+print(f&quot;DC [{dcmin:.4f},{dcmax:.4f}] TR [{trmin:.4f},{trmax:.4f}] OH light {ohl*1e6:.1f}uA other {ohh*1e6:.1f}uA rec max {rec*1e6:.2f}us Iref {iref*1e6:.2f}uA&quot;)
+EOF
+grep -o &#x27;&quot;revision&quot;: &quot;[^&quot;]*&quot;&#x27; res/v5d_nominal_N_2e-10.json | head -1; cp d/v5d.spice dut.spice; atb-client validate | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(d.get(&#x27;ok&#x27;), d.get(&#x27;revision&#x27;), d.get(&#x27;gate_area_um2&#x27;))&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01VJ1UR8DYJbP1M9VbRZxJXd"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T04:24:51.063501+00:00">1:21:08</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>9c9
+&lt; RA VOUT FB 16.8k
+---
+&gt; RA VOUT FB 16.74k
+v5d_nominal_FHC_2e-10  PASS
+   low:1.0036/75uA mid:0.9931/96uA high:0.9866/137uA light_heavy:[0.968,1.021] rec(0.12,0.00) mid_heavy:[0.979,1.001] rec(0.00,0.00) burst:[0.968,1.018] rec(0.00)
+v5d_nominal_FHC_5e-10  PASS
+   low:1.0036/75uA mid:0.9931/96uA high:0.9866/137uA light_heavy:[0.968,1.018] rec(0.14,0.00) mid_heavy:[0.979,1.000] rec(0.00,0.00) burst:[0.968,1.015] rec(0.00)
+v5d_nominal_FHH_2e-10  PASS
+   low:1.0177/81uA mid:1.0057/90uA high:0.9957/118uA light_heavy:[0.968,1.049] rec(0.09,0.42) mid_heavy:[0.984,1.019] rec(0.00,0.00) burst:[0.968,1.045] rec(0.38)
+v5d_nominal_FHH_5e-10  PASS
+   low:1.0177/81uA mid:1.0057/90uA high:0.9957/118uA light_heavy:[0.970,1.041] rec(0.09,0.61) mid_heavy:[0.984,1.017] rec(0.00,0.00) burst:[0.970,1.036] rec(0.53)
+v5d_nominal_FLC_2e-10  PASS
+   low:0.9975/68uA mid:0.9879/104uA high:0.9824/156uA light_heavy:[0.951,1.022] rec(0.54,0.00) mid_heavy:[0.972,0.999] rec(0.00,0.00) burst:[0.951,1.017] rec(0.00)
+v5d_nominal_FLC_5e-10  PASS
+   low:0.9975/68uA mid:0.9879/104uA high:0.9824/156uA light_heavy:[0.950,1.018] rec(0.56,0.00) mid_heavy:[0.971,0.998] rec(0.00,0.00) burst:[0.950,1.013] rec(0.00)
+v5d_nominal_FLH_2e-10  PASS
+   low:1.0127/69uA mid:1.0001/84uA high:0.9901/124uA light_heavy:[0.947,1.052] rec(0.45,0.58) mid_heavy:[0.972,1.018] rec(0.00,0.00) burst:[0.947,1.043] rec(0.47)
+v5d_nominal_FLH_5e-10  PASS
+   low:1.0127/69uA mid:1.0001/84uA high:0.9901/124uA light_heavy:[0.946,1.044] rec(0.47,0.77) mid_heavy:[0.972,1.016] rec(0.00,0.00) burst:[0.946,1.036] rec(0.63)
+v5d_nominal_N_2e-10    PASS
+   low:1.0006/69uA mid:0.9947/87uA high:0.9900/130uA light_heavy:[0.958,1.032] rec(0.32,0.22) mid_heavy:[0.976,1.009] rec(0.00,0.00) burst:[0.958,1.025] rec(0.00)
+v5d_nominal_N_5e-10    PASS
+   low:1.0006/69uA mid:0.9947/87uA high:0.9900/130uA light_heavy:[0.958,1.027] rec(0.34,0.00) mid_heavy:[0.976,1.007] rec(0.00,0.00) burst:[0.958,1.020] rec(0.00)
+v5d_nominal_SHC_2e-10  PASS
+   low:0.9960/71uA mid:0.9929/89uA high:0.9904/133uA light_heavy:[0.968,1.016] rec(1.10,0.00) mid_heavy:[0.973,1.008] rec(0.00,0.00) burst:[0.968,1.014] rec(0.00)
+v5d_nominal_SHC_5e-10  PASS
+   low:0.9960/71uA mid:0.9929/89uA high:0.9904/133uA light_heavy:[0.968,1.016] rec(0.15,0.00) mid_heavy:[0.981,1.002] rec(0.00,0.00) burst:[0.968,1.011] rec(0.00)
+v5d_nominal_SHH_2e-10  PASS
+   low:0.9995/75uA mid:0.9955/86uA high:0.9921/120uA light_heavy:[0.957,1.036] rec(0.30,0.26) mid_heavy:[0.977,1.011] rec(0.00,0.00) burst:[0.957,1.029] rec(0.00)
+v5d_nominal_SHH_5e-10  PASS
+   low:0.9995/75uA mid:0.9955/86uA high:0.9921/120uA light_heavy:[0.959,1.029] rec(0.31,0.00) mid_heavy:[0.977,1.010] rec(0.00,0.00) burst:[0.959,1.022] rec(0.00)
+v5d_nominal_SLC_2e-10  PASS
+   low:0.9970/62uA mid:0.9935/86uA high:0.9909/141uA light_heavy:[0.956,1.028] rec(0.36,0.00) mid_heavy:[0.977,1.008] rec(0.00,0.00) burst:[0.956,1.021] rec(0.00)
+v5d_nominal_SLC_5e-10  PASS
+   low:0.9970/62uA mid:0.9935/86uA high:0.9909/141uA light_heavy:[0.956,1.024] rec(0.37,0.00) mid_heavy:[0.977,1.006] rec(0.00,0.00) burst:[0.956,1.017] rec(0.00)
+v5d_nominal_SLH_2e-10  PASS
+   low:1.0007/65uA mid:0.9962/79uA high:0.9926/121uA light_heavy:[0.944,1.045] rec(0.53,0.41) mid_heavy:[0.972,1.017] rec(0.00,0.00) burst:[0.944,1.035] rec(0.29)
+v5d_nominal_SLH_5e-10  PASS
+   low:1.0007/65uA mid:0.9962/79uA high:0.9926/121uA light_heavy:[0.943,1.038] rec(0.54,0.55) mid_heavy:[0.972,1.015] rec(0.00,0.00) burst:[0.943,1.028] rec(0.00)
+DC [0.9824,1.0177] TR [0.9434,1.0516] OH light 80.7uA other 156.3uA rec max 1.10us Iref 0.71uA
+&quot;revision&quot;: &quot;dut-40bb9ff889205bfb346761e5&quot;
+True dut-40bb9ff889205bfb346761e5 595.0</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="31">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01WAqg26DyPUmLtLVtKu9Krs"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-06T04:25:09.989885+00:00">1:21:27</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Confirm netlist matches verified v5d and submit</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cmp d/v5d.spice dut.spice &amp;&amp; echo SAME &amp;&amp; cat dut.spice &amp;&amp; atb-client submit --rationale &quot;Two-stage PMOS-pass LDO for 1.15-1.35V VIN. EA: NMOS-input folded cascode (PMOS sources/cascodes, self-biased cascode bias, NMOS mirror) so both input drains sit at equal voltages (no PVT systematic offset) and the output swings ~0.1V..VIN-0.25V. Input common mode raised by matched 1.2Mohm dividers from VIN to VREF and from VIN to the VOUT/2 tap (VIN terms cancel exactly; VREF draws &lt;0.71uA). VOUT AC-coupled (3pF) into the feedback input for near-unity HF feedback. PI compensation (30k+15pF) at EA output gives integral DC accuracy plus proportional fast gain; output cap is the dominant pole. EA drives a wide weak-inversion NMOS that sinks from a PMOS diode mirroring the 2000um/0.15um pass device (N=25), so the gate node is low impedance and drive current scales with load; a 4k drain resistor in the diode equalizes its VDS with the pass device at heavy load, preventing DIBL ratio collapse/overhead. 33k divider doubles as bleeder. Verified all 9 PVT x 200/500pF: DC 0.982-1.018V, transient 0.943-1.052V, recovery&lt;=1.1us, overhead &lt;=81uA light/&lt;=156uA, 19pF internal C.&quot; 2&gt;&amp;1 | head -40</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01WAqg26DyPUmLtLVtKu9Krs"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T04:25:10.143840+00:00">1:21:27</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>SAME
+* LDO v5: folded-cascode NMOS-input EA with VIN-referenced matched level shift, PI comp, mirror-driven PMOS pass
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=20
+XMD E VG VIN VIN sky130_fd_pr__pfet_01v8 W=80 L=0.15 m=1
+RE E VG 4k
+XM2 VG X VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=0.15 m=1
+RZ X XZ 30k
+CZ XZ VSS 15p
+RA VOUT FB 16.74k
+RB FB VSS 16.5k
+RT1 VIN RU 780k
+RB1 RU VREF 420k
+CR RU VSS 1p
+RT2 VIN FU 780k
+RB2 FU FB 420k
+CAC VOUT FU 3p
+XN1 F1 RU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XN2 F2 FU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XNT T NB VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=1 m=1
+XPS1 F1 VBP VIN VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XPS2 F2 VBP VIN VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XPC1 O1 VBC F1 VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XPC2 X VBC F2 VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XNM1 O1 O1 VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XNM2 X O1 VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XPB Q1 VBP VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.15 m=1
+XPBC VBP VBC Q1 VIN sky130_fd_pr__pfet_01v8 W=10 L=0.15 m=1
+RCB VBP VBC 30k
+XNPB VBC NB VSS VSS sky130_fd_pr__nfet_01v8 W=8 L=1 m=1
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 m=1
+RBIAS VIN NB 300k
+
+.ends DUT
+{
+  &quot;ok&quot;: true,
+  &quot;submitted_revision&quot;: &quot;dut-40bb9ff889205bfb346761e5&quot;,
+  &quot;note&quot;: &quot;Submission frozen. No verification feedback will be returned. End the session.&quot;
+}</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="32">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-06T04:25:21.791Z">1:21:39</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>I&#39;ve submitted the LDO design (revision <code>dut-40bb9ff889205bfb346761e5</code>), with about 56 minutes of model time to spare. It passed all 18 public conditions I could test: 9 PVT corners at both 200 pF and 500 pF output caps. The independent evaluation conditions aren&#39;t visible to participants and the submission returns no verification feedback, so I can&#39;t confirm the final grade.</p>
+<div class="ai-table-wrap"><table class="ai-table">
+<thead>
+<tr>
+<th>Check</th>
+<th>Worst case measured</th>
+<th>Limit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DC output</td>
+<td>0.982 – 1.018 V</td>
+<td>±30 mV</td>
+</tr>
+<tr>
+<td>Load-step droop / overshoot</td>
+<td>0.943 V / 1.052 V</td>
+<td>±80 mV</td>
+</tr>
+<tr>
+<td>Recovery time</td>
+<td>1.10 µs</td>
+<td>5 µs</td>
+</tr>
+<tr>
+<td>Overhead current, 25 µA load</td>
+<td>80.7 µA</td>
+<td>100 µA</td>
+</tr>
+<tr>
+<td>Overhead current, other loads</td>
+<td>156 µA</td>
+<td>200 µA</td>
+</tr>
+<tr>
+<td>Current drawn from VREF</td>
+<td>0.71 µA</td>
+<td>1 µA</td>
+</tr>
+<tr>
+<td>Internal capacitance / transistor area</td>
+<td>19 pF / 595 µm²</td>
+<td>30 pF / 10,000 µm²</td>
+</tr>
+</tbody></table></div>
+<p>How the main design decisions came about:</p>
+<ul>
+<li><strong>Device probing first:</strong> a quick probe showed the PMOS threshold varies from about 0.23 V (fast, hot) to 0.67 V (slow, cold). That rules out a normal differential input pair working directly at the 0.5 V reference level on a 1.15 V supply.</li>
+<li><strong>Raised input level:</strong> two matched high-value dividers (VIN→VREF and VIN→feedback point) lift both amplifier inputs to about 0.75–0.8 V. The VIN term cancels exactly, so regulation accuracy doesn&#39;t depend on VIN. A version referenced to VOUT instead got stuck in a dead state at the slow-cold corner.</li>
+<li><strong>Folded-cascode error amplifier:</strong> the simpler amplifier gave an offset that changed with temperature (+43 mV hot, −31 mV cold). The folded cascode removed that, and also lets its output swing low enough at the fast-hot corner.</li>
+<li><strong>Pass device driven through a current mirror:</strong> the pass device&#39;s gate goes wherever each corner needs, and drive current scales with load. A 4 kΩ resistor in the mirror&#39;s reference branch stopped the mirror ratio collapsing at heavy load. Without it, overhead reached 332 µA at the fast-cold corner.</li>
+<li><strong>Compensation:</strong> the output capacitor is the dominant pole, with a resistor–capacitor network giving fast proportional gain plus integral correction for DC. Doubling the amplifier&#39;s bias current let me halve that resistor. That fixed slow-settling ringing at the cold corners with 200 pF.</li>
+</ul>
+<p>The thinnest margins are the DC error (about 12 mV of headroom, at fast-hot light load) and the droop at slow-hot (about 23 mV). I did not run the unscored line-transient and power-supply-rejection measurements.</p>
+</div><template class="model-source">I&#x27;ve submitted the LDO design (revision `dut-40bb9ff889205bfb346761e5`), with about 56 minutes of model time to spare. It passed all 18 public conditions I could test: 9 PVT corners at both 200 pF and 500 pF output caps. The independent evaluation conditions aren&#x27;t visible to participants and the submission returns no verification feedback, so I can&#x27;t confirm the final grade.
+
+| Check | Worst case measured | Limit |
+|---|---|---|
+| DC output | 0.982 – 1.018 V | ±30 mV |
+| Load-step droop / overshoot | 0.943 V / 1.052 V | ±80 mV |
+| Recovery time | 1.10 µs | 5 µs |
+| Overhead current, 25 µA load | 80.7 µA | 100 µA |
+| Overhead current, other loads | 156 µA | 200 µA |
+| Current drawn from VREF | 0.71 µA | 1 µA |
+| Internal capacitance / transistor area | 19 pF / 595 µm² | 30 pF / 10,000 µm² |
+
+How the main design decisions came about:
+- **Device probing first:** a quick probe showed the PMOS threshold varies from about 0.23 V (fast, hot) to 0.67 V (slow, cold). That rules out a normal differential input pair working directly at the 0.5 V reference level on a 1.15 V supply.
+- **Raised input level:** two matched high-value dividers (VIN→VREF and VIN→feedback point) lift both amplifier inputs to about 0.75–0.8 V. The VIN term cancels exactly, so regulation accuracy doesn&#x27;t depend on VIN. A version referenced to VOUT instead got stuck in a dead state at the slow-cold corner.
+- **Folded-cascode error amplifier:** the simpler amplifier gave an offset that changed with temperature (+43 mV hot, −31 mV cold). The folded cascode removed that, and also lets its output swing low enough at the fast-hot corner.
+- **Pass device driven through a current mirror:** the pass device&#x27;s gate goes wherever each corner needs, and drive current scales with load. A 4 kΩ resistor in the mirror&#x27;s reference branch stopped the mirror ratio collapsing at heavy load. Without it, overhead reached 332 µA at the fast-cold corner.
+- **Compensation:** the output capacitor is the dominant pole, with a resistor–capacitor network giving fast proportional gain plus integral correction for DC. Doubling the amplifier&#x27;s bias current let me halve that resistor. That fixed slow-settling ringing at the cold corners with 200 pF.
+
+The thinnest margins are the DC error (about 12 mV of headroom, at fast-hot light load) and the droop at slow-hot (about 23 mV). I did not run the unscored line-transient and power-supply-rejection measurements.</template></div></article>
+</div>
+<div class="turn-group" data-submission="final"><article class="trace-entry trace-submission" data-kind="SUBMISSION" aria-label="Final submitted SPICE"><div class="trace-meta"><span class="trace-tag">SPICE</span><span class="trace-tool-name">Final submission</span></div><div class="trace-content"><pre data-field="submitted-spice" tabindex="0"><code>* LDO v5: folded-cascode NMOS-input EA with VIN-referenced matched level shift, PI comp, mirror-driven PMOS pass
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=20
+XMD E VG VIN VIN sky130_fd_pr__pfet_01v8 W=80 L=0.15 m=1
+RE E VG 4k
+XM2 VG X VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=0.15 m=1
+RZ X XZ 30k
+CZ XZ VSS 15p
+RA VOUT FB 16.74k
+RB FB VSS 16.5k
+RT1 VIN RU 780k
+RB1 RU VREF 420k
+CR RU VSS 1p
+RT2 VIN FU 780k
+RB2 FU FB 420k
+CAC VOUT FU 3p
+XN1 F1 RU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XN2 F2 FU T VSS sky130_fd_pr__nfet_01v8 W=80 L=1 m=1
+XNT T NB VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=1 m=1
+XPS1 F1 VBP VIN VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XPS2 F2 VBP VIN VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XPC1 O1 VBC F1 VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XPC2 X VBC F2 VIN sky130_fd_pr__pfet_01v8 W=40 L=0.15 m=1
+XNM1 O1 O1 VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XNM2 X O1 VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XPB Q1 VBP VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.15 m=1
+XPBC VBP VBC Q1 VIN sky130_fd_pr__pfet_01v8 W=10 L=0.15 m=1
+RCB VBP VBC 30k
+XNPB VBC NB VSS VSS sky130_fd_pr__nfet_01v8 W=8 L=1 m=1
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 m=1
+RBIAS VIN NB 300k
+
+.ends DUT
+</code></pre></div></article></div>
+<div class="turn-group" data-evaluation="independent"><article class="trace-entry trace-evaluation" data-kind="EVALUATION" aria-label="Final independent evaluation"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-06T04:42:06.801583+00:00">1:38:24</div><span class="trace-tool-name">Independent evaluation</span></div><div class="trace-content"><div class="evaluation-table-wrap" tabindex="0" aria-label="Independent evaluation metrics"><table class="summary-table evaluation-metrics"><thead><tr><th scope="col">Metric</th><th scope="col">Worst value</th><th scope="col">Limit</th><th scope="col">Worst condition</th><th scope="col">Result</th></tr></thead><tbody><tr data-metric="dc_error_v"><th scope="row">DC regulation error</th><td>18 mV</td><td>≤ 30 mV</td><td>Published · FHH · 200 pF · dc_low</td><td>PASS</td></tr>
+<tr data-metric="overhead_a"><th scope="row">Light-load overhead current</th><td>81 µA</td><td>≤ 100 µA</td><td>Published · FHH · 200 pF · dc_low</td><td>PASS</td></tr>
+<tr data-metric="vref_abs_a"><th scope="row">VREF current</th><td>0.71 µA</td><td>≤ 1 µA</td><td>Published · SHC · 200 pF · dc_low</td><td>PASS</td></tr>
+<tr data-metric="overhead_a"><th scope="row">Overhead current · other loads</th><td>160 µA</td><td>≤ 200 µA</td><td>Published · FLC · 200 pF · dc_high</td><td>PASS</td></tr>
+<tr data-metric="initial_hold_error_v"><th scope="row">Initial hold error</th><td>18 mV</td><td>≤ 30 mV</td><td>Published · FHH · 200 pF · light_heavy</td><td>PASS</td></tr>
+<tr data-metric="envelope_error_v"><th scope="row">Transient envelope error</th><td>57 mV</td><td>≤ 80 mV</td><td>Published · SLH · 500 pF · light_heavy</td><td>PASS</td></tr>
+<tr data-metric="recovery_0_s"><th scope="row">First edge · recovery</th><td>1.1 µs</td><td>≤ 5 µs</td><td>Published · SHC · 200 pF · light_heavy</td><td>PASS</td></tr>
+<tr data-metric="recovery_1_s"><th scope="row">Second edge · recovery</th><td>0.77 µs</td><td>≤ 5 µs</td><td>Published · FLH · 500 pF · light_heavy</td><td>PASS</td></tr></tbody></table></div></div></article></div>

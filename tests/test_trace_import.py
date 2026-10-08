@@ -89,6 +89,21 @@ class TranscriptTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'result disagreement'):
             importer.normalize(SimpleNamespace(tools=[t],transcript=rows))
 
+    def test_captured_unfinished_codex_command_has_no_invented_result(self):
+        t = tool(output=None, status=None)
+        t.update(end=None, timing_limitation='CLI did not expose both boundaries')
+        rows = command_rows(t)[:1]
+        result = importer.normalize(SimpleNamespace(tools=[t], transcript=rows))
+        self.assertEqual([e.kind for e in result.events], ['ACTION'])
+        self.assertEqual(result.events[0].status, 'completion_not_recorded')
+        self.assertEqual(result.omissions['tool_completions_not_recorded'], 1)
+        rendered = importer.render_history(result, SimpleNamespace(start=dt.datetime.fromisoformat(START)))
+        self.assertIn('Completion not recorded', rendered)
+        self.assertIn('printf value', rendered)
+        t['result'] = 'saved result without transcript completion'
+        with self.assertRaisesRegex(ValueError, 'tool completion'):
+            importer.normalize(SimpleNamespace(tools=[t], transcript=rows))
+
     def test_claude_private_blocks_streams_and_async_delivery(self):
         t=tool('read',input={'file_path':'/workspace/TASK.md','offset':2},output='2\tline one\n3\t123 numeric content\n',
                status='success',name='Read')
@@ -132,6 +147,30 @@ def report(rows,stage):
 def evaluation(rows):
     return SimpleNamespace(submission={'revision':'frozen'},published=report(rows,'published'),
                            hidden=report([],'hidden'),extra_reports={},timing={'independent_evaluation':{'finished_at':START}})
+
+
+class TimingTests(unittest.TestCase):
+    def test_missing_model_time_keeps_dependent_accounting_unknown(self):
+        evidence = SimpleNamespace(
+            timing={'started_at': START, 'submitted_at': '2026-10-03T00:01:00+00:00',
+                    'design_wall_s': 60, 'measurement_rpc_active_s': 10,
+                    'model_calls': {'state': 'unknown'}},
+            model_timing={'requests': [{'start_utc_ns': 1, 'end_utc_ns': None}]}, events=[],
+            submission_timing={'model_time_final': {'design_model_calls_s': None}})
+        timing = importer.calculate_timing(evidence)
+        self.assertEqual((timing.wall_s, timing.measurement_s), (60, 10))
+        self.assertIsNone(timing.model_s)
+        self.assertIsNone(timing.overlap_s)
+        self.assertIsNone(timing.outside_s)
+        evidence.configuration = {'model': 'recorded-model', 'effort': 'max'}
+        evidence.published = evidence.hidden = report([], 'published')
+        evidence.published['electrical_status'] = 'PASS'
+        evidence.extra_reports = {'robustness': None}
+        evidence.submission = {'params': {'resources': {
+            'mos_instances': 8, 'mos_wl_um2': 100, 'total_capacitance_f': 1e-12}}}
+        summary = importer.render_summary({}, evidence, timing, [])
+        self.assertEqual(summary.count('Not recorded'), 3)
+        self.assertNotIn('(0.0%)', summary)
 
 
 class EvaluationTests(unittest.TestCase):

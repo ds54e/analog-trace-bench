@@ -153,7 +153,9 @@ def calculate_timing(evidence):
                 'Recorded model timing disagrees with submission-window accounting')
         require(abs(recorded['model_measurement_overlap_s'] - timing.overlap_s) < 0.01,
                 'Recorded overlap disagrees with clipped interval accounting')
-    require(abs(timing.model_s - evidence.submission_timing['model_time_final']['design_model_calls_s']) < 0.01,
+    submitted = evidence.submission_timing['model_time_final']['design_model_calls_s']
+    require((timing.model_s is None and submitted is None) or
+            (timing.model_s is not None and submitted is not None and abs(timing.model_s - submitted) < 0.01),
             'Submission time differs')
     return timing
 
@@ -209,6 +211,8 @@ renderer.image = ({text}) => text.replaceAll('&','&amp;').replaceAll('<','&lt;')
             body += '<template class="model-source">' + escape(event.payload) + '</template>'
         elif event.kind == 'ACTION':
             body = action_body(event.payload)
+            if event.status == 'completion_not_recorded':
+                body += '<p class="action-description">Completion not recorded</p>'
         else:
             body = shared.codebox(event.payload, '') if event.payload.strip() else ''
             if not successful(event.status):
@@ -395,6 +399,8 @@ def render_evaluation(evidence, timing):
 
 def render_summary(entry, evidence, timing, descriptions):
     def duration(seconds, percentage=True):
+        if seconds is None:
+            return 'Not recorded'
         return shared.mono(shared.clock(seconds)) + (f'<span class="time-pct">({seconds / timing.wall_s * 100:.1f}%)</span>'
                                                      if percentage else '')
     def verdict(stage):

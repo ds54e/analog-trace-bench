@@ -1384,5 +1384,1841 @@
       "Bias / feedback",
       "Resistor-fed PMOS bias · 296 kΩ / 300 kΩ feedback divider"
     ]
+  ],
+  "ldo-low-voltage-sky130-opus-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CM: 2 pF (em–e2) · CFF: 5 pF (VOUT–fa) · CZ: 17 pF (nz–VIN) · CX1: 1 pF (VOUT–gx) · CX2: 1 pF (VOUT–gu)"
+    ],
+    [
+      "Bias / feedback",
+      "RA: 50 kΩ (VOUT–fa) · RBD: 50 kΩ (fa–fb)"
+    ]
+  ],
+  "ldo-low-voltage-sky130-opus-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CZ: 15 pF (XZ–VSS) · CR: 1 pF (RU–VSS) · CAC: 3 pF (VOUT–FU)"
+    ],
+    [
+      "Bias / feedback",
+      "RA: 16.74 kΩ (VOUT–FB) · RB: 16.5 kΩ (FB–VSS) · RB2: 420 kΩ (FU–FB)"
+    ]
+  ],
+  "ldo-quiet-sky130-opus-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · Current-mode PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CD: 40 pF (nlag–n7) · CFF: 15 pF (VOUT–FB)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 30 kΩ (VOUT–FB) · R2: 30 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-quiet-sky130-opus-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 12 kΩ (VOUT–FB) · R2: 12 kΩ (FB–VSS)"
+    ]
+  ],
+  "ota-wide-sky130-opus-5-5-r2": [
+    [
+      "Architecture",
+      "Complementary input pairs · Folded-cascode summation · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CFO: 2 pF (VBPOF–VDD) · CC: 5 pF (NZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-wide-sky130-opus-5-5-r3": [
+    [
+      "Architecture",
+      "Complementary input pairs · Folded-cascode summation · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 6 pF (OZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-core-sky130-opus-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 2 pF (VOUT–FB) · CC: 5 pF (EC–VSS) · CS6: 10 pF (VIN–S6)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 60 kΩ (VOUT–FB) · R2: 60 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-core-sky130-opus-5-5-r3": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CC2: 1 pF (FB–FBD) · CFF: 1 pF (VOUT–FB) · CZ: 1.5 pF (NZ–VSS) · CPD: 10 pF (VIN–SPD)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 400 kΩ (VOUT–FB) · RC2: 800 kΩ (FB–FBD) · R2: 400 kΩ (FB–VSS)"
+    ]
+  ],
+  "ota-fixed-sky130-opus-5-5-r2": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 1.8 pF (n1–nzc) · Rz: 1.7 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-fixed-sky130-opus-5-5-r3": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 2.5 pF (n1–nzc) · Rz: 1.5 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-fixed-sky130-sonnet-5-5-r2": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 2.2 pF (n1–nzc) · Rz: 3 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-fixed-sky130-sonnet-5-5-r3": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 3.5 pF (n1–nzc) · Rz: 2 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-fixed-sky130-sol-6-1-r2": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 4 pF (n1–nzc) · Rz: 1.2 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-fixed-sky130-sol-6-1-r3": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 3.5 pF (n1–nzc) · Rz: 1.2 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-free-sky130-sonnet-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 2.2 pF (NZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-free-sky130-sonnet-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Folded-cascode OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-free-sky130-sol-6-1-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 4.5 pF (NZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-free-sky130-sol-6-1-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 4 pF (NC–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-opus-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Single-stage cascoded current-mirror OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-opus-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Single-stage cascoded current-mirror OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-sonnet-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CDEC: 10 pF (IBIAS–VSS) · CC: 6.5 pF (Y–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-sonnet-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Current-mirror OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-sol-6-1-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 15 pF (NC–VOUT) · CBIAS: 1 pF (IBIAS–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-sol-6-1-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Single-stage cascoded OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CREF: 3 pF (IBIAS–VSS) · CPC: 3 pF (PCG–VDD)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-always-on-sky130-opus-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 0.1 pF (VOUT–FB)"
+    ],
+    [
+      "Bias / feedback",
+      "RT: 1.9844 MΩ (VOUT–FB) · RBOT: 2 MΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-always-on-sky130-opus-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 0.15 pF (VOUT–FB)"
+    ],
+    [
+      "Bias / feedback",
+      "RTOP: 4 MΩ (VOUT–FB) · RBOT: 4 MΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-always-on-sky130-sonnet-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "RTOP: 2.4 MΩ (VOUT–VFB) · RBOT: 2.4 MΩ (VFB–VSS)"
+    ]
+  ],
+  "ldo-always-on-sky130-sonnet-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CBIAS: 15 pF (BIAS–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "RT: 1.0075 MΩ (VOUT–VFB) · RBT: 992.5 kΩ (VFB–VSS)"
+    ]
+  ],
+  "ldo-always-on-sky130-sol-6-1-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 18 pF (NC–VIN)"
+    ],
+    [
+      "Bias / feedback",
+      "RFBT: 4.92 MΩ (VOUT–FB) · RFBB: 5 MΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-always-on-sky130-sol-6-1-r3": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "RFBT: 3 MΩ (VOUT–FB) · RFBB: 3 MΩ (FB–VSS)"
+    ]
+  ],
+  "ota-precision-sky130-opus-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Folded-cascode first stage · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 12 pF (VOUT–CZ)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-precision-sky130-opus-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Folded-cascode first stage · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 11 pF (NZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-precision-sky130-sonnet-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 8 pF (NZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-precision-sky130-sonnet-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Folded-cascode OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CGP: 2 pF (GP–VDD) · CGPC: 2 pF (GPC–VDD) · CGNC: 2 pF (GNC–VSS) · COUT: 8 pF (VOUT–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-precision-sky130-sol-6-1-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Folded first stage · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CF: 1 pF (PC–VSS) · CPB: 2 pF (PB–VDD) · CC: 12 pF (NC–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-precision-sky130-sol-6-1-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Folded-cascode first stage · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 10 pF (NC–VOUT) · CBP: 1 pF (PB–VDD)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-low-voltage-sky130-sonnet-5-5-r2": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "C1: 0.6 pF (VOUT–NFB) · C2: 1 pF (NFB–VSS) · C3: 0.6 pF (VREF–NRF) · C4: 1.4 pF (NRF–VSS) · CZ: 0.1 pF (NZ–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 6.667 MΩ (VOUT–NFB) · R2: 1.176 MΩ (NFB–VSS)"
+    ]
+  ],
+  "ldo-low-voltage-sky130-sonnet-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "Cff: 4 pF (VOUT–fb) · Cr: 4 pF (rf–VSS) · Cx: 18 pF (gx–VIN) · Cc: 1 pF (VOUT–g)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 60 kΩ (VOUT–fb) · Rbl: 70 kΩ (VOUT–VSS) · R2: 60 kΩ (fb–VSS) · R3: 170 kΩ (VIN–fb)"
+    ]
+  ],
+  "ldo-low-voltage-sky130-sol-6-1-r2": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFB: 10 pF (VOUT–FB) · CREF: 15 pF (REF–VSS) · CCOMP: 1.6 pF (CC–G)"
+    ],
+    [
+      "Bias / feedback",
+      "RFB1: 40 kΩ (VOUT–FB) · RCOMP: 10 kΩ (VOUT–CC) · RFB2: 10 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-low-voltage-sky130-sol-6-1-r3": [
+    [
+      "Architecture",
+      "Level-shifted NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CREFH: 2.4 pF (VIN–IR) · CREFL: 5.6 pF (VREF–IR) · CFBH: 2.4 pF (VIN–IFB) · CFBOUT: 3.6 pF (VOUT–IFB) · CFBLO: 2 pF (IFB–VSS) · CLOCAL: 0.4 pF (GP–IR)"
+    ],
+    [
+      "Bias / feedback",
+      "RFBOUT: 600 kΩ (VOUT–IFB) · RBLEED: 50 kΩ (VOUT–VSS) · RFBH: 700 kΩ (VIN–IFB) · RFBLO: 600 kΩ (IFB–VSS)"
+    ]
+  ],
+  "ldo-quiet-sky130-sonnet-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 7 pF (VOUT–FB)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 20 kΩ (VOUT–FB) · R2: 19.36 kΩ (FB–VSS) · R3: 900 kΩ (VIN–FB)"
+    ]
+  ],
+  "ldo-quiet-sky130-sonnet-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 5 pF (VOUT–FB) · CZ: 15 pF (EZ–VIN)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 24 kΩ (VOUT–FB) · R2: 24 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-quiet-sky130-sol-6-1-r2": [
+    [
+      "Architecture",
+      "Cascoded NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CC: 60 pF (EC–VIN) · CF: 40 pF (PG–VIN)"
+    ],
+    [
+      "Bias / feedback",
+      "RFH: 29.8 kΩ (VOUT–FB) · RFL: 30 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-quiet-sky130-sol-6-1-r3": [
+    [
+      "Architecture",
+      "NMOS source followers · PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFB: 47 pF (VOUT–FB) · CCOMP: 50 pF (CZ–VSS) · CEA: 3 pF (EA–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "RFB1: 20 kΩ (VOUT–FB) · RFB2: 20 kΩ (FB–VSS)"
+    ]
+  ],
+  "ota-wide-sky130-sonnet-5-5-r2": [
+    [
+      "Architecture",
+      "Complementary input pairs · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CB: 2 pF (VB–VDD) · CC: 4 pF (CZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-wide-sky130-sonnet-5-5-r3": [
+    [
+      "Architecture",
+      "Complementary input pairs · Folded-cascode OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CX: 0.7 pF (VOUT–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-wide-sky130-sol-6-1-r2": [
+    [
+      "Architecture",
+      "Complementary input pairs · Continuous-time OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CM: 5 pF (CC–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-wide-sky130-sol-6-1-r3": [
+    [
+      "Architecture",
+      "Complementary input pairs · Continuous-time OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cmill: 6 pF (VC–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-core-sky130-sonnet-5-5-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "C1: 5 pF (VOUT–VFB) · C2: 0.1 pF (VFB–VSS) · CC: 2.5 pF (NZ–VIN) · CM: 0.05 pF (VOUT–X)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 296.5 kΩ (VOUT–VFB) · R2: 300 kΩ (VFB–VSS)"
+    ]
+  ],
+  "ldo-core-sky130-sonnet-5-5-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CA: 1.5 pF (VOUT–FB) · CB: 0.3 pF (FB–VSS) · CC: 0.1 pF (VOUT–G)"
+    ],
+    [
+      "Bias / feedback",
+      "RA: 125 kΩ (VOUT–FB) · RB: 125 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-core-sky130-sol-6-1-r2": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 1 pF (VOUT–FB) · CGCOMP: 3.5 pF (GC–VSS) · CNC: 0.5 pF (NC–VSS) · CPC: 0.5 pF (PC–VIN) · CMILL: 0.65 pF (MC–VOUT) · CBREF: 0.3 pF (BREF–VSS) · CBAC: 1 pF (BA–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "RFBT: 301 kΩ (VOUT–FB) · RFBB: 300 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-core-sky130-sol-6-1-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 0.8 pF (VOUT–FB) · CC: 0.2 pF (Z–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "RFT: 59.1 kΩ (VOUT–FB) · RFB: 60 kΩ (FB–VSS)"
+    ]
+  ],
+  "ota-fixed-sky130-luna-6-r2": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 4.2 pF (n1–nzc) · Rz: 3 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-fixed-sky130-luna-6-r3": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 2.5 pF (n1–nzc) · Rz: 3.3 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-free-sky130-luna-6-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Single-stage cascoded OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-free-sky130-luna-6-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 1.55 pF (NC–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-luna-6-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 20 pF (NC–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-luna-6-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 20 pF (NCOMP–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-always-on-sky130-luna-6-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 2 pF (VC–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "RFB1: 10 MΩ (VOUT–VFB) · RBLEED: 3.3 MΩ (VOUT–VSS) · RFB2: 10 MΩ (VFB–VSS)"
+    ]
+  ],
+  "ldo-always-on-sky130-luna-6-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 1 pF (n_drive–VSS) · CCOMPZ: 5 pF (n_z–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "RFBUP: 2.7 MΩ (VOUT–VFB) · RFBDN: 2.7 MΩ (VFB–VSS)"
+    ]
+  ],
+  "ota-precision-sky130-luna-6-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Continuous-time OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 5.6 pF (NDIFFN–NCOMP)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-precision-sky130-luna-6-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 11.5 pF (NZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-low-voltage-sky130-luna-6-r2": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "Cc: 0.2 pF (ctrl–VSS) · Ccomp: 5 pF (cfeed–VOUT) · Ccomp_fb: 22 pF (ffb–fb)"
+    ],
+    [
+      "Bias / feedback",
+      "Rfb_hi: 14.9 kΩ (VOUT–fb) · Rcomp_fb: 1 Ω (VOUT–ffb) · Rfb_lo: 5 kΩ (fb–VSS)"
+    ]
+  ],
+  "ldo-low-voltage-sky130-luna-6-r3": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 0.52 pF (COMP–VG) · CFF: 29.48 pF (VOUT–VFB)"
+    ],
+    [
+      "Bias / feedback",
+      "RFB1: 49.8 kΩ (VOUT–VFB) · RFB2: 47.5 kΩ (VFB–VSS) · RFF: 600 kΩ (VFF–VFB) · RFFLINE: 400 kΩ (VFFLINE–VFB)"
+    ]
+  ],
+  "ldo-quiet-sky130-luna-6-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 5 pF (ncc–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "RFB: 20 kΩ (VOUT–fb) · RFBLO: 20 kΩ (fb–VSS)"
+    ]
+  ],
+  "ldo-quiet-sky130-luna-6-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "RFBH: 25 kΩ (VOUT–VFB) · RFBL: 25 kΩ (VFB–VSS)"
+    ]
+  ],
+  "ota-wide-sky130-luna-6-r2": [
+    [
+      "Architecture",
+      "Complementary input pairs · Continuous-time OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 2.5 pF (ncomp–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-wide-sky130-luna-6-r3": [
+    [
+      "Architecture",
+      "Complementary input pairs · Continuous-time OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CCZ: 3.3 pF (ncomp–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-core-sky130-luna-6-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 8 pF (VOUT–VFB) · CFAST: 4 pF (VOUT–NFAST) · CSLOW: 5 pF (VOUT–NSLOW) · CCOMP: 3 pF (NCOMP–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "RFTOP: 1.8245 MΩ (VOUT–VFB) · RFBOT: 2 MΩ (VFB–VSS)"
+    ]
+  ],
+  "ldo-core-sky130-luna-6-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 13 pF (VOUT–VFB) · CCOMP: 6 pF (NCOMP–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "RFT: 990 kΩ (VOUT–VFB) · RFB: 1 MΩ (VFB–VSS)"
+    ]
+  ],
+  "ota-fixed-sky130-sol-6-r2": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 4 pF (n1–nzc) · Rz: 2.5 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-fixed-sky130-sol-6-r3": [
+    [
+      "Architecture",
+      "Fixed eight-transistor two-stage OTA · NMOS differential pair"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 4 pF (n1–nzc) · Rz: 1.2 kΩ"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-free-sky130-sol-6-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 3.1 pF (CM–VOUT) · CAX: 1.6 pF (CX–B)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-free-sky130-sol-6-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Continuous-time OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CB: 1.1 pF (GB–N2) · CC: 3.8 pF (NZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-sol-6-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 4.5 pF (NC–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-sol-6-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 3 pF (CZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-always-on-sky130-sol-6-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CGATE: 0.25 pF (PG–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "RTOP: 3 MΩ (VOUT–VOUTFB) · RBOT: 3 MΩ (VOUTFB–VSS)"
+    ]
+  ],
+  "ldo-always-on-sky130-sol-6-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CCOMP: 1.5 pF (PG–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "RFT: 3 MΩ (VOUT–FB) · RFB: 3 MΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-low-voltage-sky130-sol-6-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CFB: 6 pF (GATE–VOUT) · CDFIN: 7 pF (VOUT–DFSENSE) · CUFIN: 7 pF (VOUT–UPSENSE) · CSHG: 10 pF (UPDRIVE–SHG)"
+    ],
+    [
+      "Bias / feedback",
+      "RFT: 49 kΩ (VOUT–FB) · RFB: 50 kΩ (FB–VSS) · RFBIN: 500 kΩ (FB–GFB)"
+    ]
+  ],
+  "ldo-low-voltage-sky130-sol-6-r3": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CINPUT: 1 pF (VOUT–FB) · CFEED: 0.5 pF (VOUT–NR) · CAMP: 1 pF (AMP–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "RFT: 100 kΩ (VOUT–FB) · RLOCAL: 22 kΩ (VOUT–GATE) · RFB: 17.647 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-quiet-sky130-sol-6-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFB: 100 pF (VOUT–FB)"
+    ],
+    [
+      "Bias / feedback",
+      "RFT: 29.6 kΩ (VOUT–FB) · RFB: 30 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-quiet-sky130-sol-6-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFB: 80 pF (VOUT–FB) · CFF: 2 pF (VIN–PG)"
+    ],
+    [
+      "Bias / feedback",
+      "RFB1: 99.2 kΩ (VOUT–FB) · RFB2: 100 kΩ (FB–VSS)"
+    ]
+  ],
+  "ota-wide-sky130-sol-6-r2": [
+    [
+      "Architecture",
+      "Level-shifted PMOS pair · Folded NMOS pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CTP: 0.3 pF (VINP–SHP) · CTN: 0.3 pF (VINN–SHN) · CBP: 0.45 pF (SHP–VSS) · CBN: 0.45 pF (SHN–VSS) · CC: 7 pF (CZ–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-wide-sky130-sol-6-r3": [
+    [
+      "Architecture",
+      "Complementary input pairs · Continuous-time OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 2.8 pF (CM–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-core-sky130-sol-6-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CFF: 1 pF (VOUT–VH)"
+    ],
+    [
+      "Bias / feedback",
+      "RFOUT: 2.66667 MΩ (VOUT–VH) · RFVIN: 4 MΩ (VIN–VH) · RFVSS: 2.66667 MΩ (VH–VSS)"
+    ]
+  ],
+  "ldo-core-sky130-sol-6-r2": [
+    [
+      "Architecture",
+      "Complementary error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CFF: 3.8 pF (VOUT–FB) · CCOMP: 0.4 pF (GATE–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "RFBT: 300 kΩ (VOUT–FB) · RFBB: 296 kΩ (FB–VSS)"
+    ]
+  ],
+  "ota-free-sky130-deepseek-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 3.3 pF (B–NC)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-free-sky130-deepseek-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 2.25 pF (Z–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-deepseek-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Folded-cascode OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-drive-sky130-deepseek-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Single-stage OTA with cascoded PMOS load"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-always-on-sky130-deepseek-r2": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "C1: 2 pF (VOUT–VFB) · C2: 2 pF (VFB–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 2 MΩ (VOUT–VFB) · R2: 2 MΩ (VFB–VSS)"
+    ]
+  ],
+  "ldo-always-on-sky130-deepseek-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "No explicit capacitors"
+    ],
+    [
+      "Bias / feedback",
+      "RF1: 1.942 MΩ (VOUT–FB) · RF2: 2 MΩ (FB–VSS)"
+    ]
+  ],
+  "ota-precision-sky130-deepseek-r2": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 3.6 pF (ZD–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-precision-sky130-deepseek-r3": [
+    [
+      "Architecture",
+      "NMOS input pair · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC: 15 pF (XC–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-low-voltage-sky130-deepseek-r2": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CC: 30 pF (GA–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "RFA: 600 kΩ (VOUT–FB) · RL: 20 kΩ (VOUT–VSS) · RFB: 200 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-low-voltage-sky130-deepseek-r3": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CC: 20 pF (G–NC1)"
+    ],
+    [
+      "Bias / feedback",
+      "RC: 10 kΩ (NC1–VOUT) · R1: 7.5 kΩ (VOUT–VFB)"
+    ]
+  ],
+  "ldo-quiet-sky130-deepseek-r2": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CNT: 10 pF (NTAIL–VSS) · CFF: 4 pF (VOUT–VFB)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 24 kΩ (VOUT–VFB) · R2: 24 kΩ (VFB–VSS)"
+    ]
+  ],
+  "ldo-quiet-sky130-deepseek-r3": [
+    [
+      "Architecture",
+      "NMOS error amplifier with output cascode · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CF3: 30 pF (S3–VIN) · CF4: 30 pF (S4–VIN) · C3: 20 pF (CASC–VSS)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 29.8 kΩ (VOUT–VFB) · R2: 30 kΩ (VFB–VSS)"
+    ]
+  ],
+  "ota-wide-sky130-deepseek-r2": [
+    [
+      "Architecture",
+      "Complementary input pairs · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "CC1: 6 pF (X–XR)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ota-wide-sky130-deepseek-r3": [
+    [
+      "Architecture",
+      "Complementary input pairs · Two-stage OTA"
+    ],
+    [
+      "Output stage",
+      "PMOS output branch · NMOS output branch"
+    ],
+    [
+      "Compensation",
+      "Cc: 5 pF (nz–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "IBIAS-referenced MOS bias network"
+    ]
+  ],
+  "ldo-core-sky130-deepseek-r2": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "Ccomp: 20 pF (G–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "Rfb1: 300 kΩ (VOUT–FB) · Rfb2: 300 kΩ (FB–VSS)"
+    ]
+  ],
+  "ldo-core-sky130-deepseek-r3": [
+    [
+      "Architecture",
+      "PMOS error amplifier · PMOS-pass LDO"
+    ],
+    [
+      "Output stage",
+      "PMOS pass transistor"
+    ],
+    [
+      "Compensation",
+      "CZ: 5 pF (nm–VOUT)"
+    ],
+    [
+      "Bias / feedback",
+      "R1: 106.5 kΩ (VOUT–VFB) · R2: 100 kΩ (VFB–VSS)"
+    ]
   ]
 }

@@ -51,10 +51,10 @@ class Evidence:
 class RunTiming:
     start: dt.datetime
     wall_s: float
-    model_s: float
+    model_s: float | None
     measurement_s: float
-    overlap_s: float
-    outside_s: float
+    overlap_s: float | None
+    outside_s: float | None
 
 
 @dataclass(frozen=True)
@@ -133,6 +133,14 @@ def calculate_timing(evidence: Evidence) -> RunTiming:
     start = dt.datetime.fromisoformat(evidence.timing['started_at'])
     finish = dt.datetime.fromisoformat(evidence.timing['submitted_at'])
     lower, upper = start.timestamp(), finish.timestamp()
+    model_s = evidence.submission_timing['model_time_final']['design_model_calls_s']
+    measurement_s = evidence.timing['measurement_rpc_active_s']
+    wall_s = evidence.timing['design_wall_s']
+    # Incomplete request spans cannot establish model activity or its overlap.
+    # Keep independently recorded wall/measurement totals without summing a
+    # partial set of model requests.
+    if model_s is None:
+        return RunTiming(start, wall_s, None, measurement_s, None, None)
     model_intervals = merge_intervals(
         [(row['start_utc_ns'] / 1e9, row['end_utc_ns'] / 1e9)
          for row in evidence.model_timing['requests'] if not row.get('startup_prewarm')],
@@ -150,9 +158,6 @@ def calculate_timing(evidence: Evidence) -> RunTiming:
     overlap = sum(max(0, min(end_a, end_b) - max(start_a, start_b))
                   for start_a, end_a in model_intervals
                   for start_b, end_b in measurement_intervals)
-    model_s = evidence.submission_timing['model_time_final']['design_model_calls_s']
-    measurement_s = evidence.timing['measurement_rpc_active_s']
-    wall_s = evidence.timing['design_wall_s']
     outside_s = wall_s - model_s - measurement_s + overlap
     require(outside_s >= 0, 'Timing intervals exceed the recorded submission window')
     return RunTiming(start, wall_s, model_s, measurement_s, overlap, outside_s)

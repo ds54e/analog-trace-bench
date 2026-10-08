@@ -4,7 +4,7 @@ Producer semantics are checked against saved tools before shared rendering.
 Private reasoning is counted as an omission and never enters public events.
 """
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import datetime as dt
 import json
 from pathlib import Path
@@ -176,8 +176,17 @@ def normalize(evidence):
     require(len(models) == len(set(models)), 'Duplicate completed MODEL IDs')
     require(len(actions) == len(set(actions)) == len(tools) and set(actions) == set(tools),
             'Missing or duplicate saved tool action')
-    require(len(results) == len(set(results)) == len(tools) and set(results) == set(tools),
+    missing = set(tools) - set(results)
+    incomplete = {id for id in missing if not claude and not opencode
+                  and tools[id]['name'] == 'command_execution'
+                  and all(tools[id].get(key) is None for key in ('end', 'result', 'exit_status'))
+                  and tools[id].get('timing_limitation') == 'CLI did not expose both boundaries'}
+    require(len(results) == len(set(results)) and set(results) | incomplete == set(tools),
             'Missing or duplicate saved tool completion')
+    if incomplete:
+        omissions['tool_completions_not_recorded'] = len(incomplete)
+        events = [replace(event, status='completion_not_recorded')
+                  if event.kind == 'ACTION' and event.id in incomplete else event for event in events]
     require(set(file_starts) == set(file_completions), 'Incomplete file-change events')
     if file_starts:
         omissions['file_edits_without_patch_text'] = len(file_starts)

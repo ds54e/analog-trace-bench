@@ -1,0 +1,1627 @@
+<div class="turn-group" data-turn="1">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-05T12:42:09.305Z">0:00:04</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>I&#39;ll start by reading the specification files.</p>
+</div><template class="model-source">I&#x27;ll start by reading the specification files.</template></div></article>
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01P5nuPpgZ9AbLmc2zPGKTpZ"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:09.799678+00:00">0:00:04</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">List files in workspace</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>ls -la /workspace</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01P5nuPpgZ9AbLmc2zPGKTpZ"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:09.848025+00:00">0:00:04</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>total 96
+drwxr-xr-x.  2 admin admin  4096 Oct  5 21:42 .
+drwxr-xr-x. 13 admin admin   300 Oct  5 21:42 ..
+-rw-r--r--.  1 admin admin  1128 Oct  5 21:42 AGENTS.md
+-rw-r--r--.  1 admin admin  1128 Oct  5 21:42 CLAUDE.md
+-rw-r--r--.  1 admin admin  2962 Oct  5 15:29 CLIENT.md
+-rw-r--r--.  1 admin admin  1128 Oct  5 15:29 TASK.md
+-rw-r--r--.  1 admin admin   650 Oct  5 15:29 conditions.json
+-rw-r--r--.  1 admin admin 50576 Oct  5 15:29 devices.md
+-rw-r--r--.  1 admin admin  7405 Oct  5 15:29 measurement.md
+-rw-r--r--.  1 admin admin  4596 Oct  5 15:29 spec.json
+-rw-r--r--.  1 admin admin    87 Oct  5 15:29 task.json</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="2">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01S9u5Nvf2sF7mVtYt77nZaz"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:10.097997+00:00">0:00:04</div><span class="trace-tool-name">Read · TASK.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/TASK.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01S9u5Nvf2sF7mVtYt77nZaz"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:10.113037+00:00">0:00:04</div><span class="trace-tool-name">Read · TASK.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># OTA-WIDE-SKY130
+
+Design a continuous-time analog OTA meeting spec.json across conditions.json and the specified load range.
+Create dut.spice with `.subckt DUT VINP VINN VOUT VDD VSS IBIAS` and `.ends DUT`.
+Choose connectivity, bias, compensation and dimensions yourself. No starting circuit is supplied.
+Use only the declared MOS family and positive R/C in devices.md. Read measurement.md.
+You have 90 minutes of cumulative model-call time with no native-case limit. Use the client to measure and submit your fixed circuit before the deadline.
+No Web search. Use only the provided task information and your own knowledge.
+Measurements consume cases even when simulation fails. Submit through the client with a rationale, then end your session.
+
+## Time accounting
+
+The budget counts model calls, including provider queuing and transport. ngspice, Python, filesystem tools and their waits do not consume this budget. Model calls overlapping local tools still count. An already admitted measurement may finish after model-budget exhaustion; new design tools close. Use client status for the latest collected model-time reading.
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="3">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01EyAcU2rDSeaJ4YjWKcZTiC"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:10.446782+00:00">0:00:05</div><span class="trace-tool-name">Read · AGENTS.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/AGENTS.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01EyAcU2rDSeaJ4YjWKcZTiC"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:10.456420+00:00">0:00:05</div><span class="trace-tool-name">Read · AGENTS.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># OTA-WIDE-SKY130
+
+Design a continuous-time analog OTA meeting spec.json across conditions.json and the specified load range.
+Create dut.spice with `.subckt DUT VINP VINN VOUT VDD VSS IBIAS` and `.ends DUT`.
+Choose connectivity, bias, compensation and dimensions yourself. No starting circuit is supplied.
+Use only the declared MOS family and positive R/C in devices.md. Read measurement.md.
+You have 90 minutes of cumulative model-call time with no native-case limit. Use the client to measure and submit your fixed circuit before the deadline.
+No Web search. Use only the provided task information and your own knowledge.
+Measurements consume cases even when simulation fails. Submit through the client with a rationale, then end your session.
+
+## Time accounting
+
+The budget counts model calls, including provider queuing and transport. ngspice, Python, filesystem tools and their waits do not consume this budget. Model calls overlapping local tools still count. An already admitted measurement may finish after model-budget exhaustion; new design tools close. Use client status for the latest collected model-time reading.
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="4">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_012ELwFERn9sXR8SH7iaW7Er"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:10.785489+00:00">0:00:05</div><span class="trace-tool-name">Read · measurement.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/measurement.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_012ELwFERn9sXR8SH7iaW7Er"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:10.801512+00:00">0:00:05</div><span class="trace-tool-name">Read · measurement.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># Public measurement contract: OTA-WIDE-SKY130
+
+These methods and selected spec.json limits are implementation requirements.
+Native validation is not implied by this document or an offline test result.
+No method refers to a DUT-internal node or device role. A follower window is not
+independent ICMR or distortion-qualified output swing.
+
+## DC, ports and operating point
+
+Connect output to VINN externally, VINP to the input source, CL to external ground.
+Meter all six DUT ports with zero-volt sources pointing INTO DUT. Save voltages,
+signed currents, KCL residual and the sum of VSS-relative terminal powers.
+An ideal output clamp must not create a false operating point. IREF is noiseless,
+AC zero, constant in supply-ripple tests and enters IBIAS from VSS.
+
+Sweep the card&#x27;s input interval at 5 mV spacing, including both endpoints. Retain
+all samples; take maximum absolute follower error and maximum signed-port power
+only when every required sample is valid. Input loading and IBIAS compliance also
+apply at every DC point. Save the independently solved output at all step endpoints.
+Device diagnostics are optional; their absence is not a functional failure.
+A native DC solution alone is not proof of temporal stability.
+
+## External-loop return ratio
+
+Keep DC feedback and the real CL. e is the inverting-input side and f the output
+side. Probe V(e)-V(f) with a DC-zero voltage source; inject DC-zero current from
+VSS to e. Run voltage injection (V=1, I=0) and current injection (V=0, I=1) in one
+ngspice process. Normalize actual source phasors and use i_f=-I(Vprobe):
+
+A=i_f/Iinj and C=V(e,VSS)/Iinj in the current run;
+B=i_f/Vinj and D=V(e,VSS)/Vinj in the voltage run.
+
+L = [2(AD-BC)-A+D] / [2(BC-AD)+A-D+1].
+
+Use the 1+L sign convention, not an automatically sign-flipped curve. Preserve
+both raw paths and identical frequency grids/DC/model realization. Numerical
+denominator cancellation uses the prescribed relative guard 1e-10; unresolved
+values cannot become infinite gain or a passing margin. Record the ratio of
+absolute denominator to the sum of its term magnitudes.
+
+Sweep 10 Hz-1 GHz at 50 points/decade for SKY130. All samples finite,
+frequencies increasing, endpoint relative error &lt;=1e-7 and log10 spacing
+&lt;=0.020001. Low-frequency gain is 20 log10(abs(L)) at 10 Hz, not an invented DC
+limit. Reuse all-crossing extraction: interpolate linearly in log frequency,
+select the first positive-to-negative 0 dB crossing, unwrap phase from the first
+principal phase with adjacent changes within +/-180 degrees. Report each unity
+crossing&#x27;s frequency, unwrapped phase and gain direction, plus touches/boundaries.
+Record whether any later sample exceeds 0 dB + 1e-6 dB after the selected crossing.
+These diagnostics have no PASS/MISS verdict. Do not
+convert the crossing phase into a phase margin or report a gain-margin scalar.
+Only the 10 Hz gain and first descending crossing frequency are scored here.
+A missing selected crossing cannot pass the bandwidth requirement. Invalid or incomplete
+AC data remains a measurement failure.
+
+This two-port measurement is an external-loop metric. It does not certify every
+internal feedback mode of an arbitrary circuit. Time-domain requirements remain
+separate; global internal-mode certification is not a new acceptance gate.
+Method basis: Tian et al., Fig. 7 and eqs. 21-23/30,
+https://kenkundert.com/docs/cd2001-01.pdf .
+
+## CMRR: bounded DC balance, then two AC paths
+
+Fix average input to the card&#x27;s VCM and target VOUT=VCM. Set
+VINP=VCM+VD0/2 and VINN=VCM-VD0/2 without output clamp or AC servo.
+Try VD0=0 first. Success means abs(VOUT-VCM)&lt;=10 uV at a valid OP. Otherwise
+try endpoints -10 mV and +10 mV. Accept an endpoint meeting tolerance or require
+a negative/positive residual bracket in that order. Bisect at most 32 times,
+retaining each VD0, VOUT and status. There are at most 35 explicit OP commands.
+Failure to bracket/converge is NO_VALID_BALANCED_OP / BALANCE_UNRESOLVED, not
+proof of topology infeasibility. No adaptive range expansion or silent bias fix.
+
+At the successful unclamped OP keep VD0 fixed. Differential AC is +0.5/-0.5 V
+(unit difference); common AC is +1/+1 V (unit common mode). Other sources are AC
+zero. At exactly 1 kHz, report 20 log10(abs(Ad/Acm)), the input phasors and both
+paths. Zero/underflow/nonfinite ratios or a missing valid OP are invalid evidence,
+not automatic infinite rejection.
+
+Perform the bounded control loop and both AC paths in ONE native process and log
+explicit OP count and implicit AC operating-point work. Timeout stops that case;
+no unlimited loop or free process retries. The offline callback is an algorithm
+oracle, not permission to count 35 separate processes as one. The official ngspice
+control tutorial documents alter/op/loop flows and multiple analyses in one run:
+https://ngspice.sourceforge.io/ngspice-control-language-tutorial.html .
+
+## Transients
+
+Use card-specific levels, edge start/duration, stop time and maximum sample gap.
+Each transient uses its own independently solved DC endpoints. Measure slew from
+edge start: an output which crosses 20/80% during the finite input edge remains
+valid. Require complete finite increasing samples throughout the observation.
+Small up/down tests cover the center (0.70/0.75 V), low (0.25/0.30 V), and
+high (1.05/1.10 V) regions in separate native processes. A nominal group costs 11
+cases; step costs nine including DC. Full verification is 210 public plus 108
+independent cases. All six small steps
+are scored. This joint input/output follower test is not independent ICMR.
+
+Settling is final interpolated entry that remains within 1% of INPUT step amplitude
+about the independently solved destination DC OUTPUT, measured from edge start.
+DC tracking is a separate required check. Wrong static levels therefore cannot
+pass by tail normalization. Complete unsettled data yields null settling and an
+observation-time lower bound; a bound beyond the limit is MISS. Short or missing
+waveforms are invalid, not fast settling. Small-step overshoot is excursion beyond
+target divided by absolute independent DC output transition. Large-step slew uses
+the first ordered direction-correct 20/80% crossings after the edge starts. Retain
+recrossings and characterize large-step overshoot; don&#x27;t add a new waveform score.
+
+## Noise, PSRR and verdicts
+
+Noise uses the real follower at VCM and the same-circuit signal transfer. Save
+input-referred ASD, integrate its squared PSD in linear frequency with trapezoids
+and boundary interpolation, then square root: 10 Hz-10 MHz at 50 points/decade.
+Keep 10/100/1000 Hz lower-cutoff integrals as diagnostics.
+
+PSRR uses two AC paths at the same follower OP: VDD=1/input=0 then VDD=0/input=1.
+IREF and VCM do not follow supply ripple. Save phasors and calculate
+20 log10(abs(Hsignal/Hsupply)) at 1 kHz and 1 MHz, not an LDO supply/output-only
+formula. Invalid/zero transfers do not become favorable zero noise/infinite PSRR.
+
+All required standard cases must produce valid passing metrics on one DUT.
+Inclusive limits are compared without rounding. Keep failed metrics and unknowns;
+partial execution is not a completed PASS or a substituted last-good design.
+Independent evaluation uses the captured standard grid for every required case.
+Numerical precision comparisons use a separately authorized developer allocation.
+A standard-grid PASS is not a per-submission convergence proof.
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="5">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01UAgJ6kjqB2HyE4TTd7hND6"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:13.218783+00:00">0:00:07</div><span class="trace-tool-name">Read · CLIENT.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/CLIENT.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01UAgJ6kjqB2HyE4TTd7hND6"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:13.232163+00:00">0:00:08</div><span class="trace-tool-name">Read · CLIENT.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># Shared client
+
+Write request.json and call `atb-client --request request.json`.
+Commands: `atb-client help`, `atb-client status`, `atb-client validate`,
+`atb-client estimate --analysis nominal --pvt N`,
+`atb-client measure --id m001 --analysis nominal --pvt N`,
+`atb-client submit --rationale &quot;Design rationale&quot;`.
+Use `--cl` in farads and optional `--seed` only when the task supports it.
+The client reads dut.spice once for validate/measure/submit and sends its exact UTF-8 contents.
+Measure requires experiment_id, analysis and pvt; cl is optional. Use help for analyses and native case costs.
+Use a new experiment_id when changing a circuit or measurement request. Completed identical requests reuse their saved result.
+Submit requires rationale. Successful submission freezes that circuit for every independent condition and closes exploration.
+
+## Public measurement options
+
+| Analysis | PVT | Load (F) | Cases | Included native measurements |
+|---|---|---:|---:|---|
+| nominal | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-12 | 11 | dc, loop, small_up, small_down, large_up, large_down, noise, small_low_up, small_low_down, small_high_up, small_high_down |
+| nominal | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-12 | 11 | dc, loop, small_up, small_down, large_up, large_down, noise, small_low_up, small_low_down, small_high_up, small_high_down |
+| dc | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-12 | 1 | dc |
+| dc | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-12 | 1 | dc |
+| loop | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-12 | 1 | loop |
+| loop | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-12 | 1 | loop |
+| step | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-12 | 9 | dc, small_up, small_down, large_up, large_down, small_low_up, small_low_down, small_high_up, small_high_down |
+| step | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-12 | 9 | dc, small_up, small_down, large_up, large_down, small_low_up, small_low_down, small_high_up, small_high_down |
+| noise | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 2e-12 | 1 | noise |
+| noise | N, SLC, SLH, SHC, SHH, FLC, FLH, FHC, FHH | 5e-12 | 1 | noise |
+| psrr | N, SLH, FHC | 2e-12 | 1 | psrr |
+| psrr | N, SLH, FHC | 5e-12 | 1 | psrr |
+| cmrr | N, SLH, FHC | 2e-12 | 1 | cmrr |
+| cmrr | N, SLH, FHC | 5e-12 | 1 | cmrr |
+
+Defaults and seed requirements:
+
+- nominal: omitted `--cl` uses 2e-12 F. No seed accepted.
+- dc: omitted `--cl` uses 2e-12 F. No seed accepted.
+- loop: omitted `--cl` uses 2e-12 F. No seed accepted.
+- step: omitted `--cl` uses 2e-12 F. No seed accepted.
+- noise: omitted `--cl` uses 2e-12 F. No seed accepted.
+- psrr: omitted `--cl` uses 2e-12 F. No seed accepted.
+- cmrr: omitted `--cl` uses 2e-12 F. No seed accepted.
+
+One native case is one simulator process. Bundled internal analyses are retained in evidence.
+`estimate` returns the exact case plan without launching a solver. Independent evaluation conditions are not available to participants.
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="6">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01WKuhoB6r8qR6Ucqhk23oaG"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:13.667518+00:00">0:00:08</div><span class="trace-tool-name">Read · spec.json</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/spec.json</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01WKuhoB6r8qR6Ucqhk23oaG"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:13.681067+00:00">0:00:08</div><span class="trace-tool-name">Read · spec.json</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;kind&quot;: &quot;formal_implementation_specification&quot;,
+  &quot;specification_id&quot;: &quot;OTA-WIDE-SKY130-2026-09-29-R3&quot;,
+  &quot;task_id&quot;: &quot;OTA-WIDE-SKY130&quot;,
+  &quot;technology&quot;: &quot;sky130&quot;,
+  &quot;design_freedom&quot;: &quot;topology_connectivity_bias_conversion_compensation_and_sizing&quot;,
+  &quot;completed_circuit_supplied&quot;: false,
+  &quot;ports&quot;: [
+    &quot;VINP&quot;,
+    &quot;VINN&quot;,
+    &quot;VOUT&quot;,
+    &quot;VDD&quot;,
+    &quot;VSS&quot;,
+    &quot;IBIAS&quot;
+  ],
+  &quot;device_environment&quot;: {
+    &quot;models&quot;: [
+      &quot;sky130_fd_pr__nfet_01v8&quot;,
+      &quot;sky130_fd_pr__pfet_01v8&quot;
+    ],
+    &quot;geometry_units&quot;: &quot;numeric_micrometres_under_PDK_scale_1u&quot;,
+    &quot;multiplicity_parameter&quot;: &quot;m&quot;,
+    &quot;nf&quot;: 1,
+    &quot;process_semantics&quot;: &quot;continuous_tt_ss_ff&quot;,
+    &quot;geometry_admission&quot;: &quot;Per-polarity intersection of all selected continuous sections, W&lt;=100um and L&gt;=0.15um; no device-role bounds.&quot;
+  },
+  &quot;operating&quot;: {
+    &quot;vdd_nominal_v&quot;: 1.5,
+    &quot;vdd_range_v&quot;: [
+      1.35,
+      1.65
+    ],
+    &quot;temperature_nominal_c&quot;: 27,
+    &quot;temperature_range_c&quot;: [
+      -40,
+      125
+    ],
+    &quot;vcm_v&quot;: 0.75,
+    &quot;iref_a&quot;: 1e-05,
+    &quot;iref_direction&quot;: &quot;VSS_to_IBIAS&quot;,
+    &quot;iref_ac_a&quot;: 0,
+    &quot;reference_noise&quot;: &quot;ideal_noiseless&quot;,
+    &quot;load_interval_f&quot;: [
+      2e-12,
+      5e-12
+    ],
+    &quot;dc_input_range_v&quot;: [
+      0.25,
+      1.1
+    ],
+    &quot;dc_step_v&quot;: 0.005,
+    &quot;small_step_levels_v&quot;: [
+      0.7,
+      0.75
+    ],
+    &quot;large_step_levels_v&quot;: [
+      0.25,
+      1.1
+    ],
+    &quot;small_step_regions_v&quot;: {
+      &quot;low&quot;: [
+        0.25,
+        0.3
+      ],
+      &quot;high&quot;: [
+        1.05,
+        1.1
+      ]
+    }
+  },
+  &quot;limits&quot;: {
+    &quot;low_frequency_return_ratio_db_min&quot;: 50,
+    &quot;unity_gain_frequency_hz_min&quot;: 3000000.0,
+    &quot;dc_tracking_error_v_max&quot;: 0.01,
+    &quot;signed_port_power_w_max&quot;: 0.0006,
+    &quot;small_step_overshoot_fraction_max&quot;: 0.1,
+    &quot;large_step_slew_v_per_s_min&quot;: 2000000.0,
+    &quot;small_step_settling_s_max&quot;: 5e-07,
+    &quot;large_step_settling_s_max&quot;: 1e-06,
+    &quot;input_referred_noise_rms_v_max&quot;: 0.00015,
+    &quot;psrr_db_min_at_1khz&quot;: 50,
+    &quot;psrr_db_min_at_1mhz&quot;: 18,
+    &quot;balanced_open_loop_cmrr_db_min_at_1khz&quot;: 45,
+    &quot;input_dc_current_abs_a_max&quot;: 1e-06,
+    &quot;ibias_compliance&quot;: &quot;VSS&lt;=V(IBIAS)&lt;=VDD&quot;
+  },
+  &quot;resources&quot;: {
+    &quot;mos_wl_sum_um2_max&quot;: 3000,
+    &quot;explicit_capacitance_sum_f_max&quot;: 1e-11,
+    &quot;resistance_ohm&quot;: [
+      1.0,
+      100000000.0
+    ],
+    &quot;capacitance_f&quot;: [
+      1e-15,
+      1e-11
+    ],
+    &quot;maximum_expanded_elements&quot;: 512,
+    &quot;maximum_multiplicity&quot;: 32,
+    &quot;maximum_hierarchy_depth&quot;: 12,
+    &quot;maximum_source_bytes&quot;: 65536,
+    &quot;maximum_statements&quot;: 2048,
+    &quot;maximum_subcircuits&quot;: 32,
+    &quot;maximum_expansion_visits&quot;: 2048,
+    &quot;bulk_connections&quot;: &quot;NFET_to_VSS_PFET_to_VDD&quot;,
+    &quot;meaning&quot;: &quot;schematic_resource_proxies_not_layout_area&quot;
+  },
+  &quot;measurement&quot;: {
+    &quot;solver_options&quot;: {
+      &quot;reltol&quot;: 0.0001,
+      &quot;abstol&quot;: 1e-13,
+      &quot;vntol&quot;: 1e-09,
+      &quot;chgtol&quot;: 1e-16
+    },
+    &quot;dc_kcl_tolerance_a&quot;: 1e-09,
+    &quot;loop&quot;: {
+      &quot;method&quot;: &quot;two_injection_1_plus_L&quot;,
+      &quot;frequency_hz&quot;: [
+        10.0,
+        1000000000.0
+      ],
+      &quot;points_per_decade&quot;: 50,
+      &quot;relative_cancellation_floor&quot;: 1e-10,
+      &quot;endpoint_relative_tolerance&quot;: 1e-07,
+      &quot;maximum_log10_gap&quot;: 0.020001,
+      &quot;recross_slack_db&quot;: 1e-06
+    },
+    &quot;transient&quot;: {
+      &quot;edge_start_s&quot;: 2e-07,
+      &quot;edge_duration_s&quot;: 1e-09,
+      &quot;stop_s&quot;: 5.201e-06,
+      &quot;maximum_step_s&quot;: 1e-10,
+      &quot;settling_band_fraction_of_input_step&quot;: 0.01,
+      &quot;target&quot;: &quot;independent_destination_DC_output&quot;,
+      &quot;both_directions&quot;: true,
+      &quot;slew_crossing_origin&quot;: &quot;edge_start&quot;
+    },
+    &quot;noise&quot;: {
+      &quot;frequency_hz&quot;: [
+        10.0,
+        10000000.0
+      ],
+      &quot;points_per_decade&quot;: 50,
+      &quot;integration&quot;: &quot;linear_frequency_trapezoid_PSD&quot;
+    },
+    &quot;cmrr_balance&quot;: {
+      &quot;input_difference_bounds_v&quot;: [
+        -0.01,
+        0.01
+      ],
+      &quot;output_target&quot;: &quot;VCM&quot;,
+      &quot;output_tolerance_v&quot;: 1e-05,
+      &quot;maximum_bisection_steps&quot;: 32,
+      &quot;maximum_explicit_op_commands&quot;: 35,
+      &quot;implementation&quot;: &quot;bounded_control_loop_and_two_AC_paths_in_one_native_invocation&quot;,
+      &quot;same_model_realization&quot;: true
+    }
+  },
+  &quot;exploration_budget&quot;: {
+    &quot;native_cases&quot;: null,
+    &quot;model_seconds&quot;: 5400
+  },
+  &quot;characterization_only&quot;: [
+    &quot;external_loop_crossings_and_phase&quot;,
+    &quot;no_0db_recross&quot;,
+    &quot;large_step_overshoot&quot;,
+    &quot;device_operating_points&quot;
+  ],
+  &quot;out_of_scope&quot;: [
+    &quot;Monte_Carlo&quot;,
+    &quot;startup&quot;,
+    &quot;independent_ICMR_or_swing&quot;,
+    &quot;dynamic_energy_score&quot;,
+    &quot;topology_classifier&quot;,
+    &quot;network_hardening&quot;
+  ],
+  &quot;comparison_policy&quot;: &quot;Compare agents within a task; neither equal difficulty nor equivalence to fixed-topology results is established.&quot;
+}
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="7">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_014fRs9jVjKX3k8uVA2Dv3eM"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:13.907898+00:00">0:00:08</div><span class="trace-tool-name">Read · conditions.json</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/conditions.json</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_014fRs9jVjKX3k8uVA2Dv3eM"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:13.915763+00:00">0:00:08</div><span class="trace-tool-name">Read · conditions.json</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;N&quot;: {
+    &quot;process&quot;: &quot;nominal&quot;,
+    &quot;vdd&quot;: 1.5,
+    &quot;temp&quot;: 27
+  },
+  &quot;SLC&quot;: {
+    &quot;process&quot;: &quot;slow&quot;,
+    &quot;vdd&quot;: 1.35,
+    &quot;temp&quot;: -40
+  },
+  &quot;SLH&quot;: {
+    &quot;process&quot;: &quot;slow&quot;,
+    &quot;vdd&quot;: 1.35,
+    &quot;temp&quot;: 125
+  },
+  &quot;SHC&quot;: {
+    &quot;process&quot;: &quot;slow&quot;,
+    &quot;vdd&quot;: 1.65,
+    &quot;temp&quot;: -40
+  },
+  &quot;SHH&quot;: {
+    &quot;process&quot;: &quot;slow&quot;,
+    &quot;vdd&quot;: 1.65,
+    &quot;temp&quot;: 125
+  },
+  &quot;FLC&quot;: {
+    &quot;process&quot;: &quot;fast&quot;,
+    &quot;vdd&quot;: 1.35,
+    &quot;temp&quot;: -40
+  },
+  &quot;FLH&quot;: {
+    &quot;process&quot;: &quot;fast&quot;,
+    &quot;vdd&quot;: 1.35,
+    &quot;temp&quot;: 125
+  },
+  &quot;FHC&quot;: {
+    &quot;process&quot;: &quot;fast&quot;,
+    &quot;vdd&quot;: 1.65,
+    &quot;temp&quot;: -40
+  },
+  &quot;FHH&quot;: {
+    &quot;process&quot;: &quot;fast&quot;,
+    &quot;vdd&quot;: 1.65,
+    &quot;temp&quot;: 125
+  }
+}
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="8">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01RigMoueuBW53cjuA21y6ej"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:14.212386+00:00">0:00:08</div><span class="trace-tool-name">Read · task.json</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/task.json</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01RigMoueuBW53cjuA21y6ej"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:14.219644+00:00">0:00:08</div><span class="trace-tool-name">Read · task.json</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{&quot;task_id&quot;: &quot;OTA-WIDE-SKY130&quot;, &quot;design_format&quot;: &quot;netlist&quot;, &quot;design_file&quot;: &quot;dut.spice&quot;}
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="9">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01QUGVvucq2nK4uuq8JDUVSJ"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:14.510015+00:00">0:00:09</div><span class="trace-tool-name">Read · CLAUDE.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/CLAUDE.md</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01QUGVvucq2nK4uuq8JDUVSJ"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:14.512792+00:00">0:00:09</div><span class="trace-tool-name">Read · CLAUDE.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># OTA-WIDE-SKY130
+
+Design a continuous-time analog OTA meeting spec.json across conditions.json and the specified load range.
+Create dut.spice with `.subckt DUT VINP VINN VOUT VDD VSS IBIAS` and `.ends DUT`.
+Choose connectivity, bias, compensation and dimensions yourself. No starting circuit is supplied.
+Use only the declared MOS family and positive R/C in devices.md. Read measurement.md.
+You have 90 minutes of cumulative model-call time with no native-case limit. Use the client to measure and submit your fixed circuit before the deadline.
+No Web search. Use only the provided task information and your own knowledge.
+Measurements consume cases even when simulation fails. Submit through the client with a rationale, then end your session.
+
+## Time accounting
+
+The budget counts model calls, including provider queuing and transport. ngspice, Python, filesystem tools and their waits do not consume this budget. Model calls overlapping local tools still count. An already admitted measurement may finish after model-budget exhaustion; new design tools close. Use client status for the latest collected model-time reading.
+</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="10">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01Dr7WHcSckq5Lu2GwYuQEN5"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:17.328500+00:00">0:00:12</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Show client help and status</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>atb-client help 2&gt;&amp;1 | head -100; echo ---; atb-client status 2&gt;&amp;1 | head -50</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01Dr7WHcSckq5Lu2GwYuQEN5"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:17.443593+00:00">0:00:12</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;ok&quot;: true,
+  &quot;exploration_cases&quot;: null,
+  &quot;participant_seconds&quot;: 5400,
+  &quot;design&quot;: &quot;Create /workspace/dut.spice. Client captures its UTF-8 bytes for validate, measure and submit.&quot;,
+  &quot;actions&quot;: {
+    &quot;help&quot;: {},
+    &quot;status&quot;: {},
+    &quot;validate&quot;: {},
+    &quot;estimate&quot;: {
+      &quot;required&quot;: [
+        &quot;analysis&quot;,
+        &quot;pvt&quot;
+      ],
+      &quot;optional&quot;: [
+        &quot;cl&quot;
+      ]
+    },
+    &quot;measure&quot;: {
+      &quot;required&quot;: [
+        &quot;experiment_id&quot;,
+        &quot;analysis&quot;,
+        &quot;pvt&quot;
+      ],
+      &quot;optional&quot;: [
+        &quot;cl&quot;
+      ]
+    },
+    &quot;submit&quot;: {
+      &quot;required&quot;: [
+        &quot;rationale&quot;
+      ]
+    }
+  },
+  &quot;analyses&quot;: {
+    &quot;nominal&quot;: {
+      &quot;conditions&quot;: [
+        {
+          &quot;pvt&quot;: [
+            &quot;N&quot;,
+            &quot;SLC&quot;,
+            &quot;SLH&quot;,
+            &quot;SHC&quot;,
+            &quot;SHH&quot;,
+            &quot;FLC&quot;,
+            &quot;FLH&quot;,
+            &quot;FHC&quot;,
+            &quot;FHH&quot;
+          ],
+          &quot;cl_f&quot;: 2e-12,
+          &quot;cases&quot;: 11,
+          &quot;included_cases&quot;: [
+            &quot;dc&quot;,
+            &quot;loop&quot;,
+            &quot;small_up&quot;,
+            &quot;small_down&quot;,
+            &quot;large_up&quot;,
+            &quot;large_down&quot;,
+            &quot;noise&quot;,
+            &quot;small_low_up&quot;,
+            &quot;small_low_down&quot;,
+            &quot;small_high_up&quot;,
+            &quot;small_high_down&quot;
+          ]
+        },
+        {
+          &quot;pvt&quot;: [
+            &quot;N&quot;,
+            &quot;SLC&quot;,
+            &quot;SLH&quot;,
+            &quot;SHC&quot;,
+            &quot;SHH&quot;,
+            &quot;FLC&quot;,
+            &quot;FLH&quot;,
+            &quot;FHC&quot;,
+            &quot;FHH&quot;
+          ],
+          &quot;cl_f&quot;: 5e-12,
+          &quot;cases&quot;: 11,
+          &quot;included_cases&quot;: [
+            &quot;dc&quot;,
+            &quot;loop&quot;,
+            &quot;small_up&quot;,
+            &quot;small_down&quot;,
+            &quot;large_up&quot;,
+            &quot;large_down&quot;,
+            &quot;noise&quot;,
+            &quot;small_low_up&quot;,
+            &quot;small_low_down&quot;,
+            &quot;small_high_up&quot;,
+            &quot;small_high_down&quot;
+          ]
+        }
+      ],
+      &quot;default_load_f&quot;: 2e-12,
+      &quot;seeds&quot;: [],
+      &quot;seed_required&quot;: false
+    },
+    &quot;dc&quot;: {
+      &quot;conditions&quot;: [
+---
+{
+  &quot;ok&quot;: true,
+  &quot;run_id&quot;: &quot;opus-02&quot;,
+  &quot;status&quot;: &quot;running&quot;,
+  &quot;deadline_at&quot;: null,
+  &quot;remaining_seconds&quot;: 5389.201221460826,
+  &quot;exploration_cases_reserved&quot;: 0,
+  &quot;exploration_limit&quot;: null,
+  &quot;exploration_cases_remaining&quot;: null,
+  &quot;submitted_revision&quot;: null,
+  &quot;model_time_budget&quot;: {
+    &quot;used_seconds&quot;: 10.798778539174236,
+    &quot;recording_error&quot;: null,
+    &quot;active_requests&quot;: 1,
+    &quot;observed_at_monotonic_s&quot;: 596765.753575577,
+    &quot;clock&quot;: &quot;model_requests&quot;,
+    &quot;source&quot;: &quot;pinned Claude CLI API-body dispatch and llm_request spans&quot;,
+    &quot;export_latency_seconds&quot;: 1,
+    &quot;budget_reading&quot;: &quot;collected events plus elapsed time of observed active requests&quot;,
+    &quot;seconds&quot;: 5400,
+    &quot;remaining_seconds&quot;: 5389.201221460826
+  }
+}</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="11">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01ULzUmh5SCLBnGZobH864dq"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:17.696483+00:00">0:00:12</div><span class="trace-tool-name">Read · devices.md</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/devices.md</code></pre></div><div class="raw-field"><pre data-field="options" tabindex="0"><code>{
+  &quot;limit&quot;: 150
+}</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01ULzUmh5SCLBnGZobH864dq"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:18.043001+00:00">0:00:12</div><span class="trace-tool-name">Read · devices.md</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>File content (37058 tokens) exceeds maximum allowed tokens (25000). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file.</code></pre><p class="action-description">Outcome: error</p></div></article>
+</div>
+<div class="turn-group" data-turn="12">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_018o33zWTNQnV553wrjUAPXL"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:20.823017+00:00">0:00:15</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Show start of devices.md and its headings</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>head -c 6000 /workspace/devices.md; echo; echo ======; grep -n &quot;^#&quot; /workspace/devices.md | head -80</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_018o33zWTNQnV553wrjUAPXL"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:20.848161+00:00">0:00:15</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># Netlist grammar
+
+Use local .subckt/.ends, local .param and constant arithmetic + - * / in braces.
+Elements are X for approved MOS wrappers or local subcircuits, R and C. No includes, models, sources or analyses.
+MOS order is drain gate source body. NFET body connects to VSS; PFET body connects to VDD.
+Use VSS instead of global node 0. Names are case-insensitive. Full-line * comments and + continuation are supported.
+SKY130 W/L are bare numeric micrometres; nf=1 and integer m=1..32.
+ADM45 W/L use SI or SPICE suffixes; integer mult=1..32, implicit nf=1, default ad/as/pd/ps=0.
+R/C use SI or suffixes (M is milli, meg is mega). Positive R=1..1e8 ohm, C&gt;=1e-15 F; total C and MOS W*L must satisfy spec.json.
+Maximum source 65536 bytes, 2048 statements, 32 local subcircuits, depth 12, 2048 expansion visits, 512 expanded elements.
+Only used subcircuits are allowed. Validation checks each physical copy and each technology&#x27;s geometry domain.
+
+Per-polarity domains (micrometres), intersect all tt/ss/ff sections and W&lt;=100, L&gt;=0.15:
+
+```json
+{&quot;n&quot;: {&quot;tt&quot;: [{&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 7.0, &quot;wmax&quot;: 100.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 5.0, &quot;wmax&quot;: 7.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 3.0, &quot;wmax&quot;: 5.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 2.0, &quot;wmax&quot;: 3.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 1.68, &quot;wmax&quot;: 2.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 1.26, &quot;wmax&quot;: 1.68}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 1.0, &quot;wmax&quot;: 1.26}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 1.0, &quot;wmax&quot;: 1.26}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 1.0, &quot;wmax&quot;: 1.26}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 1.0, &quot;wmax&quot;: 1.26}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 1.0, &quot;wmax&quot;: 1.26}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 1.0, &quot;wmax&quot;: 1.26}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 1.0, &quot;wmax&quot;: 1.26}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 1.0, &quot;wmax&quot;: 1.26}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 1.0, &quot;wmax&quot;: 1.26}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 0.84, &quot;wmax&quot;: 1.0}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 0.84, &quot;wmax&quot;: 1.0}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 0.84, &quot;wmax&quot;: 1.0}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 0.84, &quot;wmax&quot;: 1.0}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 0.84, &quot;wmax&quot;: 1.0}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 0.84, &quot;wmax&quot;: 1.0}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 0.84, &quot;wmax&quot;: 1.0}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 0.84, &quot;wmax&quot;: 1.0}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 0.84, &quot;wmax&quot;: 1.0}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 0.74, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 0.74, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 0.74, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 0.74, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 0.74, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 0.74, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 0.74, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 0.74, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 0.74, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 0.65, &quot;wmax&quot;: 0.74}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 0.65, &quot;wmax&quot;: 0.74}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 0.65, &quot;wmax&quot;: 0.74}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 0.65, &quot;wmax&quot;: 0.74}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 0.65, &quot;wmax&quot;: 0.74}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 0.65, &quot;wmax&quot;: 0.74}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 0.65, &quot;wmax&quot;: 0.74}, {&quot;lmin&quot;:
+======
+1:# Netlist grammar</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="13">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_0173dEdFT48TpbNcArG1vCYo"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:26.147706+00:00">0:00:20</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Show non-JSON parts of devices.md and summarize bins</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace; awk &#x27;length($0) &lt; 400&#x27; devices.md | head -80; echo; wc -l devices.md; python3 -c &quot;
+import json,re
+t=open(&#x27;devices.md&#x27;).read()
+m=re.search(r&#x27;\`\`\`json\n(.*?)\n\`\`\`&#x27;,t,re.S)
+d=json.loads(m.group(1))
+for p in d:
+  for c in d[p]:
+    secs=d[p][c]
+    wmins=sorted(set(s[&#x27;wmin&#x27;] for s in secs)); lmins=sorted(set(s[&#x27;lmin&#x27;] for s in secs))
+    print(p,c,len(secs),&#x27;wmins&#x27;,wmins[:5],&#x27;..&#x27;,wmins[-3:],&#x27;lmins&#x27;,lmins[:4], &#x27;max L&#x27;, max(s[&#x27;lmax&#x27;] for s in secs))
+&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_0173dEdFT48TpbNcArG1vCYo"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:26.203371+00:00">0:00:20</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code># Netlist grammar
+
+Use local .subckt/.ends, local .param and constant arithmetic + - * / in braces.
+Elements are X for approved MOS wrappers or local subcircuits, R and C. No includes, models, sources or analyses.
+MOS order is drain gate source body. NFET body connects to VSS; PFET body connects to VDD.
+Use VSS instead of global node 0. Names are case-insensitive. Full-line * comments and + continuation are supported.
+SKY130 W/L are bare numeric micrometres; nf=1 and integer m=1..32.
+ADM45 W/L use SI or SPICE suffixes; integer mult=1..32, implicit nf=1, default ad/as/pd/ps=0.
+R/C use SI or suffixes (M is milli, meg is mega). Positive R=1..1e8 ohm, C&gt;=1e-15 F; total C and MOS W*L must satisfy spec.json.
+Maximum source 65536 bytes, 2048 statements, 32 local subcircuits, depth 12, 2048 expansion visits, 512 expanded elements.
+Only used subcircuits are allowed. Validation checks each physical copy and each technology&#x27;s geometry domain.
+
+Per-polarity domains (micrometres), intersect all tt/ss/ff sections and W&lt;=100, L&gt;=0.15:
+
+```json
+```
+
+17 devices.md
+n tt 180 wmins [0.36, 0.39, 0.42, 0.52, 0.54] .. [3.0, 5.0, 7.0] lmins [0.15, 0.18, 0.25, 0.5] max L 100.0
+n ss 180 wmins [0.36, 0.39, 0.42, 0.52, 0.54] .. [3.0, 5.0, 7.0] lmins [0.15, 0.18, 0.25, 0.5] max L 100.0
+n ff 180 wmins [0.36, 0.39, 0.42, 0.52, 0.54] .. [3.0, 5.0, 7.0] lmins [0.15, 0.18, 0.25, 0.5] max L 100.0
+p tt 108 wmins [0.42, 0.55, 0.64, 0.84, 1.0] .. [3.0, 5.0, 7.0] lmins [0.15, 0.18, 0.25, 0.5] max L 100.0
+p ss 108 wmins [0.42, 0.55, 0.64, 0.84, 1.0] .. [3.0, 5.0, 7.0] lmins [0.15, 0.18, 0.25, 0.5] max L 100.0
+p ff 108 wmins [0.42, 0.55, 0.64, 0.84, 1.0] .. [3.0, 5.0, 7.0] lmins [0.15, 0.18, 0.25, 0.5] max L 100.0</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="14">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01YaH5q1Umcq9Rfn3GtmW5rh"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:42:31.485073+00:00">0:00:26</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Check tail of devices.md and local tool availability</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace; tail -c 1500 devices.md; echo; echo =====; which ngspice python3 atb-client; ngspice --version 2&gt;&amp;1 | head -3; ls / ; ls ~ 2&gt;/dev/null; echo $PDK_ROOT; find / -iname &quot;*sky130*&quot; -maxdepth 6 2&gt;/dev/null | head -30</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01YaH5q1Umcq9Rfn3GtmW5rh"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:42:32.437963+00:00">0:00:27</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>wmax&quot;: 0.84}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 0.64, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 0.64, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 0.64, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 0.64, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 0.64, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 0.64, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 0.64, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 0.64, &quot;wmax&quot;: 0.84}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 0.55, &quot;wmax&quot;: 0.64}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 0.55, &quot;wmax&quot;: 0.64}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 0.55, &quot;wmax&quot;: 0.64}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 0.55, &quot;wmax&quot;: 0.64}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 0.55, &quot;wmax&quot;: 0.64}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 0.55, &quot;wmax&quot;: 0.64}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 0.55, &quot;wmax&quot;: 0.64}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 0.55, &quot;wmax&quot;: 0.64}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 0.55, &quot;wmax&quot;: 0.64}, {&quot;lmin&quot;: 20.0, &quot;lmax&quot;: 100.0, &quot;wmin&quot;: 0.42, &quot;wmax&quot;: 0.55}, {&quot;lmin&quot;: 8.0, &quot;lmax&quot;: 20.0, &quot;wmin&quot;: 0.42, &quot;wmax&quot;: 0.55}, {&quot;lmin&quot;: 4.0, &quot;lmax&quot;: 8.0, &quot;wmin&quot;: 0.42, &quot;wmax&quot;: 0.55}, {&quot;lmin&quot;: 2.0, &quot;lmax&quot;: 4.0, &quot;wmin&quot;: 0.42, &quot;wmax&quot;: 0.55}, {&quot;lmin&quot;: 1.0, &quot;lmax&quot;: 2.0, &quot;wmin&quot;: 0.42, &quot;wmax&quot;: 0.55}, {&quot;lmin&quot;: 0.5, &quot;lmax&quot;: 1.0, &quot;wmin&quot;: 0.42, &quot;wmax&quot;: 0.55}, {&quot;lmin&quot;: 0.25, &quot;lmax&quot;: 0.5, &quot;wmin&quot;: 0.42, &quot;wmax&quot;: 0.55}, {&quot;lmin&quot;: 0.18, &quot;lmax&quot;: 0.25, &quot;wmin&quot;: 0.42, &quot;wmax&quot;: 0.55}, {&quot;lmin&quot;: 0.15, &quot;lmax&quot;: 0.18, &quot;wmin&quot;: 0.42, &quot;wmax&quot;: 0.55}]}}
+```
+
+=====
+which: no ngspice in (/usr/local/bin:/usr/bin:/bin)
+/usr/bin/python3
+/usr/local/bin/atb-client
+/bin/bash: line 1: ngspice: command not found
+bin
+dev
+etc
+home
+lib
+lib64
+opt
+proc
+run
+sbin
+tmp
+usr
+workspace</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="15">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_011NHESaUtnJnM8qUA33gKDo"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:51:30.044810+00:00">0:09:24</div><span class="trace-tool-name">Write · dut.spice</span></div><div class="trace-content"><div class="raw-field"><pre data-field="file_path" tabindex="0"><code>/workspace/dut.spice</code></pre></div><div class="raw-field"><div class="raw-field-label">content</div><pre data-field="content" tabindex="0"><code>* OTA-WIDE-SKY130 rev1
+* Complementary NMOS/PMOS input pairs -&gt; folded-cascode summing stage
+* (PMOS fixed top sources, NMOS low-voltage cascode mirror) -&gt; class-A
+* NMOS common-source output with PMOS current-source load. Miller Rz-Cc.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* ---------------- bias ----------------
+* IREF (10uA) into NMOS diode: VBN = V(IBIAS)
+XMB0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+* low-Vov PMOS bias (PMOS pair tail)
+XMB1 VBPA IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPBA VBPA VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=1
+* moderate-Vov PMOS bias (folding sources)
+XMB2 VBPB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPBB VBPB VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=8 l=1 nf=1 m=1
+* output-source PMOS bias
+XMB5 VBPO IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPBO VBPO VBPO VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=1 nf=1 m=1
+* PMOS cascode bias: VBPC = VDD - I*R - Vsg
+XMB3 VBPC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPB3 VBPC VBPC RPC VDD sky130_fd_pr__pfet_01v8 w=12 l=0.5 nf=1 m=1
+RPC VDD RPC 35k
+* NMOS cascode bias: VBNC = Vgs + I*R
+XMB4 VBNC VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=8 l=1 nf=1 m=1
+XMNB4 VBNC VBNC RNC VSS sky130_fd_pr__nfet_01v8 w=6 l=0.5 nf=1 m=1
+RNC RNC VSS 30k
+* ---------------- input stage ----------------
+* NMOS pair (tail 15uA); VINP drives output side
+XMTN TN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1 nf=1 m=1
+XM1 P1 VINN TN VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+XM2 P2 VINP TN VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+* PMOS pair (tail 15uA)
+XMTP TP VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=1 nf=1 m=2
+XM3 N1 VINN TP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+XM4 N2 VINP TP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+* folding PMOS sources (20uA each)
+XM5 P1 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16 l=1 nf=1 m=1
+XM6 P2 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16 l=1 nf=1 m=1
+* PMOS cascodes
+XM7 NA VBPC P1 VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+XM8 NB VBPC P2 VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+* NMOS cascodes
+XM11 NA VBNC N1 VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+XM12 NB VBNC N2 VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+* low-voltage cascode mirror
+XM9 N1 NA VSS VSS sky130_fd_pr__nfet_01v8 w=16 l=2 nf=1 m=1
+XM10 N2 NA VSS VSS sky130_fd_pr__nfet_01v8 w=16 l=2 nf=1 m=1
+* ---------------- output stage ----------------
+XMNO VOUT NB VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+XMPO VOUT VBPO VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=1 nf=1 m=2
+* Miller compensation
+RZ NB NZ 1.5k
+CC NZ VOUT 5p
+.ends DUT
+</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_011NHESaUtnJnM8qUA33gKDo"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:51:30.047478+00:00">0:09:24</div><span class="trace-tool-name">Write · dut.spice</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>File created successfully at: /workspace/dut.spice (file state is current in your context — no need to Read it back)</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="16">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01EM5pjKvoiP4dK6KfhqRZN8"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:51:30.648676+00:00">0:09:25</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Validate netlist and estimate nominal case plan</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>atb-client validate 2&gt;&amp;1 | head -60; atb-client estimate --analysis nominal --pvt SLC 2&gt;&amp;1 | head -40</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01EM5pjKvoiP4dK6KfhqRZN8"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:51:30.861118+00:00">0:09:25</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;ok&quot;: true,
+  &quot;revision&quot;: &quot;dut-14fbb5c29575060b543363b0&quot;,
+  &quot;normalized_params&quot;: {
+    &quot;schema&quot;: &quot;atb-netlist-1&quot;,
+    &quot;status&quot;: &quot;VALID_NETLIST&quot;,
+    &quot;elements&quot;: [
+      {
+        &quot;kind&quot;: &quot;x&quot;,
+        &quot;nodes&quot;: [
+          &quot;ibias&quot;,
+          &quot;ibias&quot;,
+          &quot;vss&quot;,
+          &quot;vss&quot;
+        ],
+        &quot;model&quot;: &quot;sky130_fd_pr__nfet_01v8&quot;,
+        &quot;w_um&quot;: 33.0,
+        &quot;l_um&quot;: 1.0,
+        &quot;w_native&quot;: 33.0,
+        &quot;l_native&quot;: 1.0
+      },
+      {
+        &quot;kind&quot;: &quot;x&quot;,
+        &quot;nodes&quot;: [
+          &quot;atb_n0&quot;,
+          &quot;ibias&quot;,
+          &quot;vss&quot;,
+          &quot;vss&quot;
+        ],
+        &quot;model&quot;: &quot;sky130_fd_pr__nfet_01v8&quot;,
+        &quot;w_um&quot;: 33.0,
+        &quot;l_um&quot;: 1.0,
+        &quot;w_native&quot;: 33.0,
+        &quot;l_native&quot;: 1.0
+      },
+      {
+        &quot;kind&quot;: &quot;x&quot;,
+        &quot;nodes&quot;: [
+          &quot;atb_n0&quot;,
+          &quot;atb_n0&quot;,
+          &quot;vdd&quot;,
+          &quot;vdd&quot;
+        ],
+        &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;,
+        &quot;w_um&quot;: 100.0,
+        &quot;l_um&quot;: 1.0,
+        &quot;w_native&quot;: 100.0,
+        &quot;l_native&quot;: 1.0
+      },
+      {
+        &quot;kind&quot;: &quot;x&quot;,
+        &quot;nodes&quot;: [
+          &quot;atb_n1&quot;,
+          &quot;ibias&quot;,
+          &quot;vss&quot;,
+          &quot;vss&quot;
+        ],
+        &quot;model&quot;: &quot;sky130_fd_pr__nfet_01v8&quot;,
+        &quot;w_um&quot;: 33.0,
+        &quot;l_um&quot;: 1.0,
+{
+  &quot;ok&quot;: true,
+  &quot;analysis&quot;: &quot;nominal&quot;,
+  &quot;pvt&quot;: &quot;SLC&quot;,
+  &quot;cl&quot;: 2e-12,
+  &quot;seed&quot;: null,
+  &quot;fine&quot;: false,
+  &quot;case_ids&quot;: [
+    &quot;dc&quot;,
+    &quot;loop&quot;,
+    &quot;small_up&quot;,
+    &quot;small_down&quot;,
+    &quot;large_up&quot;,
+    &quot;large_down&quot;,
+    &quot;noise&quot;,
+    &quot;small_low_up&quot;,
+    &quot;small_low_down&quot;,
+    &quot;small_high_up&quot;,
+    &quot;small_high_down&quot;
+  ],
+  &quot;cases_required&quot;: 11,
+  &quot;budget&quot;: {
+    &quot;ok&quot;: true,
+    &quot;run_id&quot;: &quot;opus-02&quot;,
+    &quot;status&quot;: &quot;running&quot;,
+    &quot;deadline_at&quot;: null,
+    &quot;remaining_seconds&quot;: 4837.148723963881,
+    &quot;exploration_cases_reserved&quot;: 0,
+    &quot;exploration_limit&quot;: null,
+    &quot;exploration_cases_remaining&quot;: null,
+    &quot;submitted_revision&quot;: null,
+    &quot;model_time_budget&quot;: {
+      &quot;used_seconds&quot;: 562.8512760361191,
+      &quot;recording_error&quot;: null,
+      &quot;active_requests&quot;: 1,
+      &quot;observed_at_monotonic_s&quot;: 597319.172248235,
+      &quot;clock&quot;: &quot;model_requests&quot;,
+      &quot;source&quot;: &quot;pinned Claude CLI API-body dispatch and llm_request spans&quot;,
+      &quot;export_latency_seconds&quot;: 1,
+      &quot;budget_reading&quot;: &quot;collected events plus elapsed time of observed active requests&quot;,</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="17">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-05T12:51:37.514Z">0:09:32</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>Netlist validates. Next I&#39;ll run nominal measurements at several corners in parallel to see the result format and where the design stands.</p>
+</div><template class="model-source">Netlist validates. Next I&#x27;ll run nominal measurements at several corners in parallel to see the result format and where the design stands.</template></div></article>
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01QQCH1tFXBrViPz9Tqp9FuV"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:51:41.534794+00:00">0:09:36</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Run four nominal measurements in parallel</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>mkdir -p /workspace/runs &amp;&amp; cd /workspace/runs &amp;&amp; cat &gt; /workspace/runs/go.sh &lt;&lt;&#x27;EOF&#x27;
+#!/bin/bash
+# usage: go.sh ID ANALYSIS PVT [CL]
+id=$1; an=$2; pvt=$3; cl=${4:-2e-12}
+cd /workspace
+python3 - &quot;$id&quot; &quot;$an&quot; &quot;$pvt&quot; &quot;$cl&quot; &lt;&lt;&#x27;PY&#x27;
+import json,sys
+id,an,pvt,cl=sys.argv[1:5]
+json.dump({&quot;action&quot;:&quot;measure&quot;,&quot;experiment_id&quot;:id,&quot;analysis&quot;:an,&quot;pvt&quot;:pvt,&quot;cl&quot;:float(cl)},open(f&quot;/workspace/runs/{id}.req.json&quot;,&quot;w&quot;))
+PY
+atb-client --request /workspace/runs/$id.req.json &gt; /workspace/runs/$id.out.json 2&gt;&amp;1
+echo &quot;$id done rc=$?&quot;
+EOF
+chmod +x go.sh
+./go.sh r1_N_2p nominal N 2e-12 &amp;
+./go.sh r1_SLC_2p nominal SLC 2e-12 &amp;
+./go.sh r1_FHC_5p nominal FHC 5e-12 &amp;
+./go.sh r1_SLH_5p nominal SLH 5e-12 &amp;
+wait; ls -la /workspace/runs; head -c 1500 /workspace/runs/r1_N_2p.out.json</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01QQCH1tFXBrViPz9Tqp9FuV"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:53:44.024549+00:00">0:11:38</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>r1_FHC_5p done rc=0
+r1_N_2p done rc=0
+r1_SLC_2p done rc=0
+r1_SLH_5p done rc=0
+total 316
+drwxr-xr-x. 2 admin admin  4096 Oct  5 21:51 .
+drwxr-xr-x. 3 admin admin  4096 Oct  5 21:51 ..
+-rwxr-xr-x. 1 admin admin   428 Oct  5 21:51 go.sh
+-rw-r--r--. 1 admin admin 70353 Oct  5 21:52 r1_FHC_5p.out.json
+-rw-r--r--. 1 admin admin   101 Oct  5 21:51 r1_FHC_5p.req.json
+-rw-r--r--. 1 admin admin 70474 Oct  5 21:52 r1_N_2p.out.json
+-rw-r--r--. 1 admin admin    97 Oct  5 21:51 r1_N_2p.req.json
+-rw-r--r--. 1 admin admin 70870 Oct  5 21:53 r1_SLC_2p.out.json
+-rw-r--r--. 1 admin admin   101 Oct  5 21:51 r1_SLC_2p.req.json
+-rw-r--r--. 1 admin admin 70696 Oct  5 21:53 r1_SLH_5p.out.json
+-rw-r--r--. 1 admin admin   101 Oct  5 21:51 r1_SLH_5p.req.json
+{
+  &quot;ok&quot;: true,
+  &quot;experiment_id&quot;: &quot;r1_N_2p&quot;,
+  &quot;revision&quot;: &quot;dut-14fbb5c29575060b543363b0&quot;,
+  &quot;analysis&quot;: &quot;nominal&quot;,
+  &quot;pvt&quot;: &quot;N&quot;,
+  &quot;cl&quot;: 2e-12,
+  &quot;fine&quot;: false,
+  &quot;category&quot;: &quot;exploration&quot;,
+  &quot;returncode&quot;: 0,
+  &quot;timed_out&quot;: false,
+  &quot;cases_reserved&quot;: 11,
+  &quot;solver_launches&quot;: 11,
+  &quot;elapsed_s&quot;: 32.9231653213501,
+  &quot;cases&quot;: [
+    {
+      &quot;case_id&quot;: &quot;dc&quot;,
+      &quot;bench&quot;: &quot;dc&quot;,
+      &quot;condition&quot;: {
+        &quot;process&quot;: &quot;nominal&quot;,
+        &quot;vdd&quot;: 1.5,
+        &quot;temp&quot;: 27,
+        &quot;cl&quot;: 2e-12
+      },
+      &quot;solver_status&quot;: &quot;OK&quot;,
+      &quot;status&quot;: &quot;OK&quot;,
+      &quot;measurements&quot;: {
+        &quot;tracking_max_error_v&quot;: 1.3867494842001449e-05,
+        &quot;power_w&quot;: 0.00029220812398135786,
+        &quot;input_current_abs_a&quot;: 2.220446049250313e-16,
+        &quot;ibias_compliant&quot;: true,
+        &quot;kcl_residual_max_a&quot;: 4.301492498239197e-15,
+        &quot;points&quot;: [
+          {
+            &quot;input_v&quot;: 0.25,
+            &quot;output_v&quot;: 0.25000242992373956,
+            &quot;power_w&quot;: 0.00029220812398135786
+          },
+          {
+            &quot;input_v&quot;: 0.255,
+            &quot;output_v&quot;: 0.25500237087250355,
+            &quot;power_w&quot;: 0.0002921832947147191
+          },
+          {
+            &quot;input_v&quot;: 0.26,
+            &quot;output_v&quot;: 0.2600023145846322,
+            &quot;power_w&quot;: 0.0002921583197124871
+          },
+          {
+            &quot;input_v&quot;: 0.265,
+            &quot;output_v&quot;: 0.2650022608357645,
+            &quot;power_w&quot;: 0.0002921331943691798
+          },
+          {
+            &quot;input_v&quot;: 0.27,
+            &quot;output_v&quot;: 0.27000220942881015,</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="18">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01D4MAmUgfnXHt56MGJbsTg6"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:53:49.226079+00:00">0:11:44</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Inspect measurement output structure</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>python3 - &lt;&lt;&#x27;PY&#x27;
+import json
+d=json.load(open(&#x27;r1_N_2p.out.json&#x27;))
+print([k for k in d if k!=&#x27;cases&#x27;])
+for c in d[&#x27;cases&#x27;]:
+    m=c.get(&#x27;measurements&#x27;,{})
+    small={k:v for k,v in m.items() if not isinstance(v,(list,dict))}
+    big={k:(type(v).__name__, len(v)) for k,v in m.items() if isinstance(v,(list,dict))}
+    print(c[&#x27;case_id&#x27;], c[&#x27;status&#x27;], c.get(&#x27;solver_status&#x27;), small, big)
+    other={k:v for k,v in c.items() if k not in (&#x27;measurements&#x27;,&#x27;condition&#x27;,&#x27;case_id&#x27;,&#x27;status&#x27;,&#x27;solver_status&#x27;,&#x27;bench&#x27;)}
+    print(&#x27;   other:&#x27;, {k:(v if not isinstance(v,(list,dict)) else type(v).__name__+str(len(v))) for k,v in other.items()})
+PY
+python3 -c &quot;
+import json
+d=json.load(open(&#x27;/workspace/runs/r1_N_2p.out.json&#x27;))
+for k in d:
+  if k!=&#x27;cases&#x27;: print(k, json.dumps(d[k])[:600])
+&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01D4MAmUgfnXHt56MGJbsTg6"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:53:49.296473+00:00">0:11:44</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>[&#x27;ok&#x27;, &#x27;experiment_id&#x27;, &#x27;revision&#x27;, &#x27;analysis&#x27;, &#x27;pvt&#x27;, &#x27;cl&#x27;, &#x27;fine&#x27;, &#x27;category&#x27;, &#x27;returncode&#x27;, &#x27;timed_out&#x27;, &#x27;cases_reserved&#x27;, &#x27;solver_launches&#x27;, &#x27;elapsed_s&#x27;, &#x27;summary&#x27;, &#x27;budget&#x27;]
+dc OK OK {&#x27;tracking_max_error_v&#x27;: 1.3867494842001449e-05, &#x27;power_w&#x27;: 0.00029220812398135786, &#x27;input_current_abs_a&#x27;: 2.220446049250313e-16, &#x27;ibias_compliant&#x27;: True, &#x27;kcl_residual_max_a&#x27;: 4.301492498239197e-15} {&#x27;points&#x27;: (&#x27;list&#x27;, 171)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+loop OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;convention&#x27;: &#x27;External two-injection L; 1+L sign; first descending unity crossing&#x27;, &#x27;ref_frequency_hz&#x27;: 10.0, &#x27;loop_gain_db_at_ref&#x27;: 111.20887317721656, &#x27;selected_unity_gain_hz&#x27;: 5310361.314593733, &#x27;unity_status&#x27;: &#x27;MEASURED&#x27;, &#x27;no_0db_recross&#x27;: 1, &#x27;recross_tolerance_db&#x27;: 1e-06, &#x27;ac_points&#x27;: 401, &#x27;minimum_cancellation_ratio&#x27;: 1.3756998384492522e-06} {&#x27;ac_band_hz&#x27;: (&#x27;list&#x27;, 2), &#x27;unity_gain_crossings&#x27;: (&#x27;list&#x27;, 1), &#x27;unity_level_touches_or_boundaries&#x27;: (&#x27;list&#x27;, 0)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+small_up OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;valid&#x27;: True, &#x27;settling_band_v&#x27;: 0.0005000000000000004, &#x27;settling_band_definition&#x27;: &#x27;1 % of the input step (|input step| = 0.0500 V)&#x27;, &#x27;settling_target_v&#x27;: 0.7500129520922485, &#x27;settling_target_definition&#x27;: &#x27;independent DC output solution for the destination input level&#x27;, &#x27;settling_time_s&#x27;: 1.3605820388944067e-07, &#x27;settling_time_lower_bound_s&#x27;: None, &#x27;settling_time_definition&#x27;: &#x27;time from the start of the input edge until the output enters and stays inside the band&#x27;, &#x27;overshoot_ratio&#x27;: 8.41526034636525e-13, &#x27;overshoot_ratio_diagnostic&#x27;: 8.41526034636525e-13, &#x27;overshoot_denominator_v&#x27;: 0.05000136763619878, &#x27;overshoot_definition&#x27;: &#x27;peak beyond the target after the input edge / |independent DC output transition|&#x27;, &#x27;final_error_v&#x27;: -2.7633451082920146e-13} {&#x27;transit_20_80&#x27;: (&#x27;dict&#x27;, 13)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+small_down OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;valid&#x27;: True, &#x27;settling_band_v&#x27;: 0.0005000000000000004, &#x27;settling_band_definition&#x27;: &#x27;1 % of the input step (|input step| = 0.0500 V)&#x27;, &#x27;settling_target_v&#x27;: 0.7000115844560497, &#x27;settling_target_definition&#x27;: &#x27;independent DC output solution for the destination input level&#x27;, &#x27;settling_time_s&#x27;: 1.297483729960347e-07, &#x27;settling_time_lower_bound_s&#x27;: None, &#x27;settling_time_definition&#x27;: &#x27;time from the start of the input edge until the output enters and stays inside the band&#x27;, &#x27;overshoot_ratio&#x27;: 0.0, &#x27;overshoot_ratio_diagnostic&#x27;: 0.0, &#x27;overshoot_denominator_v&#x27;: -0.05000136763619878, &#x27;overshoot_definition&#x27;: &#x27;peak beyond the target after the input edge / |independent DC output transition|&#x27;, &#x27;final_error_v&#x27;: 1.1113332476497817e-13} {&#x27;transit_20_80&#x27;: (&#x27;dict&#x27;, 13)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+large_up OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;valid&#x27;: True, &#x27;settling_band_v&#x27;: 0.0085, &#x27;settling_band_definition&#x27;: &#x27;1 % of the input step (|input step| = 0.8500 V)&#x27;, &#x27;settling_target_v&#x27;: 1.1000132591008196, &#x27;settling_target_definition&#x27;: &#x27;independent DC output solution for the destination input level&#x27;, &#x27;settling_time_s&#x27;: 2.7432601463218647e-07, &#x27;settling_time_lower_bound_s&#x27;: None, &#x27;settling_time_definition&#x27;: &#x27;time from the start of the input edge until the output enters and stays inside the band&#x27;, &#x27;overshoot_ratio&#x27;: 8.708478457329948e-12, &#x27;overshoot_ratio_diagnostic&#x27;: 8.708478457329948e-12, &#x27;overshoot_denominator_v&#x27;: 0.85001082917708, &#x27;overshoot_definition&#x27;: &#x27;peak beyond the target after the input edge / |independent DC output transition|&#x27;, &#x27;final_error_v&#x27;: 5.725198093387007e-12} {&#x27;transit_20_80&#x27;: (&#x27;dict&#x27;, 13)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+large_down OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;valid&#x27;: True, &#x27;settling_band_v&#x27;: 0.0085, &#x27;settling_band_definition&#x27;: &#x27;1 % of the input step (|input step| = 0.8500 V)&#x27;, &#x27;settling_target_v&#x27;: 0.25000242992373956, &#x27;settling_target_definition&#x27;: &#x27;independent DC output solution for the destination input level&#x27;, &#x27;settling_time_s&#x27;: 3.2970145133540595e-07, &#x27;settling_time_lower_bound_s&#x27;: None, &#x27;settling_time_definition&#x27;: &#x27;time from the start of the input edge until the output enters and stays inside the band&#x27;, &#x27;overshoot_ratio&#x27;: 9.345346516212584e-13, &#x27;overshoot_ratio_diagnostic&#x27;: 9.345346516212584e-13, &#x27;overshoot_denominator_v&#x27;: -0.85001082917708, &#x27;overshoot_definition&#x27;: &#x27;peak beyond the target after the input edge / |independent DC output transition|&#x27;, &#x27;final_error_v&#x27;: -5.733746810676621e-13} {&#x27;transit_20_80&#x27;: (&#x27;dict&#x27;, 13)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+noise OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;input_noise_rms_v&#x27;: 0.00014760867725754047, &#x27;integration&#x27;: &#x27;linear-frequency trapezoidal PSD integral, boundary interpolation, then sqrt&#x27;, &#x27;points_in_band&#x27;: 301} {&#x27;band_hz&#x27;: (&#x27;list&#x27;, 2), &#x27;candidate_rms_v&#x27;: (&#x27;dict&#x27;, 3), &#x27;segment_variance_v2&#x27;: (&#x27;dict&#x27;, 6), &#x27;psd_samples_v2_per_hz&#x27;: (&#x27;list&#x27;, 7)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+small_low_up OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;valid&#x27;: True, &#x27;settling_band_v&#x27;: 0.0004999999999999999, &#x27;settling_band_definition&#x27;: &#x27;1 % of the input step (|input step| = 0.0500 V)&#x27;, &#x27;settling_target_v&#x27;: 0.30000194247816836, &#x27;settling_target_definition&#x27;: &#x27;independent DC output solution for the destination input level&#x27;, &#x27;settling_time_s&#x27;: 1.8817416079457977e-07, &#x27;settling_time_lower_bound_s&#x27;: None, &#x27;settling_time_definition&#x27;: &#x27;time from the start of the input edge until the output enters and stays inside the band&#x27;, &#x27;overshoot_ratio&#x27;: 2.7300650327154455e-11, &#x27;overshoot_ratio_diagnostic&#x27;: 2.7300650327154455e-11, &#x27;overshoot_denominator_v&#x27;: 0.049999512554428804, &#x27;overshoot_definition&#x27;: &#x27;peak beyond the target after the input edge / |independent DC output transition|&#x27;, &#x27;final_error_v&#x27;: 9.705569681273118e-13} {&#x27;transit_20_80&#x27;: (&#x27;dict&#x27;, 13)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+small_low_down OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;valid&#x27;: True, &#x27;settling_band_v&#x27;: 0.0004999999999999999, &#x27;settling_band_definition&#x27;: &#x27;1 % of the input step (|input step| = 0.0500 V)&#x27;, &#x27;settling_target_v&#x27;: 0.25000242992373956, &#x27;settling_target_definition&#x27;: &#x27;independent DC output solution for the destination input level&#x27;, &#x27;settling_time_s&#x27;: 1.8794311533777763e-07, &#x27;settling_time_lower_bound_s&#x27;: None, &#x27;settling_time_definition&#x27;: &#x27;time from the start of the input edge until the output enters and stays inside the band&#x27;, &#x27;overshoot_ratio&#x27;: 1.8940589450234038e-11, &#x27;overshoot_ratio_diagnostic&#x27;: 1.8940589450234038e-11, &#x27;overshoot_denominator_v&#x27;: -0.049999512554428804, &#x27;overshoot_definition&#x27;: &#x27;peak beyond the target after the input edge / |independent DC output transition|&#x27;, &#x27;final_error_v&#x27;: -8.354428260304303e-13} {&#x27;transit_20_80&#x27;: (&#x27;dict&#x27;, 13)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+small_high_up OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;valid&#x27;: True, &#x27;settling_band_v&#x27;: 0.0005000000000000004, &#x27;settling_band_definition&#x27;: &#x27;1 % of the input step (|input step| = 0.0500 V)&#x27;, &#x27;settling_target_v&#x27;: 1.1000132591008196, &#x27;settling_target_definition&#x27;: &#x27;independent DC output solution for the destination input level&#x27;, &#x27;settling_time_s&#x27;: 1.405099833603048e-07, &#x27;settling_time_lower_bound_s&#x27;: None, &#x27;settling_time_definition&#x27;: &#x27;time from the start of the input edge until the output enters and stays inside the band&#x27;, &#x27;overshoot_ratio&#x27;: 1.2644144918461467e-10, &#x27;overshoot_ratio_diagnostic&#x27;: 1.2644144918461467e-10, &#x27;overshoot_denominator_v&#x27;: 0.049999853941841366, &#x27;overshoot_definition&#x27;: &#x27;peak beyond the target after the input edge / |independent DC output transition|&#x27;, &#x27;final_error_v&#x27;: 5.9401372709544376e-12} {&#x27;transit_20_80&#x27;: (&#x27;dict&#x27;, 13)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+small_high_down OK OK {&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;valid&#x27;: True, &#x27;settling_band_v&#x27;: 0.0005000000000000004, &#x27;settling_band_definition&#x27;: &#x27;1 % of the input step (|input step| = 0.0500 V)&#x27;, &#x27;settling_target_v&#x27;: 1.0500134051589782, &#x27;settling_target_definition&#x27;: &#x27;independent DC output solution for the destination input level&#x27;, &#x27;settling_time_s&#x27;: 1.4197393388678856e-07, &#x27;settling_time_lower_bound_s&#x27;: None, &#x27;settling_time_definition&#x27;: &#x27;time from the start of the input edge until the output enters and stays inside the band&#x27;, &#x27;overshoot_ratio&#x27;: 0.0, &#x27;overshoot_ratio_diagnostic&#x27;: 0.0, &#x27;overshoot_denominator_v&#x27;: -0.049999853941841366, &#x27;overshoot_definition&#x27;: &#x27;peak beyond the target after the input edge / |independent DC output transition|&#x27;, &#x27;final_error_v&#x27;: 1.1454392989662665e-11} {&#x27;transit_20_80&#x27;: (&#x27;dict&#x27;, 13)}
+   other: {&#x27;units&#x27;: &#x27;SI except dB and degrees&#x27;, &#x27;solver_errors&#x27;: &#x27;list0&#x27;, &#x27;solver_warnings&#x27;: &#x27;list0&#x27;}
+ok true
+experiment_id &quot;r1_N_2p&quot;
+revision &quot;dut-14fbb5c29575060b543363b0&quot;
+analysis &quot;nominal&quot;
+pvt &quot;N&quot;
+cl 2e-12
+fine false
+category &quot;exploration&quot;
+returncode 0
+timed_out false
+cases_reserved 11
+solver_launches 11
+elapsed_s 32.9231653213501
+summary {&quot;condition&quot;: {&quot;process&quot;: &quot;nominal&quot;, &quot;vdd&quot;: 1.5, &quot;temp&quot;: 27}, &quot;params&quot;: {&quot;schema&quot;: &quot;atb-netlist-1&quot;, &quot;status&quot;: &quot;VALID_NETLIST&quot;, &quot;elements&quot;: [{&quot;kind&quot;: &quot;x&quot;, &quot;nodes&quot;: [&quot;ibias&quot;, &quot;ibias&quot;, &quot;vss&quot;, &quot;vss&quot;], &quot;model&quot;: &quot;sky130_fd_pr__nfet_01v8&quot;, &quot;w_um&quot;: 33.0, &quot;l_um&quot;: 1.0, &quot;w_native&quot;: 33.0, &quot;l_native&quot;: 1.0}, {&quot;kind&quot;: &quot;x&quot;, &quot;nodes&quot;: [&quot;atb_n0&quot;, &quot;ibias&quot;, &quot;vss&quot;, &quot;vss&quot;], &quot;model&quot;: &quot;sky130_fd_pr__nfet_01v8&quot;, &quot;w_um&quot;: 33.0, &quot;l_um&quot;: 1.0, &quot;w_native&quot;: 33.0, &quot;l_native&quot;: 1.0}, {&quot;kind&quot;: &quot;x&quot;, &quot;nodes&quot;: [&quot;atb_n0&quot;, &quot;atb_n0&quot;, &quot;vdd&quot;, &quot;vdd&quot;], &quot;model&quot;: &quot;sky130_fd_pr__pfet_01v8&quot;, &quot;w_um&quot;: 100.0, &quot;l_um&quot;: 1.0, &quot;w_native&quot;: 100.0, &quot;l_na
+budget {&quot;ok&quot;: true, &quot;run_id&quot;: &quot;opus-02&quot;, &quot;status&quot;: &quot;running&quot;, &quot;deadline_at&quot;: null, &quot;remaining_seconds&quot;: 4826.649539727834, &quot;exploration_cases_reserved&quot;: 22, &quot;exploration_limit&quot;: null, &quot;exploration_cases_remaining&quot;: null, &quot;submitted_revision&quot;: null, &quot;model_time_budget&quot;: {&quot;used_seconds&quot;: 573.350460272166, &quot;recording_error&quot;: null, &quot;active_requests&quot;: 0, &quot;observed_at_monotonic_s&quot;: 597394.915053699, &quot;clock&quot;: &quot;model_requests&quot;, &quot;source&quot;: &quot;pinned Claude CLI API-body dispatch and llm_request spans&quot;, &quot;export_latency_seconds&quot;: 1, &quot;budget_reading&quot;: &quot;collected events plus elapsed time of observed active requests&quot;,</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="19">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01CD4MHdgSJGssAKXcyzSgqW"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:54:04.689910+00:00">0:11:59</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Create summarizer and inspect summary fields</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cat &gt; /workspace/runs/summ.py &lt;&lt;&#x27;PY&#x27;
+import json,sys,glob
+L=json.load(open(&#x27;/workspace/spec.json&#x27;))[&#x27;limits&#x27;]
+def summ(f):
+    d=json.load(open(f))
+    out=[]
+    if not d.get(&#x27;ok&#x27;): return f&quot;{f}: NOT OK {json.dumps(d)[:300]}&quot;
+    for c in d[&#x27;cases&#x27;]:
+        m=c.get(&#x27;measurements&#x27;,{}); cid=c[&#x27;case_id&#x27;]; st=c[&#x27;status&#x27;]
+        if cid==&#x27;dc&#x27;:
+            pts=m.get(&#x27;points&#x27;,[])
+            errs=[(p[&#x27;output_v&#x27;]-p[&#x27;input_v&#x27;],p[&#x27;input_v&#x27;]) for p in pts if p.get(&#x27;output_v&#x27;) is not None]
+            worst=max(errs,key=lambda e:abs(e[0])) if errs else None
+            out.append(f&quot;dc[{st}] err={m.get(&#x27;tracking_max_error_v&#x27;,float(&#x27;nan&#x27;))*1e3:.3f}mV@{worst[1] if worst else None} P={m.get(&#x27;power_w&#x27;,0)*1e6:.0f}uW iin={m.get(&#x27;input_current_abs_a&#x27;)} ib={m.get(&#x27;ibias_compliant&#x27;)}&quot;)
+        elif cid==&#x27;loop&#x27;:
+            out.append(f&quot;loop[{st}] L10={m.get(&#x27;loop_gain_db_at_ref&#x27;,float(&#x27;nan&#x27;)):.1f}dB ugf={m.get(&#x27;selected_unity_gain_hz&#x27;,0)/1e6:.2f}MHz recross={m.get(&#x27;no_0db_recross&#x27;)} xings={[ (round(x.get(&#x27;frequency_hz&#x27;,0)/1e6,2), round(x.get(&#x27;unwrapped_phase_deg&#x27;,x.get(&#x27;phase_deg&#x27;,0)) if isinstance(x.get(&#x27;unwrapped_phase_deg&#x27;,x.get(&#x27;phase_deg&#x27;,0)),(int,float)) else 0,1)) for x in m.get(&#x27;unity_gain_crossings&#x27;,[])]}&quot;)
+        elif cid==&#x27;noise&#x27;:
+            out.append(f&quot;noise[{st}] {m.get(&#x27;input_noise_rms_v&#x27;,float(&#x27;nan&#x27;))*1e6:.1f}uV cand={ {k:round(v*1e6,1) for k,v in m.get(&#x27;candidate_rms_v&#x27;,{}).items()} }&quot;)
+        elif cid in (&#x27;psrr&#x27;,&#x27;cmrr&#x27;):
+            small={k:v for k,v in m.items() if not isinstance(v,(list,dict))}
+            out.append(f&quot;{cid}[{st}] {small}&quot;)
+        else:
+            ts=m.get(&#x27;settling_time_s&#x27;); lb=m.get(&#x27;settling_time_lower_bound_s&#x27;); ov=m.get(&#x27;overshoot_ratio&#x27;)
+            sr=&#x27;&#x27;
+            tr=m.get(&#x27;transit_20_80&#x27;)
+            if cid.startswith(&#x27;large&#x27;) and isinstance(tr,dict):
+                sr=&#x27; SR=&#x27;+str({k:(round(v/1e6,2) if isinstance(v,(int,float)) and &#x27;slew&#x27; in k else None) for k,v in tr.items() if &#x27;slew&#x27; in k})
+            out.append(f&quot;{cid}[{st}] ts={ts*1e9 if ts else None}ns lb={lb} ov={ov:.4f}{sr}&quot; if ov is not None else f&quot;{cid}[{st}] {json.dumps(m)[:200]}&quot;)
+        errs=c.get(&#x27;solver_errors&#x27;) or []
+        if errs: out.append(f&quot;   ERR {str(errs)[:200]}&quot;)
+    return f&quot;== {d[&#x27;experiment_id&#x27;]} {d[&#x27;pvt&#x27;]} cl={d[&#x27;cl&#x27;]}\n  &quot;+&quot;\n  &quot;.join(out)
+for f in sys.argv[1:]:
+    print(summ(f))
+PY
+cd /workspace/runs; python3 -c &quot;
+import json
+d=json.load(open(&#x27;r1_N_2p.out.json&#x27;))
+s=d[&#x27;summary&#x27;]; print([k for k in s]); 
+for k in s:
+  if k not in (&#x27;params&#x27;,&#x27;condition&#x27;): print(k, json.dumps(s[k])[:800])
+c=[c for c in d[&#x27;cases&#x27;] if c[&#x27;case_id&#x27;]==&#x27;large_up&#x27;][0]; print(c[&#x27;measurements&#x27;][&#x27;transit_20_80&#x27;])
+c=[c for c in d[&#x27;cases&#x27;] if c[&#x27;case_id&#x27;]==&#x27;loop&#x27;][0]; print(c[&#x27;measurements&#x27;][&#x27;unity_gain_crossings&#x27;])
+c=[c for c in d[&#x27;cases&#x27;] if c[&#x27;case_id&#x27;]==&#x27;noise&#x27;][0]; print({k:v for k,v in c[&#x27;measurements&#x27;].items()})
+&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01CD4MHdgSJGssAKXcyzSgqW"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:54:04.723611+00:00">0:11:59</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>[&#x27;condition&#x27;, &#x27;params&#x27;, &#x27;spec_table&#x27;]
+spec_table [{&quot;metric&quot;: &quot;tracking_error_v&quot;, &quot;measured&quot;: 1.3867494842001449e-05, &quot;limit&quot;: 0.01, &quot;draft_standard_target&quot;: 0.01, &quot;verdict&quot;: &quot;PASS&quot;, &quot;measurement_valid&quot;: true, &quot;direction&quot;: &quot;&lt;=&quot;, &quot;unit&quot;: &quot;V&quot;, &quot;measured_lower_bound&quot;: null, &quot;cload_f&quot;: 2e-12, &quot;case_id&quot;: &quot;dc&quot;}, {&quot;metric&quot;: &quot;power_w&quot;, &quot;measured&quot;: 0.00029220812398135786, &quot;limit&quot;: 0.0006, &quot;draft_standard_target&quot;: 0.0006, &quot;verdict&quot;: &quot;PASS&quot;, &quot;measurement_valid&quot;: true, &quot;direction&quot;: &quot;&lt;=&quot;, &quot;unit&quot;: &quot;W&quot;, &quot;measured_lower_bound&quot;: null, &quot;cload_f&quot;: 2e-12, &quot;case_id&quot;: &quot;dc&quot;}, {&quot;metric&quot;: &quot;input_current_abs_a&quot;, &quot;measured&quot;: 2.220446049250313e-16, &quot;limit&quot;: 1e-06, &quot;draft_standard_target&quot;: 1e-06, &quot;verdict&quot;: &quot;PASS&quot;, &quot;measurement_valid&quot;: true, &quot;direction&quot;: &quot;&lt;=&quot;, &quot;unit&quot;: &quot;A&quot;, &quot;measured_lower_bound&quot;: null, &quot;cload_f&quot;: 2e-12, &quot;case_id&quot;: &quot;dc&quot;}, {&quot;metric&quot;: &quot;ibias_compliance&quot;
+{&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;rising&#x27;: True, &#x27;threshold_levels_v&#x27;: [0.4200045957591556, 0.9300110932654037], &#x27;crossings_lo_s&#x27;: [2.3004557640635857e-07], &#x27;crossings_hi_s&#x27;: [3.690872141066329e-07], &#x27;rule&#x27;: &#x27;t_lo = first 20%-of-transition crossing in the step direction after the input edge; t_hi = first 80%-of-transition crossing at or after t_lo (time order, both step directions); slope = 60% of |transition| / |t_hi - t_lo|&#x27;, &#x27;t20_s&#x27;: 2.3004557640635857e-07, &#x27;t80_s&#x27;: 3.690872141066329e-07, &#x27;transit_time_s&#x27;: 1.3904163770027434e-07, &#x27;slope_v_per_s&#x27;: 3668012.733032141, &#x27;re_crossings_lo_s&#x27;: [], &#x27;re_crossings_hi_s&#x27;: [], &#x27;re_crossings_used_for_slope&#x27;: False}
+[{&#x27;frequency_hz&#x27;: 5310361.314593733, &#x27;phase_deg&#x27;: -92.06090968196965, &#x27;gain_direction&#x27;: &#x27;descending&#x27;}]
+{&#x27;status&#x27;: &#x27;OK&#x27;, &#x27;band_hz&#x27;: [10.0, 10000000.0], &#x27;input_noise_rms_v&#x27;: 0.00014760867725754047, &#x27;candidate_rms_v&#x27;: {&#x27;10&#x27;: 0.00014760867725754047, &#x27;100&#x27;: 0.0001470473009377686, &#x27;1000&#x27;: 0.0001462980425333771}, &#x27;segment_variance_v2&#x27;: {&#x27;10..100&#x27;: 1.654128886380607e-10, &#x27;100..1000&#x27;: 2.1979146398487153e-10, &#x27;1000..10000&#x27;: 3.048612188781439e-10, &#x27;10000..100000&#x27;: 4.925709838630056e-10, &#x27;100000..1000000&#x27;: 1.4285431668567033e-09, &#x27;1000000..10000000&#x27;: 1.9177141879499964e-08}, &#x27;psd_samples_v2_per_hz&#x27;: [[10.0, 6.27515736513327e-12], [100.0, 8.209127084166312e-13], [1000.0, 1.1076435771907759e-13], [10000.0, 1.5939753774076916e-14], [100000.0, 3.01709104722237e-15], [1000000.0, 1.273372482336213e-15], [10000000.0, 3.622234686233722e-15]], &#x27;integration&#x27;: &#x27;linear-frequency trapezoidal PSD integral, boundary interpolation, then sqrt&#x27;, &#x27;points_in_band&#x27;: 301}</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="20">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-05T12:55:44.902Z">0:13:39</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>The summary includes a <code>spec_table</code> with verdicts, so I&#39;ll print those for all four runs.</p>
+</div><template class="model-source">The summary includes a `spec_table` with verdicts, so I&#x27;ll print those for all four runs.</template></div></article>
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01VcdxAxRTG2AgzwGBnKAM18"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:55:48.838404+00:00">0:13:43</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Print spec verdict table for runs</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cat &gt; /workspace/runs/st.py &lt;&lt;&#x27;PY&#x27;
+import json,sys
+for f in sys.argv[1:]:
+    d=json.load(open(f))
+    if not d.get(&#x27;ok&#x27;): print(f, &#x27;NOT OK&#x27;, json.dumps(d)[:400]); continue
+    rows=d[&#x27;summary&#x27;][&#x27;spec_table&#x27;]
+    bad=[r for r in rows if r[&#x27;verdict&#x27;]!=&#x27;PASS&#x27;]
+    print(f&quot;== {d[&#x27;experiment_id&#x27;]} {d[&#x27;pvt&#x27;]} cl={d[&#x27;cl&#x27;]}  {len(rows)-len(bad)}/{len(rows)} PASS&quot;)
+    for r in rows:
+        v=r[&#x27;measured&#x27;]; 
+        vs=f&quot;{v:.4g}&quot; if isinstance(v,(int,float)) and not isinstance(v,bool) else str(v)
+        flag=&#x27;&#x27; if r[&#x27;verdict&#x27;]==&#x27;PASS&#x27; else &#x27;  &lt;&lt;&lt;&#x27;+r[&#x27;verdict&#x27;]
+        print(f&quot;   {r[&#x27;case_id&#x27;]:16s} {r[&#x27;metric&#x27;]:34s} {vs:&gt;12s} {r[&#x27;direction&#x27;]} {r[&#x27;limit&#x27;]}{flag}&quot; + (f&quot; lb={r[&#x27;measured_lower_bound&#x27;]}&quot; if r.get(&#x27;measured_lower_bound&#x27;) else &#x27;&#x27;))
+PY
+cd /workspace/runs; python3 st.py r1_SLC_2p.out.json r1_SLH_5p.out.json r1_FHC_5p.out.json 2&gt;&amp;1 | grep -v &quot;PASS$&quot; | head -80; python3 st.py r1_N_2p.out.json | head -3</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01VcdxAxRTG2AgzwGBnKAM18"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:55:48.920568+00:00">0:13:43</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>   dc               tracking_error_v                        0.00106 &lt;= 0.01
+   dc               power_w                               0.0002278 &lt;= 0.0006
+   dc               input_current_abs_a                    2.22e-16 &lt;= 1e-06
+   dc               ibias_compliance                              1 &gt;= 1
+   loop             gain_db                                   102.3 &gt;= 50
+   loop             unity_gain_hz                         4.935e+06 &gt;= 3000000.0
+   small_up         small_up_settling_time_s              1.517e-07 &lt;= 5e-07
+   small_up         small_up_overshoot_ratio              6.892e-11 &lt;= 0.1
+   small_down       small_down_settling_time_s            1.612e-07 &lt;= 5e-07
+   small_down       small_down_overshoot_ratio                    0 &lt;= 0.1
+   large_up         large_up_settling_time_s              3.543e-07 &lt;= 1e-06
+   large_up         large_up_slew_v_per_s                 2.598e+06 &gt;= 2000000.0
+   large_down       large_down_settling_time_s            4.251e-07 &lt;= 1e-06
+   large_down       large_down_slew_v_per_s               2.481e+06 &gt;= 2000000.0
+   noise            input_noise_rms_v                     0.0001285 &lt;= 0.00015
+   small_low_up     small_low_up_settling_time_s          2.492e-07 &lt;= 5e-07
+   small_low_up     small_low_up_overshoot_ratio          7.532e-09 &lt;= 0.1
+   small_low_down   small_low_down_settling_time_s        1.946e-07 &lt;= 5e-07
+   small_low_down   small_low_down_overshoot_ratio        1.893e-11 &lt;= 0.1
+   small_high_up    small_high_up_settling_time_s         1.372e-07 &lt;= 5e-07
+   small_high_up    small_high_up_overshoot_ratio                 0 &lt;= 0.1
+   small_high_down  small_high_down_settling_time_s       1.386e-07 &lt;= 5e-07
+   small_high_down  small_high_down_overshoot_ratio        9.47e-10 &lt;= 0.1
+   dc               tracking_error_v                      3.126e-05 &lt;= 0.01
+   dc               power_w                               0.0002661 &lt;= 0.0006
+   dc               input_current_abs_a                   8.882e-16 &lt;= 1e-06
+   dc               ibias_compliance                              1 &gt;= 1
+   loop             gain_db                                   106.5 &gt;= 50
+   loop             unity_gain_hz                         4.683e+06 &gt;= 3000000.0
+   small_up         small_up_settling_time_s              1.308e-07 &lt;= 5e-07
+   small_up         small_up_overshoot_ratio                      0 &lt;= 0.1
+   small_down       small_down_settling_time_s            1.206e-07 &lt;= 5e-07
+   small_down       small_down_overshoot_ratio                    0 &lt;= 0.1
+   large_up         large_up_settling_time_s              2.755e-07 &lt;= 1e-06
+   large_up         large_up_slew_v_per_s                 3.945e+06 &gt;= 2000000.0
+   large_down       large_down_settling_time_s            3.267e-07 &lt;= 1e-06
+   large_down       large_down_slew_v_per_s               3.514e+06 &gt;= 2000000.0
+   noise            input_noise_rms_v                     0.0001851 &lt;= 0.00015  &lt;&lt;&lt;MISS
+   small_low_up     small_low_up_settling_time_s          1.875e-07 &lt;= 5e-07
+   small_low_up     small_low_up_overshoot_ratio          2.285e-11 &lt;= 0.1
+   small_low_down   small_low_down_settling_time_s        1.908e-07 &lt;= 5e-07
+   small_low_down   small_low_down_overshoot_ratio                0 &lt;= 0.1
+   small_high_up    small_high_up_settling_time_s         1.555e-07 &lt;= 5e-07
+   small_high_up    small_high_up_overshoot_ratio                 0 &lt;= 0.1
+   small_high_down  small_high_down_settling_time_s       1.575e-07 &lt;= 5e-07
+   small_high_down  small_high_down_overshoot_ratio       7.993e-09 &lt;= 0.1
+   dc               tracking_error_v                      8.807e-06 &lt;= 0.01
+   dc               power_w                               0.0003202 &lt;= 0.0006
+   dc               input_current_abs_a                    2.22e-16 &lt;= 1e-06
+   dc               ibias_compliance                              1 &gt;= 1
+   loop             gain_db                                   113.3 &gt;= 50
+   loop             unity_gain_hz                         6.042e+06 &gt;= 3000000.0
+   small_up         small_up_settling_time_s              1.142e-07 &lt;= 5e-07
+   small_up         small_up_overshoot_ratio                      0 &lt;= 0.1
+   small_down       small_down_settling_time_s            1.091e-07 &lt;= 5e-07
+   small_down       small_down_overshoot_ratio            3.087e-11 &lt;= 0.1
+   large_up         large_up_settling_time_s              2.593e-07 &lt;= 1e-06
+   large_up         large_up_slew_v_per_s                 3.781e+06 &gt;= 2000000.0
+   large_down       large_down_settling_time_s            3.109e-07 &lt;= 1e-06
+   large_down       large_down_slew_v_per_s               3.458e+06 &gt;= 2000000.0
+   noise            input_noise_rms_v                     0.0001175 &lt;= 0.00015
+   small_low_up     small_low_up_settling_time_s           1.49e-07 &lt;= 5e-07
+   small_low_up     small_low_up_overshoot_ratio                  0 &lt;= 0.1
+   small_low_down   small_low_down_settling_time_s        1.487e-07 &lt;= 5e-07
+   small_low_down   small_low_down_overshoot_ratio                0 &lt;= 0.1
+   small_high_up    small_high_up_settling_time_s         1.173e-07 &lt;= 5e-07
+   small_high_up    small_high_up_overshoot_ratio         2.449e-10 &lt;= 0.1
+   small_high_down  small_high_down_settling_time_s       1.194e-07 &lt;= 5e-07
+   small_high_down  small_high_down_overshoot_ratio               0 &lt;= 0.1
+== r1_N_2p N cl=2e-12  23/23 PASS
+   dc               tracking_error_v                      1.387e-05 &lt;= 0.01
+   dc               power_w                               0.0002922 &lt;= 0.0006</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="21">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_015M3YjSwn5bbHtKBQPjzSrs"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:56:41.823247+00:00">0:14:36</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Show noise PSD samples and loop crossings</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace/runs; python3 -c &quot;
+import json
+for f in [&#x27;r1_N_2p&#x27;,&#x27;r1_SLC_2p&#x27;,&#x27;r1_SLH_5p&#x27;,&#x27;r1_FHC_5p&#x27;]:
+  d=json.load(open(f+&#x27;.out.json&#x27;))
+  c=[c for c in d[&#x27;cases&#x27;] if c[&#x27;case_id&#x27;]==&#x27;noise&#x27;][0][&#x27;measurements&#x27;]
+  print(f, &#x27; &#x27;.join(f&#x27;{p[0]:.0e}:{p[1]:.2e}&#x27; for p in c[&#x27;psd_samples_v2_per_hz&#x27;]), {k:f&#x27;{v:.2e}&#x27; for k,v in c[&#x27;segment_variance_v2&#x27;].items()})
+  lp=[c for c in d[&#x27;cases&#x27;] if c[&#x27;case_id&#x27;]==&#x27;loop&#x27;][0][&#x27;measurements&#x27;]
+  print(&#x27;   loop xings&#x27;, lp[&#x27;unity_gain_crossings&#x27;])
+&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_015M3YjSwn5bbHtKBQPjzSrs"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:56:41.895645+00:00">0:14:36</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>r1_N_2p 1e+01:6.28e-12 1e+02:8.21e-13 1e+03:1.11e-13 1e+04:1.59e-14 1e+05:3.02e-15 1e+06:1.27e-15 1e+07:3.62e-15 {&#x27;10..100&#x27;: &#x27;1.65e-10&#x27;, &#x27;100..1000&#x27;: &#x27;2.20e-10&#x27;, &#x27;1000..10000&#x27;: &#x27;3.05e-10&#x27;, &#x27;10000..100000&#x27;: &#x27;4.93e-10&#x27;, &#x27;100000..1000000&#x27;: &#x27;1.43e-09&#x27;, &#x27;1000000..10000000&#x27;: &#x27;1.92e-08&#x27;}
+   loop xings [{&#x27;frequency_hz&#x27;: 5310361.314593733, &#x27;phase_deg&#x27;: -92.06090968196965, &#x27;gain_direction&#x27;: &#x27;descending&#x27;}]
+r1_SLC_2p 1e+01:5.09e-12 1e+02:6.92e-13 1e+03:9.62e-14 1e+04:1.40e-14 1e+05:2.57e-15 1e+06:9.84e-16 1e+07:2.72e-15 {&#x27;10..100&#x27;: &#x27;1.37e-10&#x27;, &#x27;100..1000&#x27;: &#x27;1.88e-10&#x27;, &#x27;1000..10000&#x27;: &#x27;2.67e-10&#x27;, &#x27;10000..100000&#x27;: &#x27;4.28e-10&#x27;, &#x27;100000..1000000&#x27;: &#x27;1.15e-09&#x27;, &#x27;1000000..10000000&#x27;: &#x27;1.44e-08&#x27;}
+   loop xings [{&#x27;frequency_hz&#x27;: 4934505.169443293, &#x27;phase_deg&#x27;: -90.95730896028246, &#x27;gain_direction&#x27;: &#x27;descending&#x27;}]
+r1_SLH_5p 1e+01:6.43e-12 1e+02:8.38e-13 1e+03:1.13e-13 1e+04:1.65e-14 1e+05:3.47e-15 1e+06:1.74e-15 1e+07:6.19e-15 {&#x27;10..100&#x27;: &#x27;1.69e-10&#x27;, &#x27;100..1000&#x27;: &#x27;2.24e-10&#x27;, &#x27;1000..10000&#x27;: &#x27;3.13e-10&#x27;, &#x27;10000..100000&#x27;: &#x27;5.35e-10&#x27;, &#x27;100000..1000000&#x27;: &#x27;1.83e-09&#x27;, &#x27;1000000..10000000&#x27;: &#x27;3.12e-08&#x27;}
+   loop xings [{&#x27;frequency_hz&#x27;: 4682878.867979507, &#x27;phase_deg&#x27;: -99.25960716088989, &#x27;gain_direction&#x27;: &#x27;descending&#x27;}]
+r1_FHC_5p 1e+01:5.98e-12 1e+02:7.87e-13 1e+03:1.06e-13 1e+04:1.51e-14 1e+05:2.63e-15 1e+06:9.24e-16 1e+07:2.06e-15 {&#x27;10..100&#x27;: &#x27;1.58e-10&#x27;, &#x27;100..1000&#x27;: &#x27;2.11e-10&#x27;, &#x27;1000..10000&#x27;: &#x27;2.92e-10&#x27;, &#x27;10000..100000&#x27;: &#x27;4.50e-10&#x27;, &#x27;100000..1000000&#x27;: &#x27;1.12e-09&#x27;, &#x27;1000000..10000000&#x27;: &#x27;1.16e-08&#x27;}
+   loop xings [{&#x27;frequency_hz&#x27;: 6041693.378951281, &#x27;phase_deg&#x27;: -94.783831225447, &#x27;gain_direction&#x27;: &#x27;descending&#x27;}]</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="22">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_0149bpRPFwwphykc1c1CEPYG"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:57:41.973110+00:00">0:15:36</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Apply rev2 edits, validate, run five corners</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace &amp;&amp; cp dut.spice runs/dut_r1.spice &amp;&amp; python3 - &lt;&lt;&#x27;PY&#x27;
+s=open(&#x27;/workspace/dut.spice&#x27;).read()
+rep=[
+(&quot;* OTA-WIDE-SKY130 rev1&quot;,&quot;* OTA-WIDE-SKY130 rev2&quot;),
+(&quot;XMPBB VBPB VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=8 l=1&quot;,&quot;XMPBB VBPB VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=5.4 l=1&quot;),
+(&quot;XMPBO VBPO VBPO VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=1 nf=1 m=1&quot;,&quot;XMPBO VBPO VBPO VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=1 nf=1 m=1\n* RC filter on output-source gate (bias noise x10 mirror)\nRFO VBPO VBPOF 500k\nCFO VBPOF VDD 2p&quot;),
+(&quot;RPC VDD RPC 35k&quot;,&quot;RPC VDD RPC 40k&quot;),
+(&quot;XMB4 VBNC VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=8 l=1&quot;,&quot;XMB4 VBNC VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=5.4 l=1&quot;),
+(&quot;XMTN TN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1&quot;,&quot;XMTN TN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=83 l=1&quot;),
+(&quot;XM1 P1 VINN TN VSS sky130_fd_pr__nfet_01v8 w=40 l=1&quot;,&quot;XM1 P1 VINN TN VSS sky130_fd_pr__nfet_01v8 w=60 l=1&quot;),
+(&quot;XM2 P2 VINP TN VSS sky130_fd_pr__nfet_01v8 w=40 l=1&quot;,&quot;XM2 P2 VINP TN VSS sky130_fd_pr__nfet_01v8 w=60 l=1&quot;),
+(&quot;XMTP TP VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=1 nf=1 m=2&quot;,&quot;XMTP TP VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=125 l=1 nf=1 m=2&quot;),
+(&quot;XM5 P1 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16 l=1&quot;,&quot;XM5 P1 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16.2 l=1&quot;),
+(&quot;XM6 P2 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16 l=1&quot;,&quot;XM6 P2 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16.2 l=1&quot;),
+(&quot;XM11 NA VBNC N1 VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5&quot;,&quot;XM11 NA VBNC N1 VSS sky130_fd_pr__nfet_01v8 w=16 l=0.5&quot;),
+(&quot;XM12 NB VBNC N2 VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5&quot;,&quot;XM12 NB VBNC N2 VSS sky130_fd_pr__nfet_01v8 w=16 l=0.5&quot;),
+(&quot;XM9 N1 NA VSS VSS sky130_fd_pr__nfet_01v8 w=16 l=2&quot;,&quot;XM9 N1 NA VSS VSS sky130_fd_pr__nfet_01v8 w=32 l=2&quot;),
+(&quot;XM10 N2 NA VSS VSS sky130_fd_pr__nfet_01v8 w=16 l=2&quot;,&quot;XM10 N2 NA VSS VSS sky130_fd_pr__nfet_01v8 w=32 l=2&quot;),
+(&quot;XMPO VOUT VBPO VDD VDD&quot;,&quot;XMPO VOUT VBPOF VDD VDD&quot;),
+(&quot;NMOS pair (tail 15uA)&quot;,&quot;NMOS pair (tail 25uA)&quot;),(&quot;PMOS pair (tail 15uA)&quot;,&quot;PMOS pair (tail 25uA)&quot;),(&quot;folding PMOS sources (20uA each)&quot;,&quot;folding PMOS sources (30uA each)&quot;),
+]
+for a,b in rep:
+    assert s.count(a)==1,(a,s.count(a)); s=s.replace(a,b)
+open(&#x27;/workspace/dut.spice&#x27;,&#x27;w&#x27;).write(s)
+PY
+atb-client validate | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(d.get(&#x27;ok&#x27;), d.get(&#x27;revision&#x27;), d.get(&#x27;normalized_params&#x27;,{}).get(&#x27;status&#x27;), [k for k in d if k not in (&#x27;normalized_params&#x27;,)])&quot;
+cd runs; for c in &quot;SLH 5e-12&quot; &quot;SLC 5e-12&quot; &quot;FHC 5e-12&quot; &quot;FHH 2e-12&quot; &quot;N 5e-12&quot;; do set -- $c; ./go.sh r2_${1}_${2:0:1}p nominal $1 $2 &amp; done; wait; python3 st.py r2_*.out.json | grep -E &quot;==|&lt;&lt;&lt;&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_0149bpRPFwwphykc1c1CEPYG"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:57:42.657055+00:00">0:15:37</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>False None None [&#x27;ok&#x27;, &#x27;error&#x27;]
+r2_SLH_5p done rc=1
+r2_FHH_2p done rc=1
+r2_FHC_5p done rc=1
+r2_N_5p done rc=1
+r2_SLC_5p done rc=1</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="23">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01W4dsysrpfPXz7FT1ecjWSu"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:57:45.057104+00:00">0:15:39</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Show validation error details</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace; atb-client validate | head -c 1500; echo; cat runs/r2_SLH_5p.out.json | head -c 800</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01W4dsysrpfPXz7FT1ecjWSu"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T12:57:45.154377+00:00">0:15:39</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+  &quot;ok&quot;: false,
+  &quot;error&quot;: &quot;MOS geometry domain&quot;
+}
+
+{
+  &quot;ok&quot;: false,
+  &quot;error&quot;: &quot;MOS geometry domain&quot;
+}</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="24">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-05T12:57:48.468Z">0:15:43</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>W=125 exceeds the 100 µm limit. I&#39;ll split the PMOS tail into m=3 × 83.3 µm and rerun.</p>
+</div><template class="model-source">W=125 exceeds the 100 µm limit. I&#x27;ll split the PMOS tail into m=3 × 83.3 µm and rerun.</template></div></article>
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01W1aUDCtFz4KCXZqKe3kkMq"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T12:57:51.451954+00:00">0:15:46</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Fix PMOS tail geometry, validate, rerun corners</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>sed -i &#x27;s/XMTP TP VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=125 l=1 nf=1 m=2/XMTP TP VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=83.3 l=1 nf=1 m=3/&#x27; dut.spice &amp;&amp; grep XMTP dut.spice &amp;&amp; atb-client validate | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(d.get(&#x27;ok&#x27;), d.get(&#x27;revision&#x27;), d.get(&#x27;error&#x27;))&quot; &amp;&amp; cd runs &amp;&amp; rm -f r2_* &amp;&amp; for c in &quot;SLH 5e-12&quot; &quot;SLC 5e-12&quot; &quot;FHC 5e-12&quot; &quot;FHH 2e-12&quot; &quot;N 5e-12&quot;; do set -- $c; ./go.sh r2_${1}_${2:0:1}p nominal $1 $2 &amp; done; wait; python3 st.py r2_*.out.json | grep -E &quot;==|&lt;&lt;&lt;|unity|noise|slew|tracking&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01W1aUDCtFz4KCXZqKe3kkMq"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T13:00:30.321973+00:00">0:18:25</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>XMTP TP VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=83.3 l=1 nf=1 m=3
+True dut-a212d1484bee2881095ef928 None
+r2_FHC_5p done rc=0
+r2_SLH_5p done rc=0
+r2_N_5p done rc=0
+r2_SLC_5p done rc=0
+r2_FHH_2p done rc=0
+== r2_FHC_5p FHC cl=5e-12  23/23 PASS
+   dc               tracking_error_v                      1.154e-05 &lt;= 0.01
+   loop             unity_gain_hz                         9.507e+06 &gt;= 3000000.0
+   large_up         large_up_slew_v_per_s                 7.348e+06 &gt;= 2000000.0
+   large_down       large_down_slew_v_per_s               4.717e+06 &gt;= 2000000.0
+   noise            input_noise_rms_v                     6.974e-05 &lt;= 0.00015
+== r2_FHH_2p FHH cl=2e-12  23/23 PASS
+   dc               tracking_error_v                      2.734e-05 &lt;= 0.01
+   loop             unity_gain_hz                         1.244e+07 &gt;= 3000000.0
+   large_up         large_up_slew_v_per_s                 9.545e+06 &gt;= 2000000.0
+   large_down       large_down_slew_v_per_s               5.076e+06 &gt;= 2000000.0
+   noise            input_noise_rms_v                     7.077e-05 &lt;= 0.00015
+== r2_N_5p N cl=5e-12  23/23 PASS
+   dc               tracking_error_v                      1.903e-05 &lt;= 0.01
+   loop             unity_gain_hz                         8.217e+06 &gt;= 3000000.0
+   large_up         large_up_slew_v_per_s                 7.272e+06 &gt;= 2000000.0
+   large_down       large_down_slew_v_per_s               4.753e+06 &gt;= 2000000.0
+   noise            input_noise_rms_v                     8.321e-05 &lt;= 0.00015
+== r2_SLC_5p SLC cl=5e-12  23/23 PASS
+   dc               tracking_error_v                       0.002799 &lt;= 0.01
+   loop             unity_gain_hz                         7.489e+06 &gt;= 3000000.0
+   large_up         large_up_slew_v_per_s                 3.068e+06 &gt;= 2000000.0
+   large_down       large_down_slew_v_per_s                3.16e+06 &gt;= 2000000.0
+   noise            input_noise_rms_v                     6.844e-05 &lt;= 0.00015
+== r2_SLH_5p SLH cl=5e-12  23/23 PASS
+   dc               tracking_error_v                      4.931e-05 &lt;= 0.01
+   loop             unity_gain_hz                         7.053e+06 &gt;= 3000000.0
+   large_up         large_up_slew_v_per_s                 7.719e+06 &gt;= 2000000.0
+   large_down       large_down_slew_v_per_s               4.787e+06 &gt;= 2000000.0
+   noise            input_noise_rms_v                     0.0001012 &lt;= 0.00015</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="25">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-05T13:00:36.191Z">0:18:30</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>All five corners now pass every metric. Noise dropped to 68–101 µV (worst SLH, limit 150) and slew is ≥ 3.07 V/µs. Next I&#39;ll run the full corner × load matrix plus PSRR and CMRR.</p>
+</div><template class="model-source">All five corners now pass every metric. Noise dropped to 68–101 µV (worst SLH, limit 150) and slew is ≥ 3.07 V/µs. Next I&#x27;ll run the full corner × load matrix plus PSRR and CMRR.</template></div></article>
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01HbixsZYobeyXYZaFAfzFxm"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T13:00:38.846377+00:00">0:18:33</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Run full nominal matrix plus PSRR and CMRR</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace/runs; for p in N SLC SLH SHC SHH FLC FLH FHC FHH; do for cl in 2e-12 5e-12; do id=r2_${p}_${cl:0:1}p; [ -f $id.out.json ] || ./go.sh $id nominal $p $cl &amp; done; done; for p in N SLH FHC; do for cl in 2e-12 5e-12; do ./go.sh r2ps_${p}_${cl:0:1}p psrr $p $cl &amp; ./go.sh r2cm_${p}_${cl:0:1}p cmrr $p $cl &amp; done; done; wait; python3 st.py r2_*.out.json r2ps_*.out.json r2cm_*.out.json | grep -E &quot;==|&lt;&lt;&lt;&quot;; atb-client status | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(&#x27;remaining_s&#x27;, d[&#x27;remaining_seconds&#x27;])&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01HbixsZYobeyXYZaFAfzFxm"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T13:09:59.903511+00:00">0:27:54</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>r2ps_N_5p done rc=0
+r2cm_FHC_5p done rc=0
+r2ps_FHC_5p done rc=0
+r2_SHH_5p done rc=0
+r2_SHC_2p done rc=0
+r2_FLH_5p done rc=0
+r2_SLH_2p done rc=0
+r2ps_SLH_2p done rc=0
+r2_N_2p done rc=0
+r2_FLH_2p done rc=0
+r2cm_SLH_2p done rc=0
+r2cm_SLH_5p done rc=0
+r2cm_N_5p done rc=0
+r2cm_FHC_2p done rc=0
+r2_SHH_2p done rc=0
+r2_FHC_2p done rc=0
+r2cm_N_2p done rc=0
+r2ps_FHC_2p done rc=0
+r2_FLC_2p done rc=0
+r2ps_SLH_5p done rc=0
+r2_SHC_5p done rc=0
+r2_FLC_5p done rc=0
+r2_SLC_2p done rc=0
+r2ps_N_2p done rc=0
+r2_FHH_5p done rc=0
+== r2_FHC_2p FHC cl=2e-12  23/23 PASS
+== r2_FHC_5p FHC cl=5e-12  23/23 PASS
+== r2_FHH_2p FHH cl=2e-12  23/23 PASS
+== r2_FHH_5p FHH cl=5e-12  23/23 PASS
+== r2_FLC_2p FLC cl=2e-12  23/23 PASS
+== r2_FLC_5p FLC cl=5e-12  23/23 PASS
+== r2_FLH_2p FLH cl=2e-12  23/23 PASS
+== r2_FLH_5p FLH cl=5e-12  23/23 PASS
+== r2_N_2p N cl=2e-12  23/23 PASS
+== r2_N_5p N cl=5e-12  23/23 PASS
+== r2_SHC_2p SHC cl=2e-12  23/23 PASS
+== r2_SHC_5p SHC cl=5e-12  23/23 PASS
+== r2_SHH_2p SHH cl=2e-12  23/23 PASS
+== r2_SHH_5p SHH cl=5e-12  23/23 PASS
+== r2_SLC_2p SLC cl=2e-12  23/23 PASS
+== r2_SLC_5p SLC cl=5e-12  23/23 PASS
+== r2_SLH_2p SLH cl=2e-12  23/23 PASS
+== r2_SLH_5p SLH cl=5e-12  23/23 PASS
+== r2ps_FHC_2p FHC cl=2e-12  2/2 PASS
+== r2ps_FHC_5p FHC cl=5e-12  2/2 PASS
+== r2ps_N_2p N cl=2e-12  2/2 PASS
+== r2ps_N_5p N cl=5e-12  2/2 PASS
+== r2ps_SLH_2p SLH cl=2e-12  2/2 PASS
+== r2ps_SLH_5p SLH cl=5e-12  2/2 PASS
+== r2cm_FHC_2p FHC cl=2e-12  1/1 PASS
+== r2cm_FHC_5p FHC cl=5e-12  1/1 PASS
+== r2cm_N_2p N cl=2e-12  1/1 PASS
+== r2cm_N_5p N cl=5e-12  1/1 PASS
+== r2cm_SLH_2p SLH cl=2e-12  1/1 PASS
+== r2cm_SLH_5p SLH cl=5e-12  1/1 PASS
+remaining_s 4571.721940072835</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="26">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_0114gc1E73a1Ub1pKzPWyTSv"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T13:10:13.555223+00:00">0:28:08</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Compute worst-case margins across all runs</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace/runs; cat &gt; margins.py &lt;&lt;&#x27;PY&#x27;
+import json,sys,glob,collections
+files=sorted(glob.glob(sys.argv[1]))
+worst={}
+for f in files:
+    d=json.load(open(f))
+    if not d.get(&#x27;ok&#x27;): print(&#x27;NOTOK&#x27;,f); continue
+    tag=f&quot;{d[&#x27;pvt&#x27;]}/{d[&#x27;cl&#x27;]*1e12:.0f}p&quot;
+    for r in d[&#x27;summary&#x27;][&#x27;spec_table&#x27;]:
+        v=r[&#x27;measured&#x27;]; lim=r[&#x27;limit&#x27;]; dr=r[&#x27;direction&#x27;]
+        if not isinstance(v,(int,float)) or isinstance(v,bool): continue
+        key=(r[&#x27;metric&#x27;])
+        better = (v &lt; worst[key][0]) if dr==&#x27;&gt;=&#x27; else (v &gt; worst[key][0]) if key in worst else True
+        if key not in worst or better: worst[key]=(v,lim,dr,tag,r[&#x27;verdict&#x27;])
+    # loop phase
+    for c in d[&#x27;cases&#x27;]:
+        if c[&#x27;case_id&#x27;]==&#x27;loop&#x27;:
+            m=c[&#x27;measurements&#x27;]; x=m[&#x27;unity_gain_crossings&#x27;]
+            ph=x[0][&#x27;phase_deg&#x27;] if x else None
+            k=&#x27;loop_phase_at_xing(deg)&#x27;
+            if ph is not None and (k not in worst or ph&lt;worst[k][0]): worst[k]=(ph,None,&#x27;char&#x27;,tag,&#x27;&#x27;)
+for k,v in sorted(worst.items()):
+    val,lim,dr,tag,ver=v
+    marg=&#x27;&#x27; if lim is None else (f&quot;margin x{(val/lim if dr==&#x27;&gt;=&#x27; else lim/val) if val else float(&#x27;inf&#x27;):.2f}&quot; if &#x27;db&#x27; not in k.lower() and &#x27;gain_db&#x27; not in k else f&quot;margin {val-lim:+.1f}dB&quot;)
+    print(f&quot;{k:38s} worst={val:.4g} lim={lim} {dr} @{tag} {ver} {marg}&quot;)
+PY
+python3 margins.py &quot;r2*.out.json&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_0114gc1E73a1Ub1pKzPWyTSv"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T13:10:13.726621+00:00">0:28:08</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>Exit code 1
+Traceback (most recent call last):
+  File &quot;/workspace/runs/margins.py&quot;, line 12, in &lt;module&gt;
+    better = (v &lt; worst[key][0]) if dr==&#x27;&gt;=&#x27; else (v &gt; worst[key][0]) if key in worst else True
+KeyError: &#x27;ibias_compliance&#x27;</code></pre><p class="action-description">Outcome: error</p></div></article>
+</div>
+<div class="turn-group" data-turn="27">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_0141Cf8CDBHTnNiKv1gz5b38"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T13:10:16.573841+00:00">0:28:11</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Fix margin script and rerun</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace/runs; python3 - &lt;&lt;&#x27;PY&#x27;
+import re
+s=open(&#x27;margins.py&#x27;).read()
+s=s.replace(&quot;better = (v &lt; worst[key][0]) if dr==&#x27;&gt;=&#x27; else (v &gt; worst[key][0]) if key in worst else True&quot;,
+&quot;better = True if key not in worst else ((v &lt; worst[key][0]) if dr==&#x27;&gt;=&#x27; else (v &gt; worst[key][0]))&quot;)
+open(&#x27;margins.py&#x27;,&#x27;w&#x27;).write(s)
+PY
+python3 margins.py &quot;r2*.out.json&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_0141Cf8CDBHTnNiKv1gz5b38"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T13:10:16.710405+00:00">0:28:11</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>cmrr_db                                worst=82.32 lim=45 &gt;= @SLH/5p PASS margin +37.3dB
+gain_db                                worst=103.4 lim=50 &gt;= @SLC/5p PASS margin +53.4dB
+ibias_compliance                       worst=1 lim=1 &gt;= @FHC/2p PASS margin x1.00
+input_current_abs_a                    worst=2.442e-15 lim=1e-06 &lt;= @FHH/2p PASS margin x409418147.94
+input_noise_rms_v                      worst=0.0001012 lim=0.00015 &lt;= @SLH/2p PASS margin x1.48
+large_down_settling_time_s             worst=3.244e-07 lim=1e-06 &lt;= @SLC/2p PASS margin x3.08
+large_down_slew_v_per_s                worst=3.151e+06 lim=2000000.0 &gt;= @SLC/2p PASS margin x1.58
+large_up_settling_time_s               worst=2.842e-07 lim=1e-06 &lt;= @SLC/2p PASS margin x3.52
+large_up_slew_v_per_s                  worst=3.042e+06 lim=2000000.0 &gt;= @SLC/2p PASS margin x1.52
+loop_phase_at_xing(deg)                worst=-108.3 lim=None char @SHH/5p  
+power_w                                worst=0.0003819 lim=0.0006 &lt;= @FHH/2p PASS margin x1.57
+psrr_1000000_db                        worst=55.79 lim=18 &gt;= @SLH/5p PASS margin +37.8dB
+psrr_1000_db                           worst=70.52 lim=50 &gt;= @SLH/5p PASS margin +20.5dB
+small_down_overshoot_ratio             worst=0.001848 lim=0.1 &lt;= @SHH/5p PASS margin x54.11
+small_down_settling_time_s             worst=1.005e-07 lim=5e-07 &lt;= @SLC/2p PASS margin x4.97
+small_high_down_overshoot_ratio        worst=0.0001256 lim=0.1 &lt;= @FLH/5p PASS margin x796.31
+small_high_down_settling_time_s        worst=1.003e-07 lim=5e-07 &lt;= @SLH/2p PASS margin x4.99
+small_high_up_overshoot_ratio          worst=0.0001237 lim=0.1 &lt;= @FLH/5p PASS margin x808.28
+small_high_up_settling_time_s          worst=9.944e-08 lim=5e-07 &lt;= @SLH/2p PASS margin x5.03
+small_low_down_overshoot_ratio         worst=6.005e-05 lim=0.1 &lt;= @FLH/5p PASS margin x1665.33
+small_low_down_settling_time_s         worst=1.309e-07 lim=5e-07 &lt;= @SLC/2p PASS margin x3.82
+small_low_up_overshoot_ratio           worst=7.509e-05 lim=0.1 &lt;= @SLC/5p PASS margin x1331.80
+small_low_up_settling_time_s           worst=1.882e-07 lim=5e-07 &lt;= @SLC/2p PASS margin x2.66
+small_up_overshoot_ratio               worst=0.01202 lim=0.1 &lt;= @SHH/5p PASS margin x8.32
+small_up_settling_time_s               worst=9.401e-08 lim=5e-07 &lt;= @SLC/2p PASS margin x5.32
+tracking_error_v                       worst=0.002799 lim=0.01 &lt;= @SLC/2p PASS margin x3.57
+unity_gain_hz                          worst=7.053e+06 lim=3000000.0 &gt;= @SLH/5p PASS margin x2.35</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="28">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01F6Z9qNkZB8n7c2wtZYDeVn"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T13:10:40.920750+00:00">0:28:35</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Show DC tracking error profile versus input</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace/runs; python3 - &lt;&lt;&#x27;PY&#x27;
+import json
+for f in [&#x27;r2_SLC_2p&#x27;,&#x27;r2_SLH_2p&#x27;,&#x27;r2_FHC_2p&#x27;,&#x27;r2_N_2p&#x27;]:
+    d=json.load(open(f+&#x27;.out.json&#x27;))
+    pts=[c for c in d[&#x27;cases&#x27;] if c[&#x27;case_id&#x27;]==&#x27;dc&#x27;][0][&#x27;measurements&#x27;][&#x27;points&#x27;]
+    errs=[(p[&#x27;input_v&#x27;],(p[&#x27;output_v&#x27;]-p[&#x27;input_v&#x27;])*1e3,p[&#x27;power_w&#x27;]*1e6) for p in pts]
+    sel=[e for e in errs if abs(round(e[0]*100)-e[0]*100)&lt;1e-6 and round(e[0]*100)%5==0]
+    print(f, &#x27; &#x27;.join(f&quot;{e[0]:.2f}:{e[1]:+.3f}&quot; for e in sel))
+    mx=max(errs,key=lambda e:abs(e[1])); print(&#x27;   max&#x27;, mx, &#x27;Pmax&#x27;, max(e[2] for e in errs))
+PY</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01F6Z9qNkZB8n7c2wtZYDeVn"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T13:10:40.922765+00:00">0:28:35</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>r2_SLC_2p 0.25:+0.092 0.30:+0.169 0.35:+0.396 0.40:+1.019 0.45:+2.370 0.50:+2.315 0.55:+0.802 0.60:+0.270 0.65:+0.122 0.70:+0.081 0.75:+0.071 0.80:+0.067 0.85:+0.065 0.90:+0.063 0.95:+0.062 1.00:+0.061 1.05:+0.059 1.10:+0.058
+   max (0.4750000000000002, 2.7993218579437373, 217.51182696474882) Pmax 241.2088355303645
+r2_SLH_2p 0.25:+0.049 0.30:+0.047 0.35:+0.045 0.40:+0.042 0.45:+0.038 0.50:+0.033 0.55:+0.030 0.60:+0.030 0.65:+0.034 0.70:+0.039 0.75:+0.043 0.80:+0.046 0.85:+0.047 0.90:+0.047 0.95:+0.047 1.00:+0.046 1.05:+0.046 1.10:+0.045
+   max (0.25, 0.049312533427159355, 296.94755393736676) Pmax 296.94755393736676
+r2_FHC_2p 0.25:+0.008 0.30:+0.008 0.35:+0.008 0.40:+0.008 0.45:+0.008 0.50:+0.008 0.55:+0.008 0.60:+0.009 0.65:+0.010 0.70:+0.011 0.75:+0.011 0.80:+0.012 0.85:+0.012 0.90:+0.011 0.95:+0.011 1.00:+0.011 1.05:+0.011 1.10:+0.011
+   max (0.8200000000000005, 0.01154195243890932, 316.7353286834988) Pmax 357.6112574228327
+r2_N_2p 0.25:+0.017 0.30:+0.016 0.35:+0.016 0.40:+0.016 0.45:+0.015 0.50:+0.014 0.55:+0.015 0.60:+0.015 0.65:+0.016 0.70:+0.018 0.75:+0.019 0.80:+0.019 0.85:+0.019 0.90:+0.019 0.95:+0.019 1.00:+0.019 1.05:+0.018 1.10:+0.018
+   max (0.8300000000000005, 0.019025365970204433, 288.7955819762149) Pmax 326.21299786157977</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="29">
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01HWQ8TCLMfAHG3TQxMck9oh"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T13:11:13.010306+00:00">0:29:07</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Confirm revision matches and tally resources</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace; atb-client validate | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(d.get(&#x27;ok&#x27;), d.get(&#x27;revision&#x27;))&quot;; python3 -c &quot;
+import json,glob
+revs=set(json.load(open(f))[&#x27;revision&#x27;] for f in glob.glob(&#x27;/workspace/runs/r2*.out.json&#x27;)); print(&#x27;measured revisions:&#x27;, revs)&quot;
+python3 - &lt;&lt;&#x27;PY&#x27;
+import re
+s=open(&#x27;/workspace/dut.spice&#x27;).read()
+area=0;C=0
+for line in s.splitlines():
+    m=re.match(r&#x27;^X\S+.*w=([\d.]+) l=([\d.]+) nf=1 m=(\d+)&#x27;,line,re.I)
+    if m: area+=float(m.group(1))*float(m.group(2))*int(m.group(3))
+    m=re.match(r&#x27;^C\S+\s+\S+\s+\S+\s+([\d.]+)p&#x27;,line,re.I)
+    if m: C+=float(m.group(1))
+print(&#x27;MOS W*L sum um2:&#x27;,round(area,1),&#x27; explicit C pF:&#x27;,C)
+PY</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01HWQ8TCLMfAHG3TQxMck9oh"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T13:11:13.162971+00:00">0:29:07</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>True dut-a212d1484bee2881095ef928
+measured revisions: {&#x27;dut-a212d1484bee2881095ef928&#x27;}
+MOS W*L sum um2: 1339.1  explicit C pF: 7.0</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="30">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-05T13:11:15.726Z">0:29:10</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>The file on disk is the measured revision (<code>dut-a212d1484bee2881095ef928</code>). It uses 1339 of 3000 µm² of MOS area and 7 of 10 pF of capacitance. Submitting now.</p>
+</div><template class="model-source">The file on disk is the measured revision (`dut-a212d1484bee2881095ef928`). It uses 1339 of 3000 µm² of MOS area and 7 of 10 pF of capacitance. Submitting now.</template></div></article>
+<article class="trace-entry trace-tool" data-kind="ACTION" data-tool-id="toolu_01AhnrBnYjw5R3KwhtMZfnqU"><div class="trace-meta"><span class="trace-tag trace-tag--action">ACTION</span><div class="trace-time" title="2026-10-05T13:11:22.459965+00:00">0:29:17</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><div class="raw-field"><p class="action-description" data-field="description">Submit final design with rationale</p></div><div class="raw-field"><pre data-field="command" tabindex="0"><code>cd /workspace; atb-client submit --rationale &quot;Rail-to-rail-input two-stage OTA for 1.35-1.65 V. Complementary NMOS/PMOS weak-inversion input pairs (25 uA tails, wide low-Vdsat tail devices to minimise the mid-range dead zone at slow/cold/1.35 V) feed a folded-cascode summing stage: fixed PMOS folding sources (30 uA) with resistor-set headroom, PMOS/NMOS cascodes, and an NMOS low-voltage cascode mirror that absorbs the common-mode current shift as pairs hand over. Class-A NMOS common-source output with 100 uA PMOS current-source load gives swing to within 0.25 V of either rail. Miller Cc=5 pF with Rz=1.5 kohm (LHP zero) sized for the maximum both-pairs gm; measured crossing phase &gt;= -108 deg, overshoot &lt;= 1.2%. All bias derives from the IREF NMOS diode on IBIAS. Noise fix: the 10x-mirrored output-source bias is RC-filtered (500 kohm, 2 pF to VDD), removing the dominant 1-10 MHz input-referred noise rise; input-pair current was raised to lower the white floor. Public grid (9 PVT x 2 loads nominal, plus PSRR/CMRR) all PASS: worst noise 101 uV, slew 3.04 V/us, tracking 2.8 mV (SLC transition region), UGF &gt;= 7.05 MHz, LF loop gain &gt;= 103 dB, power &lt;= 382 uW, PSRR &gt;= 70.5/55.8 dB, CMRR &gt;= 82 dB. Resources: 1339 um2 MOS W*L, 7 pF.&quot; 2&gt;&amp;1 | python3 -c &quot;import json,sys; d=json.load(sys.stdin); print(json.dumps({k:v for k,v in d.items() if k not in (&#x27;normalized_params&#x27;,&#x27;summary&#x27;)}, indent=1)[:1500])&quot;</code></pre></div></div></article>
+<article class="trace-entry trace-result" data-kind="RESULT" data-tool-id="toolu_01AhnrBnYjw5R3KwhtMZfnqU"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T13:11:22.540791+00:00">0:29:17</div><span class="trace-tool-name">Bash</span></div><div class="trace-content"><pre data-field="" tabindex="0"><code>{
+ &quot;ok&quot;: true,
+ &quot;submitted_revision&quot;: &quot;dut-a212d1484bee2881095ef928&quot;,
+ &quot;note&quot;: &quot;Submission frozen. No verification feedback will be returned. End the session.&quot;
+}</code></pre></div></article>
+</div>
+<div class="turn-group" data-turn="31">
+<article class="trace-entry trace-ai" data-kind="MODEL" data-tool-id=""><div class="trace-meta"><span class="trace-tag trace-tag--model">MODEL</span><div class="trace-time" title="2026-10-05T13:11:33.789Z">0:29:28</div><span class="trace-tool-name"></span></div><div class="trace-content"><div class="ai-text raw-model"><p>I submitted the design (revision <code>dut-a212d1484bee2881095ef928</code>), and it passed every metric in every public case: all 9 PVT corners at both 2 pF and 5 pF, plus PSRR and CMRR (210 cases in all). It took two design revisions and about 25 of the 90 minutes. The 108 independent cases run on conditions I can&#39;t see, and the client returns no results for them.</p>
+<p><strong>Design.</strong> <code>dut.spice</code> is a two-stage OTA built to work as a follower from 0.25 V to 1.1 V even at 1.35 V supply.</p>
+<ul>
+<li><strong>Input stage:</strong> NMOS and PMOS input pairs work in parallel, so one of them is always on across the input range. Their tail transistors are wide so they need little voltage headroom. That keeps the hand-over region between the pairs from becoming a dead zone at slow/cold/1.35 V.</li>
+<li><strong>Summing stage:</strong> a folded cascode combines the two pairs&#39; currents. Its bottom current mirror absorbs the current shift as one pair hands over to the other.</li>
+<li><strong>Output stage:</strong> a single NMOS transistor driving the output, with a 100 µA PMOS current source as its load. The output gets within 0.25 V of either rail.</li>
+<li><strong>Compensation:</strong> a 5 pF Miller capacitor with a 1.5 kΩ series resistor, sized for the case where both pairs are on (highest gain).</li>
+<li><strong>Bias:</strong> everything is derived from the 10 µA reference on IBIAS.</li>
+</ul>
+<p><strong>What changed between revisions.</strong> The first version failed noise at the slow/hot corner with 5 pF (185 µV against a 150 µV limit). Most of the excess was in 1–10 MHz and came from the output current source, which copies its bias at 10× and so amplified the noise on that bias line. Two changes fixed it:</p>
+<ul>
+<li>a 500 kΩ / 2 pF filter on that current source&#39;s gate;</li>
+<li>more current in the input pairs (15 → 25 µA each), which lowered the noise floor and raised slew rate.</li>
+</ul>
+<p><strong>Worst case across the public grid:</strong></p>
+<div class="ai-table-wrap"><table class="ai-table">
+<thead>
+<tr>
+<th>Metric</th>
+<th>Worst measured</th>
+<th>Limit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Noise</td>
+<td>101 µV</td>
+<td>≤ 150 µV</td>
+</tr>
+<tr>
+<td>Slew</td>
+<td>3.04 V/µs</td>
+<td>≥ 2 V/µs</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>382 µW</td>
+<td>≤ 600 µW</td>
+</tr>
+<tr>
+<td>DC tracking error</td>
+<td>2.8 mV</td>
+<td>≤ 10 mV</td>
+</tr>
+<tr>
+<td>Unity-gain frequency</td>
+<td>7.05 MHz</td>
+<td>≥ 3 MHz</td>
+</tr>
+<tr>
+<td>Loop gain at 10 Hz</td>
+<td>103 dB</td>
+<td>≥ 50 dB</td>
+</tr>
+<tr>
+<td>PSRR (1 kHz / 1 MHz)</td>
+<td>70.5 / 55.8 dB</td>
+<td>≥ 50 / 18 dB</td>
+</tr>
+<tr>
+<td>CMRR</td>
+<td>82 dB</td>
+<td>≥ 45 dB</td>
+</tr>
+<tr>
+<td>Small-step overshoot</td>
+<td>1.2%</td>
+<td>≤ 10%</td>
+</tr>
+</tbody></table></div>
+<p>The closest margins are noise, slew and power, each with roughly 1.5× headroom. The tracking error peaks at 2.8 mV only at slow/cold/1.35 V, around 0.45–0.5 V input, where the two input pairs hand over. At every other corner the error stays below 0.05 mV. The design uses 1339 of 3000 µm² of transistor area and 7 of 10 pF of capacitance.</p>
+<p>The submission is frozen and exploration is closed, so this ends the session.</p>
+</div><template class="model-source">I submitted the design (revision `dut-a212d1484bee2881095ef928`), and it passed every metric in every public case: all 9 PVT corners at both 2 pF and 5 pF, plus PSRR and CMRR (210 cases in all). It took two design revisions and about 25 of the 90 minutes. The 108 independent cases run on conditions I can&#x27;t see, and the client returns no results for them.
+
+**Design.** `dut.spice` is a two-stage OTA built to work as a follower from 0.25 V to 1.1 V even at 1.35 V supply.
+- **Input stage:** NMOS and PMOS input pairs work in parallel, so one of them is always on across the input range. Their tail transistors are wide so they need little voltage headroom. That keeps the hand-over region between the pairs from becoming a dead zone at slow/cold/1.35 V.
+- **Summing stage:** a folded cascode combines the two pairs&#x27; currents. Its bottom current mirror absorbs the current shift as one pair hands over to the other.
+- **Output stage:** a single NMOS transistor driving the output, with a 100 µA PMOS current source as its load. The output gets within 0.25 V of either rail.
+- **Compensation:** a 5 pF Miller capacitor with a 1.5 kΩ series resistor, sized for the case where both pairs are on (highest gain).
+- **Bias:** everything is derived from the 10 µA reference on IBIAS.
+
+**What changed between revisions.** The first version failed noise at the slow/hot corner with 5 pF (185 µV against a 150 µV limit). Most of the excess was in 1–10 MHz and came from the output current source, which copies its bias at 10× and so amplified the noise on that bias line. Two changes fixed it:
+- a 500 kΩ / 2 pF filter on that current source&#x27;s gate;
+- more current in the input pairs (15 → 25 µA each), which lowered the noise floor and raised slew rate.
+
+**Worst case across the public grid:**
+
+| Metric | Worst measured | Limit |
+|---|---|---|
+| Noise | 101 µV | ≤ 150 µV |
+| Slew | 3.04 V/µs | ≥ 2 V/µs |
+| Power | 382 µW | ≤ 600 µW |
+| DC tracking error | 2.8 mV | ≤ 10 mV |
+| Unity-gain frequency | 7.05 MHz | ≥ 3 MHz |
+| Loop gain at 10 Hz | 103 dB | ≥ 50 dB |
+| PSRR (1 kHz / 1 MHz) | 70.5 / 55.8 dB | ≥ 50 / 18 dB |
+| CMRR | 82 dB | ≥ 45 dB |
+| Small-step overshoot | 1.2% | ≤ 10% |
+
+The closest margins are noise, slew and power, each with roughly 1.5× headroom. The tracking error peaks at 2.8 mV only at slow/cold/1.35 V, around 0.45–0.5 V input, where the two input pairs hand over. At every other corner the error stays below 0.05 mV. The design uses 1339 of 3000 µm² of transistor area and 7 of 10 pF of capacitance.
+
+The submission is frozen and exploration is closed, so this ends the session.</template></div></article>
+</div>
+<div class="turn-group" data-submission="final"><article class="trace-entry trace-submission" data-kind="SUBMISSION" aria-label="Final submitted SPICE"><div class="trace-meta"><span class="trace-tag">SPICE</span><span class="trace-tool-name">Final submission</span></div><div class="trace-content"><pre data-field="submitted-spice" tabindex="0"><code>* OTA-WIDE-SKY130 rev2
+* Complementary NMOS/PMOS input pairs -&gt; folded-cascode summing stage
+* (PMOS fixed top sources, NMOS low-voltage cascode mirror) -&gt; class-A
+* NMOS common-source output with PMOS current-source load. Miller Rz-Cc.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* ---------------- bias ----------------
+* IREF (10uA) into NMOS diode: VBN = V(IBIAS)
+XMB0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+* low-Vov PMOS bias (PMOS pair tail)
+XMB1 VBPA IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPBA VBPA VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=1
+* moderate-Vov PMOS bias (folding sources)
+XMB2 VBPB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPBB VBPB VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=5.4 l=1 nf=1 m=1
+* output-source PMOS bias
+XMB5 VBPO IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPBO VBPO VBPO VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=1 nf=1 m=1
+* RC filter on output-source gate (bias noise x10 mirror)
+RFO VBPO VBPOF 500k
+CFO VBPOF VDD 2p
+* PMOS cascode bias: VBPC = VDD - I*R - Vsg
+XMB3 VBPC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPB3 VBPC VBPC RPC VDD sky130_fd_pr__pfet_01v8 w=12 l=0.5 nf=1 m=1
+RPC VDD RPC 40k
+* NMOS cascode bias: VBNC = Vgs + I*R
+XMB4 VBNC VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=5.4 l=1 nf=1 m=1
+XMNB4 VBNC VBNC RNC VSS sky130_fd_pr__nfet_01v8 w=6 l=0.5 nf=1 m=1
+RNC RNC VSS 30k
+* ---------------- input stage ----------------
+* NMOS pair (tail 25uA); VINP drives output side
+XMTN TN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=83 l=1 nf=1 m=1
+XM1 P1 VINN TN VSS sky130_fd_pr__nfet_01v8 w=60 l=1 nf=1 m=1
+XM2 P2 VINP TN VSS sky130_fd_pr__nfet_01v8 w=60 l=1 nf=1 m=1
+* PMOS pair (tail 25uA)
+XMTP TP VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=83.3 l=1 nf=1 m=3
+XM3 N1 VINN TP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+XM4 N2 VINP TP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+* folding PMOS sources (30uA each)
+XM5 P1 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16.2 l=1 nf=1 m=1
+XM6 P2 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16.2 l=1 nf=1 m=1
+* PMOS cascodes
+XM7 NA VBPC P1 VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+XM8 NB VBPC P2 VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+* NMOS cascodes
+XM11 NA VBNC N1 VSS sky130_fd_pr__nfet_01v8 w=16 l=0.5 nf=1 m=1
+XM12 NB VBNC N2 VSS sky130_fd_pr__nfet_01v8 w=16 l=0.5 nf=1 m=1
+* low-voltage cascode mirror
+XM9 N1 NA VSS VSS sky130_fd_pr__nfet_01v8 w=32 l=2 nf=1 m=1
+XM10 N2 NA VSS VSS sky130_fd_pr__nfet_01v8 w=32 l=2 nf=1 m=1
+* ---------------- output stage ----------------
+XMNO VOUT NB VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+XMPO VOUT VBPOF VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=1 nf=1 m=2
+* Miller compensation
+RZ NB NZ 1.5k
+CC NZ VOUT 5p
+.ends DUT
+</code></pre></div></article></div>
+<div class="turn-group" data-evaluation="independent"><article class="trace-entry trace-evaluation" data-kind="EVALUATION" aria-label="Final independent evaluation"><div class="trace-meta"><span class="trace-tag trace-tag--result">RESULT</span><div class="trace-time" title="2026-10-05T16:48:44.924514+00:00">4:06:39</div><span class="trace-tool-name">Independent evaluation</span></div><div class="trace-content"><div class="evaluation-table-wrap" tabindex="0" aria-label="Independent evaluation metrics"><table class="summary-table evaluation-metrics"><thead><tr><th scope="col">Metric</th><th scope="col">Worst value</th><th scope="col">Limit</th><th scope="col">Worst condition</th><th scope="col">Result</th></tr></thead><tbody><tr data-metric="tracking_error_v"><th scope="row">DC tracking error</th><td>2.8 mV</td><td>≤ 10 mV</td><td>Published · SLC · 2 pF · dc</td><td>PASS</td></tr>
+<tr data-metric="power_w"><th scope="row">Power</th><td>0.38 mW</td><td>≤ 0.6 mW</td><td>Published · FHH · 2 pF · dc</td><td>PASS</td></tr>
+<tr data-metric="input_current_abs_a"><th scope="row">Input current</th><td>2.4e-09 µA</td><td>≤ 1 µA</td><td>Published · FHH · 2 pF · dc</td><td>PASS</td></tr>
+<tr data-metric="ibias_compliance"><th scope="row">IBIAS compliance</th><td>Within supply rails</td><td>VSS ≤ V(IBIAS) ≤ VDD</td><td>Published · N · 2 pF · dc</td><td>PASS</td></tr>
+<tr data-metric="gain_db"><th scope="row">Loop gain</th><td>100 dB</td><td>≥ 50 dB</td><td>Published · SLC · 5 pF · loop</td><td>PASS</td></tr>
+<tr data-metric="unity_gain_hz"><th scope="row">Unity-gain frequency</th><td>7.1 MHz</td><td>≥ 3 MHz</td><td>Published · SLH · 5 pF · loop</td><td>PASS</td></tr>
+<tr data-metric="small_up_settling_time_s"><th scope="row">Small step · up · settling</th><td>94 ns</td><td>≤ 500 ns</td><td>Published · SLC · 2 pF · small_up</td><td>PASS</td></tr>
+<tr data-metric="small_up_overshoot_ratio"><th scope="row">Small step · up · overshoot</th><td>1.2 %</td><td>≤ 10 %</td><td>Published · SHH · 5 pF · small_up</td><td>PASS</td></tr>
+<tr data-metric="small_down_settling_time_s"><th scope="row">Small step · down · settling</th><td>100 ns</td><td>≤ 500 ns</td><td>Published · SLC · 2 pF · small_down</td><td>PASS</td></tr>
+<tr data-metric="small_down_overshoot_ratio"><th scope="row">Small step · down · overshoot</th><td>0.18 %</td><td>≤ 10 %</td><td>Published · SHH · 5 pF · small_down</td><td>PASS</td></tr>
+<tr data-metric="large_up_settling_time_s"><th scope="row">Large step · up · settling</th><td>280 ns</td><td>≤ 1000 ns</td><td>Published · SLC · 2 pF · large_up</td><td>PASS</td></tr>
+<tr data-metric="large_up_slew_v_per_s"><th scope="row">Large step · up · slew rate</th><td>3 V/µs</td><td>≥ 2 V/µs</td><td>Published · SLC · 2 pF · large_up</td><td>PASS</td></tr>
+<tr data-metric="large_down_settling_time_s"><th scope="row">Large step · down · settling</th><td>320 ns</td><td>≤ 1000 ns</td><td>Published · SLC · 2 pF · large_down</td><td>PASS</td></tr>
+<tr data-metric="large_down_slew_v_per_s"><th scope="row">Large step · down · slew rate</th><td>3.2 V/µs</td><td>≥ 2 V/µs</td><td>Published · SLC · 2 pF · large_down</td><td>PASS</td></tr>
+<tr data-metric="input_noise_rms_v"><th scope="row">Input noise</th><td>100 µV RMS</td><td>≤ 150 µV RMS</td><td>Published · SLH · 2 pF · noise</td><td>PASS</td></tr>
+<tr data-metric="small_low_up_settling_time_s"><th scope="row">Small step · low · up · settling</th><td>190 ns</td><td>≤ 500 ns</td><td>Published · SLC · 2 pF · small_low_up</td><td>PASS</td></tr>
+<tr data-metric="small_low_up_overshoot_ratio"><th scope="row">Small step · low · up · overshoot</th><td>0.0075 %</td><td>≤ 10 %</td><td>Published · SLC · 5 pF · small_low_up</td><td>PASS</td></tr>
+<tr data-metric="small_low_down_settling_time_s"><th scope="row">Small step · low · down · settling</th><td>130 ns</td><td>≤ 500 ns</td><td>Published · SLC · 2 pF · small_low_down</td><td>PASS</td></tr>
+<tr data-metric="small_low_down_overshoot_ratio"><th scope="row">Small step · low · down · overshoot</th><td>0.006 %</td><td>≤ 10 %</td><td>Published · FLH · 5 pF · small_low_down</td><td>PASS</td></tr>
+<tr data-metric="small_high_up_settling_time_s"><th scope="row">Small step · high · up · settling</th><td>99 ns</td><td>≤ 500 ns</td><td>Published · SLH · 2 pF · small_high_up</td><td>PASS</td></tr>
+<tr data-metric="small_high_up_overshoot_ratio"><th scope="row">Small step · high · up · overshoot</th><td>0.012 %</td><td>≤ 10 %</td><td>Published · FLH · 5 pF · small_high_up</td><td>PASS</td></tr>
+<tr data-metric="small_high_down_settling_time_s"><th scope="row">Small step · high · down · settling</th><td>100 ns</td><td>≤ 500 ns</td><td>Published · SLH · 2 pF · small_high_down</td><td>PASS</td></tr>
+<tr data-metric="small_high_down_overshoot_ratio"><th scope="row">Small step · high · down · overshoot</th><td>0.013 %</td><td>≤ 10 %</td><td>Published · FLH · 5 pF · small_high_down</td><td>PASS</td></tr>
+<tr data-metric="psrr_1000_db"><th scope="row">PSRR · 1 kHz</th><td>71 dB</td><td>≥ 50 dB</td><td>Published · SLH · 5 pF · psrr</td><td>PASS</td></tr>
+<tr data-metric="psrr_1000000_db"><th scope="row">PSRR · 1 MHz</th><td>56 dB</td><td>≥ 18 dB</td><td>Hidden · SLH · 4 pF · psrr</td><td>PASS</td></tr>
+<tr data-metric="cmrr_db"><th scope="row">CMRR</th><td>82 dB</td><td>≥ 45 dB</td><td>Published · SLH · 5 pF · cmrr</td><td>PASS</td></tr></tbody></table></div></div></article></div>

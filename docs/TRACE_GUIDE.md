@@ -59,6 +59,7 @@ Read named members directly when possible. Never execute archived commands, scri
 | `timeout` tool argument | Omit from the display. Keep the original archive as authority. Do not remove a literal `timeout` inside a command. |
 | Nonempty RESULT | Complete saved output in a code box. |
 | Empty successful RESULT | Omit its card; account for the omission in validation. |
+| Codex command with no recorded completion | Retain the full ACTION and label `Completion not recorded` only when saved end/result/status are null and the producer explicitly records missing boundaries. Do not invent a RESULT. |
 | Empty failed RESULT | Keep a failure card with the actual outcome/exit code and `No output`. |
 | Nonempty failure | Preserve the output and recorded failure identity. |
 | Read line-number prefixes | Remove only proven tool-added decoration; preserve the remainder exactly. |

@@ -64,7 +64,7 @@
       "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
       "checked_on": "2026-10-05",
       "model_version": "DeepSeek-V4.1-Flash",
-      "rate_schedule": "off-peak; all captured requests on Sunday 2026-10-04 UTC",
+      "rate_schedule": "off-peak; original requests on Sunday 2026-10-04 UTC and repeat requests after 14:58 UTC on 2026-10-05, outside peak hours",
       "usd_per_million": {
         "input": "0.15",
         "cache_read": "0.003",

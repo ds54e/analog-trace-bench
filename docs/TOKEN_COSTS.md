@@ -26,8 +26,11 @@ OpenAI CLI-turn totals do not expose request context lengths or effective
 billing tiers; cumulative run input must not trigger a long-context multiplier.
 The existing six-model rate snapshot was checked on 2026-10-04. DeepSeek's
 additional snapshot was checked on 2026-10-05 against its
-[official pricing](https://api-docs.deepseek.com/quick_start/pricing/). All captured
-DeepSeek requests occurred on Sunday 2026-10-04 UTC and use the off-peak rates:
+[official pricing](https://api-docs.deepseek.com/quick_start/pricing/), confirmed
+again on 2026-10-08. Original DeepSeek requests occurred on Sunday
+2026-10-04 UTC. All 932 imported repeat requests started between 14:58 and 21:30 UTC on
+2026-10-05, outside the documented 01:00–04:00 and 06:00–10:00 weekday peak
+windows. Both batches use the off-peak comparison rates:
 uncached input $0.15, cached input $0.003 and output $0.60 per million tokens.
 Review the applicable schedule when importing future DeepSeek runs.
 

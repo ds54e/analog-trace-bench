@@ -2,7 +2,7 @@
 
 ## Evidence archives
 
-Upload the original `.tar.xz` files as assets of a GitHub Release in `ds54e/analog-trace-bench`. Keep filenames and SHA-256 hashes consistent with `data/evidence.json`. Each task uses a `results-<task-slug>` release; each independently evaluated run has one immutable archive. The catalog includes 81 selected trials.
+Upload the original `.tar.xz` files as assets of a GitHub Release in `ds54e/analog-trace-bench`. Keep filenames and SHA-256 hashes consistent with `data/evidence.json`. Each task uses a `results-<task-slug>` release; each independently evaluated run has one immutable archive. The catalog includes 183 selected trials.
 
 After uploading, copy each asset's actual download URL into its entry:
 

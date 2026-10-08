@@ -95,7 +95,10 @@ for provider-specific accounting and import commands.
 1. Inventory the actual Release assets, task/model/run, submission, transcript
    schema, evaluation and timing. Verify the archive identity and task files.
 2. Register evidence-derived entries in `data/evidence.json` and
-   `site/data/runs.json`, initially with `trace: null`. Use an actual immutable
+   `site/data/runs.json`, initially with `trace: null`. Use publisher `comparison_repeat` for the displayed Run 1–3 when a selection
+   normalizes raw attempt numbers. Preserve `captured_run`, the original slot,
+   attempt ID and captured configuration. Import additional runs only for pairs
+   with three selected completed results. Use an actual immutable
    asset URL; never copy another run's configuration, status or hashes.
 3. Review the submitted SPICE/rationale and add its circuit description to
    `data/trace-summaries.json`. Extend transcript/task semantics when needed and
@@ -119,7 +122,9 @@ Missing pages receive canonical fragments, linked reports, routes and validation
 profiles; accepted existing fragments are source-checked and preserved.
 
 Codex file-change records retain captured paths/status without inventing absent
-patches. Only recognized Claude Read line-number decoration is removed. OpenCode
+patches. Explicitly unfinished Codex commands retain their ACTION and a
+`Completion not recorded` note; no result is fabricated. Missing model-request
+boundaries keep model totals, overlap and outside time unknown. Only recognized Claude Read line-number decoration is removed. OpenCode
 uses millisecond timestamps and completed/error tool states; shell exit codes
 remain authoritative, and recorded permission errors remain visible when the
 saved tools record has no result string. Step accounting and private reasoning
