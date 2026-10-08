@@ -97,7 +97,8 @@ class TranscriptTests(unittest.TestCase):
         self.assertEqual([e.kind for e in result.events], ['ACTION'])
         self.assertEqual(result.events[0].status, 'completion_not_recorded')
         self.assertEqual(result.omissions['tool_completions_not_recorded'], 1)
-        rendered = importer.render_history(result, SimpleNamespace(start=dt.datetime.fromisoformat(START)))
+        with patch.object(importer.shared, 'render_model_markdown', return_value={}):
+            rendered = importer.render_history(result, SimpleNamespace(start=dt.datetime.fromisoformat(START)))
         self.assertIn('Completion not recorded', rendered)
         self.assertIn('printf value', rendered)
         t['result'] = 'saved result without transcript completion'
