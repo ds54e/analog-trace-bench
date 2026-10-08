@@ -32,6 +32,7 @@ again on 2026-10-08. Original DeepSeek requests occurred on Sunday
 2026-10-05, outside the documented 01:00–04:00 and 06:00–10:00 weekday peak
 windows. Both batches use the off-peak comparison rates:
 uncached input $0.15, cached input $0.003 and output $0.60 per million tokens.
+The new fixed-OTA retry on 2026-10-07 also starts outside peak hours.
 Review the applicable schedule when importing future DeepSeek runs.
 
 ```sh
@@ -45,3 +46,20 @@ DeepSeek direct API records are reconciled from raw request usage, cache hit/mis
 counts and normalized aggregates. The offline build rechecks decimal arithmetic
 and source identities. Changing prices requires rerunning the cost importer;
 existing provider-reported amounts remain separately available in JSON.
+
+## Fable and Haiku — 2026-10-09
+
+Official [Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)
+comparison rates are $10 input, $0.25 cache read, $12.50 / $20 cache write
+(5m / 1h) and $50 output per million tokens.
+[Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview) uses its
+base comparison rates: $0.10 input, $0.01 cache read, $0.125 / $0.20 cache write
+and $0.50 output. Its higher price tier applies above 100,000 prompt tokens;
+the site uses the base tier as an estimate, rather than inferring a tier from
+cumulative run totals. UI labels and tables remain unchanged.
+
+For the recorded restarted Haiku session, unique provider-message usage and
+both captured CLI segment totals reconcile for all four billable categories.
+The producer's comparison with only the last CLI segment is not a whole-run
+total. Distinct CLI cost observations remain separate in JSON, with no invented
+provider total. Other reconciliation conflicts are rejected.

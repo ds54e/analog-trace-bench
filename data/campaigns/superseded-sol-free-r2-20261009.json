@@ -1,0 +1,148 @@
+[
+  {
+    "entry": {
+      "id": "ota-free-sky130-sol-6-r2",
+      "task": "OTA-FREE-SKY130",
+      "model": "Sol 6",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku9-three-runs-20261008-recovery1",
+      "attempt_id": "ota-free-sky130-sol-r2-20261005-model-time-add2",
+      "slot": "sol-02",
+      "filename": "ota-free-sky130-sol-r2-20261005-model-time-add2.tar.xz",
+      "sha256": "e0dc7e8e5b16fb58e628df8e3a9902ee48dcb4f69e6626020bc98fd84cb85008",
+      "bytes": 5114268,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-sol-r2-20261005-model-time-add2.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "37675916385214e9989680df10e4e4bfc4c48ae90b8d92f4517241169b00a7b9",
+      "source_sha": "f6cc58a6eee52c9c3844b2bf25e6a9187deaa10f",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "73359227203d338768b6acffcd8517304fdcbb34b1d71678a6e90b2d9a480818",
+      "capture_manifest_sha256": "bf06f02cca38b256eb863044202f1d0ebb7cf208181e77b680609f5117b91590",
+      "analysis_manifest_sha256": "78a82efce2c4efd17f3edf70695270b9989655f5fe9739557ab79686835ba296",
+      "configuration": {
+        "run_id": "sol-02",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": null,
+      "model_time_recording_state": "incomplete",
+      "design_wall_s": 6703.088219881058,
+      "submission_model_late": null,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 618932200,
+      "release_id": 402943885
+    },
+    "validation": {
+      "id": "ota-free-sky130-sol-6-r2",
+      "page": "traces/ota-free-sky130-sol-6-r2-raw.html",
+      "counts": {
+        "MODEL": 39,
+        "ACTION": 131,
+        "RESULT": 130
+      },
+      "submitted_spice_bytes": 1014,
+      "submitted_spice_sha256": "5d76ce08a58638fbb035a73af2426d2736916f60e174c83d4cfdaa53d531a081",
+      "revision": "dut-333ce1e996d499879a489602",
+      "evaluation_categories": 18,
+      "evaluation_row_counts": {
+        "published": 288,
+        "hidden": 153
+      },
+      "content_sha256": {
+        "summary.html": "eeda4a8c7c0a9c8948d20b8d7e11ca9f10c55b2526a16615777e13c6e1950542",
+        "trace.html": "059053f9fca62d368220ff6de639ea23b9801852f54e2f56698a078de7c9f05c"
+      },
+      "evaluation_sha256": "fe704c98450bd206255b5e2379c7f185a9c1579cdc890003b085964487250891",
+      "source_archive_sha256": "e0dc7e8e5b16fb58e628df8e3a9902ee48dcb4f69e6626020bc98fd84cb85008",
+      "source_verification": {
+        "payloads_verified": true,
+        "recorded_tools": 130,
+        "read_line_number_prefixes_removed": 0,
+        "omissions": {
+          "transport_rows": 3,
+          "empty_successes": 1,
+          "file_edits_without_patch_text": 1
+        },
+        "robustness_sample_circuits": [],
+        "unavailable_measurement_rows": {
+          "published": 0,
+          "hidden": 0
+        },
+        "window_exceeded_rows": {
+          "published": 0,
+          "hidden": 0
+        }
+      }
+    },
+    "token_cost": {
+      "id": "ota-free-sky130-sol-6-r2",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 30370836,
+      "cache_read_tokens": 30095232,
+      "cache_write_tokens": 0,
+      "output_tokens": 104020,
+      "reasoning_tokens": 55752,
+      "uncached_input_tokens": 275604,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "7.6104544",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "e0dc7e8e5b16fb58e628df8e3a9902ee48dcb4f69e6626020bc98fd84cb85008",
+        "analysis_manifest_sha256": "78a82efce2c4efd17f3edf70695270b9989655f5fe9739557ab79686835ba296",
+        "usage_path": "sol-02/evidence/usage.json",
+        "usage_sha256": "bc741a84ec195eeccf0ef679cf916c6c1778cb6e55b87be8cf3763c4203216b1",
+        "expanded_usage_sha256": "a4f76bed618f4159df2394c83ff57bf59e5b5d0329f695f5db90e78caeaac6ba",
+        "observations_sha256": "4bf9ccaf872ad58ffdf5f31b5456c9db89d1a1eeb4ba65d29923c56606c809b8"
+      }
+    },
+    "circuit_summary": [
+      [
+        "Architecture",
+        "NMOS input pair · Two-stage OTA"
+      ],
+      [
+        "Output stage",
+        "PMOS output branch · NMOS output branch"
+      ],
+      [
+        "Compensation",
+        "CC: 3.1 pF (CM–VOUT) · CAX: 1.6 pF (CX–B)"
+      ],
+      [
+        "Bias / feedback",
+        "IBIAS-referenced MOS bias network"
+      ]
+    ],
+    "replacement_asset_sha256": "2fc56942a731b7ba4528ace1426228a45aa170cceb6558fb0172dfbcc22defdb"
+  }
+]

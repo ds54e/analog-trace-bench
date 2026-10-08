@@ -67,12 +67,35 @@
         "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
         "checked_on": "2026-10-05",
         "model_version": "DeepSeek-V4.1-Flash",
-        "rate_schedule": "off-peak; original requests on Sunday 2026-10-04 UTC and repeat requests after 14:58 UTC on 2026-10-05, outside peak hours",
+        "rate_schedule": "Off-peak comparison rates; captured requests on 2026-10-04, after 14:58 UTC on 2026-10-05, and after 20:52 UTC on 2026-10-07 are outside weekday peak windows.",
         "usd_per_million": {
           "input": "0.15",
           "cache_read": "0.003",
           "output": "0.60"
         }
+      },
+      "claude-fable-5-1": {
+        "source_url": "https://platform.claude.com/docs/en/models/fable-5-1/overview",
+        "checked_on": "2026-10-09",
+        "usd_per_million": {
+          "input": "10.00",
+          "cache_read": "0.25",
+          "cache_write": "12.50",
+          "cache_write_1h": "20.00",
+          "output": "50.00"
+        }
+      },
+      "claude-haiku-5-5": {
+        "source_url": "https://platform.claude.com/docs/en/models/haiku-5-5/overview",
+        "checked_on": "2026-10-09",
+        "usd_per_million": {
+          "input": "0.10",
+          "cache_read": "0.01",
+          "cache_write": "0.125",
+          "cache_write_1h": "0.20",
+          "output": "0.50"
+        },
+        "rate_schedule": "Base comparison rates for prompts up to 100,000 tokens; cumulative run totals do not determine context tier."
       }
     }
   },
@@ -4318,27 +4341,27 @@
     {
       "id": "ota-free-sky130-sol-6-r2",
       "model_id": "gpt-6-sol",
-      "input_tokens": 30370836,
-      "cache_read_tokens": 30095232,
+      "input_tokens": 21850731,
+      "cache_read_tokens": 21690368,
       "cache_write_tokens": 0,
-      "output_tokens": 104020,
-      "reasoning_tokens": 55752,
-      "uncached_input_tokens": 275604,
+      "output_tokens": 38871,
+      "reasoning_tokens": 17685,
+      "uncached_input_tokens": 160363,
       "input_semantics": "input includes cached input",
       "output_semantics": "provider output; do not add reasoning again",
       "cache_write_ttl_tokens": null,
       "effective_service_tier": null,
       "model_identity_status": "NOT_EXPOSED",
       "cost_basis": "list_price_calculation",
-      "total_cost_usd": "7.6104544",
+      "total_cost_usd": "5.0475096",
       "reported_cost_usd": null,
       "source": {
-        "archive_sha256": "e0dc7e8e5b16fb58e628df8e3a9902ee48dcb4f69e6626020bc98fd84cb85008",
-        "analysis_manifest_sha256": "78a82efce2c4efd17f3edf70695270b9989655f5fe9739557ab79686835ba296",
+        "archive_sha256": "2fc56942a731b7ba4528ace1426228a45aa170cceb6558fb0172dfbcc22defdb",
+        "analysis_manifest_sha256": "a4719b00c9804560c28a109370ba838248c46621c977f579642b284a6f2befab",
         "usage_path": "sol-02/evidence/usage.json",
-        "usage_sha256": "bc741a84ec195eeccf0ef679cf916c6c1778cb6e55b87be8cf3763c4203216b1",
-        "expanded_usage_sha256": "a4f76bed618f4159df2394c83ff57bf59e5b5d0329f695f5db90e78caeaac6ba",
-        "observations_sha256": "4bf9ccaf872ad58ffdf5f31b5456c9db89d1a1eeb4ba65d29923c56606c809b8"
+        "usage_sha256": "9d133bcae047f6f249b053a7acd68f2680e1ab78a1067d670496457f2f167b12",
+        "expanded_usage_sha256": "6fc187de8269dd703987c91005fc5e74b628ebd95d030c2e63a1270a02efb68d",
+        "observations_sha256": "182cdd379846901125e61b3f3e6344b9fa5d0d779c8645a45f7fe2c08650ba46"
       }
     },
     {
@@ -5093,6 +5116,1107 @@
         "usage_sha256": "78ac066d0fb72b26d61e5b6186a832c14c362ba47fd62426fa7973e472ae191c",
         "expanded_usage_sha256": "6a66dd4df42e5fa88870c2b65eab7c66f2b4c085ad41e3c0bf770166bd637880",
         "observations_sha256": "266ea0075e367493447f64ab8533d5e1e8b3f4a27cdb19b56a2a1ddaca8cb7ba"
+      }
+    },
+    {
+      "id": "ota-free-sky130-opus-5-5-r2",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 30,
+      "cache_read_tokens": 961655,
+      "cache_write_tokens": 116626,
+      "output_tokens": 82222,
+      "reasoning_tokens": 74888,
+      "uncached_input_tokens": 30,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 116626,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "2.769899",
+      "reported_cost_usd": "2.7698989999999992",
+      "source": {
+        "archive_sha256": "19737e39403e7ba51c9cbae9e1a274782b862d60cf46ac2b19c32d27f7644d32",
+        "analysis_manifest_sha256": "3871fe3a69d58fce60ae9244ed9aed11e20cfe3f2b9797639df64e281c4e70ab",
+        "usage_path": "opus-02/evidence/usage.json",
+        "usage_sha256": "40294b8144587fb745b6c8f5bf5ff98020a0b1fd96eef0bcc37edd86f587b47c",
+        "expanded_usage_sha256": "66e521a9a0aadf2e22346f4ce47d06657c327a879003d2bc50bf8666f7583fc4",
+        "observations_sha256": "6ec48b74811b0aeff30ecde95fcfd3a07217f185aa32289065e72faafce03049"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-r2",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 9893622,
+      "cache_read_tokens": 9731072,
+      "cache_write_tokens": 0,
+      "output_tokens": 59127,
+      "reasoning_tokens": 32196,
+      "uncached_input_tokens": 162550,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "2.8625844",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "bea97000f1c55e95589926ad67c69f33c11e0d67256d8b863b7b6c8751a118ee",
+        "analysis_manifest_sha256": "618b5030ee31f10f9b5d61f5fc10535046a1f7520b6176212bf25e3b820111fb",
+        "usage_path": "sol-02/evidence/usage.json",
+        "usage_sha256": "c69be67de461fa0eb8dc97066b328df64c6b77c40f2f116a267a9acd32cf5fe0",
+        "expanded_usage_sha256": "05e2c947d460c96eefb54e3fe9988ce6c4fda6b96d9f4cb196aaf2f7b0e881d0",
+        "observations_sha256": "4d98b9f470f6cc48e8b9deeee7440896700c6bac615abcc66f31a0df9bf54423"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-deepseek-r3",
+      "model_id": "deepseek-flash",
+      "input_tokens": 18070911,
+      "cache_read_tokens": 17973376,
+      "cache_write_tokens": null,
+      "output_tokens": 241690,
+      "reasoning_tokens": 193056,
+      "uncached_input_tokens": 97535,
+      "input_semantics": "prompt includes cached input",
+      "output_semantics": "completion includes reasoning; never add twice",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.213564378",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "6ef5e93c5bdc290bdddbbcae9be972183779a8dcf8812f1179bf6e1cc2cc45a3",
+        "analysis_manifest_sha256": "a596bbb993856a9486927cc8d233c6578475a7c9e41ca7ef48b54637a1ebb035",
+        "usage_path": "deepseek-03/evidence/usage.json",
+        "usage_sha256": "5cf68026096b759f826475e8987bc51e8fdffde040135c2529662ae4febb2ceb",
+        "expanded_usage_sha256": "b6dd1725c34747a1d053a1a6f043caadacc6e5afda3e08b01253248da5bd75cb",
+        "observations_sha256": "25e15c9dded5e1e297b1dff472392a4984ae6d7c0bf4ada79c89c0f5a2bfaed1"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-fable-r1",
+      "model_id": "claude-fable-5-1",
+      "input_tokens": 516,
+      "cache_read_tokens": 1499305,
+      "cache_write_tokens": 158792,
+      "output_tokens": 258185,
+      "reasoning_tokens": 245652,
+      "uncached_input_tokens": 516,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 158792,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "16.46507625",
+      "reported_cost_usd": "16.46507625",
+      "source": {
+        "archive_sha256": "feead06ac25e84853595111a967fba67067b8d89748cd7dc6c240ed48fce1dd7",
+        "analysis_manifest_sha256": "50f957d19b0ac353dc7ad929d0d4f693593c61c05f0fb002b37d842763409ad8",
+        "usage_path": "fable-01/evidence/usage.json",
+        "usage_sha256": "caa350186081e19a21ff7fbd6d6b54be2e0ac6b9b67614e65bb907fbc87955d4",
+        "expanded_usage_sha256": "ee2482a133566c461024356e1f27b075414f3346217d34d550ef2a8eb98dd10b",
+        "observations_sha256": "ac1a4557d9b01321cdac9ae72d82d9bd68c5947e60b306480ea5b0b1972763c2"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-fable-r1",
+      "model_id": "claude-fable-5-1",
+      "input_tokens": 516,
+      "cache_read_tokens": 1070810,
+      "cache_write_tokens": 133356,
+      "output_tokens": 197130,
+      "reasoning_tokens": 189106,
+      "uncached_input_tokens": 516,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 133356,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "12.7964825",
+      "reported_cost_usd": "12.796482499999998",
+      "source": {
+        "archive_sha256": "793c86d260c540834a0da797b62e40f08e0be915fb8e295dbd1f11b2d40e288a",
+        "analysis_manifest_sha256": "9213e25b597f89c40b80676e1cc94311a0c19542b71fd5e9717cbdc822514ab7",
+        "usage_path": "fable-01/evidence/usage.json",
+        "usage_sha256": "64a0100321c978a54ed2da82173ecdc09153ff0bb41912c1300b25e298c89660",
+        "expanded_usage_sha256": "c16e8be0d6a2c87f82a1db46994f5bf5690932c4ac0b41ffd418304360346b8a",
+        "observations_sha256": "5e16f594baf2ecfebfed6c017666660d64119f747f68e12608629c99d0673d6d"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-fable-r1",
+      "model_id": "claude-fable-5-1",
+      "input_tokens": 712,
+      "cache_read_tokens": 3115237,
+      "cache_write_tokens": 200724,
+      "output_tokens": 143974,
+      "reasoning_tokens": 125536,
+      "uncached_input_tokens": 712,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 200724,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "11.99910925",
+      "reported_cost_usd": "11.99910925",
+      "source": {
+        "archive_sha256": "4f4b7ee64690e9a436d60f37cc7aa029d46eee82cb1088b1e78e16706a46aafa",
+        "analysis_manifest_sha256": "763a349672f92668f1596d66b5faf140868fe1926a2788890469928a81801672",
+        "usage_path": "fable-01/evidence/usage.json",
+        "usage_sha256": "83604aed4e9ac1ba000d8c0157c4343857e9f23443b49594c8d95db5d9764e83",
+        "expanded_usage_sha256": "e49b63a1e8d31d5174e21b23b8fce8e22c70436c4ffb4a0e0593bcedbbdfb55a",
+        "observations_sha256": "483d5f4f27d4d98162234c3cb786a35f822259bd254d7c6586741560182ba0b5"
+      }
+    },
+    {
+      "id": "ota-free-sky130-opus-5-5-r3",
+      "model_id": "claude-opus-5-5",
+      "input_tokens": 52,
+      "cache_read_tokens": 2727492,
+      "cache_write_tokens": 176541,
+      "output_tokens": 122619,
+      "reasoning_tokens": 110289,
+      "uncached_input_tokens": 52,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 176541
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "4.4104144",
+      "reported_cost_usd": "4.410414400000001",
+      "source": {
+        "archive_sha256": "60b846aa06a15aebb41cc1f2596db1fcaac3f6cb2cc5f200f4222de812e257a7",
+        "analysis_manifest_sha256": "b7aeea9720b7a0fd17a8386de66daab084c4c241614d1b4ba2a969deb3b589f8",
+        "usage_path": "opus-03/evidence/usage.json",
+        "usage_sha256": "fd295328b840501c7e31a6d536d3e30cc27e91a2120de678ca0d277abd70a68c",
+        "expanded_usage_sha256": "75be4519f5581f029981558f1d610e897e036728c79539e9b303f26bca452b2b",
+        "observations_sha256": "c8f51977c3c063219d7558d2e387615e23ba6bd032ab9f2501698cb002649b9b"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-deepseek-r2",
+      "model_id": "deepseek-flash",
+      "input_tokens": 9862629,
+      "cache_read_tokens": 9793792,
+      "cache_write_tokens": null,
+      "output_tokens": 174824,
+      "reasoning_tokens": 152044,
+      "uncached_input_tokens": 68837,
+      "input_semantics": "prompt includes cached input",
+      "output_semantics": "completion includes reasoning; never add twice",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.144601326",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "5b8afb757d91e39b998fa513d68c6d45951deaf71182ca42604288423a33e61d",
+        "analysis_manifest_sha256": "1c9459bad83ae987d29f37daaf8d227eac97e1715413a01e1c5a41368e07c5ea",
+        "usage_path": "deepseek-02/evidence/usage.json",
+        "usage_sha256": "a2f1f971f1f6fd54600c90639c89b23dbbdb311e19fef4ba0d37c81756ba7250",
+        "expanded_usage_sha256": "bdb8271dfec6cfbf41893a0af0e3bff759e6d5c64f0f2131773b75c2296bb79b",
+        "observations_sha256": "adafec63202d28c323f290e0620ad4c917c436fd3eef9bcc374cecbf8d7ee89b"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-r3",
+      "model_id": "gpt-6-sol",
+      "input_tokens": 7590445,
+      "cache_read_tokens": 7459456,
+      "cache_write_tokens": 0,
+      "output_tokens": 57836,
+      "reasoning_tokens": 35248,
+      "uncached_input_tokens": 130989,
+      "input_semantics": "input includes cached input",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": null,
+      "effective_service_tier": null,
+      "model_identity_status": "NOT_EXPOSED",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "2.3322292",
+      "reported_cost_usd": null,
+      "source": {
+        "archive_sha256": "90cddcdf4a4a50ed6465a03d3ac3e4738501ae0bb86d3bad322a39e18fa28a45",
+        "analysis_manifest_sha256": "f6589e5288725d0b316c3073be8c6a90fb447a77f5e6e638994203c2399e0d31",
+        "usage_path": "sol-03/evidence/usage.json",
+        "usage_sha256": "ac4042c59b1c901c8e963d57adb839f16727af40dcd8760a6a21584d2f1673e7",
+        "expanded_usage_sha256": "687483aeece5d2996dac46d72f5c251e51d78b36b9e7734edfdea82536263463",
+        "observations_sha256": "c5c9adc6da2a197e30426cf02f683a20324e43728581c85affeccb167567c6c5"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-haiku-r1",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 98,
+      "cache_read_tokens": 3698443,
+      "cache_write_tokens": 230996,
+      "output_tokens": 158829,
+      "reasoning_tokens": 136374,
+      "uncached_input_tokens": 98,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 230996,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.16260793",
+      "reported_cost_usd": "5.983362199999998",
+      "source": {
+        "archive_sha256": "5324f318eb8759f959ccfb450eec8ac0a94b3eaa6baa1629953c9c88af8fd30d",
+        "analysis_manifest_sha256": "78a33b398b3873c6add60b56b566fc1e19118e79c286f073c6399ed0f7ce9c48",
+        "usage_path": "haiku-01/evidence/usage.json",
+        "usage_sha256": "b034e02120acb6e5712f0c30a2c111a1dd607e0aec36266efff526221355fba3",
+        "expanded_usage_sha256": "af22678e4b5ed8ad383f660888e43b4b04589a144859eb6cfe094e4d5fc1211d",
+        "observations_sha256": "2e00e33cee8eb106cc73fe3d44813ed6a3a834452868cd0cf5c878aea26574da"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-haiku-r2",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 68,
+      "cache_read_tokens": 2464568,
+      "cache_write_tokens": 244087,
+      "output_tokens": 159528,
+      "reasoning_tokens": 142250,
+      "uncached_input_tokens": 68,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 244087,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.15323388",
+      "reported_cost_usd": "5.9339982",
+      "source": {
+        "archive_sha256": "4ecf227680aa0c2b0e14caa1f6ba5188cb0d4a28cbd8e1cfbf6f8d66ffb0aea7",
+        "analysis_manifest_sha256": "7be67ec2d4992f27550c170030b546b119028efc23bfcde20ec42aa0ef9351ba",
+        "usage_path": "haiku-02/evidence/usage.json",
+        "usage_sha256": "c1009d5c6b45fc6723231992f6d4ea3bdbbddabc9cdfca7ed3dc5c41c00524ce",
+        "expanded_usage_sha256": "f29a24925bcf9a178ee3d920f460fa346ad51afc6eb4beb40b1ca72e36065847",
+        "observations_sha256": "14fb6f2e4217b3b43d23de4e2aa59127a3f2f4ef54a808e457d4f045c13f3b8f"
+      }
+    },
+    {
+      "id": "ota-fixed-sky130-haiku-r3",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 84,
+      "cache_read_tokens": 3651407,
+      "cache_write_tokens": 280459,
+      "output_tokens": 212428,
+      "reasoning_tokens": 192607,
+      "uncached_input_tokens": 84,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 280459,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.19882827",
+      "reported_cost_usd": "7.4976142",
+      "source": {
+        "archive_sha256": "81ae5b944aa0080d354059938c4ad34d5aa5e5ae563082f3f61d2ddb12d9d45d",
+        "analysis_manifest_sha256": "ce3f912767f85d77959d826b1c5018437a2853c5081d79c1b1d8a67fe8935825",
+        "usage_path": "haiku-03/evidence/usage.json",
+        "usage_sha256": "129c7c5a1ebf56ff55ef8d566115b69e2de898e7fb7df6ada294662bc5e4747a",
+        "expanded_usage_sha256": "003ea7dddf0f02db6ada5c808cfc0c0e92f6b32e59a3c93e6b06f3df173ba7c9",
+        "observations_sha256": "91f7a2c4b37294c6c385bb9a78dd1a8f442709e8fb8c3c9ad7f5da781e3ad6b5"
+      }
+    },
+    {
+      "id": "ota-free-sky130-haiku-r1",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 72,
+      "cache_read_tokens": 2278497,
+      "cache_write_tokens": 219511,
+      "output_tokens": 154039,
+      "reasoning_tokens": 135006,
+      "uncached_input_tokens": 72,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 219511
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.14371387",
+      "reported_cost_usd": "5.515096000000001",
+      "source": {
+        "archive_sha256": "995dd544bfe85d9056eccf77cdd3a5e9683fb8c2ea485830f28ae4ca89e6aaf1",
+        "analysis_manifest_sha256": "f5334993b26c591412e099ecd4485bf59b1cc708b997704389f796665f0844bc",
+        "usage_path": "haiku-01/evidence/usage.json",
+        "usage_sha256": "be9c3147c6398cdf12faccf1d7cc1d8bab32f12624f6293e220b2ac5e3b31300",
+        "expanded_usage_sha256": "a70c2e245ad562cbad16e23f7f83dc1bbb645c29c52be372d43cb3b7a01cc41c",
+        "observations_sha256": "7697df398884917009576be6baf282e88451bec3ae3b36e154ccc940647cf399"
+      }
+    },
+    {
+      "id": "ota-free-sky130-haiku-r2",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 48,
+      "cache_read_tokens": 1991265,
+      "cache_write_tokens": 150922,
+      "output_tokens": 110685,
+      "reasoning_tokens": 99664,
+      "uncached_input_tokens": 48,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 150922,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.10544435",
+      "reported_cost_usd": "3.8195209999999995",
+      "source": {
+        "archive_sha256": "0f69f7f8b152d01b0bf75884a28f397be7e454f8d0709d02b331a3d86b646ef5",
+        "analysis_manifest_sha256": "9fe93c1344913f439dc033ede8ed611e1967bcef4e5b980bbb62c2e94561e9fe",
+        "usage_path": "haiku-02/evidence/usage.json",
+        "usage_sha256": "31bc284ba2629acbebbc22c1e929df6753bbc4482f19863f911078a0338b3b42",
+        "expanded_usage_sha256": "87192470c25b5576559300a25cf74cacabb0c95f07961497c427da7c29524ef0",
+        "observations_sha256": "464e14e19c6f817b52d152369100baaa54d36fe817a79b6c25e86711fe065cd2"
+      }
+    },
+    {
+      "id": "ota-free-sky130-haiku-r3",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 106,
+      "cache_read_tokens": 3875832,
+      "cache_write_tokens": 378017,
+      "output_tokens": 326787,
+      "reasoning_tokens": 303952,
+      "uncached_input_tokens": 106,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 378017,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.27776582",
+      "reported_cost_usd": "10.7289898",
+      "source": {
+        "archive_sha256": "8b20df0f3c885036c4c28d28de10703923c74a05265a9f7f02a2da597c3ec1a1",
+        "analysis_manifest_sha256": "4a9d7c806cbeada72933b3b077dc39c85e56d2c89f2f599beddb3ae52d3067e4",
+        "usage_path": "haiku-03/evidence/usage.json",
+        "usage_sha256": "47670bebc0fc5121ad617399e91504679eab841d3d85842394aae210ec76c398",
+        "expanded_usage_sha256": "a102114f359707ae84f6d205e9309f767d368ad9b4a4d0f22732c97665bb86fd",
+        "observations_sha256": "00b495ed68e473214ba3ced575df504d2f64e7fe2073932a6af1c783bd601921"
+      }
+    },
+    {
+      "id": "ota-drive-sky130-haiku-r1",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 72,
+      "cache_read_tokens": 2055328,
+      "cache_write_tokens": 230569,
+      "output_tokens": 181829,
+      "reasoning_tokens": 164764,
+      "uncached_input_tokens": 72,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 230569
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.15758878",
+      "reported_cost_usd": "6.1124836",
+      "source": {
+        "archive_sha256": "5394f9b131a09d64bb7d7ef63481ae4183fd8fe104d8116910a949d4d341afcc",
+        "analysis_manifest_sha256": "44e3d7ac5573f20a51e4f35a19f4768c1c4f44d800cbb730259ecd2a84ca600d",
+        "usage_path": "haiku-01/evidence/usage.json",
+        "usage_sha256": "f8158b3079aeeb25dab53c0ec576ec3a5556f27c563ec600ef96469f44351466",
+        "expanded_usage_sha256": "e301e9a5939de02ae22b11fb2ce583f6f5ca173c55355d53c9ee41dbaf16c854",
+        "observations_sha256": "26ccfd675f6efc039a9ae3e1898860d416abce098d075ab659428481a9213e79"
+      }
+    },
+    {
+      "id": "ota-drive-sky130-haiku-r2",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 72,
+      "cache_read_tokens": 2336606,
+      "cache_write_tokens": 271793,
+      "output_tokens": 223169,
+      "reasoning_tokens": 208751,
+      "uncached_input_tokens": 72,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 271793,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.18931636",
+      "reported_cost_usd": "7.768940000000001",
+      "source": {
+        "archive_sha256": "904f55aaa1b9b0349ff9279e89a066d77e4472867c72bf3d042b914e0d3a015d",
+        "analysis_manifest_sha256": "5d026d899d57f875494546503034be368be21af12d9fe3378c559a4139b2421b",
+        "usage_path": "haiku-02/evidence/usage.json",
+        "usage_sha256": "4bc86bb5a082719d1e1fc5b82e06e42c09c29e50ec6c1f95c5121cfec5aa51b7",
+        "expanded_usage_sha256": "d308e97240fd2f79a812c8d3878c06f5759362593b521630a85de3bd8933c660",
+        "observations_sha256": "12cf7140e424962891761edca2ff42356899f64d8e3d066a3554db2f2d4a022a"
+      }
+    },
+    {
+      "id": "ota-drive-sky130-haiku-r3",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 64,
+      "cache_read_tokens": 2070487,
+      "cache_write_tokens": 189249,
+      "output_tokens": 132440,
+      "reasoning_tokens": 115347,
+      "uncached_input_tokens": 64,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 189249,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.12478107",
+      "reported_cost_usd": "4.764629199999999",
+      "source": {
+        "archive_sha256": "382a1134d000b3ee75a1c6a3fcd7419845562d7fc4c0e20dd019ffafba4a249f",
+        "analysis_manifest_sha256": "b83155643536e21938e15ae3fc9f356b574f69b9612ea7d2dfff639774183d28",
+        "usage_path": "haiku-03/evidence/usage.json",
+        "usage_sha256": "753d0f1d344af00f11fcb17349fabe2aaf331ab4200a9ebb2f2a548b5490622d",
+        "expanded_usage_sha256": "6c6990ffcf8953f6ada6e9d123038cb137825f55cd927c001c8a20e2c29761c0",
+        "observations_sha256": "7c9418999627f02d29338558d11134c5b9d1bc21f559e46e6b3c280a6cdb57de"
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-haiku-r1",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 46,
+      "cache_read_tokens": 1976578,
+      "cache_write_tokens": 153492,
+      "output_tokens": 121849,
+      "reasoning_tokens": 112889,
+      "uncached_input_tokens": 46,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 153492
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.11139328",
+      "reported_cost_usd": "4.0604156",
+      "source": {
+        "archive_sha256": "8351c10db196ebfbba73df7c9b9ee9fb01a838df0ee899a2f4274eec6fe5d8a4",
+        "analysis_manifest_sha256": "029dbd4a70272060f98853930ec7ea7cb7fddf1c74324e5229af340dfe76ac82",
+        "usage_path": "haiku-01/evidence/usage.json",
+        "usage_sha256": "6b5cdc11363f62657940a7bd2293da7e45b3227e3d89c3703e622bb96a2d5157",
+        "expanded_usage_sha256": "0eceb81096bb1c27715e8c2b4575da8db90b3c5ed7e0b1a033fc259b00453737",
+        "observations_sha256": "a462de6a57f52879835d160460aa2ff1a3b7ec27b763cf9f68e25e7739234c5d"
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-haiku-r2",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 64,
+      "cache_read_tokens": 2181117,
+      "cache_write_tokens": 178551,
+      "output_tokens": 136464,
+      "reasoning_tokens": 124763,
+      "uncached_input_tokens": 64,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 178551
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.12575977",
+      "reported_cost_usd": "4.7739754",
+      "source": {
+        "archive_sha256": "e31b04b0f34e52416003f1c7316736a09efa812ae67be6627f5fae557735b945",
+        "analysis_manifest_sha256": "1fc7122d16dccc6ba41b89b06d78149d10ef946cf1fbccbe7334c93f139aba8b",
+        "usage_path": "haiku-02/evidence/usage.json",
+        "usage_sha256": "4a4ee0a196e39b9994379f88c4a6138e3c6973900800d62ee566fb0d2565a6e7",
+        "expanded_usage_sha256": "cb00832c3c14801708c19f30d0a81788a1fe8f85d39097c87ba7e6bf1ae0b5f0",
+        "observations_sha256": "d6946a8e2dbd728f7ff686b4855bf67f9bcb7970037bde4ad9344e4b5950f30b"
+      }
+    },
+    {
+      "id": "ldo-always-on-sky130-haiku-r3",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 62,
+      "cache_read_tokens": 1650550,
+      "cache_write_tokens": 135865,
+      "output_tokens": 100900,
+      "reasoning_tokens": 89255,
+      "uncached_input_tokens": 62,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 135865
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.0941347",
+      "reported_cost_usd": "3.4352780000000003",
+      "source": {
+        "archive_sha256": "6c9f36d0a485e7d0d8b45c92d6b8cf8ba8290b4990e31635efc151eb36391b65",
+        "analysis_manifest_sha256": "55263ba16c3c9b66551e4d8b548e0fc1180d17a09c5ca4ccb3b792b379a58f77",
+        "usage_path": "haiku-03/evidence/usage.json",
+        "usage_sha256": "ab946bae9806f10dd27d5d977f89850cfc7bf5d47eceb6a46ac4ed873c9205ae",
+        "expanded_usage_sha256": "653c6a58a1c08bd8debb9b0d9bb2056533d5d2319c80bed12d30a4ec12822733",
+        "observations_sha256": "b16ef73a626cb013e48a609c91ba0014c864a6abef6fea807200472967d24e9c"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-haiku-r1",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 100,
+      "cache_read_tokens": 3535477,
+      "cache_write_tokens": 408988,
+      "output_tokens": 350677,
+      "reasoning_tokens": 318746,
+      "uncached_input_tokens": 100,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 408988,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.29250087",
+      "reported_cost_usd": "11.618346000000008",
+      "source": {
+        "archive_sha256": "77b526364c9052de2dc5b7bc860d27921d703fe05c9dd3edb3b2cb7ae8455fbf",
+        "analysis_manifest_sha256": "ff76414967508773274a1db7f204d22c9a79e1b0f8f3800693dae5143ea2f512",
+        "usage_path": "haiku-01/evidence/usage.json",
+        "usage_sha256": "5edf9b2c26beb2ea8459aee929620365b73b98a72062f3cc4d6d42705eb08eeb",
+        "expanded_usage_sha256": "49ec62a8daf8c9bfe72b618b3a0865052715082189d9605d4e53a2e3f43db292",
+        "observations_sha256": "b4308684b9aea2b275637d4c511f3f3a135a22341b54da6b7b38584beaa7a74a"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-haiku-r2",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 92,
+      "cache_read_tokens": 3190035,
+      "cache_write_tokens": 384996,
+      "output_tokens": 305186,
+      "reasoning_tokens": 277942,
+      "uncached_input_tokens": 92,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 384996,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.26150175",
+      "reported_cost_usd": "10.211529799999997",
+      "source": {
+        "archive_sha256": "f3c7d49d485aecd30e64a21749fce3b6ac01606a41151b9986caed67829242bf",
+        "analysis_manifest_sha256": "c20c049b0df1f591f5657f5a3897a78082aac08ea185cbf05b521586f829ae1d",
+        "usage_path": "haiku-02/evidence/usage.json",
+        "usage_sha256": "83f68d2395cec18f8a4d5a6a0800489261c79d2713a4a8140da6613a4f83c7c9",
+        "expanded_usage_sha256": "3e43d8a6c09e3f3a7151da986e0eecca11ad22c0ba0906c7849577a82083f7e6",
+        "observations_sha256": "b3cd113f63c4dede8bd73a0683120d9ef48946c3cf87dcafd007fc93cb5ff20b"
+      }
+    },
+    {
+      "id": "ota-precision-sky130-haiku-r3",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 72,
+      "cache_read_tokens": 2645512,
+      "cache_write_tokens": 431339,
+      "output_tokens": 384864,
+      "reasoning_tokens": 362673,
+      "uncached_input_tokens": 72,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 431339
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.30516212",
+      "reported_cost_usd": "12.2456328",
+      "source": {
+        "archive_sha256": "531bfef179382d92880c836cb313b4e676830fdce650edd0836aeac2c3d88b87",
+        "analysis_manifest_sha256": "351133ee50af892fbabd8fe975be2b02e4e0e56310752f8851a9ffdfa29d99a0",
+        "usage_path": "haiku-03/evidence/usage.json",
+        "usage_sha256": "c6509816325e403528de4dcca084ac2570389c2c634a5a191ddeecdc882a5f97",
+        "expanded_usage_sha256": "af9395c7bd2af4e25eb0143eeb95f0a6597d433495938fe412712b96e1b76258",
+        "observations_sha256": "59581c9820b8841686b1150b62feb18dec93511df22b5dc0dc7b97e1aa9f27ec"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-haiku-r1",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 196,
+      "cache_read_tokens": 8600845,
+      "cache_write_tokens": 653786,
+      "output_tokens": 542965,
+      "reasoning_tokens": 494878,
+      "uncached_input_tokens": 196,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 653786,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.48826775",
+      "reported_cost_usd": null,
+      "usage_reconciliation": "provider_messages_and_cli_segments",
+      "reported_cost_observations_usd": [
+        "9.9129528",
+        "19.868919"
+      ],
+      "source": {
+        "archive_sha256": "7384c05e74f53b074832484d777117f4b878c240af604ed2a92ee65c6b60c53c",
+        "analysis_manifest_sha256": "65fb4ff5114471cb0c319c353b02250789604c2b729fca27d25b563dd5e7b40a",
+        "usage_path": "haiku-01/evidence/usage.json",
+        "usage_sha256": "d1098ff830da44722bc97f38a019b234f6600f6cd549a1fdaac8271978bf3184",
+        "expanded_usage_sha256": "4296381722e4178ff26b2ec0ae32a6e8eb41dd96354fad8daba2b6d7ce394113",
+        "observations_sha256": "74861cfa0769ae671f6564bf349bfd8739899f920232bf62b9c42fa34daed47f"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-haiku-r2",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 188,
+      "cache_read_tokens": 8090869,
+      "cache_write_tokens": 561631,
+      "output_tokens": 425756,
+      "reasoning_tokens": 378979,
+      "uncached_input_tokens": 188,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 561631,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.40613169",
+      "reported_cost_usd": "15.2342212",
+      "source": {
+        "archive_sha256": "a2ec1e8cb35c3c6d5f9895aa9d2583b9331b2e64483f638364610167f98f8e4f",
+        "analysis_manifest_sha256": "3775ea39afce81b329b2513a98290920ea77d40a4ce8b0472a775318def7e9f5",
+        "usage_path": "haiku-02/evidence/usage.json",
+        "usage_sha256": "45587e4256e310b0e9b45e5ccb100f51fc7ee5827c1b95089ffe571766beba47",
+        "expanded_usage_sha256": "04f8bed67537dab578161b0d1ec4fbbf82523163849443bc5ad6e1ebe6176a3f",
+        "observations_sha256": "5d6f1e4d973e69986359729a588b08cf0ff60e944d9a4d0740f3be9580493cec"
+      }
+    },
+    {
+      "id": "ldo-low-voltage-sky130-haiku-r3",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 76,
+      "cache_read_tokens": 2773884,
+      "cache_write_tokens": 291809,
+      "output_tokens": 240730,
+      "reasoning_tokens": 223069,
+      "uncached_input_tokens": 76,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 291809,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.20647324",
+      "reported_cost_usd": "7.9317944",
+      "source": {
+        "archive_sha256": "14b17570de2073fb2b27d812b349e705f537838e38df21498ef73c2c1b8815b9",
+        "analysis_manifest_sha256": "7ef087e0effab7243e96ba00c3c38926b819e27d9cb98584e4400ee5f17a86e3",
+        "usage_path": "haiku-03/evidence/usage.json",
+        "usage_sha256": "c42a67768238f45287958a999ccd817abbeaa7eece614746f254ec28d497c126",
+        "expanded_usage_sha256": "986cfba5f563b893d180b85a7f16329c91e5964499dd9a35807ff1a56e1d2864",
+        "observations_sha256": "260bc48d02a19ce80de9e5acc3cd5332142025f3809505bbc13beed815c33118"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-haiku-r1",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 80,
+      "cache_read_tokens": 2340948,
+      "cache_write_tokens": 382846,
+      "output_tokens": 318863,
+      "reasoning_tokens": 299434,
+      "uncached_input_tokens": 80,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 382846,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.25941818",
+      "reported_cost_usd": "10.481981200000002",
+      "source": {
+        "archive_sha256": "36142f38ff5d661bb6ca8bd67b658d62a86b0e0387e6558434defc2a8438c846",
+        "analysis_manifest_sha256": "f1c3fcb418a12e6e7f96cef867f3bfbb64f27ac8138703b4cc9d3f4147d20f70",
+        "usage_path": "haiku-01/evidence/usage.json",
+        "usage_sha256": "941d3cfa474ec196dfcb1a4de24316bd8d59b04ae689fea4344fdf61ddc2f6a7",
+        "expanded_usage_sha256": "b0f6489b788dc861b9e3f9934051aab14117ac77dfbf400b49233e2205ec007f",
+        "observations_sha256": "ba693415dd2442610705ee46ad87234945d385ee7ff47ba263cb8b31fa6d527b"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-haiku-r2",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 72,
+      "cache_read_tokens": 2329802,
+      "cache_write_tokens": 384108,
+      "output_tokens": 333222,
+      "reasoning_tokens": 310692,
+      "uncached_input_tokens": 72,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 384108,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.26673782",
+      "reported_cost_usd": "11.216365999999999",
+      "source": {
+        "archive_sha256": "7e78679ac0f350f16370382d8d438d4b45c835d0f6571c1e5604f0b7bfe269c9",
+        "analysis_manifest_sha256": "45e15b8872a466b16b1b607e320f78f0ad7538116966088a9f65a33b8b5227ac",
+        "usage_path": "haiku-02/evidence/usage.json",
+        "usage_sha256": "7a78dfee2681f1996de2fd0ea4870314f16c8038f3f166c4269ea41344c4100e",
+        "expanded_usage_sha256": "7744daf64dee61bd0afe7a2d3b985a740893ac5e888fd589fa4d975a729315f9",
+        "observations_sha256": "f641c2c46703b3d2f74802a5ac51b17a2a5ef37afc4f7a7036c3995c3e053da4"
+      }
+    },
+    {
+      "id": "ldo-quiet-sky130-haiku-r3",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 122,
+      "cache_read_tokens": 4298647,
+      "cache_write_tokens": 506245,
+      "output_tokens": 451952,
+      "reasoning_tokens": 418005,
+      "uncached_input_tokens": 122,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 506245
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.37022367",
+      "reported_cost_usd": "14.714695600000004",
+      "source": {
+        "archive_sha256": "b5c03ff86ac0fd37766e4185d28b1ba4b2d9f158404b483728f09db4dac9f3a9",
+        "analysis_manifest_sha256": "47ab1a2abfc05c20373f94f11d2e3a301a89ecdfd38a90e8eb1dd8db0ea0684d",
+        "usage_path": "haiku-03/evidence/usage.json",
+        "usage_sha256": "01b642469ae7dbeb2a820cacb2e2bbb7c95325457572e955af171ca0beb23753",
+        "expanded_usage_sha256": "e322741313410babaa4f08b5a5b9c85b7a249060ae4be2b9316e6f5b5b49dd34",
+        "observations_sha256": "2c5408ad749fb32653c97d11ff52625e35b25cfb05b755a5aba662f9e9e2e695"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-haiku-r1",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 126,
+      "cache_read_tokens": 4490082,
+      "cache_write_tokens": 367801,
+      "output_tokens": 323619,
+      "reasoning_tokens": 291906,
+      "uncached_input_tokens": 126,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 367801
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.28028312",
+      "reported_cost_usd": "10.772634799999999",
+      "source": {
+        "archive_sha256": "7083f3febea825ebfb90e2e295dbbd1eabcab1f903c75dbab6781c05befc1acc",
+        "analysis_manifest_sha256": "4763720a84817c7efeae00d34a3911462bc7dc4c27dd4a0c87fa8236729125d6",
+        "usage_path": "haiku-01/evidence/usage.json",
+        "usage_sha256": "2186210d2731ad990deaa40b50f85afbaf03b6103df8979644cebf036c4513b2",
+        "expanded_usage_sha256": "2524f2def19630294302cf89e02fc70feb125c863f2e9ea7ad9d638108c405ad",
+        "observations_sha256": "c6196e877c3202e7467654af6aabe5c05d9f0a30dab3defeb8acebad04bd988f"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-haiku-r2",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 128,
+      "cache_read_tokens": 6058232,
+      "cache_write_tokens": 453827,
+      "output_tokens": 356389,
+      "reasoning_tokens": 321856,
+      "uncached_input_tokens": 128,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 453827,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.32955502",
+      "reported_cost_usd": "12.789610799999997",
+      "source": {
+        "archive_sha256": "262037a35a392a5197b8d7c3125a8b55c026c08c147fd9aa05caf10ada28514e",
+        "analysis_manifest_sha256": "eb58c60c13998224b66d30b75110def286ee5a9dcf39aa21a9e154f6f7874bb8",
+        "usage_path": "haiku-02/evidence/usage.json",
+        "usage_sha256": "945cc4dcf348cea94be2828121d60cf24972e4740566473b6fdad3de42dcbe67",
+        "expanded_usage_sha256": "561a6284170a0af48a2885e2d6eac7cb6001840a0b638d2b969d13ef6cbbe640",
+        "observations_sha256": "4858fc38a75b0720ca9f16971eb1605536b938589a3fbbd2cb0c235ddea70080"
+      }
+    },
+    {
+      "id": "ota-wide-sky130-haiku-r3",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 176,
+      "cache_read_tokens": 7757765,
+      "cache_write_tokens": 706249,
+      "output_tokens": 587395,
+      "reasoning_tokens": 531102,
+      "uncached_input_tokens": 176,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 706249,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.51254255",
+      "reported_cost_usd": "20.511483000000002",
+      "source": {
+        "archive_sha256": "37b8dec43358969c67e6468d25a5e619323b382eecf4207505ae8843ed53b7e1",
+        "analysis_manifest_sha256": "8b7f596fa444b386acb591a7563736e1e24e94ff66b67d480aebce1dd8d130aa",
+        "usage_path": "haiku-03/evidence/usage.json",
+        "usage_sha256": "bf2f5885ee1b27d03a1b54fa814488e8fd81d9b0b6a7d0932ce96d7be1d65e71",
+        "expanded_usage_sha256": "62d871a2590a08df372cf08073e860db0e7e40afc41088f89d5d4e1db4e8e35d",
+        "observations_sha256": "1d7f210f412551dded8ddc0cc17cc6db4f4cd264f405565e9293927b0d3d9a5f"
+      }
+    },
+    {
+      "id": "ldo-core-sky130-haiku-r1",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 64,
+      "cache_read_tokens": 2315087,
+      "cache_write_tokens": 385109,
+      "output_tokens": 302359,
+      "reasoning_tokens": 286920,
+      "uncached_input_tokens": 64,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 385109
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.25135857",
+      "reported_cost_usd": "9.9868694",
+      "source": {
+        "archive_sha256": "733f98dcce47b7f4f47c0a3287e2c9c0ff69b2632e3ca88534d72d803b879fd9",
+        "analysis_manifest_sha256": "1e8db1e13f3b5adc792795e3e7bcee23cb3d3d01cd816f1cf1b06c67a9b7c16f",
+        "usage_path": "haiku-01/evidence/usage.json",
+        "usage_sha256": "1a05b1a8886835b022d2fa921a2dbff3b58f9cd488da605930dff52fcb48e46d",
+        "expanded_usage_sha256": "cc3559d7c06d7205a6bb5eb00a122ae3c970e956e4f0038853b38670d96f24d0",
+        "observations_sha256": "2de9b7bf95d37ae85f45da4e5028ad3307345baa31b9a75db26c18ff3e02d6b1"
+      }
+    },
+    {
+      "id": "ldo-core-sky130-haiku-r2",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 80,
+      "cache_read_tokens": 3012365,
+      "cache_write_tokens": 431777,
+      "output_tokens": 337746,
+      "reasoning_tokens": 318626,
+      "uncached_input_tokens": 80,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 431777,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.28536005",
+      "reported_cost_usd": "11.278833799999996",
+      "source": {
+        "archive_sha256": "2d25d952ccfca36d1f9a88a23599307088c240f90e8620b78b02ca228d38b18a",
+        "analysis_manifest_sha256": "446a8c67d4bb078e1e885a95a187fafd4693b361fde4eab160a834b8fce54648",
+        "usage_path": "haiku-02/evidence/usage.json",
+        "usage_sha256": "74792dff2728b251877e7204134d21a9a05b504fbf21d1cbc76b1f3742d64f42",
+        "expanded_usage_sha256": "fb550a46893f5f52d68b774d241a1c0186c79a7f12ed5673645cd679d3aba471",
+        "observations_sha256": "823956a5e4f96ca36f4d9bc7c77c771b45eb6d3f6b6056169b73d1c31bda65a5"
+      }
+    },
+    {
+      "id": "ldo-core-sky130-haiku-r3",
+      "model_id": "claude-haiku-5-5",
+      "input_tokens": 108,
+      "cache_read_tokens": 4481177,
+      "cache_write_tokens": 610770,
+      "output_tokens": 481328,
+      "reasoning_tokens": 457454,
+      "uncached_input_tokens": 108,
+      "input_semantics": "uncached input excludes cache read/write",
+      "output_semantics": "provider output; do not add reasoning again",
+      "cache_write_ttl_tokens": {
+        "ephemeral_1h_input_tokens": 610770,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "effective_service_tier": [
+        "standard"
+      ],
+      "model_identity_status": "MATCH",
+      "cost_basis": "list_price_calculation",
+      "total_cost_usd": "0.40764057",
+      "reported_cost_usd": "16.071717000000003",
+      "source": {
+        "archive_sha256": "8d0c6e717cd362361156064f1dc27790ece9cc5e1b7e7baa8caedb42b61ad4f6",
+        "analysis_manifest_sha256": "f9853870527e5b0d4882f9a06a78bd9a6d5ab7f40d0154f1a6d9009a23e5494f",
+        "usage_path": "haiku-03/evidence/usage.json",
+        "usage_sha256": "33828f8a9699b2865e8668c1d1769e653306f7bbed14da3e95877184594c5c4d",
+        "expanded_usage_sha256": "f975f5781f07f9f9931112cd86e645e9dc79a6186158602691bde6b83351a7fd",
+        "observations_sha256": "4c140e962145ebc6f50507c344247f8a3bebabeb7aba4a2cc6b5c63c3ddc289d"
       }
     }
   ]

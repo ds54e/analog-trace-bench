@@ -5,10 +5,11 @@ from pathlib import Path
 from string import Template
 
 ROOT = Path(__file__).resolve().parents[1]
+FAILURE_STATUSES = ('MISS', 'MEASUREMENT_FAILURE', 'MEASUREMENT_INVALID', 'NOT_MEASURED')
 
 
 def evaluation_label(status):
-    return 'FAIL' if any(value in {'MISS', 'MEASUREMENT_FAILURE'}
+    return 'FAIL' if any(value in FAILURE_STATUSES
                          for value in status.split(' / ')) else status
 
 

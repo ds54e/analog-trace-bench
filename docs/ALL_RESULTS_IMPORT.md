@@ -1,18 +1,20 @@
 # Recorded-result import checks
 
-Current coverage: 183 traces across nine SKY130 tasks and seven models. Sixty
-task/model pairs have Run 1–3; three retain their existing Run 1 until three
-selected results are available. The generated site has 185 HTML pages: Model
-index, Task index and 183 individual traces. Original verdicts are 153 PASS,
-26 MISS and four MEASUREMENT_FAILURE; derived labels use PASS / FAIL.
+Current coverage: 219 traces across nine SKY130 tasks and nine models. Eight
+models have Run 1–3 for every task. Fable 5.1 has one run each for three tasks.
+The generated site has 221 HTML pages and 75 index rows. Original verdicts are
+175 PASS, 38 MISS, five MEASUREMENT_FAILURE and one MEASUREMENT_INVALID; derived
+labels use PASS / FAIL.
 
-The latest [three-run import record](records/import-2026-10-08.md) documents the
-102 additions, publisher comparison numbering, incomplete pairs and retained
-unknown timing. Sections below preserve earlier import and verification history.
+The latest [completed-run import record](records/import-2026-10-09.md) documents
+36 additions, the Sol timing retry, Fable/Haiku and new usage/evaluation formats.
+The [previous three-run import](records/import-2026-10-08.md) records the earlier
+102 additions and comparison numbering. Sections below preserve earlier history.
 
 The initial 54-trial import is preserved in the
 [six-model verification snapshot](records/import-2026-10-04.md). The four accepted
-OTA-WIDE reference fragments and all other existing trace/report payloads remain
+OTA-WIDE reference fragments remain unchanged. The selected Sol / OTA-FREE
+Run 2 was replaced with its source-backed retry; other accepted payloads remain
 unchanged. Current per-run hashes, revisions, counts and omissions live in
 `data/trace-validation.json`.
 

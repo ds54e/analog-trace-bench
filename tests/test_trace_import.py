@@ -178,6 +178,28 @@ class EvaluationTests(unittest.TestCase):
     def render(self, rows):
         return importer.render_evaluation(evaluation(rows),SimpleNamespace(start=dt.datetime.fromisoformat(START)))
 
+    def test_not_measured_and_measurement_invalid_render_as_fail(self):
+        r = row(metric='gain_db', limit=50, value=None)
+        r.update(verdict='NOT_MEASURED', measurement_valid=False, direction='>=', unit='dB')
+        canonical = self.render([r])
+        summary = importer.shared.summary_row('Evaluation result', 'MEASUREMENT_INVALID', False)
+        summary += importer.shared.summary_row('Architecture', 'Recorded circuit', True)
+        page = importer.render_trace_page('Recorded task', 'Recorded model', summary, canonical)
+        self.assertIn('Unavailable', page)
+        self.assertIn('<td>FAIL</td>', page)
+        self.assertNotIn('<td>NOT_MEASURED</td>', page)
+        self.assertIn('<th>Evaluation result</th><td>FAIL</td>', page)
+        self.assertIn('NOT_MEASURED', canonical)
+
+    def test_missing_heavy_load_dc_point_remains_a_measurement_failure(self):
+        r = dict(metric='dc_high_valid_measurement', measured=None, verdict='MEASUREMENT_FAILURE',
+                 cload_f=2e-10, pvt='SLC', stage='published', experiment_id='dc-failure', revision='frozen')
+        markup = self.render([r])
+        self.assertIn('Heavy-load DC measurement validity', markup)
+        self.assertIn('Unavailable', markup)
+        self.assertIn('Valid DC operating point required', markup)
+        self.assertIn('MEASUREMENT_FAILURE', markup)
+
     def test_light_and_other_load_current_limits_are_never_merged(self):
         markup=self.render([row(),row(limit=1e-5,value=8e-6,case='dc_high')])
         self.assertEqual(markup.count('<tr data-metric="overhead_a">'),2)

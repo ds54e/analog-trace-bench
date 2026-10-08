@@ -98,7 +98,8 @@ for provider-specific accounting and import commands.
    `site/data/runs.json`, initially with `trace: null`. Use publisher `comparison_repeat` for the displayed Run 1–3 when a selection
    normalizes raw attempt numbers. Preserve `captured_run`, the original slot,
    attempt ID and captured configuration. Import additional runs only for pairs
-   with three selected completed results. Use an actual immutable
+   with three selected completed results, unless the user explicitly requests
+   a model with fewer recorded runs (currently Fable 5.1). Use an actual immutable
    asset URL; never copy another run's configuration, status or hashes.
 3. Review the submitted SPICE/rationale and add its circuit description to
    `data/trace-summaries.json`. Extend transcript/task semantics when needed and

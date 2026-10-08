@@ -33,6 +33,33 @@ def usage():
 
 
 class TokenCostTests(unittest.TestCase):
+    def test_restarted_claude_segments_reconcile_without_choosing_a_cost_total(self):
+        model = 'claude-haiku-5-5'
+        value = usage()
+        value['expected_model_id'] = model
+        value['normalized'].update(input_tokens=3, cache_read_tokens=6, cache_write_tokens=9,
+                                   output_tokens=12, reasoning_tokens=None,
+                                   input_semantics='uncached input excludes cache read/write')
+        raw_fields = ['input_tokens', 'cache_read_input_tokens', 'cache_creation_input_tokens', 'output_tokens']
+        raws = [dict(zip(raw_fields, [n, 2*n, 3*n, 4*n])) for n in (1, 2)]
+        value['requests'] = [dict(request_id=str(i), model=model, granularity='provider message', usage=raw)
+                             for i, raw in enumerate(raws)]
+        value['raw_final_usage'] = [dict(observation_id=str(i), usage=raw, cost_usd=str(i+1))
+                                    for i, raw in enumerate(raws)]
+        value['final_total_reconciliation'] = {
+            field: dict(unique_message_sum=raws[0][field]+raws[1][field],
+                        reported_run_total=raws[-1][field], equal=False) for field in raw_fields}
+        pricing = {'models': {model: PRICING['models']['gpt-6-astra']}}
+        entry = {'id': 'segmented', 'configuration': {'model': model}}
+        record = token_costs.make_cost_record(entry, value, pricing)
+        self.assertEqual(record['usage_reconciliation'], 'provider_messages_and_cli_segments')
+        self.assertIsNone(record['reported_cost_usd'])
+        self.assertEqual(record['reported_cost_observations_usd'], ['1', '2'])
+        self.assertEqual(Decimal(record['total_cost_usd']), Decimal('0.0007485'))
+        value['requests'][0]['usage']['input_tokens'] += 1
+        with self.assertRaisesRegex(ValueError, 'totals do not reconcile'):
+            token_costs.make_cost_record(entry, value, pricing)
+
     def test_direct_api_usage_reconciles_without_invented_cache_writes(self):
         value = usage()
         value.pop('final_total_reconciliation')

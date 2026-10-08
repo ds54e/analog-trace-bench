@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import re
 
-from site_templates import ROOT, asset_url, evaluation_label, render_page, template
+from site_templates import ROOT, FAILURE_STATUSES, asset_url, evaluation_label, render_page, template
 from token_costs import load_token_costs, render_token_summary
 
 EVALUATION_PATTERN = r'<script type="application/json" id="independent-evaluation-data">(.*?)</script>'
@@ -70,15 +70,16 @@ def render_trace_page(task, model, summary, trace, run=1, report_href=None, peer
     if not isinstance(run, int) or run < 1:
         raise ValueError('Run number must be a positive integer')
     # Simplify presentation while preserving captured fragments and reports.
+    statuses = 'PASS|' + '|'.join(FAILURE_STATUSES)
     summary = re.sub(
         r'(<th>Evaluation result</th><td>)(.*?)(</td>)',
-        lambda match: match[1] + re.sub(r'\b(?:MISS|MEASUREMENT_FAILURE)\b', 'FAIL', match[2]) + match[3],
+        lambda match: match[1] + re.sub(r'\b(?:' + '|'.join(FAILURE_STATUSES) + r')\b', 'FAIL', match[2]) + match[3],
         summary)
     trace = trace.replace('class="evaluation-table-wrap"', 'class="table-scroll evaluation-table-wrap"')
     trace = re.sub(
         r'<table class="summary-table evaluation-metrics">.*?</table>',
         lambda table: re.sub(
-            r'<td>((?:PASS|MISS|MEASUREMENT_FAILURE)(?: / (?:PASS|MISS|MEASUREMENT_FAILURE))*)</td></tr>',
+            r'<td>((?:' + statuses + r')(?: / (?:' + statuses + r'))*)</td></tr>',
             lambda cell: '<td>' + evaluation_label(cell[1]) + '</td></tr>', table[0]),
         trace, flags=re.S)
     content = template('trace.html', root, task=html.escape(task), model=html.escape(model),

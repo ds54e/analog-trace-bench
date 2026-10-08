@@ -73,10 +73,38 @@ def estimate_cost(counts, rates):
                for _, count, rate in components) / Decimal(1_000_000)
 
 
+def reconcile_claude_segments(usage):
+    """Check restarted CLI segments against independently saved message usage."""
+    finals = usage.get('raw_final_usage', [])
+    requests = usage.get('requests', [])
+    if (not usage['expected_model_id'].startswith('claude-') or len(finals) < 2 or not requests or
+            len({row.get('observation_id') for row in finals}) != len(finals) or
+            len({row['request_id'] for row in requests}) != len(requests)):
+        return False
+    fields = {'input_tokens': 'input_tokens', 'cache_read_tokens': 'cache_read_input_tokens',
+              'cache_write_tokens': 'cache_creation_input_tokens', 'output_tokens': 'output_tokens'}
+    if any(row.get('model') != usage['expected_model_id'] or
+           row.get('granularity') != 'provider message' for row in requests):
+        return False
+    for normalized, raw in fields.items():
+        messages = [row.get('usage', {}).get(raw) for row in requests]
+        segments = [row.get('usage', {}).get(raw) for row in finals]
+        if (any(type(n) is not int or n < 0 for n in messages + segments) or
+                sum(messages) != sum(segments) or sum(messages) != usage['normalized'][normalized]):
+            return False
+        reconciliation = usage['final_total_reconciliation'].get(raw, {})
+        if (reconciliation.get('unique_message_sum') != sum(messages) or
+                reconciliation.get('reported_run_total') != segments[-1]):
+            return False
+    return True
+
+
 def verify_usage_totals(usage):
     """Check producer reconciliation or direct API request usage, without guessing nulls."""
     if 'final_total_reconciliation' in usage:
         if any(value.get('equal') is False for value in usage['final_total_reconciliation'].values()):
+            if reconcile_claude_segments(usage):
+                return True
             raise ValueError('Recorded token totals do not reconcile')
         return
     if usage['provider'] != 'opencode-deepseek' or not usage.get('requests'):
@@ -117,13 +145,14 @@ def make_cost_record(entry, usage, pricing):
     model = entry['configuration']['model']
     if usage['expected_model_id'] != model:
         raise ValueError('Token usage model differs from catalog')
-    verify_usage_totals(usage)
+    segmented = verify_usage_totals(usage)
     counts = token_counts(usage['normalized'])
     reported = {decimal_cost(item['cost_usd']) for item in usage.get('raw_final_usage', [])
                 if item.get('cost_usd') is not None}
-    if len(reported) > 1:
+    if len(reported) > 1 and not (segmented and model in pricing['models']):
         raise ValueError('Ambiguous provider cost totals')
-    reported_cost = reported.pop() if reported else None
+    observations = sorted(reported)
+    reported_cost = observations[0] if len(observations) == 1 else None
     if model in pricing['models']:
         cost = estimate_cost({**counts, 'cache_write_ttl_tokens': usage['normalized'].get('cache_write_ttl_tokens')},
                              pricing['models'][model]['usd_per_million'])
@@ -141,6 +170,8 @@ def make_cost_record(entry, usage, pricing):
         'model_identity_status': usage['model_identity_status'],
         'cost_basis': basis, 'total_cost_usd': str(cost) if cost is not None else None,
         'reported_cost_usd': str(reported_cost) if reported_cost is not None else None,
+        **({'usage_reconciliation': 'provider_messages_and_cli_segments',
+            'reported_cost_observations_usd': [str(value) for value in observations]} if segmented else {}),
     }
 
 

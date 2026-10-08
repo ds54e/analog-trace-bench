@@ -130,6 +130,24 @@
           "model": "DeepSeek 4.1 Flash",
           "run": 3,
           "trace": "traces/ldo-always-on-sky130-deepseek-r3-raw.html"
+        },
+        {
+          "id": "ldo-always-on-sky130-haiku-r1",
+          "model": "Haiku 5.5",
+          "run": 1,
+          "trace": "traces/ldo-always-on-sky130-haiku-raw.html"
+        },
+        {
+          "id": "ldo-always-on-sky130-haiku-r2",
+          "model": "Haiku 5.5",
+          "run": 2,
+          "trace": "traces/ldo-always-on-sky130-haiku-r2-raw.html"
+        },
+        {
+          "id": "ldo-always-on-sky130-haiku-r3",
+          "model": "Haiku 5.5",
+          "run": 3,
+          "trace": "traces/ldo-always-on-sky130-haiku-r3-raw.html"
         }
       ],
       "description": "Design a low-quiescent-current 1.2 V LDO for 1–100 µA always-on loads."
@@ -263,6 +281,24 @@
           "model": "DeepSeek 4.1 Flash",
           "run": 3,
           "trace": "traces/ldo-core-sky130-deepseek-r3-raw.html"
+        },
+        {
+          "id": "ldo-core-sky130-haiku-r1",
+          "model": "Haiku 5.5",
+          "run": 1,
+          "trace": "traces/ldo-core-sky130-haiku-raw.html"
+        },
+        {
+          "id": "ldo-core-sky130-haiku-r2",
+          "model": "Haiku 5.5",
+          "run": 2,
+          "trace": "traces/ldo-core-sky130-haiku-r2-raw.html"
+        },
+        {
+          "id": "ldo-core-sky130-haiku-r3",
+          "model": "Haiku 5.5",
+          "run": 3,
+          "trace": "traces/ldo-core-sky130-haiku-r3-raw.html"
         }
       ],
       "description": "Design a fast 1.2 V LDO for 50 µA–2 mA loads with minimal output capacitance."
@@ -396,6 +432,30 @@
           "model": "DeepSeek 4.1 Flash",
           "run": 3,
           "trace": "traces/ldo-low-voltage-sky130-deepseek-r3-raw.html"
+        },
+        {
+          "id": "ldo-low-voltage-sky130-fable-r1",
+          "model": "Fable 5.1",
+          "run": 1,
+          "trace": "traces/ldo-low-voltage-sky130-fable-raw.html"
+        },
+        {
+          "id": "ldo-low-voltage-sky130-haiku-r1",
+          "model": "Haiku 5.5",
+          "run": 1,
+          "trace": "traces/ldo-low-voltage-sky130-haiku-raw.html"
+        },
+        {
+          "id": "ldo-low-voltage-sky130-haiku-r2",
+          "model": "Haiku 5.5",
+          "run": 2,
+          "trace": "traces/ldo-low-voltage-sky130-haiku-r2-raw.html"
+        },
+        {
+          "id": "ldo-low-voltage-sky130-haiku-r3",
+          "model": "Haiku 5.5",
+          "run": 3,
+          "trace": "traces/ldo-low-voltage-sky130-haiku-r3-raw.html"
         }
       ],
       "description": "Design a 1.0 V LDO that regulates from a 1.15–1.35 V supply."
@@ -529,6 +589,30 @@
           "model": "DeepSeek 4.1 Flash",
           "run": 3,
           "trace": "traces/ldo-quiet-sky130-deepseek-r3-raw.html"
+        },
+        {
+          "id": "ldo-quiet-sky130-fable-r1",
+          "model": "Fable 5.1",
+          "run": 1,
+          "trace": "traces/ldo-quiet-sky130-fable-raw.html"
+        },
+        {
+          "id": "ldo-quiet-sky130-haiku-r1",
+          "model": "Haiku 5.5",
+          "run": 1,
+          "trace": "traces/ldo-quiet-sky130-haiku-raw.html"
+        },
+        {
+          "id": "ldo-quiet-sky130-haiku-r2",
+          "model": "Haiku 5.5",
+          "run": 2,
+          "trace": "traces/ldo-quiet-sky130-haiku-r2-raw.html"
+        },
+        {
+          "id": "ldo-quiet-sky130-haiku-r3",
+          "model": "Haiku 5.5",
+          "run": 3,
+          "trace": "traces/ldo-quiet-sky130-haiku-r3-raw.html"
         }
       ],
       "description": "Design a low-noise 1.2 V LDO with strong supply rejection and transient control."
@@ -662,6 +746,24 @@
           "model": "DeepSeek 4.1 Flash",
           "run": 3,
           "trace": "traces/ota-drive-sky130-deepseek-r3-raw.html"
+        },
+        {
+          "id": "ota-drive-sky130-haiku-r1",
+          "model": "Haiku 5.5",
+          "run": 1,
+          "trace": "traces/ota-drive-sky130-haiku-raw.html"
+        },
+        {
+          "id": "ota-drive-sky130-haiku-r2",
+          "model": "Haiku 5.5",
+          "run": 2,
+          "trace": "traces/ota-drive-sky130-haiku-r2-raw.html"
+        },
+        {
+          "id": "ota-drive-sky130-haiku-r3",
+          "model": "Haiku 5.5",
+          "run": 3,
+          "trace": "traces/ota-drive-sky130-haiku-r3-raw.html"
         }
       ],
       "description": "Design a high-speed OTA that drives 20–50 pF capacitive loads."
@@ -783,6 +885,36 @@
           "model": "Sol 6",
           "run": 3,
           "trace": "traces/ota-fixed-sky130-sol-6-r3-raw.html"
+        },
+        {
+          "id": "ota-fixed-sky130-deepseek-r3",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 3,
+          "trace": "traces/ota-fixed-sky130-deepseek-r3-raw.html"
+        },
+        {
+          "id": "ota-fixed-sky130-deepseek-r2",
+          "model": "DeepSeek 4.1 Flash",
+          "run": 2,
+          "trace": "traces/ota-fixed-sky130-deepseek-r2-raw.html"
+        },
+        {
+          "id": "ota-fixed-sky130-haiku-r1",
+          "model": "Haiku 5.5",
+          "run": 1,
+          "trace": "traces/ota-fixed-sky130-haiku-raw.html"
+        },
+        {
+          "id": "ota-fixed-sky130-haiku-r2",
+          "model": "Haiku 5.5",
+          "run": 2,
+          "trace": "traces/ota-fixed-sky130-haiku-r2-raw.html"
+        },
+        {
+          "id": "ota-fixed-sky130-haiku-r3",
+          "model": "Haiku 5.5",
+          "run": 3,
+          "trace": "traces/ota-fixed-sky130-haiku-r3-raw.html"
         }
       ],
       "description": "Size a fixed two-stage OTA topology for stability, accuracy, and mismatch tolerance."
@@ -904,6 +1036,36 @@
           "model": "DeepSeek 4.1 Flash",
           "run": 3,
           "trace": "traces/ota-free-sky130-deepseek-r3-raw.html"
+        },
+        {
+          "id": "ota-free-sky130-opus-5-5-r2",
+          "model": "Opus 5.5",
+          "run": 2,
+          "trace": "traces/ota-free-sky130-opus-5-5-r2-raw.html"
+        },
+        {
+          "id": "ota-free-sky130-opus-5-5-r3",
+          "model": "Opus 5.5",
+          "run": 3,
+          "trace": "traces/ota-free-sky130-opus-5-5-r3-raw.html"
+        },
+        {
+          "id": "ota-free-sky130-haiku-r1",
+          "model": "Haiku 5.5",
+          "run": 1,
+          "trace": "traces/ota-free-sky130-haiku-raw.html"
+        },
+        {
+          "id": "ota-free-sky130-haiku-r2",
+          "model": "Haiku 5.5",
+          "run": 2,
+          "trace": "traces/ota-free-sky130-haiku-r2-raw.html"
+        },
+        {
+          "id": "ota-free-sky130-haiku-r3",
+          "model": "Haiku 5.5",
+          "run": 3,
+          "trace": "traces/ota-free-sky130-haiku-r3-raw.html"
         }
       ],
       "description": "Design a low-power, high-speed OTA with freely chosen topology."
@@ -1025,6 +1187,36 @@
           "model": "DeepSeek 4.1 Flash",
           "run": 3,
           "trace": "traces/ota-precision-sky130-deepseek-r3-raw.html"
+        },
+        {
+          "id": "ota-precision-sky130-sol-6-r2",
+          "model": "Sol 6",
+          "run": 2,
+          "trace": "traces/ota-precision-sky130-sol-6-r2-raw.html"
+        },
+        {
+          "id": "ota-precision-sky130-sol-6-r3",
+          "model": "Sol 6",
+          "run": 3,
+          "trace": "traces/ota-precision-sky130-sol-6-r3-raw.html"
+        },
+        {
+          "id": "ota-precision-sky130-haiku-r1",
+          "model": "Haiku 5.5",
+          "run": 1,
+          "trace": "traces/ota-precision-sky130-haiku-raw.html"
+        },
+        {
+          "id": "ota-precision-sky130-haiku-r2",
+          "model": "Haiku 5.5",
+          "run": 2,
+          "trace": "traces/ota-precision-sky130-haiku-r2-raw.html"
+        },
+        {
+          "id": "ota-precision-sky130-haiku-r3",
+          "model": "Haiku 5.5",
+          "run": 3,
+          "trace": "traces/ota-precision-sky130-haiku-r3-raw.html"
         }
       ],
       "description": "Design a high-gain OTA for accurate tracking and low input-referred noise."
@@ -1158,6 +1350,30 @@
           "model": "DeepSeek 4.1 Flash",
           "run": 3,
           "trace": "traces/ota-wide-sky130-deepseek-r3-raw.html"
+        },
+        {
+          "id": "ota-wide-sky130-fable-r1",
+          "model": "Fable 5.1",
+          "run": 1,
+          "trace": "traces/ota-wide-sky130-fable-raw.html"
+        },
+        {
+          "id": "ota-wide-sky130-haiku-r1",
+          "model": "Haiku 5.5",
+          "run": 1,
+          "trace": "traces/ota-wide-sky130-haiku-raw.html"
+        },
+        {
+          "id": "ota-wide-sky130-haiku-r2",
+          "model": "Haiku 5.5",
+          "run": 2,
+          "trace": "traces/ota-wide-sky130-haiku-r2-raw.html"
+        },
+        {
+          "id": "ota-wide-sky130-haiku-r3",
+          "model": "Haiku 5.5",
+          "run": 3,
+          "trace": "traces/ota-wide-sky130-haiku-r3-raw.html"
         }
       ],
       "description": "Design a 1.5 V OTA that tracks inputs across a wide 0.25–1.1 V range."

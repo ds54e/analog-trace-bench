@@ -238,6 +238,11 @@ LDO_LABELS = {
     'output_noise_rms_v': 'Output noise',
 }
 
+VALIDITY_METRICS = {
+    'cmrr_valid_measurement': ('CMRR measurement validity', 'Balanced operating point required'),
+    'dc_high_valid_measurement': ('Heavy-load DC measurement validity', 'Valid DC operating point required'),
+}
+
 
 FIXED_ALIASES = {
     'loop_gain_db_min': 'gain_db', 'unity_loop_gain_hz_min': 'unity_gain_hz',
@@ -255,8 +260,8 @@ for step in ('large_up', 'large_down'):
 
 def metric_label(metric):
     metric = FIXED_ALIASES.get(metric, metric)
-    if metric == 'cmrr_valid_measurement':
-        return 'CMRR measurement validity'
+    if metric in VALIDITY_METRICS:
+        return VALIDITY_METRICS[metric][0]
     if metric in ('phase_margin_deg_min', 'no_0db_recross_min', 'mismatch_pass_count_min'):
         return {'phase_margin_deg_min': 'Phase margin', 'no_0db_recross_min': 'No 0 dB recross',
                 'mismatch_pass_count_min': 'Mismatch samples passed'}[metric]
@@ -309,7 +314,7 @@ def evaluation_groups(evidence):
                 require(row['revision'] == evidence.submission['revision'],
                         'Evaluation revision differs from frozen submission')
             require(row['stage'] == stage, 'Evaluation row stage differs')
-            if row['metric'] == 'cmrr_valid_measurement':
+            if row['metric'] in VALIDITY_METRICS:
                 require(row['verdict'] == 'MEASUREMENT_FAILURE' and row['measured'] is None,
                         'Unsupported measurement-validity record')
                 grouped.setdefault((row['metric'], None, None, ''), []).append(row)
@@ -349,8 +354,8 @@ def render_evaluation(evidence, timing):
         verdicts = {r['verdict'] for r in measurements}
         verdict = 'PASS' if verdicts == {'PASS'} else ' / '.join(sorted(verdicts))
         inequality = '≤' if direction == '<=' else '≥'
-        if metric == 'cmrr_valid_measurement':
-            limit_text = 'Balanced operating point required'
+        if metric in VALIDITY_METRICS:
+            limit_text = VALIDITY_METRICS[metric][1]
         elif metric == 'ibias_compliance':
             limit_text = 'VSS ≤ V(IBIAS) ≤ VDD'
         elif metric == 'no_0db_recross_min':

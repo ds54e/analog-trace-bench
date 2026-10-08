@@ -8575,20 +8575,20 @@
       "model": "Sol 6",
       "run": 2,
       "captured_run": 2,
-      "campaign_id": "sky130-haiku9-three-runs-20261008-recovery1",
-      "attempt_id": "ota-free-sky130-sol-r2-20261005-model-time-add2",
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-free-sky130-sol-r2-20261008-model-time-retry2",
       "slot": "sol-02",
-      "filename": "ota-free-sky130-sol-r2-20261005-model-time-add2.tar.xz",
-      "sha256": "e0dc7e8e5b16fb58e628df8e3a9902ee48dcb4f69e6626020bc98fd84cb85008",
-      "bytes": 5114268,
-      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-sol-r2-20261005-model-time-add2.tar.xz",
+      "filename": "ota-free-sky130-sol-r2-20261008-model-time-retry2.tar.xz",
+      "sha256": "2fc56942a731b7ba4528ace1426228a45aa170cceb6558fb0172dfbcc22defdb",
+      "bytes": 2043828,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-sol-r2-20261008-model-time-retry2.tar.xz",
       "release_tag": "results-ota-free-sky130",
-      "job_id": "37675916385214e9989680df10e4e4bfc4c48ae90b8d92f4517241169b00a7b9",
-      "source_sha": "f6cc58a6eee52c9c3844b2bf25e6a9187deaa10f",
+      "job_id": "c7f084d243b6bc4c0f48c0e5df11a85d9a657d50858ca8d97da16be0d9349cd4",
+      "source_sha": "b7aeacb2e5b24dae941571015f5a03f97af93ab7",
       "source_sha_basis": "captured task manifest base_sha",
-      "configuration_sha256": "73359227203d338768b6acffcd8517304fdcbb34b1d71678a6e90b2d9a480818",
-      "capture_manifest_sha256": "bf06f02cca38b256eb863044202f1d0ebb7cf208181e77b680609f5117b91590",
-      "analysis_manifest_sha256": "78a82efce2c4efd17f3edf70695270b9989655f5fe9739557ab79686835ba296",
+      "configuration_sha256": "bcf082a54ee2490e43091ee4befb380879c30305e08ed3f27b699e9c86e44d09",
+      "capture_manifest_sha256": "1e10bc18a0fb6d5d05df1e4517e8e0f2f2ba7ccbbaed0ecef059a64eace8ddb1",
+      "analysis_manifest_sha256": "a4719b00c9804560c28a109370ba838248c46621c977f579642b284a6f2befab",
       "configuration": {
         "run_id": "sol-02",
         "provider": "codex-sol",
@@ -8601,10 +8601,10 @@
       "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
       "electrical_status": "PASS",
       "design_pass": true,
-      "design_model_calls_s": null,
-      "model_time_recording_state": "incomplete",
-      "design_wall_s": 6703.088219881058,
-      "submission_model_late": null,
+      "design_model_calls_s": 1144.7256290912628,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 1355.0193498134613,
+      "submission_model_late": false,
       "stages": {
         "published": {
           "execution_complete": true,
@@ -8623,7 +8623,7 @@
           "numeric_resolution": "STANDARD_GRID_ONLY"
         }
       },
-      "asset_id": 618932200,
+      "asset_id": 621419898,
       "release_id": 402943885
     },
     {
@@ -10298,12 +10298,2131 @@
       },
       "asset_id": 619029813,
       "release_id": 402943836
+    },
+    {
+      "id": "ota-free-sky130-opus-5-5-r2",
+      "task": "OTA-FREE-SKY130",
+      "model": "Opus 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-free-sky130-opus-r2-20261005-model-time-add2",
+      "slot": "opus-02",
+      "filename": "ota-free-sky130-opus-r2-20261005-model-time-add2.tar.xz",
+      "sha256": "19737e39403e7ba51c9cbae9e1a274782b862d60cf46ac2b19c32d27f7644d32",
+      "bytes": 798124,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-opus-r2-20261005-model-time-add2.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "d2d3cf2d5be837337eee8925698966916a81408f7c48e87e691c0695824dfd7b",
+      "source_sha": "f6cc58a6eee52c9c3844b2bf25e6a9187deaa10f",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "c8ef4259c98de6af14503a6e6fb1f8fb1d28ec77a0c3c670b88cb57e54fcc099",
+      "capture_manifest_sha256": "ce50dd6431ea366c1822d1e2f3267ee5205a7c1cda7486331680c6b0ceda7dc7",
+      "analysis_manifest_sha256": "3871fe3a69d58fce60ae9244ed9aed11e20cfe3f2b9797639df64e281c4e70ab",
+      "configuration": {
+        "run_id": "opus-02",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 782.259400844574,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 1575.855227470398,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 618925689,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-r2",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Sol 6",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-precision-sky130-sol-r2-20261005-model-time-add2",
+      "slot": "sol-02",
+      "filename": "ota-precision-sky130-sol-r2-20261005-model-time-add2.tar.xz",
+      "sha256": "bea97000f1c55e95589926ad67c69f33c11e0d67256d8b863b7b6c8751a118ee",
+      "bytes": 2794268,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-sol-r2-20261005-model-time-add2.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "f55985287fcba79824ade1c40bd1a6954c00f08876bc63bf58ef1c6acae02024",
+      "source_sha": "f6cc58a6eee52c9c3844b2bf25e6a9187deaa10f",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "3e0d6881a24c512959d0d7ce863522519420489921299b4e7e05004939fc2dad",
+      "capture_manifest_sha256": "ec59eef6ae4b69d317e914e3b10344dcf91d8fdf4e2683f9cd574f875df0e292",
+      "analysis_manifest_sha256": "618b5030ee31f10f9b5d61f5fc10535046a1f7520b6176212bf25e3b820111fb",
+      "configuration": {
+        "run_id": "sol-02",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1242.5552587509155,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2790.643593788147,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 618956286,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-fixed-sky130-deepseek-r3",
+      "task": "OTA-FIXED-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-fixed-sky130-deepseek-r3-20261005-model-time-gap",
+      "slot": "deepseek-03",
+      "filename": "ota-fixed-sky130-deepseek-r3-20261005-model-time-gap.tar.xz",
+      "sha256": "6ef5e93c5bdc290bdddbbcae9be972183779a8dcf8812f1179bf6e1cc2cc45a3",
+      "bytes": 4766880,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-deepseek-r3-20261005-model-time-gap.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "dd57d36df59d74a561570854cc32134439a79be61f1ca9231f91086e1d4edd93",
+      "source_sha": "e29a3fac45c8d84979754ad4a061c33412e4988c",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "80e0429bf99f81c6a7a7ea8fcb982426518381e3a02103b2d9a9303b35df2387",
+      "capture_manifest_sha256": "da126615d4ec923508d0092f0319ba8bd9131c85f06e3d63427f1acccec9297f",
+      "analysis_manifest_sha256": "a596bbb993856a9486927cc8d233c6578475a7c9e41ca7ef48b54637a1ebb035",
+      "configuration": {
+        "run_id": "deepseek-03",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1187.753565788269,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 7326.676508903503,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "robustness": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 619015599,
+      "release_id": 402943871
+    },
+    {
+      "id": "ldo-low-voltage-sky130-fable-r1",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Fable 5.1",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-low-voltage-sky130-fable-r1-20261006-luna-replacement",
+      "slot": "fable-01",
+      "filename": "ldo-low-voltage-sky130-fable-r1-20261006-luna-replacement.tar.xz",
+      "sha256": "feead06ac25e84853595111a967fba67067b8d89748cd7dc6c240ed48fce1dd7",
+      "bytes": 1114908,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-fable-r1-20261006-luna-replacement.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "925bbe003b59532464a78b1eff30b7936e3990e1822593dad91e52f3179eb8fc",
+      "source_sha": "a432a1f3d318d171de526df974fd60caf010da52",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "653c137d329301ec8a07375358f9cc4a9b7a65ee99b916a74cdd9f5734702a6b",
+      "capture_manifest_sha256": "ac79bfb85fa7364f8cb050653b9f82b64ff4c1fc0a94a20eafb52633d1d74080",
+      "analysis_manifest_sha256": "50f957d19b0ac353dc7ad929d0d4f693593c61c05f0fb002b37d842763409ad8",
+      "configuration": {
+        "run_id": "fable-01",
+        "provider": "claude-fable",
+        "model": "claude-fable-5-1",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 3401.9535732269287,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 3583.2831213474274,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 297,
+            "MISS": 63
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 59,
+            "MISS": 1
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 618851427,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-quiet-sky130-fable-r1",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Fable 5.1",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-quiet-sky130-fable-r1-20261006-luna-replacement",
+      "slot": "fable-01",
+      "filename": "ldo-quiet-sky130-fable-r1-20261006-luna-replacement.tar.xz",
+      "sha256": "793c86d260c540834a0da797b62e40f08e0be915fb8e295dbd1f11b2d40e288a",
+      "bytes": 1215028,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-fable-r1-20261006-luna-replacement.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "20abb90c7a20f34d9b44bd4110f5914a4c91914ac2ff920d0a687c00466b8b8c",
+      "source_sha": "a432a1f3d318d171de526df974fd60caf010da52",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "f5c16eea42967ccb6bb6ab595d0859eef5cec9a50fe76e2de08cc252266faefe",
+      "capture_manifest_sha256": "46971e46b9ef89b2aae01b1c2a70a7fec00c3b3ac0a2d3b81a3344c8264d3f1a",
+      "analysis_manifest_sha256": "9213e25b597f89c40b80676e1cc94311a0c19542b71fd5e9717cbdc822514ab7",
+      "configuration": {
+        "run_id": "fable-01",
+        "provider": "claude-fable",
+        "model": "claude-fable-5-1",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 2472.0388476848602,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2682.4583480358124,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 618850959,
+      "release_id": 402943854
+    },
+    {
+      "id": "ota-wide-sky130-fable-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Fable 5.1",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-wide-sky130-fable-r1-20261006-luna-replacement",
+      "slot": "fable-01",
+      "filename": "ota-wide-sky130-fable-r1-20261006-luna-replacement.tar.xz",
+      "sha256": "4f4b7ee64690e9a436d60f37cc7aa029d46eee82cb1088b1e78e16706a46aafa",
+      "bytes": 2018852,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-fable-r1-20261006-luna-replacement.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "ab4f39150ac38ed80bde4dd105dc9b7c0bd02c16a686771eb7105d5d62ce6d78",
+      "source_sha": "a432a1f3d318d171de526df974fd60caf010da52",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "95b12ea3cfd60f63e1dc78406bf884f4612d734a05561d53c6202725d3220b76",
+      "capture_manifest_sha256": "80453526bd488f3783de64189c9b5da64f63c980a588d6e93b124242ddb14d41",
+      "analysis_manifest_sha256": "763a349672f92668f1596d66b5faf140868fe1926a2788890469928a81801672",
+      "configuration": {
+        "run_id": "fable-01",
+        "provider": "claude-fable",
+        "model": "claude-fable-5-1",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1816.430462360382,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 4417.825708150864,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 432
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 225
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 618850164,
+      "release_id": 402943903
+    },
+    {
+      "id": "ota-free-sky130-opus-5-5-r3",
+      "task": "OTA-FREE-SKY130",
+      "model": "Opus 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-free-sky130-opus-r3-20261008-three-runs-retry2",
+      "slot": "opus-03",
+      "filename": "ota-free-sky130-opus-r3-20261008-three-runs-retry2.tar.xz",
+      "sha256": "60b846aa06a15aebb41cc1f2596db1fcaac3f6cb2cc5f200f4222de812e257a7",
+      "bytes": 1818416,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-opus-r3-20261008-three-runs-retry2.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "b1c7a73498814154b72c0c25b87ff2db06f4f1c661f8045ccb25fa04696a8059",
+      "source_sha": "b7aeacb2e5b24dae941571015f5a03f97af93ab7",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "4ff0135934f4ef9a792857a324841034984f2b8b3e42cdc0c278799968086651",
+      "capture_manifest_sha256": "35dec308858d5213fd9fe2a972bb3b5c50e69eafe51703d9a083f07184c6e011",
+      "analysis_manifest_sha256": "b7aeea9720b7a0fd17a8386de66daab084c4c241614d1b4ba2a969deb3b589f8",
+      "configuration": {
+        "run_id": "opus-03",
+        "provider": "claude-opus",
+        "model": "claude-opus-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1193.1689159870148,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 4527.74091053009,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 620279661,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-fixed-sky130-deepseek-r2",
+      "task": "OTA-FIXED-SKY130",
+      "model": "DeepSeek 4.1 Flash",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-fixed-sky130-deepseek-r2-20261008-three-runs-retry1",
+      "slot": "deepseek-02",
+      "filename": "ota-fixed-sky130-deepseek-r2-20261008-three-runs-retry1.tar.xz",
+      "sha256": "5b8afb757d91e39b998fa513d68c6d45951deaf71182ca42604288423a33e61d",
+      "bytes": 852972,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-deepseek-r2-20261008-three-runs-retry1.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "8fc751fb6021ddfd5c8ce4d35ed1d09216e40bfa16a14a5e5cc02b169c0801ed",
+      "source_sha": "b7aeacb2e5b24dae941571015f5a03f97af93ab7",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "3bfd3bb68993089f58eb09076ce340a7d56e76991088b95f38e6595e7f61f2b4",
+      "capture_manifest_sha256": "2ef8c0f9d64888383fcc14e9d0bbe89a5755d8a6acf8cd0c6a9997bd8d6096b6",
+      "analysis_manifest_sha256": "1c9459bad83ae987d29f37daaf8d227eac97e1715413a01e1c5a41368e07c5ea",
+      "configuration": {
+        "run_id": "deepseek-02",
+        "provider": "opencode-deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "MEASUREMENT_INVALID",
+      "design_pass": false,
+      "design_model_calls_s": 858.1968939304352,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 1381.8431317806244,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MEASUREMENT_INVALID",
+          "counts": {
+            "PASS": 286,
+            "NOT_MEASURED": 2
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "robustness": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 620294216,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-precision-sky130-sol-6-r3",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Sol 6",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-precision-sky130-sol-r3-20261008-three-runs-retry1",
+      "slot": "sol-03",
+      "filename": "ota-precision-sky130-sol-r3-20261008-three-runs-retry1.tar.xz",
+      "sha256": "90cddcdf4a4a50ed6465a03d3ac3e4738501ae0bb86d3bad322a39e18fa28a45",
+      "bytes": 2263956,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-sol-r3-20261008-three-runs-retry1.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "1d5c9827bfbbc3d04acfae4064a0b6e54a49941d218d434669b2da58398d3508",
+      "source_sha": "b7aeacb2e5b24dae941571015f5a03f97af93ab7",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "2023b1fc0c39fc6b0c1c435c5d8da2f33aa3dc4397252648b9747051035beb44",
+      "capture_manifest_sha256": "68c8f664eed2887f6a3bf28fdac9d667b37323222b4bbb2fa644101cb172033d",
+      "analysis_manifest_sha256": "f6589e5288725d0b316c3073be8c6a90fb447a77f5e6e638994203c2399e0d31",
+      "configuration": {
+        "run_id": "sol-03",
+        "provider": "codex-sol",
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 936.8319499492645,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2183.35772895813,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 620314496,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-fixed-sky130-haiku-r1",
+      "task": "OTA-FIXED-SKY130",
+      "model": "Haiku 5.5",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-fixed-sky130-haiku-r1-20261008-three-runs-retry1",
+      "slot": "haiku-01",
+      "filename": "ota-fixed-sky130-haiku-r1-20261008-three-runs-retry1.tar.xz",
+      "sha256": "5324f318eb8759f959ccfb450eec8ac0a94b3eaa6baa1629953c9c88af8fd30d",
+      "bytes": 2974140,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-haiku-r1-20261008-three-runs-retry1.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "5c2c5a4e85739b4df536da28b3285eb9635fc1ff4e1ef6204e565515f24867af",
+      "source_sha": "533ef2e9d6d416e0b0d53f6978e7885b8d7392e2",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "541201f4a037e2b586c6142d8d79da5bf9cf1af5e95f422ade4de183563c66d7",
+      "capture_manifest_sha256": "e1b6b0dbb531d6a6f5ea2fb4d22513bf7b146562da76f0e558d374f5011c3ea7",
+      "analysis_manifest_sha256": "78a33b398b3873c6add60b56b566fc1e19118e79c286f073c6399ed0f7ce9c48",
+      "configuration": {
+        "run_id": "haiku-01",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 728.9266846179962,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2752.047984600067,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "robustness": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621472372,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-fixed-sky130-haiku-r2",
+      "task": "OTA-FIXED-SKY130",
+      "model": "Haiku 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-fixed-sky130-haiku-r2-20261008-foreground-retry1",
+      "slot": "haiku-02",
+      "filename": "ota-fixed-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "sha256": "4ecf227680aa0c2b0e14caa1f6ba5188cb0d4a28cbd8e1cfbf6f8d66ffb0aea7",
+      "bytes": 1589852,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "d615888927601811179babcee92d05bbd6ff4a6c595d8b167402b696f6d3689b",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "7ad8e4c96a1592f138012aeb03f579f3b441c664fee64040c788a40374b069ca",
+      "capture_manifest_sha256": "7506a8d4d7e2c247e9ffdb062e5c14c67682e53a6c5b853b0f83c2afc1d2b08c",
+      "analysis_manifest_sha256": "7be67ec2d4992f27550c170030b546b119028efc23bfcde20ec42aa0ef9351ba",
+      "configuration": {
+        "run_id": "haiku-02",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 742.8599135875702,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 1425.0926721096039,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "robustness": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621536095,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-fixed-sky130-haiku-r3",
+      "task": "OTA-FIXED-SKY130",
+      "model": "Haiku 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-fixed-sky130-haiku-r3-20261008-foreground-retry1",
+      "slot": "haiku-03",
+      "filename": "ota-fixed-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "sha256": "81ae5b944aa0080d354059938c4ad34d5aa5e5ae563082f3f61d2ddb12d9d45d",
+      "bytes": 3788256,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-fixed-sky130/ota-fixed-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-fixed-sky130",
+      "job_id": "46c339b7d3cbe1d88c9d26957e3b9d937aeda92d84f9edf581c260d312c9a530",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "6ba7aa1d6bfabcbb51c7855fc5d72a9f4c180069b00b6b04433d7afbcc25d919",
+      "capture_manifest_sha256": "b5407493db8f993241b919fcd1dbbe7c9489fb866725d486d0d9c77bd242b2c2",
+      "analysis_manifest_sha256": "ce3f912767f85d77959d826b1c5018437a2853c5081d79c1b1d8a67fe8935825",
+      "configuration": {
+        "run_id": "haiku-03",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-fixed-sky130/a663497e9e687226ebc5bcecde69810ec8c26a59632854fd7c6af120bbb4a217",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 967.4768354892731,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 3650.512495279312,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "robustness": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 1
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621839094,
+      "release_id": 402943871
+    },
+    {
+      "id": "ota-free-sky130-haiku-r1",
+      "task": "OTA-FREE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-free-sky130-haiku-r1-20261008-foreground-retry1",
+      "slot": "haiku-01",
+      "filename": "ota-free-sky130-haiku-r1-20261008-foreground-retry1.tar.xz",
+      "sha256": "995dd544bfe85d9056eccf77cdd3a5e9683fb8c2ea485830f28ae4ca89e6aaf1",
+      "bytes": 2146788,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-haiku-r1-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "f386bd1a07b6835d2f94c76fa9adc1688f078725ef4ceae60307e91214eb2f27",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "cecc362d15c6892f088fdf71e38ac56f5c8eb090e3323af219dec1f4f2faf5cd",
+      "capture_manifest_sha256": "379ad042978e49371d5b7101272bb2a47ee525b863afb75f56fa8cebd2969a71",
+      "analysis_manifest_sha256": "f5334993b26c591412e099ecd4485bf59b1cc708b997704389f796665f0844bc",
+      "configuration": {
+        "run_id": "haiku-01",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 699.6380033493042,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2282.29522562027,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621518232,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-free-sky130-haiku-r2",
+      "task": "OTA-FREE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-free-sky130-haiku-r2-20261008-three-runs-retry1",
+      "slot": "haiku-02",
+      "filename": "ota-free-sky130-haiku-r2-20261008-three-runs-retry1.tar.xz",
+      "sha256": "0f69f7f8b152d01b0bf75884a28f397be7e454f8d0709d02b331a3d86b646ef5",
+      "bytes": 1257672,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-haiku-r2-20261008-three-runs-retry1.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "534e3b02b6df8d45357b3eb96dc8ce583077f067bc026889d23dcd9f80ee98c0",
+      "source_sha": "533ef2e9d6d416e0b0d53f6978e7885b8d7392e2",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "3e4520d04303bc43c3b14ea5c6bc895a8d58609b4963cedb6de9f0d61abfd173",
+      "capture_manifest_sha256": "444d280a3cdc4749b4c995ff27c0e62212c3ac00a4ef42357500661b38ef3401",
+      "analysis_manifest_sha256": "9fe93c1344913f439dc033ede8ed611e1967bcef4e5b980bbb62c2e94561e9fe",
+      "configuration": {
+        "run_id": "haiku-02",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 488.537202835083,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 1621.591162443161,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621450355,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-free-sky130-haiku-r3",
+      "task": "OTA-FREE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-free-sky130-haiku-r3-20261008-foreground-retry1",
+      "slot": "haiku-03",
+      "filename": "ota-free-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "sha256": "8b20df0f3c885036c4c28d28de10703923c74a05265a9f7f02a2da597c3ec1a1",
+      "bytes": 1878700,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-free-sky130/ota-free-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-free-sky130",
+      "job_id": "02ce54c5b833586c03f4aefde29facede0955170c00736702b34cdb50848d438",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "965968a9f65231c34e5aa316a24588d61ae52f3518e2afdd6ed05076ccc30646",
+      "capture_manifest_sha256": "64dbfd6052b028dfec62f71206ed6773b34ac994aad1c5d7f81c7f2b88e02bd0",
+      "analysis_manifest_sha256": "4a9d7c806cbeada72933b3b077dc39c85e56d2c89f2f599beddb3ae52d3067e4",
+      "configuration": {
+        "run_id": "haiku-03",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-free-sky130/0817bd786aecbdf928a8394c090bf1aa4576285d87601f462a42f7d8527c22b1",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1517.7682309150696,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2528.6701986789703,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 274,
+            "MISS": 14
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 144,
+            "MISS": 9
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621807492,
+      "release_id": 402943885
+    },
+    {
+      "id": "ota-drive-sky130-haiku-r1",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-drive-sky130-haiku-r1-20261008-foreground-retry1",
+      "slot": "haiku-01",
+      "filename": "ota-drive-sky130-haiku-r1-20261008-foreground-retry1.tar.xz",
+      "sha256": "5394f9b131a09d64bb7d7ef63481ae4183fd8fe104d8116910a949d4d341afcc",
+      "bytes": 1296192,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-haiku-r1-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "05b12819ba98d2e364fc14d9b9a8589916480fc92483226b21f0d9866791e6ef",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "0207410dc9d559f7717dd715cf2872b8e077aaf9874c12367ea165a11fcc7397",
+      "capture_manifest_sha256": "66f41870b8a6172093b1ccd3f16ecf52e71332d2f88e290becb0107a53bb7806",
+      "analysis_manifest_sha256": "44e3d7ac5573f20a51e4f35a19f4768c1c4f44d800cbb730259ecd2a84ca600d",
+      "configuration": {
+        "run_id": "haiku-01",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 819.960764169693,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2285.9512701034546,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621598925,
+      "release_id": 402943863
+    },
+    {
+      "id": "ota-drive-sky130-haiku-r2",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-drive-sky130-haiku-r2-20261008-foreground-retry1",
+      "slot": "haiku-02",
+      "filename": "ota-drive-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "sha256": "904f55aaa1b9b0349ff9279e89a066d77e4472867c72bf3d042b914e0d3a015d",
+      "bytes": 1436496,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "da49005a8652ac693c39f92f6ce1f061ee971c540f687d6ebbf662ca412c02d1",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "739c4a82ef7c0b909fa85757fdde5bbd0d39a447974540f8b64738dc81c7afde",
+      "capture_manifest_sha256": "9ee223163c35c7472899da203f1004081e14e93faf58bd4cb05c392370d39ef9",
+      "analysis_manifest_sha256": "5d026d899d57f875494546503034be368be21af12d9fe3378c559a4139b2421b",
+      "configuration": {
+        "run_id": "haiku-02",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1076.3955857753754,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2611.4910292625427,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621654968,
+      "release_id": 402943863
+    },
+    {
+      "id": "ota-drive-sky130-haiku-r3",
+      "task": "OTA-DRIVE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-drive-sky130-haiku-r3-20261008-foreground-retry1",
+      "slot": "haiku-03",
+      "filename": "ota-drive-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "sha256": "382a1134d000b3ee75a1c6a3fcd7419845562d7fc4c0e20dd019ffafba4a249f",
+      "bytes": 1282180,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-drive-sky130/ota-drive-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-drive-sky130",
+      "job_id": "b6fa386bc5238ae82b17bb14d0e25810476e36a32ce8f3fc743ef1a4af922134",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "6cc13ee8e4ee28d57483e52d900539976f32df6f59ef5685681a0fc333d94e17",
+      "capture_manifest_sha256": "794dcb47f55626892a5647df0748658b79b411e719daa9a48c6281df48a6a764",
+      "analysis_manifest_sha256": "b83155643536e21938e15ae3fc9f356b574f69b9612ea7d2dfff639774183d28",
+      "configuration": {
+        "run_id": "haiku-03",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-drive-sky130/0796871ea748d377dc08bf6c23aa472c05aec4b9e25ed0e99a527496ac7e92a4",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 606.3111023902893,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 1703.3453793525696,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621785487,
+      "release_id": 402943863
+    },
+    {
+      "id": "ldo-always-on-sky130-haiku-r1",
+      "task": "LDO-ALWAYS-ON-SKY130",
+      "model": "Haiku 5.5",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-always-on-sky130-haiku-r1-20261008-three-runs",
+      "slot": "haiku-01",
+      "filename": "ldo-always-on-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "sha256": "8351c10db196ebfbba73df7c9b9ee9fb01a838df0ee899a2f4274eec6fe5d8a4",
+      "bytes": 664936,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "685ff2e7756791430cc0d7dab44c27f14aaa6400e465079a0a2fc185f7cb290d",
+      "source_sha": "533ef2e9d6d416e0b0d53f6978e7885b8d7392e2",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "7505477800937047148fa33c80dc8e0d3957639dacce956eedc3edc8e1f2b536",
+      "capture_manifest_sha256": "ec45d033165296bcec25616f8ebdea5464cc6acd43d936b960a848c83dc97c5c",
+      "analysis_manifest_sha256": "029dbd4a70272060f98853930ec7ea7cb7fddf1c74324e5229af340dfe76ac82",
+      "configuration": {
+        "run_id": "haiku-01",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 525.3912873268127,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 625.7932865619659,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 620319127,
+      "release_id": 402943827
+    },
+    {
+      "id": "ldo-always-on-sky130-haiku-r2",
+      "task": "LDO-ALWAYS-ON-SKY130",
+      "model": "Haiku 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-always-on-sky130-haiku-r2-20261008-three-runs",
+      "slot": "haiku-02",
+      "filename": "ldo-always-on-sky130-haiku-r2-20261008-three-runs.tar.xz",
+      "sha256": "e31b04b0f34e52416003f1c7316736a09efa812ae67be6627f5fae557735b945",
+      "bytes": 968692,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-haiku-r2-20261008-three-runs.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "c8e6fe1fd3a2ad6543aa6609c56f1a62d10732f8158e59f79550320096dc6ca0",
+      "source_sha": "533ef2e9d6d416e0b0d53f6978e7885b8d7392e2",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "8a887df6b90ec34b826c7a433261821fc662f95ccfe343e5a4864ed3e4bb1efb",
+      "capture_manifest_sha256": "eb0b806afaf5c65ec61683315e392824cf63292b1bb668c919af4662656fbf3d",
+      "analysis_manifest_sha256": "1fc7122d16dccc6ba41b89b06d78149d10ef946cf1fbccbe7334c93f139aba8b",
+      "configuration": {
+        "run_id": "haiku-02",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 622.5632910728455,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 924.6610324382782,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 620393337,
+      "release_id": 402943827
+    },
+    {
+      "id": "ldo-always-on-sky130-haiku-r3",
+      "task": "LDO-ALWAYS-ON-SKY130",
+      "model": "Haiku 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-always-on-sky130-haiku-r3-20261008-foreground-retry1",
+      "slot": "haiku-03",
+      "filename": "ldo-always-on-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "sha256": "6c9f36d0a485e7d0d8b45c92d6b8cf8ba8290b4990e31635efc151eb36391b65",
+      "bytes": 741592,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-always-on-sky130/ldo-always-on-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ldo-always-on-sky130",
+      "job_id": "617de2d8b6b24dabb3e03bc5f49724f7d5b50ba3fc4ff364bbe0331509a09221",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "568b0fe1e01f5dd7aaeb98219b78b1ac484a4b0791ca04d278b6620043579a88",
+      "capture_manifest_sha256": "3e8d0bbf5ee00189389fe0a1667a38f0b4ba945f5a1d3fefbc04eb74a2a98b34",
+      "analysis_manifest_sha256": "55263ba16c3c9b66551e4d8b548e0fc1180d17a09c5ca4ccb3b792b379a58f77",
+      "configuration": {
+        "run_id": "haiku-03",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-always-on-sky130/f1d154bd421f04732673330fef20930db1a8b2534a242ead1c421220b31c2c6b",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 459.0255780220032,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 678.8487200737,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 360
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621767447,
+      "release_id": 402943827
+    },
+    {
+      "id": "ota-precision-sky130-haiku-r1",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Haiku 5.5",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-precision-sky130-haiku-r1-20261008-three-runs-retry1",
+      "slot": "haiku-01",
+      "filename": "ota-precision-sky130-haiku-r1-20261008-three-runs-retry1.tar.xz",
+      "sha256": "77b526364c9052de2dc5b7bc860d27921d703fe05c9dd3edb3b2cb7ae8455fbf",
+      "bytes": 2947144,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-haiku-r1-20261008-three-runs-retry1.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "43472a99025177ce2131c7a2b2ad829dd5d24df01eb420fb74291406aaf9591c",
+      "source_sha": "533ef2e9d6d416e0b0d53f6978e7885b8d7392e2",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "08fb05ac20ccb26f29168514630c00754d1fa64080e79f3b675905877a5b0882",
+      "capture_manifest_sha256": "3a3297b49142701dabc35427bc5cb8f931f394a7bc821fc7c115a37bd84d183b",
+      "analysis_manifest_sha256": "ff76414967508773274a1db7f204d22c9a79e1b0f8f3800693dae5143ea2f512",
+      "configuration": {
+        "run_id": "haiku-01",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1590.1660661697388,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 3310.8834261894226,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 288
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 153
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621490761,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-precision-sky130-haiku-r2",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Haiku 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-precision-sky130-haiku-r2-20261008-foreground-retry1",
+      "slot": "haiku-02",
+      "filename": "ota-precision-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "sha256": "f3c7d49d485aecd30e64a21749fce3b6ac01606a41151b9986caed67829242bf",
+      "bytes": 4059208,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "1e6659c2fa2a497507a6426af55a9ec3ce4ba98f62adc865f46ce551ef24e092",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "7a975c73ca1d6e61516446131fda2257fce6f065cb8ee3448de78beec237d6ae",
+      "capture_manifest_sha256": "a25b5b56a7128194579593659b471f51818ab4f4d7f625d53b6ebce1682b5f83",
+      "analysis_manifest_sha256": "c20c049b0df1f591f5657f5a3897a78082aac08ea185cbf05b521586f829ae1d",
+      "configuration": {
+        "run_id": "haiku-02",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1395.3482677936554,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 5174.927577257156,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 282,
+            "MISS": 6
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 144,
+            "MISS": 9
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621707959,
+      "release_id": 402943896
+    },
+    {
+      "id": "ota-precision-sky130-haiku-r3",
+      "task": "OTA-PRECISION-SKY130",
+      "model": "Haiku 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-precision-sky130-haiku-r3-20261008-foreground-retry1",
+      "slot": "haiku-03",
+      "filename": "ota-precision-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "sha256": "531bfef179382d92880c836cb313b4e676830fdce650edd0836aeac2c3d88b87",
+      "bytes": 3139548,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-precision-sky130/ota-precision-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-precision-sky130",
+      "job_id": "209bc59dc155b4b859586aab494032c19105e87d0a1b8f20e12e5dcf3d33e0d6",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "eedcaf2da3a0f29e4796ca58edd67ee36674385ae508c97e86d0cffa5b0b1896",
+      "capture_manifest_sha256": "be41c3f6f5de39d1e4e13d89563f54efb641aaa88248343fc247722248e4a3b5",
+      "analysis_manifest_sha256": "351133ee50af892fbabd8fe975be2b02e4e0e56310752f8851a9ffdfa29d99a0",
+      "configuration": {
+        "run_id": "haiku-03",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-precision-sky130/aa3b190b1c283cba31e1923ceed631acf47d389401c94221393b63d7d31cd222",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1761.3491723537445,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 3609.0047500133514,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 282,
+            "MISS": 6
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 144,
+            "MISS": 9
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621869539,
+      "release_id": 402943896
+    },
+    {
+      "id": "ldo-low-voltage-sky130-haiku-r1",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-low-voltage-sky130-haiku-r1-20261008-three-runs",
+      "slot": "haiku-01",
+      "filename": "ldo-low-voltage-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "sha256": "7384c05e74f53b074832484d777117f4b878c240af604ed2a92ee65c6b60c53c",
+      "bytes": 2822900,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "de78bb40defe69934a320112323ea30ddb25e4c6bd7e53236e0e5f0df695daa6",
+      "source_sha": "533ef2e9d6d416e0b0d53f6978e7885b8d7392e2",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "9880fff5f44d819381f2d9b12ea015f849ece3159bb5506ec03f3050efc8d556",
+      "capture_manifest_sha256": "b4a433f0756444434a8d819116e4877754cd9e32568deae309240f305a5c780e",
+      "analysis_manifest_sha256": "65fb4ff5114471cb0c319c353b02250789604c2b729fca27d25b563dd5e7b40a",
+      "configuration": {
+        "run_id": "haiku-01",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 2770.2108941078186,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 3758.0246970653534,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 235,
+            "MISS": 125
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 42,
+            "MISS": 18
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 620390501,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-low-voltage-sky130-haiku-r2",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-low-voltage-sky130-haiku-r2-20261008-foreground-retry1",
+      "slot": "haiku-02",
+      "filename": "ldo-low-voltage-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "sha256": "a2ec1e8cb35c3c6d5f9895aa9d2583b9331b2e64483f638364610167f98f8e4f",
+      "bytes": 5454904,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "453e4e843975eafb1153cd81ae1b07d021f6b9a22bfc9909fb0930dbd01a8a9e",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "dfca6c26a57543b82e33b1f61910e56738cade8d303450f4304e6bc21cabd50f",
+      "capture_manifest_sha256": "ea481b7cc395481bd67e7df3b2b3e5ca3a083b9a5aeb2ae1dbba27240028c3e2",
+      "analysis_manifest_sha256": "3775ea39afce81b329b2513a98290920ea77d40a4ce8b0472a775318def7e9f5",
+      "configuration": {
+        "run_id": "haiku-02",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1997.9850342273712,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 6327.639825105667,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 318,
+            "MISS": 42
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621764854,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-low-voltage-sky130-haiku-r3",
+      "task": "LDO-LOW-VOLTAGE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-low-voltage-sky130-haiku-r3-20261008-foreground-retry1",
+      "slot": "haiku-03",
+      "filename": "ldo-low-voltage-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "sha256": "14b17570de2073fb2b27d812b349e705f537838e38df21498ef73c2c1b8815b9",
+      "bytes": 1419348,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-low-voltage-sky130/ldo-low-voltage-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ldo-low-voltage-sky130",
+      "job_id": "ecdee0b839c630d0ffc97efc2f6c289d0a91ed1e3b3f3ea918173812f103fbde",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "83ce1bfbadb89731de76dfec55071ede89364ddcf18f9e75f16d393e7844bbe5",
+      "capture_manifest_sha256": "b9af7ce373118828b63440b12910db604af80e181f179610c0177e249d0a7ded",
+      "analysis_manifest_sha256": "7ef087e0effab7243e96ba00c3c38926b819e27d9cb98584e4400ee5f17a86e3",
+      "configuration": {
+        "run_id": "haiku-03",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-low-voltage-sky130/471b5a9fa1e5b1a2b3ceb6ec7fe30be87c40e0e4789013db2e016896df1e2ed5",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1124.7721002101898,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 1749.4953491687775,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 309,
+            "MISS": 51
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 51,
+            "MISS": 9
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621844676,
+      "release_id": 402943845
+    },
+    {
+      "id": "ldo-quiet-sky130-haiku-r1",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Haiku 5.5",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-quiet-sky130-haiku-r1-20261008-three-runs",
+      "slot": "haiku-01",
+      "filename": "ldo-quiet-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "sha256": "36142f38ff5d661bb6ca8bd67b658d62a86b0e0387e6558434defc2a8438c846",
+      "bytes": 2384972,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "6aa79ef6930dce8663d8c6c2222e915d1023ae2c7329381fe12def70df3b309b",
+      "source_sha": "533ef2e9d6d416e0b0d53f6978e7885b8d7392e2",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "e5606922aab2a478bf9a4477fe12a4873fca6d0d41cdc89c514af269f5b81f10",
+      "capture_manifest_sha256": "5f4d4772ca435ded6663fff7819a709dc668ddaa0cfa4db3b0a379f53c9e5096",
+      "analysis_manifest_sha256": "f1c3fcb418a12e6e7f96cef867f3bfbb64f27ac8138703b4cc9d3f4147d20f70",
+      "configuration": {
+        "run_id": "haiku-01",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1465.2398369312286,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2428.2977890968323,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 620344598,
+      "release_id": 402943854
+    },
+    {
+      "id": "ldo-quiet-sky130-haiku-r2",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Haiku 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-quiet-sky130-haiku-r2-20261008-foreground-retry1",
+      "slot": "haiku-02",
+      "filename": "ldo-quiet-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "sha256": "7e78679ac0f350f16370382d8d438d4b45c835d0f6571c1e5604f0b7bfe269c9",
+      "bytes": 2035532,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "64adad02c6d5e33093f086ff3feaa84676121cca84ba3470e133760dbb5dc8cb",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "3cff162609bd0859d9ea03445b52b07df934d34509fd4343f1418a531b5fb38c",
+      "capture_manifest_sha256": "8f19cdbe8c676ebd5ba1df995b9703c42037fc6c82e6660c1ab0010886a422c1",
+      "analysis_manifest_sha256": "45e15b8872a466b16b1b607e320f78f0ad7538116966088a9f65a33b8b5227ac",
+      "configuration": {
+        "run_id": "haiku-02",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 1624.694896221161,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2260.99218082428,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621668952,
+      "release_id": 402943854
+    },
+    {
+      "id": "ldo-quiet-sky130-haiku-r3",
+      "task": "LDO-QUIET-SKY130",
+      "model": "Haiku 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-quiet-sky130-haiku-r3-20261008-foreground-retry1",
+      "slot": "haiku-03",
+      "filename": "ldo-quiet-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "sha256": "b5c03ff86ac0fd37766e4185d28b1ba4b2d9f158404b483728f09db4dac9f3a9",
+      "bytes": 2479184,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-quiet-sky130/ldo-quiet-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ldo-quiet-sky130",
+      "job_id": "ddfdfa7711d387ff3fd65e1fc86bb2dfabcbb9654a3fe323a8719d03c384c0cd",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "3f38c1b45c4aa925d79bde74e69bb32752c4908a3248021e19a762a6aa41b4c4",
+      "capture_manifest_sha256": "dad1b9776674d948c4de9aaee45c37bfe9bd67e7bf3f1d8703a21733eb433e5f",
+      "analysis_manifest_sha256": "47ab1a2abfc05c20373f94f11d2e3a301a89ecdfd38a90e8eb1dd8db0ea0684d",
+      "configuration": {
+        "run_id": "haiku-03",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-quiet-sky130/5a02c27c03e7993eb048ae5a23cdf92b01af04ee16ea1689e89763e36abe02b0",
+      "electrical_status": "PASS",
+      "design_pass": true,
+      "design_model_calls_s": 2048.286798477173,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2570.830573320389,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 612
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 102
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621875774,
+      "release_id": 402943854
+    },
+    {
+      "id": "ota-wide-sky130-haiku-r1",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-wide-sky130-haiku-r1-20261008-three-runs",
+      "slot": "haiku-01",
+      "filename": "ota-wide-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "sha256": "7083f3febea825ebfb90e2e295dbbd1eabcab1f903c75dbab6781c05befc1acc",
+      "bytes": 3268596,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "1e49ae6e48132d32d255d1c6dd1644205d352125616e75a74cd5dcf30ac69e59",
+      "source_sha": "533ef2e9d6d416e0b0d53f6978e7885b8d7392e2",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "0168618339760df1a2d06f7b21d52d91e2e664efdd8671df17bcb89474d3ce35",
+      "capture_manifest_sha256": "3cc15bfd3ef626b1909e9a35f4afd2b89cc34524cda832f35e80ca2a7f8a49a6",
+      "analysis_manifest_sha256": "4763720a84817c7efeae00d34a3911462bc7dc4c27dd4a0c87fa8236729125d6",
+      "configuration": {
+        "run_id": "haiku-01",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1512.7662320137024,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 3711.646427631378,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 414,
+            "MISS": 18
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 216,
+            "MISS": 9
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 620379569,
+      "release_id": 402943903
+    },
+    {
+      "id": "ota-wide-sky130-haiku-r2",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-wide-sky130-haiku-r2-20261008-foreground-retry1",
+      "slot": "haiku-02",
+      "filename": "ota-wide-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "sha256": "262037a35a392a5197b8d7c3125a8b55c026c08c147fd9aa05caf10ada28514e",
+      "bytes": 3089424,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "d055d263e6a4d4da05fd240c2775e1220c9d2bb239a4cc5723619c3215a56cbb",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "3843aed51a0b49eaa95a7a1ff22eea572e93be477444b7e83a80edef70bea140",
+      "capture_manifest_sha256": "bd4061fc9d5227c64aadc5f9cebee26064288739486ce7a7d7d9e20ddd0a443c",
+      "analysis_manifest_sha256": "eb58c60c13998224b66d30b75110def286ee5a9dcf39aa21a9e154f6f7874bb8",
+      "configuration": {
+        "run_id": "haiku-02",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1707.2849915027618,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 3009.234409570694,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 406,
+            "MISS": 26
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 213,
+            "MISS": 12
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621728021,
+      "release_id": 402943903
+    },
+    {
+      "id": "ota-wide-sky130-haiku-r3",
+      "task": "OTA-WIDE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ota-wide-sky130-haiku-r3-20261008-foreground-retry1",
+      "slot": "haiku-03",
+      "filename": "ota-wide-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "sha256": "37b8dec43358969c67e6468d25a5e619323b382eecf4207505ae8843ed53b7e1",
+      "bytes": 3995616,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ota-wide-sky130/ota-wide-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ota-wide-sky130",
+      "job_id": "dbe23ce22405b74da609b2eef244c2fac6f8efcaccc08ad5e9ead0dcb49c1bc3",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "4c66badead925b98d772e801d0949f212a304800a207c4d007f2c034b662c469",
+      "capture_manifest_sha256": "ced34b64127f7b185cc27cbc8e2898c46893601766794cedab8a89dd3ed33ad7",
+      "analysis_manifest_sha256": "8b7f596fa444b386acb591a7563736e1e24e94ff66b67d480aebce1dd8d130aa",
+      "configuration": {
+        "run_id": "haiku-03",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ota-wide-sky130/ae2bd9fef63b7415dfffd386ba80994010dc87c40c3f42979205348592473560",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 2832.3914663791656,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 6130.270435094833,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 406,
+            "MISS": 26
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 213,
+            "MISS": 12
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 622026161,
+      "release_id": 402943903
+    },
+    {
+      "id": "ldo-core-sky130-haiku-r1",
+      "task": "LDO-CORE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 1,
+      "captured_run": 1,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-core-sky130-haiku-r1-20261008-three-runs",
+      "slot": "haiku-01",
+      "filename": "ldo-core-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "sha256": "733f98dcce47b7f4f47c0a3287e2c9c0ff69b2632e3ca88534d72d803b879fd9",
+      "bytes": 1191348,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-haiku-r1-20261008-three-runs.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "020414be597928dc3372d928d6521f8af58511f98af60e95aa33c4f59d703b68",
+      "source_sha": "533ef2e9d6d416e0b0d53f6978e7885b8d7392e2",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "ed9fe6d9e7d5d4f7bb48b5c6a40f176b884aaa5a33c1f28271ada3c0f3280912",
+      "capture_manifest_sha256": "0b53c7c9d711438c1e8066f51ca2715c12fd2e03172c97a80eb303ca0277fe70",
+      "analysis_manifest_sha256": "1e8db1e13f3b5adc792795e3e7bcee23cb3d3d01cd816f1cf1b06c67a9b7c16f",
+      "configuration": {
+        "run_id": "haiku-01",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1409.3198883533478,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 1524.9062502384186,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 232,
+            "MISS": 128
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 41,
+            "MISS": 19
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 620327350,
+      "release_id": 402943836
+    },
+    {
+      "id": "ldo-core-sky130-haiku-r2",
+      "task": "LDO-CORE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 2,
+      "captured_run": 2,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-core-sky130-haiku-r2-20261008-foreground-retry1",
+      "slot": "haiku-02",
+      "filename": "ldo-core-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "sha256": "2d25d952ccfca36d1f9a88a23599307088c240f90e8620b78b02ca228d38b18a",
+      "bytes": 2406720,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-haiku-r2-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "55386e7ad727d439bd3d5316c1d812ccffdcd6017cc08dbdd306be56529214c0",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "e1dab1367b17775aba948f1528e6d5dc63b950ffed94dc6d2c228ea13ce7f467",
+      "capture_manifest_sha256": "a03fa48ba0715c0ef0b30da460e0e7720e0d2b7d1d53ac9744ba2a0dd4e276d0",
+      "analysis_manifest_sha256": "446a8c67d4bb078e1e885a95a187fafd4693b361fde4eab160a834b8fce54648",
+      "configuration": {
+        "run_id": "haiku-02",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "MISS",
+      "design_pass": false,
+      "design_model_calls_s": 1541.3563380241394,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2389.0811035633087,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 355,
+            "MISS": 5
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "PASS",
+          "counts": {
+            "PASS": 60
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621741629,
+      "release_id": 402943836
+    },
+    {
+      "id": "ldo-core-sky130-haiku-r3",
+      "task": "LDO-CORE-SKY130",
+      "model": "Haiku 5.5",
+      "run": 3,
+      "captured_run": 3,
+      "campaign_id": "sky130-haiku-20261008-foreground1",
+      "attempt_id": "ldo-core-sky130-haiku-r3-20261008-foreground-retry1",
+      "slot": "haiku-03",
+      "filename": "ldo-core-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "sha256": "8d0c6e717cd362361156064f1dc27790ece9cc5e1b7e7baa8caedb42b61ad4f6",
+      "bytes": 1651488,
+      "url": "https://github.com/ds54e/analog-trace-bench/releases/download/results-ldo-core-sky130/ldo-core-sky130-haiku-r3-20261008-foreground-retry1.tar.xz",
+      "release_tag": "results-ldo-core-sky130",
+      "job_id": "7736306bf9bd6f56ed728377a74e91fb1088f6d6ccd786899c41fda0884b45d6",
+      "source_sha": "f9a3f9419383c7ca7e5e102dfd8b7760aecbbae6",
+      "source_sha_basis": "captured task manifest base_sha",
+      "configuration_sha256": "eb879a503573fe27f4a89b6e768d798286d6e5824acbe857216e2bc956e76752",
+      "capture_manifest_sha256": "c6f94944b305cca67591d4175977fee5b48d5fbbdfd3519caa4509191edab87e",
+      "analysis_manifest_sha256": "f9853870527e5b0d4882f9a06a78bd9a6d5ab7f40d0154f1a6d9009a23e5494f",
+      "configuration": {
+        "run_id": "haiku-03",
+        "provider": "claude-haiku",
+        "model": "claude-haiku-5-5",
+        "effort": "max",
+        "exploration_cases": null,
+        "wall_seconds": 14400,
+        "model_seconds": 5400
+      },
+      "task_definition": "data/tasks/ldo-core-sky130/1abc2caa856ed5c4baed832af361b1058ffc4dc6525dae49b8b88e4e5a3397bf",
+      "electrical_status": "MEASUREMENT_FAILURE",
+      "design_pass": false,
+      "design_model_calls_s": 2248.1629564762115,
+      "model_time_recording_state": "recorded",
+      "design_wall_s": 2348.919966697693,
+      "submission_model_late": false,
+      "stages": {
+        "published": {
+          "execution_complete": true,
+          "electrical_status": "MEASUREMENT_FAILURE",
+          "counts": {
+            "PASS": 208,
+            "MISS": 146,
+            "MEASUREMENT_FAILURE": 2
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        },
+        "hidden": {
+          "execution_complete": true,
+          "electrical_status": "MISS",
+          "counts": {
+            "PASS": 46,
+            "MISS": 14
+          },
+          "numeric_resolution": "STANDARD_GRID_ONLY"
+        }
+      },
+      "asset_id": 621885789,
+      "release_id": 402943836
     }
   ],
   "campaign_ids": [
     "sky130-six-models9-1run-20261004-model-time-capacity-retry1",
     "sky130-deepseek9-20261004-release",
     "sky130-astra9-add2runs-20261005-release",
-    "sky130-haiku9-three-runs-20261008-recovery1"
+    "sky130-haiku9-three-runs-20261008-recovery1",
+    "sky130-haiku-20261008-foreground1"
   ]
 }

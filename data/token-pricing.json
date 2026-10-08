@@ -64,12 +64,35 @@
       "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
       "checked_on": "2026-10-05",
       "model_version": "DeepSeek-V4.1-Flash",
-      "rate_schedule": "off-peak; original requests on Sunday 2026-10-04 UTC and repeat requests after 14:58 UTC on 2026-10-05, outside peak hours",
+      "rate_schedule": "Off-peak comparison rates; captured requests on 2026-10-04, after 14:58 UTC on 2026-10-05, and after 20:52 UTC on 2026-10-07 are outside weekday peak windows.",
       "usd_per_million": {
         "input": "0.15",
         "cache_read": "0.003",
         "output": "0.60"
       }
+    },
+    "claude-fable-5-1": {
+      "source_url": "https://platform.claude.com/docs/en/models/fable-5-1/overview",
+      "checked_on": "2026-10-09",
+      "usd_per_million": {
+        "input": "10.00",
+        "cache_read": "0.25",
+        "cache_write": "12.50",
+        "cache_write_1h": "20.00",
+        "output": "50.00"
+      }
+    },
+    "claude-haiku-5-5": {
+      "source_url": "https://platform.claude.com/docs/en/models/haiku-5-5/overview",
+      "checked_on": "2026-10-09",
+      "usd_per_million": {
+        "input": "0.10",
+        "cache_read": "0.01",
+        "cache_write": "0.125",
+        "cache_write_1h": "0.20",
+        "output": "0.50"
+      },
+      "rate_schedule": "Base comparison rates for prompts up to 100,000 tokens; cumulative run totals do not determine context tier."
     }
   }
 }
