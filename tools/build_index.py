@@ -13,6 +13,13 @@ from site_templates import asset_url, evaluation_label, render_page
 from token_costs import decimal_cost, load_token_costs
 
 ROOT = Path(__file__).resolve().parents[1]
+DISPLAY_ORDER = {
+    'model': ('Astra 6', 'Sol 6.1', 'Opus 5.5', 'Sonnet 5.5', 'Fable 5.1',
+              'Sol 6', 'Luna 6', 'Haiku 5.5', 'DeepSeek 4.1 Flash'),
+    'task': ('OTA-FIXED-SKY130', 'OTA-FREE-SKY130', 'OTA-DRIVE-SKY130',
+             'OTA-PRECISION-SKY130', 'OTA-WIDE-SKY130', 'LDO-CORE-SKY130',
+             'LDO-ALWAYS-ON-SKY130', 'LDO-QUIET-SKY130', 'LDO-LOW-VOLTAGE-SKY130'),
+}
 
 
 class MetricSummary(NamedTuple):
@@ -131,8 +138,14 @@ def render_result_table(results, view):
 def render_index(root=ROOT, view='model', *, results=None):
     if view not in ('model', 'task'):
         raise ValueError('Unknown result view: ' + view)
+    priorities = {kind: {label: rank for rank, label in enumerate(labels)}
+                  for kind, labels in DISPLAY_ORDER.items()}
+    secondary = 'task' if view == 'model' else 'model'
+    rows = load_results(root) if results is None else results
+    rows = sorted(rows, key=lambda row: tuple(priorities[kind].get(row[kind], len(priorities[kind]))
+                                             for kind in (view, secondary)))
     groups = {}
-    for row in load_results(root) if results is None else results:
+    for row in rows:
         groups.setdefault(row[view], []).append(row)
     sections = []
     for label, results in groups.items():

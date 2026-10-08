@@ -65,6 +65,14 @@ description. Every header offers Model / Task links; the current index has
 render from one validated result snapshot. Visible column headings are hidden;
 Task/AI model, Pass, Model-call time and USD remain semantic headers.
 
+Both views use the fixed `DISPLAY_ORDER` in `tools/build_index.py` for sections
+and table rows. Models appear as Astra 6, Sol 6.1, Opus 5.5, Sonnet 5.5, Fable 5.1,
+Sol 6, Luna 6, Haiku 5.5, then DeepSeek. Tasks appear as OTA-FIXED, OTA-FREE,
+OTA-DRIVE, OTA-PRECISION, OTA-WIDE, LDO-CORE, LDO-ALWAYS-ON, LDO-QUIET, then
+LDO-LOW-VOLTAGE. After the requested first OTA/LDO tasks, the initial order uses
+the current pass fraction as a difficulty guide; new results do not reorder it
+automatically. Unlisted models or tasks appear after the specified ones.
+
 Each task/model pair has one row. Its label links to the earliest available
 trace; run links open other recorded runs directly. Pass shows passed / recorded
 runs in a PASS badge when all runs pass, otherwise FAIL. Time and USD are arithmetic
