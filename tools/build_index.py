@@ -4,7 +4,7 @@ import argparse
 import html
 import json
 import re
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 from typing import NamedTuple
 
@@ -39,7 +39,9 @@ def summarize_metric(values):
 def metric_label(value, kind):
     if value is None:
         return ''
-    return f'{value / 60:.1f} min' if kind == 'time' else f'${value:.2f}'
+    if kind == 'time':
+        return f'{(value / 60).quantize(Decimal(1), rounding=ROUND_HALF_UP)} min'
+    return f'${value:.2f}'
 
 
 def metric_cell(metric, scale_max, kind, count):

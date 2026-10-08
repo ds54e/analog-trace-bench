@@ -1,5 +1,5 @@
 from copy import deepcopy
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 import hashlib
 import html
 import json
@@ -252,7 +252,7 @@ class IndexRunTests(unittest.TestCase):
         self.assertEqual(visible[0], 'FAIL 1 / 3')
         expected_time = (Decimal(str(entry['design_model_calls_s'])) + 60 + 120) / 3
         expected_cost = (Decimal(records[entry['id']]['total_cost_usd']) + 1 + 3) / 3
-        self.assertEqual(visible[1], f'{expected_time / 60:.1f} min')
+        self.assertEqual(visible[1], f'{(expected_time / 60).quantize(Decimal(1), rounding=ROUND_HALF_UP)} min')
         self.assertEqual(visible[2], f'${expected_cost:.2f}')
         self.assertIn(f'data-value="{expected_time}"', cells[1])
         self.assertIn(f'data-value="{expected_cost}"', cells[2])
