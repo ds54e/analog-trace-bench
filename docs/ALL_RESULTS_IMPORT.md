@@ -86,7 +86,7 @@ All 27 Astra traces, including the 18 new pages, were source-checked. All 81
 token-cost records were rechecked against their archives.
 Earlier accepted trace/report hashes protect the unchanged non-Astra records.
 
-## Website verification
+## Website verification — historical 81-run snapshot
 
 ```sh
 python3.12 tools/build_site.py

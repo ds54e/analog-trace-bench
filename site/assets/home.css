@@ -61,11 +61,20 @@
 .results-table tbody th a { text-decoration: none; }
 .results-table tbody th a:hover { text-decoration: underline; }
 
+.pass-result,
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pass-count { font-weight: 400; }
+
 .pass-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-width: 108px;
+  justify-content: center;
   padding: 3px 12px;
   font: 600 13px/1.4 var(--font-mono);
 }
@@ -78,13 +87,6 @@
 .pass-badge--fail {
   color: var(--fail-ink);
   background: var(--fail-bg);
-}
-
-.metric {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-variant-numeric: tabular-nums;
 }
 
 .metric-track {
@@ -134,8 +136,8 @@
   .results-table { font-size: 14px; }
   .results-table th, .results-table td { padding-inline: 10px; }
   .results-table tbody th { font-size: 16px; }
-  .metric { gap: 10px; }
-  .pass-badge { min-width: 88px; padding-inline: 8px; gap: 6px; font-size: 12px; }
+  .metric, .pass-result { gap: 10px; }
+  .pass-badge { padding-inline: 8px; font-size: 12px; }
 }
 
 @media (forced-colors: active) {

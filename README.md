@@ -6,7 +6,8 @@ The live website is [Analog Trace Bench](https://ds54e.github.io/analog-trace-be
 
 Original evidence archives belong in GitHub Release assets. They are not committed to this repository or included in the Pages deployment.
 
-Both indexes show pass counts and mean model-call time / USD. For repeated runs,
+Both indexes show PASS/FAIL badges followed by plain passed / recorded counts,
+mean model-call time rounded to whole minutes, and mean USD. For repeated runs,
 a thin line with small endpoint dots marks the recorded minimum and maximum.
 Run selectors open each recorded trace directly.
 

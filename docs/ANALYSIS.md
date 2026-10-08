@@ -65,8 +65,9 @@ every missing file. Numerical resolution and grid limitations remain recorded.
 
 All selected trials appear in both the Model and Task indexes and have downloadable evidence.
 Index time and cost bars show arithmetic means per task/model across available
-runs; pass badges show passed / recorded runs. Individual pages show one run.
-All 81 selected trials have prepared HTML views, including failed trials. The
+runs; PASS/FAIL badges are followed by plain passed / recorded counts. Index
+time labels round to whole minutes. Individual pages show one run.
+All selected trials have prepared HTML views, including failed trials. The
 four accepted OTA-WIDE reference pages are preserved. The campaign importer
 uses the verified archive reader, supports the captured Codex, Claude and OpenCode
 formats, and source-checks saved fragments before keeping an existing page.

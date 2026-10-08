@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the static index from the committed run and evidence catalogs."""
+"""Generate both result indexes from the committed run and evidence catalogs."""
 import argparse
 import html
 import json
@@ -104,8 +104,9 @@ def load_results(root=ROOT):
                         for run in trials]
             if all(outcome in ('PASS', 'FAIL') for outcome in outcomes):
                 verdict = 'PASS' if all(outcome == 'PASS' for outcome in outcomes) else 'FAIL'
-                result = (f'<span class="pass-badge pass-badge--{verdict.lower()}">'
-                          f'{verdict} <span>{outcomes.count("PASS")} / {len(trials)}</span></span>')
+                result = ('<div class="pass-result">'
+                          f'<span class="pass-badge pass-badge--{verdict.lower()}">{verdict}</span> '
+                          f'<span class="pass-count">{outcomes.count("PASS")} / {len(trials)}</span></div>')
             else:
                 result = '<span class="unavailable">Not recorded</span>'
             times = [evidence[run['id']].get('design_model_calls_s') for run in trials]
@@ -150,18 +151,18 @@ def render_index(root=ROOT, view='model', *, results=None):
     for row in rows:
         groups.setdefault(row[view], []).append(row)
     sections = []
-    for label, results in groups.items():
+    for label, group_results in groups.items():
         section_id = ('model-' + re.sub(r'[^a-z0-9]+', '-', label.lower()).strip('-')
                       if view == 'model' else label)
         section_id = html.escape(section_id, quote=True)
         section_class = 'task-section' + (' model-section' if view == 'model' else '')
-        description = ('<p class="task-description">' + html.escape(results[0]['description']) + '</p>'
+        description = ('<p class="task-description">' + html.escape(group_results[0]['description']) + '</p>'
                        if view == 'task' else '')
         sections.append('<section class="' + section_class + '" aria-labelledby="' + section_id + '">'
                         '<h2 class="task-heading" id="' + section_id + '">' + html.escape(label) + '</h2>' +
                         description +
                         '<div class="table-scroll" tabindex="0" role="region" aria-labelledby="' + section_id + '">' +
-                        render_result_table(results, view) + '</div></section>')
+                        render_result_table(group_results, view) + '</div></section>')
     content = '<main class="page-shell" data-view="' + view + '">\n' + '\n'.join(sections) + '\n</main>'
     head = '<link rel="stylesheet" href="' + asset_url('home.css', root=root) + '"/>'
     title = 'Analog Trace Bench' + (' — Tasks' if view == 'task' else '')
@@ -177,7 +178,7 @@ def rendered_indexes(root=ROOT):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--check', action='store_true', help='Fail when the committed index is stale.')
+    parser.add_argument('--check', action='store_true', help='Fail when generated indexes are stale.')
     parser.add_argument('--view', choices=('model', 'task'), help='Build only one result view.')
     args = parser.parse_args()
     pages = ({'index.html' if args.view == 'model' else 'tasks.html': render_index(view=args.view)}

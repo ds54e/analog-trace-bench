@@ -74,8 +74,9 @@ the current pass fraction as a difficulty guide; new results do not reorder it
 automatically. Unlisted models or tasks appear after the specified ones.
 
 Each task/model pair has one row. Its label links to the earliest available
-trace; run links open other recorded runs directly. Pass shows passed / recorded
-runs in a PASS badge when all runs pass, otherwise FAIL. Time and USD are arithmetic
+trace; run links open other recorded runs directly. Pass shows a PASS badge when
+all runs pass, otherwise FAIL, followed by passed / recorded runs in ordinary
+text outside the badge. No explanatory tooltip is added. Time and USD are arithmetic
 means across recorded runs, calculated before rounding. Missing values stay
 unknown rather than producing partial means. Time rounds to whole minutes (half up),
 USD uses `$2.01`; blue and brown bars show the mean. For multiple recorded runs,
