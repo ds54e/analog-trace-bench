@@ -3,7 +3,7 @@
 This repository and its public Release assets contain the information used to
 maintain the website and inspect recorded trials. Building saved pages requires
 Python 3.10+ and its standard library. Reading analysis also uses only Python;
-provider authentication, a private repository, a PDK and ngspice are unnecessary.
+provider authentication, a private repository, a PDK and ngspice are unnecessary for reading saved results.
 
 ## Download, verify and read
 
@@ -52,12 +52,12 @@ are excluded unless overlapping an active model request. It is not a measurement
 of pure thinking time. The captured budget is 90 minutes; late submissions remain
 eligible. A private four-hour wall safety limit is separate. Do not sum concurrent
 or overlapping intervals as elapsed campaign time. See
-[timing definitions](records/timing-evidence.md) for clocks and scope.
+[timing definitions](TIMING.md) for clocks and scope.
 
-Keep the original `PASS`, `MISS`, and `MEASUREMENT_FAILURE` labels in analysis.
+Keep the original `PASS`, `MISS`, `MEASUREMENT_FAILURE`, and
+`MEASUREMENT_INVALID` labels in analysis.
 For the selected campaign, a contract-limited failure to find the required
-balanced operating point counts as a design failure. The Luna OTA-WIDE entry
-records that diagnosed cause separately. An infrastructure error requires a
+balanced operating point counts as a design failure. An infrastructure error requires a
 separate unresolved evaluation classification; do not infer design failure from
 every missing file. Numerical resolution and grid limitations remain recorded.
 
@@ -67,11 +67,11 @@ All selected trials appear in both the Model and Task indexes and have downloada
 Index time and cost bars show arithmetic means per task/model across available
 runs; PASS/FAIL badges are followed by plain passed / recorded counts. Index
 time labels round to whole minutes. Individual pages show one run.
-All selected trials have prepared HTML views, including failed trials. The
-four accepted OTA-WIDE reference pages are preserved. The campaign importer
+All selected trials have prepared HTML views, including failed trials.
+The campaign importer
 uses the verified archive reader, supports the captured Codex, Claude and OpenCode
 formats, and source-checks saved fragments before keeping an existing page.
-See [all-result import checks](ALL_RESULTS_IMPORT.md) for coverage and omissions. Never assume example metric limits,
+See [Validation](VALIDATION.md) for coverage and omissions. Never assume example metric limits,
 counts, task prefixes or transcript semantics for another task.
 
 Raw waveforms remain on the evaluation/design hosts. They are needed for a fresh

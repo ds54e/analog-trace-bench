@@ -149,17 +149,12 @@ Publication/build/verification timing is retained in the external
 published manifest. Storage verification preserves its original publication
 timing, and already published source streams remain frozen on retries.
 
-`atb evaluation rebuild-analysis JOB_ID` verifies an already collected Git job
-and publishes a derived snapshot under `runs/evaluation/analysis/<job>/<revision>/`.
-Its receipt binds the unchanged collection receipt, retained design storage
-stream, builder source hashes and generated file hashes. Standard results and
-storage status select the derived snapshot through `current.json`;
-`evaluation verify` also verifies its receipt and files. Received messages,
-native export, collection receipt, frozen attempts and raw data are preserved.
-This operation launches no models or native cases and does not change scores.
-Frozen exports are verified against their captured evaluation policy: the
-`numerical-policy.json` slot is required for fixed-grid-v1 registrations.
-Earlier captured policies retain their original export bytes and fine evidence.
+Derived snapshots retain the collection receipt, design storage stream,
+builder source hashes and generated file hashes. Reading a derived snapshot
+does not launch models or native cases or change scores. Frozen exports are
+verified against their captured evaluation policy; `numerical-policy.json` is
+required for fixed-grid-v1 registrations. Other captured policies retain their
+original export bytes and fine evidence. See [Numerical accuracy](NUMERICAL_ACCURACY.md).
 
 Compare actual elapsed time, measured waits, native wall/CPU, cases and electrical
 quality together. Participant work can overlap measurement. Time outside a

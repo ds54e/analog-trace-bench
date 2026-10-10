@@ -162,7 +162,9 @@ def sync_directory(path):
 def publish_directory(staging, destination):
     for path in staging.rglob('*'):
         if path.is_file():
-            with path.open('rb') as stream:
+            # Windows fsync requires a writable descriptor. These files belong
+            # to the newly extracted staging directory; their bytes stay exact.
+            with path.open('r+b') as stream:
                 os.fsync(stream.fileno())
     directories = [staging] + [p for p in staging.rglob('*') if p.is_dir()]
     for directory in sorted(directories, key=lambda p: len(p.parts), reverse=True):
@@ -215,9 +217,14 @@ def pack(snapshot, destination):
         extract(staging, restored)
         if inventory(restored / 'analysis') != before or inventory(snapshot) != before:
             raise ValueError('Analysis source changed or archive round trip differs')
-        with staging.open('rb') as stream:
+        with staging.open('r+b') as stream:
             os.fsync(stream.fileno())
-        os.link(staging, destination)
+        if os.name == 'nt':
+            # Windows rename publishes atomically and refuses an existing target.
+            # It also works in environments that prohibit creating hard links.
+            staging.rename(destination)
+        else:
+            os.link(staging, destination)
         sync_directory(destination.parent)
     return stats(destination, saved)
 

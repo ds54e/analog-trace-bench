@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 import re
 
-from build_astra_page import require
+from rendering import require
 
 
 @dataclass(frozen=True)

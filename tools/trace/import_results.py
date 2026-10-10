@@ -27,7 +27,7 @@ from atb_analysis_export import AnalysisSnapshot, expand, read
 from build_traces import render_trace_page, split_evaluation, trace_paths, write_run_sources
 from build_site import build
 from fetch_evidence import fetch_entry
-import build_astra_page as shared
+import rendering as shared
 from transcript import Event, Normalized, normalize, successful
 
 require = shared.require
@@ -489,8 +489,8 @@ def verify_payloads(trace, normalized, evidence, report):
             'Submitted SPICE bytes changed')
     expected_report = report_source(evidence)
     actual_report = json.loads(report)
-    # Accepted reference fragments predate extra-stage retention. Their two
-    # reports remain byte-for-byte protected; empty optional reports add no rows.
+    # A report with no optional stages is valid in the three-key format.
+    # Preserve its bytes rather than adding empty optional report fields.
     if not any(evidence.extra_reports.values()) and set(actual_report) == {'published', 'hidden', 'independent_evaluation'}:
         expected_report = {key: expected_report[key] for key in actual_report}
     require(actual_report == expected_report, 'Expanded independent evaluation data changed')
@@ -571,8 +571,7 @@ def main():
             verify_payloads(trace, normalized, evidence, report)
             evaluation_groups(evidence)
             if entry['id'] in descriptions:
-                # The original four reference pages retain their accepted
-                # presentation. Campaign pages must also match the current
+                # Runs with registered descriptions must also match the
                 # source-derived summary and task-specific worst-value table.
                 summary = (content / 'summary.html').read_text(encoding='utf-8')
                 require(summary == render_summary(entry, evidence, timing, descriptions[entry['id']]),

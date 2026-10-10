@@ -1,10 +1,11 @@
 # Numerical accuracy policy
 
-OTA and LDO independent evaluation uses `fixed-grid-v1`. Each fresh attempt
-captures its measurement settings, native dependencies, evaluator and complete
-evaluation matrix. Every required case runs on that grid. Inclusive electrical
-limits are compared without rounding. There is no automatic refinement stage or
-additional refinement budget in participant evaluation.
+Each trial's captured task definition and numerical policy govern its evaluation.
+Under `fixed-grid-v1`, the attempt captures measurement settings, native
+dependencies, evaluator and complete evaluation matrix. Every required case runs
+on that grid. Inclusive electrical limits are compared without rounding. There
+is no automatic refinement stage or additional refinement budget in participant
+evaluation under this policy.
 
 ## Development qualification
 
@@ -47,11 +48,11 @@ fine checks, without applying a new rule to an existing result.
 
 | Task | Cases per submitted DUT |
 |---|---:|
-| OTA-FIXED-SKY130 / OTA-ADM45 | 240 |
-| OTA-FREE-SKY130 / OTA-FREE-ADM45 | 210 |
+| OTA-FIXED-SKY130 | 240 |
+| OTA-FREE-SKY130 | 210 |
 | OTA-DRIVE-SKY130 / OTA-PRECISION-SKY130 | 210 |
 | OTA-WIDE-SKY130 | 318 |
-| LDO-CORE-SKY130 / LDO-CORE-ADM45 | 129 |
+| LDO-CORE-SKY130 | 129 |
 | LDO-ALWAYS-ON-SKY130 / LDO-LOW-VOLTAGE-SKY130 | 129 |
 | LDO-QUIET-SKY130 | 231 |
 

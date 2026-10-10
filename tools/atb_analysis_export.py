@@ -1,4 +1,4 @@
-"""Export a fixed set of completed OTA trials as compact, uncompressed evidence.
+"""Read, verify, and export compact recorded circuit-design evidence.
 
 No controller, solver, model, compaction or participant operation is performed.
 Original model text is evidence; no analyst interpretations are added.

@@ -1,29 +1,21 @@
 # Result evidence
 
-[evidence.json](evidence.json) is the complete selected-trial catalog. It binds
-each result to its public Release archive, SHA-256, model configuration, source
-revision, independent verdict, timing, and [captured task definition](tasks/index.json).
+| Record | Contents |
+| :--- | :--- |
+| [evidence.json](evidence.json) | Selected trials, immutable Release URLs, archive hashes, configurations, source identities, verdicts, and timing. |
+| [tasks/index.json](tasks/index.json) | Captured task definitions and their inventories. |
+| `trace-summaries.json` | Reviewed descriptions of frozen submitted circuits. |
+| `trace-validation.json` | Content/report hashes, source coverage, revisions, and omission accounting. |
+| `token-pricing.json` | Dated comparison rates used by the cost importer. |
+| `campaigns/` | Original campaign summaries, attempt selections, and superseded-attempt records. |
 
-Download and read original records using Python's standard library and the tools
-in this public repository. See [Analysis](../docs/ANALYSIS.md) for exact commands,
-schema-4 references, stream ordering, missing values and time interpretation.
-Large original archives stay in Release assets and local ignored `evidence/`.
-The website build uses committed sources and never needs the private repository.
+Public trace IDs identify the selected runs. Evidence entries retain the full
+attempt identity, captured configuration, campaign identity, and original run
+slot. A campaign summary can include attempts outside the current public
+selection; use `evidence.json` and `site/data/runs.json` for current coverage.
 
-Additional maintained records:
-
-- `trace-summaries.json`: reviewed descriptions of the frozen submitted circuits.
-- `trace-validation.json`: accepted content/report hashes and source coverage.
-- `token-pricing.json`: dated rates used by `site/data/token-costs.json`; see
-  [token accounting](../docs/TOKEN_COSTS.md).
-- `campaigns/deepseek-20261004.json`: original public DeepSeek release summary.
-  Its archive identities and aggregate outcomes were compared with all nine
-  verified archives before catalog installation.
-
-- `campaigns/astra-r2-r3-20261005.json`: original release summary for the 18
-  additional Astra trials, each checked against its archive.
-
-`evidence.json` retains the original six-model `campaign_id` and lists all three
-campaigns in `campaign_ids`; additional DeepSeek/Astra entries identify their batch.
-Their `source_sha` is explicitly identified as the captured task-manifest base
-revision, with actual execution implementation hashes retained in the archive.
+Original archives stay in Release assets and ignored local `evidence/`. Download,
+verify, and read them with the tools in this repository; see
+[Analysis](../docs/ANALYSIS.md). The website builds from committed fragments and
+reports. [Validation](../docs/VALIDATION.md) describes integrity checks;
+[Token costs](../docs/TOKEN_COSTS.md) explains usage accounting.
