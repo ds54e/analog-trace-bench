@@ -13,8 +13,14 @@ electrical fidelity and visual readability as separate acceptance gates.
 Use the authoritative SPICE, DUT boundary, existing native project when available,
 and the requested change. Obtain missing essential source data before drawing;
 infer routine presentation choices from the current repository and user profile.
-For labels-only work, preserve accepted placement and routing. For rules-only
-work, update instructions without redrawing accepted circuits.
+Choose the smallest scope that satisfies the request:
+
+| Change | Edit | Preserve |
+|---|---|---|
+| Placement or wiring | Native project and reproducible recipe | Exact electrical contract and recorded evidence |
+| Diagram label position or spelling | Native annotations and recipe | Other geometry and exact parameters |
+| Page size, caption or links | Page renderer or CSS | SVG, native project, recipe and SPICE |
+| Skill or documentation | Instructions and references | Accepted drawing and site artifacts |
 
 ## Read the applicable references
 
@@ -34,6 +40,8 @@ are useful context, not evidence of a new visit.
 
 ## Workflow
 
+For native drawing changes:
+
 1. **Freeze the electrical contract.** Record ordered external ports, device
    references, ordered pins including body, models, values or expressions,
    W/L, nf and m. Keep exact source parameters and submitted bytes authoritative.
@@ -45,6 +53,7 @@ are useful context, not evidence of a new visit.
    adding detours. Avoid symbol penetration and ambiguous intersections.
 4. **Apply the display profile.** Keep readable text sizes and clear label owners.
    Format native display annotations separately from exact device parameters.
+   Keep native drawing density separate from the requested page display size.
    Use the ATB profile only for ATB; do not export its rounding into SPICE.
 5. **Save, reopen and verify.** Render and export from the reopened native project.
    Compare the frozen electrical contract, authored visible routes, body defaults
@@ -53,10 +62,15 @@ are useful context, not evidence of a new visit.
    actual value strings, current paths, feedback, crossings and label clearance.
    Check the target page when applicable. Report unavailable browser checks.
 
+For page-only changes, use the repository's site build and validation, then inspect
+the published page at the requested size. Check that the current SVG is loaded;
+do not regenerate native artifacts or claim a fresh save/reopen comparison.
+For instructions-only changes, validate the skill, references and site integration.
+
 ## Completion and delivery
 
-Require separate evidence for electrical comparison and visual review. A matching
-netlist or zero diagnostics alone does not establish readable geometry. Retain
+Require separate evidence for applicable electrical comparison and visual review.
+A matching netlist or zero diagnostics alone does not establish readable geometry. Retain
 an inspectable native SVG, editable project and supporting source/export/check
 artifacts. Report actual checks and material differences briefly; do not imply
 that drawing verification reran a historical simulation.

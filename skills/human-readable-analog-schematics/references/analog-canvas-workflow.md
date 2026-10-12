@@ -46,7 +46,7 @@ Adjust for symbol shape, rotation, actual fonts and text width.
 |---|---|
 | MOS name | `(20, 5)`, start; mirrored `(-20, 5)`, end |
 | Vertical passive name / value | `(16, -4)` / `(16, 14)`, start |
-| Horizontal passive name / value | `(0, -32)` / `(0, -14)`, middle; or `(0, 20)` / `(0, 38)` below |
+| Horizontal passive name / value | `(0, -32)` / `(0, -14)`, middle |
 | Input port name | `(0, -12)`, middle |
 | Output port name | `(16, 5)`, start |
 
@@ -86,5 +86,5 @@ Recompare both ordinary and checked exports after any runtime or interface chang
 Separate electrical results, visual review, browser checks and historical benchmark
 results. A matching export is not a new simulation. Do not claim a fresh gallery
 visit, mobile-width browser review or user acceptance from stored notes, static
-CSS checks or the author's visual assessment. Keep ATB's visible caption minimal;
-retain technical details in artifacts and repository documentation.
+CSS checks or the author's visual assessment. Follow the ATB profile's image-only
+page presentation; retain technical details in artifacts and documentation.

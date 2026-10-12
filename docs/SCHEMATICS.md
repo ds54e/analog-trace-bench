@@ -23,34 +23,26 @@ records comparison URLs, observations and limits. This document owns repository
 setup, artifact paths, verification and site integration. See
 [Skills](../skills/README.md) for discovery and current OpenAI authoring guidance.
 
-## Presentation contract
+## Page integration
 
-Final submission displays the diagram without `SVG` or `Project` links beneath it.
-Descriptions, body/unit/crossing notes, verification prose and device tables are
-kept in supporting data or documentation rather than printed below the diagram.
-Accessible image descriptions remain available.
-Page image URLs include the verified SVG hash so drawing updates invalidate caches.
+The [ATB profile](../skills/human-readable-analog-schematics/references/atb-profile.md)
+owns visible content, display-value policy and current pilot geometry. Keep those
+preferences there instead of duplicating them in this repository guide.
 
-Use a white drawing surface in both themes. The focusable horizontal scroll
-region retains readable labels on narrow layouts. The page figure uses 60% width,
-with a 408 px minimum capped at the available width; its image scrolls below
-408 px. This uniformly scales the page display while preserving native text,
-symbols and geometry. Reduce drawing gaps and routes through placement.
-Native SVG export uses a
-20-unit outer margin; the pinned editor's default uses 40 units.
+| Implementation | Responsibility |
+|---|---|
+| `tools/schematics/generate.mjs` | Reconstruct native geometry and labels; save, reopen, render and compare. |
+| `tools/schematics.py` | Validate source-bound artifacts and insert the image-only figure with accessible alt text. |
+| `site/assets/trace.css` | Use 60% figure width and a 408 px minimum capped at the available width; preserve image aspect ratio and scroll below 408 px. |
+| `site/schematics/index.json` | Bind source and artifact hashes; the verified SVG hash versions each page image URL. |
 
-Passive diagram text uses about two significant digits: `92.59k → 93k` and
-`101.2k → 100k`. Keep exact source parameters and exports. Diagram `M` denotes
-mega; SPICE uses `meg` or numeric notation because its `M` means milli.
+The white image surface remains consistent across page themes. Page scaling does
+not modify native geometry, text sizes or parameters. Native SVG export uses a
+20-unit margin; the pinned editor's default uses 40 units.
 
-The LDO's R1/R2 column lies directly below XMP's drain, with CFF to R1's left.
-CFF connects vertically to the upper VOUT trunk and lower FB return.
-RB runs horizontally above the input pair from XMP's drain to the NB drain
-trunk. Its FB return and NB drain return remain distinct; C1–RZ connects G to VIN.
-The OTA's XMbn remains mirrored, with a local D–G tie and continuous shared gate
-to XMtl. These are pilot constraints, not a universal OTA/LDO layout.
-Crossings without a dot are unconnected. NFET bodies use VSS/vss; PFET bodies
-use VIN/vdd as recorded in each native cell's bulk defaults and drawing manifest.
+After publication, reload affected pages and check both layout and the image URL's
+SVG hash. A completed deployment does not prove that a browser has loaded the
+latest drawing; cached images were observed during these refinements.
 
 ## Artifacts
 
@@ -64,12 +56,17 @@ Each pilot directory contains:
 | `exported.spice` | Checked structural export from the reopened project. |
 | `verification.json` | Comparisons, export/display settings, route/body checks and diagnostics. |
 
-Rounded value labels are native literal annotations. They survive reopening but
-do not automatically follow GUI parameter edits. Refresh their text from saved
-parameters when editing an exploratory copy. The checked-in recipe reconstructs
-the two frozen submissions, not later GUI edits or arbitrary netlists.
+The checked-in recipe reconstructs the two frozen submissions, not later GUI
+edits or arbitrary netlists. See the skill's
+[Native workflow](../skills/human-readable-analog-schematics/references/analog-canvas-workflow.md)
+for literal labels, saved cell defaults and pinned export behavior.
 
-## Regenerate the pilots
+## Regenerate native drawings
+
+Use this section when changing native geometry or annotations. For CSS, captions
+or links, build/check the site and inspect page rendering without regenerating
+accepted drawings. For documentation-only changes, validate links and build/check
+integration without changing site or native artifacts.
 
 Normal site builds need only Python. Native drawing regeneration uses Node 24+
 and pnpm 11.16+, with Analog Canvas 0.9.2 pinned to
@@ -99,8 +96,9 @@ local generation. Live gallery comparison requires separate browser access.
 After saving/reopening, generation checks authored visible routes and bulk
 defaults, orthogonal geometry, expected rounded label strings, native unrouted
 connections and diagnostics. It exports and compares exact ordered external
-ports, D/G/S/B or passive pin order, models, values, W/L, nf and m. Both current
-pilots match, with zero unrouted connections and zero native diagnostics.
+ports, D/G/S/B or passive pin order, models, values, W/L, nf and m. The saved
+reports for both pilots record a match, zero unrouted connections and zero
+native diagnostics.
 When reproducing an unchanged recipe, compare regenerated artifact hashes with
 the saved set; matching source/export contracts alone do not prove reproducibility.
 
@@ -119,9 +117,9 @@ ordinary GUI export or this setting always preserves other interfaces.
 
 `site/schematics/index.json` binds each drawing to its submitted SHA-256 and
 artifact hashes. `tools/schematics.py` checks hashes, exact structural contracts
-and verification reports, then inserts the diagram during
-`build_traces.py`. It does not edit `content/traces/`. Stale sources, changed
-artifacts, mismatched exports and unknown runs fail the build. Portable exports
+and verification reports, then inserts the diagram during `build_traces.py`.
+It does not edit `content/traces/`. Stale sources, changed artifacts, mismatched
+exports and unknown runs fail the build. Portable exports
 copy the same artifacts.
 
 For an additional run, read its actual circuit, author/review the native project,

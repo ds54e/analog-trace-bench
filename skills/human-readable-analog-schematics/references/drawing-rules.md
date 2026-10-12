@@ -27,6 +27,8 @@ Use the ATB profile for its presentation preferences.
 - Use actual symbols and rendered strings as the density scale. Move groups or
   labels before accepting a long route. Preserve text sizes; split a large drawing
   into useful views when one view cannot stay legible.
+  Treat a requested web display scale separately from native placement and text
+  sizes; review readability again at that display size.
 - Keep supply rails within the branches they serve. Do not draw a huge enclosing
   rail solely to reach remote auxiliary circuits.
 - For suitable LDOs, compare a compact error-amplifier-to-pass-stage arrangement
@@ -41,6 +43,9 @@ Use the ATB profile for its presentation preferences.
   into familiar Miller compensation when its source connects elsewhere.
 - Make the main feedback loop traceable. Try matching the sensing tap height to
   the receiving gate; do not require every return to use the bottom page edge.
+- For a parallel passive, compare either side of the branch it bypasses. Prefer
+  the side with direct taps to its actual endpoints and adequate label clearance;
+  do not make "inside" or "outside" a universal placement rule.
 - Prefer continuous wires for local mirrors, the principal signal path,
   compensation and the main loop. Name-based connections can reduce remote
   supply/bias wiring; verify names, case handling and scope with the native tool.

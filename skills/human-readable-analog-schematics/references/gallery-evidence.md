@@ -8,7 +8,7 @@ sign-in. Observations have the dates below; do not present stored notes as a fre
 ## Native editor comparison, 2026-10-12
 
 Signed in to the community gallery and opened these four existing examples in
-the browser's native editor. These are new visual observations, not electrical
+the browser's native editor. These are recorded visual observations, not electrical
 qualification of the gallery circuits. The `/g/` URLs below opened successfully
 in that authenticated session; sign-in may be required. No circuit was published
 or changed in the gallery.
@@ -28,6 +28,21 @@ source/junction created a zero-length route, and a different candidate bias
 height touched the tail source. The final recipe uses an actual source endpoint
 and avoids foreign-terminal contact. These are verified tool/layout findings;
 the circuit coordinates remain only in the pilot recipe.
+
+## ATB native render observations, 2026-10-12
+
+These are observations of the target drawings after gallery comparison and user
+refinement, not additional gallery visits. Their exact parameters and interfaces
+were checked from saved/reopened native projects against the submitted SPICE.
+
+| Target artifact | Observed useful judgment | Scope |
+|---|---|---|
+| [OTA pilot SVG](https://ds54e.github.io/analog-trace-bench/schematics/ota-fixed-sky130-opus-5-5-r1/schematic.svg) | Cc/Rz names and values on one side read as one compensation branch; the mirrored XMbn keeps a short local D–G tie and continuous shared gates. | Preserve these OTA relationships; label-side alignment is conditional on clearance. |
+| [LDO pilot SVG](https://ds54e.github.io/analog-trace-bench/schematics/ldo-core-sky130-sonnet-5-5-r1/schematic.svg) | The upper RB return eliminates its former right-hand foldback. CFF left of R1 connects vertically to existing VOUT/FB trunks, leaving a continuous lower FB return. | Compare real taps and both sides of a parallel branch; this does not establish a universal upper bias route or inside-capacitor rule. |
+
+The page's 60% figure width is a separate user preference. It changes neither the
+native drawing nor exact values. An old image remained cached after a successful
+deployment; hash-versioned image URLs made the updated SVG visible on reload.
 
 ## Earlier SVG preview observations, 2026-10-11
 
