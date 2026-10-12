@@ -130,9 +130,7 @@ def render_drawing(entry):
         '<figure class="submission-schematic" aria-label="Submitted circuit schematic">'
         '<div class="schematic-scroll" tabindex="0" role="region" aria-label="Circuit diagram; scroll horizontally to inspect">'
         '<img src="' + prefix + 'schematic.svg" alt="' + escape(entry['title'], quote=True) +
-        '. ' + escape(entry['description'], quote=True) + '" loading="lazy"/></div>'
-        '<figcaption><a href="' + prefix + 'schematic.svg" target="_blank" rel="noopener">SVG</a> · '
-        '<a href="' + prefix + 'project.icproj.json" download>Project</a></figcaption></figure>\n'
+        '. ' + escape(entry['description'], quote=True) + '" loading="lazy"/></div></figure>\n'
     )
 
 

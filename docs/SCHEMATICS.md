@@ -25,14 +25,17 @@ setup, artifact paths, verification and site integration. See
 
 ## Presentation contract
 
-Final submission displays the diagram with only short `SVG` and `Project` links.
+Final submission displays the diagram without `SVG` or `Project` links beneath it.
 Descriptions, body/unit/crossing notes, verification prose and device tables are
 kept in supporting data or documentation rather than printed below the diagram.
 Accessible image descriptions remain available.
 
 Use a white drawing surface in both themes. The focusable horizontal scroll
-region retains readable labels on narrow layouts. Keep native text and symbol
-sizes; reduce gaps and routes through placement. Native SVG export uses a
+region retains readable labels on narrow layouts. The page figure uses 80% width,
+with a 544 px minimum capped at the available width; its image scrolls below
+544 px. This uniformly scales the page display while preserving native text,
+symbols and geometry. Reduce drawing gaps and routes through placement.
+Native SVG export uses a
 20-unit outer margin; the pinned editor's default uses 40 units.
 
 Passive diagram text uses about two significant digits: `92.59k → 93k` and
@@ -40,7 +43,8 @@ Passive diagram text uses about two significant digits: `92.59k → 93k` and
 mega; SPICE uses `meg` or numeric notation because its `M` means milli.
 
 The LDO's R1/R2 column lies directly below XMP's drain, with CFF beside R1.
-Its FB return and NB drain return remain distinct; C1–RZ connects G to VIN.
+RB runs horizontally above the input pair from XMP's drain to the NB drain
+trunk. Its FB return and NB drain return remain distinct; C1–RZ connects G to VIN.
 The OTA's XMbn remains mirrored, with a local D–G tie and continuous shared gate
 to XMtl. These are pilot constraints, not a universal OTA/LDO layout.
 Crossings without a dot are unconnected. NFET bodies use VSS/vss; PFET bodies
@@ -113,7 +117,7 @@ ordinary GUI export or this setting always preserves other interfaces.
 
 `site/schematics/index.json` binds each drawing to its submitted SHA-256 and
 artifact hashes. `tools/schematics.py` checks hashes, exact structural contracts
-and verification reports, then inserts the diagram and compact links during
+and verification reports, then inserts the diagram during
 `build_traces.py`. It does not edit `content/traces/`. Stale sources, changed
 artifacts, mismatched exports and unknown runs fail the build. Portable exports
 copy the same artifacts.

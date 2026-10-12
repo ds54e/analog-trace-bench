@@ -162,7 +162,7 @@ const layouts = [
       XMB: [120, 340, "horizontal"],
       XMP: [500, 180],
       RS: [110, 120],
-      RB: [360, 300, 90],
+      RB: [160, 200, 90],
       R1: [510, 250],
       R2: [510, 340],
       CFF: [600, 250],
@@ -206,16 +206,12 @@ const layouts = [
       c.w("NZ", "C1.2", "RZ.1");
       c.j("out-pass", "VOUT", 510, 210);
       c.j("out-c", "VOUT", 600, 210);
-      c.j("out-divider", "VOUT", 510, 220);
-      c.j("out-bias", "VOUT", 470, 300);
       c.w("VOUT", "XMP.D", "out-pass");
       c.w("VOUT", "out-pass", "out-c");
       c.w("VOUT", "out-c", "@VOUT");
-      c.w("VOUT", "out-pass", "out-divider");
-      c.w("VOUT", "out-divider", "R1.1");
+      c.w("VOUT", "out-pass", "R1.1");
       c.w("VOUT", "out-c", "CFF.1");
-      c.w("VOUT", "out-divider", "out-bias", [[470, 220]]);
-      c.w("VOUT", "RB.1", "out-bias");
+      c.w("VOUT", "RB.1", "XMP.D");
       // RB retains source pin order VOUT,NB; its rotation places pin 1 on the right.
       c.j("fb-c", "FB", 510, 280);
       c.j("fb", "FB", 510, 290);
@@ -238,7 +234,7 @@ const layouts = [
       c.w("TAIL", "XM1.S", "tail", [[210, 280]]);
       c.w("TAIL", "XM2.S", "tail", [[330, 280]]);
       c.w("TAIL", "tail", "XMT.D");
-      c.j("nb-return", "NB", 110, 300);
+      c.j("nb-return", "NB", 110, 200);
       c.j("nb-drain", "NB", 110, 310);
       c.j("nb-gates", "NB", 150, 340);
       c.w("NB", "RS.2", "nb-return");
@@ -536,9 +532,6 @@ for (const layout of layouts) {
       x = horizontal ? 0 : 16;
       y = horizontal ? -32 : -4;
       align = horizontal ? "middle" : "start";
-      if (ref === "RB") {
-        y = 20;
-      }
       annotation(
         "instance-label",
         {

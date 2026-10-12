@@ -6,14 +6,16 @@ preferences and current pilot constraints, not general analog-drawing standards.
 ## Visible presentation
 
 - Place the diagram in Final submission above the unchanged submitted SPICE.
-- Show only compact `SVG` and `Project` links below it.
+- Show the diagram without `SVG` or `Project` links below it; retain both artifacts.
 - Keep circuit descriptions, body/unit/crossing notes, verification prose and
   device tables out of the visible trace. Keep their data in supporting artifacts
   and repository documentation. Preserve useful image alt text for accessibility.
-- Keep text and symbol sizes readable. Reduce empty gaps, wire length and detours
-  through placement and routing rather than smaller text or horizontal scaling.
-- Use a white SVG surface in either page theme. Retain the focusable horizontal
-  scroll region on narrow layouts rather than shrinking labels to fit.
+- Preserve native text sizes and solve drawing density through placement and
+  routing. The requested page display is about 80% of the former full-width view;
+  apply uniform scaling to the page image, not changes to native drawing geometry.
+- Use a white SVG surface in either page theme. Keep the page figure at 80% width
+  with a minimum of 544 px, capped at the available width. Retain the focusable
+  horizontal scroll region when the 544 px image exceeds a narrow viewport.
 
 ## Display values and exact parameters
 
@@ -45,7 +47,7 @@ submissions and is not a general GUI-edit round-trip tool.
 | Pilot | Preserve when refining |
 |---|---|
 | OTA-FIXED / Opus 5.5 / Run 1 | Keep XMbn horizontally mirrored, its D–G tie local, and the shared gate to XMtl continuous. Keep Cc–Rz between n1 and vout. |
-| LDO-CORE / Sonnet 5.5 / Run 1 | Keep R1/R2 on the column directly beneath XMP's drain, with CFF beside R1. Show the FB return and distinguish the NB drain trunk from the local XMB D–G tie. Preserve G–C1–NZ–RZ–VIN. |
+| LDO-CORE / Sonnet 5.5 / Run 1 | Keep R1/R2 on the column directly beneath XMP's drain, with CFF beside R1. Run the RB branch horizontally above the input pair, from XMP's drain to the NB drain trunk. Show the FB return and distinguish NB from the local XMB D–G tie. Preserve G–C1–NZ–RZ–VIN. |
 
 These constraints do not prescribe fixed coordinates or require every future
 OTA/LDO to share the same topology. Confirm device roles from each source.

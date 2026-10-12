@@ -331,10 +331,12 @@ pre::-webkit-scrollbar {
 }
 pre > code { font: inherit; color: inherit; }
 
-/* Source-bound drawings added to Final submission. Keep a readable diagram
-   width on phones; the focusable region scrolls without shrinking text. */
+/* Source-bound drawings displayed at 80% width; preserve a readable minimum
+   and horizontal scrolling on narrow screens. Native geometry is unchanged. */
 .submission-schematic {
   margin: 0 0 18px;
+  width: 80%;
+  min-width: min(100%, 544px);
 }
 
 .schematic-scroll {
@@ -346,7 +348,7 @@ pre > code { font: inherit; color: inherit; }
 .schematic-scroll img {
   display: block;
   width: 100%;
-  min-width: 680px;
+  min-width: 544px;
   height: auto;
 }
 
