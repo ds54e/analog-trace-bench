@@ -1,0 +1,14 @@
+* Two-stage continuous-time OTA with NMOS input and PMOS output stage.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=4 nf=1 m=1
+XTAIL TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=4 nf=1 m=1
+XINN NDI VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=3 nf=1 m=2
+XINP N1 VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=3 nf=1 m=2
+XPM1 NDI NDI VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=2
+XPM2 N1 NDI VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=2
+XOUTP VOUT N1 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=10
+XOUTN VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=4 nf=1 m=2
+RCOMP N1 NC 2500
+CCOMP NC VOUT 8p
+CPS NDI VSS 8p
+.ends DUT

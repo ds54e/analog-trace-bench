@@ -1,0 +1,27 @@
+* Two-stage NMOS-input OTA with cascoded input drains.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* External 10uA reference and ground-referenced mirrors.
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XTAIL NS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=30 l=1 nf=1 m=2
+XOSINK VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1 nf=1 m=4
+* Differential input; the nondiode leg is noninverting overall.
+XINP NP VINP NS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=2
+XINN NN VINN NS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=2
+XCASP NG NCAS NP VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=2
+XCASN ND NCAS NN VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=2
+XPD PDL ND VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=0.5 nf=1 m=2
+XPM PML ND VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=0.5 nf=1 m=2
+XPCD ND PCAS PDL VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=1
+XPCM NG PCAS PML VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=1
+* Supply-relative PMOS cascode reference.
+XPR PCAS PCAS VDD VDD sky130_fd_pr__pfet_01v8 w=3 l=0.5 nf=1 m=1
+XPRS PCAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+* Cascode reference: two diode drops with low-density upper device.
+XCBP NCAS ND VDD VDD sky130_fd_pr__pfet_01v8 w=50 l=0.5 nf=1 m=1
+XCBU NCAS NCAS NCB VSS sky130_fd_pr__nfet_01v8 w=50 l=1 nf=1 m=1
+XCBL NCB NCB VSS VSS sky130_fd_pr__nfet_01v8 w=6 l=0.5 nf=1 m=1
+* PMOS common-source output and zero-compensated Miller network.
+XOUT VOUT NG VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=10
+RZ NG NZ 1600
+CC NZ VOUT 4.5p
+.ends DUT

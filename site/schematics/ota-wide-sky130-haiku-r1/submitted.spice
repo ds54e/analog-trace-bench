@@ -1,0 +1,23 @@
+* Rail-to-rail-input two-stage Miller OTA, class-A output stage
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* bias: IREF into IBIAS sets diode NMOS (10 uA); PB is PMOS diode bias
+XMBN0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 nf=1 m=1
+XMBN1 PB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=15 L=0.5 nf=1 m=1
+XMBP0 PB PB VDD VDD sky130_fd_pr__pfet_01v8 W=10 L=0.5 nf=1 m=1
+XMTN TAILN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=1 nf=1 m=1
+XMTP TAILP PB VDD VDD sky130_fd_pr__pfet_01v8 W=35 L=1 nf=1 m=1
+* NMOS input pair with PMOS mirror load
+XMN1 NA VINN TAILN VSS sky130_fd_pr__nfet_01v8 W=60 L=1 nf=1 m=1
+XMN2 V1 VINP TAILN VSS sky130_fd_pr__nfet_01v8 W=60 L=1 nf=1 m=1
+XMPD1 NA NA VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=0.5 nf=1 m=1
+XMPO1 V1 NA VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=0.5 nf=1 m=1
+* PMOS input pair with NMOS mirror load
+XMP1 PA VINN TAILP VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=1
+XMP2 V1 VINP TAILP VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=1
+XMND PA PA VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=1
+XMNO V1 PA VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=1
+* second stage and output current source
+XMO VOUT V1 VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=0.5 nf=1 m=1
+XMPL VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=1
+CC V1 VOUT 6p
+.ends DUT

@@ -1,0 +1,30 @@
+* complementary folded cascode v2
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XMb0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 nf=1 m=1
+XMb1 VBP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100.0 L=0.5 nf=1 m=1
+XMbp VBP VBP VDD VDD sky130_fd_pr__pfet_01v8 W=75 L=0.5 nf=1 m=2
+XMb2 VCP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100.0 L=0.5 nf=1 m=1
+XMrp VCP VCP SRP VDD sky130_fd_pr__pfet_01v8 W=100 L=0.4 nf=1 m=1
+Rp SRP VDD 12900
+XMb3 VCN VBP VDD VDD sky130_fd_pr__pfet_01v8 W=70.005 L=0.5 nf=1 m=1
+XMrn VCN VCN SRN VSS sky130_fd_pr__nfet_01v8 W=100 L=0.4 nf=1 m=1
+Rn SRN VSS 25800
+XMtn TN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=90.0 L=0.5 nf=1 m=2
+XMtp TP VBP VDD VDD sky130_fd_pr__pfet_01v8 W=90.0 L=0.5 nf=1 m=3
+XMn1 UA VINP TN VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 nf=1 m=5
+XMn2 UB VINN TN VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 nf=1 m=5
+XMp1 LA VINP TP VDD sky130_fd_pr__pfet_01v8 W=100 L=0.2 nf=1 m=11
+XMp2 LB VINN TP VDD sky130_fd_pr__pfet_01v8 W=100 L=0.2 nf=1 m=11
+XMsa UA VBP VDD VDD sky130_fd_pr__pfet_01v8 W=100.0 L=0.5 nf=1 m=6
+XMsb UB VBP VDD VDD sky130_fd_pr__pfet_01v8 W=100.0 L=0.5 nf=1 m=6
+XMna LA IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=90.0 L=0.5 nf=1 m=2
+XMnb LB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=90.0 L=0.5 nf=1 m=2
+XMcpa XA VCP UA VDD sky130_fd_pr__pfet_01v8 W=100 L=0.4 nf=1 m=3
+XMcpb VOUT VCP UB VDD sky130_fd_pr__pfet_01v8 W=100 L=0.4 nf=1 m=3
+XMcna XA VCN LA VSS sky130_fd_pr__nfet_01v8 W=100 L=0.4 nf=1 m=3
+XMcnb VOUT VCN LB VSS sky130_fd_pr__nfet_01v8 W=100 L=0.4 nf=1 m=3
+XMmca XA VCN MA VSS sky130_fd_pr__nfet_01v8 W=100 L=0.4 nf=1 m=2
+XMma MA XA VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 nf=1 m=1
+XMmcb VOUT VCN MB VSS sky130_fd_pr__nfet_01v8 W=100 L=0.4 nf=1 m=2
+XMmb MB XA VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 nf=1 m=1
+.ends DUT

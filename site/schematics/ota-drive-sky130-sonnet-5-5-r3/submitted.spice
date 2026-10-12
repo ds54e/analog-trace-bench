@@ -1,0 +1,27 @@
+* Symmetrical OTA, NMOS pair, cascoded PMOS/NMOS output mirrors, resistor-set cascode bias
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+.param lm=0.25
+.param lc=0.5
+XMN0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=1
+XMNS1 VP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=2
+XMNS3 VBP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=2
+XMP0 VP VP VDD VDD sky130_fd_pr__pfet_01v8 W=10 L=1 nf=1 m=1
+XMPS2 VBN VP VDD VDD sky130_fd_pr__pfet_01v8 W=10 L=1 nf=1 m=1
+XMNB VBN VBN SN VSS sky130_fd_pr__nfet_01v8 W=15 L={lc} nf=1 m=1
+RN SN VSS 12500
+RP VDD SP 12500
+XMPB VBP VBP SP VDD sky130_fd_pr__pfet_01v8 W=26.7 L={lc} nf=1 m=1
+XM9 TS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=30
+XM1 N3 VINP TS VSS sky130_fd_pr__nfet_01v8 W=75 L=0.25 nf=1 m=2
+XM2 N4 VINN TS VSS sky130_fd_pr__nfet_01v8 W=75 L=0.25 nf=1 m=2
+XM3 N3 N3 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L={lm} nf=1 m=1
+XM4 N4 N4 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L={lm} nf=1 m=1
+XM6 X6 N3 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L={lm} nf=1 m=4
+XM6C VOUT VBP X6 VDD sky130_fd_pr__pfet_01v8 W=100 L={lc} nf=1 m=8
+XM5 X5 N4 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L={lm} nf=1 m=4
+XM5C N7 VBP X5 VDD sky130_fd_pr__pfet_01v8 W=100 L={lc} nf=1 m=8
+XM7C N7 VBN X7 VSS sky130_fd_pr__nfet_01v8 W=84 L={lc} nf=1 m=4
+XM7 X7 N7 VSS VSS sky130_fd_pr__nfet_01v8 W=84 L={lm} nf=1 m=2
+XM8C VOUT VBN X8 VSS sky130_fd_pr__nfet_01v8 W=84 L={lc} nf=1 m=4
+XM8 X8 N7 VSS VSS sky130_fd_pr__nfet_01v8 W=84 L={lm} nf=1 m=2
+.ends DUT

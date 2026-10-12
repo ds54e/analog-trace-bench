@@ -1,0 +1,33 @@
+* OTA-DRIVE-SKY130 : NMOS-input current-mirror (symmetrical) OTA, cascoded class-A output
+* Dominant pole at the load node (CL-compensated), B=3 current gain, 320uA tail
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* reference: 10uA enters IBIAS -> NMOS diode
+XB0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=5 l=1 m=2
+* tail 320uA
+XT TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=32
+* input pair (M1 on VINN feeds sink path, M2 on VINP feeds source path)
+XM1 N1 VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=50 l=0.5 m=5
+XM2 N2 VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=50 l=0.5 m=5
+* PMOS mirrors 1:3
+XM3 N1 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=8
+XM5 P5 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=24
+XM4 N2 N2 VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=8
+XM6 P6 N2 VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=24
+* PMOS cascodes
+XM5C NM VBPC P5 VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=24
+XM6C VOUT VBPC P6 VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=24
+* NMOS wide-swing cascode mirror 1:1
+XM7C NM VBNC Q7 VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 m=14
+XM7 Q7 NM VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 m=14
+XM8C VOUT VBNC Q8 VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 m=14
+XM8 Q8 NM VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 m=14
+* cascode bias generators (10uA each, density-matched replicas + IR offsets)
+XBN1 VBP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=5 l=1 m=2
+XBP0 VBP VBP VDD VDD sky130_fd_pr__pfet_01v8 w=4 l=1 m=1
+XBP1 VBNC VBP VDD VDD sky130_fd_pr__pfet_01v8 w=4 l=1 m=1
+XBNC VBNC VBNC XN VSS sky130_fd_pr__nfet_01v8 w=3 l=0.5 m=1
+RN XN VSS 20k
+XBN2 VBPC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=5 l=1 m=2
+XBPC VBPC VBPC XP VDD sky130_fd_pr__pfet_01v8 w=5 l=0.5 m=1
+RP VDD XP 30k
+.ends DUT

@@ -1,0 +1,13 @@
+* Two-stage Miller OTA: NMOS pair, PMOS mirror load, PMOS common-source output, NMOS sink
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XMB IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=4 nf=1 m=1
+XMT TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=4 nf=1 m=1
+XM1 A VINN TAIL VSS sky130_fd_pr__nfet_01v8 W=80 L=4 nf=1 m=2
+XM2 N1 VINP TAIL VSS sky130_fd_pr__nfet_01v8 W=80 L=4 nf=1 m=2
+XM3 A A VDD VDD sky130_fd_pr__pfet_01v8 W=26 L=1 nf=1 m=1
+XM4 N1 A VDD VDD sky130_fd_pr__pfet_01v8 W=26 L=1 nf=1 m=1
+XM6 VOUT N1 VDD VDD sky130_fd_pr__pfet_01v8 W=35 L=0.5 nf=1 m=4
+XM7 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=4 nf=1 m=8
+CC N1 NZ 2.8p
+RZ NZ VOUT 4k
+.ends DUT

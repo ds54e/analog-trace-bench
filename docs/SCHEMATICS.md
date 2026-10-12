@@ -1,12 +1,13 @@
 # Submitted circuit drawings
 
-Two Final submission sections include native transistor-level diagrams above the
+All 121 OTA Final submission sections and the LDO pilot include native diagrams above the
 unchanged submitted SPICE:
 
-| Pilot | Artifact directory under `site/schematics/` |
+| Coverage | Runs |
 |---|---|
-| OTA-FIXED / Opus 5.5 / Run 1 | `ota-fixed-sky130-opus-5-5-r1/` |
-| LDO-CORE / Sonnet 5.5 / Run 1 | `ldo-core-sky130-sonnet-5-5-r1/` |
+| OTA-DRIVE / FIXED / FREE / PRECISION | 24 each |
+| OTA-WIDE | 25 |
+| LDO-CORE / Sonnet 5.5 / Run 1 | 1 |
 
 Drawings are derived documentation. Submission bytes, canonical trace fragments,
 evaluation files and recorded results remain authoritative. Drawing generation
@@ -32,11 +33,14 @@ preferences there instead of duplicating them in this repository guide.
 | Implementation | Responsibility |
 |---|---|
 | `tools/schematics/generate.mjs` | Reconstruct native geometry and labels; save, reopen, render and compare. |
+| `tools/schematics/ota-layouts.mjs` | Select a source-matched two-stage motif or group larger circuits by differential branches and current paths. |
 | `tools/schematics.py` | Validate source-bound artifacts and insert the image-only figure with accessible alt text. |
 | `site/assets/trace.css` | Use 60% figure width and a 408 px minimum capped at the available width; preserve image aspect ratio and scroll below 408 px. |
 | `site/schematics/index.json` | Bind source and artifact hashes; the verified SVG hash versions each page image URL. |
 
-The white image surface remains consistent across page themes. Page scaling does
+Large grouped drawings have a manifest-specific image minimum at 80% of their
+native viewBox width, inside the same 60% figure. Horizontal scrolling preserves
+reading size without shrinking native text. The white image surface remains consistent across page themes. Page scaling does
 not modify native geometry, text sizes or parameters. Native SVG export uses a
 20-unit margin; the pinned editor's default uses 40 units.
 
@@ -46,7 +50,7 @@ latest drawing; cached images were observed during these refinements.
 
 ## Artifacts
 
-Each pilot directory contains:
+Each `site/schematics/<run-id>/` directory contains:
 
 | File | Purpose |
 |---|---|
@@ -56,8 +60,12 @@ Each pilot directory contains:
 | `exported.spice` | Checked structural export from the reopened project. |
 | `verification.json` | Comparisons, export/display settings, route/body checks and diagnostics. |
 
-The checked-in recipe reconstructs the two frozen submissions, not later GUI
-edits or arbitrary netlists. See the skill's
+The recipe reads the catalog's OTA submissions individually and retains the two
+reviewed pilot layouts. It does not reproduce later GUI edits or accept arbitrary
+netlists. It reuses the two-stage layout only after matching actual ordered-pin
+connections, including RC order. Larger circuits retain vertical stacks and
+paired inputs; source degeneration resistors stay with their pair. Remote groups
+use object-bound native net labels, not SVG-only text. See the skill's
 [Native workflow](../skills/human-readable-analog-schematics/references/analog-canvas-workflow.md)
 for literal labels, saved cell defaults and pinned export behavior.
 
@@ -87,7 +95,14 @@ python3 -m unittest discover -s tests -v
 
 Skip clone/checkout when the cache already has that revision. Pass a different
 native checkout path as the generator's first argument if needed. Generation
-rewrites only the two pilot artifact directories and drawing index. The bridge
+rewrites the 122 artifact directories and drawing index. For a single-run preview:
+
+```sh
+ATB_SCHEMATIC_RUN=ota-free-sky130-sonnet-5-5-r1 node tools/schematics/generate.mjs
+```
+
+This writes only that run's artifacts and leaves the index untouched; regenerate
+the full set before building or publishing changed drawings. The bridge
 exposes pinned native APIs; no PDK installation or gallery login is required for
 local generation. Live gallery comparison requires separate browser access.
 
@@ -97,8 +112,14 @@ After saving/reopening, generation checks authored visible routes and bulk
 defaults, orthogonal geometry, expected rounded label strings, native unrouted
 connections and diagnostics. It exports and compares exact ordered external
 ports, D/G/S/B or passive pin order, models, values, W/L, nf and m. The saved
-reports for both pilots record a match, zero unrouted connections and zero
-native diagnostics.
+reports for all 122 drawings record zero unrouted connections and zero native
+diagnostics. The 121 OTA electrical contracts match after reopening. One source
+(`ota-drive-sky130-sonnet-5-5-r3`) uses numeric `.param` constants: the native
+comparison is retained as inconclusive, while a separate literal-value native
+comparison and independent ordered-pin check pass. Definitions and original
+expressions stay in the source, project and export. The parser accepts only
+declared numeric constants referenced as `{name}`; arithmetic and unresolved
+expressions fail. Omitted SKY130 `nf` and `m` compare against defaults of one.
 When reproducing an unchanged recipe, compare regenerated artifact hashes with
 the saved set; matching source/export contracts alone do not prove reproducibility.
 
@@ -111,7 +132,9 @@ The pinned ordinary export changes port order for each pilot while preserving
 topology and parameters. `verification.json` records this difference separately.
 The supplied checked export uses `{format: 'spice', groundPin: 'global'}` and
 matches the submitted interface order for these two cases. Do not assume that
-ordinary GUI export or this setting always preserves other interfaces.
+ordinary GUI export or this setting always preserves other interfaces. All current
+OTA checked exports were verified individually; ordinary-export results remain
+in each report.
 
 ## Site integration and additional runs
 
@@ -125,8 +148,8 @@ copy the same artifacts.
 For an additional run, read its actual circuit, author/review the native project,
 retain source/export/check artifacts and register the verified drawing. Extend
 the recipe only when reproducible generation is required. The independent parser
-accepts one subcircuit, the reviewed SKY130 four-terminal X calls and numeric R/C
-values/parameters. Add deliberate support before using hierarchy, expressions
+accepts one subcircuit, the reviewed SKY130 four-terminal X calls, numeric R/C
+values/parameters and the limited numeric constants above. Add deliberate support before using hierarchy, other expressions
 or other devices; unsupported constructs must not silently pass.
 
 For instructions-only maintenance, check references and build the site without

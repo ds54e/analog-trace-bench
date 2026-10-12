@@ -1,0 +1,13 @@
+* Two-stage NMOS-input OTA with a compensated PMOS output stage.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 nf=1 m=1
+XTAIL NT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=16 l=1 nf=1 m=1
+XINP N2 VINP NT VSS sky130_fd_pr__nfet_01v8 w=60 l=1 nf=1 m=1
+XINN N1 VINN NT VSS sky130_fd_pr__nfet_01v8 w=60 l=1 nf=1 m=1
+XPL1 N1 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=25 l=0.5 nf=1 m=1
+XPL2 N2 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=25 l=0.5 nf=1 m=1
+XOUTP VOUT N2 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+XOUTN VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=64 l=1 nf=1 m=1
+RZ N2 NC 2200
+CC NC VOUT 2.2p
+.ends DUT

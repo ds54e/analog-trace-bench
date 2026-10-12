@@ -1,0 +1,17 @@
+* Two-stage OTA, NMOS input pair and PMOS output stage
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XNB IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 m=1
+XNT STAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=1 m=2
+XN1 D1 VINN STAIL VSS sky130_fd_pr__nfet_01v8 w=30 l=1.2 m=2
+XN2 G2 VINP STAIL VSS sky130_fd_pr__nfet_01v8 w=30 l=1.2 m=2
+XP1 D1 D1 VDD VDD sky130_fd_pr__pfet_01v8 w=60 l=2 m=1
+XP2 G2 D1 VDD VDD sky130_fd_pr__pfet_01v8 w=60 l=2 m=1
+* Cascoded output current sink
+RTOP VDD BN 80k
+RBOT BN VSS 120k
+XP3 VOUT G2 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 m=4
+XNC VOUT BN NINT VSS sky130_fd_pr__nfet_01v8 w=100 l=1 m=4
+XN3 NINT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=85.75 l=2 m=8
+RZ G2 CINT 3k
+CC CINT VOUT 4.5p
+.ends DUT

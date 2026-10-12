@@ -1,0 +1,45 @@
+* OTA-WIDE-SKY130 v8: complementary-input two-stage Miller OTA
+* VINP non-inverting, VINN inverting, VOUT output, VDD/VSS, IBIAS=10uA in.
+* Measured device data: NMOS Vth~0.50V k'~80uA/V2; PMOS |Vth|~1.0V k'~80uA/V2.
+* Stage1a: NMOS pair M1/M2 (tail M5) + wide PMOS mirror M3/M4. Wide mirror
+*   maximises the mirror node (~VDD-|Vthp|-|Vov|) so the NMOS pair stays
+*   saturated up to VIN=1.1V.
+* Stage1b: PMOS pair M8/M9 (tail M10) + NMOS mirror M11/M12 covers the low
+*   input range (~0.25..0.5V); the PMOS pair is hard off above 0.5V (|Vthp|~1V)
+*   so it injects negligible current into node X at high input.
+* Stage2: NMOS common source M6 (gate=X, so X sits ~0.64V) with PMOS current
+*   source load M7. Miller compensation CC1+RZ1 from X to VOUT.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+
+* ---- bias ----
+XMB  IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=2 nf=1 m=1
+XMRN PB    IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=2 nf=1 m=1
+XMRP PB    PB    VDD VDD sky130_fd_pr__pfet_01v8 W=25 L=0.5 nf=1 m=1
+
+* ---- NMOS input pair + PMOS mirror load ----
+XM1  Z1 VINN T1 VSS sky130_fd_pr__nfet_01v8 W=100 L=2 nf=1 m=1
+XM2  X  VINP T1 VSS sky130_fd_pr__nfet_01v8 W=100 L=2 nf=1 m=1
+XM5  T1 IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=80 L=2 nf=1 m=1
+XM3  Z1 Z1 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=2
+XM4  X  Z1 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=2
+
+* ---- PMOS input pair + NMOS mirror load ----
+XM8  Z2 VINN T2 VDD sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=1
+XM9  X  VINP T2 VDD sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=1
+XM10 T2 PB   VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=1
+XM11 Z2 Z2 VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=2 nf=1 m=1
+XM12 X  Z2 VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=2 nf=1 m=1
+RB2  Z2 VSS 2meg
+
+* ---- second stage: NMOS common source + PMOS current source load ----
+XM6  VOUT X  VSS VSS sky130_fd_pr__nfet_01v8 W=80 L=0.5 nf=1 m=2
+XM7  VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=3
+
+* ---- Miller compensation ----
+CC1  X  XR 6p
+RZ1  XR VOUT 1k
+
+* ---- safety pull-up ----
+RB1  Z1 VDD 50meg
+
+.ends DUT

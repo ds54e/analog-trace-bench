@@ -1,0 +1,18 @@
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Cascoded differential pair with a 10:1 tail mirror and cascoded PMOS load.
+XMREF ibias ibias VSS VSS sky130_fd_pr__nfet_01v8 w=5 l=1 m=1
+XMTAIL ntail ibias VSS VSS sky130_fd_pr__nfet_01v8 w=25 l=1 m=2
+XMINP ninp VINP ntail VSS sky130_fd_pr__nfet_01v8 w=51.5 l=2 m=2
+XMINN ninn VINN ntail VSS sky130_fd_pr__nfet_01v8 w=51.5 l=2 m=2
+XMNCP nref vbn ninp VSS sky130_fd_pr__nfet_01v8 w=100 l=2.5 m=1
+XMNCN VOUT vbn ninn VSS sky130_fd_pr__nfet_01v8 w=100 l=2.5 m=1
+XMPREF nref nref mprefsrc VDD sky130_fd_pr__pfet_01v8 w=60 l=1.2 m=4
+XMPLOAD VOUT nref mpoutsrc VDD sky130_fd_pr__pfet_01v8 w=62.5 l=1.2 m=4
+XMPCREF mprefsrc vbp VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 m=2
+XMPCLOAD mpoutsrc vbp VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 m=2
+RBN VDD vbn 300k
+XMNBNHI vbn vbn nbl VSS sky130_fd_pr__nfet_01v8 w=5 l=1 m=1
+XMNBNLO nbl nbl VSS VSS sky130_fd_pr__nfet_01v8 w=5 l=1 m=1
+XMNBIAS vbp ibias VSS VSS sky130_fd_pr__nfet_01v8 w=5 l=1 m=1
+XMPCBIAS vbp vbp VDD VDD sky130_fd_pr__pfet_01v8 w=7.1 l=0.5 m=1
+.ends DUT

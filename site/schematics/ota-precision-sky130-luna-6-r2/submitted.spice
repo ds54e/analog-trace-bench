@@ -1,0 +1,13 @@
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* NMOS differential pair with PMOS mirror and class-A output
+XREFN IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 m=1
+XTAIL NTAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=2 m=1
+XINN NDIFFP VINN NTAIL VSS sky130_fd_pr__nfet_01v8 w=80 l=2 m=1
+XINP NDIFFN VINP NTAIL VSS sky130_fd_pr__nfet_01v8 w=78.4 l=2 m=1
+XLOAD1 NDIFFP NDIFFP VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=2 m=1
+XLOAD2 NDIFFN NDIFFP VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=2 m=1
+XOUTN VOUT NDIFFN VSS VSS sky130_fd_pr__nfet_01v8 w=2 l=4 m=1
+XOUTP VOUT IBIAS VDD VDD sky130_fd_pr__pfet_01v8 w=25 l=1 m=1
+CCOMP NDIFFN NCOMP 5.6p
+RCOMP NCOMP VOUT 85k
+.ends DUT

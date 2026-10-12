@@ -1,0 +1,16 @@
+* Two-stage CMOS OTA with mirrored reference and series-null Miller compensation
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* 10 uA external reference sets 60 uA differential tail and 120 uA output sink
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=2 m=1
+XTAIL NTAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=24 l=2 m=1
+XOUTN VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=48 l=2 m=1
+* Differential first stage, PMOS mirror active load
+XINN NLEFT VINN NTAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=2 m=1
+XINP N1 VINP NTAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=2 m=1
+XPL NLEFT NLEFT VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 m=1
+XPR N1 NLEFT VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 m=1
+* Common-source output and compensation
+XOUTP VOUT N1 VDD VDD sky130_fd_pr__pfet_01v8 w=62.5 l=0.8 m=2
+RZ N1 NC 3k
+CC NC VOUT 3.5p
+.ends DUT

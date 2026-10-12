@@ -44,6 +44,18 @@ The page's 60% figure width is a separate user preference. It changes neither th
 native drawing nor exact values. An old image remained cached after a successful
 deployment; hash-versioned image URLs made the updated SVG visible on reload.
 
+## OTA coverage review, 2026-10-12
+
+Reviewed all 121 local native renders at fit size, then selected compact,
+source-degenerated and large complementary examples at reading size. These are
+ATB output observations, not a fresh gallery visit or a simulation result.
+
+| Saved example | Observation | Transferable use and limit |
+|---|---|---|
+| [OTA-DRIVE / Astra / Run 2](https://ds54e.github.io/analog-trace-bench/schematics/ota-drive-sky130-astra-r2/schematic.svg) | The source has RCOMP before CCOMP. Increasing clearance for those actual reference strings keeps their aligned labels separate. | Match RC connectivity before reusing a motif; inspect reference widths as well as values. |
+| [OTA-FREE / Sonnet 5.5 / Run 1](https://ds54e.github.io/analog-trace-bench/schematics/ota-free-sky130-sonnet-5-5-r1/schematic.svg) | RS1/RS2 stay beneath the input devices and join the common tail. | Recognize source degeneration from its resistors rather than requiring identical MOS source nets. |
+| [OTA-WIDE / Sonnet 5.5 / Run 3](https://ds54e.github.io/analog-trace-bench/schematics/ota-wide-sky130-sonnet-5-5-r3/schematic.svg) | Complementary input branches and vertical stacks are separated from auxiliary bias branches. Native named connections avoid a field of cross-page wires; a reading-width image scrolls inside the requested figure. | Verify every bound label through native connectivity. Wide grouped drawings require scrolling; matching netlists alone cannot establish readability. |
+
 ## Earlier SVG preview observations, 2026-10-11
 
 The earlier review used the gallery's `ai=0` filter: 13 examples from its first

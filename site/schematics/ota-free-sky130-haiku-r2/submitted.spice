@@ -1,0 +1,12 @@
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XM8 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=25 L=1 m=1 nf=1
+XM5 TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=25 L=1 m=6 nf=1
+XM7 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=25 L=1 m=15 nf=1
+XM1 D1 VINN TAIL VSS sky130_fd_pr__nfet_01v8 W=25 L=0.5 m=1 nf=1
+XM2 D2 VINP TAIL VSS sky130_fd_pr__nfet_01v8 W=25 L=0.5 m=1 nf=1
+XM3 D1 D1 VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=0.5 m=1 nf=1
+XM4 D2 D1 VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=0.5 m=1 nf=1
+XM6 VOUT D2 VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=0.5 m=5 nf=1
+RZ D2 NZ 0.67k
+CC NZ VOUT 3.5p
+.ends DUT

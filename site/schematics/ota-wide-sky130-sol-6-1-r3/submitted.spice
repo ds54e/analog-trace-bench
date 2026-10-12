@@ -1,0 +1,26 @@
+* Complementary-input, two-stage OTA
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* 10 uA reference and complementary bias mirrors
+Xbn IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+Xbpfeed BP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+Xbp BP BP VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=1 nf=1 m=1
+Xtn SN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+Xtp SP BP VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=1 nf=1 m=1
+* P-channel input pair and N mirror
+Xip1 DP VINN SP VDD sky130_fd_pr__pfet_01v8 w=80 l=0.3 nf=1 m=8
+Xip2 VX VINP SP VDD sky130_fd_pr__pfet_01v8 w=80 l=0.3 nf=1 m=8
+Xmp1 DP DP VSS VSS sky130_fd_pr__nfet_01v8 w=16 l=1 nf=1 m=1
+Xmp2 VX DP VSS VSS sky130_fd_pr__nfet_01v8 w=16 l=1 nf=1 m=1
+* N-channel input pair and P mirror
+Xin1 FN1 VINP SN VSS sky130_fd_pr__nfet_01v8 w=80 l=0.3 nf=1 m=4
+Xin2 FN2 VINN SN VSS sky130_fd_pr__nfet_01v8 w=80 l=0.3 nf=1 m=4
+Xfn1 FN1 BP VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=1 nf=1 m=1
+Xfn2 FN2 BP VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=1 nf=1 m=1
+Xfc1 VX BP FN1 VDD sky130_fd_pr__pfet_01v8 w=80 l=1 nf=1 m=1
+Xfc2 DP BP FN2 VDD sky130_fd_pr__pfet_01v8 w=80 l=1 nf=1 m=1
+* Common-source output stage
+Xoutn VOUT VX VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+Xoutp VOUT BP VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=1 nf=1 m=3
+Rzero VX VC 1200
+Cmill VC VOUT 6p
+.ends DUT

@@ -1,0 +1,14 @@
+* Two-stage precision OTA with NMOS input and PMOS output drive.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XBN IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=2 m=1
+XNT TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=76 l=12 m=1
+XNI1 A VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=60 l=2 m=1
+XNI2 B VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=60 l=2 m=1
+XPL1 A A VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=2 m=2
+XPL2 B A VDD VDD sky130_fd_pr__pfet_01v8 w=90.3 l=2 m=2
+XNO VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=2 m=1
+XPO VOUT B VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 m=12
+RZ B CZ 2000
+CC CZ VOUT 7p
+CRF VDD IBIAS 12.8p
+.ends DUT

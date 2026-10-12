@@ -1,0 +1,37 @@
+* Complementary-input two-stage OTA with mirrored current summation.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Reference conversion and current distribution.
+Xbn IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 nf=1 m=1
+Xbp_sink BP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 nf=1 m=1
+Xbp BP BP VDD VDD sky130_fd_pr__pfet_01v8 w=30 l=1 nf=1 m=1
+* PMOS input pair, each drain terminated in an identical diode.
+Xpt SP BP VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=1 nf=1 m=1
+Xpip PP VINP SP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+Xpin PN VINN SP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+Xplp Cplp PP VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 nf=1 m=1
+Xcasplp PP PP Cplp VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=4
+Xpln Cpln PN VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 nf=1 m=1
+Xcaspln PN PN Cpln VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=4
+Xpfold Cpfold PP VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 nf=1 m=1
+Xcaspfold PF PP Cpfold VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=4
+Xpfd Cpfd PF VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+Xcaspfd PF PF Cpfd VDD sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=8
+Xpfo Cpfo PF VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+Xcaspfo G1 PF Cpfo VDD sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=8
+Xplo Cplo PN VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 nf=1 m=1
+Xcasplo G1 PN Cplo VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=4
+* NMOS input pair and complementary current translation.
+Xnt SN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=24 l=1 nf=1 m=1
+Xnip NP VINP SN VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=2
+Xnin NN VINN SN VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=2
+* High-side current sources and common-gate folding devices.
+Xnloadp NP BP VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=1 nf=1 m=1
+Xnloadn NN BP VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=1 nf=1 m=1
+Xnfoldp PP BP NP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=4
+Xnfoldn PN BP NN VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=4
+* Common-source second stage and series-zero Miller compensation.
+Xout VOUT G1 VSS VSS sky130_fd_pr__nfet_01v8 w=60 l=0.5 nf=1 m=1
+Xoutbias VOUT BP VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=1 nf=1 m=4
+Rz G1 CZ 2000
+Cc CZ VOUT 8.5p
+.ends DUT

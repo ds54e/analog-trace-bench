@@ -1,0 +1,47 @@
+* Rail-range OTA with shifted PMOS and folded NMOS input pairs
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Five-microampere reference legs
+XNR IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 m=1
+XNB PBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 m=1
+XPR PBIAS PBIAS VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=2 m=1
+* Passive input shift for PMOS branch
+RTP VINP SHP 900k
+RBP SHP VSS 300k
+RTN VINN SHN 900k
+RBN SHN VSS 300k
+CTP VINP SHP 0.3p
+CTN VINN SHN 0.3p
+CBP SHP VSS 0.45p
+CBN SHN VSS 0.45p
+* Low-range PMOS differential pair
+RTAILP VDD PTAIL 3.25k
+XPIL PDL SHN PTAIL VDD sky130_fd_pr__pfet_01v8 w=100 l=1 m=1
+XPIR GATE SHP PTAIL VDD sky130_fd_pr__pfet_01v8 w=100 l=1 m=1
+XNPD PDL PDL VSS VSS sky130_fd_pr__nfet_01v8 w=35 l=5 m=1
+XNPO GATE PDL VSS VSS sky130_fd_pr__nfet_01v8 w=35 l=5 m=1
+* NMOS pair with high drains and folded PMOS current paths
+RPSL VDD SPL 900
+RPSR VDD SPR 900
+XNT NTAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=2 m=1
+XNIL NDL VINN NTAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 m=2
+XNIR NDR VINP NTAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 m=2
+* Common-mode gated current source for the folded path
+XNSP PSENSE VINP NSENSE VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 m=1
+XNSN PSENSE VINN NSENSE VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 m=1
+RSENSE NSENSE VSS 20k
+XPSREF PSENSE PSENSE VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=2 m=1
+XPSL NDL PSENSE SPL VDD sky130_fd_pr__pfet_01v8 w=100 l=2 m=1
+XPSR NDR PSENSE SPR VDD sky130_fd_pr__pfet_01v8 w=100 l=2 m=1
+RAL VDD NDL 80k
+RAR VDD NDR 80k
+XPFL FDL VSS NDL VDD sky130_fd_pr__pfet_01v8 w=50 l=1 m=1
+XPFR GATE VSS NDR VDD sky130_fd_pr__pfet_01v8 w=50 l=1 m=1
+XNFD FDL FDL VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=3 m=1
+XNFO GATE FDL VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=3 m=1
+* Single compensated output stage
+RG GATE PBIAS 100k
+XOP VOUT GATE VDD VDD sky130_fd_pr__pfet_01v8 w=85 l=1 m=4
+XONS VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=67.5 l=2 m=1
+RZ GATE CZ 2.5k
+CC CZ VOUT 7p
+.ends DUT

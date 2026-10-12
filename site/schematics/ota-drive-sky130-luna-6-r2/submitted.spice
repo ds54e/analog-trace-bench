@@ -1,0 +1,29 @@
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* NMOS reference and PMOS mirror reference, both nominally 10 uA
+XNR IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XNB PB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XPB PB PB VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=1 m=1
+* NMOS input pair with a 50 uA tail and PMOS current-mirror load
+XNT NTL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 m=3
+XNT2 NTL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1 m=1
+RTB VDD VBC 100meg
+RBB VBC VSS 100meg
+XTC TAIL VBC NTL VSS sky130_fd_pr__nfet_01v8 w=100 l=1 m=6
+XNI ND VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=97.4 l=1 m=7
+XNI2 X VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=97.4 l=1 m=7
+XPL ND ND VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 m=3
+XPM X ND VDD VDD sky130_fd_pr__pfet_01v8 w=85 l=1 m=3
+XPCOMP X PB VDD VDD sky130_fd_pr__pfet_01v8 w=40 l=1 m=1
+* Small supply-sensing sink trims output-stage line feedthrough
+RFF1 VDD VFF 4.89meg
+RFF2 VFF IBIAS 1.5meg
+RFF3 VFF VSS 2.5meg
+XFF X VFF VSS VSS sky130_fd_pr__nfet_01v8 w=24 l=2.5 m=1
+* Class-A output pull-up and large NMOS pull-down
+XPO VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 m=11
+XPO2 VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 w=43 l=1 m=1
+XNO VOUT X VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 m=14
+* Miller compensation with a series nulling resistor
+RZ X NC 330
+CC NC VOUT 20p
+.ends DUT

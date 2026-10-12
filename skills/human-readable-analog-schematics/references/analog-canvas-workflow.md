@@ -1,6 +1,6 @@
 # Native Analog Canvas verification
 
-Verified for ATB's two pilots with Analog Canvas 0.9.2, commit
+Verified for ATB's 121 OTA runs and LDO pilot with Analog Canvas 0.9.2, commit
 [`37bccd4012764dce53b34927fa606c6f430296a2`](https://github.com/cascode-ai/analog-canvas/tree/37bccd4012764dce53b34927fa606c6f430296a2),
 on 2026-10-12. Recheck API names and export/display behavior when changing versions.
 For ATB, read `docs/SCHEMATICS.md` for installation and regeneration. Outside ATB,
@@ -56,6 +56,10 @@ Adjust for symbol shape, rotation, actual fonts and text width.
 2. Check authored route endpoints against their assigned nets; require each
    visible non-body terminal to be reachable within its net. Check bulk defaults
    separately. Check route geometry on these reopened objects as well.
+   For named connections, include the native connectivity index's net-label or
+   power-label virtual edges. Bind labels to routed junctions, preserve source
+   spelling and local scope, and verify names resolve to the intended nets.
+   Imported logical membership alone does not prove visible connectivity.
 3. Resolve reopened passive labels and compare them with expected formatted text.
 4. Export SPICE and compare cell name, ordered external ports, references,
    ordered pins including B, models, values/expressions, W/L, nf and m. Do not
@@ -69,6 +73,12 @@ Adjust for symbol shape, rotation, actual fonts and text width.
 
 Use a SPICE-aware numeric parser: suffixes are case-insensitive and `M` is milli.
 Preserve unsupported expressions until their comparison is deliberately supported.
+The ATB constant-only case retains its inconclusive native comparison and adds
+a separate native comparison after resolving declared numeric `{name}` values.
+An independent parser also checks declarations, ordered pins and values; it
+rejects arithmetic, aliases, duplicate declarations and unknown names. Preserve
+expressions in saved artifacts. Compare omitted SKY130 nf/m to one while
+retaining every explicit multiplier.
 A topology grade alone is insufficient; the pinned `compareNetlists` output also
 checks interface order and parameters.
 

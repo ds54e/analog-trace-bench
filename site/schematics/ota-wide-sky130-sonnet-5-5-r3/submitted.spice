@@ -1,0 +1,48 @@
+* OTA-WIDE-SKY130 : complementary-input folded-cascode OTA, single high-Z output node (v3)
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+
+* ---------------- bias network (IBIAS = 10uA diode reference) ----------------
+XMBN  IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+XMBN2 vbp   IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+XMBP  vbp   vbp   VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+XMC1  vbnc  vbp   VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+XMRC  vbnc  vbnc  nrc VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+R1    nrc   VSS   13k
+XMC2  vbpc  IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+XMRP  vbpc  vbpc  nrp VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+R2    VDD   nrp   13k
+* low-density tail bias diodes
+XMTFN vtn   vbp   VDD VDD sky130_fd_pr__pfet_01v8 W=40 L=1 nf=1 m=1
+XMTDN vtn   vtn   VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=0.25 nf=1 m=1
+XMTFP vtp   IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+XMTDP vtp   vtp   VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.25 nf=1 m=1
+
+* ---------------- N-pair half (PMOS folded, NMOS wide-swing mirror) ----------------
+XMNT  tn    vtn   VSS VSS sky130_fd_pr__nfet_01v8 W=64 L=0.25 nf=1 m=2
+XMN1  na    VINP  tn  VSS sky130_fd_pr__nfet_01v8 W=60 L=0.25 nf=1 m=3
+XMN2  nb    VINN  tn  VSS sky130_fd_pr__nfet_01v8 W=60 L=0.25 nf=1 m=3
+XMPS1 na    vbp   VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=2
+XMPS2 nb    vbp   VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=2
+XMPC1 nc    vbpc  na  VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+XMPC2 VOUT  vbpc  nb  VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+XMNC1 nc    vbnc  nd1 VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+XMNC2 VOUT  vbnc  nd2 VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+XMNM1 nd1   nc    VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+XMNM2 nd2   nc    VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+
+* ---------------- P-pair half (NMOS folded, PMOS wide-swing mirror) ----------------
+XMPT  tp    vtp   VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.25 nf=1 m=2
+XMP1  pd    VINP  tp  VDD sky130_fd_pr__pfet_01v8 W=60 L=0.25 nf=1 m=6
+XMP2  pe    VINN  tp  VDD sky130_fd_pr__pfet_01v8 W=60 L=0.25 nf=1 m=6
+XMNS1 pd    IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=2
+XMNS2 pe    IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=2
+XMNC3 pk    vbnc  pd  VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+XMNC4 VOUT  vbnc  pe  VSS sky130_fd_pr__nfet_01v8 W=32 L=1 nf=1 m=1
+XMPM1 pf1   pk    VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+XMPM2 pf2   pk    VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+XMPC3 pk    vbpc  pf1 VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+XMPC4 VOUT  vbpc  pf2 VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+
+* output damping capacitor
+CX VOUT VSS 0.7p
+.ends DUT

@@ -1,0 +1,17 @@
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Bias reference (10 uA from VSS into IBIAS); tail and output sink mirror it at the same L
+XMREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=1
+XMTAIL TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=12
+* Input pair; VINN on the diode-load side gives negative feedback to VOUT
+XM1 NA VINN TAIL VSS sky130_fd_pr__nfet_01v8 W=50 L=1 nf=1 m=1
+XM2 N1 VINP TAIL VSS sky130_fd_pr__nfet_01v8 W=50 L=1 nf=1 m=1
+* PMOS mirror load
+XM3 NA NA VDD VDD sky130_fd_pr__pfet_01v8 W=40 L=1 nf=1 m=2
+XM4 N1 NA VDD VDD sky130_fd_pr__pfet_01v8 W=40 L=1 nf=1 m=2
+* Class-A output stage
+XM6 VOUT N1 VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=0.5 nf=1 m=11
+XM7 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=1 nf=1 m=20
+* Miller compensation with nulling resistor
+RZ N1 NZ 930
+CC NZ VOUT 6p
+.ends DUT

@@ -1,0 +1,24 @@
+* Folded-cascode input stage and NMOS common-source output
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Low-overdrive reference mirrors
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=2 nf=1 m=1
+XTAIL NT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=1
+XBN PB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=2 nf=1 m=1
+XBP PB PB VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=2 nf=1 m=1
+* NMOS input pair, folded at high-voltage drain nodes
+XINN FN VINN NT VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=4
+XINP FP VINP NT VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=4
+XPTN FN PB VDD VDD sky130_fd_pr__pfet_01v8 w=30 l=2 nf=1 m=1
+XPTP FP PB VDD VDD sky130_fd_pr__pfet_01v8 w=30 l=2 nf=1 m=1
+XFN ND PB FN VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=4
+XFP NG PB FP VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=4
+* Long-channel single-ended current mirror
+XND ND ND VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=8 nf=1 m=1
+XNO NG ND VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=8 nf=1 m=1
+* Output amplifier
+XPBIAS VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=2 nf=1 m=1
+XOUT VOUT NG VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=4 nf=1 m=1
+RZ NG NC 3000
+CC NC VOUT 10p
+CBP PB VDD 1p
+.ends DUT

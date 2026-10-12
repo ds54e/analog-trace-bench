@@ -1,0 +1,40 @@
+* OTA-WIDE-SKY130: complementary-input folded cascode + class-A NMOS output, Miller (Rz+Cc)
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* ---------------- bias ----------------
+XMNB0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 m=1
+XMNS1 VBP1 IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 m=1
+XMNS2 VBP2 IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 m=1
+XMNS3 VBPC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 m=1
+XMPB1 VBP1 VBP1 VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 m=1
+XMPB2 VBP2 VBP2 VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=1
+* PMOS cascode bias: VBPC = VDD - I*RP - VSG
+RP VDD XP 30k
+XMDP VBPC VBPC XP VDD sky130_fd_pr__pfet_01v8 w=16 l=0.15 m=1
+* NMOS cascode bias: VBNC = I*RN + VGS
+XMPS1 VBNC VBP1 VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 m=1
+XMDN VBNC VBNC YN VSS sky130_fd_pr__nfet_01v8 w=7 l=0.5 m=1
+RN YN VSS 30k
+* ---------------- input stage ----------------
+XMNT TN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 m=2
+XMNIN A1 VINN TN VSS sky130_fd_pr__nfet_01v8 w=40 l=1 m=3
+XMNIP A2 VINP TN VSS sky130_fd_pr__nfet_01v8 w=40 l=1 m=3
+XMPT TP VBP1 VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 m=2
+XMPIN B1 VINN TP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=6
+XMPIP B2 VINP TP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=6
+XMP1 A1 VBP2 VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=3
+XMP2 A2 VBP2 VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=3
+XMP3 C1 VBPC A1 VDD sky130_fd_pr__pfet_01v8 w=40 l=0.15 m=1
+XMP4 C2 VBPC A2 VDD sky130_fd_pr__pfet_01v8 w=40 l=0.15 m=1
+XMN3 C1 VBNC B1 VSS sky130_fd_pr__nfet_01v8 w=20 l=0.5 m=1
+XMN4 C2 VBNC B2 VSS sky130_fd_pr__nfet_01v8 w=20 l=0.5 m=1
+XMN1 B1 C1 VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 m=1
+XMN2 B2 C1 VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 m=1
+* ---------------- output stage ----------------
+XMO1 VOUT C2 VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1 m=1
+* RC-filtered gate bias for output current source (noise)
+RF VBP1 VBPO 300k
+CF VBPO VDD 1.5p
+XMO2 VOUT VBPO VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 m=15
+RZ C2 CZ 1.2k
+CC CZ VOUT 4p
+.ends DUT

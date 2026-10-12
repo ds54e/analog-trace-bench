@@ -1,0 +1,29 @@
+* Precision NMOS-input folded-cascode OTA with a dominant output pole.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Reference: bias current sets a low-side mirror and cascode offset.
+RB IBIAS BN 40k
+XBR BN BN VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 nf=1 m=1
+XTAIL TAIL BN VSS VSS sky130_fd_pr__nfet_01v8 w=64 l=2 nf=1 m=1
+* NMOS input pair.
+XINP FP VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=60 l=3 nf=1 m=2
+XINN FN VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=60 l=3 nf=1 m=2
+* High-side current bias, nominally 32 uA in each signal branch.
+XBP PB PB VDD VDD sky130_fd_pr__pfet_01v8 w=25 l=4 nf=1 m=1
+XBN PB BN VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 nf=1 m=1
+XPSP FP PB VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=4 nf=1 m=1
+XPSN FN PB VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=4 nf=1 m=1
+* PMOS cascode bias holds the input drains below VDD by about 0.3 V.
+RPC VDD SPC 30k
+XBPC PC PC SPC VDD sky130_fd_pr__pfet_01v8 w=60 l=4 nf=1 m=1
+XBNC PC BN VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 nf=1 m=1
+XPCP ND PC FP VDD sky130_fd_pr__pfet_01v8 w=48 l=4 nf=1 m=2
+XPCN VOUT PC FN VDD sky130_fd_pr__pfet_01v8 w=48 l=4 nf=1 m=2
+* Wide-swing cascoded NMOS mirror.
+XNMR NR ND VSS VSS sky130_fd_pr__nfet_01v8 w=64 l=4 nf=1 m=1
+XNMO NO ND VSS VSS sky130_fd_pr__nfet_01v8 w=64 l=4 nf=1 m=1
+XNCR ND IBIAS NR VSS sky130_fd_pr__nfet_01v8 w=64 l=4 nf=1 m=1
+XNCO VOUT IBIAS NO VSS sky130_fd_pr__nfet_01v8 w=64 l=4 nf=1 m=1
+* Output compensation and filtered low-side cascode bias.
+CDOM VOUT VSS 16p
+CBN IBIAS VSS 4p
+.ends DUT

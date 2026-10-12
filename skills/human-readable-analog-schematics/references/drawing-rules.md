@@ -12,6 +12,9 @@ Use the ATB profile for its presentation preferences.
   behind block frames or headings.
 - Align corresponding differential branches, their loads and common nodes.
   Keep common-source and common-gate trunks short and local D–G ties visible.
+  Keep source degeneration resistors with their input branches and expose their
+  common tail. Two input-controlled devices tied to a supply are not thereby a
+  differential pair.
 - Start with higher potential above lower potential and vertical series current
   paths for ordinary single-supply circuits. Let connectivity decide exceptions.
 - Start single-ended stage progression left to right. Favor local symmetry and
@@ -62,6 +65,8 @@ Use the ATB profile for its presentation preferences.
 - Check the complete displayed value against neighboring names and wires. Symbol
   clearance alone misses text collisions. Native renderer offsets are starting
   points for one tool version, not layout constants.
+  Check long reference names too; a compact layout that fits `XM1` may crowd
+  `XINN` or `RCOMP`. Measured diagnostics help, but require rendered review.
 - Preserve exact parameters, models and body connections. If ordinary body ties
   are hidden, record their convention in supporting data. Draw nonstandard body
   ties explicitly and include all four pins in electrical comparison.

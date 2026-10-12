@@ -47,7 +47,8 @@ For native drawing changes:
    W/L, nf and m. Keep exact source parameters and submitted bytes authoritative.
 2. **Place by connectivity.** Identify pairs, mirrors, stacks, stages, bias,
    compensation and feedback. Group related parts, preserve local symmetry and
-   expose the main current paths. Match sending taps to receiving pins.
+   expose the main current paths. Match sending taps to receiving pins. Reuse a
+   motif only after matching connections; equal device counts or names are insufficient.
 3. **Route and simplify.** Keep local D–G ties, shared gates and the main loop
    traceable. Challenge unnecessary gaps and bends; move parts or labels before
    adding detours. Avoid symbol penetration and ambiguous intersections.

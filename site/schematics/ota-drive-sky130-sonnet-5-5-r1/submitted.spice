@@ -1,0 +1,29 @@
+* Folded-cascode OTA, NMOS input pair, wide-swing NMOS cascode mirror load
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XN0   IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=1
+XNT1  TM  IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=20
+XNTC1  TAIL  VBT TM VSS sky130_fd_pr__nfet_01v8 W=16 L=0.5 nf=1 m=20
+XNT2  TM  IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=20
+XNTC2  TAIL  VBT TM VSS sky130_fd_pr__nfet_01v8 W=16 L=0.5 nf=1 m=20
+XNT3  TM  IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=20
+XNTC3  TAIL  VBT TM VSS sky130_fd_pr__nfet_01v8 W=16 L=0.5 nf=1 m=20
+XM1 A VINP TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 nf=1 m=12
+XM2 B VINN TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 nf=1 m=12
+XPSL A PBS VDD VDD sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=28
+XPSRa B PBS VDD VDD sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=32
+XPSRb B PBS VDD VDD sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=9
+XPCL DL  PBC A VDD sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=11
+XPCR VOUT PBC B VDD sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=22
+XNCL DL   NBC PL VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 nf=1 m=10
+XNCR VOUT NBC PR VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 nf=1 m=20
+XNBL PL DL VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 nf=1 m=10
+XNBR PR DL VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 nf=1 m=20
+XPD1  PBS PBS VDD VDD sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=1
+XNB1  PBS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=2
+XPD2  PBC PBC VDD VDD sky130_fd_pr__pfet_01v8 W=2.1 L=0.5 nf=1 m=1
+XNB2  PBC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=2
+XPB3  NBC PBS VDD VDD sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=1
+XND3  NBC NBC VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=1 nf=1 m=1
+XPB4  VBT PBS VDD VDD sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=1
+XND4  VBT VBT VSS VSS sky130_fd_pr__nfet_01v8 W=2.5 L=0.5 nf=1 m=1
+.ends DUT

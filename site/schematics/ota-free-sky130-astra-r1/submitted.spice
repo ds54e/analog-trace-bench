@@ -1,0 +1,13 @@
+* Two-stage NMOS-input OTA with Miller compensation
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 nf=1 m=1
+XTAIL TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=70 l=1 nf=1 m=2
+XINP N1 VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=60 l=1 nf=1 m=1
+XINN N2 VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=60 l=1 nf=1 m=1
+XPM1 N1 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=32 l=0.5 nf=1 m=1
+XPM2 N2 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=32 l=0.5 nf=1 m=1
+XOUTP VOUT N2 VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=0.5 nf=1 m=2
+XOUTN VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=85 l=1 nf=1 m=4
+RZ N2 NC 1500
+CC NC VOUT 2.5p
+.ends DUT

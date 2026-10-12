@@ -1,0 +1,17 @@
+* v2: NMOS pair, PMOS current sources, NMOS mirror (folded), NMOS CS 2nd stage, PMOS current-source load
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XM0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=2 nf=1 m=2
+XM5 NT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=2 nf=1 m=4
+XMB1 VBP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=2 nf=1 m=3
+XMPD VBP VBP VDD VDD sky130_fd_pr__pfet_01v8 W=48 L=4 nf=1 m=1
+XMPA FA VBP VDD VDD sky130_fd_pr__pfet_01v8 W=48 L=4 nf=1 m=1
+XMPB V1 VBP VDD VDD sky130_fd_pr__pfet_01v8 W=48 L=4 nf=1 m=1
+XM1 FA VINN NT VSS sky130_fd_pr__nfet_01v8 W=50 L=2 nf=1 m=4
+XM2 V1 VINP NT VSS sky130_fd_pr__nfet_01v8 W=50 L=2 nf=1 m=4
+XMNA FA FA VSS VSS sky130_fd_pr__nfet_01v8 W=8 L=8 nf=1 m=1
+XMNB V1 FA VSS VSS sky130_fd_pr__nfet_01v8 W=8 L=8 nf=1 m=1
+XM6 VOUT V1 VSS VSS sky130_fd_pr__nfet_01v8 W=60 L=4 nf=1 m=1
+XM7 VOUT VBP VDD VDD sky130_fd_pr__pfet_01v8 W=48 L=4 nf=1 m=5
+RZ V1 NZ 3.5k
+CC NZ VOUT 8p
+.ends DUT

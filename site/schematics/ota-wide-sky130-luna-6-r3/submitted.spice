@@ -1,0 +1,35 @@
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* 10 uA reference and complementary input-pair bias tree
+XNR IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 m=1
+XNT ntail IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 m=1
+XNBP pbias IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 m=1
+XPR pbias pbias VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=2 m=1
+XPT ptail pbias VDD VDD sky130_fd_pr__pfet_01v8 w=40 l=2 m=1
+
+* Rail-to-rail input pairs with separate balanced mirror loads.
+* The two mirror outputs sum at x with the same differential polarity.
+XNIREF nda VINN ntail VSS sky130_fd_pr__nfet_01v8 w=10 l=1.5 m=1
+XNIOUT x VINP ntail VSS sky130_fd_pr__nfet_01v8 w=10 l=1.5 m=1
+XNPLOAD nda nda VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=2 m=1
+XNPLOAD2 x nda VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 m=1
+
+XPIOUT x VINP ptail VDD sky130_fd_pr__pfet_01v8 w=80 l=1.5 m=1
+XPIREF pda VINN ptail VDD sky130_fd_pr__pfet_01v8 w=80 l=1.5 m=1
+XNLOAD pda pda VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=2 m=1
+XNLOAD2 x pda VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=2 m=1
+
+* Independent x common-mode setting load
+RXL VDD x 470000
+XNLX x IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=1.4 l=2 m=1
+
+* Weak port-level DC/large-signal feed-forward for unity tracking
+RFF VINP VOUT 470000
+
+* Class-A inverting output stage, nominally 100 uA
+XPO VOUT pbias VDD VDD sky130_fd_pr__pfet_01v8 w=25 l=2 m=1
+XNO VOUT x VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=2 m=1
+
+* Miller compensation with a series zero-setting resistor
+RCZ x ncomp 20000
+CCZ ncomp VOUT 3.3e-12
+.ends DUT

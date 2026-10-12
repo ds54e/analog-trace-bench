@@ -1,0 +1,28 @@
+* Two-stage CMOS OTA with low-current supply-ripple cancellation pair
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XTAIL TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=1 m=1
+XBIASN PB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XPBIAS PB PB VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.5 m=1
+XPOUT VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=10
+XMNOUT VOUT N2 VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 m=5
+XINN N1 VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=1 m=1
+XINP N2 VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=1 m=1
+XPM1 N1 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 m=2
+XPM2 N2 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=98.5 l=1 m=2
+* A small differential pair adds a feedforward supply current.
+XATAIL TAILA IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=1.6 l=1 m=1
+XAP1 N1 AG1 TAILA VSS sky130_fd_pr__nfet_01v8 w=1.6 l=1 m=1
+XAP2 N2 AG2 TAILA VSS sky130_fd_pr__nfet_01v8 w=1.6 l=1 m=1
+R1A VDD A1 100meg
+R1B A1 AG1 100meg
+R1C AG1 A2 100meg
+R1D A2 VSS 100meg
+R2A VDD A3 100meg
+R2B A3 AG2 100meg
+R2C AG2 A4 100meg
+R2D A4 VSS 100meg
+CAG1 AG1 VSS 15.5p
+RZ N2 NC 1500
+CC NC VOUT 4.5p
+.ends DUT

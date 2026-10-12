@@ -1,0 +1,39 @@
+* Complementary-input two-stage OTA
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Ten microampere reference and mirrored input pair tails
+XNB IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1
+XNR PREF IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1
+XPB PREF PREF VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=1
+XNT TN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=76 l=4 m=2
+XPT TP PREF VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=2 m=3
+* NMOS pair, PMOS mirror load
+XN1 DN VINN TN VSS sky130_fd_pr__nfet_01v8 w=10 l=1.2
+XN2 DN2 NGIN TN VSS sky130_fd_pr__nfet_01v8 w=10 l=1.2
+XP3 DN DN VDD VDD sky130_fd_pr__pfet_01v8 w=95 l=1
+XP4 V1 DN VDD VDD sky130_fd_pr__pfet_01v8 w=95 l=1
+XP5 DN2 DN2 VDD VDD sky130_fd_pr__pfet_01v8 w=95 l=1
+XP6 DB2 DN2 VDD VDD sky130_fd_pr__pfet_01v8 w=95 l=1
+XN5 DB2 DB2 VSS VSS sky130_fd_pr__nfet_01v8 w=95 l=1 m=2
+XN6 V1 DB2 VSS VSS sky130_fd_pr__nfet_01v8 w=48.6875 l=1 m=4
+* PMOS pair, NMOS mirror load
+XP1 DP VINN TP VDD sky130_fd_pr__pfet_01v8 w=60 l=0.8 m=6
+XP2 V1 PGIN TP VDD sky130_fd_pr__pfet_01v8 w=60 l=0.8 m=6
+XN3 DP DP VSS VSS sky130_fd_pr__nfet_01v8 w=60 l=1
+XN4 V1 DP VSS VSS sky130_fd_pr__nfet_01v8 w=60 l=1
+* Inverting second stage and Miller compensation
+XOUTN VOUT V1 NS VSS sky130_fd_pr__nfet_01v8 w=15 l=0.5 m=10
+XOUTP VOUT V1 PS VDD sky130_fd_pr__pfet_01v8 w=30 l=0.5 m=10
+RNS NS VSS 2k
+RPS PS VDD 5k
+CBP PS VDD 2p
+XPFF SW DN VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1
+XPDI RR RR SW VDD sky130_fd_pr__pfet_01v8 w=10 l=1
+RFF RR V1 300k
+RZ V1 VC 16800
+CC VC VOUT 5.2p
+RPG VINP PGIN 35k
+RNG VINP NGIN 43k
+CNG NGIN VSS 0.5p
+XZR V1 VDD VC VSS sky130_fd_pr__nfet_01v8 w=0.5 l=1
+RBLEED VOUT VDD 50k
+.ends DUT

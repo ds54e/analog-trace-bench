@@ -1,0 +1,32 @@
+* Complementary input pairs with mirrored current subtraction
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XNR IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XNB BP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XPR BP BP VDD VDD sky130_fd_pr__pfet_01v8 w=30 l=1 nf=1 m=1
+* PMOS differential pair, low drain voltage
+XPT SP BP VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=1
+XPI1 NP1 VINP SP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+XPI2 NP2 VINN SP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+XPD1 NP1 NP1 VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=1 nf=1 m=1
+XPD2 NP2 NP2 VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=1 nf=1 m=1
+XPM1 K NP1 VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=1 nf=1 m=1
+XPM2 A NP2 VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=1 nf=1 m=1
+* NMOS differential pair, high drain voltage
+XNT SN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+XNI1 PN1 VINP SN VSS sky130_fd_pr__nfet_01v8 w=40 l=0.5 nf=1 m=1
+XNI2 PN2 VINN SN VSS sky130_fd_pr__nfet_01v8 w=40 l=0.5 nf=1 m=1
+XND1 PN1 PN1 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=4
+XND2 PN2 PN2 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=4
+XNM1 K PN1 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=4
+XNM2 A PN2 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=4
+* Equal standing currents allow bidirectional subtraction
+XFK K BP VDD VDD sky130_fd_pr__pfet_01v8 w=60 l=1 nf=1 m=2
+XFA A BP VDD VDD sky130_fd_pr__pfet_01v8 w=60 l=1 nf=1 m=2
+XKD K K VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+XKM A K VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+* Second stage and zero compensation
+XON VOUT A VSS VSS sky130_fd_pr__nfet_01v8 w=75 l=1 nf=1 m=2
+XOP VOUT BP VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=1 nf=1 m=6
+RC A CC 2000
+CM CC VOUT 5p
+.ends DUT

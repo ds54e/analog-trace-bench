@@ -1,0 +1,20 @@
+* Rail-to-rail complementary input, Miller two-stage, class-A PMOS output
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XMREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1 nf=1 m=1
+XMTN TN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1 nf=1 m=1
+XMNO VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=1 nf=1 m=1
+XMPD VBP VBP VDD VDD sky130_fd_pr__pfet_01v8 W=4 L=1 nf=1 m=1
+XMNB VBP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1 nf=1 m=1
+XMTP TP VBP VDD VDD sky130_fd_pr__pfet_01v8 W=4 L=1 nf=1 m=1
+XMN1 DN1 VINN TN VSS sky130_fd_pr__nfet_01v8 W=2.5 L=2.5 nf=1 m=1
+XMN2 V1 VINP TN VSS sky130_fd_pr__nfet_01v8 W=2.5 L=2.5 nf=1 m=1
+XMPA DN1 DN1 VDD VDD sky130_fd_pr__pfet_01v8 W=8 L=1 nf=1 m=1
+XMPB V1 DN1 VDD VDD sky130_fd_pr__pfet_01v8 W=8 L=1 nf=1 m=1
+XMP1 DP1 VINN TP VDD sky130_fd_pr__pfet_01v8 W=25 L=0.5 nf=1 m=1
+XMP2 V1 VINP TP VDD sky130_fd_pr__pfet_01v8 W=25 L=0.5 nf=1 m=1
+XMNA DP1 DP1 VSS VSS sky130_fd_pr__nfet_01v8 W=8 L=1 nf=1 m=1
+XMNC V1 DP1 VSS VSS sky130_fd_pr__nfet_01v8 W=8 L=1 nf=1 m=1
+XMO VOUT V1 VDD VDD sky130_fd_pr__pfet_01v8 W=63.5 L=0.5 nf=1 m=1
+CC V1 NZ 0.6p
+RZ NZ VOUT 7.5k
+.ends DUT

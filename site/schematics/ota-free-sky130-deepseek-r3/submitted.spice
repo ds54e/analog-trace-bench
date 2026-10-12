@@ -1,0 +1,31 @@
+* OTA-FREE-SKY130 : two-stage telescopic-cascode Miller OTA (v4)
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* ---- bias network ----
+XM_B1 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=34 L=2
+XM_B6 VBP VBP VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=1.2
+XM_B7 VBP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=34 L=2
+* NB2 = vgs(diode) + 10u*62k   (nmos cascode gate)
+XM_B2 NB2 VBP VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=1.2
+R1 NB2 ND 62000
+XM_B3 ND ND VSS VSS sky130_fd_pr__nfet_01v8 W=34 L=2
+* PD = VDD - |vgs| - 10u*45k  (pmos cascode gate)
+XM_B5 PBP PBP VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=1.2
+R3 PBP PD 45000
+XM_B4 PD IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=34 L=2
+* ---- first stage : telescopic cascode ----
+XM0 T IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=1.2
+XM1 A VINN T VSS sky130_fd_pr__nfet_01v8 W=60 L=1
+XM2 B VINP T VSS sky130_fd_pr__nfet_01v8 W=60 L=1
+XM7 N1 NB2 A VSS sky130_fd_pr__nfet_01v8 W=44 L=2
+XM8 N2 NB2 B VSS sky130_fd_pr__nfet_01v8 W=44 L=2
+XM3 C1 N1 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.3
+XM4 C2 N1 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.3
+XM5 N1 PD C1 VDD sky130_fd_pr__pfet_01v8 W=100 L=0.3
+XM6 N2 PD C2 VDD sky130_fd_pr__pfet_01v8 W=100 L=0.3
+* ---- second stage ----
+XM9 VOUT N2 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.3
+XM10 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 m=2
+* ---- miller compensation ----
+RZ N2 Z 3000
+CC Z VOUT 2.25e-12
+.ends DUT

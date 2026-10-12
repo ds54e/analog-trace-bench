@@ -1,0 +1,18 @@
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* 10 uA diode reference from IBIAS
+XMREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=80 L=2 m=1
+* tail mirror
+XMT NTAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=80 L=2 m=2
+* NMOS input pair, VINN on the mirror-diode side
+XM1 ND1 VINN NTAIL VSS sky130_fd_pr__nfet_01v8 W=80 L=2 m=2
+XM2 NOUT1 VINP NTAIL VSS sky130_fd_pr__nfet_01v8 W=80 L=2 m=2
+* PMOS mirror load
+XM3 ND1 ND1 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=2 m=1
+XM4 NOUT1 ND1 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=2 m=1
+* PMOS common-source output stage and NMOS sink
+XM6 VOUT NOUT1 VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=1 m=4
+XM7 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=80 L=3 m=12
+* Miller compensation with nulling resistor
+RZ CZ NOUT1 5k
+CC VOUT CZ 2.7p
+.ends DUT

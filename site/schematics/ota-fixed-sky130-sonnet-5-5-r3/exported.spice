@@ -1,0 +1,13 @@
+
+.subckt atb_ota_sky130 vin_p vin_n vout vdd vss ibias
+Cc n1 nzc 3.5e-12
+Rz nzc vout 2000
+XM1 na vin_n ntl vss sky130_fd_pr__nfet_01v8 l=1.2 w=96 nf=1
+XM2 n1 vin_p ntl vss sky130_fd_pr__nfet_01v8 l=1.2 w=96 nf=1
+XM3 na na vdd vdd sky130_fd_pr__pfet_01v8 l=0.8 w=36 nf=1
+XM4 n1 na vdd vdd sky130_fd_pr__pfet_01v8 l=0.8 w=36 nf=1
+XM7 vout n1 vdd vdd sky130_fd_pr__pfet_01v8 l=0.55 w=93 nf=1
+XM8 vout ibias vss vss sky130_fd_pr__nfet_01v8 l=1 w=96 nf=1
+XMbn ibias ibias vss vss sky130_fd_pr__nfet_01v8 l=1 w=7 nf=1
+XMtl ntl ibias vss vss sky130_fd_pr__nfet_01v8 l=1 w=48 nf=1
+.ends atb_ota_sky130

@@ -1,0 +1,13 @@
+* Two-stage OTA with series-R Miller compensation.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=5 l=1 nf=1 m=1
+XTAIL tail IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=1 nf=1 m=1
+XINL nl VINN tail VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=1
+XINR ng VINP tail VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=1
+XPL nl nl VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=0.5 nf=1 m=1
+XPR ng nl VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=0.5 nf=1 m=1
+XOUT VOUT ng VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=8
+XSINK VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=4
+RCOMP ng nc 800
+CCOMP nc VOUT 8p
+.ends DUT

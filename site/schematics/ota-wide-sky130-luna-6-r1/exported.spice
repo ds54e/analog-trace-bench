@@ -1,0 +1,23 @@
+
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+CC XCAP VOUT 9p
+RXN X IBIAS 10meg
+RXP X PBIAS 10meg
+RZ X XCAP 9.5k
+XMNCOPY PBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=2
+XMNI_N NREF VINN NTAIL VSS sky130_fd_pr__nfet_01v8 l=1 w=8
+XMNI_P X VINP NTAIL VSS sky130_fd_pr__nfet_01v8 l=1 w=72
+XMNL_O X PREF VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=8
+XMNL_R PREF PREF VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=8
+XMNO VOUT X VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=8
+XMNREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=4
+XMNSH VOUT VINN VSS VSS sky130_fd_pr__nfet_01v8 l=0.5 w=0.479
+XMNT NTAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=12
+XMPI_N PREF VINN PTAIL VDD sky130_fd_pr__pfet_01v8 l=1 w=100
+XMPI_P X VINP PTAIL VDD sky130_fd_pr__pfet_01v8 l=1 w=96
+XMPLD_O X NREF VDD VDD sky130_fd_pr__pfet_01v8 l=1 w=100
+XMPLD_R NREF NREF VDD VDD sky130_fd_pr__pfet_01v8 l=1 w=8
+XMPO VOUT PBIAS VDD VDD sky130_fd_pr__pfet_01v8 l=1 w=24
+XMPREF PBIAS PBIAS VDD VDD sky130_fd_pr__pfet_01v8 l=1 w=4
+XMPT PTAIL PBIAS VDD VDD sky130_fd_pr__pfet_01v8 l=1 w=16
+.ends DUT

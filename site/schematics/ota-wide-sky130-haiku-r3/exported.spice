@@ -1,0 +1,20 @@
+
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+Cc NX NZ 1.5p
+Rz NZ VOUT 12k
+Xb0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=8 nf=1 m=8
+Xm3 D1N D1N VDD VDD sky130_fd_pr__pfet_01v8 l=1 w=16 nf=1 m=1
+Xm4 NX D1N VDD VDD sky130_fd_pr__pfet_01v8 l=1 w=16 nf=1 m=1
+Xm5 D1P D1P VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=4 nf=1 m=1
+Xm6 NX D1P VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=4 nf=1 m=1
+Xn1 D1N VINN NTN VSS sky130_fd_pr__nfet_01v8 l=3 w=6 nf=1 m=1
+Xn2 NX VINP NTN VSS sky130_fd_pr__nfet_01v8 l=3 w=6 nf=1 m=1
+Xnr VBP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=8 nf=1 m=8
+Xo VOUT NX VDD VDD sky130_fd_pr__pfet_01v8 l=1 w=55 nf=1 m=3
+Xp1 D1P VINN NTP VDD sky130_fd_pr__pfet_01v8 l=1 w=60 nf=1 m=1
+Xp2 NX VINP NTP VDD sky130_fd_pr__pfet_01v8 l=1 w=60 nf=1 m=1
+Xpr VBP VBP VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=40 nf=1 m=4
+Xsk VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=38.75 nf=1 m=8
+Xtn NTN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=8 nf=1 m=10
+Xtp NTP VBP VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=40 nf=1 m=4
+.ends DUT

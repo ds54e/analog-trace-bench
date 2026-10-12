@@ -1,0 +1,18 @@
+* Two-stage OTA with mirror-loaded NMOS input pair and compensated output stage
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* 10 uA reference and NMOS current mirrors
+XNR IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 m=1
+XNT TB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=48 l=1 m=1
+XTC TAIL IBIAS TB VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 m=2
+* First stage: 120 uA differential pair and PMOS mirror load
+XN1 N1 VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=30 l=1 m=1
+XN2 N2 VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=30 l=1 m=1
+XP1 N1 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=30 l=1 m=1
+XP2 N2 N1 VDD VDD sky130_fd_pr__pfet_01v8 w=30 l=1 m=1
+* PMOS common-source output stage and NMOS current sink
+XPO VOUT N2 VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=0.5 m=3
+XNO VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 m=3
+* Miller compensation with a left-half-plane zero
+RZ N2 NC 2.2k
+CC NC VOUT 4.5p
+.ends DUT

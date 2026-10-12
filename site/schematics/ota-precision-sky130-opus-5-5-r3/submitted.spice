@@ -1,0 +1,39 @@
+* Folded-cascode NMOS-input first stage + NMOS CS second stage, Miller Cc+Rz
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* ---- bias: IREF=10u into IBIAS, NMOS unit 5uA = W10 L2
+XMNR IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=2 m=2
+XMNT TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=2 m=6
+* PMOS bias diode (5uA) and level-shifted PMOS cascode bias
+XMNPB VBP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=2 m=1
+XMPB VBP VBP VDD VDD sky130_fd_pr__pfet_01v8 W=10 L=5 m=1
+* separate branch for cascode bias so its headroom cannot starve VBP
+XMPB2 VBPX VBPX VDD VDD sky130_fd_pr__pfet_01v8 W=10 L=5 m=1
+R1 VBPX VBPC 60k
+XMNPB2 VBPC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=2 m=1
+* NMOS cascode bias: PMOS 5uA source -> R2 -> NMOS diode
+XMPNB VBNC VBP VDD VDD sky130_fd_pr__pfet_01v8 W=10 L=5 m=1
+R2 VBNC VBNX 40k
+XMNC VBNX VBNX VSS VSS sky130_fd_pr__nfet_01v8 W=3 L=6 m=1
+* ---- input pair (VINN on mirror-input side)
+XM1 FA VINN TAIL VSS sky130_fd_pr__nfet_01v8 W=50 L=2 m=6
+XM2 FB VINP TAIL VSS sky130_fd_pr__nfet_01v8 W=50 L=2 m=6
+* ---- PMOS fold sources 40uA (> 30uA tail)
+XM3A FA VBP VDD VDD sky130_fd_pr__pfet_01v8 W=10 L=5 m=8
+XM3B FB VBP VDD VDD sky130_fd_pr__pfet_01v8 W=10 L=5 m=8
+* ---- PMOS cascodes
+XM4A NA VBPC FA VDD sky130_fd_pr__pfet_01v8 W=40 L=1 m=1
+XM4B N1 VBPC FB VDD sky130_fd_pr__pfet_01v8 W=40 L=1 m=1
+* ---- NMOS cascoded mirror
+XM6A NA VBNC XA VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XM6B N1 VBNC XB VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XM5A XA NA VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=4 m=1
+XM5B XB NA VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=4 m=1
+* ---- second stage
+XM7 VOUT N1 VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+XM8 VOUT VBP VDD VDD sky130_fd_pr__pfet_01v8 W=10 L=5 m=16
+* output shunt: trims excess DC gain (CMRR balance bisection margin)
+RL VOUT VSS 60k
+* ---- Miller compensation
+RZ N1 NZ 2k
+CC NZ VOUT 11p
+.ends DUT

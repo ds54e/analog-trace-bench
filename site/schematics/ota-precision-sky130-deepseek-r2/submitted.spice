@@ -1,0 +1,13 @@
+* OTA-PRECISION-SKY130 final: two-stage Miller OTA, NMOS pair, PMOS CS output
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XMb IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1
+XM5 TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=1
+XM1 A VINP TAIL VSS sky130_fd_pr__nfet_01v8 W=40 L=2
+XM2 B VINN TAIL VSS sky130_fd_pr__nfet_01v8 W=40 L=2
+XM3 B B VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=2
+XM4 A B VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=2
+XM7 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=4 m=4
+XM6 VOUT A VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=1 m=4
+Rz A ZD 800
+Cc ZD VOUT 3.6p
+.ends DUT

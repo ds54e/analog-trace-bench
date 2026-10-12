@@ -1,0 +1,32 @@
+* Continuous-time wide-input SKY130 OTA; two gain stages and Miller compensation
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* 10 uA reference and PMOS bias conversion
+XBN IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XBC BP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XBP BP BP VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=1 nf=1 m=1
+XBCT BPT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XBPT BPT BPT VDD VDD sky130_fd_pr__pfet_01v8 w=60 l=0.3 nf=1 m=1
+* Matched 0.31 DC input attenuation; 1.2 Mohm total input resistance
+* Capacitive lead and matched PMOS shunt capacitors
+RIP VINP IP 828k
+RGP IP VSS 372k
+RIN VINN IN 828k
+RGN IN VSS 372k
+CIP VINP IP 3.6p
+CIN VINN IN 3.6p
+XCP VDD IP VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=6.05 nf=1 m=1
+XCN VDD IN VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=6.05 nf=1 m=1
+* PMOS differential first stage with a separate low-overdrive tail bias
+XPT ST BPT VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.3 nf=1 m=7
+XP1 D1 IN ST VDD sky130_fd_pr__pfet_01v8 w=100 l=0.3 nf=1 m=7
+XP2 G2 IP ST VDD sky130_fd_pr__pfet_01v8 w=100 l=0.3 nf=1 m=7
+XN1 D1 D1 VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=3
+XN2 G2 D1 VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=3
+* Common-source output stage; 20:1 PMOS reference mirror
+* Output bias exceeds input-tail bias to avoid deep large-signal overdrive
+XPO VOUT BP VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=1 nf=1 m=20
+XNO VOUT G2 VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=7
+* Miller compensation and series zero resistor
+RC G2 CM 2k
+CC CM VOUT 2.6p
+.ends DUT

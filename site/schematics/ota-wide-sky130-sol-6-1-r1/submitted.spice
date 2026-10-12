@@ -1,0 +1,36 @@
+* Level-shifted NMOS folded-cascode plus common-source output
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* DC input division 0.5; capacitive lead reduces input-referred noise
+RP VINP GP 750k
+RBP GP VDD 750k
+RN VINN GN 750k
+RBN GN VDD 750k
+CP VINP GP 2.5p
+CBP GP VDD 0.5p
+CN VINN GN 2.5p
+CBN GN VDD 0.5p
+* Bias reference and P mirror
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 nf=1 m=1
+XBC PB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 nf=1 m=1
+XPB PB PB VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+* Folded common-gate bias with resistor headroom offset
+XCC PC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 nf=1 m=1
+XCD PC PC PS VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+RCS VDD PS 20k
+* Input differential pair
+XTAIL T IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=2 nf=1 m=1
+XIP DP GP T VSS sky130_fd_pr__nfet_01v8 w=100 l=0.15 nf=1 m=8
+XIN DN GN T VSS sky130_fd_pr__nfet_01v8 w=100 l=0.15 nf=1 m=8
+* Folded branches and single-ended conversion
+XUP DP PB VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=6
+XUN DN PB VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=6
+XFP B PC DP VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=3
+XFN A PC DN VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=3
+XNL A A VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 nf=1 m=1
+XNR B A VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 nf=1 m=1
+* Output amplifier
+XON VOUT B VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=2
+XOP VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=14
+RZ B CZ 2000
+CC CZ VOUT 3.99p
+.ends DUT

@@ -1,0 +1,28 @@
+* Single-stage current-mirror cascode OTA, SKY130 1.8 V devices.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Reference and low-overdrive tail current (nominal 1 mA).
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=12 l=0.5 nf=1 m=1
+XTAIL NT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=12
+* Differential pair and NMOS cascodes.
+XINP DN VINP NT VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=6
+XINN DP VINN NT VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=6
+XNCN MIR NCG DN VSS sky130_fd_pr__nfet_01v8 w=100 l=0.3 nf=1 m=3
+XNCP VOUT NCG DP VSS sky130_fd_pr__nfet_01v8 w=100 l=0.3 nf=1 m=3
+* Wide-swing PMOS mirror and cascodes.
+XPMN PN MIR VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=10
+XPMP PP MIR VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=10
+XPCN MIR PCG PN VDD sky130_fd_pr__pfet_01v8 w=100 l=0.3 nf=1 m=5
+XPCP VOUT PCG PP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.3 nf=1 m=5
+* PMOS cascode bias: matched diode VSG plus 250 mV allowance.
+XPREF PBG PBG VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.3 nf=1 m=1
+RPC PBG PCG 25k
+XPBSINK PCG IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=12 l=0.5 nf=1 m=1
+* Input-tracking NMOS cascode bias.
+XPBIAS NCG PBG VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=0.3 nf=1 m=1
+RNC NCG NCD 25k
+XNCD NCD NCD BNS VSS sky130_fd_pr__nfet_01v8 w=6 l=0.3 nf=1 m=1
+XNSF VDD VINP BNS VSS sky130_fd_pr__nfet_01v8 w=12 l=1 nf=1 m=1
+XNBSINK BNS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=24 l=0.5 nf=1 m=1
+CREF IBIAS VSS 3p
+CPC PCG VDD 3p
+.ends DUT

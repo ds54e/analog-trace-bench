@@ -1,0 +1,13 @@
+* Two-stage OTA with Miller compensation and output drive
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XTAIL1 TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1 m=1
+XOUTN VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 m=12
+XINN DL VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=50 l=1 m=2
+XINP V1 VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=50 l=1 m=2
+XPL DL DL VDD VDD sky130_fd_pr__pfet_01v8 w=40 l=1 m=1
+XPR V1 DL VDD VDD sky130_fd_pr__pfet_01v8 w=40 l=1 m=1
+XOUTP VOUT V1 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=8
+RZ V1 CZ 1000.0
+CC CZ VOUT 3.0p
+.ends DUT

@@ -1,4 +1,5 @@
-/** Circuit-specific layouts authored for the two pilot submissions; no simulation. */
+/** Native source-bound OTA drawings and the reviewed LDO pilot; no simulation. */
+import { buildOtaLayout } from "./ota-layouts.mjs";
 import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
 import { resolve, join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -260,6 +261,39 @@ const layouts = [
   },
 ];
 
+async function submittedSource(runId) {
+  const trace = await readFile(
+    join(root, "content/traces", runId, "trace.html"),
+    "utf8",
+  );
+  const matches = [
+    ...trace.matchAll(
+      /<pre data-field="submitted-spice"[^>]*><code>([\s\S]*?)<\/code><\/pre>/g,
+    ),
+  ];
+  if (matches.length !== 1)
+    throw new Error("Expected one final submission: " + runId);
+  return execFileSync(
+    "python3",
+    [
+      "-c",
+      "import html,sys; sys.stdout.write(html.unescape(sys.stdin.read()))",
+    ],
+    { input: matches[0][1], encoding: "utf8" },
+  );
+}
+const catalog = JSON.parse(
+  await readFile(join(root, "site/data/runs.json"), "utf8"),
+);
+for (const task of catalog.tasks.filter((t) => t.id.startsWith("OTA-")))
+  for (const run of task.runs) {
+    if (layouts.some((l) => l.id === run.id)) continue;
+    layouts.push(
+      buildOtaLayout(run.id, await submittedSource(run.id), layouts[0]),
+    );
+  }
+const selected = process.env.ATB_SCHEMATIC_RUN;
+
 function hash(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
 }
@@ -343,6 +377,18 @@ function verifySavedWiring(project) {
           "Nonorthogonal route " + r.id + " " + JSON.stringify(pts),
         );
   }
+  const nativeIndex = a.buildProjectConnectivityIndex(project, resolver);
+  const virtualEdges = [...nativeIndex.documents.values()].flatMap((v) =>
+    [...v.logicalNets.values()].flatMap((n) => n.virtualEdges),
+  );
+  for (const e of virtualEdges) {
+    if (e.kind !== "net-label" && e.kind !== "power-label")
+      throw new Error("Unsupported visible connection");
+    const u = nodekey(e.from),
+      v = nodekey(e.to);
+    edge(u, v);
+    edge(v, u);
+  }
   let checkedPins = 0;
   for (const n of d.nets) {
     const visible = n.terminals
@@ -377,22 +423,8 @@ function verifySavedWiring(project) {
 }
 
 for (const layout of layouts) {
-  const trace = await readFile(
-    join(root, "content/traces", layout.id, "trace.html"),
-    "utf8",
-  );
-  const encoded = trace.match(
-    /<pre data-field="submitted-spice"[^>]*><code>([\s\S]*?)<\/code><\/pre>/,
-  )[1];
-  // Decode with Python's standard HTML entity parser, preserving the final newline.
-  const source = execFileSync(
-    "python3",
-    [
-      "-c",
-      "import html,sys; sys.stdout.write(html.unescape(sys.stdin.read()))",
-    ],
-    { input: encoded, encoding: "utf8" },
-  );
+  if (selected && layout.id !== selected) continue;
+  const source = await submittedSource(layout.id);
   const imported = await a.importSpiceSources(
     [{ path: "submitted.spice", bytes: new TextEncoder().encode(source) }],
     "submitted.spice",
@@ -416,7 +448,10 @@ for (const layout of layouts) {
   const nets = new Map(
     d.connectivityEvidence
       .filter((e) => e.kind === "net-name-hint")
-      .map((e) => [e.sourceName, e.netId]),
+      .flatMap((e) => [
+        [e.sourceName, e.netId],
+        [e.sourceName.toLowerCase(), e.netId],
+      ]),
   );
   function place(i, arr) {
     const [x, y, mode] = arr;
@@ -426,10 +461,16 @@ for (const layout of layouts) {
       mirror: typeof mode === "string" ? mode : "none",
     };
   }
-  for (const [name, pos] of Object.entries(layout.devices))
+  for (const [name, pos] of Object.entries(layout.devices)) {
+    if (!devices.has(name))
+      throw new Error("Missing device " + name + " " + layout.id);
     place(devices.get(name), pos);
-  for (const [name, pos] of Object.entries(layout.ports))
+  }
+  for (const [name, pos] of Object.entries(layout.ports)) {
+    if (!ports.has(name))
+      throw new Error("Missing port " + name + " " + layout.id);
     place(ports.get(name), pos);
+  }
   d.routes = [];
   d.junctions = [];
   d.annotations = [];
@@ -504,6 +545,9 @@ for (const layout of layouts) {
   }
   function label(net, x, y) {
     const netId = nets.get(net);
+    const sourceName = d.connectivityEvidence.find(
+      (e) => e.kind === "net-name-hint" && e.netId === netId,
+    ).sourceName;
     const n = annotation(
       "net-label",
       { kind: "free", position: { x, y } },
@@ -515,12 +559,59 @@ for (const layout of layouts) {
       id: id("claim"),
       kind: "name-claim",
       netId,
-      name: net,
+      name: sourceName,
       owner: { kind: "net-label", annotationId: n.id },
       scope: "local",
     });
   }
-  layout.draw({ j, w, label });
+  function boundLabel(net, key, x, y, alignment) {
+    const target = junctions.get(key),
+      netId = nets.get(net);
+    const sourceName = d.connectivityEvidence.find(
+      (e) => e.kind === "net-name-hint" && e.netId === netId,
+    ).sourceName;
+    const item = annotation(
+      "net-label",
+      {
+        kind: "object",
+        objectId: target.id,
+        localOffset: { x, y },
+        fallbackPosition: {
+          x: target.position.x + x,
+          y: target.position.y + y,
+        },
+      },
+      null,
+      { kind: "net-name", netId },
+      alignment,
+    );
+    item.netId = netId;
+    d.connectivityEvidence.push({
+      id: id("claim"),
+      kind: "name-claim",
+      netId,
+      name: sourceName,
+      owner: { kind: "net-label", annotationId: item.id },
+      scope: "local",
+    });
+  }
+  layout.draw({
+    j,
+    w,
+    label,
+    boundLabel,
+    point: (key) => {
+      const value = point(endpoint(key));
+      if (!value)
+        throw new Error(
+          "Unresolved " +
+            key +
+            " " +
+            JSON.stringify(devices.get(key.split(".")[0])),
+        );
+      return value;
+    },
+  });
   for (const [ref, i] of devices) {
     const pos = i.placement.position,
       mir = i.placement.mirror === "horizontal";
@@ -571,6 +662,7 @@ for (const layout of layouts) {
       );
   }
   for (const t of d.netlist.terminals) {
+    if (layout.strategy === "current-path-groups") continue;
     const i = ports.get(t.name),
       pos = i.placement.position;
     const output = t.name.toLowerCase() === "vout",
@@ -593,10 +685,47 @@ for (const layout of layouts) {
   const out = join(root, "site/schematics", layout.id);
   await mkdir(out, { recursive: true });
   await writeFile(join(out, "submitted.spice"), source);
-  await writeFile(join(out, "project.icproj.json"), a.serializeProject(p));
-  const reopened = a.parseProject(
+  const serialized = a.serializeProject(p);
+  await writeFile(
+    join(out, "project.icproj.json"),
+    layout.strategy
+      ? JSON.stringify(JSON.parse(serialized)) + "\n"
+      : serialized,
+  );
+  let reopened = a.parseProject(
     await readFile(join(out, "project.icproj.json"), "utf8"),
   );
+  if (layout.strategy) {
+    // Use the native measured overlap report to move text, never shrink it.
+    // Object-bound net labels keep their electrical anchors while text moves.
+    for (let attempt = 0; attempt < 40; attempt++) {
+      const diag = a.diagnoseProject(
+        reopened,
+        a.createProjectSymbolResolver(reopened, a.builtInSymbols),
+      );
+      const collision = diag.find((v) => v.code === "VISUAL_LABEL_OVERLAP");
+      if (!collision) break;
+      const ids = [
+        collision.primary.objectId,
+        ...collision.related.map((v) => v.objectId),
+      ];
+      const doc = reopened.documents[0];
+      const labels = doc.annotations.filter(
+        (n) => ids.includes(n.id) && n.anchor.kind === "object",
+      );
+      const item = labels.find((n) => n.kind === "net-label") ?? labels[0];
+      if (!item) throw new Error("Uneditable label overlap " + layout.id);
+      item.anchor.localOffset.y -= 24;
+      item.anchor.fallbackPosition.y -= 24;
+    }
+    await writeFile(
+      join(out, "project.icproj.json"),
+      JSON.stringify(JSON.parse(a.serializeProject(reopened))) + "\n",
+    );
+    reopened = a.parseProject(
+      await readFile(join(out, "project.icproj.json"), "utf8"),
+    );
+  }
   const checkedPins = verifySavedWiring(reopened);
   for (const i of reopened.documents[0].instances.filter((i) =>
     ["resistor", "capacitor"].includes(i.symbolId),
@@ -623,8 +752,27 @@ for (const layout of layouts) {
   if (exported.status !== "ready" || exported.diagnostics.length)
     throw new Error(JSON.stringify(exported.diagnostics));
   const comparison = await a.compareNetlists(exported.file.text, source);
-  if (comparison.status !== "match")
-    throw new Error(JSON.stringify(comparison));
+  let resolvedComparison;
+  const independent = execFileSync(
+    "python3",
+    [
+      "-c",
+      "import sys,json;sys.path.insert(0,'tools');import schematics;a,b=json.load(sys.stdin);assert schematics.contract(a)==schematics.contract(b);print(json.dumps([schematics.resolved_spice(a),schematics.resolved_spice(b)]))",
+    ],
+    {
+      cwd: root,
+      input: JSON.stringify([source, exported.file.text]),
+      encoding: "utf8",
+    },
+  );
+  if (comparison.status !== "match") {
+    if (comparison.status !== "inconclusive" || !source.includes(".param"))
+      throw new Error(JSON.stringify(comparison));
+    const [left, right] = JSON.parse(independent);
+    resolvedComparison = await a.compareNetlists(left, right);
+    if (resolvedComparison.status !== "match")
+      throw new Error(JSON.stringify(resolvedComparison));
+  }
   const ordinaryExport = a.createDesignNetlistExport(reopened, {
     format: "spice",
   });
@@ -655,8 +803,19 @@ for (const layout of layouts) {
     reopened,
     a.createProjectSymbolResolver(reopened, a.builtInSymbols),
   );
+  if (diagnostics.length && selected)
+    await writeFile(
+      join(out, "preview.svg"),
+      a.renderDocumentSvg(
+        reopened.documents[0],
+        a.createProjectSymbolResolver(reopened, a.builtInSymbols),
+        { margin: 20 },
+      ),
+    );
   if (diagnostics.length)
-    throw new Error("Native diagnostics: " + JSON.stringify(diagnostics));
+    throw new Error(
+      "Native diagnostics " + layout.id + ": " + JSON.stringify(diagnostics),
+    );
   const svgOptions = { margin: 20 };
   const svg = a.renderDocumentSvg(
     reopened.documents[0],
@@ -685,6 +844,12 @@ for (const layout of layouts) {
     native_diagnostics: diagnostics,
     simulation_run: false,
   };
+  if (resolvedComparison) {
+    verification.resolved_native_comparison = resolvedComparison;
+    verification.numeric_constants_checked = true;
+  }
+  if (layout.strategy === "current-path-groups")
+    verification.visible_wiring.named_connections_checked = true;
   await writeFile(
     join(out, "verification.json"),
     JSON.stringify(verification, null, 2) + "\n",
@@ -708,10 +873,22 @@ for (const layout of layouts) {
     body_note: layout.body_note,
     source_sha256: hash(source),
     files: hashes,
+    ...(layout.strategy ? { layout_strategy: layout.strategy } : {}),
+    ...(layout.strategy === "current-path-groups"
+      ? {
+          reading_min_width: Math.ceil(
+            +svg.match(/viewBox="[^ ]+ [^ ]+ ([^ ]+)/)[1] * 0.8,
+          ),
+        }
+      : {}),
   });
   console.log(layout.id, comparison.status, checkedPins, "visible pins wired");
 }
-await writeFile(
-  join(root, "site/schematics/index.json"),
-  JSON.stringify(manifest, null, 2) + "\n",
-);
+if (selected) {
+  console.log("Selected-run preview; drawing index was not replaced.");
+} else {
+  await writeFile(
+    join(root, "site/schematics/index.json"),
+    JSON.stringify(manifest, null, 2) + "\n",
+  );
+}

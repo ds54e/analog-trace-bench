@@ -1,0 +1,20 @@
+* OTA generated
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* bias reference 10uA
+XMN1 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=32 L=1
+* tail 20uA
+XMN5 TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=96 L=1 m=2
+* sink 70uA
+XMN7 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=96 L=1 m=7
+* input pair
+XM1 A VINN TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=2
+XM2 B VINP TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=2
+* PMOS mirror load
+XM3 A A VDD VDD sky130_fd_pr__pfet_01v8 W=64 L=0.5
+XM4 B A VDD VDD sky130_fd_pr__pfet_01v8 W=64 L=0.5
+* second stage
+XM6 VOUT B VDD VDD sky130_fd_pr__pfet_01v8 W=96 L=0.5 m=6
+* Miller compensation
+CC B NC 3.3p
+RZ NC VOUT 450
+.ends DUT

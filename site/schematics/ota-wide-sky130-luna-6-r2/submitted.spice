@@ -1,0 +1,24 @@
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* 10 uA reference and complementary input-pair tail mirrors
+XNR IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 m=1
+XNT ns IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1
+RBIA VDD pbias 60000
+XNBP pbias IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=15 L=1 m=1
+XPT ptail pbias VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=2 m=1
+* NMOS and PMOS differential pairs share a single-ended summing node
+XNI_P x VINP ns VSS sky130_fd_pr__nfet_01v8 W=60 L=8 m=1
+XNI_N nrefp VINN ns VSS sky130_fd_pr__nfet_01v8 W=60 L=8 m=1
+XPLD nrefp nrefp VDD VDD sky130_fd_pr__pfet_01v8 W=75 L=3 m=1
+XPLM x nrefp VDD VDD sky130_fd_pr__pfet_01v8 W=75 L=6 m=2
+XPI_P x VINP ptail VDD sky130_fd_pr__pfet_01v8 W=70 L=2 m=1
+XPI_N prefp VINN ptail VDD sky130_fd_pr__pfet_01v8 W=70 L=2 m=1
+XNLD prefp prefp VSS VSS sky130_fd_pr__nfet_01v8 W=12 L=6 m=1
+XNLM x prefp VSS VSS sky130_fd_pr__nfet_01v8 W=12 L=6 m=1
+* PMOS common-source output stage and NMOS bias sink
+XPOUT VOUT x VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=1 m=1
+XNSINK VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=54 L=1 m=1
+* Miller compensation with series nulling resistor
+RZ x ncomp 10000
+CCOMP ncomp VOUT 2.5p
+RREF x VSS 10000000
+.ends DUT

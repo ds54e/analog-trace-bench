@@ -33,6 +33,1878 @@
         "exported.spice": "83b67b15c15f337e10dd2d4bb03c3111d3f97c0c8c8c1bb523e4d74b63929864",
         "verification.json": "9c79434c71c17d6c7363c0ecd2af39bc68cb1e8f5033ca7dac077c0fbed20462"
       }
+    },
+    {
+      "run_id": "ota-drive-sky130-opus-5-5-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
+      "files": {
+        "schematic.svg": "77bd5f60f6221ea839d7957ad15e92467a386c4cb2f5f267cdca8b0c28949e3b",
+        "project.icproj.json": "9671e4e118f7b6e09b546b3ab67bd8aed0f784e91cbc0204cb2f5e465a86ac72",
+        "submitted.spice": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
+        "exported.spice": "b96d9bb39a867731ea478c1d24bdce0872d7fb9bfbfa32d0b5057d2dc42e28ae",
+        "verification.json": "93a385de06bc3167d850b1df1e0792286678fba0f95e72b16cd95a1c4f0c89b0"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1306
+    },
+    {
+      "run_id": "ota-drive-sky130-astra-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "7c4e04fd498950b7853c681cfe72bf042c2fcc97705c777dfb1ab061e768b451",
+      "files": {
+        "schematic.svg": "15943b26c09c2f6c4e6c91e4e05b23e1a52ef9fca164602e8d445fbed6f89a29",
+        "project.icproj.json": "98554b35fb87f2d0fdfa8f5629b331ddd09e6128d61df8a0d10635aef548c7f6",
+        "submitted.spice": "7c4e04fd498950b7853c681cfe72bf042c2fcc97705c777dfb1ab061e768b451",
+        "exported.spice": "501a24eacf447a506b647e9a57fec6627b21851949101f10dd8941bdb10fa0e3",
+        "verification.json": "cfebc54a2d3119abd98876dc2504636639b3696dea11a11482e41b542232d757"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-drive-sky130-sonnet-5-5-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "c1d4f6b986a8ff86b682b7a2da2a0e39764649adb35e202ed1c6e4e177a1e202",
+      "files": {
+        "schematic.svg": "531285eace3abe9e1b54b09ec00c4fe121581929ce678d9066ab53f47b876ffe",
+        "project.icproj.json": "42ab6cdb759945824e46021e576d397916b6a07eaf670585f1498ca881a71bf2",
+        "submitted.spice": "c1d4f6b986a8ff86b682b7a2da2a0e39764649adb35e202ed1c6e4e177a1e202",
+        "exported.spice": "008bc2197d667ed4e6121c4d031e0e3c1b76dceb5810342a20b20cd15acce346",
+        "verification.json": "9fc448777a359a39b571b9755f14a1b6d6cdfa37b5b3f2f9900c769d03adce6a"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1479
+    },
+    {
+      "run_id": "ota-drive-sky130-sol-6-1-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "b3063e645a06b71863ee1711c268c29649feea430509114b189caf82dca3d858",
+      "files": {
+        "schematic.svg": "ad7cd04ec1e78761b9e7ac620da132ffd9388ec60606793351853db5b40389bb",
+        "project.icproj.json": "87066262602cbccfbff5429b7c1779a7e8afbf75f1b8dcd71618833a9b6fd633",
+        "submitted.spice": "b3063e645a06b71863ee1711c268c29649feea430509114b189caf82dca3d858",
+        "exported.spice": "c8e89bf366d88cd179dedc2a593815bc13c3247a2c800631181665563105b9f2",
+        "verification.json": "13fad28186e5447fe19a89206399610fab5a0c54652ebf9b31ffc844e5b025c6"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-drive-sky130-luna-6-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "f816d903d46e8f187147af43b9e2f8193362526110e24d64b16d50601526d614",
+      "files": {
+        "schematic.svg": "dd3bc7fe8ea018488b93078fb8742f9db756fd64e2e9004c258a40930f278565",
+        "project.icproj.json": "9d8762f9046a1bdfc290f22d2d40560e3f5a2c7c230c48e211f53ca3da68fafb",
+        "submitted.spice": "f816d903d46e8f187147af43b9e2f8193362526110e24d64b16d50601526d614",
+        "exported.spice": "52c540957413106661cdf2ec23087a062144b673d04bc327e86dcf3c3749b393",
+        "verification.json": "daf1de1b12983ed61ee277ccbba560163592abccf278024b54587bb144c0633d"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 967
+    },
+    {
+      "run_id": "ota-drive-sky130-sol-6-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "b1c34606fd2f9c7ff9e6b7be924cf54f79cb2ef89057659d11c9eac3ece8ee74",
+      "files": {
+        "schematic.svg": "a43cd19b243c83584340b65a92d08a50eca004d922f794d89c3dcec8501eb1d7",
+        "project.icproj.json": "af8cce2ec95f187880c580d7d2936fc081ff9865d2942d3e9b4242d184a923a8",
+        "submitted.spice": "b1c34606fd2f9c7ff9e6b7be924cf54f79cb2ef89057659d11c9eac3ece8ee74",
+        "exported.spice": "69949a3eed3d43a43d748675fb5a4c5b69ca21a8b4526c7e136c7e69f92e9c6f",
+        "verification.json": "1a09ff777c5dafc6e2dda24992efc3b228414bc737f44f0a3bb3e4eedbe4dc2f"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-drive-sky130-deepseek-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "0c8c73785a4ffccbe3b6cd9b2c5b618ffb2edd07529a90b6f92f2e9efa45f16d",
+      "files": {
+        "schematic.svg": "4749a0673a6a461bbc7a183d27dcc47a8bbd0d09f06161c56a000a4efb985458",
+        "project.icproj.json": "59eb4030cde5a80d59c30c1cb214129bcea09f5f6ae4d0d133902b4ed11f1a16",
+        "submitted.spice": "0c8c73785a4ffccbe3b6cd9b2c5b618ffb2edd07529a90b6f92f2e9efa45f16d",
+        "exported.spice": "af1b63713c50a570656bbfc4ac2720d653efab8e9c53ad35e4e36c68032d208b",
+        "verification.json": "eb2ffe856a19e8053865bfa87a40f8f62b3a4571d10a968d2c2800aa67468003"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-drive-sky130-astra-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "d59b9cde8ce812aa53e6717ed3717f5531231ee0d43c11ed16f3d583d773721b",
+      "files": {
+        "schematic.svg": "25156e4178abad86d2240953eae6a46474652ce8906d3fe589b60137975aad96",
+        "project.icproj.json": "04fc3e834d4d8aff28af173c6433939de9179be89167cbc8dc2594d59a26b00a",
+        "submitted.spice": "d59b9cde8ce812aa53e6717ed3717f5531231ee0d43c11ed16f3d583d773721b",
+        "exported.spice": "5c832f893108161e33a95cd6427bfa4a1c51530bbcfc21d61c36a18f4758d8c6",
+        "verification.json": "c1dd79e401fe4af610f6276e79838f11b45e0a9208eda6e8dd0270e2b8023c45"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-drive-sky130-astra-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "5e3143d93b35304b5d4bfaa6ba3715f70b1bbbbef6cbf91da01e9e4b8e5b1e43",
+      "files": {
+        "schematic.svg": "7ba1d082e39ff31af52ad984d45e82332102b7e0924bf666474e5a367fd6eefd",
+        "project.icproj.json": "2f059687dc28ef96e2d19917b2bd1fbbacd02ed49a5e30f5a3f5299cd93a931c",
+        "submitted.spice": "5e3143d93b35304b5d4bfaa6ba3715f70b1bbbbef6cbf91da01e9e4b8e5b1e43",
+        "exported.spice": "8f191a812d0f8655d73dc5e85292a3d2e91c70ad6bb9d9b5d5de2b783cdd6f62",
+        "verification.json": "87880e937426b066038a208acdccc2b0e9297baedd5696c06fed5e3ea6dea59a"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-drive-sky130-opus-5-5-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "4d87de80bed335ac7df1023f0a532b64346de6207bf4a25fa0ae2af830e04721",
+      "files": {
+        "schematic.svg": "8241652cc962ce4413c7aaa2440fcf0a6256b66c80121fd9ca47c8c0c17a84c7",
+        "project.icproj.json": "0350245c31e8cd7bf17b8e41c796887f76d754d5b0ea8861e3767e5d83e637f2",
+        "submitted.spice": "4d87de80bed335ac7df1023f0a532b64346de6207bf4a25fa0ae2af830e04721",
+        "exported.spice": "db599934f24741364452603473e25f6fa9286f12971a4daa4adaccfccf2094bb",
+        "verification.json": "f1ec852355263bbaac16fcc1f66135f856123a2d30c662eb1d9c249a018e3d29"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 960
+    },
+    {
+      "run_id": "ota-drive-sky130-opus-5-5-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "b1efbbc9bb0141a450991723f07ebe4ce42ea1a9317ea4e9ca24e020af13d2ee",
+      "files": {
+        "schematic.svg": "d5f02e701a9069f23c4fa5a9193c33d078437875de7910aca3f865433415b03c",
+        "project.icproj.json": "c9822062d0efd75bd7658e42fbbbd897a2d4c9e731cd66aa437b0ce4a1a64da4",
+        "submitted.spice": "b1efbbc9bb0141a450991723f07ebe4ce42ea1a9317ea4e9ca24e020af13d2ee",
+        "exported.spice": "8dc40b3540e23a7eced77686757493f89e83b9c52af5ce18eb79eb3ec55cd21c",
+        "verification.json": "ecf551fe9d9919b1a9464ca86b17516372f6b96b27768a79d9e25846be5b855a"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1303
+    },
+    {
+      "run_id": "ota-drive-sky130-sonnet-5-5-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "5e157bc9cd85aa420a072e68e897f3a0bae11fe6fbb3b74a320a8a32f1b62074",
+      "files": {
+        "schematic.svg": "e573c30782e9c05e4800d17ee0228b1c3b21fc918d70947d05a10a7e8dc442e0",
+        "project.icproj.json": "5437cce5b03d9de5c4c18845dcf9a54b0ce2985ea1cb61d0596191d2ed280695",
+        "submitted.spice": "5e157bc9cd85aa420a072e68e897f3a0bae11fe6fbb3b74a320a8a32f1b62074",
+        "exported.spice": "716df9abf49c0c8d338bfb902c4e0f1fdbf5493c29d45aea9fda0c29bbf04a3b",
+        "verification.json": "bcbe0c4fdcbe02f18827eb9d9e550c712003c2907c13eeb80252713fa91a68a7"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-drive-sky130-sonnet-5-5-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "880a148d0cf388eb34518922c3cd5a9bb07eab5bbdcc4de7e0c3d78f96c2ec40",
+      "files": {
+        "schematic.svg": "1d79c7b72c51d79eaf10558ced7cc7870d48ef20f3a4425c235b63c7171d4bc4",
+        "project.icproj.json": "537eb412ca23b917dd5a7561404913192381935ecd228685420f204e64123b64",
+        "submitted.spice": "880a148d0cf388eb34518922c3cd5a9bb07eab5bbdcc4de7e0c3d78f96c2ec40",
+        "exported.spice": "210bd5ff5584c23598710e793f10ed4c0c05b614e1615d1e66f376afece3cfe6",
+        "verification.json": "3801b0df31bb99fbb45589b8629c1462a379c08b3ef1c71e30ff433a261d0716"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1304
+    },
+    {
+      "run_id": "ota-drive-sky130-sol-6-1-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "4a2a805c92f1c595c8920dd73850064ade4349e84e5a3c3d83d59fccae6b4abc",
+      "files": {
+        "schematic.svg": "5da85d97c44f3920f84cd85fe507c1772f3203945da1b875fa31f4733750ab3b",
+        "project.icproj.json": "59092a5cdc8fd8d734d18bf4cec505570bf4822d5ac25f2a959b8f36b9ebb8dc",
+        "submitted.spice": "4a2a805c92f1c595c8920dd73850064ade4349e84e5a3c3d83d59fccae6b4abc",
+        "exported.spice": "46eaa1ba695849d79882e4e160dabe36a68653cf22649d41b8321c8bcc7d94e6",
+        "verification.json": "430a507f7287780900cca421c5bf2611d5a190fad86350780284beb89b10e6bf"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-drive-sky130-sol-6-1-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "ddf04048587d175c592e9ea1d8dff24994679b2afccf666ff9c7b65c7eea4712",
+      "files": {
+        "schematic.svg": "068ed6cbd7c531dbd723e08ecce1742e8d5c967687119c21f0abb39008e3e74e",
+        "project.icproj.json": "1ed965f57e8181b6099a99cb785668ab5caddb11dbfdeb1b4c91d6c0f1123368",
+        "submitted.spice": "ddf04048587d175c592e9ea1d8dff24994679b2afccf666ff9c7b65c7eea4712",
+        "exported.spice": "0d4960a47e1da04c5225f8401dec760144b24adf4aa1705b8333d2f1dfd7a771",
+        "verification.json": "2ba7b22d6e9e7240d24cbd165f258652ff006740c6ddbefb1b10927de57d5760"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-drive-sky130-luna-6-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "8de3b79376fe92dc73a0ebcfa7d690532af04ac1cca66e342ed25c43ba07aa35",
+      "files": {
+        "schematic.svg": "034c18e2fd57a54fc44a267dd64bca2fb6bd549a3a2fb1df2b9f9fbcd5599804",
+        "project.icproj.json": "014a957c84e9684ec72f47edccb928f8963b4c1ee7df9c2516c9a3e2d6b5f746",
+        "submitted.spice": "8de3b79376fe92dc73a0ebcfa7d690532af04ac1cca66e342ed25c43ba07aa35",
+        "exported.spice": "1bbb32ab4983e521bb0dfcd17496d60c41567bfbe2d29ecdcf226ec9e7a82124",
+        "verification.json": "9bc8bb428d85c5f5627e697f113209103ad48a1d2df0c238bcf37c4f134b349c"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1221
+    },
+    {
+      "run_id": "ota-drive-sky130-luna-6-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "7cee7ec10489b05070e0d29a1400fa0470205ffd2b272f912c6dcdf5f7a727ec",
+      "files": {
+        "schematic.svg": "e14c377d1f8465791fc365e23d5cb67715240e088c8154a59a11804ec44f022f",
+        "project.icproj.json": "176532391116569e342673f223a542342a1b72b26cda2baecb34715f2effbdde",
+        "submitted.spice": "7cee7ec10489b05070e0d29a1400fa0470205ffd2b272f912c6dcdf5f7a727ec",
+        "exported.spice": "c56ef30893d370b23cf986590fcdc0eb23fa89d094aa655a79cde143768d28cc",
+        "verification.json": "3c539f445e06487c18fcebfd5e01d1d304626b2dbd15a0bddc3d4fbfc05b3d7d"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-drive-sky130-sol-6-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "779b24d3ba5eef213d7fbab2d7f4d96ed17e8ff119ee5786c508c1d62448236b",
+      "files": {
+        "schematic.svg": "69e40c30542b4ecefa650ae6ef96be660477250564ed192a4d84886b1215a6e9",
+        "project.icproj.json": "6b1c7943dcf5430e937fa1b6c359848e7529224f176ec4d2663ee5f2bb6f34cd",
+        "submitted.spice": "779b24d3ba5eef213d7fbab2d7f4d96ed17e8ff119ee5786c508c1d62448236b",
+        "exported.spice": "93d64ba5289dfb72071fa83c19a14f6c4c2ed78e4ee9b046944517cd30cb7d9b",
+        "verification.json": "8602e9945a0eea08a4a7797b025b4d8c175d544aa04a34b7e7af0765460f111c"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-drive-sky130-sol-6-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "fb8672e32cd5823e641474e594a34887df93737f51f9583253f0d51bd3228459",
+      "files": {
+        "schematic.svg": "894ef073c8ff8e25a2b1dda9c2fb278297198d59996932546751981441b2ba7f",
+        "project.icproj.json": "7e792cccc7c804a5ea384cdd14ff1ce3d9192191c23ac01aaf9470b095901f9b",
+        "submitted.spice": "fb8672e32cd5823e641474e594a34887df93737f51f9583253f0d51bd3228459",
+        "exported.spice": "abaf7bcca611edae43e2119a64774b7d10c993c19b078a9350f2028611661983",
+        "verification.json": "d6b2764ff00e51909537b26718b8e846bcb4aafee5b807ee00e5533e6de1ae36"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-drive-sky130-deepseek-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "128179008604a5c96fbebd54376a17bfef2506124c330c62f29a617ed0ba2611",
+      "files": {
+        "schematic.svg": "dfdd765e928d199fc1fbed280afdeb01d5cc09c81bdb97c0853edc5dedcd0cc7",
+        "project.icproj.json": "bda98e11007a4273e550e758621e1e072c27ecc8f96a49cac3534233165f153d",
+        "submitted.spice": "128179008604a5c96fbebd54376a17bfef2506124c330c62f29a617ed0ba2611",
+        "exported.spice": "446ade3b7eb1d82cba030628fd806907b46cf007e7fb348b905ac10802ab73a3",
+        "verification.json": "4eadd8689548fd7edf1f2fdc4317b0e7399900718fdd2704e992297e46156fa3"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 943
+    },
+    {
+      "run_id": "ota-drive-sky130-deepseek-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "0e470a2cdd3dd289f4b87c3155ac03bcda6975490439e3f0b97f4641de84350c",
+      "files": {
+        "schematic.svg": "99d0af95863fbc5bae1bd554b7a44e4f4cc88c47e8a9ba4f4c379b474c72eff7",
+        "project.icproj.json": "d0b5f9cf319b0bf9221fdc917a21ebb2bb758b920dd2efa8d3c34ff2b5794e3e",
+        "submitted.spice": "0e470a2cdd3dd289f4b87c3155ac03bcda6975490439e3f0b97f4641de84350c",
+        "exported.spice": "27e0c593aae74e6bb46d1eec374ebae41ff39ea0928fc3ad75c202f5b9a969a1",
+        "verification.json": "18d80b8a7dcde659cbf0c82ec3175cf70ae75d7695fc7bba972535e6ad0ef840"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-drive-sky130-haiku-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "8f7657ddcc7aa88db3ace737c44a4da627e5d82f5e1d2d3370733c37b3930dfd",
+      "files": {
+        "schematic.svg": "2c42429ebd122b5f4f28f3ab42bdec19b6908b9cb51053ac73b66676ab3e7769",
+        "project.icproj.json": "7ea9768b21902c9421a8f6bc50729507d85c7171241dc38ead48f556e7d487b0",
+        "submitted.spice": "8f7657ddcc7aa88db3ace737c44a4da627e5d82f5e1d2d3370733c37b3930dfd",
+        "exported.spice": "35230387681374e3aa0ceca5a9e1490df64943b48e0fcf8664c0274202b1560f",
+        "verification.json": "34000cdefc5633e239605c5bd470e5bbde3c3b826e8732e2e727b44a2335d4df"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-drive-sky130-haiku-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "28333d0e19aa74432927ffca15767ce0cc2bd1f8e28d15f693c47667951b6796",
+      "files": {
+        "schematic.svg": "48aca9cc867be03e6eaccb91ff67958c1b84f50a3eec45023a92c76db9c68cab",
+        "project.icproj.json": "6a27a4f2180fc6040b8a9707634664c0486aa555276f089523df031f159ff83a",
+        "submitted.spice": "28333d0e19aa74432927ffca15767ce0cc2bd1f8e28d15f693c47667951b6796",
+        "exported.spice": "aea3bacc5e36b0b65cf0e851aa4a3f1fc18eda22aabaf55fbbacd34543958c33",
+        "verification.json": "8f3573daf034366d20d34f05c0b4dfd3caf8bd11f81979f4917c08266e819db4"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-drive-sky130-haiku-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "4b3fa511668279af824497fbf1575b8903baace355052ef5c4e32497a22a75e9",
+      "files": {
+        "schematic.svg": "00d1d57e2915271002190cfddd23b0a67adc27b4ed74de9e962e8eae47c60009",
+        "project.icproj.json": "79565fc3689406344a5d61e502d730afb3684e9823088c909dcdc9f023e40bf1",
+        "submitted.spice": "4b3fa511668279af824497fbf1575b8903baace355052ef5c4e32497a22a75e9",
+        "exported.spice": "fd5bcabe17f2c0c26ad8f8dafae8226cacb619fb33ffc4b86e847cd47a72b3ff",
+        "verification.json": "13a065a6ace92c818f4e5816b78d46c374911c81589b9c74f1c2317b9b26aae5"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-astra-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3",
+      "files": {
+        "schematic.svg": "328941176901ae5bc44a0dde22240ffaf9aeb305e3f735f04b60b57eb841a810",
+        "project.icproj.json": "59ecf2871336f783b575d0cfcb1ed958843a8d79e65b498570c371b093623520",
+        "submitted.spice": "d2a42067c94043c8fede903a4e9af02f4f441b86ab1b3348999bf80ce69719f3",
+        "exported.spice": "eaf367302e041dd1cdc9f0d2aa6b578f750e47212b5b426f2ee434dada52cfc0",
+        "verification.json": "ed526f9bac60e3e355bab025f21555f8419b35e9a9773d27d2ac949fc9fba6a2"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-sonnet-5-5-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528",
+      "files": {
+        "schematic.svg": "3a45e21ed513ea988c98b0b9779748b37318225719cef2fa5c2b0d227f0148a0",
+        "project.icproj.json": "5408acfe5a89285d3f5c1c4e5043c0db134b0b6ef6d6a8d74828d664d16ff138",
+        "submitted.spice": "040a2182c740fd9eb12bc096bcfea1da9eaec5ff66f6952ae4426ab0197ff528",
+        "exported.spice": "3b87e4a561685a031a4a27226a7e1537c491cc0da3e54dbc94357b68bc1a0182",
+        "verification.json": "f8f8f09f997c3a97ce23408ad6d838c5433fb427ef8937f9c7c3a568c172662c"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-sol-6-1-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e",
+      "files": {
+        "schematic.svg": "441456e2ba623c6d5415d8001712203ef7f51d7c82f65f295ab7b0c7581153e8",
+        "project.icproj.json": "2d6a0171dc95c632e168279ead576cf5726f51e18feed4b490aac0716625cbda",
+        "submitted.spice": "02397f6780a15c16a20271d44754412e3dc94679d176c20b225165371fe9131e",
+        "exported.spice": "092d02ae35edb9a0115754278fd6aa25e7f34d224d9ebf094bdc3bc251102379",
+        "verification.json": "f5acb28a1632ab5807d634c4fc2ee195099d6bff69516a44d6476cbcfa963e24"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-luna-6-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3",
+      "files": {
+        "schematic.svg": "3c7e26de563d1f8911ff9f7a98a7037bb5e873b379daec46433fcb2ed7351e73",
+        "project.icproj.json": "00827649342fb464a5d2577e2697e6e7cb5a2ebb398836fd2add6e7bfbf15c67",
+        "submitted.spice": "b18e2db11ad43e9b15c04affeccb5c7f52500bb8cfb0045c1e4eaf352ce533c3",
+        "exported.spice": "79c8a56f58debf581670d74996454b61b23c13aed9da67a822ef760797e4d8f7",
+        "verification.json": "cdbfb7c64a42b87ea14d4a008ebf4ac1c13462ffe00665096873b97cb630e9c7"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-sol-6-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323",
+      "files": {
+        "schematic.svg": "4d360f736044f2a3211b5c3f59bc5ce79172f845dbb9acbe0abac19a2fbffa4d",
+        "project.icproj.json": "cbab2c34e5a971cee18bf91bbcc5afd1d4055644a2f014e3f9f54c3a56b6b0f1",
+        "submitted.spice": "72c4504e5d4ed8c1591cb6d8bf6f29289b5eaad96058e1aba7cd64294b089323",
+        "exported.spice": "4a61536f4329f4d69f0a22327a47d9cb5acefaae2cdd5cdd3d34ed9eca8ef948",
+        "verification.json": "7b4f60ba0dfe35a651b2fb03c206bcd9e3f183e9e0156ad06679e8efc5f1efe2"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-deepseek-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb",
+      "files": {
+        "schematic.svg": "0621624bf478e46797c6b5a8fd56fc202789f99dc2141b05f1aca5f57309dc51",
+        "project.icproj.json": "36bfae3cc3f16d5180d7492e2a77848214cf0adc566341e536701ab27bd9a5dd",
+        "submitted.spice": "f326b55c6d8ac9f57f470f08cb667419a41fc38d36435927649118f01bf808bb",
+        "exported.spice": "d3ae833ee8b2ef362e81216e57c8b0c4d599f40b0cdfc4b921c479233a401b25",
+        "verification.json": "00e77db3616ad6f2174f6e8d33929e5e8ac15a001b23b85b65a349c0feb83118"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-astra-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7",
+      "files": {
+        "schematic.svg": "f8ca2889a84a0310a0f628d30d64a0aed40c0a0b05770fa0d511518d6fd3650a",
+        "project.icproj.json": "66e675a15122b35a2c5cae96d938b9b860892e6f3e9027b137fdc534680fd263",
+        "submitted.spice": "6de10612882d304977c023fa067b4e3730a26f093e5b8a0b21f74d42ba1e0df7",
+        "exported.spice": "b42d195d9cf137ab85a2f088304a1bc36fc22588fcb0be4efb1eff8e58bd6ccc",
+        "verification.json": "a0ba98bd9c432c10eb0ae8a98a6b15ea54c9a67653063da7ac900b152ba39c93"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-astra-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073",
+      "files": {
+        "schematic.svg": "c5ef12ad9ae1c31b1bc73a5f0fef5cb22d46a80f05d6896d5a25afe9afb4a836",
+        "project.icproj.json": "c3fcbf9554a4b564627b04422fa3e4d78dc7249688312a92d78c8ba72441c7ce",
+        "submitted.spice": "7a311363d8faa84d85e25ec548b570e50b1157bc16745fea367242eac58b5073",
+        "exported.spice": "09f276e54a8a9900f65f61479b5130d28bc45c55b56746edebebab067088d047",
+        "verification.json": "b7cd5d12861934494b60903b7c57e58e8f59230fef32e031790d72883eeb5c65"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-opus-5-5-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "8be9074e28d7c762389e36bc05040a64c2ec441effa5a32eda254d074717874b",
+      "files": {
+        "schematic.svg": "bfca948ee195917a7cc6f53f646ce7aa8f1bc03389e38f72d362b02735983bcf",
+        "project.icproj.json": "a54bcb1cc4af49373856df076f5c760c5332acec95e9585c42f24b58533bdcc8",
+        "submitted.spice": "8be9074e28d7c762389e36bc05040a64c2ec441effa5a32eda254d074717874b",
+        "exported.spice": "600aa6eab12161d4f11c4d3caabf71207b8c9f8af213b7e0f98e8ddefa3356e5",
+        "verification.json": "297cc4d35cec8498ddd99eb5f7597c0fd815d9680d55f0576f5878dab8303c3e"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-opus-5-5-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "d14c06a381e0499f5fc44684f59794e7af86732b2f291b2f49ca1abe420d1dbb",
+      "files": {
+        "schematic.svg": "04e7b8c20d20bd89f105892b420038e684aab052191ea2c167f813bb8ddbcd04",
+        "project.icproj.json": "eb5b1da2be63d6f78860dc4c842e8d4db83438db65cd7b69384e023722d3a7a4",
+        "submitted.spice": "d14c06a381e0499f5fc44684f59794e7af86732b2f291b2f49ca1abe420d1dbb",
+        "exported.spice": "f9c003d47c6df693b8711ffdbada9a307fafbf3401336785ce0527a131891c3e",
+        "verification.json": "8b5f56e6393f9f0c48ecd5a76ecf292cb4b7ecd05f02d0928aa94969433bc413"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-sonnet-5-5-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "e3a4ef29b26991eb79584c4bc2c24b3710130a466fe91605bb5fffbfea5f81c4",
+      "files": {
+        "schematic.svg": "7e021f65a8334a1773d2e6ed4c56677cfd2e1ea5d12e348d26b4a58dda646534",
+        "project.icproj.json": "b28bf24d2ab1f08f1a1f9c9c87b7dfdab76ca26e03769af088f35a3e5dbeb810",
+        "submitted.spice": "e3a4ef29b26991eb79584c4bc2c24b3710130a466fe91605bb5fffbfea5f81c4",
+        "exported.spice": "b7ae07200bc3d27daea297461c9d2f7d02597b64d76d0ee510b987b89aa69122",
+        "verification.json": "ab3eda4970c5c5ea38ce033af410bb73fdcef30ee9ba4a7b8a18624d33e59949"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-sonnet-5-5-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "2dcf4fec741a14350e34eeabdf84422da676d9bcec9cdf8d48c2fd6f5ec6d3c5",
+      "files": {
+        "schematic.svg": "1d2061cc8106ae60f63878e298161c036cc99b38dea12d1649ef430cef020df0",
+        "project.icproj.json": "3801f4565a06f6b73eab23692107492246ddbaeda68e920265e4d7709f577c3e",
+        "submitted.spice": "2dcf4fec741a14350e34eeabdf84422da676d9bcec9cdf8d48c2fd6f5ec6d3c5",
+        "exported.spice": "06e8af5689f841b093976bdbde6b7c4f490bc16a26793ea99e523cd2713ba8ea",
+        "verification.json": "ac32bbbae4302fe92d21e7f52b7f89d74cd2492b1d911fd819fe302e170aaa89"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-sol-6-1-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "885a2d3b6ca8e63bca24977b34b5bfed89017643a8135f20e632b3f40e50a523",
+      "files": {
+        "schematic.svg": "f84a3c1e0c8122daa7cb5eb56be7be264d535ae36621d911adc9457cd5f004e8",
+        "project.icproj.json": "20f023b7753a253b8c222522a692da99c242b017881f17fc559093e6941e2dd8",
+        "submitted.spice": "885a2d3b6ca8e63bca24977b34b5bfed89017643a8135f20e632b3f40e50a523",
+        "exported.spice": "ff6fcbb7184947152a9abd0d9b6caf9350db12854271917afda4cb5d82f8c910",
+        "verification.json": "63bf2670782f1ae0a4519cb6959709a9068571cddee4acabb79716defd987f8e"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-sol-6-1-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "a27d15bb220aec4000166e71fa89b140397bdf0b9d05336bf53b2909a1b91967",
+      "files": {
+        "schematic.svg": "328941176901ae5bc44a0dde22240ffaf9aeb305e3f735f04b60b57eb841a810",
+        "project.icproj.json": "93b00cc6a9f070e16b87f5f26fe01409f53b6720b26f72ae31e63e46f2406213",
+        "submitted.spice": "a27d15bb220aec4000166e71fa89b140397bdf0b9d05336bf53b2909a1b91967",
+        "exported.spice": "9fc194f658ff20ea33500b212e4fdc8333ff399e734f0f1fd61b661e9e853614",
+        "verification.json": "3e17dfb144d89334f45e5d4a64efdbf196c5c4804672809c5f8c4d84c020cb97"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-luna-6-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "d6c8a85e0b193ca372a8fd5ba7087b3aa4760eb2c2f09304c97dfe834583f200",
+      "files": {
+        "schematic.svg": "683a840fc5071836a0560731b1c6d057a8c53a59cf985ffff548d8d7f0fbb0a5",
+        "project.icproj.json": "66f47206ab49bd49ed6bf545c53c969ef5e65104ce532d61fe211a34aaa50a49",
+        "submitted.spice": "d6c8a85e0b193ca372a8fd5ba7087b3aa4760eb2c2f09304c97dfe834583f200",
+        "exported.spice": "4599795d14c40cc29e88d617ba27d47f920bd997580768c3629bc2657ad04762",
+        "verification.json": "0f58a7fb7e6c5926bec773b8e4c6faf49d054ab58cf7a30fccaf0d658ece9624"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-luna-6-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "5f91a1b282e70394cefb119abd89009951f37ad8571bd01873b957bf5ee883c9",
+      "files": {
+        "schematic.svg": "9a8412f3cb8d41b47e18574b62fefc5b22fcf7ae8d1dbecbe25c1ad787775115",
+        "project.icproj.json": "50ce00ee57f452417808b25fe573c8f0cbdf037dcd58aa91e696299c90a4f5c9",
+        "submitted.spice": "5f91a1b282e70394cefb119abd89009951f37ad8571bd01873b957bf5ee883c9",
+        "exported.spice": "2b504c0b6e544b2e772f3d023e8129b627cbe618a3b3f2f0b0b9259174b2c1fb",
+        "verification.json": "ea42ac7e7343a40064d4f0b63e293472371ef9e13491f4b9e3e16ddf98abe594"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-sol-6-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "fa721829171f5e5bc78b40b077052c925679faa9a2e7fbc69708c93cbc86ff75",
+      "files": {
+        "schematic.svg": "96f411d94ae304a44a5aaf99f371a2100dabf41aeac26d9743856b1eefce5b97",
+        "project.icproj.json": "a3ffb28de71c13da03e05340155326fb238e5c2f00419e9824b3a95b8982a04c",
+        "submitted.spice": "fa721829171f5e5bc78b40b077052c925679faa9a2e7fbc69708c93cbc86ff75",
+        "exported.spice": "c395615540d373ba6133fe64f419d66501906983df91161c4aa4e20e473f3280",
+        "verification.json": "f6ae32820b4c56ac7200b1a11d0ca886458d9cb6d788c98cbb17a07e1ada85a0"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-sol-6-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "4d84289b1eb66f18d9c5ece985ddddb7f3581511df0a80e1499b2a1d32d51ad5",
+      "files": {
+        "schematic.svg": "f84a3c1e0c8122daa7cb5eb56be7be264d535ae36621d911adc9457cd5f004e8",
+        "project.icproj.json": "f68af950745015a4bcb698f168c99e2ef1630d4d1750b8fe52b6d18d9b6c854e",
+        "submitted.spice": "4d84289b1eb66f18d9c5ece985ddddb7f3581511df0a80e1499b2a1d32d51ad5",
+        "exported.spice": "5a24753eeb8f3a30ec58cb42e98a8f5db05d0ece4db1b8fd96e1ad5c3e5705c2",
+        "verification.json": "f434de4fd1dc801fd6b8e948980cb7ac1b589fd6773815bf948b06c90557f73a"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-deepseek-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "03f30693aa6969c519cccbb92a336db463b3a74900ba7aa09775e21e3aaf00c4",
+      "files": {
+        "schematic.svg": "0a35db33148e9cfdf5d31a8b691441a956753511437d737f20a29ab8c86d3fd8",
+        "project.icproj.json": "cc6e52518ef52659dbac4879b5648da7f7a3bf72d3405d7343151cb3dbee2f79",
+        "submitted.spice": "03f30693aa6969c519cccbb92a336db463b3a74900ba7aa09775e21e3aaf00c4",
+        "exported.spice": "eaa4e2f4218a7c93e0fb939a342d9c33cc67fd93606ec181c7588c8249820975",
+        "verification.json": "4cf3bbe8b4113733f9eeef80cc51b55ed61b0b6db62d145315c38bf7158c9269"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-deepseek-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "35355757276b943baa9ddd51933cf9ea0c3030d915f10e16613ccebbc7523627",
+      "files": {
+        "schematic.svg": "441456e2ba623c6d5415d8001712203ef7f51d7c82f65f295ab7b0c7581153e8",
+        "project.icproj.json": "6bb68313b2f689e3e765dff4208d535834bdf8f4b81328eca98a910487d10259",
+        "submitted.spice": "35355757276b943baa9ddd51933cf9ea0c3030d915f10e16613ccebbc7523627",
+        "exported.spice": "721fb84f499ba8f639f4614a6fbc0353c421495a24bd5b4da64569f79f970201",
+        "verification.json": "912a09c4c89af57db3fde7b0c71a2b6b34a74f6c28864517543206dc62c97b56"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-haiku-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "eb39c1bdafaa6d20c050517abb13e8a642d5d36e69178cca446b82f690b75312",
+      "files": {
+        "schematic.svg": "9080bca9dbf1a8ecfe46703a65eb3b208bb9a0c604848b3d76335b9c214b783a",
+        "project.icproj.json": "13a8a3f921576ec9f0e54d180540adadd8d04ebc28a2b28c411b18369048ee04",
+        "submitted.spice": "eb39c1bdafaa6d20c050517abb13e8a642d5d36e69178cca446b82f690b75312",
+        "exported.spice": "ff623397af978e739525d33da269939e12e897fc950a5335d107064b0d1e8044",
+        "verification.json": "395e7182623a0cbb5a1f56069a24d0bc40b122942b4b51402826bcddde2558f8"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-haiku-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "733483a684da5f21ef7aef4d9c92e57b7b5efddf7039f92fbe977050af60e0c6",
+      "files": {
+        "schematic.svg": "1dc0c27bd92d82de1a0706849d7534f6f5774317f60221053ce7c0b99400f6f3",
+        "project.icproj.json": "58267f92134f49b3f785d76e58b05bb5a6921c9ef53a3d388016c495476bf540",
+        "submitted.spice": "733483a684da5f21ef7aef4d9c92e57b7b5efddf7039f92fbe977050af60e0c6",
+        "exported.spice": "f34d9effec9f80016e960e2704366f6538930b98a35b7ed402f724b2e41e2bb3",
+        "verification.json": "06a9b7a2ca584ad4b3babb49c84d6a44240cc4ab0cad3cd4f9740de4ecbb8636"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-fixed-sky130-haiku-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "89e4eef98fcf1252ed3971caf28ba8d31c483228dcc01bcd85d05ae368b57d1a",
+      "files": {
+        "schematic.svg": "0d910f9171bebfa1d4192a2edc49ff9e97152154dbff4f1011c924d7aef02cda",
+        "project.icproj.json": "cb20ac4388251f6c4d12e0e48763430f0db76b74dfb04c25b1fda8d337f4fb3c",
+        "submitted.spice": "89e4eef98fcf1252ed3971caf28ba8d31c483228dcc01bcd85d05ae368b57d1a",
+        "exported.spice": "3c6fa29afa1443a74cda4a3883cbe95f7173335261549ad826d9d97571f23ebf",
+        "verification.json": "5f8bfee3ebb1e5fcda8cb5b21951bc50ead963c3eb1ead7d574c94ffc26dde04"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-opus-5-5-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "e3bfbf141fde52954c8b5208b9919b947ab5853fbcca777501a4b351368c2be3",
+      "files": {
+        "schematic.svg": "8d3f6102e8ec8aa4c775380462f549387c8e5604bc4adf88f42ee4753357c742",
+        "project.icproj.json": "47d5946591d45fa02af1192adf6617f375312f726dff6f34abe96a0551a0baf5",
+        "submitted.spice": "e3bfbf141fde52954c8b5208b9919b947ab5853fbcca777501a4b351368c2be3",
+        "exported.spice": "b9db5810ee89bbf67d398e2ed2c68ced96cc040ef0ac32a36c3dad075bbf7da3",
+        "verification.json": "75a521f3692f2abd7859226156acbb6ede94076f0425f63f26593f20b4ce81f9"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-astra-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "07051b51d35298b860f3104c968d3284dc87e4f290a5b5ad0287f3247f6013ba",
+      "files": {
+        "schematic.svg": "2f812c50a105990c518587160710d33bcc4144d15752e6b59bfdb8b6fd4306fb",
+        "project.icproj.json": "d5b3b77ea66eeda565e28e45926b242ec92a663d92a21ceaeb126f5123099399",
+        "submitted.spice": "07051b51d35298b860f3104c968d3284dc87e4f290a5b5ad0287f3247f6013ba",
+        "exported.spice": "bf5808e89ba712823daf6bdf334006593850fc67340f8d9f91975afb9c28b954",
+        "verification.json": "df7f9aa9695c933f6d75974d6f7995c980f9f30dd0accaa878ff3b3a0dd8d212"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-sonnet-5-5-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "c90dac4f170360856dfdc4e93174bde1a1c165c912c98e662292ac8c97c5fd18",
+      "files": {
+        "schematic.svg": "e78ac3f72badfe5960a6cb8d8e50b049df9c053092bfa8286c83819e1e4ebd36",
+        "project.icproj.json": "f0148c24d03202e5aafac159cbb0504f3fccf71a291aee73fe158d717ed6f00d",
+        "submitted.spice": "c90dac4f170360856dfdc4e93174bde1a1c165c912c98e662292ac8c97c5fd18",
+        "exported.spice": "3708becdd175dcc025cbc5fa7800204682a7b3388060af89c0e83e3ea52c8dcc",
+        "verification.json": "e414c8842c51efc22589a488c3ddb6cd4b15b04c10f3ea597958fc5d2f3378bf"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-free-sky130-sol-6-1-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "01b82bb9f9ee843d2c18e2778ca4948def5358fe42cc31446853d27dba5126c0",
+      "files": {
+        "schematic.svg": "ac2f1ca209ae56305844299e0358f97a2b4a2bdbf73e2e55ea7a72b4f0fc4518",
+        "project.icproj.json": "cb95a73c5debadf37592384cdf46a52b0b8f9b509bcd74d8177e34ae84f26422",
+        "submitted.spice": "01b82bb9f9ee843d2c18e2778ca4948def5358fe42cc31446853d27dba5126c0",
+        "exported.spice": "e08f53825d3de0e00d0af60902dcc96650d5c0c92c6812f020ca6fddc23e149d",
+        "verification.json": "4cec17fa3fabf41e7baa5e3a01ac0fdaeb75e653ff6241a7b8cbfae15489964c"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-luna-6-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "7ebf50cdf8a4977427e9011565efca8839d2ee57788fc336434d462771129fb0",
+      "files": {
+        "schematic.svg": "8a90dc1aeb9bbc590235a7b2229f74b1f5b096b27c6434aa81e62815e24fe63b",
+        "project.icproj.json": "fe29ad26d33d772e810eb9ee00ce35738e7394e2d154e6735589445c41a0cd4f",
+        "submitted.spice": "7ebf50cdf8a4977427e9011565efca8839d2ee57788fc336434d462771129fb0",
+        "exported.spice": "97b2953ac49f5720d0276bf35a0b1980c1c6fecdea050ab5e9a7e728ef42b958",
+        "verification.json": "2da842a5fc364a75ddfa176e5a916d675b8b1946a641e89ab53abd54cf8e4f69"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-sol-6-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "b69440c30011285beef0fa5dec4db37ed49020004b046c2f738250b7103274bd",
+      "files": {
+        "schematic.svg": "b4aac32771910598fc4cc1fd104c0758f0488e149bcc03a070e60be5162e5671",
+        "project.icproj.json": "a18803be6bba2718a8cc9772c4e4ab98747f718de0f7b1398238a4c203b1de0e",
+        "submitted.spice": "b69440c30011285beef0fa5dec4db37ed49020004b046c2f738250b7103274bd",
+        "exported.spice": "bb234d94e0d890deae8e17774c0a4c2a5cba5e4078e1ebc362471d5266f3ef32",
+        "verification.json": "31ad83db0e7c8a32e901971b68d1b1a2271b73b60daabc8fc7e8be86e680925e"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1132
+    },
+    {
+      "run_id": "ota-free-sky130-deepseek-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "7d792106bb0fa2386bd0d933aad532eccf7e38924f303fe97b91c00351bd8ea5",
+      "files": {
+        "schematic.svg": "4c613c526205165dfd7725d02da60782ff0329f655444140a3b57c8c49e4c53f",
+        "project.icproj.json": "15c8be78393cd6e8ced264287bb0ec97077f6134e5f20de4ac9910db0a83236c",
+        "submitted.spice": "7d792106bb0fa2386bd0d933aad532eccf7e38924f303fe97b91c00351bd8ea5",
+        "exported.spice": "e8d2731534ab57198d63da57e254407960f3a9824a1ecba7516d3312a3734a6d",
+        "verification.json": "051ea4dc0fd957e11be48f5ebf2f94f9a0ebb040b03d057ab3ccc3345711d5de"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-astra-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "ee7a592ed21a5e0ed32eecb428607d647e6d491a2de0c9377cc53a0c1127cd98",
+      "files": {
+        "schematic.svg": "3859426374432a8db386f32dc5c9a70ee7d9014a211cbcf58a14297c8e9df922",
+        "project.icproj.json": "d3c9d953ad6fca2b5d170fa291fa1fc3c713a2c7d603d2bc993b71fbad0dec58",
+        "submitted.spice": "ee7a592ed21a5e0ed32eecb428607d647e6d491a2de0c9377cc53a0c1127cd98",
+        "exported.spice": "0b832fb94c3a8fb431e0692d1597fd5bbb2ba0389450f2156d47e44c00e1b33c",
+        "verification.json": "5676046763c7ccbab12e63699c1716640c411805000aca23f4dd9c3b29b62dd6"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-astra-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "4949283ddeecbe364cd442ed41f3b8a4617c3c3b709f102af677349c989d17ab",
+      "files": {
+        "schematic.svg": "bdfc74cee76fed1fef28eac37ea55b58b2b95467842a267843006144e0da83b9",
+        "project.icproj.json": "202309d3527551195a7e0c12c14ddcc832ea3cc9ba96e2ea59f7a3de25adf35f",
+        "submitted.spice": "4949283ddeecbe364cd442ed41f3b8a4617c3c3b709f102af677349c989d17ab",
+        "exported.spice": "ccbc9f6708a1ce7bcd3dff0ce8129f240354bfd454ab1938394d53920285a257",
+        "verification.json": "18102f140c41c0a4f6a72f0d353c268daff8f3e756f7f2f87c8cac28488bb344"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-sonnet-5-5-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "9e781d966d05bf72c8b2c836fb292aac6e6718653095afc980e910ecffcfc2a5",
+      "files": {
+        "schematic.svg": "79c7f86aaa1b2e12ea37eb8e53e9e2d6f4e0190f600302dcb1a971bb24a66eaf",
+        "project.icproj.json": "4fd7e304115d94e911ac59581b42714f0217c0d6a0e95f13d1affd3959de854c",
+        "submitted.spice": "9e781d966d05bf72c8b2c836fb292aac6e6718653095afc980e910ecffcfc2a5",
+        "exported.spice": "2421946f9c70e7c70d7274d58e14ddfab85ac6ba96d4cf6376ad8eb9478da7e7",
+        "verification.json": "1d3e9ec76cfd53f3d1f2ae70e0eb604e8073198df5ae625ba8739bfc09300069"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-sonnet-5-5-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "09cb99dfb85da801667b7bc2e52d97fb18589c694dd9f50a9f51bf40a4bc4250",
+      "files": {
+        "schematic.svg": "23723528c63b302dca4250ef134743b9fb7f2f12961b371231dee3a6ebe2f70e",
+        "project.icproj.json": "e87026ee8bdb57235aa17c3cdb5fa6f38116cba942ca783c7198d212ee82b116",
+        "submitted.spice": "09cb99dfb85da801667b7bc2e52d97fb18589c694dd9f50a9f51bf40a4bc4250",
+        "exported.spice": "ab434246ad6d4a0cf2d964cea024755b6f2ec6b7b6991777ef63e9b9a922df8d",
+        "verification.json": "4e9359271e7f9e2e581e0f1e0e176b9bf82488aed81979f7965b095e8b211a92"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1306
+    },
+    {
+      "run_id": "ota-free-sky130-sol-6-1-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "bb2387524fb463d14cb38451bcaffacc2b8465f7d50d4a33c43cd7c5d58a827a",
+      "files": {
+        "schematic.svg": "66eb42005011b6aea755ce6b7dd1064784ea4fa92d6950aa8aa57c9e2faa0d0f",
+        "project.icproj.json": "c88e2c52f73cb27ab9e8a3bea71fd09604b0e0f8388a00deef17c5f091f46ac7",
+        "submitted.spice": "bb2387524fb463d14cb38451bcaffacc2b8465f7d50d4a33c43cd7c5d58a827a",
+        "exported.spice": "95d5ab04b137a38047fc9957f6ffea8ab4e69de298630604fe085df530170e2f",
+        "verification.json": "37dcb8f2cfd0c35d6ded6e45afd68eca91616207b50ec5b62567b2c7c6873297"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 954
+    },
+    {
+      "run_id": "ota-free-sky130-sol-6-1-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "edade1980365aeadfddbf14d28ed7e7a10011da43013da83325b97b5028726dc",
+      "files": {
+        "schematic.svg": "19e29fc61a1ce2931051a4ce4017ea84696e1dfbb60f11f3b34682633931b720",
+        "project.icproj.json": "ceb3fffed7d925b484cc681d74aff98cdb27743a8772edd2bd0b5572b8c7c012",
+        "submitted.spice": "edade1980365aeadfddbf14d28ed7e7a10011da43013da83325b97b5028726dc",
+        "exported.spice": "f4815bd7184b3266b64b2b6d4cfb3de9a837c324124e9d67d69de0490ca9ca69",
+        "verification.json": "f44889ad76d3e24b63f4b0b0e5deb0a7149ca8a57e967d2320a3b0c7086ee4d9"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-luna-6-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "23e6d62fa7885be60658926bc3c2039be7caaa07af2a887a6b99de8f3c4a88ce",
+      "files": {
+        "schematic.svg": "e808320a604cf42e6c309711fc3208e14ea51fde8cd26885f7ebac7a9d5b4d5e",
+        "project.icproj.json": "a365600227b535be5aa93bf5029a18038b4dc111900a1ae6a5c3d67ab961518c",
+        "submitted.spice": "23e6d62fa7885be60658926bc3c2039be7caaa07af2a887a6b99de8f3c4a88ce",
+        "exported.spice": "f6682daf187a9da80b8fd2eb34f8b2f43a617d278c8e3b1607683f02b1f6e2db",
+        "verification.json": "03fdb36ab8dee8dd0441e450179131dbd3d32c76543d78d3aef0e011e30bc7a0"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-free-sky130-luna-6-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "3d217aff7328ad2053cd526bb26ae54b5477639863c5f620d96ff4ef731be830",
+      "files": {
+        "schematic.svg": "2ad5a7b5b7abb529fd4ac86c4b7ff9034a9264458c02be21f32dacc7c5e382dc",
+        "project.icproj.json": "47ac6d615b9fb49e11f55054f92b09b84123cd1d4baf0e8973785967e6f40341",
+        "submitted.spice": "3d217aff7328ad2053cd526bb26ae54b5477639863c5f620d96ff4ef731be830",
+        "exported.spice": "544e3d24ec191c983a1182be5cfade720a40f2ff4536c589e5791517a641649a",
+        "verification.json": "ad82d0ca81bdf2563cb94ea62a61a6b9ce50f3045082473a367856ab8c7f87a0"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-free-sky130-sol-6-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "f847d8e20530ca454693d5ee9896491d8e075b7a9c79fe6aee1b41e1b2e8bb46",
+      "files": {
+        "schematic.svg": "048bf9671a3ecbcd909792fec4923d2d4458c7ec84a78756242633b1fd211d0b",
+        "project.icproj.json": "3788837937675552e08ea54fcf2c0486ce7bb75e2db0f37fd82a1c38b86bb3b5",
+        "submitted.spice": "f847d8e20530ca454693d5ee9896491d8e075b7a9c79fe6aee1b41e1b2e8bb46",
+        "exported.spice": "dd28e88d5ed581079d981467261e7d833950dbc62b3a6e4c3e51c04b9a3a61fa",
+        "verification.json": "ca86265b814889040ab999d0a3e2c54f6f06144c83b0f5da0348026a3b9cd569"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-sol-6-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "990b36eceafc69542b48dafda64036208a8ff2a0ba5c6ded7d1c97e73f23adad",
+      "files": {
+        "schematic.svg": "fe145b463ac66c237c4a192a5c7b0e0926632cf098f0b5e39523f84fb6d2f290",
+        "project.icproj.json": "7eb501eed0d92dc2fa7ed4c7937aefc29f2a53ffb46738878768f41e90cae630",
+        "submitted.spice": "990b36eceafc69542b48dafda64036208a8ff2a0ba5c6ded7d1c97e73f23adad",
+        "exported.spice": "cb0e101f1a4f50ee66b894343fee06558a6a45010e1dae90bbee1c428cd2932a",
+        "verification.json": "544a15b3847858a328699bacf5006c07dc8a8d16518edfaaf70aaaab399911bd"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1492
+    },
+    {
+      "run_id": "ota-free-sky130-deepseek-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "bf0bf7a91c220c7f6053ef1c494684144bab35432ea34601ff9412453d731050",
+      "files": {
+        "schematic.svg": "8a511761a628e7233a3bc636a42f147467bd572cecd751368e14bfe1ab9a3618",
+        "project.icproj.json": "ed124e3ce8488b6da09a7e2f8e6e95cd21e1ab61114334540d5eafb9fa5cf841",
+        "submitted.spice": "bf0bf7a91c220c7f6053ef1c494684144bab35432ea34601ff9412453d731050",
+        "exported.spice": "b7b1b856594d9c4ce5f12715cdbb931e6c53cdd0f124a38dc3a6d53482f3c1d2",
+        "verification.json": "89c97bce216c48ae8ec7412252a644c45ea45299a6fa517cdca2c87ae7c44d63"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-deepseek-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "e52ab601d3d068652d3b08efd2b41872fb1f9611ddec8cd4f095d01b042f8c3e",
+      "files": {
+        "schematic.svg": "7d6dfd5577aad490d028785e93dea10682a8996f4d5caaa753f70ae450793c8c",
+        "project.icproj.json": "6aec7e8c8f4c3444a3c8bfdd1903f6ed88b2e719d756fcd566c6afbe61f059a2",
+        "submitted.spice": "e52ab601d3d068652d3b08efd2b41872fb1f9611ddec8cd4f095d01b042f8c3e",
+        "exported.spice": "8793bc507015d020ea71ff98ee325c2d5d90c061071667cc6b14e99a6a7f4006",
+        "verification.json": "5c2e8ded4068af24e6d64b88c93a51fb478ec543b8ff5efb7db139b83261ac57"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-free-sky130-opus-5-5-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "cead40307836caa9b394b9770a6f0a94f07f0a802b9784fa0341ef0f130e4f01",
+      "files": {
+        "schematic.svg": "bc8d2d0df8a2ab773f469201f55721bbe4fca517e4b64a2651108b86ab8b882d",
+        "project.icproj.json": "b1dad9aeb443c0255315157ee3097dd24a1975c7afbd245bb0228eb8b6148a85",
+        "submitted.spice": "cead40307836caa9b394b9770a6f0a94f07f0a802b9784fa0341ef0f130e4f01",
+        "exported.spice": "6d6a7ba4c34e1163de4fd07eac80bfbe46051ee85961751dbf1a69bb841b6f15",
+        "verification.json": "992e43b86da78d213820065cabd9e89d0d4a8723917d125e68874a9bd82e37c3"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1305
+    },
+    {
+      "run_id": "ota-free-sky130-opus-5-5-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "1fa0574df94974ab9d8ebfe28e8b2cd846ee6ea03fadf438d70a1344bd5a6324",
+      "files": {
+        "schematic.svg": "13e059540ae92f2df12f1c22013bfeb7ecccfd0fd72d5d6311b2b57552c37a17",
+        "project.icproj.json": "3ed43f5a14e77d2bf9881708e52a3a7b0a9888f6e530dad4c5591e086572a66c",
+        "submitted.spice": "1fa0574df94974ab9d8ebfe28e8b2cd846ee6ea03fadf438d70a1344bd5a6324",
+        "exported.spice": "d3c355df3b1da8445e50c0917ee76f4812da6867121d5614d04362e28d35cd70",
+        "verification.json": "940867904244584c926a13bf793430122b8c71e21bbd3898f5f19f63054952f5"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 943
+    },
+    {
+      "run_id": "ota-free-sky130-haiku-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "d120edb68ea42b28442a3f002aa764123204078c398b70d65c4e521558e375ef",
+      "files": {
+        "schematic.svg": "107a3ad5ca026fbd858593bdd81210390c5fd55b92738b67bc0781eb11ef2bf1",
+        "project.icproj.json": "83ccc82fbd59cfc719bbd7d518ec1335ce69708d8003edc6a870eb96c59f2a51",
+        "submitted.spice": "d120edb68ea42b28442a3f002aa764123204078c398b70d65c4e521558e375ef",
+        "exported.spice": "0fbc5164f1b076f1dce785d03a0cec648bca5a133ebce517e1bb315db289b7bb",
+        "verification.json": "f7357bf0d503bdb800a7149b7d0f1fe08212690ee597d13bc6e1a6c72d1af659"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-haiku-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "386fab71870663a88bb196520fcdf18a1056b28d751edb3c629b8ec81edf0e51",
+      "files": {
+        "schematic.svg": "482b37c7b61480d15dd8101eaccabb15969c5b7f1a06f61e3bc49fe6c2a1a580",
+        "project.icproj.json": "1961995dce34e9d299f336404ba13a7363993fd439a03fe3bc105e55194d9e5c",
+        "submitted.spice": "386fab71870663a88bb196520fcdf18a1056b28d751edb3c629b8ec81edf0e51",
+        "exported.spice": "aef2b0b30bca96fa23e71b9191679f9773a28c109ec8290cf94a50df19573d2a",
+        "verification.json": "ce7b946cf67bf3a995e9dfad131bed4746ede6b569c290c15b8fa474076914fe"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-free-sky130-haiku-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "460c7b3023620fd74a428d3e955238ea9e100cd0658aa7515c2b1f5787bbf0e2",
+      "files": {
+        "schematic.svg": "05ec42db66661cb468bee5e80f6a48b6c734ec5160b8b08a2c257d323e7c35a7",
+        "project.icproj.json": "a6e3bc2990199b53cb8d883694c694a5337af522a10de53d8ff1092bbbb6c6d0",
+        "submitted.spice": "460c7b3023620fd74a428d3e955238ea9e100cd0658aa7515c2b1f5787bbf0e2",
+        "exported.spice": "96a4a2d917a909253c172e467a003a25af621bef26defd83a31b6cd295560138",
+        "verification.json": "1f5fd75775529ab94517826430f99229d8509809953db24b972c0b985349e967"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-opus-5-5-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "9125be74bf9dfe1326f99c52ea38aa2540c6445ad2c2860268f38164570d4276",
+      "files": {
+        "schematic.svg": "2eded0278ea8b6ab6ab9a53871b7d815a05e580129e22180be53ade999fd15eb",
+        "project.icproj.json": "023c037d30875212a85748f80e76a3bdcffa9a13bb3badeb4f9fdb32031ae380",
+        "submitted.spice": "9125be74bf9dfe1326f99c52ea38aa2540c6445ad2c2860268f38164570d4276",
+        "exported.spice": "09a2efaa7986bd04a5cbc4557f03bf45b60feb36f9d2d45374ac689366728085",
+        "verification.json": "7e7c6ac52ab66340bdf66aaf309639d5670f190bf3b674538a009c38eab74e26"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 949
+    },
+    {
+      "run_id": "ota-precision-sky130-astra-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "86a6b4bba5bd0116d4fe964d1f681f5adf0d7538fc1f4eb125f3f840151ad458",
+      "files": {
+        "schematic.svg": "294210edc01d03cae3b7650378157cb9a102b4b8b2027220fe39bddf285de30f",
+        "project.icproj.json": "6413160bddd4bb75dd131dc0df30d6f2e7dd2c00e5293bbea7e054e960978166",
+        "submitted.spice": "86a6b4bba5bd0116d4fe964d1f681f5adf0d7538fc1f4eb125f3f840151ad458",
+        "exported.spice": "ee7106429154814d95183fbd3358d3e5f141e581f8f302ce8cad846921c621c8",
+        "verification.json": "46cf0267f390d78926cec4206aac21993078f3c1c9a3f6ec41d34c116eea8153"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1319
+    },
+    {
+      "run_id": "ota-precision-sky130-sonnet-5-5-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "25e5df8f2078a218db099d676da0f5d43516200e8a781f61c1ac903d4dcc4a4b",
+      "files": {
+        "schematic.svg": "d9b1b2d81b75158c2c223a3014631c0827b61951d255fb3000976acb74d74c2a",
+        "project.icproj.json": "fdf83c7e293b376e528864dfe6f80dbbe38e0af7033b6db69d4b116d5520e8d9",
+        "submitted.spice": "25e5df8f2078a218db099d676da0f5d43516200e8a781f61c1ac903d4dcc4a4b",
+        "exported.spice": "6799adf274f582d735db8bd9d70bf1d9989338979c7e5bbd25a0e6dc5a7aec15",
+        "verification.json": "562d5f1205d472deac16ea415398b8a7d89665eef7b55f703ba7cdc0e04ae2c3"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1304
+    },
+    {
+      "run_id": "ota-precision-sky130-sol-6-1-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "719ae2e205cc62b0741bb5f4d728f3ab07fe03d2330f63fb73b34e356245b1de",
+      "files": {
+        "schematic.svg": "0df82ee890685e076960a33d96e3406b8a54db737764135160251925c0f2d68d",
+        "project.icproj.json": "88fdfe0b91f74a3f87202f066f5039e23465456fffbb9c4324e3a65e5a1d8e55",
+        "submitted.spice": "719ae2e205cc62b0741bb5f4d728f3ab07fe03d2330f63fb73b34e356245b1de",
+        "exported.spice": "1e5032372630ef6ae836eba80c3bc0fe9ed9c1a34078fa91219f3fbdaf337614",
+        "verification.json": "bafc041453c2a7dfc8159cb38aeb404e17dec2a551e992059352ac22e9b83008"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-luna-6-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "0e4dbcb8a374da0dda0c4e0b5fe347f847c1866efe5baa6b9784f8e3af705d68",
+      "files": {
+        "schematic.svg": "c050cf2e83f913f2d88ca5a1c29375f4f30edcec508f5c2c1ac8fe328d387fa7",
+        "project.icproj.json": "cb8baa330cb88213a1c6a7645523c80fcaffb66620eb512863a2d0b8f118c221",
+        "submitted.spice": "0e4dbcb8a374da0dda0c4e0b5fe347f847c1866efe5baa6b9784f8e3af705d68",
+        "exported.spice": "089226d20b481ca2471cdf8fad120ad3a65524227095d957ca19fe81c7910ce9",
+        "verification.json": "fe9e01b306fc51bcf636403fa6ea2eb651140704f0bdddcb8c27690e181c6aeb"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-sol-6-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "ed1917b53be6330bcb5f1fd91402243e9c07652361144b528070800b5c27302d",
+      "files": {
+        "schematic.svg": "1d36cb9a0f8f00d557c9f6f42b9b2b727e41ed60d31896b612420597675d8fe3",
+        "project.icproj.json": "afdb0f90027037faeec138381f24625c52fac0f2757bcf826cca92283baef675",
+        "submitted.spice": "ed1917b53be6330bcb5f1fd91402243e9c07652361144b528070800b5c27302d",
+        "exported.spice": "bf568053216a7032bbf776027d6c5e5e2202006ac2982a75a27976f0a40e5307",
+        "verification.json": "d99f43059a13411434ca93e9a22ff0f6f0f29a2c2a75880fe216a781684f941d"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-deepseek-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "b3902d50f0d24e0f8fc1aa4b5b97fb42d5e4ed419481c4a4dfa54a03f6ecc16f",
+      "files": {
+        "schematic.svg": "ed22c96143c90bdff716b614040360630c7626564e10b11558fb18e8ffdef486",
+        "project.icproj.json": "e5d8665e41eabf4565b3735ed4f82ceb7b3d77113c99c5475849ad8d06a8c6e8",
+        "submitted.spice": "b3902d50f0d24e0f8fc1aa4b5b97fb42d5e4ed419481c4a4dfa54a03f6ecc16f",
+        "exported.spice": "f08a4441b4a3f56dcfa1553ce57972ebb60540f7afad4ead54b085ef11874527",
+        "verification.json": "5a97a762f4c992eb9c7d9fa2fdf8f042e5404dd542b6bfc56161a5b98ef815c5"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 948
+    },
+    {
+      "run_id": "ota-precision-sky130-astra-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "27d96f623117934758e3b66fc72ae4d09b2f6b5cf974b2b2fb193c0b8edad3d4",
+      "files": {
+        "schematic.svg": "4022cb2e903c1692b714a8e29cd0a213a95125299e06bc53d35902061a73c529",
+        "project.icproj.json": "e4501c9b8211d9defb4fe7bbdd15f1498d95afbe09c4714e7a3153ecc863349d",
+        "submitted.spice": "27d96f623117934758e3b66fc72ae4d09b2f6b5cf974b2b2fb193c0b8edad3d4",
+        "exported.spice": "ac82259cac9d142b17f62325405b6c74859d49469a370926472f9451b3d7cd2c",
+        "verification.json": "9fdc223e87e26a4515bbcecdb59ce45d6fb1c47e313ba30ebaf2ec899a25e6a0"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1305
+    },
+    {
+      "run_id": "ota-precision-sky130-astra-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "0149a1f8f41830e293da91448c3b8d2ee3a6384618cc753ebe943772b29b6fb0",
+      "files": {
+        "schematic.svg": "41741da7f2bbadad56406090dc2b3d109f3c0784f831c515e17856bd2f339fbf",
+        "project.icproj.json": "fe50b65b15c8d6ed55254a9c849eeb007a44b1df73c81d74eece7fab07f98561",
+        "submitted.spice": "0149a1f8f41830e293da91448c3b8d2ee3a6384618cc753ebe943772b29b6fb0",
+        "exported.spice": "f83ce0999797c333165367fbc461dc700debaf757b5466a6030b903cf49bd67e",
+        "verification.json": "6444de58d4e0acf87645a371f014bfb5d014670d09d4553e7c8b3cd55d4da8a7"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1129
+    },
+    {
+      "run_id": "ota-precision-sky130-opus-5-5-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "0b962601813a1e3eb3564a5e503daf91d1e78f7b6324c85dc85c71883ff68fbb",
+      "files": {
+        "schematic.svg": "3e1d40d4f6a6ffb2225a02e7c7155852978e6ec197a0776c18dea5a8aabe82c3",
+        "project.icproj.json": "41ae35a42ff58224879f0035e47f9253ccab3d6920ee58ce62e127dd9b7908c2",
+        "submitted.spice": "0b962601813a1e3eb3564a5e503daf91d1e78f7b6324c85dc85c71883ff68fbb",
+        "exported.spice": "5e54e9738c9bece9f1042e292af130f42bea5d8341bddb54838c2cf0f2b1c37f",
+        "verification.json": "4b2bcd696b6cfa0cee84190c95fa29225b2cdd6a31761815793aa8c1443883df"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1480
+    },
+    {
+      "run_id": "ota-precision-sky130-opus-5-5-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "1e0f6eac7a8466e3c0000219a36f97106080b0b2751b6af72bd2e1cfa1d1ae3f",
+      "files": {
+        "schematic.svg": "f8f3b7673bd30980e768ef67283e32bcb0427c03ca189ef6477db6cd41538909",
+        "project.icproj.json": "af47df59a95a3ef2d3aaa70b2ebccdc9051b7b134693ba7d82d7bca68905ef7b",
+        "submitted.spice": "1e0f6eac7a8466e3c0000219a36f97106080b0b2751b6af72bd2e1cfa1d1ae3f",
+        "exported.spice": "d77b623cd16651e211bf7d0835a48cb620e5cbb79aee0998e6607b69bb1e7295",
+        "verification.json": "8293a5d39934826baf7d78b84f3a1d77123959c0a47d2b98f07988981c0879ab"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1127
+    },
+    {
+      "run_id": "ota-precision-sky130-sonnet-5-5-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
+      "files": {
+        "schematic.svg": "8c607fd00fa3ad1bb040240f005e5763a5b0da444642076c260f06679b9ccf39",
+        "project.icproj.json": "cc016a78ea0c328362a58897a1107272017d3d351f945d0eeae0c0f77ad8aa8c",
+        "submitted.spice": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
+        "exported.spice": "c97e05f339f6be39bd11ef7e6822a6bfce84a0bdd72cbb614f848267bac5d2ac",
+        "verification.json": "0eb623f348092e76588e42d541a26b5ac85bdc84d7380b05793b72f1271c44b8"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-sonnet-5-5-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "10de5a3d6b74ae31480e47f00aaec48a9102160f65a9de2fc7794fc8d487e568",
+      "files": {
+        "schematic.svg": "dac54445db294d86e2dbae3bc7dd9b0f54d68eda4c56684801e90949d654c803",
+        "project.icproj.json": "68bee240130c26a725aa99b9e30179080a520aa687343f8c66f037ee4f1b0b68",
+        "submitted.spice": "10de5a3d6b74ae31480e47f00aaec48a9102160f65a9de2fc7794fc8d487e568",
+        "exported.spice": "377355a4df3dc82bcccbecbb8eab16d22d9a1104d626a2d16104e37a51146058",
+        "verification.json": "90a9505b2542e3e1423ce91e17f2fc37ac4c1bc287e76a2c5a79b4f848709b2c"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1306
+    },
+    {
+      "run_id": "ota-precision-sky130-sol-6-1-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "7aa1c7e58caadc952317fa1e80f4a310989d8e8e520c0e0776562898f38636db",
+      "files": {
+        "schematic.svg": "7170184b6da06d350c1930ed222b5e40fad9ec2093e1a95afe070176973662fa",
+        "project.icproj.json": "01eff68cb1acbdb21a7281d830903ac86060a376c818bb7cae5c034b9abbb277",
+        "submitted.spice": "7aa1c7e58caadc952317fa1e80f4a310989d8e8e520c0e0776562898f38636db",
+        "exported.spice": "36704560e5d0c62b262f624e560358e94590887ead918fbae7e47b79f5ea8d91",
+        "verification.json": "e8e38e31058fc550df6cdb9193abbb21020ad5261dcd23b00e7b2bd6245164e2"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1128
+    },
+    {
+      "run_id": "ota-precision-sky130-sol-6-1-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "7f64f5d0750caacbb664ec988b29b07aa15a956e440f284e91164d1107d2a3ab",
+      "files": {
+        "schematic.svg": "c7d571e65c66107e8730de93ca77c201f404cb633c827e168c589cab8ddc728a",
+        "project.icproj.json": "892c26d3a9c669b467d5d2a3257915b993c32d91c739819170b4ef434c96703f",
+        "submitted.spice": "7f64f5d0750caacbb664ec988b29b07aa15a956e440f284e91164d1107d2a3ab",
+        "exported.spice": "064d53dfcce9938e18c8666485da52dd734cd1c8eb6a6aae1925f5562753bf2e",
+        "verification.json": "a3cdde8678f2f3a63e154bac0d32b8f1ca92b9f3aa50c9d3145dfc8f7514f084"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1120
+    },
+    {
+      "run_id": "ota-precision-sky130-luna-6-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "5322f6d1f71b99eb453a4ed0f10e112d5b371b7f477313f54ec43ce079264068",
+      "files": {
+        "schematic.svg": "a8546dd90fdf1829724728d253dbebc85d386a25e4dcf738ff616dc456dc8d5a",
+        "project.icproj.json": "00c134f58922b2b105aa01173bc6553f7f9f33d2f6d95569419a1d4f9b91293c",
+        "submitted.spice": "5322f6d1f71b99eb453a4ed0f10e112d5b371b7f477313f54ec43ce079264068",
+        "exported.spice": "4f626ce1241a077cea99892f3c59a2364d157d909c123ae6449113eb9a491254",
+        "verification.json": "95f115fb8606472324c45f99c04d051a1f5941dba0c0ff3cc726a02ab7e6b44a"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-luna-6-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "551ddaf9d95d0811c20f2f462fb624490c8d6c41558efc3143cd964f25f589bb",
+      "files": {
+        "schematic.svg": "76846b20dd441d7d4f1f4bb45fb39893b672d114e3a2a56c0d9e6b0cc0affdcb",
+        "project.icproj.json": "e528fd23bc568d4d9e5a9389c182307f90dabe2bd11819da48db1a0469a073a6",
+        "submitted.spice": "551ddaf9d95d0811c20f2f462fb624490c8d6c41558efc3143cd964f25f589bb",
+        "exported.spice": "6293411d6660e0687e691abd9b944f17b0d328dc9b8ff1a9364e7f7919947c5c",
+        "verification.json": "9f6204018884b5b0ad5ab9d0db12a30ee83e017ae3c6deae25193fd31cc0b8f6"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-deepseek-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "b61c126976d48dc15bbf7ecf09cff27e7a84e0ad3fb4c244fa26511d987769a2",
+      "files": {
+        "schematic.svg": "191491529321658ea7bcb5a78167420ac7c50813afeb93eae3caa5d64e9672b2",
+        "project.icproj.json": "863d47633e08f3c506a9d065c751ffef76c4f172b2f54cb54480aa7e58856b06",
+        "submitted.spice": "b61c126976d48dc15bbf7ecf09cff27e7a84e0ad3fb4c244fa26511d987769a2",
+        "exported.spice": "d0556420787fdd990c932d80b9c1cf27ac04117e54be300160289b27fa0aab36",
+        "verification.json": "9a15cadcd2e2a576cd91f4e8aa451c2e12a62c15c684415d637deb2412d3b014"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-precision-sky130-deepseek-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "c5868578e7fb8de136efdba7c2adf5e803e6e0680cda6b6a5300dbc5a1a8bf5b",
+      "files": {
+        "schematic.svg": "030f0e800deb0afa76523aa17b62a6335b95906a3e015c37b3838f78447d2aee",
+        "project.icproj.json": "2e957022172979281364dc35496bf9fb6a891ec430a51cf33959e5e8876bd952",
+        "submitted.spice": "c5868578e7fb8de136efdba7c2adf5e803e6e0680cda6b6a5300dbc5a1a8bf5b",
+        "exported.spice": "2e95a0fbcda7c5932737dd6861796a717d16bef35f3bccfb71198042990ca391",
+        "verification.json": "39048f00733e4bab13eab6924748b1779a8586d326b9d283360a0f09044d72c1"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-sol-6-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "0682bbb4d95981353ee1af96504512618d88460b19d124253134c1d32e4a77bf",
+      "files": {
+        "schematic.svg": "c54e5042df8e66d78a8d28af7cb8dab46155e37cc64efc72336a0f1df8033112",
+        "project.icproj.json": "60de7b5bff15442e6a94c8df8b7e80469bba256cab4409bafea0a78e0133fc5d",
+        "submitted.spice": "0682bbb4d95981353ee1af96504512618d88460b19d124253134c1d32e4a77bf",
+        "exported.spice": "0a65720a3a0f773632c126e2ce5f7b56749546183d6470cfbf6cb6fc51e1c9b8",
+        "verification.json": "8f80ce09487f13081754b253118571cd7be99d1c8cc6fb62b690cf08ffd84e07"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-sol-6-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "ba56d8f2b25cf5bddb7a31cdbe13e20a87d82736411a2a7632c6582e487e41da",
+      "files": {
+        "schematic.svg": "1d47729d2ea76ad7e586e868d00a22622de37614df8ac06244eaa53544b5bedd",
+        "project.icproj.json": "ba244afd235218f9a951f32130ee4bfca4952b845ac6aa44a78522904052305c",
+        "submitted.spice": "ba56d8f2b25cf5bddb7a31cdbe13e20a87d82736411a2a7632c6582e487e41da",
+        "exported.spice": "afb32687414bab0a35c5114290f8d3ad86c238cc269acf41ee3785b4264a8b30",
+        "verification.json": "3af2238a350d101ef42863e1dbb9bdd8ec1041b620c31cbde4cbbc37f0a72f8f"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 834
+    },
+    {
+      "run_id": "ota-precision-sky130-haiku-r1",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "d795b727b439f282a0cda948f0adb104577bac850e5a1f17a146ade3d8caafa8",
+      "files": {
+        "schematic.svg": "e9b90d29dccdc03d2bf1b0e766444679d8196ba1d01ab559e59bffdac47d9b80",
+        "project.icproj.json": "f0a25bb7b6a87f588ac2da8a258b2240bee35cc41fdf7735e870cd4108f20f57",
+        "submitted.spice": "d795b727b439f282a0cda948f0adb104577bac850e5a1f17a146ade3d8caafa8",
+        "exported.spice": "cae1f9189ac6051021082576b6fd390f597f11886daec510ccd63c3703ab414a",
+        "verification.json": "3d9a36f1989c0a087cb9f6db18e8019150e7227819192feffd6c602aca112c4f"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-precision-sky130-haiku-r2",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "fbde93ced319377af8fbab1bfdd64bf4c28ec7f76a210761f561bf3539333e36",
+      "files": {
+        "schematic.svg": "3f33891a279b17518241a1ff59029d44443ff082d93e38e5ca1b6aa97b3f0add",
+        "project.icproj.json": "b339001c67179bb7294ccd75919dbd85569a4d493c3a2dcc5474b495817f1b51",
+        "submitted.spice": "fbde93ced319377af8fbab1bfdd64bf4c28ec7f76a210761f561bf3539333e36",
+        "exported.spice": "9e80277002d3a05f8e2fcf21345fbf5d967ac384e1a0c21edc469b3b8de0bbf8",
+        "verification.json": "20d9274b4d175addfe2353d4bf31ef9ab729cc3b79da182a1ac1c028444aa131"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-precision-sky130-haiku-r3",
+      "title": "Two-stage Miller-compensated OTA",
+      "description": "Source-matched two-stage OTA with differential input, current-mirror load, mirrored bias and the submitted series compensation branch.",
+      "body_note": "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
+      "source_sha256": "89aca4af90865e126b020f15171e3b13c1d21a7056722ce1e34813c720d9ba2b",
+      "files": {
+        "schematic.svg": "a30a782791f5a5eb0d8a54756323da757316ff4f16674a2a908bcb02430bcd41",
+        "project.icproj.json": "ca475e320574fcb944800932d2e12fdbe9ff71b4f7f5ab7c0815f68e0ffc91c6",
+        "submitted.spice": "89aca4af90865e126b020f15171e3b13c1d21a7056722ce1e34813c720d9ba2b",
+        "exported.spice": "b94b9fd1f1384a7e5dc2873a137fdbb589317a8d5ee7e32570e97f518c58c280",
+        "verification.json": "ebdf8df85ab11ecce06403a2a6d27032dd69026c3ebcec006e17e9d07d1ce6e0"
+      },
+      "layout_strategy": "two-stage"
+    },
+    {
+      "run_id": "ota-wide-sky130-opus-5-5-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "dc21891ea51a9fbceb247bd7ec55d8fa51e1ccc439e097021378b3c6701aa329",
+      "files": {
+        "schematic.svg": "52f4614918ce106651782ae61e3b11b14a33c9a417c38463237afbf483b0aca5",
+        "project.icproj.json": "7cdbefc2ff95641efce0fc093107021b564ca0347afc3f5cd2f4ab30d4fc39ca",
+        "submitted.spice": "dc21891ea51a9fbceb247bd7ec55d8fa51e1ccc439e097021378b3c6701aa329",
+        "exported.spice": "429378c82cd90b2e8aef7c69661ceaf21fa437cd1eb37fa75aa2681bf980cbb8",
+        "verification.json": "61ea33acc34391adec31143a9d8ee55fdb3c4b294c7d5272ee8f2ecaaa8910b6"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 2064
+    },
+    {
+      "run_id": "ota-wide-sky130-astra-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "fb5c99ecd0dbaadf40bc847db21e642ff7014934f58e86ca0dfa0c4c16eb58bf",
+      "files": {
+        "schematic.svg": "3a6038d192b97e16f6f1cc25d27653f3edd4ff36acefb1eac0c9e9c8e5c21bfb",
+        "project.icproj.json": "ed0c60a12d08b8a4666b2a499137ef217c6c72aec2140e24c568e788fdd1a019",
+        "submitted.spice": "fb5c99ecd0dbaadf40bc847db21e642ff7014934f58e86ca0dfa0c4c16eb58bf",
+        "exported.spice": "b76b5eaf8f2569244b6429528cec72188d8ba4dae513830b9bfd7c99450e0525",
+        "verification.json": "e583d04a549c75faab6bf3cacb2f192144937bdfe9e7b2a07dfa81604ba3e343"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1295
+    },
+    {
+      "run_id": "ota-wide-sky130-sonnet-5-5-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "df36c5a00114936aca3bdaeaeb9c2f4ca49daec5ece44f0b4fef9da53026475c",
+      "files": {
+        "schematic.svg": "f52447e604dda146422f6a5e80743ec0ab9fb7973c131d29776b67f4ffbc8f99",
+        "project.icproj.json": "61f44e8d30beeaee15638a9aa342a213873a841eec4becfb1a6b69aa27864819",
+        "submitted.spice": "df36c5a00114936aca3bdaeaeb9c2f4ca49daec5ece44f0b4fef9da53026475c",
+        "exported.spice": "b2bd412b5ea1dfd1628dc54f3d9d05ad2cab1a86c8d3636892fca8a7b89e773d",
+        "verification.json": "7bc52b908478b4bbba06aa18f5129bf9da00867442d619b8a41735f6f7a6b6d6"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 2072
+    },
+    {
+      "run_id": "ota-wide-sky130-sol-6-1-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "03537d1719d3d8ef19cba89840c4e79936656a9dbc1d01969e8fea447885f96c",
+      "files": {
+        "schematic.svg": "f56adf8a2375c88d793896b0afe1e51476c1e55def4121ed8921445449cbabbf",
+        "project.icproj.json": "df19a0a8a15acdc621cdfad278df0676967eb1578681e117f4a755aa63c125b8",
+        "submitted.spice": "03537d1719d3d8ef19cba89840c4e79936656a9dbc1d01969e8fea447885f96c",
+        "exported.spice": "ce9e65fde49f57c8023804563a71df7d3e3f07cec272098ef5122311b0999b27",
+        "verification.json": "43780156598feb7fc21206de3c69a00df66bb73d527e9206633a9ec9fb1786f5"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1294
+    },
+    {
+      "run_id": "ota-wide-sky130-luna-6-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "cad506a938aef40d4451de759537d7fd5359ab2ea13af7eea34df6959b2681a0",
+      "files": {
+        "schematic.svg": "994762e6c7027c4df18b37facafa27d7ad06e730b27682482b113de7d9b79ae5",
+        "project.icproj.json": "b1c5f5f0a5a1c306fd540bbd5901cca42606e8a5adad9a6a713c26c10b380450",
+        "submitted.spice": "cad506a938aef40d4451de759537d7fd5359ab2ea13af7eea34df6959b2681a0",
+        "exported.spice": "2dea48d195a8436f709251fecf64a4de5d518443eebdf05dabf6adda3d0df17d",
+        "verification.json": "f7113a6a53e3a0bc135c0896bef95c73fad6d1b3cc48ff9f248a0b2d18b3590d"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1564
+    },
+    {
+      "run_id": "ota-wide-sky130-sol-6-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "84bfda7b09b49dfdda0c419db57ee0beffac079e79d78b56aa41243973e1e0b2",
+      "files": {
+        "schematic.svg": "9299380dd2b4797987c68ff4979d617c6ab0cb00484ff96c2529cc49e8e3f996",
+        "project.icproj.json": "0555d69b524a4eae5a5c84ce9b3bb2790d031b895a8aeee6cdfab5bc19ec35c6",
+        "submitted.spice": "84bfda7b09b49dfdda0c419db57ee0beffac079e79d78b56aa41243973e1e0b2",
+        "exported.spice": "a74693c8a31b3dfe9f82d5a49bef18a8b1b813294719162e8d2282316eeb93e0",
+        "verification.json": "08f84611b463c343ec8f68d9d49a28e8ad6240e985b0afcf93cccb7768ac351f"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1533
+    },
+    {
+      "run_id": "ota-wide-sky130-deepseek-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "4eec9d9c93ea0ce9226bcd3beae6a13f3d3a96642a7639b17c837c8df29c24e1",
+      "files": {
+        "schematic.svg": "ce97ca1126a4ee0feb50034bcefc6c65ca83a7d0a8d6ded152804ed98244573a",
+        "project.icproj.json": "4d08da1a1dba869723b0dc146dda0a3d244e2f74631896cafc5ba5016abc8173",
+        "submitted.spice": "4eec9d9c93ea0ce9226bcd3beae6a13f3d3a96642a7639b17c837c8df29c24e1",
+        "exported.spice": "e9c3e156bc6012e12900a814061936646892b6313b40b11cd6125eb160de4a44",
+        "verification.json": "90c60e0e70d75427245c34f3bcb3b915451aa9adce67d8b9f7bb26a2151b833d"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1183
+    },
+    {
+      "run_id": "ota-wide-sky130-astra-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "bb8b3aeb7077af51ed811fbd22e0528b0217b37d7a1c51e18b2365ec1f80d9e7",
+      "files": {
+        "schematic.svg": "d322131d9cfcec38dfc5d771075a243216b5dd3b5f24c654d63d3ca391deb070",
+        "project.icproj.json": "fec0c36e0ac44ec647dcbbaf54c0105783d6acc616362156d8b730b82ead2f6b",
+        "submitted.spice": "bb8b3aeb7077af51ed811fbd22e0528b0217b37d7a1c51e18b2365ec1f80d9e7",
+        "exported.spice": "fbb658f3e585df99788aa6e102fecf098c9d5f64738af176867c8f1ddf3b06a2",
+        "verification.json": "f1c4bf1637a499f15bfa88e4054dd47bfc6b9f5ca75ca709d7c7eb0c505db60a"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1187
+    },
+    {
+      "run_id": "ota-wide-sky130-astra-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "cd7625c4f10a6550825e4d591b7b2bbda65adaf6f10c24d496527ba358796c19",
+      "files": {
+        "schematic.svg": "cedd9131d61d930b84a1107235675f4cceb31ce990e7daa22f57e671e33fc005",
+        "project.icproj.json": "7228d046ae0a9c1b31448e5a74db71d63c34cf8d3da859eba14bc3b8d274fd40",
+        "submitted.spice": "cd7625c4f10a6550825e4d591b7b2bbda65adaf6f10c24d496527ba358796c19",
+        "exported.spice": "95678ea9b118acf1ab9072e7dddb458368284ec7531d6d03ebd2b2fb95ee9309",
+        "verification.json": "5a7ad999eb138fa307bc0fbea8765dc15bf9a18b9271c6642fa7e90bbf288213"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1902
+    },
+    {
+      "run_id": "ota-wide-sky130-opus-5-5-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "39166e5e4fa6d91ce462f71861c91cabea13f101e71570e0163dbdb63b218ff7",
+      "files": {
+        "schematic.svg": "85574e2c2a224bfb7ddcd63040331e5440300b2fe602ca599706e96aa79d369e",
+        "project.icproj.json": "ba2fddce459068a008311c17d4cdd6603f4b4f01290901683797811714633ea7",
+        "submitted.spice": "39166e5e4fa6d91ce462f71861c91cabea13f101e71570e0163dbdb63b218ff7",
+        "exported.spice": "a480ae762bcbac52fe9b1ed7e1639daefba57c43403a4a4702fda6e2f36456e7",
+        "verification.json": "196355fbe243f6d5946b046f938f6cfc4cedf1a13efc40005846530a9c084745"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 2236
+    },
+    {
+      "run_id": "ota-wide-sky130-opus-5-5-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "319ea520dbb84c830c583a058ea4dd3b469ec292b5f6c30e3d78f09f6e220d35",
+      "files": {
+        "schematic.svg": "0bfe2805181852ec2ac94b0dc34b2e796ed38aacf13726e5632bc31c623729e5",
+        "project.icproj.json": "db546bfbd4db6985ceae47bc6db4e7cc213e8cb71d3080cbb477ba2c4ff8b139",
+        "submitted.spice": "319ea520dbb84c830c583a058ea4dd3b469ec292b5f6c30e3d78f09f6e220d35",
+        "exported.spice": "3438f86d14e3efa07af93b2f268ef9702cbfc389bb87660a887529ef58f533a2",
+        "verification.json": "fd26639512023a6dcf83cdbc9f9fa87df68a39e44eb15b52b170f69653ddd29f"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 2240
+    },
+    {
+      "run_id": "ota-wide-sky130-sonnet-5-5-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "7ec19b05f087df757064a83d3892c432dc4e3fa545da13ea406e43e1d09d14a1",
+      "files": {
+        "schematic.svg": "c3ca0988ff1619ef82fce6049e5d1555f0d3cc8402eacba6af8105cd05b7d051",
+        "project.icproj.json": "7e038daf908624eb143bc1872b94b79a876811b1e598e556302893339fa714f3",
+        "submitted.spice": "7ec19b05f087df757064a83d3892c432dc4e3fa545da13ea406e43e1d09d14a1",
+        "exported.spice": "66f22e778bf4aeb51a66e60783f258bd4eac4dd7e1843bcac838fffa3159ad11",
+        "verification.json": "608d2746fb7aecaa42220fdfe59c0cabbc0c219dd0dd13a32f4ebc6aaa834f09"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1184
+    },
+    {
+      "run_id": "ota-wide-sky130-sonnet-5-5-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "fde1be3a580d486c499673c9c9e5b09a60d5fb154bfbf6b47a75d68f1430e20a",
+      "files": {
+        "schematic.svg": "25f83b0a1051523c707909668b739e4cb1597c18141f27360d08e59192477960",
+        "project.icproj.json": "a137712959c96bfa7ff7a3dbf2d4d4b9f69337182e1bf8edd06995482980f868",
+        "submitted.spice": "fde1be3a580d486c499673c9c9e5b09a60d5fb154bfbf6b47a75d68f1430e20a",
+        "exported.spice": "c15671dd9215744e614313e86d68e21362c80552cde974506af7ae8177e01220",
+        "verification.json": "7bf7ee4c15dd8612b4550b3670fbee565ddc9d18f6748da3f4da02f808734a67"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 2776
+    },
+    {
+      "run_id": "ota-wide-sky130-sol-6-1-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "426fa2a3802dbb59cfffa4d991231f27facfbc1f469e0a340c79d00f1515b4b6",
+      "files": {
+        "schematic.svg": "35c11bfd3e4a21d72605035e5e5c4ef519445b8cd2351d01e42eca02936a9905",
+        "project.icproj.json": "b6c74296da5a7af80590e4779b1aec49d1e8096a7390bdc56ddf460045008f0b",
+        "submitted.spice": "426fa2a3802dbb59cfffa4d991231f27facfbc1f469e0a340c79d00f1515b4b6",
+        "exported.spice": "357b138b1f81dc05c9956b6fd28ce46d9da245046d3b7c4f2b298d0da1f74df7",
+        "verification.json": "dfcfad349b8346b70e29ccbb2253302b5268d2b9849762e636f28c4f219d2d22"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1174
+    },
+    {
+      "run_id": "ota-wide-sky130-sol-6-1-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "c8c9ce68e3cc751bbeec3f20a7d670a6a4c5b5107f8573679f16b5e13b4f0df6",
+      "files": {
+        "schematic.svg": "b0099c3dee877b37d6759fbfa58189bb171a44b4f63a68cebb34e2d3e686a257",
+        "project.icproj.json": "63181bad55bf7edd36854fb9ff06b26b661cf70c897ba109348be0be992d0292",
+        "submitted.spice": "c8c9ce68e3cc751bbeec3f20a7d670a6a4c5b5107f8573679f16b5e13b4f0df6",
+        "exported.spice": "1012f0404ab89567c8574087736ef2741472db4108cef91e5da893119582c8e3",
+        "verification.json": "9dd901a119afd45015332393ef9402f9ce264d9d0822976f14fb5754cc91dc5a"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1198
+    },
+    {
+      "run_id": "ota-wide-sky130-luna-6-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "5aebe25996e28743576870730a10e823b97060931afdf17e564618f85ee14ba2",
+      "files": {
+        "schematic.svg": "d072769e65af08e798b7ee4b6a2cb7d92fedede20e33c421111e60b07864014e",
+        "project.icproj.json": "0ef03f89f2c32e8cb495c600012e1f1e0b7b611b0da8e1f56f2ce75f1dd70d4d",
+        "submitted.spice": "5aebe25996e28743576870730a10e823b97060931afdf17e564618f85ee14ba2",
+        "exported.spice": "c8a054fb28a7fdb93c82508fe8b14698cee734cd527e4295309de1650c085959",
+        "verification.json": "7f963a424d38bfdc1f2d8c021e4515554faa85f9b1373a94d18de2fb255e22a9"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1020
+    },
+    {
+      "run_id": "ota-wide-sky130-luna-6-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "1b6c69ffc4bc32acf8ed922d037e4a5907e9aee2a51603ff01819ba8990ded73",
+      "files": {
+        "schematic.svg": "065cd2e2af23178cbbcece940dcc92ab853c8d3eae5bcfd4d7e70340185820fa",
+        "project.icproj.json": "e6634adba8fcb8582a1dbc62e6efb4667ddd213d74d19978cdce0c77c81731ff",
+        "submitted.spice": "1b6c69ffc4bc32acf8ed922d037e4a5907e9aee2a51603ff01819ba8990ded73",
+        "exported.spice": "cf1943504166b01a6cdc4480cc9bd8b1f85f8b74b9b71d7be516247d8fa10d9d",
+        "verification.json": "ffd2a4d756642ed94e81b4fe1ff61184d021b25c931f1c34a9493d96bda1e777"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1187
+    },
+    {
+      "run_id": "ota-wide-sky130-sol-6-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "34b7c34ecea890a7198d4b0ee2b0f303f4fe4261176a0edee249ebb167f06152",
+      "files": {
+        "schematic.svg": "c252f6daa6e02f971149706095937edd3ec26220cd738e437df6771f4c4abd66",
+        "project.icproj.json": "865a0707fed1190173bba5f10221c287ce5566e9ea9a33d909567ba59494a386",
+        "submitted.spice": "34b7c34ecea890a7198d4b0ee2b0f303f4fe4261176a0edee249ebb167f06152",
+        "exported.spice": "2c9483659eb1251b871757abe976648799b6f235afda05a1e1fbfd282ac9fc6d",
+        "verification.json": "d6dac3be6339a277aeb3f0717b934fae67fb0d79d0068cd953616e476bebabbd"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1767
+    },
+    {
+      "run_id": "ota-wide-sky130-sol-6-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "b286c522b54d9168676dd8d9e5d0fe886844ed2ac42872a54412a8df200e1ff5",
+      "files": {
+        "schematic.svg": "8d58a356e02791c43e3c5d8e1c2f48b64535fbebe6299a752fd8437bebf453fd",
+        "project.icproj.json": "327925b0a0286e3da5a6878f2e9fab239dd7c404c47071b4e01a0f70d7f6e9ce",
+        "submitted.spice": "b286c522b54d9168676dd8d9e5d0fe886844ed2ac42872a54412a8df200e1ff5",
+        "exported.spice": "9002835eb7f99ebaf81cd4c701400fe7e310d33b5fd0026dd2fcd6bcd1e2644e",
+        "verification.json": "dbb22f89ea6e7f0954cd712ac89ce9d2fad5dae022dfcc0530e9cd62f932187c"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1540
+    },
+    {
+      "run_id": "ota-wide-sky130-deepseek-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "4ad3fd670495d2f3e4f05d3bbcd0e7fee93b3f1745e01ff40d72ff5e8c01a3ce",
+      "files": {
+        "schematic.svg": "d20e40666044bb09086870476c56ceeae92546644aa26ebd7c87a3770b8d9a70",
+        "project.icproj.json": "9036e67abee1b3ff8944b053598358f809f80bc6695bc887df09efe7ac787db9",
+        "submitted.spice": "4ad3fd670495d2f3e4f05d3bbcd0e7fee93b3f1745e01ff40d72ff5e8c01a3ce",
+        "exported.spice": "56521f2a2227f7e1fb71a2cb57b714125da94d59a24f76603272eae0505cfe78",
+        "verification.json": "9a0b52e29cd544c89cef7fd9055253cf75cf9af2190f96f00ff3acece6fd918f"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1185
+    },
+    {
+      "run_id": "ota-wide-sky130-deepseek-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "d668db450254db2ecd44cdb949217b39f2b0df5ce5be1b1849feeca948754de9",
+      "files": {
+        "schematic.svg": "b801101f63f16b29a010dc07fa7f26b2ad9f254fc397806bbb8404fa18f2a3ac",
+        "project.icproj.json": "c317877efa282b4e1237f4b095181bd8da3352bc70a7149380292e98ad1cd415",
+        "submitted.spice": "d668db450254db2ecd44cdb949217b39f2b0df5ce5be1b1849feeca948754de9",
+        "exported.spice": "3c93c889c1ea60ac0dd345d3909ac37d8450ff04428e57ee2be92da113975858",
+        "verification.json": "d85409f4919d6fe5b7e99b93a77accb17412c647cdabbafd775c6685d95d6264"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1546
+    },
+    {
+      "run_id": "ota-wide-sky130-fable-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "1b9980e6fc4f1d4adfe4ac6784205f4e09d01a7660578971f884bd1a058d089a",
+      "files": {
+        "schematic.svg": "5f12c1f58b1524ae6efdf4990ac33fd9857cb6e56192b8847601ade3df3d9bb9",
+        "project.icproj.json": "5b2c9c5bc14d830e9817327912ae49bfe4c0e07e56a6248dafcfa295bb4b22cc",
+        "submitted.spice": "1b9980e6fc4f1d4adfe4ac6784205f4e09d01a7660578971f884bd1a058d089a",
+        "exported.spice": "993a9648ab01ea9ba8240ef80dafd5a4ac6e97f38514cec460364b055bbbf54f",
+        "verification.json": "26051491ad537ebcdf59d1de963ef4c5f91630089d267bad90235085384c0625"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1709
+    },
+    {
+      "run_id": "ota-wide-sky130-haiku-r1",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "edd404f2da13e56aa6800cfd3350d77579fe72ae15a0f644056fb7a5e1d278e2",
+      "files": {
+        "schematic.svg": "c828ee72b20eb6029a2e16581bede69c95129903d776ccdc9c684e0bbc296500",
+        "project.icproj.json": "bd188544f76eaa941a7b09ea86cdd238434d88b7939d610b5f3c8c9c4b0ad835",
+        "submitted.spice": "edd404f2da13e56aa6800cfd3350d77579fe72ae15a0f644056fb7a5e1d278e2",
+        "exported.spice": "ba0b76cd2463e00093d5c5cef71da88ac96acb6982372f38dd9a714e00af218a",
+        "verification.json": "deb2d3cedc7d8bbdcab0c5fd5e9931071ab4eb90e208819eda0bf954cddfcebf"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1192
+    },
+    {
+      "run_id": "ota-wide-sky130-haiku-r2",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "c58eca2c446c2289a6ee99e4253d1dacc7af0f677493e1d3e9fd7f7beb22226d",
+      "files": {
+        "schematic.svg": "a1f8381fc8ef544d6600f80267979533e3423beb9fe1d04e93c320c595907b3d",
+        "project.icproj.json": "562a9bcca66795f41776bed5735889e543b32c06c8b640ac079591974b2ec3f8",
+        "submitted.spice": "c58eca2c446c2289a6ee99e4253d1dacc7af0f677493e1d3e9fd7f7beb22226d",
+        "exported.spice": "0a9610508e0077bd262b5c4338d27021d3335b85a377c0d145210291b9837e5e",
+        "verification.json": "bfc93ebe2734b51f544ed530ce12d0640098c7da53208110b0696733413aa771"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1185
+    },
+    {
+      "run_id": "ota-wide-sky130-haiku-r3",
+      "title": "Transistor-level OTA",
+      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "source_sha256": "aa2ed4f74852f75b8d134a6683a76e1bf82225e7be298aa286e146c69cd571b8",
+      "files": {
+        "schematic.svg": "c2fdae856f4f89f0ffe06cecae6e1fe73779a8856f9a221fad9ff4c3d04b3837",
+        "project.icproj.json": "4997701693dabd480d2c2cfe8d445e485d07a2cc2d0094bd926e800da7f460de",
+        "submitted.spice": "aa2ed4f74852f75b8d134a6683a76e1bf82225e7be298aa286e146c69cd571b8",
+        "exported.spice": "19a3fb7f203ef0e598be328f551ed26aeb367e2a742a950c020e6e0cbcdf5166",
+        "verification.json": "44c7c934d09337db0bfab356874e005c045146a7964d0563b72c712ee763f241"
+      },
+      "layout_strategy": "current-path-groups",
+      "reading_min_width": 1177
     }
   ]
 }

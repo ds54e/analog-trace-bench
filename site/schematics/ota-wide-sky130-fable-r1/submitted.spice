@@ -1,0 +1,47 @@
+* OTA-WIDE-SKY130 : rail-to-rail input, two-stage Miller OTA (v3)
+* Stage 1: NMOS pair folded via PMOS cascodes + PMOS pair, summed in a cascoded NMOS mirror load
+*          (cascoded mirror equalizes drain voltages -> negligible systematic offset in the
+*           low-VDD/cold dead zone where both input pairs lose headroom)
+* Stage 2: NMOS common-source driver with VDD-referenced PMOS current-source load (good PSRR)
+* IREF (10uA) enters IBIAS from VSS -> NMOS diode reference
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* ---------------- bias ----------------
+XMB1 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=0.5 m=2
+XMB2 VBP1 IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=0.5 m=2
+XMB3 VBP1 VBP1 VDD VDD sky130_fd_pr__pfet_01v8 W=60 L=0.5 m=2
+* PMOS cascode gate bias: VBP2 = VDD - I*RBP - Vsg(MB5), tracks VDD
+RBP VDD NX 25k
+XMB5 VBP2 VBP2 NX VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=2
+XMB6 VBP2 IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=0.5 m=2
+CBP2 VBP2 VDD 0.5p
+* NMOS cascode gate bias: VBN2 = Vgs(MB8) + I*RBN, tracks VSS
+XMB7 VBN2 VBP1 VDD VDD sky130_fd_pr__pfet_01v8 W=60 L=0.5 m=2
+RBN VBN2 NY 13k
+XMB8 NY NY VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=0.5 m=2
+CBN2 VBN2 VSS 0.5p
+* ---------------- input stage ----------------
+* NMOS differential pair and tail (20uA)
+XMTN TAILN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=0.5 m=4
+XM1 NA VINN TAILN VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 m=2
+XM2 NB VINP TAILN VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 m=2
+* PMOS differential pair and tail (20uA)
+XMTP TAILP VBP1 VDD VDD sky130_fd_pr__pfet_01v8 W=60 L=0.5 m=4
+XM3 NC VINN TAILP VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=2
+XM4 ND VINP TAILP VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=2
+* top current sources (20uA) and PMOS cascodes folding the NMOS pair
+XM5 NA VBP1 VDD VDD sky130_fd_pr__pfet_01v8 W=60 L=0.5 m=4
+XM6 NB VBP1 VDD VDD sky130_fd_pr__pfet_01v8 W=60 L=0.5 m=4
+XM7 NDIO VBP2 NA VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=2
+XM8 N1 VBP2 NB VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=2
+* cascoded NMOS mirror load (sums both pairs); PMOS pair drains enter at cascode sources
+XM9 NDIO VBN2 NC VSS sky130_fd_pr__nfet_01v8 W=50 L=0.5 m=2
+XM10 N1 VBN2 ND VSS sky130_fd_pr__nfet_01v8 W=50 L=0.5 m=2
+XM11 NC NDIO VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=0.5 m=2
+XM12 ND NDIO VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=0.5 m=2
+* ---------------- output stage ----------------
+XMD VOUT N1 VSS VSS sky130_fd_pr__nfet_01v8 W=70 L=0.3 m=1
+XML VOUT VBP1 VDD VDD sky130_fd_pr__pfet_01v8 W=60 L=0.5 m=20
+* Miller compensation with nulling resistor
+RZ N1 NRZ 1k
+CC NRZ VOUT 4.7p
+.ends DUT

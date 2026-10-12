@@ -1,0 +1,26 @@
+* Complementary-input, two-stage OTA with Miller compensation
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Bias: IBIAS is sourced externally at 10 uA
+XBN IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XBP1 PB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XBP2 PB PB VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=1 m=1
+* Direct PMOS input pair covers low input voltage
+XPT PS PB VDD VDD sky130_fd_pr__pfet_01v8 w=30 l=1 m=1
+XPP X VINP PS VDD sky130_fd_pr__pfet_01v8 w=100 l=1 m=2
+XPN PD VINN PS VDD sky130_fd_pr__pfet_01v8 w=100 l=1 m=2
+XPMD PD PD VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 m=1
+XPMO X PD VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 m=1
+* NMOS followers shift high inputs down to a second PMOS pair
+XSFP VDD VINP SFP VSS sky130_fd_pr__nfet_01v8 w=100 l=1 m=8
+XSFN VDD VINN SFN VSS sky130_fd_pr__nfet_01v8 w=100 l=1 m=8
+XSFC1 SFP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=1 m=1
+XSFC2 SFN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=1 m=1
+XHPT HS PB VDD VDD sky130_fd_pr__pfet_01v8 w=30 l=1 m=1
+XHPP X SFP HS VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=4
+XHPN PD SFN HS VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=4
+* Common-source output stage and series nulling resistance
+XPO VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=1 m=1
+XNO VOUT X VSS VSS sky130_fd_pr__nfet_01v8 w=90 l=1 m=1
+RZ X CM 6000
+CC CM VOUT 2.8p
+.ends DUT

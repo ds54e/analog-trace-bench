@@ -1,0 +1,28 @@
+* NMOS-input folded-cascode OTA with wide-swing mirror load.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Reference conversion and tail.
+XNR IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=1
+XNT TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=3
+XINP FP VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=2
+XINN FN VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=2
+* PMOS current sources, 30 uA per side.
+XNBP PB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=1
+XPR PB PB VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=1
+XPTP FP PB VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=3
+XPTN FN PB VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=3
+* PMOS cascode gate: resistor establishes upper-device headroom.
+RPC VDD PCS 25000
+XPCREF PC PC PCS VDD sky130_fd_pr__pfet_01v8 w=33.333333 l=4 nf=1 m=1
+XNPC PC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=1
+XPCP MIR PC FP VDD sky130_fd_pr__pfet_01v8 w=50 l=4 nf=1 m=1
+XPCN VOUT PC FN VDD sky130_fd_pr__pfet_01v8 w=50 l=4 nf=1 m=1
+* NMOS wide-swing cascode bias and current mirror.
+XPNC NC PB VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=1
+XNCREF NC NC NCS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 nf=1 m=1
+RNC NCS VSS 25000
+XNCP MIR NC NL VSS sky130_fd_pr__nfet_01v8 w=30 l=2 nf=1 m=1
+XNCN VOUT NC NR VSS sky130_fd_pr__nfet_01v8 w=30 l=2 nf=1 m=1
+XNLP NL MIR VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=4 nf=1 m=1
+XNLN NR MIR VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=4 nf=1 m=1
+CDOM VOUT VSS 6p
+.ends DUT

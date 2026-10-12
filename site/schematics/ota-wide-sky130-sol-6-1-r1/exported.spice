@@ -1,0 +1,30 @@
+
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+CBN GN VDD 0.5p
+CBP GP VDD 0.5p
+CC CZ VOUT 3.99p
+CN VINN GN 2.5p
+CP VINP GP 2.5p
+RBN GN VDD 750k
+RBP GP VDD 750k
+RCS VDD PS 20k
+RN VINN GN 750k
+RP VINP GP 750k
+RZ B CZ 2000
+XBC PB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=2 w=10 nf=1 m=1
+XCC PC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=2 w=10 nf=1 m=1
+XCD PC PC PS VDD sky130_fd_pr__pfet_01v8 l=0.5 w=20 nf=1 m=1
+XFN A PC DN VDD sky130_fd_pr__pfet_01v8 l=0.5 w=20 nf=1 m=3
+XFP B PC DP VDD sky130_fd_pr__pfet_01v8 l=0.5 w=20 nf=1 m=3
+XIN DN GN T VSS sky130_fd_pr__nfet_01v8 l=0.15 w=100 nf=1 m=8
+XIP DP GP T VSS sky130_fd_pr__nfet_01v8 l=0.15 w=100 nf=1 m=8
+XNL A A VSS VSS sky130_fd_pr__nfet_01v8 l=2 w=10 nf=1 m=1
+XNR B A VSS VSS sky130_fd_pr__nfet_01v8 l=2 w=10 nf=1 m=1
+XON VOUT B VSS VSS sky130_fd_pr__nfet_01v8 l=0.5 w=100 nf=1 m=2
+XOP VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=20 nf=1 m=14
+XPB PB PB VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=20 nf=1 m=1
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=2 w=10 nf=1 m=1
+XTAIL T IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=2 w=80 nf=1 m=1
+XUN DN PB VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=20 nf=1 m=6
+XUP DP PB VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=20 nf=1 m=6
+.ends DUT

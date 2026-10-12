@@ -1,0 +1,26 @@
+* Folded NMOS input stage and NMOS output gain stage.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=2 nf=1 m=1
+XTAIL NT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=1
+XINN D1 VINN NT VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=2
+XINP D2 VINP NT VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=2
+* PMOS mirror reference and folding current sources.
+XBP PB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=2 nf=1 m=1
+XPR PB PB VDD VDD sky130_fd_pr__pfet_01v8 w=50 l=2 nf=1 m=1
+XPS1 D1 PB VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=1
+XPS2 D2 PB VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=1
+RF1 IBIAS PC 10meg
+RF2 PC VSS 10meg
+CF PC VSS 1p
+XFC1 NM PC D1 VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=1
+XFC2 N2 PC D2 VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=1
+* Current-mirror conversion to a single-ended first-stage output.
+XNM1 NM NM VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=4 nf=1 m=1
+XNM2 N2 NM VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=4 nf=1 m=1
+* NMOS second stage improves positive-supply rejection.
+XNO VOUT N2 VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=4 nf=1 m=2
+XPO VOUT PB VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=2
+CPB PB VDD 2p
+RC N2 NC 4000
+CC NC VOUT 12p
+.ends DUT

@@ -1,0 +1,48 @@
+* OTA-PRECISION-SKY130
+* Two-stage Miller OTA, precision biased.
+*  - NMOS input pair at very low current density (deep subthreshold: low
+*    Vgs for input-common-mode headroom down to VIN=0.75V at -40C),
+*    cascoded by NMOS cascodes whose gates sit on the stacked-diode IBIAS
+*    node.  This matches the input-pair drain voltages (small systematic
+*    offset) and raises the first-stage gain.
+*  - PMOS current-mirror load (long channel: high ro).
+*  - PMOS common-source second stage = exact 4x replica of the mirror
+*    device (same W/L, same current density => same Vsg => drain voltages
+*    of input pair and mirror matched => low offset).
+*  - NMOS current-source load = exact 4x replica of the reference device,
+*    cascoded (cascode gate on IBIAS): load current independent of VOUT,
+*    which keeps the offset from drifting with the output level.
+*  - stacked NMOS reference from the 10uA IBIAS pin: Q = Vgs (tail/load
+*    gate), IBIAS = 2*Vgs (cascode gates); both supply independent.
+*  - Miller compensation Rz+Cc (LHP zero, well damped).
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+
+* ---- stacked reference (10uA): Q ~0.5V, IBIAS ~1.0V (0.1uA/square)
+XMREF2 IBIAS IBIAS Q VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=1
+XMREF  Q Q VSS VSS      sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=1
+
+* ---- tail current source : 2x = 20uA
+XMTAIL TAILN Q VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=2
+
+* ---- second-stage load : 4x = 40uA, cascoded
+XMLOAD  Y Q VSS VSS     sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=4
+XMLOADC VOUT IBIAS Y VSS sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=1
+
+* ---- input pair (10uA each), low density, cascoded
+XMINN N1 VINN TAILN VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=2
+XMINP N2 VINP TAILN VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=2
+XMINNC GC IBIAS N1 VSS  sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=1
+XMINPC XN IBIAS N2 VSS  sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=1
+
+* ---- PMOS mirror load (10uA each)
+XMP3 GC GC VDD VDD sky130_fd_pr__pfet_01v8 W=40 L=4 nf=1 m=1
+XMP4 XN GC VDD VDD sky130_fd_pr__pfet_01v8 W=40 L=4 nf=1 m=1
+
+* ---- second stage PMOS: 4x replica of MP3 (40uA), same W/L and density
+XMP6 VOUT XN VDD VDD sky130_fd_pr__pfet_01v8 W=40 L=4 nf=1 m=4
+
+* ---- Miller compensation with nulling resistor
+RZ XN XC 1.5k
+CC XC VOUT 15p
+
+.ends DUT

@@ -1,0 +1,32 @@
+* OTA-WIDE-SKY130 : complementary-input two-stage Miller OTA
+* split summing nodes: ZN (main, PMOS class-A driver gate), ZP (aux, PMOS pair)
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XMIB  IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=1
+XMCS  VP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=1
+XMPB  VP VP VDD VDD sky130_fd_pr__pfet_01v8 W=40 L=1 nf=1 m=1
+XM1   D1 VINN TAILN VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=1
+XM2   ZN VINP TAILN VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=1
+XM3   TAILN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=1 nf=1 m=1
+XM5   D1 D1 VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=2 nf=1 m=1
+XM6   ZN D1 VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=2 nf=1 m=1
+XM7   D2 VINP TAILP VDD sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=1
+XM8   ZP VINN TAILP VDD sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=1
+XM9   TAILP VP VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=1 nf=1 m=1
+XM10  D2 D2 VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=1
+XM11  ZP D2 VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=1
+XMB1  ZP VP VDD VDD sky130_fd_pr__pfet_01v8 W=32 L=1 nf=1 m=1
+XM12  ZP ZP VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=1
+XM13  ZN ZP VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=1
+XMB2  ZN VP VDD VDD sky130_fd_pr__pfet_01v8 W=32 L=1 nf=1 m=1
+XMOUTP VOUT ZN VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=3
+XMOUTN VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=80 L=1 nf=1 m=3
+C1    ZN XC 3.5p
+RZ    XC VOUT 1k
+CVP   VP VDD 1p
+CVN   IBIAS VSS 1p
+R1    D1 VDD 10meg
+R2    D2 VSS 10meg
+R3    ZN VDD 2meg
+R4    ZN VSS 2meg
+RB    VOUT VSS 2meg
+.ends DUT

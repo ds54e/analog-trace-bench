@@ -1,0 +1,22 @@
+
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+CC NZ VOUT 4.5p
+RZ NG NZ 1600
+XCASN ND NCAS NN VSS sky130_fd_pr__nfet_01v8 l=1 w=100 nf=1 m=2
+XCASP NG NCAS NP VSS sky130_fd_pr__nfet_01v8 l=1 w=100 nf=1 m=2
+XCBL NCB NCB VSS VSS sky130_fd_pr__nfet_01v8 l=0.5 w=6 nf=1 m=1
+XCBP NCAS ND VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=50 nf=1 m=1
+XCBU NCAS NCAS NCB VSS sky130_fd_pr__nfet_01v8 l=1 w=50 nf=1 m=1
+XINN NN VINN NS VSS sky130_fd_pr__nfet_01v8 l=1 w=100 nf=1 m=2
+XINP NP VINP NS VSS sky130_fd_pr__nfet_01v8 l=1 w=100 nf=1 m=2
+XOSINK VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=50 nf=1 m=4
+XOUT VOUT NG VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=100 nf=1 m=10
+XPCD ND PCAS PDL VDD sky130_fd_pr__pfet_01v8 l=0.5 w=100 nf=1 m=1
+XPCM NG PCAS PML VDD sky130_fd_pr__pfet_01v8 l=0.5 w=100 nf=1 m=1
+XPD PDL ND VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=75 nf=1 m=2
+XPM PML ND VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=75 nf=1 m=2
+XPR PCAS PCAS VDD VDD sky130_fd_pr__pfet_01v8 l=0.5 w=3 nf=1 m=1
+XPRS PCAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=10 nf=1 m=1
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=10 nf=1 m=1
+XTAIL NS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=30 nf=1 m=2
+.ends DUT

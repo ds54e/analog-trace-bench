@@ -1,0 +1,13 @@
+* Two-stage OTA with NMOS differential input and PMOS gain stage.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1 nf=1 m=1
+XTAIL NT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=4
+XINN ND VINN NT VSS sky130_fd_pr__nfet_01v8 w=60 l=0.5 nf=1 m=1
+XINP NG VINP NT VSS sky130_fd_pr__nfet_01v8 w=60 l=0.5 nf=1 m=1
+XPL ND ND VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=0.5 nf=1 m=1
+XPR NG ND VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=0.5 nf=1 m=1
+XOUTP VOUT NG VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=3
+XOUTN VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=75 l=1 nf=1 m=10
+RZ NG NC 1000
+CC NC VOUT 4.5p
+.ends DUT

@@ -1,0 +1,29 @@
+* Complementary-input, two-stage continuous-time OTA
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Reference and current distribution
+XBN IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XBPDRV BPC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XBP BP BP VDD VDD sky130_fd_pr__pfet_01v8 w=40 l=1 nf=1 m=1
+RBPC BP BPC 20000
+* Complementary differential pairs, total nominal tails 20 uA each
+XNT SN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 nf=1 m=1
+XNP DN VINN SN VSS sky130_fd_pr__nfet_01v8 w=80 l=0.5 nf=1 m=1
+XNN DN2 VINP SN VSS sky130_fd_pr__nfet_01v8 w=80 l=0.5 nf=1 m=1
+XNFT1 DN BP VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=1
+XNFT2 DN2 BP VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=1
+XNFC1 DNC BPC DN VDD sky130_fd_pr__pfet_01v8 w=60 l=1 nf=1 m=1
+XNFC2 G BPC DN2 VDD sky130_fd_pr__pfet_01v8 w=60 l=1 nf=1 m=1
+XNDC DNC DNC VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XNSC G DNC VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XPT SP BP VDD VDD sky130_fd_pr__pfet_01v8 w=80 l=1 nf=1 m=1
+XPP DP VINN SP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+XPN G VINP SP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+XPL1 DP DP VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XPL2 G DP VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+* Output gain stage, approximately 200 uA
+XOUTN VOUT G VSS VSS sky130_fd_pr__nfet_01v8 w=70 l=1 nf=1 m=1
+XOUTP VOUT BP VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=8
+* Miller compensation with a zero-control resistor
+RC G CC 1000
+CC CC VOUT 3p
+.ends DUT

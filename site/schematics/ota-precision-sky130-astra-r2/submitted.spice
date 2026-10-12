@@ -1,0 +1,27 @@
+* Single-stage folded-cascode precision OTA.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* NMOS reference, input tail, and PMOS bias conversion.
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=4 nf=1 m=1
+XTAIL TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=4 nf=1 m=1
+XBPULL BP IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=4 nf=1 m=1
+XBP BP BP VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=1
+* Wide-swing cascode gate biases.
+XBCP BPC BPC VDD VDD sky130_fd_pr__pfet_01v8 w=7.5 l=3 nf=1 m=1
+XBCNS BPC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=4 nf=1 m=1
+XBCPS BNC BP VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=2 nf=1 m=1
+XBCN BNC BNC VSS VSS sky130_fd_pr__nfet_01v8 w=4.5 l=3 nf=1 m=1
+* Input pair and folding current sources.
+XINP DP VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=3 nf=1 m=2
+XINN DN VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=3 nf=1 m=2
+XTP DP BP VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=2 nf=1 m=2
+XTN DN BP VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=2 nf=1 m=2
+* Folded branches and cascoded NMOS current mirror.
+XFCP NM BPC DP VDD sky130_fd_pr__pfet_01v8 w=100 l=3 nf=1 m=1
+XFCN VOUT BPC DN VDD sky130_fd_pr__pfet_01v8 w=100 l=3 nf=1 m=1
+XNMR NR NM VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=4 nf=1 m=1
+XNMO NO NM VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=4 nf=1 m=1
+XNCR NM BNC NR VSS sky130_fd_pr__nfet_01v8 w=100 l=3 nf=1 m=1
+XNCO VOUT BNC NO VSS sky130_fd_pr__nfet_01v8 w=100 l=3 nf=1 m=1
+* Dominant output-pole compensation.
+CD VOUT VSS 20p
+.ends DUT

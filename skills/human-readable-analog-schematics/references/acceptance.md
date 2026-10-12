@@ -9,6 +9,7 @@ invocation. Keep electrical and visual outcomes independently assessable.
 | Representative request | Expected behavior |
 |---|---|
 | Redraw this OTA SPICE as an editable, readable schematic. | Apply the drawing/native workflow; inspect connectivity before placement. |
+| Add drawings to every OTA run. | Enumerate catalog coverage; derive each layout from its own submission, verify every saved export, and review all rendered runs. |
 | Improve the LDO Final submission diagram in ATB. | Apply drawing rules and ATB profile; preserve the frozen submission. |
 | Only shorten 92.59k and 101.2k in the accepted drawing. | Change native display annotations to 93k/100k; keep geometry and exact parameters. |
 | Align the accepted OTA's Cc and Rz labels. | Edit native label anchors; preserve placement, wiring, values and interface. |
@@ -24,6 +25,8 @@ in `docs/SCHEMATICS.md`. Existing repository checks cover source binding, exact
 ordered interfaces/pins/parameters, changed artifacts, unsupported syntax and
 preservation of submitted bytes. Native generation checks reopened route
 connectivity, bulk defaults, display strings, diagnostics and unrouted connections.
+Coverage checks enumerate every catalog OTA run. Constant-only parameter tests
+check definitions and resolved values; unsupported expressions still fail.
 
 For display rounding, inspect saved/reopened labels separately from exact export
 parameters. Include a prefix carry and SPICE `M`/`meg` distinction when changing

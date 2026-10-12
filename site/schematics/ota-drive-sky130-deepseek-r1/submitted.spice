@@ -1,0 +1,22 @@
+* OTA-DRIVE-SKY130 v6
+* Two-stage Miller OTA: NMOS input pair + fast PMOS mirror (small area, high
+* mirror pole) -> matching first-stage nodes. Output stage: PMOS common-source
+* with VSS-referenced NMOS current sink. Miller Cc + small series Rz.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* ---- bias network ----
+XMBIAS IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=24 L=0.5 nf=1 m=1
+XM5 TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 nf=1 m=7
+XM8 NREF IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=96 L=0.5 nf=1 m=1
+XM9 NREF NREF VDD VDD sky130_fd_pr__pfet_01v8 W=80 L=0.5 nf=1 m=1
+XM7 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 nf=1 m=15
+* ---- first stage ----
+XM1 NA VINN TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=1.5 nf=1 m=7
+XM2 NB VINP TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=1.5 nf=1 m=7
+XM3 NA NA VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=0.5 nf=1 m=2
+XM4 NB NA VDD VDD sky130_fd_pr__pfet_01v8 W=50 L=0.5 nf=1 m=2
+* ---- output stage: PMOS common source ----
+XM6 VOUT NB VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.25 nf=1 m=8
+* ---- Miller compensation ----
+RZ NB NZ 800
+CC NZ VOUT 19f
+.ends DUT

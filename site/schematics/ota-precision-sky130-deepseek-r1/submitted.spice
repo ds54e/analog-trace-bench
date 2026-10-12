@@ -1,0 +1,17 @@
+* OTA v9: as v5 but higher input-pair current density (more drain headroom), Cc=3.5p
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XM8 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=2 nf=1 m=1
+XM9 vbpp IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=2 nf=1 m=1
+XM10 vbpp vbpp VDD VDD sky130_fd_pr__pfet_01v8 W=15 L=4 nf=1 m=1
+XM11 nb2 vbpp VDD VDD sky130_fd_pr__pfet_01v8 W=15 L=4 nf=1 m=1
+XM12 nb2 nb2 VSS VSS sky130_fd_pr__nfet_01v8 W=3.3 L=4 nf=1 m=1
+XM5 nsrc IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=96 L=8 nf=1 m=2
+XM1 d1 VINN nsrc VSS sky130_fd_pr__nfet_01v8 W=50 L=2 nf=1 m=1
+XM2 nx VINP nsrc VSS sky130_fd_pr__nfet_01v8 W=50 L=2 nf=1 m=1
+XM3 d1 d1 VDD VDD sky130_fd_pr__pfet_01v8 W=79 L=1 nf=1 m=1
+XM4 nx d1 VDD VDD sky130_fd_pr__pfet_01v8 W=79 L=1 nf=1 m=1
+XM6 VOUT nx VDD VDD sky130_fd_pr__pfet_01v8 W=88 L=1 nf=1 m=6
+XM7 VOUT nb2 VSS VSS sky130_fd_pr__nfet_01v8 W=33 L=4 nf=1 m=1
+CC nx nz 3.5p
+RZ nz VOUT 400
+.ends DUT

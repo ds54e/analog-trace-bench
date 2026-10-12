@@ -1,0 +1,16 @@
+* Two-stage Miller OTA: NMOS diff pair, PMOS mirror load, NMOS common-source
+* second stage with PMOS current-source load. VINN is the inverting (feedback) input.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XMB  IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=1
+XMNB PB    IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 nf=1 m=1
+XMPB PB    PB    VDD VDD sky130_fd_pr__pfet_01v8 W=4 L=1 nf=1 m=1
+XMT  NS    IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=96 L=2 nf=1 m=1
+XM1  A     VINN  NS  VSS sky130_fd_pr__nfet_01v8 W=15 L=1 nf=1 m=1
+XM2  N1    VINP  NS  VSS sky130_fd_pr__nfet_01v8 W=15 L=1 nf=1 m=1
+XM3  A     A     VDD VDD sky130_fd_pr__pfet_01v8 W=60 L=1 nf=1 m=1
+XM4  N1    A     VDD VDD sky130_fd_pr__pfet_01v8 W=60.1 L=1 nf=1 m=1
+XM6  VOUT  N1    VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=0.5 nf=1 m=1
+XM7  VOUT  PB    VDD VDD sky130_fd_pr__pfet_01v8 W=64 L=1 nf=1 m=1
+C1   N1 NZ 2.2p
+RZ   NZ VOUT 3k
+.ends DUT

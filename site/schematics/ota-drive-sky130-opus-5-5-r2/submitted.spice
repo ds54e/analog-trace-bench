@@ -1,0 +1,34 @@
+* Current-mirror (symmetrical) OTA, NMOS input, PMOS mirrors B=2.5, cascoded output
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* reference: 10uA enters IBIAS into NMOS diode
+XMB0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+* tail 36x
+XMT ntail IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=45 l=1 m=8
+* input pair
+XM1 d1 VINN ntail VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 m=8
+XM2 d2 VINP ntail VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 m=8
+* PMOS mirror diodes and 2.5x outputs
+XM3 d1 d1 VDD VDD sky130_fd_pr__pfet_01v8 w=55 l=0.5 m=2
+XM4 d2 d2 VDD VDD sky130_fd_pr__pfet_01v8 w=55 l=0.5 m=2
+XM5 s5 d1 VDD VDD sky130_fd_pr__pfet_01v8 w=55 l=0.5 m=5
+XM6 s6 d2 VDD VDD sky130_fd_pr__pfet_01v8 w=55 l=0.5 m=5
+* PMOS cascodes
+XM7 nL vbpc s5 VDD sky130_fd_pr__pfet_01v8 w=55 l=0.5 m=5
+XM8 VOUT vbpc s6 VDD sky130_fd_pr__pfet_01v8 w=55 l=0.5 m=5
+* NMOS wide-swing cascode mirror
+XM11 nL vbnc s9 VSS sky130_fd_pr__nfet_01v8 w=50 l=0.5 m=5
+XM9 s9 nL VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=0.5 m=5
+XM12 VOUT vbnc s10 VSS sky130_fd_pr__nfet_01v8 w=50 l=0.5 m=5
+XM10 s10 nL VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=0.5 m=5
+* bias: PMOS reference diode
+XMB1 vbp IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XMBP0 vbp vbp VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=1 m=1
+* NMOS cascode bias: Vbnc = VGS + I*Rn
+XMBP1 vbnc vbp VDD VDD sky130_fd_pr__pfet_01v8 w=10 l=1 m=1
+RN vbnc zn 25k
+XMBN zn zn VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=0.7 m=1
+* PMOS cascode bias: Vbpc = VDD - VSG - I*Rp
+XMBPC yp yp VDD VDD sky130_fd_pr__pfet_01v8 w=8 l=0.63 m=1
+RP yp vbpc 30k
+XMB2 vbpc IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+.ends DUT

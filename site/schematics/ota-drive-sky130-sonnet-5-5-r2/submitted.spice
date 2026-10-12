@@ -1,0 +1,14 @@
+* V7: V1 with Cc=6.5p
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XMB IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=12.5 L=0.5 nf=1 m=1
+CDEC IBIAS VSS 10p
+XM5 T IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=75 L=0.5 nf=1 m=2
+XM7 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=55 L=0.5 nf=1 m=25
+XM1 A VINN T VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 nf=1 m=4
+XM2 X VINP T VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 nf=1 m=4
+XM3 A A VDD VDD sky130_fd_pr__pfet_01v8 W=58.75 L=0.25 nf=1 m=1
+XM4 X A VDD VDD sky130_fd_pr__pfet_01v8 W=58.75 L=0.25 nf=1 m=1
+XM6 VOUT X VDD VDD sky130_fd_pr__pfet_01v8 W=98 L=0.25 nf=1 m=12
+RZ X Y 500
+CC Y VOUT 6.5p
+.ends DUT

@@ -1,0 +1,18 @@
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* 10 uA NMOS reference and scaled tail/output sink currents
+XREF IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=7 l=1 nf=1 m=1
+XTAIL NTAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=7 l=1 nf=1 m=16
+XOUTN VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=8
+* NMOS differential pair, with polarity chosen for the PMOS output stage
+XINN ND1 VINN NTAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=1
+XINP ND2 VINP NTAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=1
+* Matched PMOS current-mirror load
+XLOAD1 ND1 ND1 VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=1 nf=1 m=2
+XLOAD2 ND2 ND1 VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=1 nf=1 m=2
+* Common-source PMOS output stage; 1 mA sink mirror for load drive
+XOUTP VOUT ND2 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=32
+XOUTP2 VOUT ND2 VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=8
+* Miller compensation with a series nulling resistor
+RZ ND2 XCOMP 800
+CC XCOMP VOUT 8.5p
+.ends DUT

@@ -1,0 +1,18 @@
+* Two-stage compensated CMOS OTA. IBIAS is sunk by the diode-connected N reference.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* 10 uA reference, 37x tail mirror and 105x output sink mirror.
+XNR IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=16 L=1 m=1
+XNT TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=74 L=1 m=8
+XNS VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=70 L=1 m=24
+* NMOS differential pair; the VINN side is the diode-load side for correct loop polarity.
+XNI NDI VINN TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 m=1
+XNP NOUT VINP TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 m=1
+* PMOS current mirror load, 300 um / 0.5 um per side.
+XPL NDI NDI VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=3
+XPR NOUT NDI VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=3
+* PMOS common-source output balances the 1.05 mA sink at quiescence.
+XPO VOUT NOUT VDD VDD sky130_fd_pr__pfet_01v8 W=71 L=0.5 m=24
+* Miller compensation with a series lead zero.
+RZ NOUT NCOMP 420
+CC NCOMP VOUT 20p
+.ends DUT

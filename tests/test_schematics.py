@@ -13,9 +13,12 @@ from site_templates import ROOT
 
 
 class SubmittedSchematics(unittest.TestCase):
-    def test_pilots_match_frozen_submissions_and_keep_spice_bytes(self):
+    def test_all_ota_runs_match_frozen_submissions_and_keep_spice_bytes(self):
         drawings = schematics.load_drawings(ROOT)
-        self.assertEqual(set(drawings), {'ota-fixed-sky130-opus-5-5-r1', 'ldo-core-sky130-sonnet-5-5-r1'})
+        catalog = json.loads((ROOT / 'site/data/runs.json').read_text())
+        ota = {r['id'] for t in catalog['tasks'] if t['id'].upper().startswith('OTA-') for r in t['runs']}
+        self.assertEqual(len(ota), 121)
+        self.assertEqual(set(drawings), ota | {'ldo-core-sky130-sonnet-5-5-r1'})
         for run_id, entry in drawings.items():
             trace = (ROOT / 'content/traces' / run_id / 'trace.html').read_text()
             attached = schematics.attach_drawing(trace, entry)
@@ -24,10 +27,24 @@ class SubmittedSchematics(unittest.TestCase):
             self.assertLess(attached.index('<figure class="submission-schematic"'),
                             attached.index('<pre data-field="submitted-spice"'))
             self.assertEqual(attached.count('class="submission-schematic"'), 1)
+            self.assertNotIn('<figcaption', attached[:attached.index('<pre data-field="submitted-spice"')])
             changed = dict(entry, source=entry['source'] + '\n')
             with self.assertRaisesRegex(ValueError, 'frozen final submission'):
                 schematics.attach_drawing(trace, changed)
         self.assertEqual(schematics.attach_drawing('unselected trace', None), 'unselected trace')
+
+    def test_numeric_constants_and_mos_defaults_preserve_the_contract(self):
+        source = (ROOT / 'site/schematics/ota-drive-sky130-sonnet-5-5-r3/submitted.spice').read_text()
+        exported = (ROOT / 'site/schematics/ota-drive-sky130-sonnet-5-5-r3/exported.spice').read_text()
+        self.assertEqual(schematics.contract(source), schematics.contract(exported))
+        literal = schematics.resolved_spice(source)
+        self.assertNotIn('{', literal)
+        self.assertNotIn('.param', literal)
+        self.assertEqual(schematics.contract(literal)[:2], schematics.contract(source)[:2])
+        self.assertNotEqual(schematics.contract(source), schematics.contract(source.replace('lm=0.25', 'lm=0.26')))
+        mos = '.subckt DUT D G S\nX1 D G S S sky130_fd_pr__nfet_01v8 w=1 l=1\n.ends DUT\n'
+        self.assertEqual(schematics.contract(mos), schematics.contract(mos.replace('l=1', 'l=1 nf=1 m=1')))
+        self.assertNotEqual(schematics.contract(mos), schematics.contract(mos.replace('l=1', 'l=1 m=2')))
 
     def test_pin_order_body_values_and_interface_are_part_of_contract(self):
         source = (ROOT / 'site/schematics/ldo-core-sky130-sonnet-5-5-r1/submitted.spice').read_text()
@@ -70,6 +87,9 @@ class SubmittedSchematics(unittest.TestCase):
     def test_unsupported_constructs_do_not_silently_pass(self):
         for text in ['.subckt DUT A B\nV1 A B 1\n.ends DUT\n',
                      '.subckt DUT A B\nR1 A B {r}\n.ends DUT\n',
+                     '.subckt DUT A B\n.param r=1k\nR1 A B {r*2}\n.ends DUT\n',
+                     '.subckt DUT A B\n.param r={s}\nR1 A B {r}\n.ends DUT\n',
+                     '.subckt DUT A B\n.param r=1k r=2k\nR1 A B {r}\n.ends DUT\n',
                      '.subckt DUT A B\nR1 A B 1k\nR1 A B 2k\n.ends DUT\n']:
             with self.subTest(text=text), self.assertRaises(ValueError):
                 schematics.contract(text)

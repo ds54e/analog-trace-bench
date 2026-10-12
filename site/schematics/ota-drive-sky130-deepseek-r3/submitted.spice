@@ -1,0 +1,17 @@
+* OTA-DRIVE-SKY130 v10: single-stage 5T OTA + PMOS cascode load
+* VINP on diode side (M1), VINN on mirror-output side (M2) -> VOUT = A*(VINP-VINN)
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* bias: 10uA into IBIAS, NMOS diode M8, tail M5 ratio 120 -> 1.2mA
+Xm8 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=1
+Xm5 nTail IBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=12
+* input pair: 600uA each, Vov~0.155, gm~8mS
+Xm1 nA VINP nTail VSS sky130_fd_pr__nfet_01v8 W=100 L=1.2 nf=1 m=7
+Xm2 VOUT VINN nTail VSS sky130_fd_pr__nfet_01v8 W=100 L=1.2 nf=1 m=7
+* PMOS mirror load, |Vov|~0.2 (stays saturated over full output swing)
+Xm3 nA nA VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=5
+Xm4 nC nA VDD VDD sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=5
+Xm4c VOUT nBias nC VDD sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=5
+* cascode gate bias from IBIAS diode node (divider ~0.23uA)
+R1 IBIAS nBias 1MEG
+R2 nBias VSS 1.3MEG
+.ends DUT

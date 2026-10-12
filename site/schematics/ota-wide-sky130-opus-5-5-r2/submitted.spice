@@ -1,0 +1,56 @@
+* OTA-WIDE-SKY130 rev2
+* Complementary NMOS/PMOS input pairs -> folded-cascode summing stage
+* (PMOS fixed top sources, NMOS low-voltage cascode mirror) -> class-A
+* NMOS common-source output with PMOS current-source load. Miller Rz-Cc.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* ---------------- bias ----------------
+* IREF (10uA) into NMOS diode: VBN = V(IBIAS)
+XMB0 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+* low-Vov PMOS bias (PMOS pair tail)
+XMB1 VBPA IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPBA VBPA VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=1
+* moderate-Vov PMOS bias (folding sources)
+XMB2 VBPB IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPBB VBPB VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=5.4 l=1 nf=1 m=1
+* output-source PMOS bias
+XMB5 VBPO IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPBO VBPO VBPO VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=1 nf=1 m=1
+* RC filter on output-source gate (bias noise x10 mirror)
+RFO VBPO VBPOF 500k
+CFO VBPOF VDD 2p
+* PMOS cascode bias: VBPC = VDD - I*R - Vsg
+XMB3 VBPC IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=33 l=1 nf=1 m=1
+XMPB3 VBPC VBPC RPC VDD sky130_fd_pr__pfet_01v8 w=12 l=0.5 nf=1 m=1
+RPC VDD RPC 40k
+* NMOS cascode bias: VBNC = Vgs + I*R
+XMB4 VBNC VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=5.4 l=1 nf=1 m=1
+XMNB4 VBNC VBNC RNC VSS sky130_fd_pr__nfet_01v8 w=6 l=0.5 nf=1 m=1
+RNC RNC VSS 30k
+* ---------------- input stage ----------------
+* NMOS pair (tail 25uA); VINP drives output side
+XMTN TN IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=83 l=1 nf=1 m=1
+XM1 P1 VINN TN VSS sky130_fd_pr__nfet_01v8 w=60 l=1 nf=1 m=1
+XM2 P2 VINP TN VSS sky130_fd_pr__nfet_01v8 w=60 l=1 nf=1 m=1
+* PMOS pair (tail 25uA)
+XMTP TP VBPA VDD VDD sky130_fd_pr__pfet_01v8 w=83.3 l=1 nf=1 m=3
+XM3 N1 VINN TP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+XM4 N2 VINP TP VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=2
+* folding PMOS sources (30uA each)
+XM5 P1 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16.2 l=1 nf=1 m=1
+XM6 P2 VBPB VDD VDD sky130_fd_pr__pfet_01v8 w=16.2 l=1 nf=1 m=1
+* PMOS cascodes
+XM7 NA VBPC P1 VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+XM8 NB VBPC P2 VDD sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+* NMOS cascodes
+XM11 NA VBNC N1 VSS sky130_fd_pr__nfet_01v8 w=16 l=0.5 nf=1 m=1
+XM12 NB VBNC N2 VSS sky130_fd_pr__nfet_01v8 w=16 l=0.5 nf=1 m=1
+* low-voltage cascode mirror
+XM9 N1 NA VSS VSS sky130_fd_pr__nfet_01v8 w=32 l=2 nf=1 m=1
+XM10 N2 NA VSS VSS sky130_fd_pr__nfet_01v8 w=32 l=2 nf=1 m=1
+* ---------------- output stage ----------------
+XMNO VOUT NB VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+XMPO VOUT VBPOF VDD VDD sky130_fd_pr__pfet_01v8 w=75 l=1 nf=1 m=2
+* Miller compensation
+RZ NB NZ 1.5k
+CC NZ VOUT 5p
+.ends DUT

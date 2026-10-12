@@ -1,0 +1,20 @@
+* OTA-FREE-SKY130 final design
+* Two-stage Miller-compensated OTA, unity-gain stable, 2pF-5pF load.
+* Stage 1: NMOS input pair M1/M2 (VINP on mirror side) + PMOS mirror load M3/M4.
+* Stage 2: PMOS common-source M5 with NMOS sink M6, bias mirrored from the
+* 10uA IBIAS pin (M7 diode, M8 tail, M6 sink).
+* M3/M4 run at the same current density as M5 so the mirror-diode node A and
+* the stage-2 gate node X track (both = VDD - Vthp - Vov) -> low systematic
+* offset. Miller cap Cc + nulling resistor Rz set the loop and damp it.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+XM7 IBIAS IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XM8 TAIL IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1 m=1
+XM6 VOUT IBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=90 l=1 m=2
+XM1 A VINN TAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=2 m=1
+XM2 X VINP TAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=2 m=1
+XM3 A A VDD VDD sky130_fd_pr__pfet_01v8 w=56 l=1 m=1
+XM4 X A VDD VDD sky130_fd_pr__pfet_01v8 w=56 l=1 m=1
+XM5 VOUT X VDD VDD sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=2
+CC X NZ 2.4e-12
+RZ NZ VOUT 1100
+.ends DUT

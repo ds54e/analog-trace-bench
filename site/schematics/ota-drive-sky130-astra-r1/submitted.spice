@@ -1,0 +1,30 @@
+* Cascoded current-mirror OTA for 20-50 pF loads.
+.subckt DUT VINP VINN VOUT VDD VSS IBIAS
+* Noiseless reference conversion and tail mirror.
+XBN NB NB VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 nf=1 m=1
+RBN IBIAS NB 60000
+XTAIL NT NB VSS VSS sky130_fd_pr__nfet_01v8 w=95 l=1 nf=1 m=8
+* Large NMOS differential pair.
+XIP DN VINP NT VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=10
+XIN DP VINN NT VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=10
+* PMOS current mirrors with gain three; wide devices preserve input headroom.
+XPD DP DP VDD VDD sky130_fd_pr__pfet_01v8 w=60 l=0.6 nf=1 m=2
+XND DN DN VDD VDD sky130_fd_pr__pfet_01v8 w=60 l=0.6 nf=1 m=2
+XPL PL DP VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=0.6 nf=1 m=4
+XPR PR DN VDD VDD sky130_fd_pr__pfet_01v8 w=90 l=0.6 nf=1 m=4
+XPC_L NM PB PL VDD sky130_fd_pr__pfet_01v8 w=80 l=0.6 nf=1 m=4
+XPC_R VOUT PB PR VDD sky130_fd_pr__pfet_01v8 w=80 l=0.6 nf=1 m=4
+* Wide-swing NMOS output current mirror.
+XNL NL NM VSS VSS sky130_fd_pr__nfet_01v8 w=60 l=0.5 nf=1 m=1
+XNR NR NM VSS VSS sky130_fd_pr__nfet_01v8 w=60 l=0.5 nf=1 m=1
+XNC_L NM IBIAS NL VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=2
+XNC_R VOUT IBIAS NR VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=2
+* PMOS cascode bias: replica diode plus resistive shift.
+XBS PB NB VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 nf=1 m=1
+RPB PDIO PB 30000
+XPB PDIO PDIO VDD VDD sky130_fd_pr__pfet_01v8 w=8 l=0.6 nf=1 m=1
+* Bias bypassing and output-dominant compensation.
+CNB IBIAS VSS 2p
+CPB PB VDD 2p
+COUT VOUT VSS 6p
+.ends DUT

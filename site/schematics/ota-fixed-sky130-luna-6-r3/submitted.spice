@@ -1,0 +1,36 @@
+* ATB OTA-SKY130 DUT -- two-stage Miller-compensated OTA on SKY130 1.8 V devices
+*
+* Topology: M1/M2 are the NMOS differential pair with common source ntl.
+* M3 is the diode-connected PMOS load at na; M4 mirrors it into n1.  M7 is
+* the PMOS second stage (source vdd, gate n1, drain vout), loaded by the
+* NMOS current sink M8 (drain vout, source vss).  Diode-connected Mbn accepts
+* ibias; its gate also biases the NMOS tail device Mtl and M8.
+* Miller compensation connects n1 to vout through Cc and optional series Rz.
+* For rz = 0, render_dut connects Cc directly to vout and omits Rz.
+* The netlist below is authoritative.  docs/figures/ota-sky130.svg and the
+* editable project in circuits/ota-sky130/schematic/ are derived documentation,
+* not sizing or evaluation sources.
+*
+* Static polarity (large-signal, checked in bench tb_dc):
+*   A rise on vin_p raises the M2 current and lowers the M4 current; node n1
+*   falls; the PMOS M7 gate falls, so M7 sources more current and vout rises.
+*   Hence vin_p is the NON-inverting input and vin_n (gate of M1, whose drain
+*   is the diode-connected node na) is the inverting input of the complete
+*   two-stage amplifier.
+*
+* SKY130 devices are PDK subcircuits, so every device below is an X instance.
+* Body terminals are tied to the supply rails; there is no separate bulk port
+* in P0.  The DUT contains no behavioural source.
+*
+.subckt atb_ota_sky130 vin_p vin_n vout vdd vss ibias
+XMbn ibias ibias vss  vss sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1
+XMtl ntl   ibias vss  vss sky130_fd_pr__nfet_01v8 w=35 l=1 nf=1
+XM1  na    vin_n ntl  vss sky130_fd_pr__nfet_01v8 w=100 l=1.2 nf=1
+XM2  n1    vin_p ntl  vss sky130_fd_pr__nfet_01v8 w=100 l=1.2 nf=1
+XM3  na    na    vdd  vdd sky130_fd_pr__pfet_01v8 w=40 l=1 nf=1
+XM4  n1    na    vdd  vdd sky130_fd_pr__pfet_01v8 w=40 l=1 nf=1
+XM7  vout  n1    vdd  vdd sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1
+XM8  vout  ibias vss  vss sky130_fd_pr__nfet_01v8 w=100 l=0.8 nf=1
+Cc   n1    nzc    2.5e-12
+Rz   nzc   vout   3300
+.ends atb_ota_sky130
