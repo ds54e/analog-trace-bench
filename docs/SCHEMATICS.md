@@ -1,61 +1,74 @@
 # Submitted circuit drawings
 
-Two pilot traces include a transistor-level drawing inside **Final submission**,
-above the complete submitted SPICE:
+Two Final submission sections include native transistor-level diagrams above the
+unchanged submitted SPICE:
 
-- OTA-FIXED / Opus 5.5 / Run 1 (`ota-fixed-sky130-opus-5-5-r1`).
-- LDO-CORE / Sonnet 5.5 / Run 1 (`ldo-core-sky130-sonnet-5-5-r1`).
+| Pilot | Artifact directory under `site/schematics/` |
+|---|---|
+| OTA-FIXED / Opus 5.5 / Run 1 | `ota-fixed-sky130-opus-5-5-r1/` |
+| LDO-CORE / Sonnet 5.5 / Run 1 | `ldo-core-sky130-sonnet-5-5-r1/` |
 
-The diagrams are derived documentation. Recorded fragments, submission bytes,
-evaluation reports and historical results remain authoritative. There is no new
-simulation. The LDO's C1–RZ branch connects G to VIN; it is not redrawn as
-output-connected Miller compensation.
+Drawings are derived documentation. Submission bytes, canonical trace fragments,
+evaluation files and recorded results remain authoritative. Drawing generation
+does not run a new circuit simulation.
 
-## Drawing and review
+## Instruction map
 
 Use [human-readable-analog-schematics](../skills/human-readable-analog-schematics/SKILL.md)
-and its references. An agent reads the actual circuit, identifies functional
-groups and authors its placement and routing. The pilot recipes are specific to
-these circuits; they do not automatically arrange arbitrary netlists.
+for the drawing workflow. Read only its applicable references. The
+[ATB profile](../skills/human-readable-analog-schematics/references/atb-profile.md)
+owns presentation preferences and pilot-specific constraints;
+[gallery evidence](../skills/human-readable-analog-schematics/references/gallery-evidence.md)
+records comparison URLs, observations and limits. This document owns repository
+setup, artifact paths, verification and site integration. See
+[Skills](../skills/README.md) for discovery and current OpenAI authoring guidance.
 
-The site uses SVG images, with a white drawing surface in both color themes.
-On narrow screens the focusable drawing region scrolls horizontally to retain
-readable labels. Each drawing shows only compact `SVG` and `Project` links;
-explanatory paragraphs, verification notes and device tables are not displayed
-in Final submission. Ordered pins, models, W/L, nf and m remain in the native
-project and SPICE artifacts. Hidden MOS body ties are documented in the drawing
-manifest and checked against the cell defaults. Crossings
-without a dot are unconnected; the LDO's main feedback path uses green as an
-additional visual aid. The drawing recipes keep the same label sizes while
-compacting functional groups. Native SVG export uses a 20-unit outer margin,
-recorded in the verification report; the editor's default export uses 40 units.
+## Presentation contract
 
-`site/schematics/<run-id>/` holds:
+Final submission displays the diagram with only short `SVG` and `Project` links.
+Descriptions, body/unit/crossing notes, verification prose and device tables are
+kept in supporting data or documentation rather than printed below the diagram.
+Accessible image descriptions remain available.
+
+Use a white drawing surface in both themes. The focusable horizontal scroll
+region retains readable labels on narrow layouts. Keep native text and symbol
+sizes; reduce gaps and routes through placement. Native SVG export uses a
+20-unit outer margin; the pinned editor's default uses 40 units.
+
+Passive diagram text uses about two significant digits: `92.59k → 93k` and
+`101.2k → 100k`. Keep exact source parameters and exports. Diagram `M` denotes
+mega; SPICE uses `meg` or numeric notation because its `M` means milli.
+
+The LDO's R1/R2 column lies directly below XMP's drain, with CFF beside R1.
+Its FB return and NB drain return remain distinct; C1–RZ connects G to VIN.
+The OTA's XMbn remains mirrored, with a local D–G tie and continuous shared gate
+to XMtl. These are pilot constraints, not a universal OTA/LDO layout.
+Crossings without a dot are unconnected. NFET bodies use VSS/vss; PFET bodies
+use VIN/vdd as recorded in each native cell's bulk defaults and drawing manifest.
+
+## Artifacts
+
+Each pilot directory contains:
 
 | File | Purpose |
-| :--- | :--- |
+|---|---|
 | `schematic.svg` | Native render of the saved and reopened project. |
-| `project.icproj.json` | Editable Analog Canvas project; use the editor's project import. |
+| `project.icproj.json` | Editable project for Analog Canvas project import. |
 | `submitted.spice` | Exact decoded bytes of the frozen final submission. |
-| `exported.spice` | Structural SPICE exported from the reopened project. |
-| `verification.json` | Native comparison, visible routing, body/display checks and diagnostics. |
+| `exported.spice` | Checked structural export from the reopened project. |
+| `verification.json` | Comparisons, export/display settings, route/body checks and diagnostics. |
 
-Passive value labels are generated literal annotations rounded to about two
-significant digits, including `M` for mega (`92.59k` displays as `93k`, and
-`101.2k` as `100k`). Project parameters and SPICE values retain their exact
-original values and semantics (`meg` or numeric notation).
-These labels do not automatically follow later GUI edits. Regenerate their text
-from saved parameters when editing an exploratory copy. The checked-in generator
-recreates the frozen benchmark circuits, not subsequent GUI changes.
+Rounded value labels are native literal annotations. They survive reopening but
+do not automatically follow GUI parameter edits. Refresh their text from saved
+parameters when editing an exploratory copy. The checked-in recipe reconstructs
+the two frozen submissions, not later GUI edits or arbitrary netlists.
 
-## Reproduce the pilot artifacts
+## Regenerate the pilots
 
-Normal site builds consume the saved assets using only Python; Analog Canvas is
-needed only for drawing and regeneration. The native runtime is pinned to
-`cascode-ai/analog-canvas` commit
-`37bccd4012764dce53b34927fa606c6f430296a2` (0.9.2). Use Node 24+ and pnpm 11.16+.
-The dependency checkout belongs in the ignored cache, not as a project checkout
-or a separate worktree:
+Normal site builds need only Python. Native drawing regeneration uses Node 24+
+and pnpm 11.16+, with Analog Canvas 0.9.2 pinned to
+`37bccd4012764dce53b34927fa606c6f430296a2`. Keep the dependency checkout in the
+ignored cache, not a separate project or worktree:
 
 ```sh
 git clone https://github.com/cascode-ai/analog-canvas.git .cache/analog-canvas
@@ -69,56 +82,49 @@ python3 tools/check_site.py
 python3 -m unittest discover -s tests -v
 ```
 
-Skip clone/checkout when the prepared cache already exists at that revision.
-The generation command overwrites only the two pilot artifact directories and
-the drawing index. A different native checkout path can be passed as its first
-argument. `native-bridge.ts` exposes the pinned native import, project, render,
-netlist, connectivity and diagnostic APIs to the recipe through a local bundle.
-No gallery login, publication or PDK installation is required.
+Skip clone/checkout when the cache already has that revision. Pass a different
+native checkout path as the generator's first argument if needed. Generation
+rewrites only the two pilot artifact directories and drawing index. The bridge
+exposes pinned native APIs; no PDK installation or gallery login is required for
+local generation. Live gallery comparison requires separate browser access.
 
-Generation imports the submitted source, places native symbols and authors
-explicit routes. After saving and reopening, it checks every non-body
-terminal's authored visible connectivity, body defaults, orthogonal routes,
-passive display values, native
-unrouted connections and diagnostics. It exports and compares ordered ports,
-ordered device pins, model identities and parameters against the source. Both
-pilots have matching comparisons, zero unrouted connections and zero native
-diagnostics. Visual review remains a separate gate: inspect SVG at normal and
-close reading sizes, then inspect the actual page at desktop and mobile widths.
+## Separate verification gates
 
-The pinned runtime's default export moves supply ports to the front. Its
-comparison has one port-order difference for each pilot, with equal topology
-and parameters; this is recorded separately in `verification.json`. The supplied
-`exported.spice` uses `{format: 'spice', groundPin: 'global'}` and matches the
-original ordered interface. Use that checked export for comparisons rather than
-assuming an ordinary GUI export preserves port order.
+After saving/reopening, generation checks authored visible routes and bulk
+defaults, orthogonal geometry, expected rounded label strings, native unrouted
+connections and diagnostics. It exports and compares exact ordered external
+ports, D/G/S/B or passive pin order, models, values, W/L, nf and m. Both current
+pilots match, with zero unrouted connections and zero native diagnostics.
+When reproducing an unchanged recipe, compare regenerated artifact hashes with
+the saved set; matching source/export contracts alone do not prove reproducibility.
 
-The current layouts retain the same native text sizes while shortening the
-bias-to-amplifier gaps and supply spans. OTA XMbn remains mirrored, with a local
-D–G tie and direct shared gate connection to XMtl; the independent output sink
-meets the lower bias trunk without its former return bend. LDO R1 and R2 share
-the pass-drain column, with CFF beside R1, continuous FB return and a separate
-NB return. The C1–RZ branch still returns to VIN. Browser comparisons with four
-community examples and their limitations are recorded in the skill's
-[gallery evidence](../skills/human-readable-analog-schematics/references/gallery-evidence.md).
-Normal-size and enlarged native renders are reviewed separately from electrical
-comparison; neither is a new benchmark evaluation.
+Review native renders at fit and reading sizes independently. Inspect actual
+page rendering when available, including narrow layouts. Record the browser
+coverage actually performed; source/CSS checks do not establish a mobile browser
+review, and diagnostics do not establish readability or user acceptance.
 
-## Site integration and adding another run
+The pinned ordinary export changes port order for each pilot while preserving
+topology and parameters. `verification.json` records this difference separately.
+The supplied checked export uses `{format: 'spice', groundPin: 'global'}` and
+matches the submitted interface order for these two cases. Do not assume that
+ordinary GUI export or this setting always preserves other interfaces.
 
-`site/schematics/index.json` binds each drawing to its run and submitted SHA-256,
-with hashes for every artifact. `tools/schematics.py` verifies those hashes,
-checks the supported SPICE contract independently, and inserts the diagram and
-compact artifact links during `build_traces.py`. Canonical `content/traces/` fragments are
-not edited. A stale source, changed artifact, mismatched export or unknown run
-fails the build. Portable site exports copy all artifacts as well.
+## Site integration and additional runs
 
-For another run, author and review its native project using the drawing skill,
-retain the source/export/verification artifacts and register the verified entry.
-Extend the generator if a reproducible recipe is needed. The independent parser
-currently supports only the pilot structural subset: one subcircuit, reviewed
-SKY130 four-terminal X calls, and numeric R/C values and parameters. Hierarchy,
-expressions and other device types require deliberate support before registering
-such a drawing; unsupported constructs fail instead of silently passing.
+`site/schematics/index.json` binds each drawing to its submitted SHA-256 and
+artifact hashes. `tools/schematics.py` checks hashes, exact structural contracts
+and verification reports, then inserts the diagram and compact links during
+`build_traces.py`. It does not edit `content/traces/`. Stale sources, changed
+artifacts, mismatched exports and unknown runs fail the build. Portable exports
+copy the same artifacts.
 
-Publishing the website remains a separate manual action.
+For an additional run, read its actual circuit, author/review the native project,
+retain source/export/check artifacts and register the verified drawing. Extend
+the recipe only when reproducible generation is required. The independent parser
+accepts one subcircuit, the reviewed SKY130 four-terminal X calls and numeric R/C
+values/parameters. Add deliberate support before using hierarchy, expressions
+or other devices; unsupported constructs must not silently pass.
+
+For instructions-only maintenance, check references and build the site without
+regenerating accepted drawings. Follow [Publishing](PUBLISHING.md) when publication
+is part of the user's authorized task; changing a skill does not grant that action.

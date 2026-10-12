@@ -1,57 +1,67 @@
-# 配置・密度・ラベルの作図基準
+# Placement, density and labels
 
-これはギャラリーの観察とユーザーの指定を整理した作図方針であり、公式規格や測定済みの可読性指標ではない。作例の出典は [gallery-evidence.md](gallery-evidence.md)、線の具体的な整理は [routing-refinement.md](routing-refinement.md) を参照する。
+Use these visual judgments with the actual circuit. They are supported by the
+recorded gallery comparisons, not a formal readability metric or circuit standard.
+Use the ATB profile for its presentation preferences.
 
-## 1. 機能が形で分かる配置
+## Place recognizable functions
 
-- 差動対、ミラー、カスコード、主増幅、出力、バイアス、補償、帰還を接続から識別する。関連素子を近づけ、別機能の間だけ必要な区切りを取る。枠や見出しで悪い配置を補わない。
-- 差動対と対応する負荷は局所的に行・列をそろえる。共通ソース線とミラー共通ゲート線を短くし、D–G結線は小さな局所枝として見せる。
-- 標準的な単電源回路では高電位を上、低電位を下、直列電流経路を縦に置く。ただし素子の種類だけで上下を決めない。独立した段のMOSまで同じ行へそろえる必要はない。
-- 単端の段構成は入力から出力へ左→右を起点に考える。差動・折返し・クロス結合では局所対称性とループ構造を優先する。正入力を必ず左にするなどの固定規則は設けない。
-- 記号の鏡像や回転でD/G/S/Bを入れ替えない。見た目の対称性のために回路の実際の非対称性を消さない。
+- Identify pairs, mirrors, cascodes, gain/output stages, bias, compensation and
+  sensing/feedback from connectivity. Place related devices close together and
+  leave separation where distinct functions need it; do not hide weak placement
+  behind block frames or headings.
+- Align corresponding differential branches, their loads and common nodes.
+  Keep common-source and common-gate trunks short and local D–G ties visible.
+- Start with higher potential above lower potential and vertical series current
+  paths for ordinary single-supply circuits. Let connectivity decide exceptions.
+- Start single-ended stage progression left to right. Favor local symmetry and
+  loop structure for folded, differential or cross-coupled circuits. Do not fix
+  input polarity to one side or align unrelated stages merely by transistor type.
+- Resolve actual D/G/S/B geometry after rotation or mirroring. Do not exchange
+  electrical pins to make a picture symmetric.
 
-## 2. 余白は必要な場所だけに残す
+## Keep only useful space
 
-- 空白ごとに「実際の文字幅」「配線の通路」「機能の区切り」のどれが必要か確認する。理由のない隙間はグリッド単位で詰めて再描画する。文字のない場所に一律のラベル用余白を予約しない。
-- 素子の記号寸法と実際のラベルを尺度にする。大きな紙面へ均等に散らすことや、画面全体の白い面積をそろえることを目標にしない。
-- 文字縮小・画像の横圧縮で密度を上げない。関連素子を移動して線を短くし、必要なら全体図と詳細図へ分ける。
-- 特にLDOは、各機能を独立した列へ並べるだけで横長になる。誤差増幅器→ゲート駆動→パス素子を近づけ、分圧器はパス素子のドレインの下、CFFは上側抵抗の隣へ置く案を先に試す。文字が競合する場所だけ局所的に間隔を広げる。
-- 電源レールは関連枝の範囲に収める。離れた補助回路まで巨大な外枠で囲わない。
+- Judge each gap against actual text bounds, routing clearance or a functional
+  separation. Do not reserve uniform label padding where no label needs it.
+- Use actual symbols and rendered strings as the density scale. Move groups or
+  labels before accepting a long route. Preserve text sizes; split a large drawing
+  into useful views when one view cannot stay legible.
+- Keep supply rails within the branches they serve. Do not draw a huge enclosing
+  rail solely to reach remote auxiliary circuits.
+- For suitable LDOs, compare a compact error-amplifier-to-pass-stage arrangement
+  with sensing directly below the output. Preserve any real intermediate buffer.
+  ATB's exact R1/R2/CFF placement belongs to its profile, not a universal rule.
 
-## 3. 補償と帰還の見せ方
+## Expose compensation and feedback
 
-- 補償枝は接続先とまたぐ段が追えるように置く。主信号線へ埋もれるなら、独立した縦枝や上／下側の経路を比較する。横向きRCを一律に禁止しない。
-- RCの順序、中間ノード、接続先を変えない。例えばG–C1–NZ–RZ–VINを、見慣れた形にするためVOUTへ接続し直してはならない。バッファ付き補償を単純なMiller容量と決めつけない。
-- LDOはVOUT→分圧点→誤差増幅器→ゲート駆動→パス素子の閉ループが追えること。分圧点を入力ゲートの高さへ合わせる案を試し、帰還を必ず下端へ回すとは決めない。
-- 局所ミラー、主信号、補償、主要帰還は連続配線を優先する。分布電源や遠い補助バイアスには同名ラベルを使えるが、主要な関係をラベル探しに置き換えない。名前・大文字小文字・階層スコープはツールで照合する。
+- Show where a compensation branch connects and which stages it spans. Compare
+  a nearby horizontal or vertical RC branch rather than banning either direction.
+- Preserve RC order, intermediate nodes and endpoints. Do not convert a branch
+  into familiar Miller compensation when its source connects elsewhere.
+- Make the main feedback loop traceable. Try matching the sensing tap height to
+  the receiving gate; do not require every return to use the bottom page edge.
+- Prefer continuous wires for local mirrors, the principal signal path,
+  compensation and the main loop. Name-based connections can reduce remote
+  supply/bias wiring; verify names, case handling and scope with the native tool.
 
-## 4. 文字と値の既定方針
+## Make labels belong to their objects
 
-- 優先順位は、外部端子・主要制御信号、素子名・重要な内部ノード、素子値・寸法、共通仕様の補足。同種のラベルは距離と整列をそろえる。
-- MOS名は記号の脇、中心に近い高さへ。対となる左右の素子名は鏡像の距離と高さにする。上下へ一律に逃がして別段の名前に見せない。
-- 受動素子の名前と値は同じ端をそろえた近い2行にする。横向き素子では両方を上か下へまとめ、上下に遠く分散しない。
-- 外部端子名は端子のそばへ、内部ネット名は所有する線の上へ置く。配線を広げる前に文字の側・高さを変える。全内部ノード名を漫然と印字しないが、元の名前は内部データに保持する。
-- ATBの図中の受動素子値は有効数字2桁程度へ丸める（ユーザーの表示方針）。`92.59k → 93k`、`101.2k → 100k`、`2.5p`や`2M`はそのまま。メガは大文字 `M`。丸めるのは表示用注記のみで、SPICE・モデル・正確な素子値は変更しない。この桁数を他用途の一般規則にしない。
-- SPICEは大文字小文字を区別せず、`M` もmilliを表す。表示のために内部値や出力SPICEの `meg` を `M` へ置換しない。表示と数値を別途照合する。Analog Canvasのバージョン依存の表示制約は [検証手順](analog-canvas-workflow.md) を参照する。
-- W/L、m、nfを保持し、mとnfを幅へ勝手に統合しない。概要図で全寸法が読みにくければ編集用データやSPICEに詳細を残す。ATBのFinal submissionには全値表を付けない。ユーザーが全値表示を指定した場合は図を分割・拡大する。
-- 通常のボディ接続を省略表示する場合は規約を成果物や文書に残す。ATBのFinal submissionには説明注記を付けない。非標準のボディ接続は描き、いずれも4端子の照合を行う。
+- Put MOS names beside their bodies, with matched distance/height for paired
+  devices. Put passive names and values in a close two-line pair on the same side.
+- Put port names near their ports and internal labels near the wire they identify.
+  Choose a clear text location before spreading devices apart. Preserve all node
+  names in the native data without printing every internal name.
+- Check the complete displayed value against neighboring names and wires. Symbol
+  clearance alone misses text collisions. Native renderer offsets are starting
+  points for one tool version, not layout constants.
+- Preserve exact parameters, models and body connections. If ordinary body ties
+  are hidden, record their convention in supporting data. Draw nonstandard body
+  ties explicitly and include all four pins in electrical comparison.
 
-### Analog Canvas 0.9.2の近接ラベル開始値
+## Review
 
-標準記号・文字サイズで確認したネイティブ描画単位。下向きが+y。画面ピクセルや全レンダラー共通の固定値ではない。回転、文字幅、記号形状に合わせて調整する。
-
-| 対象 | 原点からの開始位置・整列 |
-|---|---|
-| MOS名 | 右20・下5、左揃え。左右反転なら左20・下5、右揃え |
-| 縦R/Cの名前・値 | 右16、名前は上4、値は下14。同じ左端、行間18 |
-| 横R/Cの名前・値 | 中央揃えで上32／上14、または下20／下38。空いている側へ2行をまとめる |
-| 入力端子名 | 10上、中央揃え |
-| 出力端子名 | 14右・5下、左揃え |
-| 内部ネット名 | 所有する水平線の8上。横位置は空いた線分に合わせ、接続点からの固定距離にしない |
-| 電源名 | レール起点の10右・8上 |
-
-## 5. 仕上げの受入確認
-
-通常の表示幅で、機能のまとまり、主経路、帰還・補償、ラベルの所属が読めるか確認する。拡大して分岐・非接続交差・値・隠したボディの規約も確認する。電気診断0だけで読みやすいと判断しない。
-
-曲げと余白の再評価には [配線の簡素化パス](routing-refinement.md) を使う。ユーザーが違和感を示した場合は、以前の自己評価よりその指摘を優先する。ラベルだけの変更を求められた場合は、了承済みの部品・配線を維持する。電気的同一性は目視とは別に検証する。
+Trace current paths and the main loop at normal reading size; inspect junctions,
+crossings, values and label ownership close up. Apply routing simplification.
+Treat user-identified ambiguity as a reason to revisit placement even when the
+netlist matches. Keep labels-only changes within their accepted geometry.

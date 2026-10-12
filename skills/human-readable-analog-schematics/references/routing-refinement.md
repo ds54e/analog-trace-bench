@@ -1,39 +1,56 @@
-# 配線の簡素化：部品と取り出し点を合わせる
+# Routing refinement
 
-優先順位は、電気的同一性と明瞭な接続、回路の型、不要な曲げの削減、線長と余白。短くても記号を貫く線や、大きく迂回した少数の曲げは採用しない。作例と出典は [gallery-evidence.md](gallery-evidence.md) にまとめる。
+Prioritize correct, clear connectivity, recognizable circuit structure, then
+unnecessary bends, length and empty gaps. Use gallery examples as visual evidence,
+not proof of their electrical correctness.
 
-## 1. 線を曲げる前に配置を変える
+## Match parts and taps before bending wires
 
-- 段間の送り側ノードの取り出し点と、受け側ゲートを同じ高さへ。独立した段を同じ素子行へ固定しない。
-- 抵抗などの中間素子も両端の取り出し点と同じ行／列に置けないか試す。「横→縦→横」を最初から前提にしない。
-- 多端子ネットは一本の共通幹線から短い枝を取る。各端子を任意の中心点へ別々の折れ線で集めない。同一ネットの重複配線を描かない。
-- ゲート線が他の記号や無関係な端子を貫く場合は、鏡像・段の高さ・幹線位置を見直す。端子の見た目でD/S/Bを交換しない。
-- ラベルだけが障害なら、先に文字を移す。特に横抵抗の名前と値は空いた側の2行へまとめる。
-- Include the full displayed passive value when judging clearance to an adjacent MOS name. After compaction, widen only the competing local interval if moving the text would obscure its owner. The ATB LDO refinement required this around XM4 and C1; passing electrical diagnostics did not establish text clearance.
-- Align a receiving gate with the available shared bias trunk when that removes a return bend without obscuring the current path. Do not require a tail device and an independent output sink to occupy the same row. Check foreign-terminal contact after moving either device.
-- If a supply rail meets an existing source terminal exactly, terminate the native route at that terminal. Do not add a coincident junction and a zero-length route to simulate a separate connection.
+- Align a sending-node tap with the receiving gate, including independent stages
+  at different heights. Align an intervening R/C with the endpoints where useful.
+- Use a shared trunk with short branches for multi-terminal nets. Do not route
+  each terminal separately toward an arbitrary center or duplicate one net's wire.
+- Check that a common gate trunk does not penetrate a symbol or touch a foreign
+  terminal. Reconsider mirroring, device height or trunk position first.
+- Move conflicting text before adding detours. Include full passive display strings
+  when checking adjacent MOS names; widen only the locally competing interval.
+- If a rail meets an existing terminal exactly, end the native route there rather
+  than adding a coincident junction and a zero-length connecting segment.
 
-## 2. T分岐と交差
+## Junctions and crossings
 
-このユーザーの方針として、同一ネットの四方向接続は二つのT分岐に分ける。点が重ならない最小限のずれから試し、部品間隔まで広げない。標準Analog Canvas記号では10描画単位を使ったが、別レンダラーへ固定流用しない。
+For the ATB profile, split a same-net four-way join into two nearby T-junctions.
+Use only enough separation to make the dots distinct; do not enlarge the whole
+component spacing. Maintain the divider's common vertical axis and offset its
+CFF/FB taps locally. Do not transform a foreign-net crossing into a T-connection.
 
-分圧抵抗の共通の縦軸は維持する。CFFとFBの取り出し点だけを少しずらす。異なるネットの非接続交差をT字に変えてはならない。非接続交差は配置で減らし、残す場合は点なし交差など図全体で同じ規約を使う。対称なクロス結合を示す短い斜線は、対応関係が明瞭になる場合に限り検討する。
+Reduce unconnected crossings through placement. Use one consistent no-dot
+crossing convention for those that remain. Consider a short diagonal only when
+it explains a symmetric cross-coupling clearly and the target tool supports it.
+Count real directional branches, not mere route segments: splitting a straight
+line does not create a bend or a junction.
 
-幾何検査では、routeの分割数ではなく実際の上下左右の導線を調べる。単なる直線の分割を分岐や曲げとして数えない。
+## Separate drain trunks from local D–G ties
 
-## 3. ドレイン幹線とD–G枝を描き分ける
+Joining the same electrical node at different places changes how a circuit reads.
+Keep the D–G return as a short local branch; connect other returns to the drain
+trunk when that exposes their function.
 
-電気的に同じネットでも、合流位置は回路の読み方に影響する。局所的なD–G結線は短い枝として見せ、別の帰還線はドレイン側の幹線へ直接合流させる。
+In the ATB LDO, `RB VOUT NB` returns to the RS–XMB drain trunk, while
+`XMB NB NB VSS VSS` has a separate local D–G tie. Preserve NB electrically.
+Compare aligned taps/RB placement before routing a long return; do not turn the
+pilot's current branch height into a general placement rule.
 
-ATBの具体例は `RB VOUT NB` と `XMB NB NB VSS VSS`。RBからの戻りはRSとXMBドレインを結ぶ縦配線へ接続し、XMBのD–G接続用の横枝へ差し込まない。NBという同一ノードは保持する。
+## Simplification pass
 
-この分離のためにRBを下段へ固定して迂回させない。VOUT側の取り出し点、RB、RS–XMB幹線の合流点を同じ高さにそろえ、直線で結ぶ案を優先する。D–G枝は別の高さに残せる。微小なT分岐のずれと、機能上別の高さへ取る枝を混同しない。
+1. Trace main signal, compensation, feedback and shared bias end to end.
+2. Challenge each bend, reversal and broad gap against an actual obstacle or
+   reading need. Compare moving taps, labels, receivers and local groups.
+3. Shorten or straighten routes without introducing symbol penetration, unclear
+   joins or text crowding. Retain useful local D–G branches and shared-node shapes.
+4. Render the actual native project at fit and reading sizes, then verify saved
+   and reopened connectivity and values separately.
 
-## 4. 必須の簡素化パス
-
-1. 主信号、補償、帰還、共有バイアスを端から端まで追う。各曲げ・折返し・広い隙間に理由があるか確認する。
-2. 同一ネット上の取り出し点、文字、受け側素子、中間R/C、局所グループを動かす候補を比較する。部品を固定して線だけを短くする作業で終えない。
-3. 記号貫通、曖昧な分岐、過密ラベルを増やさずに直線化・短縮できる案を採用する。必要なピン回避、局所D–G枝、差動対の共通点、明瞭な補償／帰還の形は残す。
-4. 実際のネイティブ図を再描画し、通常表示と詳細表示で確認する。最後に保存・再オープンしたデータの接続と値を照合する。
-
-「機能を追える」「診断が0」「曲げが少ない」だけで完了としない。残る迂回は具体的な障害物や読み取り上の理由で説明できること。総線長や自己採点だけを合否に使わない。
+Do not accept a diagram solely because diagnostics, bend count or total wire
+length look favorable. Explain a remaining detour by its specific constraint,
+not a general prohibition on labels or crossings.

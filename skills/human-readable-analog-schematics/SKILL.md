@@ -1,36 +1,68 @@
 ---
 name: human-readable-analog-schematics
-description: "Create, redraw, or review readable transistor-level analog schematics while preserving SPICE topology and values. Use for OTA/op-amp/LDO/current-mirror/bias circuits and Analog Canvas MCP/headless drawing. Not for PCB layout, simulation-only work, or decorative circuit illustrations."
+description: "Redraw or review readable transistor-level OTA, op-amp, LDO, current-mirror and bias schematics while preserving exact SPICE connectivity and editable native projects. Use for analog schematic placement, wiring, labels and saved-project verification. Exclude PCB layout, simulation-only work and decorative illustrations."
 ---
 
 # Human-readable analog schematics
 
-Make circuit function recognizable from placement and wiring. Electrical fidelity and visual readability are separate acceptance gates; zero diagnostics proves neither on its own.
+Make function and current paths recognizable from placement and wiring. Treat
+electrical fidelity and visual readability as separate acceptance gates.
 
-## References
+## Inputs and scope
 
-- Read [drawing rules](references/drawing-rules.md) for placement, density and the user's label/value preferences.
-- For placement or wiring changes, apply [routing refinement](references/routing-refinement.md), including the mandatory simplification pass.
-- Use [gallery evidence](references/gallery-evidence.md) to choose a comparable visual motif. Copy relationships, never topology or omitted values.
-- For Analog Canvas/SPICE work, read [native verification workflow](references/analog-canvas-workflow.md), including version-specific export and M-display limitations.
+Use the authoritative SPICE, DUT boundary, existing native project when available,
+and the requested change. Obtain missing essential source data before drawing;
+infer routine presentation choices from the current repository and user profile.
+For labels-only work, preserve accepted placement and routing. For rules-only
+work, update instructions without redrawing accepted circuits.
+
+## Read the applicable references
+
+| Task | Reference |
+|---|---|
+| Placement, density or labels | [Drawing rules](references/drawing-rules.md) |
+| Wiring or placement refinement | [Routing refinement](references/routing-refinement.md) |
+| Analog Canvas import, save, render or export | [Native workflow](references/analog-canvas-workflow.md) |
+| Select or compare a visual motif | [Gallery evidence](references/gallery-evidence.md) |
+| ATB Final submission | [ATB profile](references/atb-profile.md) |
+| Review or update this skill | [Acceptance cases](references/acceptance.md) |
+
+Read only the references relevant to the requested change. When live gallery
+comparison is requested, inspect actual examples in the browser and record URLs,
+dates, observations and limits; request sign-in when required. Existing notes
+are useful context, not evidence of a new visit.
 
 ## Workflow
 
-1. **Freeze the source contract.** Record source/version, DUT boundary, ordered external ports, device references, ordered pins including body, models, values/expressions, W/L, nf and m. Preserve uncertain constructs; do not invent circuit functions or add testbench devices.
-2. **Identify functional groups.** Find pairs, mirrors, stacks, gain/output stages, bias, compensation and sensing/feedback. Establish the reading path from connectivity before placing symbols.
-3. **Place for short connections.** Preserve local symmetry and vertical current paths. Align receiving pins with sending-node taps; move parts before accepting doglegs. Compact each functional group using actual text/wire bounds, especially in LDOs. Do not reserve uniform padding where nothing needs it.
-4. **Route explanatory paths visibly.** Keep local mirrors, compensation and the main feedback loop traceable. Use short shared trunks and minimal T-junction offsets. Distinguish the drain trunk from its local D–G tie even when both are one electrical node. The routing reference defines these conventions and exceptions.
-5. **Apply the label profile.** Put MOS names beside their bodies, passive names/values in a close aligned pair, port names at ports and internal labels above their own wire. For ATB, display passive values to about two significant digits and mega as `M`; preserve exact SPICE parameters, including safe `meg` spelling. Preserve full device data and body-tie conventions in the project and supporting artifacts.
-6. **Simplify and inspect.** Challenge every unnecessary bend and empty gap before reviewing native renders at fit view and reading size. Include the actual passive value strings when checking neighboring MOS names; symbol bounds alone miss text collisions. Do not shrink text to make the circuit compact. Reconsider placement when the user finds a path confusing, even if it is electrically equivalent.
-7. **Verify from the saved project.** Reopen and export; compare ordered pins, models, all parameters and external port order against the source. Check authored visible route connectivity, body defaults and displayed values on that reopened data as well. Retain reproducible generation when requested and state whether simulation was actually run.
+1. **Freeze the electrical contract.** Record ordered external ports, device
+   references, ordered pins including body, models, values or expressions,
+   W/L, nf and m. Keep exact source parameters and submitted bytes authoritative.
+2. **Place by connectivity.** Identify pairs, mirrors, stacks, stages, bias,
+   compensation and feedback. Group related parts, preserve local symmetry and
+   expose the main current paths. Match sending taps to receiving pins.
+3. **Route and simplify.** Keep local D–G ties, shared gates and the main loop
+   traceable. Challenge unnecessary gaps and bends; move parts or labels before
+   adding detours. Avoid symbol penetration and ambiguous intersections.
+4. **Apply the display profile.** Keep readable text sizes and clear label owners.
+   Format native display annotations separately from exact device parameters.
+   Use the ATB profile only for ATB; do not export its rounding into SPICE.
+5. **Save, reopen and verify.** Render and export from the reopened native project.
+   Compare the frozen electrical contract, authored visible routes, body defaults
+   and expected display strings. Retain reproducible generation when requested.
+6. **Review the rendered result.** Inspect fit view and reading size, including
+   actual value strings, current paths, feedback, crossings and label clearance.
+   Check the target page when applicable. Report unavailable browser checks.
 
-## Deliver
+## Completion and delivery
 
-For drawing work, provide inspectable SVG and editable native project, original/generated netlists, comparison results and necessary device details. Explain the dominant signal/feedback path and any label-based discontinuities or remaining ambiguities. Distinguish author visual review, user acceptance and historical benchmark results.
+Require separate evidence for electrical comparison and visual review. A matching
+netlist or zero diagnostics alone does not establish readable geometry. Retain
+an inspectable native SVG, editable project and supporting source/export/check
+artifacts. Report actual checks and material differences briefly; do not imply
+that drawing verification reran a historical simulation.
 
-For ATB Final submission, show the drawing with only compact SVG/Project links.
-Keep circuit descriptions, body/unit/crossing notes, verification prose and
-device tables in supporting artifacts or documentation; do not append them to
-the visible trace. Retain electrical validation regardless of presentation.
-
-For a rules-only request, update the rules without redrawing accepted circuits. Preserve the user's existing scope, branch and publication constraints; applying this skill does not grant permission to publish.
+Follow repository integration and publication instructions already authorized by
+the user. This skill does not itself authorize publication or edits to recorded
+benchmark evidence. Keep ATB's visible presentation minimal as specified in its
+profile. Keep circuit coordinates in recipes and tool-version findings in
+references; promote only observed, transferable judgments into drawing rules.

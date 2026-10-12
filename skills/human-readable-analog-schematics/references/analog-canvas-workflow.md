@@ -1,47 +1,90 @@
-# Analog Canvas / SPICE conversion workflow
+# Native Analog Canvas verification
 
-These implementation findings were checked against `cascode-ai/analog-canvas` commit `37bccd4012764dce53b34927fa606c6f430296a2` (package 0.9.2), on 2026-10-11. Inspect the current version before relying on API names or defaults. Source: https://github.com/cascode-ai/analog-canvas/tree/37bccd4012764dce53b34927fa606c6f430296a2
+Verified for ATB's two pilots with Analog Canvas 0.9.2, commit
+[`37bccd4012764dce53b34927fa606c6f430296a2`](https://github.com/cascode-ai/analog-canvas/tree/37bccd4012764dce53b34927fa606c6f430296a2),
+on 2026-10-12. Recheck API names and export/display behavior when changing versions.
+For ATB, read `docs/SCHEMATICS.md` for installation and regeneration. Outside ATB,
+use the installed runtime's supported interfaces rather than assuming that the
+pilot generator or bridge exists.
 
-## Place and draw
+## Native data and geometry
 
-- Use the native import/project/symbol/render/export path. MCP local mode and the typed headless host can manipulate the same project representation. An SVG drawn independently does not prove that the saved project contains its visible electrical connections.
-- Imported automatic placement can be a component shelf, not a readable schematic. Establish a functional placement plan before routing.
-- At the recorded revision, a source bridge exposed `importSpiceSources`, `createLocalEditor`, `workspaceSvg`, `createDesignNetlistExport`, `parseProject`, and `serializeProject`. Use official available entry points where possible; avoid assuming the gallery requires publishing to produce a local drawing.
-- Query native symbol geometry to resolve pins, rotations and mirrors; do not infer electrical pins from the pictured left/right/up/down orientation.
-- Treat device memberships, visible wire routes, native labels and connectivity evidence consistently. Do not leave imported hidden connectivity as the sole reason a visibly disconnected diagram passes comparison. Verify each visible net component or explicit name-based connection.
-- Preserve cell interfaces and body/default-net semantics. Never change a DUT's `VSS` to global SPICE `0` solely to obtain a ground-shaped icon.
-- Render the actual final native project. Check fit view and detailed view for line/label clearance, readable labels, grouping and recognizable motifs. Automated visual diagnostics catch only a subset of these problems.
+Use the native SPICE importer, project protocol, symbol resolver, routes, renderer
+and exporter. Query actual pin geometry after each mirror/rotation. Preserve cell
+interfaces and bulk-default semantics; do not substitute global `0` for a DUT
+`VSS` merely to get a ground icon.
 
-## Export and compare
+Use `parseProject` and `serializeProject` at the file boundary. In the pinned
+serialized format, instance value labels can live under each instance's `labels`,
+while parsed objects expose them through document annotations. Inspect normalized
+native objects rather than assuming the file JSON is the in-memory schema.
 
-### Mega display and native label formatting
+The repository's `native-bridge.ts` exposes the pinned APIs used by its recipe:
+`importSpiceSources`, `parseProject`, `serializeProject`, symbol resolution,
+`createDesignNetlistExport`, `compareNetlists`, annotation/endpoint resolution,
+connectivity indexing, diagnostics and `renderDocumentSvg`.
 
-For this user, render mega values as `M` while retaining `meg` in SPICE parameters. Never substitute `M` into a SPICE value: SPICE suffixes are case-insensitive and `M` denotes milli. Prefer a live, native value binding with an SI display formatter if the actual installed version supports it.
+## Display annotations
 
-At the pinned 0.9.2 revision, `instance-value.ts` prints the authored parameter spelling. The bound-value `formatOverride` in `annotation-text.ts` is accepted only when its flattened text equals the live value, so it cannot change `3meg` to `3M`. The verified ATB workaround is a native instance-value annotation with literal display content anchored to the resistor instance; do not attach both a binding and literal content. Generate that text from the saved raw parameter using the chosen display precision, leave parameters/export unchanged, and check resolved display text against the expected formatted value after reopening. Compare exact parameters separately through exported SPICE. Do not patch only the SVG or hide a conflicting bound label underneath it.
+Prefer a native live-value formatter when the installed version supports the
+requested display. In 0.9.2, authored value spelling is printed directly;
+`formatOverride` cannot turn live `3meg` into `3M`. ATB therefore uses literal
+native instance-value annotations anchored to the instance. Keep one value label,
+not a bound label hidden underneath another annotation, and do not patch only SVG.
 
-The ATB display profile uses about two significant digits by user preference:
-`92590 → 93k` and `101200 → 100k`. Round before selecting the SI prefix so a
-carry can become `1M` rather than `1000k`. Saved parameters remain `92590` and
-`101200`; the rounded annotation is not the electrical comparison input.
+Generate labels from exact saved parameters using the chosen profile; check their
+resolved strings after reopening. ATB uses approximately two significant digits
+and display `M` for mega. See the ATB profile for examples and scope. Keep exact
+parameters unchanged and compare those independently through the exported SPICE.
+Literal labels survive save/reopen but need refreshing after GUI parameter edits.
 
-These generated literal labels do not automatically follow later GUI resistance edits. State that regeneration is required after editing such values; retain live bindings for other values. Reinspect this limitation when upgrading Analog Canvas. Keep label positions in the native project so reopen/render reproduces the actual final image.
+These offsets match the current pilot recipe at the pinned revision. They are
+local native drawing units, not pixels, circuit coordinates or general rules.
+Adjust for symbol shape, rotation, actual fonts and text width.
 
-### Electrical comparison
+| Annotation | Native starting offset / alignment |
+|---|---|
+| MOS name | `(20, 5)`, start; mirrored `(-20, 5)`, end |
+| Vertical passive name / value | `(16, -4)` / `(16, 14)`, start |
+| Horizontal passive name / value | `(0, -32)` / `(0, -14)`, middle; or `(0, 20)` / `(0, 38)` below |
+| Input port name | `(0, -12)`, middle |
+| Output port name | `(16, 5)`, start |
 
-- Record cell name and ordered external ports. For each selected device compare reference, model/subcircuit, ordered pins, numeric/expression parameters, W/L, m and nf. Treat unsupported devices and syntax as unsupported, not silently passing.
-- A MOS D/S swap is not automatically acceptable; include body pins. Preserve X subcircuit calls as X calls when that is the source model representation. Do not invent MOS model cards.
-- Compare numeric values with a parser aware of SPICE suffixes and units; do not use general floating-point string stripping. Preserve expressions or use an explicit supported canonicalization.
-- At the recorded revision, default `workspaceNetlist(project)` used an export configuration that reordered power ports for the ATB DUTs. `createDesignNetlistExport(project, {format:'spice', groundPin:'global'})` preserved the original explicit interfaces in those two cases. This is an observed case-specific workaround, not a universal export setting; recompare each final export and ordinary GUI export.
-- Native `compareNetlists` checked interface order and parameter differences. A lenient topology grade alone was insufficient: `gradeNetlists` could accept D/S interchange and did not establish parameter equality. Inspect current behavior rather than treating either API as an all-purpose equivalence proof.
-- Export from the saved and reopened final project. Keep source, generated output, machine comparison report and unresolved differences together. If reproducibility is requested, pin code/dependencies, retain the layout recipe and compare regeneration hashes; separate timestamps/random IDs from deterministic artifacts.
-- Run the authored-route graph and body-default checks on the reopened project too. A pre-save route graph plus a post-save logical netlist comparison does not establish that serialization retained the visible paths. The ATB recipe now derives `visible_wiring` from reopened route endpoints and rejects nonorthogonal or wrong-net routes there.
-- A matching netlist is not a new simulation result. Report recorded benchmark scores as historical metadata and state whether PDK/model cards, simulator/version and run conditions were available and used.
+## Save, reopen and compare
 
-## Evidence from the ATB prototype
+1. Save the complete native project and reopen it through the protocol API.
+2. Check authored route endpoints against their assigned nets; require each
+   visible non-body terminal to be reachable within its net. Check bulk defaults
+   separately. Check route geometry on these reopened objects as well.
+3. Resolve reopened passive labels and compare them with expected formatted text.
+4. Export SPICE and compare cell name, ordered external ports, references,
+   ordered pins including B, models, values/expressions, W/L, nf and m. Do not
+   allow a D/S swap or collapse m/nf into width. Reject unsupported syntax rather
+   than silently treating it as equivalent.
+5. Inspect native routing guidance and diagnostics. Render the reopened project
+   and review the drawing independently; a logical comparison can pass with
+   missing explanatory paths, and diagnostics do not catch every text collision.
+6. Retain source, export, comparison and generation/version information. When
+   reproducibility is requested, compare regenerated artifact hashes.
 
-ATB source commit: `9071d3cfef6340ad0f703a1e11bbf0ab44a00ef5` at https://github.com/ds54e/analog-trace-bench/tree/9071d3cfef6340ad0f703a1e11bbf0ab44a00ef5
+Use a SPICE-aware numeric parser: suffixes are case-insensitive and `M` is milli.
+Preserve unsupported expressions until their comparison is deliberately supported.
+A topology grade alone is insufficient; the pinned `compareNetlists` output also
+checks interface order and parameters.
 
-The local OTA-FIXED / LDO-ALWAYS-ON examples (Opus 5.5 run 1) and OTA-FREE / LDO-CORE examples (Sonnet 5.5 run 1) passed ordered-pin/value/interface comparison, native reopen checks and deterministic regeneration. Visual refinements preserved these electrical contracts. Earlier electrically matching layouts still required changes to spacing, labels and bias routing; keep visual review independent of electrical verification. These are circuit-specific drawing recipes, not a universal automatic layout algorithm.
+## Export-order limitation
 
-No upstream branch change or publishing is required for this workflow. Work in isolated local output directories when preserving a benchmark repository is part of the task.
+Ordinary exports changed the interface order on both ATB pilots. Their topology
+and parameters still matched; `verification.json` records the port-order difference.
+The checked exports use `createDesignNetlistExport(project, {format: 'spice',
+groundPin: 'global'})` and preserve the submitted interfaces for these two cases.
+This setting is a verified case-specific workaround, not a universal guarantee.
+Recompare both ordinary and checked exports after any runtime or interface change.
+
+## Reporting
+
+Separate electrical results, visual review, browser checks and historical benchmark
+results. A matching export is not a new simulation. Do not claim a fresh gallery
+visit, mobile-width browser review or user acceptance from stored notes, static
+CSS checks or the author's visual assessment. Keep ATB's visible caption minimal;
+retain technical details in artifacts and repository documentation.
