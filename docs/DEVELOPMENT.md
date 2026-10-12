@@ -74,7 +74,8 @@ the mean bar; single runs have no range markers.
 
 Run selectors use native links and `aria-current="page"`. Arrow/Home/End keys
 move focus, and Enter follows the focused link. Missing runs are disabled labels.
-Individual pages contain Run and evaluation, Circuit design, and Token cost
+Individual pages show an available submitted-circuit diagram below the Run
+selector, then Run and evaluation, Circuit design, and Token cost
 tables, followed by the transcript, final SPICE, and independent evaluation.
 See [Trace guide](TRACE_GUIDE.md) for the complete content and layout contract.
 

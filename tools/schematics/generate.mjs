@@ -78,7 +78,7 @@ const layouts = [
       vin_p: [370, 220, 180],
       vout: [570, 220, 180],
       vdd: [110, 60],
-      vss: [110, 370, 270],
+      vss: [80, 370],
       ibias: [80, 280],
     },
     draw(c) {
@@ -138,9 +138,10 @@ const layouts = [
       ]);
       c.j("vs1", "vss", 110, 370);
       c.j("vs2", "vss", 270, 370);
-      c.w("vss", "@vss", "vs2");
+      c.w("vss", "@vss", "vs1");
+      c.w("vss", "vs1", "vs2");
       c.w("vss", "vs2", "XM8.S");
-      c.w("vss", "XMbn.S", "@vss");
+      c.w("vss", "XMbn.S", "vs1");
       c.w("vss", "XMtl.S", "vs2");
       c.label("na", 218, 170);
       c.label("n1", 338, 155);
@@ -172,7 +173,7 @@ const layouts = [
     },
     ports: {
       VIN: [110, 60, 90],
-      VSS: [110, 380, 270],
+      VSS: [80, 380],
       VREF: [390, 230, 180],
       VOUT: [600, 210, 180],
     },
@@ -247,8 +248,10 @@ const layouts = [
       c.w("NB", "nb-gates", "XMT.G");
       c.j("vs-tail", "VSS", 270, 380);
       c.j("vs-r", "VSS", 510, 380);
-      c.w("VSS", "XMB.S", "@VSS");
-      c.w("VSS", "@VSS", "vs-tail");
+      c.j("vs-bias", "VSS", 110, 380);
+      c.w("VSS", "XMB.S", "vs-bias");
+      c.w("VSS", "@VSS", "vs-bias");
+      c.w("VSS", "vs-bias", "vs-tail");
       c.w("VSS", "vs-tail", "vs-r");
       c.w("VSS", "XMT.S", "vs-tail");
       c.w("VSS", "R2.2", "vs-r");
@@ -665,10 +668,9 @@ for (const layout of layouts) {
     if (layout.strategy === "current-path-groups") continue;
     const i = ports.get(t.name),
       pos = i.placement.position;
-    const output = t.name.toLowerCase() === "vout",
-      ground = t.name.toLowerCase() === "vss";
-    const dx = output ? 16 : ground ? -16 : 0,
-      dy = output || ground ? 5 : -12;
+    const output = t.name.toLowerCase() === "vout";
+    const dx = output ? 16 : 0,
+      dy = output ? 5 : -12;
     annotation(
       "instance-label",
       {

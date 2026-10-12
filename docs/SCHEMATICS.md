@@ -1,7 +1,8 @@
 # Submitted circuit drawings
 
-All 121 OTA Final submission sections and the LDO pilot include native diagrams above the
-unchanged submitted SPICE:
+All 121 OTA runs and the LDO pilot show their submitted circuit immediately below
+the Run selector and before Run & evaluation. Submitted SPICE stays in the
+original Final submission article:
 
 | Coverage | Runs |
 |---|---|
@@ -34,7 +35,8 @@ preferences there instead of duplicating them in this repository guide.
 |---|---|
 | `tools/schematics/generate.mjs` | Reconstruct native geometry and labels; save, reopen, render and compare. |
 | `tools/schematics/ota-layouts.mjs` | Select a source-matched two-stage motif or group larger circuits by differential branches and current paths. |
-| `tools/schematics.py` | Validate source-bound artifacts and insert the image-only figure with accessible alt text. |
+| `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
+| `tools/build_traces.py`, `tools/templates/trace.html` | Bind the figure to its run, before the summary tables; preserve the final SPICE article. |
 | `site/assets/trace.css` | Use 60% figure width and a 408 px minimum capped at the available width; preserve image aspect ratio and scroll below 408 px. |
 | `site/schematics/index.json` | Bind source and artifact hashes; the verified SVG hash versions each page image URL. |
 
@@ -43,6 +45,10 @@ native viewBox width, inside the same 60% figure. Horizontal scrolling preserves
 reading size without shrinking native text. The white image surface remains consistent across page themes. Page scaling does
 not modify native geometry, text sizes or parameters. Native SVG export uses a
 20-unit margin; the pinned editor's default uses 40 units.
+
+The first diagram loads eagerly. Run links select a complete run panel, so the
+diagram follows the chosen run. VSS ports use a horizontal orientation like OTA
+VDD; native projects and exports retain the VSS interface identity.
 
 After publication, reload affected pages and check both layout and the image URL's
 SVG hash. A completed deployment does not prove that a browser has loaded the

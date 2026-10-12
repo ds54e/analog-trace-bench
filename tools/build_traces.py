@@ -7,7 +7,7 @@ import re
 
 from site_templates import ROOT, FAILURE_STATUSES, asset_url, evaluation_label, render_page, template
 from token_costs import load_token_costs, render_token_summary
-from schematics import attach_drawing, load_drawings
+from schematics import drawing_for_submission, load_drawings
 
 EVALUATION_PATTERN = r'<script type="application/json" id="independent-evaluation-data">(.*?)</script>'
 
@@ -67,7 +67,7 @@ def render_run_navigation(run, peers):
 
 
 def render_trace_page(task, model, summary, trace, run=1, report_href=None, peers=(), root=ROOT,
-                      token_summary=''):
+                      token_summary='', schematic=''):
     if not isinstance(run, int) or run < 1:
         raise ValueError('Run number must be a positive integer')
     # Simplify presentation while preserving captured fragments and reports.
@@ -85,7 +85,7 @@ def render_trace_page(task, model, summary, trace, run=1, report_href=None, peer
         trace, flags=re.S)
     content = template('trace.html', root, task=html.escape(task), model=html.escape(model),
                        run=run, run_links=render_run_navigation(run, peers),
-                       summary=summary_tables(summary) + token_summary, trace=trace)
+                       schematic=schematic, summary=summary_tables(summary) + token_summary, trace=trace)
     head = '<link rel="stylesheet" href="' + asset_url('trace.css', '../', root) + '"/>\n'
     head += '<script defer src="' + asset_url('trace.js', '../', root) + '"></script>'
     if report_href:
@@ -118,12 +118,13 @@ def rendered_traces(root=ROOT):
             peers = [peer for peer in task['runs'] if peer['model'] == run['model'] and peer.get('trace')]
             if run['id'] in drawings:
                 attached.add(run['id'])
-            trace = attach_drawing((content / 'trace.html').read_text(encoding='utf-8'), drawings.get(run['id']))
+            trace = (content / 'trace.html').read_text(encoding='utf-8')
+            schematic = drawing_for_submission(trace, drawings.get(run['id']))
             outputs[page.as_posix()] = render_trace_page(
                 task['id'], run['model'], (content / 'summary.html').read_text(encoding='utf-8'),
                 trace, run=run['run'],
                 report_href='../data/evaluations/' + report.name, peers=peers, root=root,
-                token_summary=render_token_summary(costs[run['id']], pricing))
+                token_summary=render_token_summary(costs[run['id']], pricing), schematic=schematic)
     if set(drawings) != attached:
         raise ValueError('Schematic has no recorded trace: ' + ', '.join(sorted(set(drawings) - attached)))
     return outputs

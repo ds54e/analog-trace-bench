@@ -178,15 +178,14 @@ def render_drawing(entry):
         '<figure class="submission-schematic" aria-label="Submitted circuit schematic">'
         '<div class="schematic-scroll" tabindex="0" role="region" aria-label="Circuit diagram; scroll horizontally to inspect">'
         '<img src="' + prefix + 'schematic.svg?v=' + entry['files']['schematic.svg'] + '" alt="' + escape(entry['title'], quote=True) +
-        '. ' + escape(entry['description'], quote=True) + '" loading="lazy"' + style + '/></div></figure>\n'
+        '. ' + escape(entry['description'], quote=True) + '" loading="eager"' + style + '/></div></figure>\n'
     )
 
 
-def attach_drawing(trace, entry):
+def drawing_for_submission(trace, entry):
     if entry is None:
-        return trace
+        return ''
     matches = list(re.finditer(SUBMISSION, trace, re.S))
     if len(matches) != 1 or html.unescape(matches[0][1]) != entry['source']:
         raise ValueError('Schematic does not describe the frozen final submission: ' + entry['run_id'])
-    position = matches[0].start()
-    return trace[:position] + render_drawing(entry) + trace[position:]
+    return render_drawing(entry)

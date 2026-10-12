@@ -9,6 +9,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import schematics
+from build_traces import rendered_traces
 from site_templates import ROOT
 
 
@@ -19,19 +20,32 @@ class SubmittedSchematics(unittest.TestCase):
         ota = {r['id'] for t in catalog['tasks'] if t['id'].upper().startswith('OTA-') for r in t['runs']}
         self.assertEqual(len(ota), 121)
         self.assertEqual(set(drawings), ota | {'ldo-core-sky130-sonnet-5-5-r1'})
+        pages = rendered_traces(ROOT)
+        routes = {r['id']: r['trace'] for t in catalog['tasks'] for r in t['runs']}
         for run_id, entry in drawings.items():
             trace = (ROOT / 'content/traces' / run_id / 'trace.html').read_text()
-            attached = schematics.attach_drawing(trace, entry)
+            drawing = schematics.drawing_for_submission(trace, entry)
+            attached = pages[routes[run_id]]
             self.assertEqual(re.findall(schematics.SUBMISSION, trace, re.S),
                              re.findall(schematics.SUBMISSION, attached, re.S))
-            self.assertLess(attached.index('<figure class="submission-schematic"'),
-                            attached.index('<pre data-field="submitted-spice"'))
+            self.assertLess(attached.index('class="run-tabs"'), attached.index('<figure class="submission-schematic"'))
+            self.assertLess(attached.index('<figure class="submission-schematic"'), attached.index('aria-label="Run summary"'))
+            self.assertLess(attached.index('aria-label="Run summary"'), attached.index('<pre data-field="submitted-spice"'))
             self.assertEqual(attached.count('class="submission-schematic"'), 1)
-            self.assertNotIn('<figcaption', attached[:attached.index('<pre data-field="submitted-spice"')])
+            self.assertNotIn('<figcaption', drawing)
+            self.assertNotIn('submission-schematic', re.search(r'<article[^>]*aria-label="Final submitted SPICE"[^>]*>(.*?)</article>', attached, re.S)[1])
             changed = dict(entry, source=entry['source'] + '\n')
             with self.assertRaisesRegex(ValueError, 'frozen final submission'):
-                schematics.attach_drawing(trace, changed)
-        self.assertEqual(schematics.attach_drawing('unselected trace', None), 'unselected trace')
+                schematics.drawing_for_submission(trace, changed)
+        self.assertEqual(schematics.drawing_for_submission('unselected trace', None), '')
+
+    def test_vss_ports_are_horizontal_in_saved_projects(self):
+        for entry in schematics.load_drawings(ROOT).values():
+            project = json.loads((ROOT / 'site/schematics' / entry['run_id'] / 'project.icproj.json').read_text())
+            document = project['documents'][0]
+            terminal = next(t for t in document['netlist']['terminals'] if t['name'].lower() == 'vss')
+            port = next(i for i in document['instances'] if i['id'] in terminal['interfaceInstanceIds'])
+            self.assertEqual(port.get('rotation', 0) % 180, 0, entry['run_id'])
 
     def test_numeric_constants_and_mos_defaults_preserve_the_contract(self):
         source = (ROOT / 'site/schematics/ota-drive-sky130-sonnet-5-5-r3/submitted.spice').read_text()

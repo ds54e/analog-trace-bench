@@ -105,11 +105,12 @@ Append the complete frozen `submitted.spice` with the SPICE tag and Final
 submission label. Preserve its bytes, whitespace, and final newline. Confirm
 decoded HTML bytes and SHA-256 against the archive and submission revision.
 
-A verified derived schematic may precede SPICE inside the same Final submission
-article. Keep it separate from captured fragments and bind it to the exact
+A verified derived schematic appears between the Run selector and Run & evaluation,
+inside the selected run panel. Keep it separate from captured fragments and bind it to the exact
 submitted hash. Include the editable project, comparison evidence, complete
-device details and omitted-body conventions; distinguish the drawing from
-historical evaluation. See [Schematics](SCHEMATICS.md).
+device details and omitted-body conventions in supporting artifacts; distinguish
+the drawing from historical evaluation. Keep the final SPICE article in its
+original transcript position. See [Schematics](SCHEMATICS.md).
 
 Follow SPICE with the independent evaluation for that revision, using the RESULT
 tag and Independent evaluation label. Show its recorded finish time when

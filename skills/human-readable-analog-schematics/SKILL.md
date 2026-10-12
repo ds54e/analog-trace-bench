@@ -19,7 +19,7 @@ Choose the smallest scope that satisfies the request:
 |---|---|---|
 | Placement or wiring | Native project and reproducible recipe | Exact electrical contract and recorded evidence |
 | Diagram label position or spelling | Native annotations and recipe | Other geometry and exact parameters |
-| Page size, caption or links | Page renderer or CSS | SVG, native project, recipe and SPICE |
+| Page position, size, caption or links | Page renderer or CSS | SVG, native project, recipe and SPICE |
 | Skill or documentation | Instructions and references | Accepted drawing and site artifacts |
 
 ## Read the applicable references
@@ -30,7 +30,7 @@ Choose the smallest scope that satisfies the request:
 | Wiring or placement refinement | [Routing refinement](references/routing-refinement.md) |
 | Analog Canvas import, save, render or export | [Native workflow](references/analog-canvas-workflow.md) |
 | Select or compare a visual motif | [Gallery evidence](references/gallery-evidence.md) |
-| ATB Final submission | [ATB profile](references/atb-profile.md) |
+| ATB submitted-circuit presentation | [ATB profile](references/atb-profile.md) |
 | Review or update this skill | [Acceptance cases](references/acceptance.md) |
 
 Read only the references relevant to the requested change. When live gallery

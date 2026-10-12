@@ -10,11 +10,12 @@ invocation. Keep electrical and visual outcomes independently assessable.
 |---|---|
 | Redraw this OTA SPICE as an editable, readable schematic. | Apply the drawing/native workflow; inspect connectivity before placement. |
 | Add drawings to every OTA run. | Enumerate catalog coverage; derive each layout from its own submission, verify every saved export, and review all rendered runs. |
-| Improve the LDO Final submission diagram in ATB. | Apply drawing rules and ATB profile; preserve the frozen submission. |
+| Improve the LDO submitted-circuit diagram in ATB. | Apply drawing rules and ATB profile; preserve the frozen submission. |
 | Only shorten 92.59k and 101.2k in the accepted drawing. | Change native display annotations to 93k/100k; keep geometry and exact parameters. |
 | Align the accepted OTA's Cc and Rz labels. | Edit native label anchors; preserve placement, wiring, values and interface. |
 | Move LDO RB above the input pair or CFF inside R1. | Refine native geometry from actual endpoints; save/reopen and compare exact source, then review the render. |
-| Remove the links beneath Final submission and display the diagram at 60%. | Change page presentation only; keep SVG, native project, recipe and SPICE unchanged. |
+| Move the diagram beneath Run selectors, retain final SPICE and display it at 60%. | Change page presentation only; keep SVG, native project, recipe and SPICE unchanged. |
+| Draw VSS horizontally like VDD. | Change the native port presentation and label position; preserve the named interface and exact source contract. |
 | Consolidate the drawing skill and documentation. | Update instructions only; do not redraw accepted circuits or alter run evidence. |
 | Run an OTA AC simulation, place a PCB, or make a decorative circuit image. | Do not implicitly select this drawing skill for the unrelated task. |
 
@@ -34,7 +35,7 @@ the formatter. For presentation, inspect each affected figure: no SVG/Project
 links or caption should accompany the image; check the requested display scale
 and that the current SVG hash appears in its image URL. Confirm preserved native
 artifact hashes. Check narrow-view scrolling separately when browser coverage is
-available. Submitted SPICE remains immediately available.
+available. Submitted SPICE retains its original Final submission position.
 
 For instructions-only changes, validate frontmatter, linked resources, metadata,
 reference consistency and repository discovery. Build/check the site to catch

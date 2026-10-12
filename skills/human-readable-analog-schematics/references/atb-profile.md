@@ -5,7 +5,8 @@ preferences and current pilot constraints, not general analog-drawing standards.
 
 ## Page presentation
 
-- Place only the diagram in Final submission, above the unchanged submitted SPICE.
+- Place the diagram immediately below the Run selector and before Run & evaluation,
+  inside the selected run's panel. Keep SPICE in its original Final submission article.
 - Omit captions, SVG/Project links, circuit descriptions, body/unit/crossing notes,
   verification prose and device tables below the diagram. Retain useful image alt
   text, native projects and supporting verification artifacts.
@@ -15,6 +16,8 @@ preferences and current pilot constraints, not general analog-drawing standards.
 - Treat page size as a presentation preference. Keep native text, symbols and
   geometry unchanged when adjusting that size. Solve native drawing density
   through placement and routing before choosing the web display scale.
+- Draw VSS as a horizontal port, as used for OTA VDD; keep supply labels
+  beside their actual port and preserve their named external terminals.
 
 ## Diagram labels and exact parameters
 
