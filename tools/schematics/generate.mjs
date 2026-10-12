@@ -536,7 +536,7 @@ for (const layout of layouts) {
       x = horizontal ? 0 : 16;
       y = horizontal ? -32 : -4;
       align = horizontal ? "middle" : "start";
-      if (ref === "Rz" || ref === "RB") {
+      if (ref === "RB") {
         y = 20;
       }
       annotation(

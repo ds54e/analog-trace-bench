@@ -515,14 +515,14 @@
           "target": { "deviceClass": "resistor", "kind": "primitive" },
           "labels": [
             {
-              "anchor": { "fallback": [480, 280], "offset": [0, 20] },
+              "anchor": { "fallback": [480, 228], "offset": [0, -32] },
               "bind": "name",
               "id": "atb-annotation-122",
               "kind": "instance-label",
               "order": 13
             },
             {
-              "anchor": { "fallback": [480, 298], "offset": [0, 38] },
+              "anchor": { "fallback": [480, 246], "offset": [0, -14] },
               "id": "atb-annotation-123",
               "kind": "instance-value",
               "order": 14,

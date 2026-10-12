@@ -49,6 +49,8 @@ Use the ATB profile for its presentation preferences.
 
 - Put MOS names beside their bodies, with matched distance/height for paired
   devices. Put passive names and values in a close two-line pair on the same side.
+  For adjacent passives in one branch, align these pairs on the same side when
+  clearance permits, so the labels read as a group.
 - Put port names near their ports and internal labels near the wire they identify.
   Choose a clear text location before spreading devices apart. Preserve all node
   names in the native data without printing every internal name.
