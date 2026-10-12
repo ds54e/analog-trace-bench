@@ -66,7 +66,7 @@ const layouts = [
       XM1: [200, 280],
       XM2: [380, 280, "horizontal"],
       XMtl: [280, 400],
-      XMbn: [80, 400],
+      XMbn: [80, 400, "horizontal"],
       XM7: [630, 220],
       XM8: [630, 400],
       Cc: [510, 330, 270],
@@ -77,7 +77,7 @@ const layouts = [
       vin_p: [450, 280, 180],
       vout: [700, 280, 180],
       vdd: [90, 80],
-      vss: [90, 480, 270],
+      vss: [70, 480, 270],
       ibias: [30, 350],
     },
     draw(c) {
@@ -118,21 +118,21 @@ const layouts = [
       c.w("ntl", "XM1.S", "tail", [[210, 340]]);
       c.w("ntl", "XM2.S", "tail", [[370, 340]]);
       c.w("ntl", "tail", "XMtl.D");
-      c.j("bias-drain", "ibias", 90, 350);
-      c.j("bias-tap", "ibias", 90, 370);
-      c.j("bias-dg", "ibias", 50, 370);
-      c.j("bias-gate", "ibias", 50, 400);
-      c.j("bias-bus", "ibias", 260, 450);
+      c.j("bias-drain", "ibias", 70, 350);
+      c.j("bias-tap", "ibias", 70, 370);
+      c.j("bias-dg", "ibias", 110, 370);
+      c.j("bias-gate", "ibias", 110, 400);
+      c.j("bias-bus", "ibias", 250, 400);
       c.w("ibias", "@ibias", "bias-drain");
       c.w("ibias", "bias-drain", "bias-tap");
       c.w("ibias", "bias-tap", "XMbn.D");
       c.w("ibias", "bias-tap", "bias-dg");
       c.w("ibias", "bias-dg", "bias-gate");
       c.w("ibias", "bias-gate", "XMbn.G");
-      c.w("ibias", "bias-gate", "bias-bus", [[50, 450]]);
+      c.w("ibias", "bias-gate", "bias-bus");
       c.w("ibias", "bias-bus", "XMtl.G");
-      c.w("ibias", "bias-bus", "XM8.G", [[610, 450]]);
-      c.j("vs1", "vss", 90, 480);
+      c.w("ibias", "bias-bus", "XM8.G", [[250, 450], [610, 450]]);
+      c.j("vs1", "vss", 70, 480);
       c.j("vs2", "vss", 290, 480);
       c.j("vs3", "vss", 640, 480);
       c.w("vss", "@vss", "vs2");
