@@ -18,3 +18,5 @@ export {
   buildProjectConnectivityIndex,
   diagnoseProject,
 } from "../../packages/derived/src/index.ts";
+
+export { renderDocumentSvg } from "../../packages/render-svg/src/index.ts";

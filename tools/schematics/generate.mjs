@@ -61,52 +61,52 @@ const layouts = [
     body_note:
       "NFET bodies → vss; PFET bodies → vdd. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
     devices: {
-      XM3: [220, 140, "horizontal"],
-      XM4: [360, 140],
-      XM1: [200, 280],
-      XM2: [380, 280, "horizontal"],
-      XMtl: [280, 400],
-      XMbn: [80, 400, "horizontal"],
-      XM7: [630, 220],
-      XM8: [630, 400],
-      Cc: [510, 330, 270],
-      Rz: [580, 330, 270],
+      XM3: [220, 130, "horizontal"],
+      XM4: [320, 130],
+      XM1: [200, 260],
+      XM2: [340, 260, "horizontal"],
+      XMtl: [260, 380],
+      XMbn: [60, 380, "horizontal"],
+      XM7: [510, 200],
+      XM8: [510, 380],
+      Cc: [420, 300, 270],
+      Rz: [480, 300, 270],
     },
     ports: {
-      vin_n: [140, 280],
-      vin_p: [450, 280, 180],
-      vout: [700, 280, 180],
-      vdd: [90, 80],
-      vss: [70, 480, 270],
-      ibias: [30, 350],
+      vin_n: [140, 260],
+      vin_p: [370, 260, 180],
+      vout: [570, 260, 180],
+      vdd: [50, 80],
+      vss: [50, 430, 270],
+      ibias: [20, 330],
     },
     draw(c) {
       c.j("vd1", "vdd", 210, 80);
-      c.j("vd2", "vdd", 370, 80);
-      c.j("vd3", "vdd", 640, 80);
+      c.j("vd2", "vdd", 330, 80);
+      c.j("vd3", "vdd", 520, 80);
       c.w("vdd", "@vdd", "vd1");
       c.w("vdd", "vd1", "vd2");
       c.w("vdd", "vd2", "vd3");
       c.w("vdd", "vd1", "XM3.S");
       c.w("vdd", "vd2", "XM4.S");
       c.w("vdd", "vd3", "XM7.S");
-      c.j("na-drain", "na", 210, 180);
-      c.j("na-gates", "na", 260, 140);
+      c.j("na-drain", "na", 210, 170);
+      c.j("na-gates", "na", 260, 130);
       c.w("na", "XM3.D", "na-drain");
       c.w("na", "na-drain", "XM1.D");
       c.w("na", "XM3.G", "na-gates");
       c.w("na", "na-gates", "XM4.G");
-      c.w("na", "na-gates", "na-drain", [[260, 180]]);
-      c.j("n1-out", "n1", 370, 220);
-      c.j("n1-comp", "n1", 490, 220);
+      c.w("na", "na-gates", "na-drain", [[260, 170]]);
+      c.j("n1-out", "n1", 330, 200);
+      c.j("n1-comp", "n1", 400, 200);
       c.w("n1", "XM4.D", "n1-out");
       c.w("n1", "n1-out", "XM2.D");
       c.w("n1", "n1-out", "n1-comp");
       c.w("n1", "n1-comp", "XM7.G");
-      c.w("n1", "n1-comp", "Cc.1", [[490, 330]]);
+      c.w("n1", "n1-comp", "Cc.1", [[400, 300]]);
       c.w("nzc", "Cc.2", "Rz.1");
-      c.j("out", "vout", 640, 280);
-      c.j("out-comp", "vout", 640, 330);
+      c.j("out", "vout", 520, 260);
+      c.j("out-comp", "vout", 520, 300);
       c.w("vout", "XM7.D", "out");
       c.w("vout", "out", "@vout");
       c.w("vout", "out", "out-comp");
@@ -114,15 +114,15 @@ const layouts = [
       c.w("vout", "Rz.2", "out-comp");
       c.w("vin_n", "@vin_n", "XM1.G");
       c.w("vin_p", "@vin_p", "XM2.G");
-      c.j("tail", "ntl", 290, 340);
-      c.w("ntl", "XM1.S", "tail", [[210, 340]]);
-      c.w("ntl", "XM2.S", "tail", [[370, 340]]);
+      c.j("tail", "ntl", 270, 310);
+      c.w("ntl", "XM1.S", "tail", [[210, 310]]);
+      c.w("ntl", "XM2.S", "tail", [[330, 310]]);
       c.w("ntl", "tail", "XMtl.D");
-      c.j("bias-drain", "ibias", 70, 350);
-      c.j("bias-tap", "ibias", 70, 370);
-      c.j("bias-dg", "ibias", 110, 370);
-      c.j("bias-gate", "ibias", 110, 400);
-      c.j("bias-bus", "ibias", 250, 400);
+      c.j("bias-drain", "ibias", 50, 330);
+      c.j("bias-tap", "ibias", 50, 350);
+      c.j("bias-dg", "ibias", 90, 350);
+      c.j("bias-gate", "ibias", 90, 380);
+      c.j("bias-bus", "ibias", 230, 380);
       c.w("ibias", "@ibias", "bias-drain");
       c.w("ibias", "bias-drain", "bias-tap");
       c.w("ibias", "bias-tap", "XMbn.D");
@@ -131,18 +131,21 @@ const layouts = [
       c.w("ibias", "bias-gate", "XMbn.G");
       c.w("ibias", "bias-gate", "bias-bus");
       c.w("ibias", "bias-bus", "XMtl.G");
-      c.w("ibias", "bias-bus", "XM8.G", [[250, 450], [610, 450]]);
-      c.j("vs1", "vss", 70, 480);
-      c.j("vs2", "vss", 290, 480);
-      c.j("vs3", "vss", 640, 480);
+      c.w("ibias", "bias-bus", "XM8.G", [
+        [230, 410],
+        [490, 410],
+      ]);
+      c.j("vs1", "vss", 50, 430);
+      c.j("vs2", "vss", 270, 430);
+      c.j("vs3", "vss", 520, 430);
       c.w("vss", "@vss", "vs2");
       c.w("vss", "vs2", "vs3");
       c.w("vss", "XMbn.S", "@vss");
       c.w("vss", "XMtl.S", "vs2");
       c.w("vss", "XM8.S", "vs3");
-      c.label("na", 218, 210);
-      c.label("n1", 378, 205);
-      c.label("ntl", 302, 338);
+      c.label("na", 218, 190);
+      c.label("n1", 338, 185);
+      c.label("ntl", 282, 308);
     },
   },
   {
@@ -153,32 +156,32 @@ const layouts = [
     body_note:
       "NFET bodies → VSS; PFET bodies → VIN. Body wires are omitted using the saved cell defaults. Dimensions are in µm; R values in Ω and C values in F.",
     devices: {
-      XM3: [280, 140, "horizontal"],
-      XM4: [420, 140],
-      XM1: [260, 280],
-      XM2: [440, 280, "horizontal"],
-      XMT: [350, 420],
-      XMB: [70, 420, "horizontal"],
-      XMP: [620, 220],
-      RS: [60, 160],
-      RB: [450, 370, 90],
-      R1: [630, 310],
-      R2: [630, 420],
-      CFF: [720, 310],
-      C1: [520, 160, 270],
-      RZ: [580, 160, 270],
+      XM3: [240, 130, "horizontal"],
+      XM4: [340, 130],
+      XM1: [220, 260],
+      XM2: [360, 260, "horizontal"],
+      XMT: [280, 380],
+      XMB: [60, 380, "horizontal"],
+      XMP: [520, 200],
+      RS: [50, 140],
+      RB: [400, 340, 90],
+      R1: [530, 280],
+      R2: [530, 380],
+      CFF: [620, 280],
+      C1: [430, 140, 270],
+      RZ: [490, 140, 270],
     },
     ports: {
-      VIN: [60, 80, 90],
-      VSS: [60, 460, 270],
-      VREF: [500, 280, 180],
-      VOUT: [790, 260, 180],
+      VIN: [50, 80, 90],
+      VSS: [50, 420, 270],
+      VREF: [410, 260, 180],
+      VOUT: [690, 230, 180],
     },
     draw(c) {
-      c.j("vi1", "VIN", 270, 80);
-      c.j("vi2", "VIN", 430, 80);
-      c.j("vi3", "VIN", 630, 80);
-      c.j("vi-comp", "VIN", 630, 160);
+      c.j("vi1", "VIN", 230, 80);
+      c.j("vi2", "VIN", 350, 80);
+      c.j("vi3", "VIN", 530, 80);
+      c.j("vi-comp", "VIN", 530, 140);
       c.w("VIN", "@VIN", "RS.1");
       c.w("VIN", "@VIN", "vi1");
       c.w("VIN", "vi1", "vi2");
@@ -188,77 +191,77 @@ const layouts = [
       c.w("VIN", "vi3", "vi-comp");
       c.w("VIN", "vi-comp", "XMP.S");
       c.w("VIN", "RZ.2", "vi-comp");
-      c.j("d1-drain", "D1", 270, 180);
-      c.j("d1-gates", "D1", 320, 140);
+      c.j("d1-drain", "D1", 230, 170);
+      c.j("d1-gates", "D1", 280, 130);
       c.w("D1", "XM3.D", "d1-drain");
       c.w("D1", "d1-drain", "XM1.D");
       c.w("D1", "XM3.G", "d1-gates");
       c.w("D1", "d1-gates", "XM4.G");
-      c.w("D1", "d1-gates", "d1-drain", [[320, 180]]);
-      c.j("g-out", "G", 430, 220);
-      c.j("g-comp", "G", 500, 220);
+      c.w("D1", "d1-gates", "d1-drain", [[280, 170]]);
+      c.j("g-out", "G", 350, 200);
+      c.j("g-comp", "G", 410, 200);
       c.w("G", "XM4.D", "g-out");
       c.w("G", "g-out", "XM2.D");
       c.w("G", "g-out", "g-comp");
       c.w("G", "g-comp", "XMP.G");
       c.w("G", "g-comp", "C1.1");
       c.w("NZ", "C1.2", "RZ.1");
-      c.j("out-pass", "VOUT", 630, 260);
-      c.j("out-c", "VOUT", 720, 260);
-      c.j("out-divider", "VOUT", 630, 270);
-      c.j("out-bias", "VOUT", 580, 370);
+      c.j("out-pass", "VOUT", 530, 230);
+      c.j("out-c", "VOUT", 620, 230);
+      c.j("out-divider", "VOUT", 530, 240);
+      c.j("out-bias", "VOUT", 490, 340);
       c.w("VOUT", "XMP.D", "out-pass");
       c.w("VOUT", "out-pass", "out-c");
       c.w("VOUT", "out-c", "@VOUT");
       c.w("VOUT", "out-pass", "out-divider");
       c.w("VOUT", "out-divider", "R1.1");
       c.w("VOUT", "out-c", "CFF.1");
-      c.w("VOUT", "out-divider", "out-bias", [[580, 270]]);
+      c.w("VOUT", "out-divider", "out-bias", [[490, 240]]);
       c.w("VOUT", "RB.1", "out-bias");
       // RB retains source pin order VOUT,NB; its rotation places pin 1 on the right.
-      c.j("fb-c", "FB", 630, 350);
-      c.j("fb", "FB", 630, 360);
+      c.j("fb-c", "FB", 530, 320);
+      c.j("fb", "FB", 530, 330);
       c.w("FB", "R1.2", "fb-c");
       c.w("FB", "fb-c", "fb");
       c.w("FB", "fb", "R2.1");
-      c.w("FB", "CFF.2", "fb-c", [[720, 350]]);
+      c.w("FB", "CFF.2", "fb-c", [[620, 320]]);
       c.w(
         "FB",
         "fb",
         "XM1.G",
         [
-          [200, 360],
-          [200, 280],
+          [180, 330],
+          [180, 260],
         ],
         "#23745d",
       );
       c.w("VREF", "@VREF", "XM2.G");
-      c.j("tail", "TAIL", 360, 330);
-      c.w("TAIL", "XM1.S", "tail", [[270, 330]]);
-      c.w("TAIL", "XM2.S", "tail", [[430, 330]]);
+      c.j("tail", "TAIL", 290, 310);
+      c.w("TAIL", "XM1.S", "tail", [[230, 310]]);
+      c.w("TAIL", "XM2.S", "tail", [[350, 310]]);
       c.w("TAIL", "tail", "XMT.D");
-      c.j("nb-return", "NB", 60, 370);
-      c.j("nb-drain", "NB", 60, 390);
-      c.j("nb-gates", "NB", 100, 420);
+      c.j("nb-return", "NB", 50, 340);
+      c.j("nb-drain", "NB", 50, 350);
+      c.j("nb-gates", "NB", 90, 380);
       c.w("NB", "RS.2", "nb-return");
       c.w("NB", "nb-return", "RB.2");
       c.w("NB", "nb-return", "nb-drain");
       c.w("NB", "nb-drain", "XMB.D");
-      c.w("NB", "nb-drain", "nb-gates", [[100, 390]]);
+      c.w("NB", "nb-drain", "nb-gates", [[90, 350]]);
       c.w("NB", "XMB.G", "nb-gates");
       c.w("NB", "nb-gates", "XMT.G");
-      c.j("vs-tail", "VSS", 360, 460);
-      c.j("vs-r", "VSS", 630, 460);
+      c.j("vs-tail", "VSS", 290, 420);
+      c.j("vs-r", "VSS", 530, 420);
       c.w("VSS", "XMB.S", "@VSS");
       c.w("VSS", "@VSS", "vs-tail");
       c.w("VSS", "vs-tail", "vs-r");
       c.w("VSS", "XMT.S", "vs-tail");
       c.w("VSS", "R2.2", "vs-r");
-      c.label("D1", 278, 210);
-      c.label("G", 438, 205);
-      c.label("NB", 72, 354);
-      c.label("FB", 642, 350);
-      c.label("TAIL", 372, 328);
+      c.label("D1", 238, 190);
+      c.label("G", 358, 185);
+      c.label("NB", 62, 324);
+      c.label("FB", 542, 320);
+      c.label("TAIL", 302, 308);
     },
   },
 ];
@@ -651,13 +654,19 @@ for (const layout of layouts) {
   );
   if (diagnostics.length)
     throw new Error("Native diagnostics: " + JSON.stringify(diagnostics));
-  const svg = await a.workspaceSvg(reopened);
+  const svgOptions = { margin: 20 };
+  const svg = a.renderDocumentSvg(
+    reopened.documents[0],
+    a.createProjectSymbolResolver(reopened, a.builtInSymbols),
+    svgOptions,
+  );
   await writeFile(join(out, "schematic.svg"), svg);
   await writeFile(join(out, "exported.spice"), exported.file.text);
   const verification = {
     source_sha256: hash(source),
     generator: manifest.generator,
     native_reopen: true,
+    svg_export_options: svgOptions,
     native_comparison: comparison,
     export_options: { format: "spice", groundPin: "global" },
     ordinary_export_comparison: ordinaryComparison,

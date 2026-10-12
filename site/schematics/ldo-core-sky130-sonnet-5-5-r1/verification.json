@@ -6,6 +6,9 @@
     "commit": "37bccd4012764dce53b34927fa606c6f430296a2"
   },
   "native_reopen": true,
+  "svg_export_options": {
+    "margin": 20
+  },
   "native_comparison": {
     "status": "match",
     "summary": "equal",

@@ -24,7 +24,9 @@ readable labels. A full-size SVG link opens the complete diagram. Each drawing
 also has a device table containing ordered pins, models, W/L, nf and m. Hidden
 MOS body ties are documented and checked against the cell defaults. Crossings
 without a dot are unconnected; the LDO's main feedback path uses green as an
-additional visual aid.
+additional visual aid. The drawing recipes keep the same label sizes while
+compacting functional groups. Native SVG export uses a 20-unit outer margin,
+recorded in the verification report; the editor's default export uses 40 units.
 
 `site/schematics/<run-id>/` holds:
 
