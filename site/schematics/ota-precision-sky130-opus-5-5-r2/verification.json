@@ -75,6 +75,19 @@
     "status": "connected",
     "checked_non_body_pins": 70,
     "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "cz",
+      "d1",
+      "f1",
+      "f2",
+      "s7",
+      "s8",
+      "tail",
+      "vinn",
+      "vinp",
+      "vout",
+      "x"
+    ],
     "named_connections_checked": true
   },
   "body_defaults_checked": true,

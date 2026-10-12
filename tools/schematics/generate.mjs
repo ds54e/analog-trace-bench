@@ -335,7 +335,7 @@ function display(raw) {
     if (Math.abs(n) >= factor) return +(n / factor).toPrecision(14) + suffix;
   throw new Error("Unsupported zero value");
 }
-function verifySavedWiring(project) {
+function verifySavedWiring(project, continuousNets = []) {
   const d = project.documents.find((d) => d.id === project.topDocumentId);
   const resolver = a.createProjectSymbolResolver(project, a.builtInSymbols);
   const point = (e) => a.resolveEndpointPoint(d, resolver, e);
@@ -379,6 +379,26 @@ function verifySavedWiring(project) {
         throw new Error(
           "Nonorthogonal route " + r.id + " " + JSON.stringify(pts),
         );
+  }
+  for (const name of continuousNets) {
+    const netId = d.connectivityEvidence.find(
+      (e) => e.kind === "net-name-hint" && e.sourceName.toLowerCase() === name,
+    )?.netId;
+    const net = d.nets.find((n) => n.id === netId);
+    if (!net) throw new Error("Unknown continuous net " + name);
+    const pins = net.terminals
+      .filter((t) => t.pinName !== "B")
+      .map((t) => t.instanceId + ":" + t.pinName);
+    const seen = new Set(),
+      todo = [pins[0]];
+    while (todo.length) {
+      const k = todo.pop();
+      if (seen.has(k)) continue;
+      seen.add(k);
+      for (const v of graph.get(k) ?? []) todo.push(v);
+    }
+    if (pins.some((k) => !seen.has(k)))
+      throw new Error("Signal requires a named connection: " + name);
   }
   const nativeIndex = a.buildProjectConnectivityIndex(project, resolver);
   const virtualEdges = [...nativeIndex.documents.values()].flatMap((v) =>
@@ -669,7 +689,12 @@ for (const layout of layouts) {
       );
   }
   for (const t of d.netlist.terminals) {
-    if (layout.strategy === "current-path-groups") continue;
+    if (
+      layout.strategy === "current-path-groups" ||
+      (layout.strategy === "connected-stages" &&
+        ["vdd", "vss", "ibias"].includes(t.name.toLowerCase()))
+    )
+      continue;
     const i = ports.get(t.name),
       pos = i.placement.position;
     const output = t.name.toLowerCase() === "vout";
@@ -732,7 +757,7 @@ for (const layout of layouts) {
       await readFile(join(out, "project.icproj.json"), "utf8"),
     );
   }
-  const checkedPins = verifySavedWiring(reopened);
+  const checkedPins = verifySavedWiring(reopened, layout.continuousNets);
   for (const i of reopened.documents[0].instances.filter((i) =>
     ["resistor", "capacitor"].includes(i.symbolId),
   )) {
@@ -842,6 +867,9 @@ for (const layout of layouts) {
       status: "connected",
       checked_non_body_pins: checkedPins,
       checked_from: "saved-and-reopened-project",
+      ...(layout.continuousNets
+        ? { continuous_signal_nets: layout.continuousNets }
+        : {}),
     },
     body_defaults_checked: true,
     saved_display_values_checked: true,
@@ -854,7 +882,11 @@ for (const layout of layouts) {
     verification.resolved_native_comparison = resolvedComparison;
     verification.numeric_constants_checked = true;
   }
-  if (["current-path-groups", "reviewed-free"].includes(layout.strategy))
+  if (
+    ["current-path-groups", "reviewed-free", "connected-stages"].includes(
+      layout.strategy,
+    )
+  )
     verification.visible_wiring.named_connections_checked = true;
   await writeFile(
     join(out, "verification.json"),

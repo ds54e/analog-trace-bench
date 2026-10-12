@@ -100,6 +100,56 @@ class SubmittedSchematics(unittest.TestCase):
             self.assertNotIn('<figcaption', html)
             self.assertNotIn('min-width', html)
 
+    def test_expanded_ota_signal_routes_do_not_depend_on_net_labels(self):
+        drawings = schematics.load_drawings(ROOT)
+        entries = [e for e in drawings.values() if e.get('layout_strategy') == 'connected-stages']
+        self.assertEqual(len(entries), 61)
+        for entry in entries:
+            folder = ROOT / 'site/schematics' / entry['run_id']
+            doc = json.loads((folder / 'project.icproj.json').read_text())['documents'][0]
+            report = json.loads((folder / 'verification.json').read_text())
+            continuous = report['visible_wiring']['continuous_signal_nets']
+            self.assertTrue({'vinp', 'vinn', 'vout'} <= set(continuous), entry['run_id'])
+            graph = {}
+            def key(endpoint):
+                return tuple(endpoint['terminal']) if 'terminal' in endpoint else (endpoint['junction'],)
+            for route in doc['routes']:
+                a, b = key(route['start']), key(route.get('end') or route['legs'][-1])
+                graph.setdefault(a, set()).add(b)
+                graph.setdefault(b, set()).add(a)
+            def reachable(start):
+                seen, todo = set(), [start]
+                while todo:
+                    node = todo.pop()
+                    if node not in seen:
+                        seen.add(node)
+                        todo.extend(graph.get(node, ()))
+                return seen
+            for node, adjacent in graph.items():
+                if len(node) == 1:
+                    self.assertLessEqual(len(adjacent), 3, (entry['run_id'], node))
+            _, devices = schematics.parse_spice(entry['source'])
+            endpoints = {}
+            for item in devices.values():
+                ref, pins = item['reference'], item['pins']
+                names = ['D', 'G', 'S'] if ref.lower().startswith('x') else ['1', '2']
+                for pin, net in zip(names, pins):
+                    endpoints.setdefault(net.lower(), []).append((ref, pin))
+                if len(pins) == 4 and pins[0].lower() == pins[1].lower():
+                    self.assertIn((ref, 'G'), reachable((ref, 'D')), (entry['run_id'], ref))
+            for terminal in doc['netlist']['terminals']:
+                port = (terminal['interfaceInstanceIds'][0], 'P')
+                name = terminal['name'].lower()
+                self.assertTrue(set(endpoints[name]) & reachable(port), (entry['run_id'], name))
+                endpoints[name].append(port)
+            for net in continuous:
+                pins = endpoints[net]
+                self.assertTrue(set(pins) <= reachable(pins[0]), (entry['run_id'], net))
+            html = schematics.render_drawing(entry)
+            self.assertEqual(re.search(r'href="([^"]+)"', html)[1],
+                             re.search(r'src="([^"]+)"', html)[1])
+            self.assertNotIn('reading_min_width', entry)
+
     def test_numeric_constants_and_mos_defaults_preserve_the_contract(self):
         source = (ROOT / 'site/schematics/ota-drive-sky130-sonnet-5-5-r3/submitted.spice').read_text()
         exported = (ROOT / 'site/schematics/ota-drive-sky130-sonnet-5-5-r3/exported.spice').read_text()

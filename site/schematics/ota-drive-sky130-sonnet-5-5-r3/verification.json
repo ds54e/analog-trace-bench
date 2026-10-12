@@ -103,6 +103,19 @@
     "status": "connected",
     "checked_non_body_pins": 70,
     "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "n3",
+      "n4",
+      "n7",
+      "ts",
+      "vinn",
+      "vinp",
+      "vout",
+      "x5",
+      "x6",
+      "x7",
+      "x8"
+    ],
     "named_connections_checked": true
   },
   "body_defaults_checked": true,

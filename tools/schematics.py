@@ -177,7 +177,7 @@ def render_drawing(entry):
     svg = prefix + 'schematic.svg?v=' + entry['files']['schematic.svg']
     image = ('<img src="' + svg + '" alt="' + escape(entry['title'], quote=True) +
              '. ' + escape(entry['description'], quote=True) + '" loading="eager"' + style + '/>')
-    if entry.get('layout_strategy') == 'reviewed-free':
+    if entry.get('layout_strategy') in ('reviewed-free', 'connected-stages'):
         image = '<a class="schematic-fullsize" href="' + svg + '" target="_blank" rel="noopener">' + image + '</a>'
     return (
         '<figure class="submission-schematic" aria-label="Submitted circuit schematic">'

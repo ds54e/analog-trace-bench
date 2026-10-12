@@ -75,6 +75,19 @@
     "status": "connected",
     "checked_non_body_pins": 70,
     "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "d1",
+      "d2",
+      "nl",
+      "ntail",
+      "s10",
+      "s5",
+      "s6",
+      "s9",
+      "vinn",
+      "vinp",
+      "vout"
+    ],
     "named_connections_checked": true
   },
   "body_defaults_checked": true,

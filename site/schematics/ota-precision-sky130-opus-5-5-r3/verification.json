@@ -75,6 +75,19 @@
     "status": "connected",
     "checked_non_body_pins": 76,
     "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "fa",
+      "fb",
+      "n1",
+      "na",
+      "nz",
+      "tail",
+      "vinn",
+      "vinp",
+      "vout",
+      "xa",
+      "xb"
+    ],
     "named_connections_checked": true
   },
   "body_defaults_checked": true,

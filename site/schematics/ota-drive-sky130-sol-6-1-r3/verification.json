@@ -75,6 +75,20 @@
     "status": "connected",
     "checked_non_body_pins": 62,
     "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "bns",
+      "dn",
+      "dp",
+      "mir",
+      "ncd",
+      "ncg",
+      "nt",
+      "pn",
+      "pp",
+      "vinn",
+      "vinp",
+      "vout"
+    ],
     "named_connections_checked": true
   },
   "body_defaults_checked": true,

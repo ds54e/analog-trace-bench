@@ -37,50 +37,47 @@
     {
       "run_id": "ota-drive-sky130-opus-5-5-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
       "files": {
-        "schematic.svg": "77bd5f60f6221ea839d7957ad15e92467a386c4cb2f5f267cdca8b0c28949e3b",
-        "project.icproj.json": "9671e4e118f7b6e09b546b3ab67bd8aed0f784e91cbc0204cb2f5e465a86ac72",
+        "schematic.svg": "5f17e6fad0f5d292d6191a4cdf52aa855e4857ed8e98f91a9eeb9b9b960f5308",
+        "project.icproj.json": "9fce9282b4a6fa75a2b13b1ff68cf154892d4a458afe82e9eaa126cf094adb46",
         "submitted.spice": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
         "exported.spice": "b96d9bb39a867731ea478c1d24bdce0872d7fb9bfbfa32d0b5057d2dc42e28ae",
-        "verification.json": "93a385de06bc3167d850b1df1e0792286678fba0f95e72b16cd95a1c4f0c89b0"
+        "verification.json": "c50c794ba7be18c3b8d1c7f05964ed351c94c7e104f876f43b418bcea9f8fa7f"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1306
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-astra-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "7c4e04fd498950b7853c681cfe72bf042c2fcc97705c777dfb1ab061e768b451",
       "files": {
-        "schematic.svg": "15943b26c09c2f6c4e6c91e4e05b23e1a52ef9fca164602e8d445fbed6f89a29",
-        "project.icproj.json": "98554b35fb87f2d0fdfa8f5629b331ddd09e6128d61df8a0d10635aef548c7f6",
+        "schematic.svg": "2744b2a0dfb9fe4b19ff890cb654736926daae09635ee018b3c067edc38da630",
+        "project.icproj.json": "93afdcc6d8bad23fdbcd1a5dad56027eb7c382df1cc963b9ab13997fe93ad354",
         "submitted.spice": "7c4e04fd498950b7853c681cfe72bf042c2fcc97705c777dfb1ab061e768b451",
         "exported.spice": "501a24eacf447a506b647e9a57fec6627b21851949101f10dd8941bdb10fa0e3",
-        "verification.json": "cfebc54a2d3119abd98876dc2504636639b3696dea11a11482e41b542232d757"
+        "verification.json": "6d72db07c6f1b63bae94876a8972220173ce2442bcec3b2264564193b5a27e5d"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-sonnet-5-5-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "c1d4f6b986a8ff86b682b7a2da2a0e39764649adb35e202ed1c6e4e177a1e202",
       "files": {
-        "schematic.svg": "531285eace3abe9e1b54b09ec00c4fe121581929ce678d9066ab53f47b876ffe",
-        "project.icproj.json": "42ab6cdb759945824e46021e576d397916b6a07eaf670585f1498ca881a71bf2",
+        "schematic.svg": "dce374e2fb38b765afcb849b32474efff0599668cf552392536b4878484b61ad",
+        "project.icproj.json": "d7dee152b1092a1237b7b7c683746ee2b39f217fe90852442807bc6f6bb01d0d",
         "submitted.spice": "c1d4f6b986a8ff86b682b7a2da2a0e39764649adb35e202ed1c6e4e177a1e202",
         "exported.spice": "008bc2197d667ed4e6121c4d031e0e3c1b76dceb5810342a20b20cd15acce346",
-        "verification.json": "9fc448777a359a39b571b9755f14a1b6d6cdfa37b5b3f2f9900c769d03adce6a"
+        "verification.json": "02f0afcb8147cda8b57d42549f306980f62fd70d09bf5e2bbfde5792201e6717"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1479
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-sol-6-1-r1",
@@ -100,50 +97,47 @@
     {
       "run_id": "ota-drive-sky130-luna-6-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "f816d903d46e8f187147af43b9e2f8193362526110e24d64b16d50601526d614",
       "files": {
-        "schematic.svg": "dd3bc7fe8ea018488b93078fb8742f9db756fd64e2e9004c258a40930f278565",
-        "project.icproj.json": "9d8762f9046a1bdfc290f22d2d40560e3f5a2c7c230c48e211f53ca3da68fafb",
+        "schematic.svg": "a23c78183396cb599b0688896895f1abfb689ef55eb763e0412ad6b882256813",
+        "project.icproj.json": "e7c502d32dcd5d962b20abf3151658b21a4fe9b38ad401dcdb1f2e933d948e58",
         "submitted.spice": "f816d903d46e8f187147af43b9e2f8193362526110e24d64b16d50601526d614",
         "exported.spice": "52c540957413106661cdf2ec23087a062144b673d04bc327e86dcf3c3749b393",
-        "verification.json": "daf1de1b12983ed61ee277ccbba560163592abccf278024b54587bb144c0633d"
+        "verification.json": "ee39dc85b3e31fe9715b03806179f7b66f24b2d8cc597261348cf76ffbb68109"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 967
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-sol-6-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "b1c34606fd2f9c7ff9e6b7be924cf54f79cb2ef89057659d11c9eac3ece8ee74",
       "files": {
-        "schematic.svg": "a43cd19b243c83584340b65a92d08a50eca004d922f794d89c3dcec8501eb1d7",
-        "project.icproj.json": "af8cce2ec95f187880c580d7d2936fc081ff9865d2942d3e9b4242d184a923a8",
+        "schematic.svg": "f6bc13494a2c674ab29e1428d028abd89c9b2fa6569a7714b16d7702a1cc2706",
+        "project.icproj.json": "b091a7715ff72debe666d4ab94be9dfda356fbd7a80a1b64214f0d01b41cf6de",
         "submitted.spice": "b1c34606fd2f9c7ff9e6b7be924cf54f79cb2ef89057659d11c9eac3ece8ee74",
         "exported.spice": "69949a3eed3d43a43d748675fb5a4c5b69ca21a8b4526c7e136c7e69f92e9c6f",
-        "verification.json": "1a09ff777c5dafc6e2dda24992efc3b228414bc737f44f0a3bb3e4eedbe4dc2f"
+        "verification.json": "6ab3964adb8fc7ae86b39bb3303dd26bc64bc7a754cefdc74d5bbc84184dadd5"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-deepseek-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0c8c73785a4ffccbe3b6cd9b2c5b618ffb2edd07529a90b6f92f2e9efa45f16d",
       "files": {
-        "schematic.svg": "4749a0673a6a461bbc7a183d27dcc47a8bbd0d09f06161c56a000a4efb985458",
-        "project.icproj.json": "59eb4030cde5a80d59c30c1cb214129bcea09f5f6ae4d0d133902b4ed11f1a16",
+        "schematic.svg": "c1032055fa2b6cc6ae79c51b0514cf135ac7e17c9b2f6aaebf790382e1366745",
+        "project.icproj.json": "01691b74e39e45ce24deec8a59c76dacf6735cd13d81cdbe8805bccc01dea8ed",
         "submitted.spice": "0c8c73785a4ffccbe3b6cd9b2c5b618ffb2edd07529a90b6f92f2e9efa45f16d",
         "exported.spice": "af1b63713c50a570656bbfc4ac2720d653efab8e9c53ad35e4e36c68032d208b",
-        "verification.json": "eb2ffe856a19e8053865bfa87a40f8f62b3a4571d10a968d2c2800aa67468003"
+        "verification.json": "2221b6ae337da06eb049d004cd87e39db320b0ce1196bb683a80e0dcc2794c7f"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-astra-r2",
@@ -178,114 +172,107 @@
     {
       "run_id": "ota-drive-sky130-opus-5-5-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4d87de80bed335ac7df1023f0a532b64346de6207bf4a25fa0ae2af830e04721",
       "files": {
-        "schematic.svg": "8241652cc962ce4413c7aaa2440fcf0a6256b66c80121fd9ca47c8c0c17a84c7",
-        "project.icproj.json": "0350245c31e8cd7bf17b8e41c796887f76d754d5b0ea8861e3767e5d83e637f2",
+        "schematic.svg": "e6332e77443e54cc329475ba4a3fad2e251f33a35548e6b0ae4325814972b5af",
+        "project.icproj.json": "fb79015ab9146d3abfc92e16dbd7b86c888cab683283de428c0136a3eeb9e460",
         "submitted.spice": "4d87de80bed335ac7df1023f0a532b64346de6207bf4a25fa0ae2af830e04721",
         "exported.spice": "db599934f24741364452603473e25f6fa9286f12971a4daa4adaccfccf2094bb",
-        "verification.json": "f1ec852355263bbaac16fcc1f66135f856123a2d30c662eb1d9c249a018e3d29"
+        "verification.json": "df061c37d9abfa608ac95218078aa45a5a61041fcebb4a63a22fa88a38baf313"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 960
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-opus-5-5-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "b1efbbc9bb0141a450991723f07ebe4ce42ea1a9317ea4e9ca24e020af13d2ee",
       "files": {
-        "schematic.svg": "d5f02e701a9069f23c4fa5a9193c33d078437875de7910aca3f865433415b03c",
-        "project.icproj.json": "c9822062d0efd75bd7658e42fbbbd897a2d4c9e731cd66aa437b0ce4a1a64da4",
+        "schematic.svg": "a69bb8ecc3dfa239630db2c4051e3deac71628e6d1f52518108321119961e530",
+        "project.icproj.json": "fd5571bb42783a60ef4df54d4211c53e42c59cae596997827344161e9ae32100",
         "submitted.spice": "b1efbbc9bb0141a450991723f07ebe4ce42ea1a9317ea4e9ca24e020af13d2ee",
         "exported.spice": "8dc40b3540e23a7eced77686757493f89e83b9c52af5ce18eb79eb3ec55cd21c",
-        "verification.json": "ecf551fe9d9919b1a9464ca86b17516372f6b96b27768a79d9e25846be5b855a"
+        "verification.json": "b4fcd5d912181148c7237746c15aed553a9bf6d410cc564b805ec17bf463fcfb"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1303
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-sonnet-5-5-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "5e157bc9cd85aa420a072e68e897f3a0bae11fe6fbb3b74a320a8a32f1b62074",
       "files": {
-        "schematic.svg": "e573c30782e9c05e4800d17ee0228b1c3b21fc918d70947d05a10a7e8dc442e0",
-        "project.icproj.json": "5437cce5b03d9de5c4c18845dcf9a54b0ce2985ea1cb61d0596191d2ed280695",
+        "schematic.svg": "4b192bddd933a02b82778e812247e3d241ff1c1fb4f63f8daad304cdf2a6c404",
+        "project.icproj.json": "99778fe01d14928022e79a68a5e036913e8baf60d7a8a0bcd50d0260214dcf0e",
         "submitted.spice": "5e157bc9cd85aa420a072e68e897f3a0bae11fe6fbb3b74a320a8a32f1b62074",
         "exported.spice": "716df9abf49c0c8d338bfb902c4e0f1fdbf5493c29d45aea9fda0c29bbf04a3b",
-        "verification.json": "bcbe0c4fdcbe02f18827eb9d9e550c712003c2907c13eeb80252713fa91a68a7"
+        "verification.json": "16140e732f247db251fcab1ba1569abcbfde5f145d5caa744aa33fc09b0dfd12"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-sonnet-5-5-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "880a148d0cf388eb34518922c3cd5a9bb07eab5bbdcc4de7e0c3d78f96c2ec40",
       "files": {
-        "schematic.svg": "1d79c7b72c51d79eaf10558ced7cc7870d48ef20f3a4425c235b63c7171d4bc4",
-        "project.icproj.json": "537eb412ca23b917dd5a7561404913192381935ecd228685420f204e64123b64",
+        "schematic.svg": "b83d423a86cdea5ccb4624228ac4c6467d35b18f97f3491550b7818b66d2cebd",
+        "project.icproj.json": "0c4705107425a59b0b562787387820500a299a9af9073854b8f93bb83f1f646d",
         "submitted.spice": "880a148d0cf388eb34518922c3cd5a9bb07eab5bbdcc4de7e0c3d78f96c2ec40",
         "exported.spice": "210bd5ff5584c23598710e793f10ed4c0c05b614e1615d1e66f376afece3cfe6",
-        "verification.json": "3801b0df31bb99fbb45589b8629c1462a379c08b3ef1c71e30ff433a261d0716"
+        "verification.json": "6a01ef776ca6d0e82d7c6b962cdcc7be8282c184dc991bbeaebc29933cb7a04c"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1304
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-sol-6-1-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4a2a805c92f1c595c8920dd73850064ade4349e84e5a3c3d83d59fccae6b4abc",
       "files": {
-        "schematic.svg": "5da85d97c44f3920f84cd85fe507c1772f3203945da1b875fa31f4733750ab3b",
-        "project.icproj.json": "59092a5cdc8fd8d734d18bf4cec505570bf4822d5ac25f2a959b8f36b9ebb8dc",
+        "schematic.svg": "274055abe481d8976bfc698f4535b6bd9ed123ee6ca3e5b1d0a6a22a49427758",
+        "project.icproj.json": "dbb53b487ee1266bebd4f6234031990977d8c06581f5964d10a042ff063a6eab",
         "submitted.spice": "4a2a805c92f1c595c8920dd73850064ade4349e84e5a3c3d83d59fccae6b4abc",
         "exported.spice": "46eaa1ba695849d79882e4e160dabe36a68653cf22649d41b8321c8bcc7d94e6",
-        "verification.json": "430a507f7287780900cca421c5bf2611d5a190fad86350780284beb89b10e6bf"
+        "verification.json": "cc5efad275d9199e3bdc4c071cac8418be79d92e54f47a5e1593bd4d771ceee1"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-sol-6-1-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "ddf04048587d175c592e9ea1d8dff24994679b2afccf666ff9c7b65c7eea4712",
       "files": {
-        "schematic.svg": "068ed6cbd7c531dbd723e08ecce1742e8d5c967687119c21f0abb39008e3e74e",
-        "project.icproj.json": "1ed965f57e8181b6099a99cb785668ab5caddb11dbfdeb1b4c91d6c0f1123368",
+        "schematic.svg": "18767f4cb5cc49fb479de003bcc44c6689fd60762cc4a4316eb645ac458e0249",
+        "project.icproj.json": "63e4110d82cdd101ebaa72a9ac20ff0046cb0b1fdaf9e6d686fdda5f5385ebd5",
         "submitted.spice": "ddf04048587d175c592e9ea1d8dff24994679b2afccf666ff9c7b65c7eea4712",
         "exported.spice": "0d4960a47e1da04c5225f8401dec760144b24adf4aa1705b8333d2f1dfd7a771",
-        "verification.json": "2ba7b22d6e9e7240d24cbd165f258652ff006740c6ddbefb1b10927de57d5760"
+        "verification.json": "b7bd719fecec1edd58c901fdc7917b5a02f1f85fa9bcefe317d1ec0907f9a58a"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-luna-6-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "8de3b79376fe92dc73a0ebcfa7d690532af04ac1cca66e342ed25c43ba07aa35",
       "files": {
-        "schematic.svg": "034c18e2fd57a54fc44a267dd64bca2fb6bd549a3a2fb1df2b9f9fbcd5599804",
-        "project.icproj.json": "014a957c84e9684ec72f47edccb928f8963b4c1ee7df9c2516c9a3e2d6b5f746",
+        "schematic.svg": "92b981a46e831fe2215f213415145898c3e776b9c608bf76a6002bd5d5f51168",
+        "project.icproj.json": "104731a8d5396fb8dd35ab3d8e6ecfa57da04a10b9fdbea1b3c7f958f20310c6",
         "submitted.spice": "8de3b79376fe92dc73a0ebcfa7d690532af04ac1cca66e342ed25c43ba07aa35",
         "exported.spice": "1bbb32ab4983e521bb0dfcd17496d60c41567bfbe2d29ecdcf226ec9e7a82124",
-        "verification.json": "9bc8bb428d85c5f5627e697f113209103ad48a1d2df0c238bcf37c4f134b349c"
+        "verification.json": "ddb3fe660f812671743d630ddce35e1170fd1251180f6ed9faae265ba20a1f5f"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1221
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-luna-6-r3",
@@ -305,18 +292,17 @@
     {
       "run_id": "ota-drive-sky130-sol-6-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "779b24d3ba5eef213d7fbab2d7f4d96ed17e8ff119ee5786c508c1d62448236b",
       "files": {
-        "schematic.svg": "69e40c30542b4ecefa650ae6ef96be660477250564ed192a4d84886b1215a6e9",
-        "project.icproj.json": "6b1c7943dcf5430e937fa1b6c359848e7529224f176ec4d2663ee5f2bb6f34cd",
+        "schematic.svg": "474c8a9057f8441e5f95c7046b37af02cd50940c2b7cdfcefb7d44eeedd6b0b4",
+        "project.icproj.json": "975a4180fcb85ef1c26544c798519ca4af959b43e1a04ab6da13f687a20fba75",
         "submitted.spice": "779b24d3ba5eef213d7fbab2d7f4d96ed17e8ff119ee5786c508c1d62448236b",
         "exported.spice": "93d64ba5289dfb72071fa83c19a14f6c4c2ed78e4ee9b046944517cd30cb7d9b",
-        "verification.json": "8602e9945a0eea08a4a7797b025b4d8c175d544aa04a34b7e7af0765460f111c"
+        "verification.json": "6314d2dca999037d78da69259aceb4785921cb762c958097abfb5321d248661b"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-sol-6-r3",
@@ -336,34 +322,32 @@
     {
       "run_id": "ota-drive-sky130-deepseek-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "128179008604a5c96fbebd54376a17bfef2506124c330c62f29a617ed0ba2611",
       "files": {
-        "schematic.svg": "dfdd765e928d199fc1fbed280afdeb01d5cc09c81bdb97c0853edc5dedcd0cc7",
-        "project.icproj.json": "bda98e11007a4273e550e758621e1e072c27ecc8f96a49cac3534233165f153d",
+        "schematic.svg": "5ba223279d8eb5132089d2587252120adeb1e2a29ce44f27d803ffab6c183e60",
+        "project.icproj.json": "f009cb0d5c21f86f9c8fb2e623acdb62482cf7f32f174641cb68557410e20667",
         "submitted.spice": "128179008604a5c96fbebd54376a17bfef2506124c330c62f29a617ed0ba2611",
         "exported.spice": "446ade3b7eb1d82cba030628fd806907b46cf007e7fb348b905ac10802ab73a3",
-        "verification.json": "4eadd8689548fd7edf1f2fdc4317b0e7399900718fdd2704e992297e46156fa3"
+        "verification.json": "33a6d87a33d9d41db6310e12d6f974662cb3c86ca986c1d6457cc137c8e90c8a"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 943
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-deepseek-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0e470a2cdd3dd289f4b87c3155ac03bcda6975490439e3f0b97f4641de84350c",
       "files": {
-        "schematic.svg": "99d0af95863fbc5bae1bd554b7a44e4f4cc88c47e8a9ba4f4c379b474c72eff7",
-        "project.icproj.json": "d0b5f9cf319b0bf9221fdc917a21ebb2bb758b920dd2efa8d3c34ff2b5794e3e",
+        "schematic.svg": "5b1473c0f2ae019489c87f0ddfe3b5d08b67b6e148479b79de8c1f566a1b3644",
+        "project.icproj.json": "10d4f20a125ee4194e64e1c60b52128a661b7092b0a9971ac288b6ffa7044eff",
         "submitted.spice": "0e470a2cdd3dd289f4b87c3155ac03bcda6975490439e3f0b97f4641de84350c",
         "exported.spice": "27e0c593aae74e6bb46d1eec374ebae41ff39ea0928fc3ad75c202f5b9a969a1",
-        "verification.json": "18d80b8a7dcde659cbf0c82ec3175cf70ae75d7695fc7bba972535e6ad0ef840"
+        "verification.json": "5970dceb4e5a064bb6541d20d01eee0d6801239a33729b0ab84dfb8d056910a4"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-drive-sky130-haiku-r1",
@@ -1118,274 +1102,257 @@
     {
       "run_id": "ota-precision-sky130-opus-5-5-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "9125be74bf9dfe1326f99c52ea38aa2540c6445ad2c2860268f38164570d4276",
       "files": {
-        "schematic.svg": "2eded0278ea8b6ab6ab9a53871b7d815a05e580129e22180be53ade999fd15eb",
-        "project.icproj.json": "023c037d30875212a85748f80e76a3bdcffa9a13bb3badeb4f9fdb32031ae380",
+        "schematic.svg": "507f2a33d1de595501a9f853cd19c22a407be95859f08e311f97f259d6b0b4eb",
+        "project.icproj.json": "72b5d45d7d6d8e0b0994c323935601067664b7ae4bb51cfa680adbd761a747c8",
         "submitted.spice": "9125be74bf9dfe1326f99c52ea38aa2540c6445ad2c2860268f38164570d4276",
         "exported.spice": "09a2efaa7986bd04a5cbc4557f03bf45b60feb36f9d2d45374ac689366728085",
-        "verification.json": "7e7c6ac52ab66340bdf66aaf309639d5670f190bf3b674538a009c38eab74e26"
+        "verification.json": "b85b1b3e8d7ed3a89b1812cc77f6e6f866bded90ac7247f435f790633c6ccada"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 949
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-astra-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "86a6b4bba5bd0116d4fe964d1f681f5adf0d7538fc1f4eb125f3f840151ad458",
       "files": {
-        "schematic.svg": "294210edc01d03cae3b7650378157cb9a102b4b8b2027220fe39bddf285de30f",
-        "project.icproj.json": "6413160bddd4bb75dd131dc0df30d6f2e7dd2c00e5293bbea7e054e960978166",
+        "schematic.svg": "132d93564cb1969e309d59be713e340e010aa888e14a2a3fcb34138d11235740",
+        "project.icproj.json": "d60f03ba0386a05910fc6f97d4de807a6ca49c80abf601d481f3577ab46ab830",
         "submitted.spice": "86a6b4bba5bd0116d4fe964d1f681f5adf0d7538fc1f4eb125f3f840151ad458",
         "exported.spice": "ee7106429154814d95183fbd3358d3e5f141e581f8f302ce8cad846921c621c8",
-        "verification.json": "46cf0267f390d78926cec4206aac21993078f3c1c9a3f6ec41d34c116eea8153"
+        "verification.json": "e6dd57ef481dc6924a8c06e41f2d75ff1e8b8230ff8e08d04abb6fb60cf149db"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1319
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sonnet-5-5-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "25e5df8f2078a218db099d676da0f5d43516200e8a781f61c1ac903d4dcc4a4b",
       "files": {
-        "schematic.svg": "d9b1b2d81b75158c2c223a3014631c0827b61951d255fb3000976acb74d74c2a",
-        "project.icproj.json": "fdf83c7e293b376e528864dfe6f80dbbe38e0af7033b6db69d4b116d5520e8d9",
+        "schematic.svg": "e9775ad01f259c1aa4a6b834e47d60ac8355e36c4ff18b8d5d6a2275943de4e9",
+        "project.icproj.json": "7f963d176b99babc04520de46c289bc0b6870834d33ff5146a5f2013cd1befab",
         "submitted.spice": "25e5df8f2078a218db099d676da0f5d43516200e8a781f61c1ac903d4dcc4a4b",
         "exported.spice": "6799adf274f582d735db8bd9d70bf1d9989338979c7e5bbd25a0e6dc5a7aec15",
-        "verification.json": "562d5f1205d472deac16ea415398b8a7d89665eef7b55f703ba7cdc0e04ae2c3"
+        "verification.json": "2f2b68cdd6d52026db4f1dde3bae69b4a9cee25f0a70a5f6086963792686c647"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1304
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sol-6-1-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "719ae2e205cc62b0741bb5f4d728f3ab07fe03d2330f63fb73b34e356245b1de",
       "files": {
-        "schematic.svg": "0df82ee890685e076960a33d96e3406b8a54db737764135160251925c0f2d68d",
-        "project.icproj.json": "88fdfe0b91f74a3f87202f066f5039e23465456fffbb9c4324e3a65e5a1d8e55",
+        "schematic.svg": "35b915565875bc0b4215b30bf075562b731f88271fa65224ea6d7227f3ec29aa",
+        "project.icproj.json": "7e89f0a22771fea91499433a883b3c3a94177b67e27cf99a68187ffcd18dabd8",
         "submitted.spice": "719ae2e205cc62b0741bb5f4d728f3ab07fe03d2330f63fb73b34e356245b1de",
         "exported.spice": "1e5032372630ef6ae836eba80c3bc0fe9ed9c1a34078fa91219f3fbdaf337614",
-        "verification.json": "bafc041453c2a7dfc8159cb38aeb404e17dec2a551e992059352ac22e9b83008"
+        "verification.json": "fba61cd9fb432989acfef5bfcc6ffb2733a105f26a7789f76c9009f42f5d79cc"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-luna-6-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0e4dbcb8a374da0dda0c4e0b5fe347f847c1866efe5baa6b9784f8e3af705d68",
       "files": {
-        "schematic.svg": "c050cf2e83f913f2d88ca5a1c29375f4f30edcec508f5c2c1ac8fe328d387fa7",
-        "project.icproj.json": "cb8baa330cb88213a1c6a7645523c80fcaffb66620eb512863a2d0b8f118c221",
+        "schematic.svg": "573d1c5de8711e9f426834c9bd57dd479b8ec1c5390af42dc310b742a8081ad7",
+        "project.icproj.json": "4ec9e314ebb63697ffb876b8043c99a6ef637c3d9daa3f420941fdff0744ced8",
         "submitted.spice": "0e4dbcb8a374da0dda0c4e0b5fe347f847c1866efe5baa6b9784f8e3af705d68",
         "exported.spice": "089226d20b481ca2471cdf8fad120ad3a65524227095d957ca19fe81c7910ce9",
-        "verification.json": "fe9e01b306fc51bcf636403fa6ea2eb651140704f0bdddcb8c27690e181c6aeb"
+        "verification.json": "f00ba6d009ebd1a0b7b843ddcaa4b947907aaef348a05079361153ccb4d69b93"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sol-6-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "ed1917b53be6330bcb5f1fd91402243e9c07652361144b528070800b5c27302d",
       "files": {
-        "schematic.svg": "1d36cb9a0f8f00d557c9f6f42b9b2b727e41ed60d31896b612420597675d8fe3",
-        "project.icproj.json": "afdb0f90027037faeec138381f24625c52fac0f2757bcf826cca92283baef675",
+        "schematic.svg": "7abc3539cc1acdde10e3e9d573b74a73a715ab9a66c082649a34ffc8ed2f3bab",
+        "project.icproj.json": "728ba20d47db64eb3f979d5bf7db7792af680fb7a1186549bf3b62d5a0788370",
         "submitted.spice": "ed1917b53be6330bcb5f1fd91402243e9c07652361144b528070800b5c27302d",
         "exported.spice": "bf568053216a7032bbf776027d6c5e5e2202006ac2982a75a27976f0a40e5307",
-        "verification.json": "d99f43059a13411434ca93e9a22ff0f6f0f29a2c2a75880fe216a781684f941d"
+        "verification.json": "9c1b4d34b868d87f61a1e10a80e937210e711087c6235159906b246312b33fba"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-deepseek-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "b3902d50f0d24e0f8fc1aa4b5b97fb42d5e4ed419481c4a4dfa54a03f6ecc16f",
       "files": {
-        "schematic.svg": "ed22c96143c90bdff716b614040360630c7626564e10b11558fb18e8ffdef486",
-        "project.icproj.json": "e5d8665e41eabf4565b3735ed4f82ceb7b3d77113c99c5475849ad8d06a8c6e8",
+        "schematic.svg": "399233d2abc3fb83c0b54ed5f91cf7f2ace08e399e73f16462e420d9083bb249",
+        "project.icproj.json": "66e0e4c3888ba8fd60762aebe02c072eda568719340c4045f40784599d863ddb",
         "submitted.spice": "b3902d50f0d24e0f8fc1aa4b5b97fb42d5e4ed419481c4a4dfa54a03f6ecc16f",
         "exported.spice": "f08a4441b4a3f56dcfa1553ce57972ebb60540f7afad4ead54b085ef11874527",
-        "verification.json": "5a97a762f4c992eb9c7d9fa2fdf8f042e5404dd542b6bfc56161a5b98ef815c5"
+        "verification.json": "68bef01086d281bd3699e12366295a949ecbb943b76cb6cd2eea93915b6d980c"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 948
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-astra-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "27d96f623117934758e3b66fc72ae4d09b2f6b5cf974b2b2fb193c0b8edad3d4",
       "files": {
-        "schematic.svg": "4022cb2e903c1692b714a8e29cd0a213a95125299e06bc53d35902061a73c529",
-        "project.icproj.json": "e4501c9b8211d9defb4fe7bbdd15f1498d95afbe09c4714e7a3153ecc863349d",
+        "schematic.svg": "dc1832b415c0eb55e63992e265c0da2ab5c951242f9be3e3111490e755882268",
+        "project.icproj.json": "398052b266f0d2ffe0e66ee10f28e677280c46acf6e716eafbda53338f417245",
         "submitted.spice": "27d96f623117934758e3b66fc72ae4d09b2f6b5cf974b2b2fb193c0b8edad3d4",
         "exported.spice": "ac82259cac9d142b17f62325405b6c74859d49469a370926472f9451b3d7cd2c",
-        "verification.json": "9fdc223e87e26a4515bbcecdb59ce45d6fb1c47e313ba30ebaf2ec899a25e6a0"
+        "verification.json": "16d51bdeec79d64a9806126e910a7457e7f6545fbb5dcc501d990471b953961c"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1305
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-astra-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0149a1f8f41830e293da91448c3b8d2ee3a6384618cc753ebe943772b29b6fb0",
       "files": {
-        "schematic.svg": "41741da7f2bbadad56406090dc2b3d109f3c0784f831c515e17856bd2f339fbf",
-        "project.icproj.json": "fe50b65b15c8d6ed55254a9c849eeb007a44b1df73c81d74eece7fab07f98561",
+        "schematic.svg": "7f82b2ebb8fc7e1074325f2a04709cce784eddfbba721b4ffca92c11d05d1554",
+        "project.icproj.json": "8c71f7a53f6dadebdee5be118933ba4ce02cfad9449a10df6f2938b74a5cd446",
         "submitted.spice": "0149a1f8f41830e293da91448c3b8d2ee3a6384618cc753ebe943772b29b6fb0",
         "exported.spice": "f83ce0999797c333165367fbc461dc700debaf757b5466a6030b903cf49bd67e",
-        "verification.json": "6444de58d4e0acf87645a371f014bfb5d014670d09d4553e7c8b3cd55d4da8a7"
+        "verification.json": "67a40b44ed65e9d1b7942276cf84d371aaa8af5dd8b19a2f459b30dfe13fd13a"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1129
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-opus-5-5-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0b962601813a1e3eb3564a5e503daf91d1e78f7b6324c85dc85c71883ff68fbb",
       "files": {
-        "schematic.svg": "3e1d40d4f6a6ffb2225a02e7c7155852978e6ec197a0776c18dea5a8aabe82c3",
-        "project.icproj.json": "41ae35a42ff58224879f0035e47f9253ccab3d6920ee58ce62e127dd9b7908c2",
+        "schematic.svg": "1b62e8f8b548f44dbd6d04676a64422334aa28556104abf56cd3f09601f32ab0",
+        "project.icproj.json": "13e02ecc5a8ab7d696b34a940b6087b68ecc22c11edd1a56e6470af8e6483fc4",
         "submitted.spice": "0b962601813a1e3eb3564a5e503daf91d1e78f7b6324c85dc85c71883ff68fbb",
         "exported.spice": "5e54e9738c9bece9f1042e292af130f42bea5d8341bddb54838c2cf0f2b1c37f",
-        "verification.json": "4b2bcd696b6cfa0cee84190c95fa29225b2cdd6a31761815793aa8c1443883df"
+        "verification.json": "437bd4024b9bb3c5c1d2926a60d48b91f12baa52356c6246f593a1038d19b0f8"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1480
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-opus-5-5-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "1e0f6eac7a8466e3c0000219a36f97106080b0b2751b6af72bd2e1cfa1d1ae3f",
       "files": {
-        "schematic.svg": "f8f3b7673bd30980e768ef67283e32bcb0427c03ca189ef6477db6cd41538909",
-        "project.icproj.json": "af47df59a95a3ef2d3aaa70b2ebccdc9051b7b134693ba7d82d7bca68905ef7b",
+        "schematic.svg": "522e33de7abca5d657168e559c1d7d987874fae26028c291b43d157c7d8429cc",
+        "project.icproj.json": "a2cde3cac87a23ca00df68eb00e19e29ba24c68fd64ebc44e993d610d48c6197",
         "submitted.spice": "1e0f6eac7a8466e3c0000219a36f97106080b0b2751b6af72bd2e1cfa1d1ae3f",
         "exported.spice": "d77b623cd16651e211bf7d0835a48cb620e5cbb79aee0998e6607b69bb1e7295",
-        "verification.json": "8293a5d39934826baf7d78b84f3a1d77123959c0a47d2b98f07988981c0879ab"
+        "verification.json": "4e514bac29a2e81b6c5fbcc3e695a7c130e4e0b50d8b6940502799ea90b5e4af"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1127
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sonnet-5-5-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
       "files": {
-        "schematic.svg": "8c607fd00fa3ad1bb040240f005e5763a5b0da444642076c260f06679b9ccf39",
-        "project.icproj.json": "cc016a78ea0c328362a58897a1107272017d3d351f945d0eeae0c0f77ad8aa8c",
+        "schematic.svg": "e28b130da3fc01a09ebfc78a03f518ad021cb9bf5006d6381b08d33813f49798",
+        "project.icproj.json": "6ee3ba59c5ffdc24a3b495943e36dfc9a81a5663cfc0c18ca3eaac16de23e328",
         "submitted.spice": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
         "exported.spice": "c97e05f339f6be39bd11ef7e6822a6bfce84a0bdd72cbb614f848267bac5d2ac",
-        "verification.json": "0eb623f348092e76588e42d541a26b5ac85bdc84d7380b05793b72f1271c44b8"
+        "verification.json": "7b4d7e3869e27af07539e21467ac119e77c086d7250c798c111ef929cde6df17"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sonnet-5-5-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "10de5a3d6b74ae31480e47f00aaec48a9102160f65a9de2fc7794fc8d487e568",
       "files": {
-        "schematic.svg": "dac54445db294d86e2dbae3bc7dd9b0f54d68eda4c56684801e90949d654c803",
-        "project.icproj.json": "68bee240130c26a725aa99b9e30179080a520aa687343f8c66f037ee4f1b0b68",
+        "schematic.svg": "590df67a8832935c81c7bc4b7d41f75628de36717e6a92e20f12301718b15127",
+        "project.icproj.json": "8b4a6a0de58c00faca1e4cc463d534365b5e46670ab494e0244fc393011bd46d",
         "submitted.spice": "10de5a3d6b74ae31480e47f00aaec48a9102160f65a9de2fc7794fc8d487e568",
         "exported.spice": "377355a4df3dc82bcccbecbb8eab16d22d9a1104d626a2d16104e37a51146058",
-        "verification.json": "90a9505b2542e3e1423ce91e17f2fc37ac4c1bc287e76a2c5a79b4f848709b2c"
+        "verification.json": "e9f4c8fa20d0b54f2ce578b3c2212f5deca857c836b921205ad541952dcf8efc"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1306
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sol-6-1-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "7aa1c7e58caadc952317fa1e80f4a310989d8e8e520c0e0776562898f38636db",
       "files": {
-        "schematic.svg": "7170184b6da06d350c1930ed222b5e40fad9ec2093e1a95afe070176973662fa",
-        "project.icproj.json": "01eff68cb1acbdb21a7281d830903ac86060a376c818bb7cae5c034b9abbb277",
+        "schematic.svg": "54d0265ca8d177daa830375ea9dbbd42802ab1005b7d1ca6daee8969aa88c5f5",
+        "project.icproj.json": "1fe55605bb2e7167ec8cd88d91041d636ea6cf26a1491a4fe90a8600b042ab4f",
         "submitted.spice": "7aa1c7e58caadc952317fa1e80f4a310989d8e8e520c0e0776562898f38636db",
         "exported.spice": "36704560e5d0c62b262f624e560358e94590887ead918fbae7e47b79f5ea8d91",
-        "verification.json": "e8e38e31058fc550df6cdb9193abbb21020ad5261dcd23b00e7b2bd6245164e2"
+        "verification.json": "6e0493e0603da5e35f00fbff5768e1cce0cd8a03639d520daf5740ee10554616"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1128
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sol-6-1-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "7f64f5d0750caacbb664ec988b29b07aa15a956e440f284e91164d1107d2a3ab",
       "files": {
-        "schematic.svg": "c7d571e65c66107e8730de93ca77c201f404cb633c827e168c589cab8ddc728a",
-        "project.icproj.json": "892c26d3a9c669b467d5d2a3257915b993c32d91c739819170b4ef434c96703f",
+        "schematic.svg": "ecacacd466f27fa3cb0995810b58cab51117f581cef36648d32394236e9aae75",
+        "project.icproj.json": "43f4e02b0333dcc457071fe97d4a834100ec5be739dd84d2bbce3b13716ea07c",
         "submitted.spice": "7f64f5d0750caacbb664ec988b29b07aa15a956e440f284e91164d1107d2a3ab",
         "exported.spice": "064d53dfcce9938e18c8666485da52dd734cd1c8eb6a6aae1925f5562753bf2e",
-        "verification.json": "a3cdde8678f2f3a63e154bac0d32b8f1ca92b9f3aa50c9d3145dfc8f7514f084"
+        "verification.json": "cea8b72a5664f5d81290e0cbad500a55d804411c4e6108a0553ea05237466666"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1120
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-luna-6-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "5322f6d1f71b99eb453a4ed0f10e112d5b371b7f477313f54ec43ce079264068",
       "files": {
-        "schematic.svg": "a8546dd90fdf1829724728d253dbebc85d386a25e4dcf738ff616dc456dc8d5a",
-        "project.icproj.json": "00c134f58922b2b105aa01173bc6553f7f9f33d2f6d95569419a1d4f9b91293c",
+        "schematic.svg": "f38cc5d05caa6704925c390958e3d054addc039a684880a65eb11bb11ca85097",
+        "project.icproj.json": "643533c35cd5d6bbaf6604c69364eec5628bcf729704b98da9281a49f4bdc8f3",
         "submitted.spice": "5322f6d1f71b99eb453a4ed0f10e112d5b371b7f477313f54ec43ce079264068",
         "exported.spice": "4f626ce1241a077cea99892f3c59a2364d157d909c123ae6449113eb9a491254",
-        "verification.json": "95f115fb8606472324c45f99c04d051a1f5941dba0c0ff3cc726a02ab7e6b44a"
+        "verification.json": "68a72182995ebba15b896f6b20e90ee3eee8c4f5d8dc1f2d1df0937767ba452f"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-luna-6-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "551ddaf9d95d0811c20f2f462fb624490c8d6c41558efc3143cd964f25f589bb",
       "files": {
-        "schematic.svg": "76846b20dd441d7d4f1f4bb45fb39893b672d114e3a2a56c0d9e6b0cc0affdcb",
-        "project.icproj.json": "e528fd23bc568d4d9e5a9389c182307f90dabe2bd11819da48db1a0469a073a6",
+        "schematic.svg": "3e1344d8d111231bc761d1b2dc7f25f4c1975ad86f6c79c2884cdf978ab763ac",
+        "project.icproj.json": "4e53308bb6a602d261cd37d193da762a0840772d555f2f1b7d61f6eaeb28ec6c",
         "submitted.spice": "551ddaf9d95d0811c20f2f462fb624490c8d6c41558efc3143cd964f25f589bb",
         "exported.spice": "6293411d6660e0687e691abd9b944f17b0d328dc9b8ff1a9364e7f7919947c5c",
-        "verification.json": "9f6204018884b5b0ad5ab9d0db12a30ee83e017ae3c6deae25193fd31cc0b8f6"
+        "verification.json": "be91bda62cf1ceddd963554a47e2d02d60dffdf955570d09c45520009077cc65"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-deepseek-r2",
@@ -1405,50 +1372,47 @@
     {
       "run_id": "ota-precision-sky130-deepseek-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "c5868578e7fb8de136efdba7c2adf5e803e6e0680cda6b6a5300dbc5a1a8bf5b",
       "files": {
-        "schematic.svg": "030f0e800deb0afa76523aa17b62a6335b95906a3e015c37b3838f78447d2aee",
-        "project.icproj.json": "2e957022172979281364dc35496bf9fb6a891ec430a51cf33959e5e8876bd952",
+        "schematic.svg": "d2d66f8d0425ecef4c949a7b87e0cdf889501eb67f588b6a4da4702a40b85f3b",
+        "project.icproj.json": "f182b454e516aced4cf9042ca385a4e4450bd9fc9b98fc3f054a4cdcf6b5c1ee",
         "submitted.spice": "c5868578e7fb8de136efdba7c2adf5e803e6e0680cda6b6a5300dbc5a1a8bf5b",
         "exported.spice": "2e95a0fbcda7c5932737dd6861796a717d16bef35f3bccfb71198042990ca391",
-        "verification.json": "39048f00733e4bab13eab6924748b1779a8586d326b9d283360a0f09044d72c1"
+        "verification.json": "c81d78e0b3cc9a71a1c2aa3eab9a4d8a1f10ee28021c483e0068c0b4a01ec325"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sol-6-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0682bbb4d95981353ee1af96504512618d88460b19d124253134c1d32e4a77bf",
       "files": {
-        "schematic.svg": "c54e5042df8e66d78a8d28af7cb8dab46155e37cc64efc72336a0f1df8033112",
-        "project.icproj.json": "60de7b5bff15442e6a94c8df8b7e80469bba256cab4409bafea0a78e0133fc5d",
+        "schematic.svg": "e7b122363055581656a10c7a4376edbd954e226ae7f2b480d2622eee3bb3afef",
+        "project.icproj.json": "271a1684cef1f3514a74a5f863523e8431e46a696c1dd1339bc6f2d20ed78233",
         "submitted.spice": "0682bbb4d95981353ee1af96504512618d88460b19d124253134c1d32e4a77bf",
         "exported.spice": "0a65720a3a0f773632c126e2ce5f7b56749546183d6470cfbf6cb6fc51e1c9b8",
-        "verification.json": "8f80ce09487f13081754b253118571cd7be99d1c8cc6fb62b690cf08ffd84e07"
+        "verification.json": "0e467f5185ca7473ad5676e792a34511698e5b521a0730df8dd484e1a7648d87"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sol-6-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "ba56d8f2b25cf5bddb7a31cdbe13e20a87d82736411a2a7632c6582e487e41da",
       "files": {
-        "schematic.svg": "1d47729d2ea76ad7e586e868d00a22622de37614df8ac06244eaa53544b5bedd",
-        "project.icproj.json": "ba244afd235218f9a951f32130ee4bfca4952b845ac6aa44a78522904052305c",
+        "schematic.svg": "1426077b0d64c17dd253f5171801e080cc006b60188c71b8d5cf425cb81d2076",
+        "project.icproj.json": "9d981cf84afe6b7b2132ea4a0b56c5fc81385a5333fc2a68271e09188c2d5386",
         "submitted.spice": "ba56d8f2b25cf5bddb7a31cdbe13e20a87d82736411a2a7632c6582e487e41da",
         "exported.spice": "afb32687414bab0a35c5114290f8d3ad86c238cc269acf41ee3785b4264a8b30",
-        "verification.json": "3af2238a350d101ef42863e1dbb9bdd8ec1041b620c31cbde4cbbc37f0a72f8f"
+        "verification.json": "4ea791c26c67681294b6df5b702637762dbce96d77d9a73346bd6532a90ef997"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-haiku-r1",
@@ -1498,402 +1462,377 @@
     {
       "run_id": "ota-wide-sky130-opus-5-5-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "dc21891ea51a9fbceb247bd7ec55d8fa51e1ccc439e097021378b3c6701aa329",
       "files": {
-        "schematic.svg": "52f4614918ce106651782ae61e3b11b14a33c9a417c38463237afbf483b0aca5",
-        "project.icproj.json": "7cdbefc2ff95641efce0fc093107021b564ca0347afc3f5cd2f4ab30d4fc39ca",
+        "schematic.svg": "599f806ad4079b92ed0e5cb80acbdd87b053382c8c0c61d79f52a7b0b64f5c7d",
+        "project.icproj.json": "204fd96a7958d11f8aaa3f6d1c7a9f5bdd8520564eaa5d6925529f9f274ff8bd",
         "submitted.spice": "dc21891ea51a9fbceb247bd7ec55d8fa51e1ccc439e097021378b3c6701aa329",
         "exported.spice": "429378c82cd90b2e8aef7c69661ceaf21fa437cd1eb37fa75aa2681bf980cbb8",
-        "verification.json": "61ea33acc34391adec31143a9d8ee55fdb3c4b294c7d5272ee8f2ecaaa8910b6"
+        "verification.json": "0e281a49daddddf0dc8e7f35cd5d6c62c6bec2eac4688bfdefee98631c0e5950"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 2064
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-astra-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "fb5c99ecd0dbaadf40bc847db21e642ff7014934f58e86ca0dfa0c4c16eb58bf",
       "files": {
-        "schematic.svg": "3a6038d192b97e16f6f1cc25d27653f3edd4ff36acefb1eac0c9e9c8e5c21bfb",
-        "project.icproj.json": "ed0c60a12d08b8a4666b2a499137ef217c6c72aec2140e24c568e788fdd1a019",
+        "schematic.svg": "9678ddb57b924880f40200eb8f7fab361aa50f153c7c45d23aa3c203c370d3ef",
+        "project.icproj.json": "6337ff5a377fb6b845d07f83a8b59409c971aade66c5276a1f48809aa0b8475e",
         "submitted.spice": "fb5c99ecd0dbaadf40bc847db21e642ff7014934f58e86ca0dfa0c4c16eb58bf",
         "exported.spice": "b76b5eaf8f2569244b6429528cec72188d8ba4dae513830b9bfd7c99450e0525",
-        "verification.json": "e583d04a549c75faab6bf3cacb2f192144937bdfe9e7b2a07dfa81604ba3e343"
+        "verification.json": "b04b4d7b378a3db5e72480bcb501297ff0ce889e29ce1435ebe33821edf1d7c9"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1295
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-sonnet-5-5-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "df36c5a00114936aca3bdaeaeb9c2f4ca49daec5ece44f0b4fef9da53026475c",
       "files": {
-        "schematic.svg": "f52447e604dda146422f6a5e80743ec0ab9fb7973c131d29776b67f4ffbc8f99",
-        "project.icproj.json": "61f44e8d30beeaee15638a9aa342a213873a841eec4becfb1a6b69aa27864819",
+        "schematic.svg": "66f814d62955b3fe8c1eb25d64ad03e883a11763cfa381827dc47087d8202257",
+        "project.icproj.json": "88fefd1c36e5fb23b4f5d11b75b244eb1e76ffb3b40482deae6d676771d2fb7c",
         "submitted.spice": "df36c5a00114936aca3bdaeaeb9c2f4ca49daec5ece44f0b4fef9da53026475c",
         "exported.spice": "b2bd412b5ea1dfd1628dc54f3d9d05ad2cab1a86c8d3636892fca8a7b89e773d",
-        "verification.json": "7bc52b908478b4bbba06aa18f5129bf9da00867442d619b8a41735f6f7a6b6d6"
+        "verification.json": "4cdd7a4fef476f68f9f53413963ebc2f937bef3e60e3e7e11ba463ae12e2f463"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 2072
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-sol-6-1-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "03537d1719d3d8ef19cba89840c4e79936656a9dbc1d01969e8fea447885f96c",
       "files": {
-        "schematic.svg": "f56adf8a2375c88d793896b0afe1e51476c1e55def4121ed8921445449cbabbf",
-        "project.icproj.json": "df19a0a8a15acdc621cdfad278df0676967eb1578681e117f4a755aa63c125b8",
+        "schematic.svg": "e9a862c5fab259b8b28e2c2a65162ca4d4cebcb25f64a61f3583d132d478ad97",
+        "project.icproj.json": "b95349c8e1071ff6b2484eb96da560c7c332eaf8382a88658b98411cf473ff39",
         "submitted.spice": "03537d1719d3d8ef19cba89840c4e79936656a9dbc1d01969e8fea447885f96c",
         "exported.spice": "ce9e65fde49f57c8023804563a71df7d3e3f07cec272098ef5122311b0999b27",
-        "verification.json": "43780156598feb7fc21206de3c69a00df66bb73d527e9206633a9ec9fb1786f5"
+        "verification.json": "790dfeffc6470c32f46ace1c0add93f07555aa7ff530afc50e9c21db288ed095"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1294
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-luna-6-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "cad506a938aef40d4451de759537d7fd5359ab2ea13af7eea34df6959b2681a0",
       "files": {
-        "schematic.svg": "994762e6c7027c4df18b37facafa27d7ad06e730b27682482b113de7d9b79ae5",
-        "project.icproj.json": "b1c5f5f0a5a1c306fd540bbd5901cca42606e8a5adad9a6a713c26c10b380450",
+        "schematic.svg": "e19f48ec6dcfacccfceea3c41c3799c871d6690a917d9bd55cb1295125375055",
+        "project.icproj.json": "7e60c898e3275185c998fc90acd241defd2b407cf004b752cdc9ddd7c641b773",
         "submitted.spice": "cad506a938aef40d4451de759537d7fd5359ab2ea13af7eea34df6959b2681a0",
         "exported.spice": "2dea48d195a8436f709251fecf64a4de5d518443eebdf05dabf6adda3d0df17d",
-        "verification.json": "f7113a6a53e3a0bc135c0896bef95c73fad6d1b3cc48ff9f248a0b2d18b3590d"
+        "verification.json": "f318fccf343567814a57e0390ef93dd3ffe5256df474486c10cdef4e3d14965b"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1564
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-sol-6-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "84bfda7b09b49dfdda0c419db57ee0beffac079e79d78b56aa41243973e1e0b2",
       "files": {
-        "schematic.svg": "9299380dd2b4797987c68ff4979d617c6ab0cb00484ff96c2529cc49e8e3f996",
-        "project.icproj.json": "0555d69b524a4eae5a5c84ce9b3bb2790d031b895a8aeee6cdfab5bc19ec35c6",
+        "schematic.svg": "9050fdc74ef0f00047be57fde21950017c9c5ae7b37de5d59e6a7e0962dc8c21",
+        "project.icproj.json": "3bf8a88961c49914d1dd3381011d49a53036a46aa03250407460d12d56dcb905",
         "submitted.spice": "84bfda7b09b49dfdda0c419db57ee0beffac079e79d78b56aa41243973e1e0b2",
         "exported.spice": "a74693c8a31b3dfe9f82d5a49bef18a8b1b813294719162e8d2282316eeb93e0",
-        "verification.json": "08f84611b463c343ec8f68d9d49a28e8ad6240e985b0afcf93cccb7768ac351f"
+        "verification.json": "cf33392ec72fcc067edb4229be47f558b176f1055d23ca2a8d4f34b29e3838c7"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1533
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-deepseek-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4eec9d9c93ea0ce9226bcd3beae6a13f3d3a96642a7639b17c837c8df29c24e1",
       "files": {
-        "schematic.svg": "ce97ca1126a4ee0feb50034bcefc6c65ca83a7d0a8d6ded152804ed98244573a",
-        "project.icproj.json": "4d08da1a1dba869723b0dc146dda0a3d244e2f74631896cafc5ba5016abc8173",
+        "schematic.svg": "6076b3d706131993d2c71216f86698ac4d3613ae9b3f384e796f7eb4b19cba6b",
+        "project.icproj.json": "32a21cc4be1c9ef99b7eec9823d7831bee5ec8ba8988c47adfb4249421302c83",
         "submitted.spice": "4eec9d9c93ea0ce9226bcd3beae6a13f3d3a96642a7639b17c837c8df29c24e1",
         "exported.spice": "e9c3e156bc6012e12900a814061936646892b6313b40b11cd6125eb160de4a44",
-        "verification.json": "90c60e0e70d75427245c34f3bcb3b915451aa9adce67d8b9f7bb26a2151b833d"
+        "verification.json": "9ed062cdb0fc7eab2de2a03ec399a94b627c6a5800e24bbeb7dff046ea897527"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1183
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-astra-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "bb8b3aeb7077af51ed811fbd22e0528b0217b37d7a1c51e18b2365ec1f80d9e7",
       "files": {
-        "schematic.svg": "d322131d9cfcec38dfc5d771075a243216b5dd3b5f24c654d63d3ca391deb070",
-        "project.icproj.json": "fec0c36e0ac44ec647dcbbaf54c0105783d6acc616362156d8b730b82ead2f6b",
+        "schematic.svg": "a623394da714bedda531ba2e6dfd3df6aa75715ccb70a0e71d3caec99a027a82",
+        "project.icproj.json": "939bfc8e07888f811ffe22741171b19fc1a7ba0fb1219b18162dc2f72a241007",
         "submitted.spice": "bb8b3aeb7077af51ed811fbd22e0528b0217b37d7a1c51e18b2365ec1f80d9e7",
         "exported.spice": "fbb658f3e585df99788aa6e102fecf098c9d5f64738af176867c8f1ddf3b06a2",
-        "verification.json": "f1c4bf1637a499f15bfa88e4054dd47bfc6b9f5ca75ca709d7c7eb0c505db60a"
+        "verification.json": "8e5b69cff1910ec0f27ad6a68fe03a119027dbba5ac21998ebe1de1a233bcb4e"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1187
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-astra-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "cd7625c4f10a6550825e4d591b7b2bbda65adaf6f10c24d496527ba358796c19",
       "files": {
-        "schematic.svg": "cedd9131d61d930b84a1107235675f4cceb31ce990e7daa22f57e671e33fc005",
-        "project.icproj.json": "7228d046ae0a9c1b31448e5a74db71d63c34cf8d3da859eba14bc3b8d274fd40",
+        "schematic.svg": "2873ccc8c2f8886dcea8e6eabe1e5966b9c9957606f4b8a174edf99cb974ab5f",
+        "project.icproj.json": "53dc8f334fa4b8496a7fc0ff77ea417cf255e330a510eaa01a165d5349517559",
         "submitted.spice": "cd7625c4f10a6550825e4d591b7b2bbda65adaf6f10c24d496527ba358796c19",
         "exported.spice": "95678ea9b118acf1ab9072e7dddb458368284ec7531d6d03ebd2b2fb95ee9309",
-        "verification.json": "5a7ad999eb138fa307bc0fbea8765dc15bf9a18b9271c6642fa7e90bbf288213"
+        "verification.json": "666c737a15e879b968ec1ef0013bf5a44cc613ada42ab4ad361be50e692e8d38"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1902
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-opus-5-5-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "39166e5e4fa6d91ce462f71861c91cabea13f101e71570e0163dbdb63b218ff7",
       "files": {
-        "schematic.svg": "85574e2c2a224bfb7ddcd63040331e5440300b2fe602ca599706e96aa79d369e",
-        "project.icproj.json": "ba2fddce459068a008311c17d4cdd6603f4b4f01290901683797811714633ea7",
+        "schematic.svg": "16c5b63daade0c96da8b1487eae0d08f96e2cfee57df239f84d3a41933158445",
+        "project.icproj.json": "a6289a8670e676fb60e1ba64201ae8a7fb7cb471b45ec20a58cba2570bb5af2e",
         "submitted.spice": "39166e5e4fa6d91ce462f71861c91cabea13f101e71570e0163dbdb63b218ff7",
         "exported.spice": "a480ae762bcbac52fe9b1ed7e1639daefba57c43403a4a4702fda6e2f36456e7",
-        "verification.json": "196355fbe243f6d5946b046f938f6cfc4cedf1a13efc40005846530a9c084745"
+        "verification.json": "aa914657d3ae73c8e49e0e0db8a769e008d97b46cac6ac467a8fb65ecfd102e2"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 2236
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-opus-5-5-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "319ea520dbb84c830c583a058ea4dd3b469ec292b5f6c30e3d78f09f6e220d35",
       "files": {
-        "schematic.svg": "0bfe2805181852ec2ac94b0dc34b2e796ed38aacf13726e5632bc31c623729e5",
-        "project.icproj.json": "db546bfbd4db6985ceae47bc6db4e7cc213e8cb71d3080cbb477ba2c4ff8b139",
+        "schematic.svg": "ce2824b601a701b925d190aa62cd7c90bbbb3ceeaf72315ed8ebbce1f507fc07",
+        "project.icproj.json": "22887aff8d1c071a009708f48f941811dd5fcbcd4e030c8d9c8e9d168b56b8b7",
         "submitted.spice": "319ea520dbb84c830c583a058ea4dd3b469ec292b5f6c30e3d78f09f6e220d35",
         "exported.spice": "3438f86d14e3efa07af93b2f268ef9702cbfc389bb87660a887529ef58f533a2",
-        "verification.json": "fd26639512023a6dcf83cdbc9f9fa87df68a39e44eb15b52b170f69653ddd29f"
+        "verification.json": "ad7aa349a1eb32789e1349efc35bbc6c02cacabdcb0d4cae71ba96f3826346cc"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 2240
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-sonnet-5-5-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "7ec19b05f087df757064a83d3892c432dc4e3fa545da13ea406e43e1d09d14a1",
       "files": {
-        "schematic.svg": "c3ca0988ff1619ef82fce6049e5d1555f0d3cc8402eacba6af8105cd05b7d051",
-        "project.icproj.json": "7e038daf908624eb143bc1872b94b79a876811b1e598e556302893339fa714f3",
+        "schematic.svg": "29b2a01d13bd758717c2d3b27248669890971a40fae3c896cdf177c6c977e72b",
+        "project.icproj.json": "4af8d0744539ea702cf6e8a67c414cc360fb4f5e2e8272ce27a67a01ee742515",
         "submitted.spice": "7ec19b05f087df757064a83d3892c432dc4e3fa545da13ea406e43e1d09d14a1",
         "exported.spice": "66f22e778bf4aeb51a66e60783f258bd4eac4dd7e1843bcac838fffa3159ad11",
-        "verification.json": "608d2746fb7aecaa42220fdfe59c0cabbc0c219dd0dd13a32f4ebc6aaa834f09"
+        "verification.json": "9ededb1027a9b040003aa9afdbaf2743f3f5fea3b7feb6630c9dafabf623dcbf"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1184
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-sonnet-5-5-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "fde1be3a580d486c499673c9c9e5b09a60d5fb154bfbf6b47a75d68f1430e20a",
       "files": {
-        "schematic.svg": "25f83b0a1051523c707909668b739e4cb1597c18141f27360d08e59192477960",
-        "project.icproj.json": "a137712959c96bfa7ff7a3dbf2d4d4b9f69337182e1bf8edd06995482980f868",
+        "schematic.svg": "2fd3d61a7fd208d21799c6445f1746b31fadcad929e2e02263c8d489f3dbe877",
+        "project.icproj.json": "8a0359ca4771731d42853fdd5b99df7bf6d5fe1ad881a4ebfe48cc2c17511c6a",
         "submitted.spice": "fde1be3a580d486c499673c9c9e5b09a60d5fb154bfbf6b47a75d68f1430e20a",
         "exported.spice": "c15671dd9215744e614313e86d68e21362c80552cde974506af7ae8177e01220",
-        "verification.json": "7bf7ee4c15dd8612b4550b3670fbee565ddc9d18f6748da3f4da02f808734a67"
+        "verification.json": "c1043503b6d9f2aec6333834416f2eacbca8beecaff8de92e04a5cb74678a8b0"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 2776
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-sol-6-1-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "426fa2a3802dbb59cfffa4d991231f27facfbc1f469e0a340c79d00f1515b4b6",
       "files": {
-        "schematic.svg": "35c11bfd3e4a21d72605035e5e5c4ef519445b8cd2351d01e42eca02936a9905",
-        "project.icproj.json": "b6c74296da5a7af80590e4779b1aec49d1e8096a7390bdc56ddf460045008f0b",
+        "schematic.svg": "916d3983176b64d7230f3a75e93aa456ed850b7732c5f86bd051a4bc1390a8b4",
+        "project.icproj.json": "c15c502032327c586ffd336cceb996e57a4c1ead57c0449123e0311ba1c51b88",
         "submitted.spice": "426fa2a3802dbb59cfffa4d991231f27facfbc1f469e0a340c79d00f1515b4b6",
         "exported.spice": "357b138b1f81dc05c9956b6fd28ce46d9da245046d3b7c4f2b298d0da1f74df7",
-        "verification.json": "dfcfad349b8346b70e29ccbb2253302b5268d2b9849762e636f28c4f219d2d22"
+        "verification.json": "48dc2db782e9b9ad38349ba1f0b4789cae8b5077f5d7cb8dabab3f119f331f54"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1174
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-sol-6-1-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "c8c9ce68e3cc751bbeec3f20a7d670a6a4c5b5107f8573679f16b5e13b4f0df6",
       "files": {
-        "schematic.svg": "b0099c3dee877b37d6759fbfa58189bb171a44b4f63a68cebb34e2d3e686a257",
-        "project.icproj.json": "63181bad55bf7edd36854fb9ff06b26b661cf70c897ba109348be0be992d0292",
+        "schematic.svg": "acff9430e29706dad4d59835cafa1672b28de1e82415dcb7c29cb0fd14e0169a",
+        "project.icproj.json": "f7ab4e49206dd78828870d53749ad080a10adaccd4b1761ed7102f7664579415",
         "submitted.spice": "c8c9ce68e3cc751bbeec3f20a7d670a6a4c5b5107f8573679f16b5e13b4f0df6",
         "exported.spice": "1012f0404ab89567c8574087736ef2741472db4108cef91e5da893119582c8e3",
-        "verification.json": "9dd901a119afd45015332393ef9402f9ce264d9d0822976f14fb5754cc91dc5a"
+        "verification.json": "6d9e8097d963c9327bdc2b6fdfb20f3a1f70688f80b87d2302fb681166acdbc6"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1198
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-luna-6-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "5aebe25996e28743576870730a10e823b97060931afdf17e564618f85ee14ba2",
       "files": {
-        "schematic.svg": "d072769e65af08e798b7ee4b6a2cb7d92fedede20e33c421111e60b07864014e",
-        "project.icproj.json": "0ef03f89f2c32e8cb495c600012e1f1e0b7b611b0da8e1f56f2ce75f1dd70d4d",
+        "schematic.svg": "4a1e16c1481ba51a181dcb1f704ad97625b5f9fbb6217967443ab4d48dd17e14",
+        "project.icproj.json": "8ff321ffcb6967863dc84298c2adc2f62b489b973c0dd8964d69bafbfd0757f1",
         "submitted.spice": "5aebe25996e28743576870730a10e823b97060931afdf17e564618f85ee14ba2",
         "exported.spice": "c8a054fb28a7fdb93c82508fe8b14698cee734cd527e4295309de1650c085959",
-        "verification.json": "7f963a424d38bfdc1f2d8c021e4515554faa85f9b1373a94d18de2fb255e22a9"
+        "verification.json": "baadf1a3a49362dc350a84cece368babaaca929e9c74c3aec35544cc5491c335"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1020
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-luna-6-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "1b6c69ffc4bc32acf8ed922d037e4a5907e9aee2a51603ff01819ba8990ded73",
       "files": {
-        "schematic.svg": "065cd2e2af23178cbbcece940dcc92ab853c8d3eae5bcfd4d7e70340185820fa",
-        "project.icproj.json": "e6634adba8fcb8582a1dbc62e6efb4667ddd213d74d19978cdce0c77c81731ff",
+        "schematic.svg": "51e80bf81fc053731d6ace0508811aa0865b4ffff30b136aec517f4d0d07e888",
+        "project.icproj.json": "b6a1853d1bc0bb3f20fd2afd3d93881cff9d0f37994c8c49c686ddbe33f30a85",
         "submitted.spice": "1b6c69ffc4bc32acf8ed922d037e4a5907e9aee2a51603ff01819ba8990ded73",
         "exported.spice": "cf1943504166b01a6cdc4480cc9bd8b1f85f8b74b9b71d7be516247d8fa10d9d",
-        "verification.json": "ffd2a4d756642ed94e81b4fe1ff61184d021b25c931f1c34a9493d96bda1e777"
+        "verification.json": "0cc28735784282c5dc05fcd1fcb3b667c2da8f5c63e5f494077fe4e7e7d8e5fc"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1187
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-sol-6-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "34b7c34ecea890a7198d4b0ee2b0f303f4fe4261176a0edee249ebb167f06152",
       "files": {
-        "schematic.svg": "c252f6daa6e02f971149706095937edd3ec26220cd738e437df6771f4c4abd66",
-        "project.icproj.json": "865a0707fed1190173bba5f10221c287ce5566e9ea9a33d909567ba59494a386",
+        "schematic.svg": "717aaa7760a121cefbc9b27e4a0bdd2c7df11b92ecd2682e8d9f70cb2b84786c",
+        "project.icproj.json": "400695d2f1ba8e795b79e4603a9284b092a1a9b056f1ad8f641adeeeeedde632",
         "submitted.spice": "34b7c34ecea890a7198d4b0ee2b0f303f4fe4261176a0edee249ebb167f06152",
         "exported.spice": "2c9483659eb1251b871757abe976648799b6f235afda05a1e1fbfd282ac9fc6d",
-        "verification.json": "d6dac3be6339a277aeb3f0717b934fae67fb0d79d0068cd953616e476bebabbd"
+        "verification.json": "af4c719811076d247439b00271a5efebe1e58e2fd6b399c744f1ee226fae03e1"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1767
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-sol-6-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "b286c522b54d9168676dd8d9e5d0fe886844ed2ac42872a54412a8df200e1ff5",
       "files": {
-        "schematic.svg": "8d58a356e02791c43e3c5d8e1c2f48b64535fbebe6299a752fd8437bebf453fd",
-        "project.icproj.json": "327925b0a0286e3da5a6878f2e9fab239dd7c404c47071b4e01a0f70d7f6e9ce",
+        "schematic.svg": "10252866084d7c49a77efe29e755409332b2250e719995ec432757a4effba96f",
+        "project.icproj.json": "834dfe97bab79d79946958414f08a633541f3c297bf10f711c955be327b7d755",
         "submitted.spice": "b286c522b54d9168676dd8d9e5d0fe886844ed2ac42872a54412a8df200e1ff5",
         "exported.spice": "9002835eb7f99ebaf81cd4c701400fe7e310d33b5fd0026dd2fcd6bcd1e2644e",
-        "verification.json": "dbb22f89ea6e7f0954cd712ac89ce9d2fad5dae022dfcc0530e9cd62f932187c"
+        "verification.json": "5dfe07a86d9f465df9440ab6811ea5ccec236113968edcec1a27ae7a1aaf0f57"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1540
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-deepseek-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4ad3fd670495d2f3e4f05d3bbcd0e7fee93b3f1745e01ff40d72ff5e8c01a3ce",
       "files": {
-        "schematic.svg": "d20e40666044bb09086870476c56ceeae92546644aa26ebd7c87a3770b8d9a70",
-        "project.icproj.json": "9036e67abee1b3ff8944b053598358f809f80bc6695bc887df09efe7ac787db9",
+        "schematic.svg": "21b8f29b4669b757ae0e327be2b473cac2b9fb8294a5be5f2ae3840fc2e99058",
+        "project.icproj.json": "ea8fa0ed89ad5bd419e8e020df8b495319c171663f0a0c9d8dde7a2163c0b7e7",
         "submitted.spice": "4ad3fd670495d2f3e4f05d3bbcd0e7fee93b3f1745e01ff40d72ff5e8c01a3ce",
         "exported.spice": "56521f2a2227f7e1fb71a2cb57b714125da94d59a24f76603272eae0505cfe78",
-        "verification.json": "9a0b52e29cd544c89cef7fd9055253cf75cf9af2190f96f00ff3acece6fd918f"
+        "verification.json": "4669ca004178c65170034a0e8f9ce73523f5ddd0817639a5d5b4790f40da7664"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1185
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-deepseek-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "d668db450254db2ecd44cdb949217b39f2b0df5ce5be1b1849feeca948754de9",
       "files": {
-        "schematic.svg": "b801101f63f16b29a010dc07fa7f26b2ad9f254fc397806bbb8404fa18f2a3ac",
-        "project.icproj.json": "c317877efa282b4e1237f4b095181bd8da3352bc70a7149380292e98ad1cd415",
+        "schematic.svg": "438a4dd83d82a9beef3bdd4cb7a9c41df5fa84daa915d1590111a37d4ab77401",
+        "project.icproj.json": "a59363e2f309675584fc41e874b54cd69bb8fc10f38c0d022a606d33a5a6b06a",
         "submitted.spice": "d668db450254db2ecd44cdb949217b39f2b0df5ce5be1b1849feeca948754de9",
         "exported.spice": "3c93c889c1ea60ac0dd345d3909ac37d8450ff04428e57ee2be92da113975858",
-        "verification.json": "d85409f4919d6fe5b7e99b93a77accb17412c647cdabbafd775c6685d95d6264"
+        "verification.json": "5a9c4e7b491e248302a1bae50bee222acab921974d04917cfae937ca454b8848"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1546
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-fable-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "1b9980e6fc4f1d4adfe4ac6784205f4e09d01a7660578971f884bd1a058d089a",
       "files": {
-        "schematic.svg": "5f12c1f58b1524ae6efdf4990ac33fd9857cb6e56192b8847601ade3df3d9bb9",
-        "project.icproj.json": "5b2c9c5bc14d830e9817327912ae49bfe4c0e07e56a6248dafcfa295bb4b22cc",
+        "schematic.svg": "6f77d276032f0a4f84fe07b6c932e7b04620d146d07c01d40d360e6aff6e7bf3",
+        "project.icproj.json": "2db0b809e4b11e8e9b00ddd3e82c4e1246e413c10597623f3144bc0369fa81be",
         "submitted.spice": "1b9980e6fc4f1d4adfe4ac6784205f4e09d01a7660578971f884bd1a058d089a",
         "exported.spice": "993a9648ab01ea9ba8240ef80dafd5a4ac6e97f38514cec460364b055bbbf54f",
-        "verification.json": "26051491ad537ebcdf59d1de963ef4c5f91630089d267bad90235085384c0625"
+        "verification.json": "267a4ce24d84d83d2d0c564fc8fdd36c7cda3b1d83c99d5bf1a96f23e36bf471"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1709
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-haiku-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "edd404f2da13e56aa6800cfd3350d77579fe72ae15a0f644056fb7a5e1d278e2",
       "files": {
-        "schematic.svg": "c828ee72b20eb6029a2e16581bede69c95129903d776ccdc9c684e0bbc296500",
-        "project.icproj.json": "bd188544f76eaa941a7b09ea86cdd238434d88b7939d610b5f3c8c9c4b0ad835",
+        "schematic.svg": "63e6c05ce0a9677278d0b26c9bf089d6b53f555ed1fba6955fbdf707e5141eda",
+        "project.icproj.json": "bd9c8b1b01cc374d10b12a3bac5c0ff314329112192a88fb220062b4f4c5ec6f",
         "submitted.spice": "edd404f2da13e56aa6800cfd3350d77579fe72ae15a0f644056fb7a5e1d278e2",
         "exported.spice": "ba0b76cd2463e00093d5c5cef71da88ac96acb6982372f38dd9a714e00af218a",
-        "verification.json": "deb2d3cedc7d8bbdcab0c5fd5e9931071ab4eb90e208819eda0bf954cddfcebf"
+        "verification.json": "619c4de828b159ee43423728be21afd7f9e97e6fbf4a14765d58bad36ce57180"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1192
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-haiku-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "c58eca2c446c2289a6ee99e4253d1dacc7af0f677493e1d3e9fd7f7beb22226d",
       "files": {
-        "schematic.svg": "a1f8381fc8ef544d6600f80267979533e3423beb9fe1d04e93c320c595907b3d",
-        "project.icproj.json": "562a9bcca66795f41776bed5735889e543b32c06c8b640ac079591974b2ec3f8",
+        "schematic.svg": "76e54e00966d61c652ca5a2181d007da2e58d929da30123e65533b4b9ca212f4",
+        "project.icproj.json": "48bf9522df2111bcdbb64ae3effedf2f04fe236b0e1da423ace42141d4491feb",
         "submitted.spice": "c58eca2c446c2289a6ee99e4253d1dacc7af0f677493e1d3e9fd7f7beb22226d",
         "exported.spice": "0a9610508e0077bd262b5c4338d27021d3335b85a377c0d145210291b9837e5e",
-        "verification.json": "bfc93ebe2734b51f544ed530ce12d0640098c7da53208110b0696733413aa771"
+        "verification.json": "b4af35426d391d3b3d81e637b9a69f9b398f4c4b860ab2b9de666c164bfba0c2"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1185
+      "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-haiku-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
+      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "aa2ed4f74852f75b8d134a6683a76e1bf82225e7be298aa286e146c69cd571b8",
       "files": {
-        "schematic.svg": "c2fdae856f4f89f0ffe06cecae6e1fe73779a8856f9a221fad9ff4c3d04b3837",
-        "project.icproj.json": "4997701693dabd480d2c2cfe8d445e485d07a2cc2d0094bd926e800da7f460de",
+        "schematic.svg": "52bc05c1f521dfeacf4f93ab982251d5db75206bef4a0ef30b035aa8e9988289",
+        "project.icproj.json": "5001d1c4c225cdd2e1482470b15d127e597f3f3d080346f318d40381088b087f",
         "submitted.spice": "aa2ed4f74852f75b8d134a6683a76e1bf82225e7be298aa286e146c69cd571b8",
         "exported.spice": "19a3fb7f203ef0e598be328f551ed26aeb367e2a742a950c020e6e0cbcdf5166",
-        "verification.json": "44c7c934d09337db0bfab356874e005c045146a7964d0563b72c712ee763f241"
+        "verification.json": "fd67639d52d60c73e43dc4e2785dbea3c1897561c9526f486dc366ef4e2acef5"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1177
+      "layout_strategy": "connected-stages"
     }
   ]
 }

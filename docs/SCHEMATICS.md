@@ -34,7 +34,9 @@ preferences there instead of duplicating them in this repository guide.
 | Implementation | Responsibility |
 |---|---|
 | `tools/schematics/generate.mjs` | Reconstruct native geometry and labels; save, reopen, render and compare. |
-| `tools/schematics/ota-layouts.mjs` | Select a source-matched two-stage motif or group larger circuits by differential branches and current paths. |
+| `tools/schematics/ota-layouts.mjs` | Match the two-stage motif and identify differential branches/current paths for the family-specific layouts. |
+| `tools/schematics/ota-connected-layouts.mjs`, `ota-case-refinements.mjs` | Place DRIVE, PRECISION and WIDE stages, mirrors, complementary pairs, parallel branches and input networks. |
+| `tools/schematics/orthogonal-router.mjs` | Route continuous signal trees with reserved symbols, labels and terminal escapes; retain local auxiliary bias connections. |
 | `tools/schematics/ota-free-layouts.mjs` | Reviewed per-submission FREE recipes for degeneration, cascodes, folded branches and the level-shifted PMOS input case; keep principal paths continuous. |
 | `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
 | `tools/build_traces.py`, `tools/templates/trace.html` | Bind the figure to its run, before the summary tables; preserve the final SPICE article. |
@@ -88,9 +90,29 @@ align the next-stage gate with its driving tap, and keep series passives on
 their branch axis. The level-shifted PMOS case places a follower beside each
 input and uses a local boost-gate trunk. Review these routes at reading size;
 fewer bends do not by themselves establish clear crossings or label ownership.
-Generic grouping in other families is
-not an acceptance criterion: inspect continuity and the complete page view before
-calling a drawing readable.
+
+OTA-DRIVE, OTA-PRECISION and OTA-WIDE retain their 12 matching two-stage
+layouts and replace all 61 grouped fallbacks with connected stage drawings.
+Folded branches flank their input pair; complementary pairs share vertically
+aligned input routes where their topology permits. Mirror gates face one another
+without changing the drain/source axes. Compensation is beside its actual output
+stage; input filters, parallel tails and unusual sensing branches have explicit
+case refinements. Auxiliary bias branches remain below the signal circuit.
+
+The orthogonal router reserves native symbol bodies, full reference/value text,
+port bodies and terminal escapes. It builds shared trees, penalizes bends and
+crossings, permits only plain foreign-net crossings, and removes unused escape
+spurs. Bound net labels are limited to supplies and auxiliary bias controls.
+The reopened-project check separately verifies each recorded
+`continuous_signal_nets` net using only physical routes, before applying native
+name-based connections. The site tests independently trace those routes, local
+diodes and every external port in the saved JSON. These checks supplement visual
+review; they do not establish readability by themselves.
+
+Like the reviewed FREE figures, these 61 figures show the whole drawing in the
+60% frame and open the same hash-versioned native SVG on click. Use that view for
+reading dense circuits at native text size. The 12 already matched drawings and
+both accepted pilots keep their existing geometry.
 
 ## Regenerate native drawings
 

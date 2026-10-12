@@ -75,6 +75,23 @@
     "status": "connected",
     "checked_non_body_pins": 111,
     "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "na",
+      "nb",
+      "nc",
+      "nd1",
+      "nd2",
+      "pd",
+      "pe",
+      "pf1",
+      "pf2",
+      "pk",
+      "tn",
+      "tp",
+      "vinn",
+      "vinp",
+      "vout"
+    ],
     "named_connections_checked": true
   },
   "body_defaults_checked": true,

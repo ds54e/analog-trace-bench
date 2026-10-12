@@ -75,6 +75,16 @@
     "status": "connected",
     "checked_non_body_pins": 67,
     "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "n1",
+      "n2",
+      "nc",
+      "tail",
+      "taila",
+      "vinn",
+      "vinp",
+      "vout"
+    ],
     "named_connections_checked": true
   },
   "body_defaults_checked": true,

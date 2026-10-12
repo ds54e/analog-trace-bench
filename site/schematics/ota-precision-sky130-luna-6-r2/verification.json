@@ -75,6 +75,15 @@
     "status": "connected",
     "checked_non_body_pins": 34,
     "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "ncomp",
+      "ndiffn",
+      "ndiffp",
+      "ntail",
+      "vinn",
+      "vinp",
+      "vout"
+    ],
     "named_connections_checked": true
   },
   "body_defaults_checked": true,
