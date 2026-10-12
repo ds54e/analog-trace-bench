@@ -165,7 +165,7 @@ const layouts = [
       RB: [160, 200, 90],
       R1: [510, 250],
       R2: [510, 340],
-      CFF: [600, 250],
+      CFF: [450, 250],
       C1: [410, 120, 270],
       RZ: [470, 120, 270],
     },
@@ -173,7 +173,7 @@ const layouts = [
       VIN: [110, 60, 90],
       VSS: [110, 380, 270],
       VREF: [390, 230, 180],
-      VOUT: [670, 210, 180],
+      VOUT: [600, 210, 180],
     },
     draw(c) {
       c.j("vi1", "VIN", 210, 60);
@@ -205,23 +205,23 @@ const layouts = [
       c.w("G", "g-comp", "C1.1");
       c.w("NZ", "C1.2", "RZ.1");
       c.j("out-pass", "VOUT", 510, 210);
-      c.j("out-c", "VOUT", 600, 210);
+      c.j("out-c", "VOUT", 450, 200);
       c.w("VOUT", "XMP.D", "out-pass");
-      c.w("VOUT", "out-pass", "out-c");
-      c.w("VOUT", "out-c", "@VOUT");
+      c.w("VOUT", "out-pass", "@VOUT");
       c.w("VOUT", "out-pass", "R1.1");
       c.w("VOUT", "out-c", "CFF.1");
-      c.w("VOUT", "RB.1", "XMP.D");
+      c.w("VOUT", "RB.1", "out-c");
+      c.w("VOUT", "out-c", "XMP.D");
       // RB retains source pin order VOUT,NB; its rotation places pin 1 on the right.
-      c.j("fb-c", "FB", 510, 280);
+      c.j("fb-c", "FB", 450, 290);
       c.j("fb", "FB", 510, 290);
-      c.w("FB", "R1.2", "fb-c");
-      c.w("FB", "fb-c", "fb");
+      c.w("FB", "R1.2", "fb");
+      c.w("FB", "fb", "fb-c");
       c.w("FB", "fb", "R2.1");
-      c.w("FB", "CFF.2", "fb-c", [[600, 280]]);
+      c.w("FB", "CFF.2", "fb-c");
       c.w(
         "FB",
-        "fb",
+        "fb-c",
         "XM1.G",
         [
           [160, 290],

@@ -47,7 +47,7 @@ submissions and is not a general GUI-edit round-trip tool.
 | Pilot | Preserve when refining |
 |---|---|
 | OTA-FIXED / Opus 5.5 / Run 1 | Keep XMbn horizontally mirrored, its D–G tie local, and the shared gate to XMtl continuous. Keep Cc–Rz between n1 and vout. |
-| LDO-CORE / Sonnet 5.5 / Run 1 | Keep R1/R2 on the column directly beneath XMP's drain, with CFF beside R1. Run the RB branch horizontally above the input pair, from XMP's drain to the NB drain trunk. Show the FB return and distinguish NB from the local XMB D–G tie. Preserve G–C1–NZ–RZ–VIN. |
+| LDO-CORE / Sonnet 5.5 / Run 1 | Keep R1/R2 on the column directly beneath XMP's drain, with CFF to R1's left and vertical connections to VOUT and FB. Run the RB branch horizontally above the input pair, from XMP's drain to the NB drain trunk. Show the FB return and distinguish NB from the local XMB D–G tie. Preserve G–C1–NZ–RZ–VIN. |
 
 These constraints do not prescribe fixed coordinates or require every future
 OTA/LDO to share the same topology. Confirm device roles from each source.

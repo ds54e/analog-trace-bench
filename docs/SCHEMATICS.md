@@ -42,7 +42,8 @@ Passive diagram text uses about two significant digits: `92.59k → 93k` and
 `101.2k → 100k`. Keep exact source parameters and exports. Diagram `M` denotes
 mega; SPICE uses `meg` or numeric notation because its `M` means milli.
 
-The LDO's R1/R2 column lies directly below XMP's drain, with CFF beside R1.
+The LDO's R1/R2 column lies directly below XMP's drain, with CFF to R1's left.
+CFF connects vertically to the upper VOUT trunk and lower FB return.
 RB runs horizontally above the input pair from XMP's drain to the NB drain
 trunk. Its FB return and NB drain return remain distinct; C1–RZ connects G to VIN.
 The OTA's XMbn remains mirrored, with a local D–G tie and continuous shared gate
