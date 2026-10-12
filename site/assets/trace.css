@@ -331,12 +331,12 @@ pre::-webkit-scrollbar {
 }
 pre > code { font: inherit; color: inherit; }
 
-/* Source-bound drawings displayed at 80% width; preserve a readable minimum
+/* Source-bound drawings displayed at 60% width; preserve a readable minimum
    and horizontal scrolling on narrow screens. Native geometry is unchanged. */
 .submission-schematic {
   margin: 0 0 18px;
-  width: 80%;
-  min-width: min(100%, 544px);
+  width: 60%;
+  min-width: min(100%, 408px);
 }
 
 .schematic-scroll {
@@ -348,7 +348,7 @@ pre > code { font: inherit; color: inherit; }
 .schematic-scroll img {
   display: block;
   width: 100%;
-  min-width: 544px;
+  min-width: 408px;
   height: auto;
 }
 

@@ -11,11 +11,11 @@ preferences and current pilot constraints, not general analog-drawing standards.
   device tables out of the visible trace. Keep their data in supporting artifacts
   and repository documentation. Preserve useful image alt text for accessibility.
 - Preserve native text sizes and solve drawing density through placement and
-  routing. The requested page display is about 80% of the former full-width view;
+  routing. The requested page display is about 60% of the former full-width view;
   apply uniform scaling to the page image, not changes to native drawing geometry.
-- Use a white SVG surface in either page theme. Keep the page figure at 80% width
-  with a minimum of 544 px, capped at the available width. Retain the focusable
-  horizontal scroll region when the 544 px image exceeds a narrow viewport.
+- Use a white SVG surface in either page theme. Keep the page figure at 60% width
+  with a minimum of 408 px, capped at the available width. Retain the focusable
+  horizontal scroll region when the 408 px image exceeds a narrow viewport.
 
 ## Display values and exact parameters
 

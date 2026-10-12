@@ -32,9 +32,9 @@ Accessible image descriptions remain available.
 Page image URLs include the verified SVG hash so drawing updates invalidate caches.
 
 Use a white drawing surface in both themes. The focusable horizontal scroll
-region retains readable labels on narrow layouts. The page figure uses 80% width,
-with a 544 px minimum capped at the available width; its image scrolls below
-544 px. This uniformly scales the page display while preserving native text,
+region retains readable labels on narrow layouts. The page figure uses 60% width,
+with a 408 px minimum capped at the available width; its image scrolls below
+408 px. This uniformly scales the page display while preserving native text,
 symbols and geometry. Reduce drawing gaps and routes through placement.
 Native SVG export uses a
 20-unit outer margin; the pinned editor's default uses 40 units.

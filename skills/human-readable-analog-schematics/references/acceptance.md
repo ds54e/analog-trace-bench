@@ -11,7 +11,7 @@ invocation. Keep electrical and visual outcomes independently assessable.
 | Redraw this OTA SPICE as an editable, readable schematic. | Apply the drawing/native workflow; inspect connectivity before placement. |
 | Improve the LDO Final submission diagram in ATB. | Apply drawing rules and ATB profile; preserve the frozen submission. |
 | Only shorten 92.59k and 101.2k in the accepted drawing. | Change native display annotations to 93k/100k; keep geometry and exact parameters. |
-| Remove the links beneath Final submission and display the diagram at about 80%. | Change page presentation only; retain native artifacts and frozen submission bytes. |
+| Remove the links beneath Final submission and display the diagram at about 60%. | Change page presentation only; retain native artifacts and frozen submission bytes. |
 | Consolidate the drawing skill and documentation. | Update instructions only; do not redraw accepted circuits or alter run evidence. |
 | Run an OTA AC simulation, place a PCB, or make a decorative circuit image. | Do not implicitly select this drawing skill for the unrelated task. |
 
