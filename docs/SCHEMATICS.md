@@ -41,7 +41,7 @@ preferences there instead of duplicating them in this repository guide.
 | `site/assets/trace.css` | Use 60% figure width and a 408 px minimum capped at the available width; preserve image aspect ratio and scroll below 408 px. |
 | `site/schematics/index.json` | Bind source and artifact hashes; the verified SVG hash versions each page image URL. |
 
-Grouped and reviewed FREE drawings have a manifest-specific image minimum at 80% of their
+Grouped fallback drawings have a manifest-specific image minimum at 80% of their
 native viewBox width, inside the same 60% figure. Horizontal scrolling preserves
 reading size without shrinking native text. The white image surface remains consistent across page themes. Page scaling does
 not modify native geometry, text sizes or parameters. Native SVG export uses a
@@ -80,7 +80,10 @@ OTA-FREE has 13 source-matched two-stage drawings and 11 case-reviewed recipes.
 The latter replace the initial grouped fallback: the signal path, load mirror,
 tail and compensation use continuous native wires. Auxiliary bias branches sit
 below the main circuit and use bound labels for remote controls and supplies.
-Their coordinates belong to the recipes. Generic grouping in other families is
+The reviewed FREE figures show the complete drawing within the 60% frame and
+open the native SVG when clicked, without a caption or link text. Their native
+artifacts retain full text and symbol sizes. Coordinates belong to the recipes.
+Generic grouping in other families is
 not an acceptance criterion: inspect continuity and the complete page view before
 calling a drawing readable.
 

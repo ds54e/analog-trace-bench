@@ -89,6 +89,17 @@ class SubmittedSchematics(unittest.TestCase):
                 endpoints = mirrors[case]
                 self.assertTrue(set(endpoints) <= reachable(endpoints[0]), (case, endpoints))
 
+    def test_reviewed_free_overview_opens_its_same_verified_svg(self):
+        entries = [e for e in schematics.load_drawings(ROOT).values() if e.get('layout_strategy') == 'reviewed-free']
+        self.assertEqual(len(entries), 11)
+        for entry in entries:
+            self.assertNotIn('reading_min_width', entry)
+            html = schematics.render_drawing(entry)
+            self.assertEqual(re.search(r'href="([^"]+)"', html)[1],
+                             re.search(r'src="([^"]+)"', html)[1])
+            self.assertNotIn('<figcaption', html)
+            self.assertNotIn('min-width', html)
+
     def test_numeric_constants_and_mos_defaults_preserve_the_contract(self):
         source = (ROOT / 'site/schematics/ota-drive-sky130-sonnet-5-5-r3/submitted.spice').read_text()
         exported = (ROOT / 'site/schematics/ota-drive-sky130-sonnet-5-5-r3/exported.spice').read_text()

@@ -174,11 +174,15 @@ def render_drawing(entry):
     if width is not None and (type(width) is not int or not 408 <= width <= 10000):
         raise ValueError('Invalid schematic reading width')
     style = ' style="min-width:' + str(width) + 'px"' if width else ''
+    svg = prefix + 'schematic.svg?v=' + entry['files']['schematic.svg']
+    image = ('<img src="' + svg + '" alt="' + escape(entry['title'], quote=True) +
+             '. ' + escape(entry['description'], quote=True) + '" loading="eager"' + style + '/>')
+    if entry.get('layout_strategy') == 'reviewed-free':
+        image = '<a class="schematic-fullsize" href="' + svg + '" target="_blank" rel="noopener">' + image + '</a>'
     return (
         '<figure class="submission-schematic" aria-label="Submitted circuit schematic">'
         '<div class="schematic-scroll" tabindex="0" role="region" aria-label="Circuit diagram; scroll horizontally to inspect">'
-        '<img src="' + prefix + 'schematic.svg?v=' + entry['files']['schematic.svg'] + '" alt="' + escape(entry['title'], quote=True) +
-        '. ' + escape(entry['description'], quote=True) + '" loading="eager"' + style + '/></div></figure>\n'
+        + image + '</div></figure>\n'
     )
 
 

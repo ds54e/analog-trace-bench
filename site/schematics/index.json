@@ -798,8 +798,7 @@
         "exported.spice": "3708becdd175dcc025cbc5fa7800204682a7b3388060af89c0e83e3ea52c8dcc",
         "verification.json": "e414c8842c51efc22589a488c3ddb6cd4b15b04c10f3ea597958fc5d2f3378bf"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 692
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-sol-6-1-r1",
@@ -844,8 +843,7 @@
         "exported.spice": "bb234d94e0d890deae8e17774c0a4c2a5cba5e4078e1ebc362471d5266f3ef32",
         "verification.json": "31ad83db0e7c8a32e901971b68d1b1a2271b73b60daabc8fc7e8be86e680925e"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 693
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-deepseek-r1",
@@ -920,8 +918,7 @@
         "exported.spice": "ab434246ad6d4a0cf2d964cea024755b6f2ec6b7b6991777ef63e9b9a922df8d",
         "verification.json": "4e9359271e7f9e2e581e0f1e0e176b9bf82488aed81979f7965b095e8b211a92"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 684
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-sol-6-1-r2",
@@ -936,8 +933,7 @@
         "exported.spice": "95d5ab04b137a38047fc9957f6ffea8ab4e69de298630604fe085df530170e2f",
         "verification.json": "37dcb8f2cfd0c35d6ded6e45afd68eca91616207b50ec5b62567b2c7c6873297"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 692
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-sol-6-1-r3",
@@ -967,8 +963,7 @@
         "exported.spice": "f6682daf187a9da80b8fd2eb34f8b2f43a617d278c8e3b1607683f02b1f6e2db",
         "verification.json": "03fdb36ab8dee8dd0441e450179131dbd3d32c76543d78d3aef0e011e30bc7a0"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 604
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-luna-6-r3",
@@ -983,8 +978,7 @@
         "exported.spice": "544e3d24ec191c983a1182be5cfade720a40f2ff4536c589e5791517a641649a",
         "verification.json": "ad82d0ca81bdf2563cb94ea62a61a6b9ce50f3045082473a367856ab8c7f87a0"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 692
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-sol-6-r2",
@@ -1014,8 +1008,7 @@
         "exported.spice": "cb0e101f1a4f50ee66b894343fee06558a6a45010e1dae90bbee1c428cd2932a",
         "verification.json": "544a15b3847858a328699bacf5006c07dc8a8d16518edfaaf70aaaab399911bd"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 1144
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-deepseek-r2",
@@ -1045,8 +1038,7 @@
         "exported.spice": "8793bc507015d020ea71ff98ee325c2d5d90c061071667cc6b14e99a6a7f4006",
         "verification.json": "5c2e8ded4068af24e6d64b88c93a51fb478ec543b8ff5efb7db139b83261ac57"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 692
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-opus-5-5-r2",
@@ -1061,8 +1053,7 @@
         "exported.spice": "6d6a7ba4c34e1163de4fd07eac80bfbe46051ee85961751dbf1a69bb841b6f15",
         "verification.json": "992e43b86da78d213820065cabd9e89d0d4a8723917d125e68874a9bd82e37c3"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 972
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-opus-5-5-r3",
@@ -1077,8 +1068,7 @@
         "exported.spice": "d3c355df3b1da8445e50c0917ee76f4812da6867121d5614d04362e28d35cd70",
         "verification.json": "940867904244584c926a13bf793430122b8c71e21bbd3898f5f19f63054952f5"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 972
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-free-sky130-haiku-r1",
@@ -1123,8 +1113,7 @@
         "exported.spice": "96a4a2d917a909253c172e467a003a25af621bef26defd83a31b6cd295560138",
         "verification.json": "1f5fd75775529ab94517826430f99229d8509809953db24b972c0b985349e967"
       },
-      "layout_strategy": "reviewed-free",
-      "reading_min_width": 692
+      "layout_strategy": "reviewed-free"
     },
     {
       "run_id": "ota-precision-sky130-opus-5-5-r1",

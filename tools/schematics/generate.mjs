@@ -880,7 +880,7 @@ for (const layout of layouts) {
     source_sha256: hash(source),
     files: hashes,
     ...(layout.strategy ? { layout_strategy: layout.strategy } : {}),
-    ...(["current-path-groups", "reviewed-free"].includes(layout.strategy)
+    ...(layout.strategy === "current-path-groups"
       ? {
           reading_min_width: Math.ceil(
             +svg.match(/viewBox="[^ ]+ [^ ]+ ([^ ]+)/)[1] * 0.8,
