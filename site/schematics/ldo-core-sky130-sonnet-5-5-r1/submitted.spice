@@ -1,0 +1,18 @@
+* LDO auto (NMOS-input OTA)
+.subckt DUT VIN VOUT VSS VREF
+R1 VOUT FB 150000.0
+R2 FB VSS 150000.0
+CFF VOUT FB 2e-12
+RB VOUT NB 101200.0
+RS VIN NB 2000000.0
+XMB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 nf=1 m=1
+XMT TAIL NB VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1 nf=1 m=6
+XM1 D1 FB TAIL VSS sky130_fd_pr__nfet_01v8 W=40 L=0.5 nf=1 m=1
+XM2 G VREF TAIL VSS sky130_fd_pr__nfet_01v8 W=40 L=0.5 nf=1 m=1
+XM3 D1 D1 VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.7692 nf=1 m=1
+XM4 G D1 VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.7692 nf=1 m=1
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=83.33 L=0.15 nf=1 m=2
+C1 G NZ 1.5e-12
+RZ NZ VIN 92590.0
+
+.ends DUT

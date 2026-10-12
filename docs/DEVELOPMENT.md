@@ -56,6 +56,9 @@ fragments avoid archive parsing on each build. Shared assets use content-hashed
 URLs, and internal routes are relative. Full trace text and SPICE remain readable
 without JavaScript; each page links its complete evaluation JSON.
 
+For submitted-circuit drawings, artifact verification and native regeneration,
+see [Schematics](SCHEMATICS.md). Regular builds need no drawing runtime.
+
 ## Presentation
 
 `index.html` groups by model; `tasks.html` groups by task. Both use the same

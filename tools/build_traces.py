@@ -7,6 +7,7 @@ import re
 
 from site_templates import ROOT, FAILURE_STATUSES, asset_url, evaluation_label, render_page, template
 from token_costs import load_token_costs, render_token_summary
+from schematics import attach_drawing, load_drawings
 
 EVALUATION_PATTERN = r'<script type="application/json" id="independent-evaluation-data">(.*?)</script>'
 
@@ -97,6 +98,8 @@ def render_trace_page(task, model, summary, trace, run=1, report_href=None, peer
 def rendered_traces(root=ROOT):
     catalog = json.loads((root / 'site/data/runs.json').read_text(encoding='utf-8'))
     outputs = {}
+    drawings = load_drawings(root)
+    attached = set()
     costs = None
     for task in catalog['tasks']:
         for run in task['runs']:
@@ -113,9 +116,14 @@ def rendered_traces(root=ROOT):
             if costs is None:
                 costs, pricing = load_token_costs(root)
             peers = [peer for peer in task['runs'] if peer['model'] == run['model'] and peer.get('trace')]
+            if run['id'] in drawings:
+                attached.add(run['id'])
+            trace = attach_drawing((content / 'trace.html').read_text(encoding='utf-8'), drawings.get(run['id']))
             outputs[page.as_posix()] = render_trace_page(
                 task['id'], run['model'], (content / 'summary.html').read_text(encoding='utf-8'),
-                (content / 'trace.html').read_text(encoding='utf-8'), run=run['run'],
+                trace, run=run['run'],
                 report_href='../data/evaluations/' + report.name, peers=peers, root=root,
                 token_summary=render_token_summary(costs[run['id']], pricing))
+    if set(drawings) != attached:
+        raise ValueError('Schematic has no recorded trace: ' + ', '.join(sorted(set(drawings) - attached)))
     return outputs

@@ -330,3 +330,68 @@ pre::-webkit-scrollbar {
   height: 0;
 }
 pre > code { font: inherit; color: inherit; }
+
+/* Source-bound drawings added to Final submission. Keep a readable diagram
+   width on phones; the focusable region scrolls without shrinking text. */
+.submission-schematic {
+  margin: 0 0 18px;
+}
+
+.schematic-scroll {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--rule);
+}
+
+.schematic-scroll img {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+}
+
+.schematic-scroll:focus-visible {
+  outline: 2px solid var(--rule-strong);
+  outline-offset: 2px;
+}
+
+.submission-schematic figcaption {
+  margin-top: 10px;
+  font: 400 13px/1.6 var(--font-body);
+  color: var(--copy);
+}
+
+.submission-schematic p {
+  margin: 6px 0;
+}
+
+.schematic-note {
+  color: var(--muted);
+}
+
+.schematic-device-table {
+  margin-bottom: 18px;
+}
+
+.schematic-device-table table {
+  font-size: 12px;
+}
+
+.schematic-device-table caption {
+  text-align: left;
+  padding-bottom: 8px;
+  color: var(--muted);
+}
+
+.schematic-device-table th,
+.schematic-device-table td {
+  white-space: nowrap;
+}
+
+.schematic-device-table .summary-table {
+  table-layout: auto;
+}
+
+.schematic-device-table .summary-table th {
+  width: auto;
+}
