@@ -56,6 +56,26 @@ ATB output observations, not a fresh gallery visit or a simulation result.
 | [OTA-FREE / Sonnet 5.5 / Run 1](https://ds54e.github.io/analog-trace-bench/schematics/ota-free-sky130-sonnet-5-5-r1/schematic.svg) | RS1/RS2 stay beneath the input devices and join the common tail. | Recognize source degeneration from its resistors rather than requiring identical MOS source nets. |
 | [OTA-WIDE / Sonnet 5.5 / Run 3](https://ds54e.github.io/analog-trace-bench/schematics/ota-wide-sky130-sonnet-5-5-r3/schematic.svg) | Complementary input branches and vertical stacks are separated from auxiliary bias branches. Native named connections avoid a field of cross-page wires; a reading-width image scrolls inside the requested figure. | Verify every bound label through native connectivity. Wide grouped drawings require scrolling; matching netlists alone cannot establish readability. |
 
+## OTA-FREE correction, 2026-10-12
+
+The user's review identified 11 fragmented FREE drawings after the initial
+coverage pass. Their electrical comparisons passed, but the principal signal,
+mirror and compensation paths required following repeated names; the detached
+row of external ports also resembled an unfinished drawing. The initial fit-size
+review did not establish readability. The corrected local native renders were
+reviewed independently from their saved/reopened electrical checks. This was an
+ATB correction, not a new community-gallery visit.
+
+| Example | Observed correction | Limit |
+|---|---|---|
+| [FREE / Sonnet 5.5 / Run 1](https://ds54e.github.io/analog-trace-bench/schematics/ota-free-sky130-sonnet-5-5-r1/schematic.svg) | RS1/RS2 join the common tail after the resistors; load gates and the O1–CC–RZ–VOUT branch remain continuous. | Source-specific topology and RC order. |
+| [FREE / Opus 5.5 / Run 2](https://ds54e.github.io/analog-trace-bench/schematics/ota-free-sky130-opus-5-5-r2/schematic.svg) | Input drain taps visibly feed folded branches; the load mirror and second-stage connection are wired. | Bias controls can remain named; folded handoff and main compensation cannot be inferred solely from names. |
+| [FREE / DeepSeek / Run 3](https://ds54e.github.io/analog-trace-bench/schematics/ota-free-sky130-deepseek-r3/schematic.svg) | Telescopic branches align vertically, and the load's shared gates visibly return to the submitted cascode drain. | Do not substitute the top PMOS drain for that actual control node. |
+
+Auxiliary bias branches were compared beside and below the main circuit. A lower
+row reduced excess width while preserving each local current path. This supports
+comparing arrangements, not requiring every circuit's bias to be underneath.
+
 ## Earlier SVG preview observations, 2026-10-11
 
 The earlier review used the gallery's `ai=0` filter: 13 examples from its first

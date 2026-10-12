@@ -16,6 +16,7 @@ invocation. Keep electrical and visual outcomes independently assessable.
 | Move LDO RB above the input pair or CFF inside R1. | Refine native geometry from actual endpoints; save/reopen and compare exact source, then review the render. |
 | Move the diagram beneath Run selectors, retain final SPICE and display it at 60%. | Change page presentation only; keep SVG, native project, recipe and SPICE unchanged. |
 | Draw VSS horizontally like VDD. | Change the native port presentation and label position; preserve the named interface and exact source contract. |
+| Some OTA-FREE drawings look unfinished. | Review every affected run; replace fragmented principal paths with case-matched continuous wiring, while checking exact source fidelity separately. |
 | Consolidate the drawing skill and documentation. | Update instructions only; do not redraw accepted circuits or alter run evidence. |
 | Run an OTA AC simulation, place a PCB, or make a decorative circuit image. | Do not implicitly select this drawing skill for the unrelated task. |
 
@@ -48,6 +49,11 @@ vertical current paths, local D–G ties, shared gates, main loop, intersections
 actual label strings. Confirm the ATB pilot-specific constraints where applicable.
 Record actual browser coverage and explicit gaps; do not use diagnostics or wire
 length as a substitute for visual review.
+
+Reject a generic grouped fallback when its principal signal stages, load mirror,
+folded current handoff or compensation must be reconstructed from repeated names.
+Check the full circuit at the actual page size as well as enlarged details;
+an enlarged fragment cannot establish that the complete drawing is readable.
 
 ## Independent skill review
 

@@ -1,6 +1,7 @@
 /** Source-derived OTA layouts. Reuse the reviewed two-stage motif only after
  * matching its ordered-pin connectivity; larger circuits use current-path groups. */
 const canon = (s) => s.toLowerCase().replace(/^vin_([pn])$/, "vin$1");
+import { reviewedFreeLayout } from "./ota-free-layouts.mjs";
 
 export function otaDevices(source) {
   return source
@@ -652,6 +653,7 @@ export function buildOtaLayout(id, source, template) {
   const p = header.findIndex((s) => s.toLowerCase() === "params:"),
     ports = header.slice(2, p < 0 ? undefined : p);
   return (
+    reviewedFreeLayout(id, ds, ports) ??
     twoStage(id, source, template, ds, ports) ??
     currentPaths(id, source, ds, ports)
   );

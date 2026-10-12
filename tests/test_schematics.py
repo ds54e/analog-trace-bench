@@ -47,6 +47,48 @@ class SubmittedSchematics(unittest.TestCase):
             port = next(i for i in document['instances'] if i['id'] in terminal['interfaceInstanceIds'])
             self.assertEqual(port.get('rotation', 0) % 180, 0, entry['run_id'])
 
+    def test_free_ports_and_reviewed_load_mirrors_have_physical_routes(self):
+        mirrors = {
+            'sonnet-5-5-r1': [('XM3', 'D'), ('XM3', 'G'), ('XM4', 'G')],
+            'haiku-r3': [('XM3', 'D'), ('XM3', 'G'), ('XM4', 'G')],
+            'luna-6-r3': [('XLOADD', 'D'), ('XLOADD', 'G'), ('XLOADM', 'G')],
+            'luna-6-r2': [('XMPREF', 'D'), ('XMPREF', 'G'), ('XMPLOAD', 'G')],
+            'sol-6-1-r2': [('XPCD', 'D'), ('XPD', 'G'), ('XPM', 'G')],
+            'deepseek-r3': [('XM5', 'D'), ('XM3', 'G'), ('XM4', 'G')],
+            'opus-5-5-r2': [('XMNB', 'D'), ('XMNB', 'G'), ('XMNA', 'G')],
+            'opus-5-5-r3': [('XM7', 'D'), ('XM7', 'G'), ('XM8', 'G')],
+            'sonnet-5-5-r3': [('XM5', 'D'), ('XM9', 'G'), ('XM10', 'G')],
+            'sol-6-r1': [('XNML', 'D'), ('XNML', 'G'), ('XNMR', 'G')],
+            'sol-6-r3': [('XNM1', 'D'), ('XNM1', 'G'), ('XNM2', 'G')],
+        }
+        for path in (ROOT / 'site/schematics').glob('ota-free-*/project.icproj.json'):
+            doc = json.loads(path.read_text())['documents'][0]
+            graph = {}
+            def key(endpoint):
+                return tuple(endpoint['terminal']) if 'terminal' in endpoint else (endpoint['junction'],)
+            for route in doc['routes']:
+                a, b = key(route['start']), key(route.get('end') or route['legs'][-1])
+                graph.setdefault(a, set()).add(b)
+                graph.setdefault(b, set()).add(a)
+            def reachable(start):
+                seen, todo = set(), [start]
+                while todo:
+                    current = todo.pop()
+                    if current in seen:
+                        continue
+                    seen.add(current)
+                    todo.extend(graph.get(current, ()))
+                return seen
+            refs = {i['id'] for i in doc['instances'] if 'name' in i}
+            for terminal in doc['netlist']['terminals']:
+                port = terminal['interfaceInstanceIds'][0]
+                self.assertTrue(any(len(k) == 2 and k[0] in refs for k in reachable((port, 'P'))),
+                                (path.parent.name, terminal['name']))
+            case = path.parent.name.removeprefix('ota-free-sky130-')
+            if case in mirrors:
+                endpoints = mirrors[case]
+                self.assertTrue(set(endpoints) <= reachable(endpoints[0]), (case, endpoints))
+
     def test_numeric_constants_and_mos_defaults_preserve_the_contract(self):
         source = (ROOT / 'site/schematics/ota-drive-sky130-sonnet-5-5-r3/submitted.spice').read_text()
         exported = (ROOT / 'site/schematics/ota-drive-sky130-sonnet-5-5-r3/exported.spice').read_text()

@@ -621,6 +621,10 @@ for (const layout of layouts) {
     let x = mir ? -20 : 20,
       y = 5,
       align = mir ? "end" : "start";
+    if (layout.strategy === "reviewed-free" && mir && ref.includes("_")) {
+      x = -40;
+      y = -2;
+    }
     if (["resistor", "capacitor"].includes(i.symbolId)) {
       const horizontal = i.placement.rotation % 180 !== 0;
       x = horizontal ? 0 : 16;
@@ -850,7 +854,7 @@ for (const layout of layouts) {
     verification.resolved_native_comparison = resolvedComparison;
     verification.numeric_constants_checked = true;
   }
-  if (layout.strategy === "current-path-groups")
+  if (["current-path-groups", "reviewed-free"].includes(layout.strategy))
     verification.visible_wiring.named_connections_checked = true;
   await writeFile(
     join(out, "verification.json"),
@@ -876,7 +880,7 @@ for (const layout of layouts) {
     source_sha256: hash(source),
     files: hashes,
     ...(layout.strategy ? { layout_strategy: layout.strategy } : {}),
-    ...(layout.strategy === "current-path-groups"
+    ...(["current-path-groups", "reviewed-free"].includes(layout.strategy)
       ? {
           reading_min_width: Math.ceil(
             +svg.match(/viewBox="[^ ]+ [^ ]+ ([^ ]+)/)[1] * 0.8,

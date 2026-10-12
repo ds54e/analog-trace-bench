@@ -788,18 +788,18 @@
     {
       "run_id": "ota-free-sky130-sonnet-5-5-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "c90dac4f170360856dfdc4e93174bde1a1c165c912c98e662292ac8c97c5fd18",
       "files": {
-        "schematic.svg": "e78ac3f72badfe5960a6cb8d8e50b049df9c053092bfa8286c83819e1e4ebd36",
-        "project.icproj.json": "f0148c24d03202e5aafac159cbb0504f3fccf71a291aee73fe158d717ed6f00d",
+        "schematic.svg": "350c1b6c109581f3453dd1866059c31c4e97aa2e04de2acead1ae864de4678f3",
+        "project.icproj.json": "f3bfe3c62d03c0d936af4ef5d684494a270e4ea9b3a8cf3e3946f182c438b7d1",
         "submitted.spice": "c90dac4f170360856dfdc4e93174bde1a1c165c912c98e662292ac8c97c5fd18",
         "exported.spice": "3708becdd175dcc025cbc5fa7800204682a7b3388060af89c0e83e3ea52c8dcc",
         "verification.json": "e414c8842c51efc22589a488c3ddb6cd4b15b04c10f3ea597958fc5d2f3378bf"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 692
     },
     {
       "run_id": "ota-free-sky130-sol-6-1-r1",
@@ -834,18 +834,18 @@
     {
       "run_id": "ota-free-sky130-sol-6-r1",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "b69440c30011285beef0fa5dec4db37ed49020004b046c2f738250b7103274bd",
       "files": {
-        "schematic.svg": "b4aac32771910598fc4cc1fd104c0758f0488e149bcc03a070e60be5162e5671",
-        "project.icproj.json": "a18803be6bba2718a8cc9772c4e4ab98747f718de0f7b1398238a4c203b1de0e",
+        "schematic.svg": "3eaa96989bfd7f8d5032af1470da2f60b50234dfabe1a6eb3e1e3cbb20ac3f1a",
+        "project.icproj.json": "75f907b12c39f7053f07fa93aba99b71c1173b23ac1c1e1dfc3d2e71d16de267",
         "submitted.spice": "b69440c30011285beef0fa5dec4db37ed49020004b046c2f738250b7103274bd",
         "exported.spice": "bb234d94e0d890deae8e17774c0a4c2a5cba5e4078e1ebc362471d5266f3ef32",
         "verification.json": "31ad83db0e7c8a32e901971b68d1b1a2271b73b60daabc8fc7e8be86e680925e"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1132
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 693
     },
     {
       "run_id": "ota-free-sky130-deepseek-r1",
@@ -910,34 +910,34 @@
     {
       "run_id": "ota-free-sky130-sonnet-5-5-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "09cb99dfb85da801667b7bc2e52d97fb18589c694dd9f50a9f51bf40a4bc4250",
       "files": {
-        "schematic.svg": "23723528c63b302dca4250ef134743b9fb7f2f12961b371231dee3a6ebe2f70e",
-        "project.icproj.json": "e87026ee8bdb57235aa17c3cdb5fa6f38116cba942ca783c7198d212ee82b116",
+        "schematic.svg": "4a22fa1e5efb6f4050263cab7e6ee4bed6ba811ccab00306de708fe6edac0144",
+        "project.icproj.json": "4c1cc4cd146794eec464c2a4b5a9ec4392ee3008281de575fd02892c17333c79",
         "submitted.spice": "09cb99dfb85da801667b7bc2e52d97fb18589c694dd9f50a9f51bf40a4bc4250",
         "exported.spice": "ab434246ad6d4a0cf2d964cea024755b6f2ec6b7b6991777ef63e9b9a922df8d",
         "verification.json": "4e9359271e7f9e2e581e0f1e0e176b9bf82488aed81979f7965b095e8b211a92"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1306
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 684
     },
     {
       "run_id": "ota-free-sky130-sol-6-1-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "bb2387524fb463d14cb38451bcaffacc2b8465f7d50d4a33c43cd7c5d58a827a",
       "files": {
-        "schematic.svg": "66eb42005011b6aea755ce6b7dd1064784ea4fa92d6950aa8aa57c9e2faa0d0f",
-        "project.icproj.json": "c88e2c52f73cb27ab9e8a3bea71fd09604b0e0f8388a00deef17c5f091f46ac7",
+        "schematic.svg": "0b087d0e71ea1f6f9225a81718594c612bfb2fac2c9b6ac3781c356597d527c9",
+        "project.icproj.json": "045f7d6bd6e34c500422429a5b0dff3536f409bb5904db680ed3fbf13504856d",
         "submitted.spice": "bb2387524fb463d14cb38451bcaffacc2b8465f7d50d4a33c43cd7c5d58a827a",
         "exported.spice": "95d5ab04b137a38047fc9957f6ffea8ab4e69de298630604fe085df530170e2f",
         "verification.json": "37dcb8f2cfd0c35d6ded6e45afd68eca91616207b50ec5b62567b2c7c6873297"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 954
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 692
     },
     {
       "run_id": "ota-free-sky130-sol-6-1-r3",
@@ -957,34 +957,34 @@
     {
       "run_id": "ota-free-sky130-luna-6-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "23e6d62fa7885be60658926bc3c2039be7caaa07af2a887a6b99de8f3c4a88ce",
       "files": {
-        "schematic.svg": "e808320a604cf42e6c309711fc3208e14ea51fde8cd26885f7ebac7a9d5b4d5e",
-        "project.icproj.json": "a365600227b535be5aa93bf5029a18038b4dc111900a1ae6a5c3d67ab961518c",
+        "schematic.svg": "a6960f32b62fd5f576af0bf0185803af33157843c86b49d30afaed2557ad442c",
+        "project.icproj.json": "0e3231b4e53734a42acb772f428e046a0be3715a16633ba02f6f9798c205fd5e",
         "submitted.spice": "23e6d62fa7885be60658926bc3c2039be7caaa07af2a887a6b99de8f3c4a88ce",
         "exported.spice": "f6682daf187a9da80b8fd2eb34f8b2f43a617d278c8e3b1607683f02b1f6e2db",
         "verification.json": "03fdb36ab8dee8dd0441e450179131dbd3d32c76543d78d3aef0e011e30bc7a0"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 604
     },
     {
       "run_id": "ota-free-sky130-luna-6-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "3d217aff7328ad2053cd526bb26ae54b5477639863c5f620d96ff4ef731be830",
       "files": {
-        "schematic.svg": "2ad5a7b5b7abb529fd4ac86c4b7ff9034a9264458c02be21f32dacc7c5e382dc",
-        "project.icproj.json": "47ac6d615b9fb49e11f55054f92b09b84123cd1d4baf0e8973785967e6f40341",
+        "schematic.svg": "19b1ea5543010274aacd6a4d82013cf38fbf807e8757e945038ee8c91a253171",
+        "project.icproj.json": "55c971042d7b471318c4db6e94df6a25a085a3cba0f9c780e67d605f4795fd56",
         "submitted.spice": "3d217aff7328ad2053cd526bb26ae54b5477639863c5f620d96ff4ef731be830",
         "exported.spice": "544e3d24ec191c983a1182be5cfade720a40f2ff4536c589e5791517a641649a",
         "verification.json": "ad82d0ca81bdf2563cb94ea62a61a6b9ce50f3045082473a367856ab8c7f87a0"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 692
     },
     {
       "run_id": "ota-free-sky130-sol-6-r2",
@@ -1004,18 +1004,18 @@
     {
       "run_id": "ota-free-sky130-sol-6-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "990b36eceafc69542b48dafda64036208a8ff2a0ba5c6ded7d1c97e73f23adad",
       "files": {
-        "schematic.svg": "fe145b463ac66c237c4a192a5c7b0e0926632cf098f0b5e39523f84fb6d2f290",
-        "project.icproj.json": "7eb501eed0d92dc2fa7ed4c7937aefc29f2a53ffb46738878768f41e90cae630",
+        "schematic.svg": "7267912542b8f6096d0ee92959b0ecff2db9bab39137a80b2ea8815d47d771ec",
+        "project.icproj.json": "01007ba91460743313e854690a80e6c146d4e57cf0abaf68501aff3b161ffa30",
         "submitted.spice": "990b36eceafc69542b48dafda64036208a8ff2a0ba5c6ded7d1c97e73f23adad",
         "exported.spice": "cb0e101f1a4f50ee66b894343fee06558a6a45010e1dae90bbee1c428cd2932a",
         "verification.json": "544a15b3847858a328699bacf5006c07dc8a8d16518edfaaf70aaaab399911bd"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1492
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 1144
     },
     {
       "run_id": "ota-free-sky130-deepseek-r2",
@@ -1035,50 +1035,50 @@
     {
       "run_id": "ota-free-sky130-deepseek-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "e52ab601d3d068652d3b08efd2b41872fb1f9611ddec8cd4f095d01b042f8c3e",
       "files": {
-        "schematic.svg": "7d6dfd5577aad490d028785e93dea10682a8996f4d5caaa753f70ae450793c8c",
-        "project.icproj.json": "6aec7e8c8f4c3444a3c8bfdd1903f6ed88b2e719d756fcd566c6afbe61f059a2",
+        "schematic.svg": "12f8fe3281e9cf64ae8c65a3cbfc35fd884f988776b69b510fb08ba2289b7586",
+        "project.icproj.json": "b8474a540026baf17e84ec5937139e378c725078fde2a902bdc69fcaf8569645",
         "submitted.spice": "e52ab601d3d068652d3b08efd2b41872fb1f9611ddec8cd4f095d01b042f8c3e",
         "exported.spice": "8793bc507015d020ea71ff98ee325c2d5d90c061071667cc6b14e99a6a7f4006",
         "verification.json": "5c2e8ded4068af24e6d64b88c93a51fb478ec543b8ff5efb7db139b83261ac57"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 692
     },
     {
       "run_id": "ota-free-sky130-opus-5-5-r2",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "cead40307836caa9b394b9770a6f0a94f07f0a802b9784fa0341ef0f130e4f01",
       "files": {
-        "schematic.svg": "bc8d2d0df8a2ab773f469201f55721bbe4fca517e4b64a2651108b86ab8b882d",
-        "project.icproj.json": "b1dad9aeb443c0255315157ee3097dd24a1975c7afbd245bb0228eb8b6148a85",
+        "schematic.svg": "41170a23e215557780b355af1216093a79f45dd5db2eaaf70d32ebfb6d2da7eb",
+        "project.icproj.json": "2ee22c3d3688c2500052da8490fa3d6bbbaa8434c46a55d1a664ca6d03cf5899",
         "submitted.spice": "cead40307836caa9b394b9770a6f0a94f07f0a802b9784fa0341ef0f130e4f01",
         "exported.spice": "6d6a7ba4c34e1163de4fd07eac80bfbe46051ee85961751dbf1a69bb841b6f15",
         "verification.json": "992e43b86da78d213820065cabd9e89d0d4a8723917d125e68874a9bd82e37c3"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 1305
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 972
     },
     {
       "run_id": "ota-free-sky130-opus-5-5-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "1fa0574df94974ab9d8ebfe28e8b2cd846ee6ea03fadf438d70a1344bd5a6324",
       "files": {
-        "schematic.svg": "13e059540ae92f2df12f1c22013bfeb7ecccfd0fd72d5d6311b2b57552c37a17",
-        "project.icproj.json": "3ed43f5a14e77d2bf9881708e52a3a7b0a9888f6e530dad4c5591e086572a66c",
+        "schematic.svg": "0ec4f30f3a6aaf90a818d780004e449dac19cef54b6438f9993ced2cace55904",
+        "project.icproj.json": "83f19d436df5c00bb8c850e906c1b68c829475217ad419d64674bf709b1e51fe",
         "submitted.spice": "1fa0574df94974ab9d8ebfe28e8b2cd846ee6ea03fadf438d70a1344bd5a6324",
         "exported.spice": "d3c355df3b1da8445e50c0917ee76f4812da6867121d5614d04362e28d35cd70",
         "verification.json": "940867904244584c926a13bf793430122b8c71e21bbd3898f5f19f63054952f5"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 943
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 972
     },
     {
       "run_id": "ota-free-sky130-haiku-r1",
@@ -1113,18 +1113,18 @@
     {
       "run_id": "ota-free-sky130-haiku-r3",
       "title": "Transistor-level OTA",
-      "description": "Submitted OTA arranged by differential branches, vertical current paths, output and bias. Matching native net labels connect remote groups; exact parameters remain in the editable project.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "460c7b3023620fd74a428d3e955238ea9e100cd0658aa7515c2b1f5787bbf0e2",
       "files": {
-        "schematic.svg": "05ec42db66661cb468bee5e80f6a48b6c734ec5160b8b08a2c257d323e7c35a7",
-        "project.icproj.json": "a6e3bc2990199b53cb8d883694c694a5337af522a10de53d8ff1092bbbb6c6d0",
+        "schematic.svg": "f904bbe7ba25db3b4dc0c879d7bf119b4f996c5af8b09a4322d3885b8185cf18",
+        "project.icproj.json": "ce3b49060beceb91f67ac3266559b4a57f123802bc5f8136dfaea027aa5f425a",
         "submitted.spice": "460c7b3023620fd74a428d3e955238ea9e100cd0658aa7515c2b1f5787bbf0e2",
         "exported.spice": "96a4a2d917a909253c172e467a003a25af621bef26defd83a31b6cd295560138",
         "verification.json": "1f5fd75775529ab94517826430f99229d8509809953db24b972c0b985349e967"
       },
-      "layout_strategy": "current-path-groups",
-      "reading_min_width": 834
+      "layout_strategy": "reviewed-free",
+      "reading_min_width": 692
     },
     {
       "run_id": "ota-precision-sky130-opus-5-5-r1",

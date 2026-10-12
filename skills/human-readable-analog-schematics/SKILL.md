@@ -62,6 +62,8 @@ For native drawing changes:
 6. **Review the rendered result.** Inspect fit view and reading size, including
    actual value strings, current paths, feedback, crossings and label clearance.
    Check the target page when applicable. Report unavailable browser checks.
+   Reject a fallback that leaves the principal stages, load mirror or compensation
+   connected only by names. A component inventory is not a finished schematic.
 
 For page-only changes, use the repository's site build and validation, then inspect
 the published page at the requested size. Check that the current SVG is loaded;

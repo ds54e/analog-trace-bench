@@ -52,6 +52,14 @@ Use the ATB profile for its presentation preferences.
 - Prefer continuous wires for local mirrors, the principal signal path,
   compensation and the main loop. Name-based connections can reduce remote
   supply/bias wiring; verify names, case handling and scope with the native tool.
+- In a folded circuit, show both the input drain tap and its receiving folded
+  branch. In a cascoded mirror, show the actual drain that controls the shared
+  gates, including any intervening cascode. Detached labels on each stage can
+  preserve connectivity while concealing the circuit's operation.
+- Put external ports at the branches they serve. A separate row of short,
+  name-connected port stubs can look like an unfinished drawing. Compare a
+  lower auxiliary-bias row when side-by-side bias branches make the main circuit
+  excessively wide; keep each auxiliary current path locally continuous.
 
 ## Make labels belong to their objects
 

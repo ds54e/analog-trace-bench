@@ -35,12 +35,13 @@ preferences there instead of duplicating them in this repository guide.
 |---|---|
 | `tools/schematics/generate.mjs` | Reconstruct native geometry and labels; save, reopen, render and compare. |
 | `tools/schematics/ota-layouts.mjs` | Select a source-matched two-stage motif or group larger circuits by differential branches and current paths. |
+| `tools/schematics/ota-free-layouts.mjs` | Reviewed per-submission FREE recipes for degeneration, cascodes, folded branches and the level-shifted PMOS input case; keep principal paths continuous. |
 | `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
 | `tools/build_traces.py`, `tools/templates/trace.html` | Bind the figure to its run, before the summary tables; preserve the final SPICE article. |
 | `site/assets/trace.css` | Use 60% figure width and a 408 px minimum capped at the available width; preserve image aspect ratio and scroll below 408 px. |
 | `site/schematics/index.json` | Bind source and artifact hashes; the verified SVG hash versions each page image URL. |
 
-Large grouped drawings have a manifest-specific image minimum at 80% of their
+Grouped and reviewed FREE drawings have a manifest-specific image minimum at 80% of their
 native viewBox width, inside the same 60% figure. Horizontal scrolling preserves
 reading size without shrinking native text. The white image surface remains consistent across page themes. Page scaling does
 not modify native geometry, text sizes or parameters. Native SVG export uses a
@@ -74,6 +75,14 @@ paired inputs; source degeneration resistors stay with their pair. Remote groups
 use object-bound native net labels, not SVG-only text. See the skill's
 [Native workflow](../skills/human-readable-analog-schematics/references/analog-canvas-workflow.md)
 for literal labels, saved cell defaults and pinned export behavior.
+
+OTA-FREE has 13 source-matched two-stage drawings and 11 case-reviewed recipes.
+The latter replace the initial grouped fallback: the signal path, load mirror,
+tail and compensation use continuous native wires. Auxiliary bias branches sit
+below the main circuit and use bound labels for remote controls and supplies.
+Their coordinates belong to the recipes. Generic grouping in other families is
+not an acceptance criterion: inspect continuity and the complete page view before
+calling a drawing readable.
 
 ## Regenerate native drawings
 
