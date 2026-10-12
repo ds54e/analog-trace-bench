@@ -29,6 +29,7 @@ Final submission displays the diagram without `SVG` or `Project` links beneath i
 Descriptions, body/unit/crossing notes, verification prose and device tables are
 kept in supporting data or documentation rather than printed below the diagram.
 Accessible image descriptions remain available.
+Page image URLs include the verified SVG hash so drawing updates invalidate caches.
 
 Use a white drawing surface in both themes. The focusable horizontal scroll
 region retains readable labels on narrow layouts. The page figure uses 80% width,
