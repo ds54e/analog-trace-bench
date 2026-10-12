@@ -48,6 +48,7 @@ const recipes = {
     type: "two-stage",
   },
   "luna-6-r2": {
+    pairSpacing: 220, // Clear both long cascode references without moving one label up.
     chains: [
       ["XMPCREF", "XMPREF", "XMNCP", "XMINP"],
       ["XMPCLOAD", "XMPLOAD", "XMNCN", "XMINN"],
@@ -252,7 +253,14 @@ export function reviewedFreeLayout(id, ds, portNames) {
                 : 1
           ]
         : null;
-      position(ref, x, y + i * 110, mirror, topNet);
+      // Keep passive pins on the MOS drain/source axis, not its body center.
+      position(
+        ref,
+        x + ("np".includes(byRef.get(ref).kind) ? 0 : mirror ? -10 : 10),
+        y + i * 110,
+        mirror,
+        topNet,
+      );
     });
     for (let i = 1; i < refs.length; i++) {
       const a = byRef.get(refs[i - 1]),
@@ -271,8 +279,8 @@ export function reviewedFreeLayout(id, ds, portNames) {
       links.push([a.ref + "." + pa, b.ref + "." + pb]);
     }
   };
-  const left = r.type === "pmos-input" ? 660 : r.type === "folded" ? 320 : 220,
-    right = left + 160;
+  const left = r.type === "pmos-input" ? 360 : r.type === "folded" ? 320 : 220,
+    right = left + (r.pairSpacing ?? 160);
   let floor;
   if (r.type === "folded") {
     const foldLeft = left - 180,
@@ -292,14 +300,19 @@ export function reviewedFreeLayout(id, ds, portNames) {
         ],
       ]);
     });
-    position(r.tail, (left + right) / 2, 390);
-    floor = 610;
+    position(r.tail, (left + right) / 2, 430);
+    floor = 520;
   } else if (r.type === "pmos-input") {
     chain(r.chains[0], left, 240);
     chain(r.chains[1], right, 240, true);
     position(r.tail, (left + right) / 2, 110);
-    floor = 590;
-    r.followers.forEach((ch, i) => chain(ch, 260 + i * 160, 240));
+    floor = 500;
+    // Each level shifter faces its receiving input. One local elbow
+    // replaces the return around the whole pair.
+    r.followers.forEach((ch, i) => {
+      chain(ch, i ? right + 100 : left - 100, 130, i === 1);
+      devices[ch[1]][1] = 430;
+    });
   } else {
     chain(r.chains[0], left, 110);
     chain(r.chains[1], right, 110, true);
@@ -313,19 +326,42 @@ export function reviewedFreeLayout(id, ds, portNames) {
     position(r.output[0], outX, 170);
     position(r.output[1], outX, floor - 20);
   }
-  position(r.ref, left - 110, floor - 110, true);
-  if (byRef.get(r.mirror[0]).kind === "p") {
-    devices[r.mirror[0]][2] = "horizontal";
-    devices[r.mirror[1]][2] = undefined;
-  }
+  position(
+    r.ref,
+    left - (r.followers ? 200 : r.type === "folded" ? 60 : 110),
+    byRef.get(r.tail).kind === "n" ? devices[r.tail][1] : floor - 110,
+    true,
+  );
+  // Face both load gates inward, retaining each branch's D/S column.
+  r.mirror.forEach((ref, i) => {
+    const pos = devices[ref],
+      wasMirrored = pos[2] === "horizontal";
+    const mirrored = i === 0;
+    pos[0] += (wasMirrored ? -10 : 10) - (mirrored ? -10 : 10);
+    pos[2] = mirrored ? "horizontal" : undefined;
+  });
   if (r.boost) position(r.boost, outX + 180, 170);
   const gainD = byRef.get(r.gain.split(".")[0]);
   const gainY = devices[gainD.ref][1] + ("n" === gainD.kind ? -40 : 40);
-  const compY = r.output ? Math.max(290, gainY + 90) : null;
+  const amp = r.output?.find((ref) => byRef.get(ref).pins[1] === gainD.pins[0]);
+  const nOutput = amp && byRef.get(amp).kind === "n";
+  const compY = r.output ? gainY + (nOutput ? -50 : 90) : null;
+  if (r.output) {
+    devices[amp][1] = gainY;
+    devices[r.output[nOutput ? 0 : 1]][1] = nOutput
+      ? compY - 40
+      : Math.max(compY + 90, devices[r.tail][1] + 70);
+  }
   if (r.compensation) {
     const [a, b] = r.compensation;
     const dn = byRef.get(gainD.ref).pins[0];
-    position(a, right + (r.type === "folded" ? 290 : 110), compY, false, dn);
+    position(
+      a,
+      right + (r.type === "folded" ? 290 : r.followers ? 130 : 110),
+      compY,
+      false,
+      dn,
+    );
     const mid = byRef.get(a).pins.find((n) => n !== dn);
     position(b, right + (r.type === "folded" ? 400 : 220), compY, false, mid);
     devices[a][2] = byRef.get(a).pins[0] === dn ? 270 : 90;
@@ -341,8 +377,10 @@ export function reviewedFreeLayout(id, ds, portNames) {
     );
   // Exceptional source details remain explicit local case routes below.
   if (r.type === "pmos-input") {
-    position("RB", outX + 180, 290, false, "gb");
-    position("CB", outX + 100, 390, false, "gb");
+    position(r.boost, outX + 180, devices[r.output[0]][1]);
+    position("RB", outX + 130, devices[r.boost][1]);
+    devices.RB[2] = 90; // GB on the right, PB on the left.
+    position("CB", outX + 160, gainY + 70, false, "gb");
   }
   if (Object.keys(devices).length !== ds.length)
     throw new Error(
@@ -356,7 +394,10 @@ export function reviewedFreeLayout(id, ds, portNames) {
     portNames.find((p) => p.toLowerCase().replace("_", "") === n);
   ports[name("vdd")] = [40, 50];
   ports[name("vss")] = [40, floor + 60];
-  ports[name("ibias")] = [r.type === "folded" ? 40 : left - 200, floor - 210];
+  ports[name("ibias")] = [
+    devices[r.ref][0] - (r.type === "folded" ? 50 : 90),
+    devices[r.ref][1] - 40,
+  ];
   r.input.forEach((ref, i) => {
     const d = byRef.get(ref);
     if (r.type !== "pmos-input")
@@ -371,12 +412,16 @@ export function reviewedFreeLayout(id, ds, portNames) {
       (ch, i) =>
         (ports[
           portNames.find((p) => p.toLowerCase() === byRef.get(ch[0]).pins[1])
-        ] = [devices[ch[0]][0] - 70, 240]),
+        ] = [
+          devices[ch[0]][0] + (i ? 70 : -70),
+          devices[ch[0]][1],
+          i ? 180 : 0,
+        ]),
     );
   const outputKey = r.output ? r.output[0] + ".D" : r.gain;
   ports[name("vout")] = [
     r.output ? outX + 90 : right + 270,
-    r.output ? 250 : gainY,
+    r.output ? gainY + (nOutput ? -30 : 50) : gainY,
     180,
   ];
   return {
@@ -536,11 +581,8 @@ export function reviewedFreeLayout(id, ds, portNames) {
 
       const [ma, mb] = r.mirror;
       const mirrorTap = r.mirrorTap ?? ma + ".D",
-        mp = point(mirrorTap),
-        ga = point(ma + ".G"),
-        gb = point(mb + ".G");
-      const my = Math.max(ga.y, gb.y) + (byRef.get(ma).kind === "n" ? 70 : 0),
-        mx = ga.x + (ga.x > devices[ma][0] ? 50 : -50);
+        ga = point(ma + ".G");
+      const mx = ga.x + 50;
       const mt = tap(
         mirrorTap,
         byRef.get(mirrorTap.split(".")[0]).kind === "p" ? 20 : -20,
@@ -549,10 +591,7 @@ export function reviewedFreeLayout(id, ds, portNames) {
         [mx, point(mt).y],
         [mx, ga.y],
       ]);
-      wire(ma + ".G", mb + ".G", [
-        [ga.x, my],
-        [gb.x, my],
-      ]);
+      wire(ma + ".G", mb + ".G");
       const refD = tap(r.ref + ".D", -20),
         refG = point(r.ref + ".G"),
         rd = point(refD);
@@ -565,20 +604,15 @@ export function reviewedFreeLayout(id, ds, portNames) {
       label("ibias", refD);
       // A shared bias trunk drives the tail and fixed output sink when applicable.
       if (netOf(r.tail + ".G") === "ibias") {
-        const tg = point(r.tail + ".G"),
-          rg = point(r.ref + ".G");
-        const by = Math.max(tg.y, rg.y) + 40;
-        wire(r.ref + ".G", r.tail + ".G", [
-          [rg.x, by],
-          [tg.x, by],
-        ]);
+        const tg = point(r.tail + ".G");
+        const by = tg.y;
+        wire(r.ref + ".G", r.tail + ".G");
         for (const ref of r.output ?? [])
           if (netOf(ref + ".G") === "ibias") {
             const og = point(ref + ".G");
-            wire(r.tail + ".G", ref + ".G", [
-              [tg.x, by],
-              [og.x, by],
-            ]);
+            const branch = j("ibias", tg.x - 30, by);
+            wire(r.ref + ".G", branch);
+            wire(branch, ref + ".G", [[tg.x - 30, og.y]]);
           }
       }
       for (const p of portNames) {
@@ -605,57 +639,35 @@ export function reviewedFreeLayout(id, ds, portNames) {
           p = point(k),
           from = r.output ? r.gain : outT,
           q = point(from);
-        wire(from, k, [[p.x, q.y]]);
+        const t = tap(from, gainY - q.y);
+        wire(t, k, [[p.x, gainY]]);
       }
       if (r.followers)
         r.followers.forEach((ch, i) => {
           const a = ch[0] + ".S",
-            b = r.input[i] + ".G",
-            p = point(a),
-            q = point(b),
-            y = i ? 80 : 190;
-          wire(a, b, [
-            [p.x + 60, p.y],
-            [p.x + 60, y],
-            [q.x + (i ? 60 : -60), y],
-            [q.x + (i ? 60 : -60), q.y],
-          ]);
+            b = r.input[i] + ".G";
+          wire(a, b, [[point(b).x, point(a).y]]);
         });
       if (r.boost) {
-        const bg = point(r.boost + ".G"),
-          rt = point("RB.1"),
-          ct = point("CB.1");
-        wire(r.boost + ".G", "RB.1", [
-          [bg.x - 30, bg.y],
-          [bg.x - 30, rt.y],
-        ]);
-        wire("RB.1", "CB.1", [
-          [rt.x - 40, rt.y],
-          [rt.x - 40, ct.y],
-        ]);
+        // GB is one vertical trunk beside the boost gate, with a short RB
+        // branch. N2 returns below the output transistor.
+        wire("RB.1", r.boost + ".G");
+        wire(r.boost + ".G", "CB.1");
         const cb = point("CB.2"),
           gn = point(r.gain);
-        wire("CB.2", r.gain, [
-          [cb.x, Math.max(cb.y + 40, gn.y + 90)],
-          [gn.x + 50, Math.max(cb.y + 40, gn.y + 90)],
-          [gn.x + 50, gn.y],
+        wire("CB.2", tap(r.gain, gainY - gn.y), [
+          [gn.x + 80, cb.y],
+          [gn.x + 80, gainY],
         ]);
-        const p = point(r.boost + ".D");
-        wire(outT, r.boost + ".D", [
-          [op.x, p.y + 40],
-          [p.x, p.y + 40],
-        ]);
+        wire(outT, r.boost + ".D");
       }
+
       if (r.output) {
         const amp = r.output.find((ref) => netOf(ref + ".G") === netOf(r.gain));
         if (!amp) throw new Error("Missing signal output " + id);
         const gp = point(r.gain),
-          ap = point(amp + ".G"),
-          gainT = tap(r.gain);
-        wire(gainT, amp + ".G", [
-          [gp.x + 50, gp.y],
-          [gp.x + 50, ap.y],
-        ]);
+          gainT = tap(r.gain, gainY - gp.y);
+        wire(gainT, amp + ".G");
         if (r.compensation) {
           const [a, b] = r.compensation,
             net = netOf(r.gain),
@@ -666,7 +678,7 @@ export function reviewedFreeLayout(id, ds, portNames) {
             bk = b + "." + (byRef.get(b).pins[0] === "vout" ? "1" : "2");
           const cp = point(ak);
           wire(gainT, ak, [
-            [gp.x + 50, gp.y],
+            [gp.x + 50, gainY],
             [gp.x + 50, cp.y],
           ]);
           wire(am, bm);
@@ -711,7 +723,11 @@ export function reviewedFreeLayout(id, ds, portNames) {
             net,
             t,
             dx: dx < 0 ? -8 : 8,
-            dy: -10,
+            // Clear the nearby compensation wire as well as other text.
+            dy:
+              gate && r.compensation && p.y > compY && p.y - compY <= 20
+                ? -30
+                : -10,
             align: dx < 0 ? "end" : "start",
           });
         }

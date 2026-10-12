@@ -83,6 +83,11 @@ below the main circuit and use bound labels for remote controls and supplies.
 The reviewed FREE figures show the complete drawing within the 60% frame and
 open the native SVG when clicked, without a caption or link text. Their native
 artifacts retain full text and symbol sizes. Coordinates belong to the recipes.
+The FREE recipes preserve each D/S column when turning mirror gates inward,
+align the next-stage gate with its driving tap, and keep series passives on
+their branch axis. The level-shifted PMOS case places a follower beside each
+input and uses a local boost-gate trunk. Review these routes at reading size;
+fewer bends do not by themselves establish clear crossings or label ownership.
 Generic grouping in other families is
 not an acceptance criterion: inspect continuity and the complete page view before
 calling a drawing readable.
