@@ -18,7 +18,12 @@ These implementation findings were checked against `cascode-ai/analog-canvas` co
 
 For this user, render mega values as `M` while retaining `meg` in SPICE parameters. Never substitute `M` into a SPICE value: SPICE suffixes are case-insensitive and `M` denotes milli. Prefer a live, native value binding with an SI display formatter if the actual installed version supports it.
 
-At the pinned 0.9.2 revision, `instance-value.ts` prints the authored parameter spelling. The bound-value `formatOverride` in `annotation-text.ts` is accepted only when its flattened text equals the live value, so it cannot change `3meg` to `3M`. The verified ATB workaround is a native instance-value annotation with literal display content anchored to the resistor instance; do not attach both a binding and literal content. Generate that text from the saved raw parameter, leave parameters/export unchanged, and check resolved display text against the parameter and exported SPICE after reopening. Do not patch only the SVG or hide a conflicting bound label underneath it.
+At the pinned 0.9.2 revision, `instance-value.ts` prints the authored parameter spelling. The bound-value `formatOverride` in `annotation-text.ts` is accepted only when its flattened text equals the live value, so it cannot change `3meg` to `3M`. The verified ATB workaround is a native instance-value annotation with literal display content anchored to the resistor instance; do not attach both a binding and literal content. Generate that text from the saved raw parameter using the chosen display precision, leave parameters/export unchanged, and check resolved display text against the expected formatted value after reopening. Compare exact parameters separately through exported SPICE. Do not patch only the SVG or hide a conflicting bound label underneath it.
+
+The ATB display profile uses about two significant digits by user preference:
+`92590 → 93k` and `101200 → 100k`. Round before selecting the SI prefix so a
+carry can become `1M` rather than `1000k`. Saved parameters remain `92590` and
+`101200`; the rounded annotation is not the electrical comparison input.
 
 These generated literal labels do not automatically follow later GUI resistance edits. State that regeneration is required after editing such values; retain live bindings for other values. Reinspect this limitation when upgrading Analog Canvas. Keep label positions in the native project so reopen/render reproduces the actual final image.
 

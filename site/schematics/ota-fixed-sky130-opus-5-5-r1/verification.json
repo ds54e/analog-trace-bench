@@ -78,6 +78,7 @@
   },
   "body_defaults_checked": true,
   "saved_display_values_checked": true,
+  "passive_display_significant_digits": 2,
   "native_unrouted_connections": 0,
   "native_diagnostics": [],
   "simulation_run": false

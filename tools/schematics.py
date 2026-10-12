@@ -126,32 +126,13 @@ def load_drawings(root):
 def render_drawing(entry):
     escape = html.escape
     prefix = '../schematics/' + entry['run_id'] + '/'
-    _, devices = parse_spice(entry['source'])
-    rows = []
-    for item in devices.values():
-        params = item['parameters']
-        passive = 'value' in params
-        value = display_value(params['value']) if passive else item['model']
-        geometry = '—' if passive else params['w'] + ' / ' + params['l']
-        fingers = '—' if passive else params['nf'] + ' / ' + params.get('m', '1 (default)')
-        rows.append('<tr>' + ''.join('<td>' + escape(value) + '</td>' for value in (
-            item['reference'], value, ' · '.join(item['pins']), geometry, fingers)) + '</tr>')
     return (
         '<figure class="submission-schematic" aria-label="Submitted circuit schematic">'
         '<div class="schematic-scroll" tabindex="0" role="region" aria-label="Circuit diagram; scroll horizontally to inspect">'
         '<img src="' + prefix + 'schematic.svg" alt="' + escape(entry['title'], quote=True) +
         '. ' + escape(entry['description'], quote=True) + '" loading="lazy"/></div>'
-        '<figcaption><p>' + escape(entry['description']) + '</p>'
-        '<p class="schematic-note">Derived drawing of the submitted circuit. Connections and values verified against submitted SPICE; no new simulation.</p>'
-        '<p class="schematic-note">' + escape(entry['body_note']) + ' Dots mark connected junctions; crossings without dots are unconnected.</p>'
-        '<p class="schematic-links"><a href="' + prefix + 'schematic.svg" target="_blank" rel="noopener">Open full-size SVG</a> · '
-        '<a href="' + prefix + 'project.icproj.json" download>Editable project</a> · '
-        '<a href="' + prefix + 'verification.json">Verification</a> · '
-        '<a href="' + prefix + 'exported.spice" download>Exported SPICE</a></p></figcaption></figure>'
-        '<div class="table-scroll schematic-device-table"><table class="summary-table">'
-        '<caption>Device details · MOS pins: D / G / S / B; passive pins: source order</caption>'
-        '<thead><tr><th>Device</th><th>Model / value</th><th>Ordered pins</th><th>W / L (µm)</th><th>nf / m</th></tr></thead>'
-        '<tbody>' + ''.join(rows) + '</tbody></table></div>\n'
+        '<figcaption><a href="' + prefix + 'schematic.svg" target="_blank" rel="noopener">SVG</a> · '
+        '<a href="' + prefix + 'project.icproj.json" download>Project</a></figcaption></figure>\n'
     )
 
 

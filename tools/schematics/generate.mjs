@@ -284,7 +284,11 @@ function display(raw) {
     p: 1e-12,
     f: 1e-15,
   };
-  const n = Number(match[1]) * (scales[match[2]?.toLowerCase()] ?? 1);
+  // Round only native display annotations; source parameters and SPICE stay exact.
+  // Round before choosing the prefix so a carry does not produce e.g. 1000k.
+  const n = Number(
+    (Number(match[1]) * (scales[match[2]?.toLowerCase()] ?? 1)).toPrecision(2),
+  );
   for (const [factor, suffix] of [
     [1e6, "M"],
     [1e3, "k"],
@@ -683,6 +687,7 @@ for (const layout of layouts) {
     },
     body_defaults_checked: true,
     saved_display_values_checked: true,
+    passive_display_significant_digits: 2,
     native_unrouted_connections: unrouted.length,
     native_diagnostics: diagnostics,
     simulation_run: false,

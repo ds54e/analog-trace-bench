@@ -20,9 +20,11 @@ these circuits; they do not automatically arrange arbitrary netlists.
 
 The site uses SVG images, with a white drawing surface in both color themes.
 On narrow screens the focusable drawing region scrolls horizontally to retain
-readable labels. A full-size SVG link opens the complete diagram. Each drawing
-also has a device table containing ordered pins, models, W/L, nf and m. Hidden
-MOS body ties are documented and checked against the cell defaults. Crossings
+readable labels. Each drawing shows only compact `SVG` and `Project` links;
+explanatory paragraphs, verification notes and device tables are not displayed
+in Final submission. Ordered pins, models, W/L, nf and m remain in the native
+project and SPICE artifacts. Hidden MOS body ties are documented in the drawing
+manifest and checked against the cell defaults. Crossings
 without a dot are unconnected; the LDO's main feedback path uses green as an
 additional visual aid. The drawing recipes keep the same label sizes while
 compacting functional groups. Native SVG export uses a 20-unit outer margin,
@@ -38,8 +40,10 @@ recorded in the verification report; the editor's default export uses 40 units.
 | `exported.spice` | Structural SPICE exported from the reopened project. |
 | `verification.json` | Native comparison, visible routing, body/display checks and diagnostics. |
 
-Passive value labels are generated literal annotations, including `M` for mega.
-SPICE values retain their original semantics (`meg` or numeric notation).
+Passive value labels are generated literal annotations rounded to about two
+significant digits, including `M` for mega (`92.59k` displays as `93k`, and
+`101.2k` as `100k`). Project parameters and SPICE values retain their exact
+original values and semantics (`meg` or numeric notation).
 These labels do not automatically follow later GUI edits. Regenerate their text
 from saved parameters when editing an exploratory copy. The checked-in generator
 recreates the frozen benchmark circuits, not subsequent GUI changes.
@@ -105,7 +109,7 @@ comparison; neither is a new benchmark evaluation.
 `site/schematics/index.json` binds each drawing to its run and submitted SHA-256,
 with hashes for every artifact. `tools/schematics.py` verifies those hashes,
 checks the supported SPICE contract independently, and inserts the diagram and
-device table during `build_traces.py`. Canonical `content/traces/` fragments are
+compact artifact links during `build_traces.py`. Canonical `content/traces/` fragments are
 not edited. A stale source, changed artifact, mismatched export or unknown run
 fails the build. Portable site exports copy all artifacts as well.
 
