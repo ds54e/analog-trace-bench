@@ -162,9 +162,9 @@ const layouts = [
       XMP: [620, 220],
       RS: [60, 160],
       RB: [450, 370, 90],
-      R1: [720, 300],
-      R2: [720, 420],
-      CFF: [810, 300],
+      R1: [630, 310],
+      R2: [630, 420],
+      CFF: [720, 310],
       C1: [520, 160, 270],
       RZ: [580, 160, 270],
     },
@@ -172,7 +172,7 @@ const layouts = [
       VIN: [60, 80, 90],
       VSS: [60, 460, 270],
       VREF: [500, 280, 180],
-      VOUT: [870, 260, 180],
+      VOUT: [790, 260, 180],
     },
     draw(c) {
       c.j("vi1", "VIN", 270, 80);
@@ -204,32 +204,30 @@ const layouts = [
       c.w("G", "g-comp", "C1.1");
       c.w("NZ", "C1.2", "RZ.1");
       c.j("out-pass", "VOUT", 630, 260);
-      c.j("out-r", "VOUT", 720, 260);
-      c.j("out-c", "VOUT", 810, 260);
-      c.j("out-bias", "VOUT", 630, 370);
+      c.j("out-c", "VOUT", 720, 260);
+      c.j("out-divider", "VOUT", 630, 270);
+      c.j("out-bias", "VOUT", 580, 370);
       c.w("VOUT", "XMP.D", "out-pass");
-      c.w("VOUT", "out-pass", "out-r");
-      c.w("VOUT", "out-r", "out-c");
+      c.w("VOUT", "out-pass", "out-c");
       c.w("VOUT", "out-c", "@VOUT");
-      c.w("VOUT", "out-r", "R1.1");
+      c.w("VOUT", "out-pass", "out-divider");
+      c.w("VOUT", "out-divider", "R1.1");
       c.w("VOUT", "out-c", "CFF.1");
-      c.w("VOUT", "out-pass", "out-bias");
+      c.w("VOUT", "out-divider", "out-bias", [[580, 270]]);
       c.w("VOUT", "RB.1", "out-bias");
       // RB retains source pin order VOUT,NB; its rotation places pin 1 on the right.
-      c.j("fb-c", "FB", 720, 350);
-      c.j("fb", "FB", 720, 360);
+      c.j("fb-c", "FB", 630, 350);
+      c.j("fb", "FB", 630, 360);
       c.w("FB", "R1.2", "fb-c");
       c.w("FB", "fb-c", "fb");
       c.w("FB", "fb", "R2.1");
-      c.w("FB", "CFF.2", "fb-c", [[810, 350]]);
+      c.w("FB", "CFF.2", "fb-c", [[720, 350]]);
       c.w(
         "FB",
         "fb",
         "XM1.G",
         [
-          [790, 360],
-          [790, 500],
-          [200, 500],
+          [200, 360],
           [200, 280],
         ],
         "#23745d",
@@ -250,7 +248,7 @@ const layouts = [
       c.w("NB", "XMB.G", "nb-gates");
       c.w("NB", "nb-gates", "XMT.G");
       c.j("vs-tail", "VSS", 360, 460);
-      c.j("vs-r", "VSS", 720, 460);
+      c.j("vs-r", "VSS", 630, 460);
       c.w("VSS", "XMB.S", "@VSS");
       c.w("VSS", "@VSS", "vs-tail");
       c.w("VSS", "vs-tail", "vs-r");
@@ -259,7 +257,7 @@ const layouts = [
       c.label("D1", 278, 210);
       c.label("G", 438, 205);
       c.label("NB", 72, 354);
-      c.label("FB", 730, 350);
+      c.label("FB", 642, 350);
       c.label("TAIL", 372, 328);
     },
   },
