@@ -73,8 +73,9 @@ netlist, connectivity and diagnostic APIs to the recipe through a local bundle.
 No gallery login, publication or PDK installation is required.
 
 Generation imports the submitted source, places native symbols and authors
-explicit routes. It checks every non-body terminal's visible connectivity,
-body defaults, orthogonal routes, reopened passive display values, native
+explicit routes. After saving and reopening, it checks every non-body
+terminal's authored visible connectivity, body defaults, orthogonal routes,
+passive display values, native
 unrouted connections and diagnostics. It exports and compares ordered ports,
 ordered device pins, model identities and parameters against the source. Both
 pilots have matching comparisons, zero unrouted connections and zero native
@@ -87,6 +88,17 @@ and parameters; this is recorded separately in `verification.json`. The supplied
 `exported.spice` uses `{format: 'spice', groundPin: 'global'}` and matches the
 original ordered interface. Use that checked export for comparisons rather than
 assuming an ordinary GUI export preserves port order.
+
+The current layouts retain the same native text sizes while shortening the
+bias-to-amplifier gaps and supply spans. OTA XMbn remains mirrored, with a local
+D–G tie and direct shared gate connection to XMtl; the independent output sink
+meets the lower bias trunk without its former return bend. LDO R1 and R2 share
+the pass-drain column, with CFF beside R1, continuous FB return and a separate
+NB return. The C1–RZ branch still returns to VIN. Browser comparisons with four
+community examples and their limitations are recorded in the skill's
+[gallery evidence](../skills/human-readable-analog-schematics/references/gallery-evidence.md).
+Normal-size and enlarged native renders are reviewed separately from electrical
+comparison; neither is a new benchmark evaluation.
 
 ## Site integration and adding another run
 

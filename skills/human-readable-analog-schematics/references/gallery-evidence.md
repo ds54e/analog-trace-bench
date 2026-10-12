@@ -1,5 +1,29 @@
 # Gallery evidence / 作例から得た判断
 
+## Native editor comparison, 2026-10-12
+
+Signed in to the community gallery and opened these four existing examples in
+the browser's native editor. These are new visual observations, not electrical
+qualification of the gallery circuits. The `/g/` URLs below opened successfully
+in that authenticated session; sign-in may be required. No circuit was published
+or changed in the gallery.
+
+| Opened example | Observed placement, wiring and labels | Applied judgment / limit |
+|---|---|---|
+| [current mirror — 56a67nmqbb](https://analog-canvas.tokenzhang.com/g/56a67nmqbb) | Inward-facing gates share a horizontal trunk; the diode-connected drain joins it through a short local branch. M1/M2 names sit outside the pair, while current arrows sit on the drain branches. | Keep OTA XMbn mirrored, its D–G tie local and its gate connection to XMtl continuous. Do not import the example's arrows or dimensions into the submitted circuit. |
+| [Two-stage op amp with single-ended output — x5jaqe94t7](https://analog-canvas.tokenzhang.com/g/x5jaqe94t7) | Intermediate drain taps meet M5/M6 gates at their respective heights. The lower common-gate trunk is separated from the input stage. MOS names follow each body, and inputs remain near their gates. | Favor pin-to-trunk alignment over a uniform device row. In ATB, shifting the independent output sink aligns its gate with the existing bias route and removes a return bend. This example has a different load/bias topology and no matching ATB compensation branch. |
+| [LDO regulator's core structure — pes3mh8swm](https://analog-canvas.tokenzhang.com/g/pes3mh8swm) | Error amplifier, buffer and output stage proceed left to right. The output divider is directly below the pass drain, with nearby parallel output branches. Vfb is a labeled discontinuity. | Retain the output/divider relationship and close neighboring parts. ATB has no separate buffer; show its actual direct gate drive and continuous FB return. |
+| [LDO regulator — 8qatzztvzk](https://analog-canvas.tokenzhang.com/g/8qatzztvzk) | The output divider shares the pass-drain column. Its midpoint returns along a dedicated lower corridor to the input side; the signal path uses a different height. The return has sparse labeling and crosses other branches. | Separate the visible feedback corridor from the NB return without sending either to a distant page edge. Keep ATB's FB/NB labels and no-dot crossing convention; do not treat the example's apparent input opening as verified connectivity. |
+
+The ATB native renders were reviewed independently at reading size after these
+comparisons. An initially tighter XM4/C1 interval caused the MOS name and
+capacitor value to compete; local separation resolved it without smaller text.
+Moving the OTA sink also required checking its source endpoint: a coincident
+source/junction created a zero-length route, and a different candidate bias
+height touched the tail source. The final recipe uses an actual source endpoint
+and avoids foreign-terminal contact. These are verified tool/layout findings;
+the circuit coordinates remain only in the pilot recipe.
+
 観察日：2026-10-11。ユーザーのログイン後、[指定ギャラリー](https://analog-canvas.tokenzhang.com/?ai=0)の `ai=0` 絞り込みを確認。表示件数889件、取得した先頭ページ60件から、OTA・補償・LDO・バイアスを含む13件を選び、SVGプレビューをブラウザーで表示して目視比較した。全件を評価したものではない。
 
 `ai=0` は保存された `ai_generated=0` に対応する（[実装](https://github.com/cascode-ai/analog-canvas/blob/37bccd4012764dce53b34927fa606c6f430296a2/worker/gallery-store-wall.ts#L206)）。個々の制作過程・著者性を別途確認したわけではない。作例の回路動作・接続・値の正しさを検証する調査ではなく、図の読みやすさを観察した。閲覧リンクはログインを要する場合がある。

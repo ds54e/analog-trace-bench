@@ -69,7 +69,8 @@
   },
   "visible_wiring": {
     "status": "connected",
-    "checked_non_body_pins": 39
+    "checked_non_body_pins": 39,
+    "checked_from": "saved-and-reopened-project"
   },
   "body_defaults_checked": true,
   "saved_display_values_checked": true,

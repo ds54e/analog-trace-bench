@@ -9,6 +9,9 @@
 - 多端子ネットは一本の共通幹線から短い枝を取る。各端子を任意の中心点へ別々の折れ線で集めない。同一ネットの重複配線を描かない。
 - ゲート線が他の記号や無関係な端子を貫く場合は、鏡像・段の高さ・幹線位置を見直す。端子の見た目でD/S/Bを交換しない。
 - ラベルだけが障害なら、先に文字を移す。特に横抵抗の名前と値は空いた側の2行へまとめる。
+- Include the full displayed passive value when judging clearance to an adjacent MOS name. After compaction, widen only the competing local interval if moving the text would obscure its owner. The ATB LDO refinement required this around XM4 and C1; passing electrical diagnostics did not establish text clearance.
+- Align a receiving gate with the available shared bias trunk when that removes a return bend without obscuring the current path. Do not require a tail device and an independent output sink to occupy the same row. Check foreign-terminal contact after moving either device.
+- If a supply rail meets an existing source terminal exactly, terminate the native route at that terminal. Do not add a coincident junction and a zero-length route to simulate a separate connection.
 
 ## 2. T分岐と交差
 

@@ -84,15 +84,15 @@
           "type": "nmos",
           "name": "XMbn",
           "id": "XMbn",
-          "coordinate": [60, 380],
+          "coordinate": [120, 320],
           "mirror": "horizontal",
           "parameters": { "l": "1u", "nf": "1", "w": "5.6u" },
           "labels": [
             {
               "alignment": "end",
-              "anchor": { "fallback": [40, 385], "offset": [-20, 5] },
+              "anchor": { "fallback": [100, 325], "offset": [-20, 5] },
               "bind": "name",
-              "id": "atb-annotation-117",
+              "id": "atb-annotation-112",
               "kind": "instance-label",
               "order": 3
             }
@@ -132,14 +132,14 @@
           "type": "nmos",
           "name": "XMtl",
           "id": "XMtl",
-          "coordinate": [260, 380],
+          "coordinate": [260, 320],
           "parameters": { "l": "1u", "nf": "1", "w": "28u" },
           "labels": [
             {
               "alignment": "start",
-              "anchor": { "fallback": [280, 385], "offset": [20, 5] },
+              "anchor": { "fallback": [280, 325], "offset": [20, 5] },
               "bind": "name",
-              "id": "atb-annotation-118",
+              "id": "atb-annotation-113",
               "kind": "instance-label",
               "order": 4
             }
@@ -179,14 +179,14 @@
           "type": "nmos",
           "name": "XM1",
           "id": "XM1",
-          "coordinate": [200, 260],
+          "coordinate": [200, 220],
           "parameters": { "l": "2u", "nf": "1", "w": "100u" },
           "labels": [
             {
               "alignment": "start",
-              "anchor": { "fallback": [220, 265], "offset": [20, 5] },
+              "anchor": { "fallback": [220, 225], "offset": [20, 5] },
               "bind": "name",
-              "id": "atb-annotation-119",
+              "id": "atb-annotation-114",
               "kind": "instance-label",
               "order": 5
             }
@@ -226,15 +226,15 @@
           "type": "nmos",
           "name": "XM2",
           "id": "XM2",
-          "coordinate": [340, 260],
+          "coordinate": [340, 220],
           "mirror": "horizontal",
           "parameters": { "l": "2u", "nf": "1", "w": "100u" },
           "labels": [
             {
               "alignment": "end",
-              "anchor": { "fallback": [320, 265], "offset": [-20, 5] },
+              "anchor": { "fallback": [320, 225], "offset": [-20, 5] },
               "bind": "name",
-              "id": "atb-annotation-120",
+              "id": "atb-annotation-115",
               "kind": "instance-label",
               "order": 6
             }
@@ -274,15 +274,15 @@
           "type": "pmos",
           "name": "XM3",
           "id": "XM3",
-          "coordinate": [220, 130],
+          "coordinate": [220, 110],
           "mirror": "horizontal",
           "parameters": { "l": "1u", "nf": "1", "w": "100u" },
           "labels": [
             {
               "alignment": "end",
-              "anchor": { "fallback": [200, 135], "offset": [-20, 5] },
+              "anchor": { "fallback": [200, 115], "offset": [-20, 5] },
               "bind": "name",
-              "id": "atb-annotation-121",
+              "id": "atb-annotation-116",
               "kind": "instance-label",
               "order": 7
             }
@@ -322,14 +322,14 @@
           "type": "pmos",
           "name": "XM4",
           "id": "XM4",
-          "coordinate": [320, 130],
+          "coordinate": [320, 110],
           "parameters": { "l": "1u", "nf": "1", "w": "100u" },
           "labels": [
             {
               "alignment": "start",
-              "anchor": { "fallback": [340, 135], "offset": [20, 5] },
+              "anchor": { "fallback": [340, 115], "offset": [20, 5] },
               "bind": "name",
-              "id": "atb-annotation-122",
+              "id": "atb-annotation-117",
               "kind": "instance-label",
               "order": 8
             }
@@ -369,14 +369,14 @@
           "type": "pmos",
           "name": "XM7",
           "id": "XM7",
-          "coordinate": [510, 200],
+          "coordinate": [510, 170],
           "parameters": { "l": "300n", "nf": "1", "w": "100u" },
           "labels": [
             {
               "alignment": "start",
-              "anchor": { "fallback": [530, 205], "offset": [20, 5] },
+              "anchor": { "fallback": [530, 175], "offset": [20, 5] },
               "bind": "name",
-              "id": "atb-annotation-123",
+              "id": "atb-annotation-118",
               "kind": "instance-label",
               "order": 9
             }
@@ -416,14 +416,14 @@
           "type": "nmos",
           "name": "XM8",
           "id": "XM8",
-          "coordinate": [510, 380],
+          "coordinate": [510, 350],
           "parameters": { "l": "1u", "nf": "1", "w": "100u" },
           "labels": [
             {
               "alignment": "start",
-              "anchor": { "fallback": [530, 385], "offset": [20, 5] },
+              "anchor": { "fallback": [530, 355], "offset": [20, 5] },
               "bind": "name",
-              "id": "atb-annotation-124",
+              "id": "atb-annotation-119",
               "kind": "instance-label",
               "order": 10
             }
@@ -463,21 +463,21 @@
           "type": "capacitor",
           "name": "Cc",
           "id": "Cc",
-          "coordinate": [420, 300],
+          "coordinate": [420, 260],
           "rotation": 270,
           "parameters": { "value": "2.5e-12" },
           "target": { "deviceClass": "capacitor", "kind": "primitive" },
           "labels": [
             {
-              "anchor": { "fallback": [420, 268], "offset": [0, -32] },
+              "anchor": { "fallback": [420, 228], "offset": [0, -32] },
               "bind": "name",
-              "id": "atb-annotation-125",
+              "id": "atb-annotation-120",
               "kind": "instance-label",
               "order": 11
             },
             {
-              "anchor": { "fallback": [420, 286], "offset": [0, -14] },
-              "id": "atb-annotation-126",
+              "anchor": { "fallback": [420, 246], "offset": [0, -14] },
+              "id": "atb-annotation-121",
               "kind": "instance-value",
               "order": 12,
               "text": "2.5p"
@@ -509,21 +509,21 @@
           "type": "resistor",
           "name": "Rz",
           "id": "Rz",
-          "coordinate": [480, 300],
+          "coordinate": [480, 260],
           "rotation": 270,
           "parameters": { "value": "2000" },
           "target": { "deviceClass": "resistor", "kind": "primitive" },
           "labels": [
             {
-              "anchor": { "fallback": [480, 320], "offset": [0, 20] },
+              "anchor": { "fallback": [480, 280], "offset": [0, 20] },
               "bind": "name",
-              "id": "atb-annotation-127",
+              "id": "atb-annotation-122",
               "kind": "instance-label",
               "order": 13
             },
             {
-              "anchor": { "fallback": [480, 338], "offset": [0, 38] },
-              "id": "atb-annotation-128",
+              "anchor": { "fallback": [480, 298], "offset": [0, 38] },
+              "id": "atb-annotation-123",
               "kind": "instance-value",
               "order": 14,
               "text": "2k"
@@ -554,16 +554,16 @@
         {
           "type": "port",
           "id": "cell-pin-1f1bf4ba872d2151",
-          "coordinate": [370, 260],
+          "coordinate": [370, 220],
           "rotation": 180,
           "labels": [
             {
-              "anchor": { "fallback": [370, 248], "offset": [0, -12] },
+              "anchor": { "fallback": [370, 208], "offset": [0, -12] },
               "bind": {
                 "kind": "cell-terminal-name",
                 "terminalId": "cell-terminal-1f1bf4ba872d2151"
               },
-              "id": "atb-annotation-129",
+              "id": "atb-annotation-124",
               "kind": "instance-label",
               "order": 15
             }
@@ -572,15 +572,15 @@
         {
           "type": "port",
           "id": "cell-pin-a74dd99907b34d84",
-          "coordinate": [140, 260],
+          "coordinate": [140, 220],
           "labels": [
             {
-              "anchor": { "fallback": [140, 248], "offset": [0, -12] },
+              "anchor": { "fallback": [140, 208], "offset": [0, -12] },
               "bind": {
                 "kind": "cell-terminal-name",
                 "terminalId": "cell-terminal-a74dd99907b34d84"
               },
-              "id": "atb-annotation-130",
+              "id": "atb-annotation-125",
               "kind": "instance-label",
               "order": 16
             }
@@ -589,17 +589,17 @@
         {
           "type": "port",
           "id": "cell-pin-866460d5fdd6da84",
-          "coordinate": [570, 260],
+          "coordinate": [570, 220],
           "rotation": 180,
           "labels": [
             {
               "alignment": "start",
-              "anchor": { "fallback": [586, 265], "offset": [16, 5] },
+              "anchor": { "fallback": [586, 225], "offset": [16, 5] },
               "bind": {
                 "kind": "cell-terminal-name",
                 "terminalId": "cell-terminal-866460d5fdd6da84"
               },
-              "id": "atb-annotation-131",
+              "id": "atb-annotation-126",
               "kind": "instance-label",
               "order": 17
             }
@@ -608,15 +608,15 @@
         {
           "type": "port",
           "id": "cell-pin-5f10d49553f8194a",
-          "coordinate": [50, 80],
+          "coordinate": [110, 60],
           "labels": [
             {
-              "anchor": { "fallback": [50, 68], "offset": [0, -12] },
+              "anchor": { "fallback": [110, 48], "offset": [0, -12] },
               "bind": {
                 "kind": "cell-terminal-name",
                 "terminalId": "cell-terminal-5f10d49553f8194a"
               },
-              "id": "atb-annotation-132",
+              "id": "atb-annotation-127",
               "kind": "instance-label",
               "order": 18
             }
@@ -625,17 +625,17 @@
         {
           "type": "port",
           "id": "cell-pin-66770a996c847f6d",
-          "coordinate": [50, 430],
+          "coordinate": [110, 370],
           "rotation": 270,
           "labels": [
             {
               "alignment": "end",
-              "anchor": { "fallback": [34, 435], "offset": [-16, 5] },
+              "anchor": { "fallback": [94, 375], "offset": [-16, 5] },
               "bind": {
                 "kind": "cell-terminal-name",
                 "terminalId": "cell-terminal-66770a996c847f6d"
               },
-              "id": "atb-annotation-133",
+              "id": "atb-annotation-128",
               "kind": "instance-label",
               "order": 19
             }
@@ -644,15 +644,15 @@
         {
           "type": "port",
           "id": "cell-pin-dec162b9f61d75ca",
-          "coordinate": [20, 330],
+          "coordinate": [80, 280],
           "labels": [
             {
-              "anchor": { "fallback": [20, 318], "offset": [0, -12] },
+              "anchor": { "fallback": [80, 268], "offset": [0, -12] },
               "bind": {
                 "kind": "cell-terminal-name",
                 "terminalId": "cell-terminal-dec162b9f61d75ca"
               },
-              "id": "atb-annotation-134",
+              "id": "atb-annotation-129",
               "kind": "instance-label",
               "order": 20
             }
@@ -725,7 +725,7 @@
           "legs": [
             {
               "bend": "atb-bend-28",
-              "coordinate": [260, 170],
+              "coordinate": [260, 150],
               "id": "atb-leg-27"
             },
             {
@@ -818,7 +818,7 @@
           "legs": [
             {
               "bend": "atb-bend-63",
-              "coordinate": [210, 310],
+              "coordinate": [210, 270],
               "id": "atb-leg-62"
             },
             {
@@ -833,7 +833,7 @@
           "legs": [
             {
               "bend": "atb-bend-67",
-              "coordinate": [330, 310],
+              "coordinate": [330, 270],
               "id": "atb-leg-66"
             },
             {
@@ -902,57 +902,46 @@
           "legs": [
             {
               "bend": "atb-bend-94",
-              "coordinate": [230, 410],
+              "coordinate": [230, 350],
               "id": "atb-leg-93"
             },
             {
-              "bend": "atb-bend-96",
-              "coordinate": [490, 410],
-              "id": "atb-leg-95"
-            },
-            {
-              "id": "atb-leg-97",
+              "id": "atb-leg-95",
               "terminal": ["XM8", "G"]
             }
           ],
           "start": { "junction": "atb-junction-75" }
         },
         {
-          "end": { "junction": "atb-junction-99" },
-          "id": "atb-route-101",
-          "legId": "atb-leg-102",
+          "end": { "junction": "atb-junction-97" },
+          "id": "atb-route-98",
+          "legId": "atb-leg-99",
           "start": { "terminal": ["cell-pin-66770a996c847f6d", "P"] }
         },
         {
-          "end": { "junction": "atb-junction-100" },
-          "id": "atb-route-103",
-          "legId": "atb-leg-104",
-          "start": { "junction": "atb-junction-99" }
+          "end": { "terminal": ["XM8", "S"] },
+          "id": "atb-route-100",
+          "legId": "atb-leg-101",
+          "start": { "junction": "atb-junction-97" }
         },
         {
           "end": { "terminal": ["cell-pin-66770a996c847f6d", "P"] },
-          "id": "atb-route-105",
-          "legId": "atb-leg-106",
+          "id": "atb-route-102",
+          "legId": "atb-leg-103",
           "start": { "terminal": ["XMbn", "S"] }
         },
         {
-          "end": { "junction": "atb-junction-99" },
-          "id": "atb-route-107",
-          "legId": "atb-leg-108",
+          "end": { "junction": "atb-junction-97" },
+          "id": "atb-route-104",
+          "legId": "atb-leg-105",
           "start": { "terminal": ["XMtl", "S"] }
-        },
-        {
-          "end": { "junction": "atb-junction-100" },
-          "id": "atb-route-109",
-          "legId": "atb-leg-110",
-          "start": { "terminal": ["XM8", "S"] }
         }
       ],
       "connections": {
         "contacts": [
           [
             {
-              "junction": "atb-junction-98"
+              "junction": "atb-junction-96"
             },
             {
               "terminal": ["cell-pin-66770a996c847f6d", "P"]
@@ -976,7 +965,7 @@
           ],
           [
             {
-              "junction": "atb-junction-100"
+              "junction": "atb-junction-96"
             },
             {
               "terminal": ["XM1", "B"]
@@ -1040,76 +1029,72 @@
       ],
       "junctions": [
         {
-          "coordinate": [210, 80],
+          "coordinate": [210, 60],
           "id": "atb-junction-1"
         },
         {
-          "coordinate": [330, 80],
+          "coordinate": [330, 60],
           "id": "atb-junction-2"
         },
         {
-          "coordinate": [520, 80],
+          "coordinate": [520, 60],
           "id": "atb-junction-3"
         },
         {
-          "coordinate": [210, 170],
+          "coordinate": [210, 150],
           "id": "atb-junction-16"
         },
         {
-          "coordinate": [260, 130],
+          "coordinate": [260, 110],
           "id": "atb-junction-17"
         },
         {
-          "coordinate": [330, 200],
+          "coordinate": [330, 170],
           "id": "atb-junction-30"
         },
         {
-          "coordinate": [400, 200],
+          "coordinate": [400, 170],
           "id": "atb-junction-31"
         },
         {
-          "coordinate": [520, 260],
+          "coordinate": [520, 220],
           "id": "atb-junction-44"
         },
         {
-          "coordinate": [520, 300],
+          "coordinate": [520, 260],
           "id": "atb-junction-45"
         },
         {
-          "coordinate": [270, 310],
+          "coordinate": [270, 270],
           "id": "atb-junction-60"
         },
         {
-          "coordinate": [50, 330],
+          "coordinate": [110, 280],
           "id": "atb-junction-71"
         },
         {
-          "coordinate": [50, 350],
+          "coordinate": [110, 290],
           "id": "atb-junction-72"
         },
         {
-          "coordinate": [90, 350],
+          "coordinate": [150, 290],
           "id": "atb-junction-73"
         },
         {
-          "coordinate": [90, 380],
+          "coordinate": [150, 320],
           "id": "atb-junction-74"
         },
         {
-          "coordinate": [230, 380],
+          "coordinate": [230, 320],
           "id": "atb-junction-75"
         },
         {
-          "coordinate": [50, 430],
-          "id": "atb-junction-98"
+          "coordinate": [110, 370],
+          "id": "atb-junction-96"
         },
         {
-          "coordinate": [270, 430],
-          "id": "atb-junction-99"
-        },
-        {
-          "coordinate": [520, 430],
-          "id": "atb-junction-100"
+          "coordinate": [270, 370],
+          "id": "atb-junction-97"
         }
       ],
       "annotations": [
@@ -1117,10 +1102,10 @@
           "alignment": "start",
           "anchor": {
             "kind": "free",
-            "position": { "x": 218, "y": 190 }
+            "position": { "x": 218, "y": 170 }
           },
           "bind": { "kind": "net-name", "netId": "net-34939294eb7750f5" },
-          "id": "atb-annotation-111",
+          "id": "atb-annotation-106",
           "kind": "net-label",
           "netId": "net-34939294eb7750f5",
           "order": 0
@@ -1129,10 +1114,10 @@
           "alignment": "start",
           "anchor": {
             "kind": "free",
-            "position": { "x": 338, "y": 185 }
+            "position": { "x": 338, "y": 155 }
           },
           "bind": { "kind": "net-name", "netId": "net-3493c294eb77a285" },
-          "id": "atb-annotation-113",
+          "id": "atb-annotation-108",
           "kind": "net-label",
           "netId": "net-3493c294eb77a285",
           "order": 1
@@ -1141,10 +1126,10 @@
           "alignment": "start",
           "anchor": {
             "kind": "free",
-            "position": { "x": 282, "y": 308 }
+            "position": { "x": 282, "y": 268 }
           },
           "bind": { "kind": "net-name", "netId": "net-d45c61db560b96c5" },
-          "id": "atb-annotation-115",
+          "id": "atb-annotation-110",
           "kind": "net-label",
           "netId": "net-d45c61db560b96c5",
           "order": 2
@@ -1286,27 +1271,27 @@
           "sourceNetId": "net-d4555adb56056c32"
         },
         {
-          "id": "atb-claim-112",
+          "id": "atb-claim-107",
           "kind": "name-claim",
           "name": "na",
           "netId": "net-34939294eb7750f5",
-          "owner": { "annotationId": "atb-annotation-111", "kind": "net-label" },
+          "owner": { "annotationId": "atb-annotation-106", "kind": "net-label" },
           "scope": "local"
         },
         {
-          "id": "atb-claim-114",
+          "id": "atb-claim-109",
           "kind": "name-claim",
           "name": "n1",
           "netId": "net-3493c294eb77a285",
-          "owner": { "annotationId": "atb-annotation-113", "kind": "net-label" },
+          "owner": { "annotationId": "atb-annotation-108", "kind": "net-label" },
           "scope": "local"
         },
         {
-          "id": "atb-claim-116",
+          "id": "atb-claim-111",
           "kind": "name-claim",
           "name": "ntl",
           "netId": "net-d45c61db560b96c5",
-          "owner": { "annotationId": "atb-annotation-115", "kind": "net-label" },
+          "owner": { "annotationId": "atb-annotation-110", "kind": "net-label" },
           "scope": "local"
         }
       ],
