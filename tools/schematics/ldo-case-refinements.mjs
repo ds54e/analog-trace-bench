@@ -36,6 +36,16 @@ export function refineLdoCase(id, ds, devices, sections) {
     assigned.add(ref);
   };
   let refined = false;
+  if (id === "ldo-quiet-sky130-deepseek-r3") {
+    // Keep the CASC divider and its parallel VSS filter as one small packet
+    // above their consumer. Only these three passives move; retain the
+    // source-derived amplifier, pass stage and auxiliary section membership.
+    const [x, y] = devices.XMC, px = x + 120;
+    passive("R3", px, y - 20, "vin", true, sections.R3);
+    passive("R4", px, y - 120, "vss", false, sections.R4);
+    passive("C3", px + 110, y - 120, "vss", true, sections.C3);
+    return;
+  }
   if (id === "ldo-core-sky130-sol-6-1-r2") {
     refined = true;
     // Degenerated PMOS input and both locally regulated drain branches.

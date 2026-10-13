@@ -162,6 +162,10 @@ function twoStage(id, source, template, ds, ports) {
     ...template,
     id,
     strategy: "two-stage",
+    passiveLabels:
+      ["ota-drive-sky130-astra-r2", "ota-drive-sky130-astra-r3", "ota-free-sky130-sol-6-1-r3"].includes(id)
+        ? { [first.ref]: { x: 30, y: -32, align: "middle" } }
+        : template.passiveLabels,
     devices,
     ports: Object.fromEntries(
       Object.entries(template.ports).map(([n, v]) => [

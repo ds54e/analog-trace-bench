@@ -700,6 +700,9 @@ for (const layout of layouts) {
       // visible gap beside the local gate/diode escape; the router already
       // reserves eight extra units beyond the measured reference ink.
       if (layout.strategy === "connected-stages") x += mir ? -6 : 6;
+      if (layout.id === "ota-free-sky130-sonnet-5-5-r3" && ref === "XMB0")
+        // The mirrored reference's final zero formerly touched a return wire.
+        x -= 18;
       if ((layout.id === "ota-wide-sky130-luna-6-r1" && ref === "XMPLD_R") ||
           (layout.id === "ota-wide-sky130-sonnet-5-5-r1" && ref === "XMmca"))
         // These displayed references have a subscript extending below the
