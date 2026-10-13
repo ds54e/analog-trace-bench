@@ -75,6 +75,17 @@
     "status": "connected",
     "checked_non_body_pins": 42,
     "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "ibias",
+      "n1",
+      "n2",
+      "nc",
+      "nt",
+      "vbp",
+      "vinn",
+      "vinp",
+      "vout"
+    ],
     "named_connections_checked": true
   },
   "body_defaults_checked": true,

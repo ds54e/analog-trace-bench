@@ -44,7 +44,7 @@ preferences there instead of duplicating them in this repository guide.
 | `tools/schematics/ota-stage-placement.mjs` | Align source-matched complementary inputs and loaded mirror transfer stages; attach remote signal shunts and feed-forward parts beside their nodes. |
 | `tools/schematics/ota-review-labels.mjs` | Keep reviewed passive annotation offsets separate from electrical values and device placement. |
 | `tools/schematics/ldo-layouts.mjs`, `ldo-case-refinements.mjs` | Derive LDO input branches, gate drivers, pass stages, sensing and compensation from each submission, with explicit refinements for complex topologies. |
-| `tools/schematics/human-reference-layouts.mjs` | Two source-specific reference-led comparisons: Core/Astra Run 1 LDO and Precision/Sonnet 5.5 Run 2 OTA. Anchor motifs and author their critical routes explicitly. |
+| `tools/schematics/human-reference-layouts.mjs` | Core/Astra Run 1 LDO, Precision/Sonnet 5.5 Run 2 OTA and four guarded NMOS-output converter-core OTA variants. Anchor source-matched motifs and author their critical routes explicitly. |
 | `tools/schematics/ldo-direct-pass-motifs.mjs` | Reviewed seven-MOS direct-pass LDO families with VIN-fed diode bias, a plain divider and optional VOUT–FB capacitor; frozen-source and complete ordered-pin guards limit reuse. |
 | `tools/schematics/ota-passive-variants.mjs` | Four ordinary eight-MOS two-stage sources with a local IBIAS–VSS, mirror-node–VSS or VDD–IBIAS capacitor; reuse the existing matched core and retain each capacitor's actual endpoints. |
 | `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
@@ -140,9 +140,9 @@ comparison is not a catalog-wide layout generalization. Its follow-up resolves
 the earlier reading-size loss by shortening unused leads and intergroup gaps,
 with unchanged native text and intact motifs. A separate
 [topology-family inventory](../skills/human-readable-analog-schematics/references/topology-family-reuse.md)
-limits wider reuse to 12 simple direct-pass LDOs and four ordinary two-stage
-OTA passive variants. Other 201 drawings retain their existing recipes and
-geometry, including both original pilots. Complete graph matching found no
+limits the earlier wider reuse to 12 simple direct-pass LDOs and four ordinary
+two-stage OTA passive variants. That checkpoint left 201 drawings with their
+existing recipes and geometry, including both original pilots. Complete graph matching found no
 other clone of either source-specific representative; larger or differently
 connected passive/transistor networks remain separate cases.
 
@@ -178,7 +178,8 @@ The physical-route inventory of published `c1b1aa66` found 67 OTA drawings with
 non-supply nets split into name-connected components; LDO internal nets were
 physically continuous. This is a coverage inventory, not a wire-length acceptance
 metric. The Precision/Sonnet 5.5 Run 2 correction now physically joins both VBP and
-IBIAS, leaving 66 other OTA drawings with such links. Its converter sink faces
+IBIAS. Four further source-matched converter-core OTA corrections leave 62
+other OTA drawings with such links. Its converter sink faces
 its receiving bias trunk while retaining its D/S column. The actual current-
 subtracting core, ordered compensation branch and other functional groups stay
 intact. Both bias nets are included in the physical-continuity gate. The Core/Astra
@@ -188,6 +189,20 @@ and exact source contract are preserved; other LDO routes await case review.
 Submission bytes and
 page presentation are preserved; earlier review acceptance does not imply
 compliance with the owner's subsequent preference.
+
+The four converter-core cases are FREE/Haiku Run 3, PRECISION/Luna 6 Run 1,
+FREE/Luna 6 Run 3 and PRECISION/Luna 6 Run 3. They share a ten-MOS NMOS-input,
+PMOS-load-mirror core and an NMOS-driven output with a converted PMOS bias.
+Each complete ordered device/pin list is guarded separately, including its
+actual series RC order and gain-node shunts. A mirrored converter gate faces
+the receiving bias trunk; continuous IBIAS and converted-bias wires replace
+the remote internal labels. Longer references are separated by staggering the
+upper converter/output row, without reducing native text. The PRECISION Run 3
+gain-to-VDD resistor uses a local supply symbol below it, an explicit supply
+exception rather than an internal label jump. All four actual native, fitted,
+desktop and narrow views were checked. The original importer preserves exact
+models and values; the layout API's pin guards do not claim to validate values
+it does not receive. Frozen-source electrical checks remain a separate gate.
 
 ## Regenerate native drawings
 

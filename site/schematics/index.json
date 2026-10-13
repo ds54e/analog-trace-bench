@@ -952,15 +952,15 @@
     {
       "run_id": "ota-free-sky130-luna-6-r3",
       "title": "Transistor-level OTA",
-      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
+      "description": "Centered NMOS pair, PMOS mirror load and tail beside the IBIAS reference. The gain node drives the NMOS output stage and the submitted series compensation. RBIAS shunts it to VSS. The converter diode mirrors IBIAS into the PMOS output source.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "3d217aff7328ad2053cd526bb26ae54b5477639863c5f620d96ff4ef731be830",
       "files": {
-        "schematic.svg": "6ce0b2f5096261512c8f5259eb27580239f89201658e8978fdf26f9c804b4c82",
-        "project.icproj.json": "84487bf883123aac743561d0794867516a8e3af22ed095c7550601aa1652105e",
+        "schematic.svg": "f9104445b46e9cde37c90ffa3e81f2ed9cc4662d86f5bde49f40a119576d5d63",
+        "project.icproj.json": "22194951e4d0447a86c528ebe28292189b378ab9278a4aa85bc3031590404daa",
         "submitted.spice": "3d217aff7328ad2053cd526bb26ae54b5477639863c5f620d96ff4ef731be830",
         "exported.spice": "544e3d24ec191c983a1182be5cfade720a40f2ff4536c589e5791517a641649a",
-        "verification.json": "ad82d0ca81bdf2563cb94ea62a61a6b9ce50f3045082473a367856ab8c7f87a0"
+        "verification.json": "d0f10b7560d3752f91284f7f19042e8756ca1537141bc0f4ac36aa3b2e0d750d"
       },
       "layout_strategy": "reviewed-free"
     },
@@ -1087,15 +1087,15 @@
     {
       "run_id": "ota-free-sky130-haiku-r3",
       "title": "Transistor-level OTA",
-      "description": "Case-reviewed continuous signal, mirror, tail and compensation paths; named connections only for auxiliary bias controls.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
+      "description": "Centered NMOS pair, PMOS mirror load and tail beside the IBIAS reference. The gain node drives the NMOS output stage and the submitted series compensation. The converter diode mirrors IBIAS into the PMOS output source.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "460c7b3023620fd74a428d3e955238ea9e100cd0658aa7515c2b1f5787bbf0e2",
       "files": {
-        "schematic.svg": "2f427ab5aad5d102585503776a8069ee7897070fa4abb6584e718603e0a19c30",
-        "project.icproj.json": "731908b5420ce15a528d97868c5fde51675734575266529b3bb66dbbeb7e9d81",
+        "schematic.svg": "88f71c81c6e360d5de21a58b3bf04cdb0b34e978e070e706c533e33143fa980c",
+        "project.icproj.json": "890ee12cfffebc01c9ea008b646b5ab68c4f85b66a4ff57fe2b62d35eb375c54",
         "submitted.spice": "460c7b3023620fd74a428d3e955238ea9e100cd0658aa7515c2b1f5787bbf0e2",
         "exported.spice": "96a4a2d917a909253c172e467a003a25af621bef26defd83a31b6cd295560138",
-        "verification.json": "1f5fd75775529ab94517826430f99229d8509809953db24b972c0b985349e967"
+        "verification.json": "27bb784af30ec9fc342f8dde7ee7bf69365dcc5eef02badf323fbb2b44f164b4"
       },
       "layout_strategy": "reviewed-free"
     },
@@ -1162,15 +1162,15 @@
     {
       "run_id": "ota-precision-sky130-luna-6-r1",
       "title": "Transistor-level OTA",
-      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Centered NMOS pair, PMOS mirror load and tail beside the IBIAS reference. The gain node drives the NMOS output stage and the submitted series compensation. The converter diode mirrors IBIAS into the PMOS output source.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "0e4dbcb8a374da0dda0c4e0b5fe347f847c1866efe5baa6b9784f8e3af705d68",
       "files": {
-        "schematic.svg": "783ad713d6698f414286941f0fb1bf5b6ac6a77f2e6f7106b4c67510911425b9",
-        "project.icproj.json": "d1b44a871bd3b1aaa512be90f246988e01a05154e3f6ef9ac9639570199e149d",
+        "schematic.svg": "4b99b1d88bb0146366069d7954f363d667591e32a8c9e6acd197ae5380238e25",
+        "project.icproj.json": "67cecac0be9c4b8183a6f0c5646c6c2ce1db4aa0c4a75643304e6797320e2013",
         "submitted.spice": "0e4dbcb8a374da0dda0c4e0b5fe347f847c1866efe5baa6b9784f8e3af705d68",
         "exported.spice": "089226d20b481ca2471cdf8fad120ad3a65524227095d957ca19fe81c7910ce9",
-        "verification.json": "f00ba6d009ebd1a0b7b843ddcaa4b947907aaef348a05079361153ccb4d69b93"
+        "verification.json": "10e4bbdf8555d6d4e2062b774b222b72ad60885d187527b2da4cb3417326e31e"
       },
       "layout_strategy": "connected-stages"
     },
@@ -1342,15 +1342,15 @@
     {
       "run_id": "ota-precision-sky130-luna-6-r3",
       "title": "Transistor-level OTA",
-      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Centered NMOS pair, PMOS mirror load and tail beside the IBIAS reference. The gain node drives the NMOS output stage and the submitted series compensation. RUP and RDN shunt it to VDD and VSS. The converter diode mirrors IBIAS into the PMOS output source.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "551ddaf9d95d0811c20f2f462fb624490c8d6c41558efc3143cd964f25f589bb",
       "files": {
-        "schematic.svg": "bba40579b175e228360a0aa2e225d0318f4f5ec5240c81051fe3cb5eb7b3301d",
-        "project.icproj.json": "571c877c70572593b784e98ad3a9b53e18d6d2d3dd5e2657eb4a46ac69883783",
+        "schematic.svg": "7aca8c47926e5830be6ee01017a95667ff351027353e1d9c4a39542a206f57bb",
+        "project.icproj.json": "65d6f38a1e194d0915f756e1bc9176048a7f44fbb70f0285d164480f72fe5a62",
         "submitted.spice": "551ddaf9d95d0811c20f2f462fb624490c8d6c41558efc3143cd964f25f589bb",
         "exported.spice": "6293411d6660e0687e691abd9b944f17b0d328dc9b8ff1a9364e7f7919947c5c",
-        "verification.json": "be91bda62cf1ceddd963554a47e2d02d60dffdf955570d09c45520009077cc65"
+        "verification.json": "3d33d6d1dd8f64744935f293e76378040539ddde34d7f41e983db3af548b4e05"
       },
       "layout_strategy": "connected-stages"
     },

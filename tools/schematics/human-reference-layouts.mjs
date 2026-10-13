@@ -1,7 +1,9 @@
-/** Two representative, source-specific drawings anchored to recognizable motifs.
- * Public figure relationships are recorded in the schematic skill; these routes
- * follow ATB's own ordered terminals, not a reference circuit's electrical data. */
+/** Source-specific drawings anchored to recognizable motifs: two representatives
+ * and four guarded converter OTAs. Public figure relationships are recorded in the
+ * schematic skill; these routes follow ATB's own ordered terminals, not a
+ * reference circuit's electrical data. */
 export function humanReferenceLayout(id, ds) {
+  if (converterOtas[id]) return converterOta(id, ds);
   if (id !== "ldo-core-sky130-astra-r1" &&
       id !== "ota-precision-sky130-sonnet-5-5-r2") return null;
   const ldo = id.startsWith("ldo-");
@@ -188,6 +190,210 @@ function subtractingOta(id, continuousNets) {
       c.boundLabel("ibias","ibias-port",0,-40,"middle");
       j("conv-vdd","vdd",100,110); w("vdd","conv-vdd","XMPD.S"); c.boundLabel("vdd","conv-vdd",-8,-10,"end");
       j("conv-vss","vss",100,430); w("vss","XMB1.S","conv-vss"); c.boundLabel("vss","conv-vss",-8,-10,"end");
+    },
+  };
+}
+
+/** Ten-MOS OTAs whose gain node drives an NMOS output while the PMOS output
+ * source mirrors a converter diode fed by the IBIAS-driven NMOS sink. Each
+ * frozen source lists every device, kind and ordered pin including B, so a
+ * changed, extra or missing device fails here. otaDevices carries no model or
+ * parameter text; the native importer and frozen-source contracts retain it.
+ * The passive networks differ and are matched and routed per source. The
+ * converter/output PMOS row sits above the load mirror, so the outward load and
+ * inward converter names stack instead of widening long references. */
+const converterOtas = {
+  "ota-free-sky130-haiku-r3": {
+    strategy: "reviewed-free",
+    devices: [
+      ["XMB","n","ibias ibias vss vss"], ["XMNB","n","pb ibias vss vss"],
+      ["XMPB","p","pb pb vdd vdd"], ["XMT","n","ns ibias vss vss"],
+      ["XM1","n","a vinn ns vss"], ["XM2","n","n1 vinp ns vss"],
+      ["XM3","p","a a vdd vdd"], ["XM4","p","n1 a vdd vdd"],
+      ["XM6","n","vout n1 vss vss"], ["XM7","p","vout pb vdd vdd"],
+      ["C1","c","n1 nz"], ["RZ","r","nz vout"],
+    ],
+    roles: { ref:"XMB", tail:"XMT", inN:"XM1", inP:"XM2", diode:"XM3", load:"XM4",
+      driver:"XM6", source:"XM7", conv:"XMPB", sink:"XMNB" },
+    series: ["C1","RZ"], shunts: [],
+    g: { ibias:20, ref:100, left:230, tail:300, right:370, conv:480, out:710,
+      vdd:50, upper:90, mirror:130, comp:150, gain:190, pair:230, bar:280, bias:330, bus:380, vss:420,
+      riser:550, first:600, second:660, vinn:150, vinp:440, vout:760 },
+  },
+  "ota-precision-sky130-luna-6-r1": {
+    strategy: "connected-stages",
+    devices: [
+      ["XMNREF","n","ibias ibias vss vss"], ["XMNTAIL","n","ntail ibias vss vss"],
+      ["XMN1","n","n1 vinn ntail vss"], ["XMN2","n","n2 vinp ntail vss"],
+      ["XMP3","p","n1 n1 vdd vdd"], ["XMP4","p","n2 n1 vdd vdd"],
+      ["XMPBIAS","p","pbias pbias vdd vdd"], ["XMNBIAS","n","pbias ibias vss vss"],
+      ["XMP5","p","vout pbias vdd vdd"], ["XMN5","n","vout n2 vss vss"],
+      ["RCOMP","r","vout ncomp"], ["CCOMP","c","ncomp n2"],
+    ],
+    roles: { ref:"XMNREF", tail:"XMNTAIL", inN:"XMN1", inP:"XMN2", diode:"XMP3", load:"XMP4",
+      driver:"XMN5", source:"XMP5", conv:"XMPBIAS", sink:"XMNBIAS" },
+    // N2-CCOMP-NCOMP-RCOMP-VOUT runs against both submitted pin orders.
+    series: ["CCOMP","RCOMP"], shunts: [],
+    passiveLabels: { CCOMP: { x:-5, y:-32, align:"middle" } },
+    g: { ibias:40, ref:110, left:220, tail:300, right:380, conv:490, out:740,
+      vdd:50, upper:90, mirror:130, comp:150, gain:190, pair:230, bar:280, bias:330, bus:380, vss:420,
+      riser:560, first:600, second:670, vinn:140, vinp:450, vout:780 },
+  },
+  "ota-free-sky130-luna-6-r3": {
+    strategy: "reviewed-free",
+    devices: [
+      ["XNR","n","ibias ibias vss vss"], ["XNBIAS","n","vbp ibias vss vss"],
+      ["XPBIAS","p","vbp vbp vdd vdd"], ["XTAIL","n","nt ibias vss vss"],
+      ["XINN","n","n1 vinn nt vss"], ["XINP","n","n2 vinp nt vss"],
+      ["XLOADD","p","n1 n1 vdd vdd"], ["XLOADM","p","n2 n1 vdd vdd"],
+      ["XOUTN","n","vout n2 vss vss"], ["XOUTP","p","vout vbp vdd vdd"],
+      ["RBIAS","r","n2 vss"], ["RZ","r","n2 nc"], ["CC","c","nc vout"],
+    ],
+    roles: { ref:"XNR", tail:"XTAIL", inN:"XINN", inP:"XINP", diode:"XLOADD", load:"XLOADM",
+      driver:"XOUTN", source:"XOUTP", conv:"XPBIAS", sink:"XNBIAS" },
+    // RBIAS is an interstage shunt hanging from the gain wire, not a bias generator.
+    series: ["RZ","CC"], shunts: [{ ref:"RBIAS", x:610, y:300 }],
+    g: { ibias:20, ref:100, left:230, tail:300, right:370, conv:480, out:710,
+      vdd:50, upper:90, mirror:130, comp:150, gain:190, pair:230, bar:280, bias:330, bus:380, vss:420,
+      riser:550, first:600, second:660, vinn:150, vinp:440, vout:760 },
+  },
+  "ota-precision-sky130-luna-6-r3": {
+    strategy: "connected-stages",
+    devices: [
+      ["XMNREF","n","ibias ibias vss vss"], ["XMNTAIL","n","nt ibias vss vss"],
+      ["XMN1","n","n1 vinn nt vss"], ["XMN2","n","n2 vinp nt vss"],
+      ["XMP1","p","n1 n1 vdd vdd"], ["XMP2","p","n2 n1 vdd vdd"],
+      ["XMNREFP","n","pb ibias vss vss"], ["XMPREF","p","pb pb vdd vdd"],
+      ["XMPLOAD","p","vout pb vdd vdd"], ["XMN3","n","vout n2 vss vss"],
+      ["RUP","r","n2 vdd"], ["RDN","r","n2 vss"], ["RZ","r","n2 nz"], ["CC","c","nz vout"],
+    ],
+    roles: { ref:"XMNREF", tail:"XMNTAIL", inN:"XMN1", inP:"XMN2", diode:"XMP1", load:"XMP2",
+      driver:"XMN3", source:"XMPLOAD", conv:"XMPREF", sink:"XMNREFP" },
+    // RUP and RDN both hang from the gain wire: RUP to a local VDD symbol,
+    // RDN to the VSS rail. A rising RUP would cross the mirror or series branch.
+    series: ["RZ","CC"], shunts: [{ ref:"RUP", x:600, y:250 }, { ref:"RDN", x:670, y:330 }],
+    g: { ibias:40, ref:110, left:220, tail:300, right:380, conv:490, out:740,
+      vdd:50, upper:90, mirror:130, comp:150, gain:190, pair:230, bar:280, bias:330, bus:380, vss:420,
+      riser:560, first:610, second:670, vinn:140, vinp:450, vout:780 },
+  },
+};
+
+function converterOta(id, ds) {
+  const spec = converterOtas[id], g = spec.g, R = spec.roles;
+  if (ds.length !== spec.devices.length || ds.some((d, i) => d.ref !== spec.devices[i][0] ||
+      d.kind !== spec.devices[i][1] || d.pins.join(" ") !== spec.devices[i][2]))
+    throw Error("Unreviewed converter OTA source graph " + id);
+  const dev = ref => ds.find(d => d.ref === ref);
+  const [tail, mirror, gain, bias] = [dev(R.tail).pins[0], dev(R.diode).pins[0], dev(R.load).pins[0], dev(R.conv).pins[0]];
+  const motif = {
+    ref: "n ibias ibias vss vss", tail: `n ${tail} ibias vss vss`,
+    inN: `n ${mirror} vinn ${tail} vss`, inP: `n ${gain} vinp ${tail} vss`,
+    diode: `p ${mirror} ${mirror} vdd vdd`, load: `p ${gain} ${mirror} vdd vdd`,
+    driver: `n vout ${gain} vss vss`, source: `p vout ${bias} vdd vdd`,
+    conv: `p ${bias} ${bias} vdd vdd`, sink: `n ${bias} ibias vss vss`,
+  };
+  for (const [role, want] of Object.entries(motif))
+    if (!dev(R[role]) || dev(R[role]).kind + " " + dev(R[role]).pins.join(" ") !== want)
+      throw Error("Converter OTA motif mismatch " + id + " " + role);
+  const [first, second] = spec.series.map(dev), mid = first.pins.find(n => n !== gain);
+  const shunts = spec.shunts.map(s => ({ ...s, d: dev(s.ref), rail: dev(s.ref)?.pins.find(n => n !== gain) }));
+  const owned = [...Object.values(R), ...spec.series, ...spec.shunts.map(s => s.ref)];
+  if (new Set([tail, mirror, gain, bias, mid, "vdd", "vss", "vout", "ibias", "vinp", "vinn"]).size !== 11 ||
+      first.pins.filter(n => n === gain).length !== 1 ||
+      [...second.pins].sort().join(" ") !== [mid, "vout"].sort().join(" ") ||
+      shunts.some(s => !s.d || !"rc".includes(s.d.kind) ||
+        s.d.pins.filter(n => n === gain).length !== 1 || !["vdd","vss"].includes(s.rail)) ||
+      new Set(owned).size !== ds.length || ds.some(d => !owned.includes(d.ref)))
+    throw Error("Converter OTA passive or ownership mismatch " + id);
+  // Passive pins keep their submitted order; rotation decides which end faces each node.
+  const pin = (d, net) => d.ref + "." + (d.pins[0] === net ? "1" : "2");
+  const p = (role, name) => R[role] + "." + name;
+  const shuntText = shunts.length ? ` ${shunts.map(s => s.ref).join(" and ")} shunt${shunts.length > 1 ? "" : "s"} it to ${shunts.map(s => s.rail.toUpperCase()).join(" and ")}.` : "";
+  return {
+    id, strategy: spec.strategy,
+    continuousNets: [...new Set(ds.flatMap(d => d.pins))].filter(n => !["vdd","vss"].includes(n)).sort(),
+    title: "Transistor-level OTA",
+    description: `Centered NMOS pair, PMOS mirror load and tail beside the IBIAS reference. The gain node drives the NMOS output stage and the submitted series compensation.${shuntText} The converter diode mirrors IBIAS into the PMOS output source.`,
+    body_note: "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
+    devices: {
+      [R.ref]: [g.ref + 10, g.bias, "horizontal"], [R.tail]: [g.tail - 10, g.bias],
+      [R.inN]: [g.left - 10, g.pair], [R.inP]: [g.right + 10, g.pair, "horizontal"],
+      [R.diode]: [g.left + 10, g.mirror, "horizontal"], [R.load]: [g.right - 10, g.mirror],
+      [R.conv]: [g.conv + 10, g.upper, "horizontal"], [R.sink]: [g.conv - 10, g.bus],
+      [R.source]: [g.out - 10, g.upper], [R.driver]: [g.out - 10, g.gain],
+      [first.ref]: [g.first, g.comp, first.pins[0] === gain ? 270 : 90],
+      [second.ref]: [g.second, g.comp, second.pins[0] === mid ? 270 : 90],
+      ...Object.fromEntries(shunts.map(s => [s.ref, [s.x, s.y, s.d.pins[0] === gain ? 0 : 180]])),
+    },
+    passiveLabels: spec.passiveLabels,
+    ports: { VDD: [40, g.vdd], VSS: [40, g.vss], IBIAS: [g.ibias, g.bias - 40],
+      VINN: [g.vinn, g.pair], VINP: [g.vinp, g.pair, 180], VOUT: [g.vout, g.comp - 20, 180] },
+    draw(c) {
+      const j = (key, net, x, y) => c.j(key, net, x, y), w = (net, a, b, bends = []) => c.w(net, a, b, bends);
+      const chain = (net, keys) => keys.reduce((a, b) => (w(net, a, b), b));
+      // Both supplies are continuous rails; the converter diode and the output
+      // source share the upper rail beside the load mirror.
+      for (const [key, x] of [["dd-left",g.left],["dd-right",g.right],["dd-conv",g.conv],["dd-out",g.out]]) j(key, "vdd", x, g.vdd);
+      chain("vdd", ["@VDD","dd-left","dd-right","dd-conv","dd-out"]);
+      w("vdd","dd-left",p("diode","S")); w("vdd","dd-right",p("load","S"));
+      w("vdd","dd-conv",p("conv","S")); w("vdd","dd-out",p("source","S"));
+      const vssTaps = [["ss-ref",g.ref],["ss-tail",g.tail],["ss-sink",g.conv],["ss-out",g.out],
+        ...shunts.filter(s => s.rail === "vss").map(s => ["ss-" + s.ref, s.x])].sort((a, b) => a[1] - b[1]);
+      for (const [key, x] of vssTaps) j(key, "vss", x, g.vss);
+      chain("vss", ["@VSS", ...vssTaps.map(t => t[0])]);
+      w("vss",p("ref","S"),"ss-ref"); w("vss",p("tail","S"),"ss-tail");
+      w("vss",p("sink","S"),"ss-sink"); w("vss",p("driver","S"),"ss-out");
+      // Pair under the load mirror, local diode closure and a centered tail.
+      j("m-drain", mirror, g.left, g.mirror + 40); j("m-gates", mirror, g.tail, g.mirror);
+      w(mirror,p("diode","D"),"m-drain"); w(mirror,"m-drain",p("inN","D"));
+      w(mirror,p("diode","G"),"m-gates"); w(mirror,"m-gates",p("load","G"));
+      w(mirror,"m-drain","m-gates",[[g.tail, g.mirror + 40]]);
+      j("t-bar", tail, g.tail, g.bar);
+      w(tail,p("inN","S"),"t-bar",[[g.left, g.bar]]); w(tail,p("inP","S"),"t-bar",[[g.right, g.bar]]);
+      w(tail,"t-bar",p("tail","D"));
+      w("vinn","@VINN",p("inN","G")); w("vinp","@VINP",p("inP","G"));
+      // The gain tap is level with the receiving NMOS gate; the series branch
+      // rises to VOUT between the two output devices and shunts hang below.
+      const gainTaps = [["gain-comp", g.riser], ...shunts.map(s => ["gain-" + s.ref, s.x])].sort((a, b) => a[1] - b[1]);
+      j("gain-core", gain, g.right, g.gain);
+      for (const [key, x] of gainTaps) j(key, gain, x, g.gain);
+      w(gain,p("load","D"),"gain-core"); w(gain,"gain-core",p("inP","D"));
+      chain(gain, ["gain-core", ...gainTaps.map(t => t[0]), p("driver","G")]);
+      w(gain,"gain-comp",pin(first, gain),[[g.riser, g.comp]]);
+      for (const s of shunts) {
+        w(gain,"gain-" + s.ref,pin(s.d, gain));
+        if (s.rail === "vss") w("vss",pin(s.d, "vss"),"ss-" + s.ref);
+        else {
+          j("su-" + s.ref, "vdd", s.x, s.y + 40); w("vdd",pin(s.d, "vdd"),"su-" + s.ref);
+          c.boundLabel("vdd","su-" + s.ref,0,16,"middle");
+        }
+      }
+      w(mid,pin(first, mid),pin(second, mid));
+      j("out-port","vout",g.out,g.comp - 20); j("out-comp","vout",g.out,g.comp);
+      w("vout",p("source","D"),"out-port"); w("vout","out-port","out-comp");
+      w("vout","out-comp",p("driver","D")); w("vout","out-port","@VOUT");
+      w("vout",pin(second, "vout"),"out-comp");
+      // The IBIAS reference sits beside the tail. Its gate trunk feeds the
+      // tail and passes beneath it to the converter sink.
+      j("ib-drain","ibias",g.ref,g.bias - 40); j("ib-dg","ibias",g.ref + 60,g.bias); j("ib-bus","ibias",g.ref + 100,g.bias);
+      w("ibias","@IBIAS","ib-drain"); w("ibias","ib-drain",p("ref","D"));
+      w("ibias","ib-drain","ib-dg",[[g.ref + 60, g.bias - 40]]); w("ibias",p("ref","G"),"ib-dg");
+      w("ibias","ib-dg","ib-bus"); w("ibias","ib-bus",p("tail","G"));
+      w("ibias","ib-bus",p("sink","G"),[[g.ref + 100, g.bus]]);
+      // The converter diode faces the output source as a PMOS mirror; its drain
+      // descends to the sink, plainly crossing the gain wire.
+      j("b-drain", bias, g.conv, g.upper + 40); j("b-gates", bias, g.conv + 40, g.upper); j("b-label", bias, g.conv, g.bar);
+      w(bias,p("conv","D"),"b-drain"); w(bias,"b-drain","b-gates",[[g.conv + 40, g.upper + 40]]);
+      w(bias,p("conv","G"),"b-gates"); w(bias,"b-gates",p("source","G"));
+      w(bias,"b-drain","b-label"); w(bias,"b-label",p("sink","D"));
+      c.boundLabel(bias,"b-label",8,5,"start");
+      c.boundLabel(gain,"gain-core",8,-10,"start");
+      if (spec.strategy === "connected-stages") {
+        // This page contract names supplies and IBIAS beside their ports.
+        c.boundLabel("vdd","dd-left",40 - g.left,-12,"middle");
+        c.boundLabel("vss","ss-ref",40 - g.ref,-12,"middle");
+        c.boundLabel("ibias","ib-drain",g.ibias - g.ref,-12,"middle");
+      }
     },
   };
 }

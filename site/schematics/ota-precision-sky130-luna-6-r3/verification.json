@@ -76,10 +76,12 @@
     "checked_non_body_pins": 44,
     "checked_from": "saved-and-reopened-project",
     "continuous_signal_nets": [
+      "ibias",
       "n1",
       "n2",
       "nt",
       "nz",
+      "pb",
       "vinn",
       "vinp",
       "vout"

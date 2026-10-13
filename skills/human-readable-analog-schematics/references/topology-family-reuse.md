@@ -40,7 +40,25 @@ Frozen source hashes and complete pin-role guards in
 [the OTA extension](../../../tools/schematics/ota-passive-variants.mjs) identify
 the exact admitted runs. Two additional LDOs with a gate-to-output capacitor
 were identified but deferred for a separate compensation review. The remaining
-seven-MOS passive families and all extra-MOS cases retain their previous layouts.
+seven-MOS passive families retain their previous layouts. Later owner-directed
+wire-first corrections add these separately guarded ten-MOS converter-core cases
+in [human-reference-layouts.mjs](../../../tools/schematics/human-reference-layouts.mjs):
+
+| Exact source | Passive roles |
+|---|---|
+| OTA-FREE / Haiku / Run 3 | Gain–C1–NZ–RZ–VOUT |
+| OTA-PRECISION / Luna 6 / Run 1 | Gain–CCOMP–NCOMP–RCOMP–VOUT, with reversed source pin order |
+| OTA-FREE / Luna 6 / Run 3 | Gain–RZ–NC–CC–VOUT and a gain-to-VSS resistor |
+| OTA-PRECISION / Luna 6 / Run 3 | Gain–RZ–NZ–CC–VOUT and gain-to-VDD/VSS resistors |
+
+Their common ten-MOS core has a differential NMOS pair, PMOS mirror loads,
+NMOS-driven output and PMOS diode/NMOS sink bias converter. It is neither the
+ordinary PMOS-output eight-MOS core nor the unique current-subtracting OTA.
+The extension checks the whole ordered reference/kind/pin list, including every
+passive and MOS body, for each exact run. Extra, missing or foreign-pin devices
+fail. The layout API supplies no model or parameter strings; unchanged native
+import and independent frozen-source contracts preserve those exact properties.
+Do not describe these pin guards as raw-source hash or value validation.
 
 ## Reading-size lessons from actual images
 
@@ -55,6 +73,13 @@ For Precision/Sonnet, shortening the V1-to-XM6 gap and output stub preserved the
 current-subtracting core and local RZ–CC branch. The receiving stage remained
 distinct. Neither correction required reducing native text or compressing the
 input-pair motif.
+
+The four converter-core corrections face the converter sink's gate toward its
+reference/tail trunk and route converted PMOS bias to the actual output receiver.
+Staggering the upper converter and output row clears long references without
+widening the whole canvas. The RC order and gain shunts remain source-specific.
+Both native and fitted images were reviewed individually, then actual desktop
+and narrow pages were checked with the unchanged representatives as controls.
 
 Review a simple member, each passive endpoint variant and a long-reference or
 unusual-polarity member at native and actual page sizes. Inspect all changed

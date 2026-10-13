@@ -125,6 +125,17 @@ visual dispositions above. It does not change the frozen electrical contracts
 or imply that the still-unmodified LDOs and remaining OTA drawings already
 meet the new preference.
 
+Four later converter-core OTA cases use nearby bias branches with continuous
+IBIAS and converted PMOS-bias wires. Mirroring the converter sink makes its gate
+face the reference/tail trunk while retaining its D/S column. A staggered upper
+converter/output row clears long references without enlarging all stage gaps.
+The NMOS-driven output, actual RC order and optional gain-node shunts distinguish
+these sources from the owner-selected PMOS-output reference. In PRECISION/Luna 6
+Run 3, the gain-to-VDD resistor descends to a local VDD symbol; this permitted
+supply exception is an explicit layout choice, not a transferable internal-wire
+shortcut. Individual native, fitted and actual desktop/narrow images support
+these observations; the remaining drawings still need their own source review.
+
 ## Transferable rule and acceptance boundary
 
 Recognize and anchor motifs before routing between them. Preserve corresponding
