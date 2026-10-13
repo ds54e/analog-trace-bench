@@ -85,14 +85,17 @@ reviewed pilot layouts. It does not reproduce later GUI edits or accept arbitrar
 netlists. It reuses the two-stage layout only after matching actual ordered-pin
 connections, including RC order. Larger circuits retain vertical stacks and
 paired inputs; source degeneration resistors stay with their pair. Remote groups
-use object-bound native net labels, not SVG-only text. See the skill's
+currently use object-bound native net labels, not SVG-only text. That records
+existing native connectivity; it is not permission to skip internal wiring in
+new corrections. See the skill's
 [Native workflow](../skills/human-readable-analog-schematics/references/analog-canvas-workflow.md)
 for literal labels, saved cell defaults and pinned export behavior.
 
 OTA-FREE has 13 source-matched two-stage drawings and 11 case-reviewed recipes.
 The latter replace the initial grouped fallback: the signal path, load mirror,
 tail and compensation use continuous native wires. Auxiliary bias branches sit near their consumers, beside or below the main
-circuit, and use bound labels for remote controls and supplies.
+circuit. Existing revisions use bound labels for some remote controls and
+supplies; the owner now requires the internal control links to be physically wired.
 The reviewed FREE figures show the complete drawing within the 60% frame and
 open the native SVG when clicked, without a caption or link text. Their native
 artifacts retain full text and symbol sizes. Coordinates belong to the recipes.
@@ -116,7 +119,9 @@ not acceptance.
 The orthogonal router reserves native symbol bodies, full reference/value text,
 port bodies and terminal escapes. It builds shared trees, penalizes bends and
 crossings, permits only plain foreign-net crossings, and removes unused escape
-spurs. Bound net labels are limited to supplies and auxiliary bias controls.
+spurs. Earlier recipes permit bound labels for supplies and auxiliary bias
+controls. New corrections retain the supply/port exceptions but must physically
+join internal signals and bias controls, with names only annotating their wires.
 The reopened-project check separately verifies each recorded
 `continuous_signal_nets` net using only physical routes, before applying native
 name-based connections. The site tests independently trace those routes, local
@@ -159,6 +164,24 @@ allowance for the browser's fallback font. Supply labels require a clear placeme
 generation fails when none is available. Case-specific routing corridors separate
 close feedback and bias paths without changing the source terminal positions.
 These options supplement actual glyph and wire inspection at page size.
+
+## Current owner correction scope
+
+The owner selected OTA-FIXED / Sol 6 / Run 1 as the visual reference on
+2026-10-13: symmetric pair/load/tail grouping, an adjacent bias reference with
+continuous wires to its consumers, a distinct output stage and a short actual
+compensation branch. Apply those principles to each submitted topology, without
+changing it. The [ATB profile](../skills/human-readable-analog-schematics/references/atb-profile.md)
+records internal wire-first routing and compact meaningful LDO feedback.
+
+The physical-route inventory of published `c1b1aa66` found 67 OTA drawings with
+non-supply nets split into name-connected components; LDO internal nets were
+physically continuous. This is a coverage inventory, not a wire-length acceptance
+metric. Those OTA links and the stretched representative LDO feedback routes
+remain unresolved. No new internal-wiring geometry correction is included in
+this instructions-only update. All 219 native drawings, submission bytes and
+page presentation are preserved; earlier review acceptance does not imply
+compliance with the owner's subsequent preference.
 
 ## Regenerate native drawings
 

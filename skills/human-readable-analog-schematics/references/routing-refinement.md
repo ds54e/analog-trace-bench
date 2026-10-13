@@ -8,8 +8,10 @@ not proof of their electrical correctness.
 
 - Align a sending-node tap with the receiving gate, including independent stages
   at different heights. Align an intervening R/C with the endpoints where useful.
-- Use a shared trunk with short branches for multi-terminal nets. Do not route
-  each terminal separately toward an arbitrary center or duplicate one net's wire.
+- Use a shared trunk with short branches for multi-terminal nets, including
+  internal bias. Trace from its generator through the trunk to every receiving
+  gate without a name-only jump. Do not route each terminal separately toward an
+  arbitrary center or duplicate one net's wire.
 - Source declaration order need not choose the routing tree's root. Compare a
   local diode/drain root for a shared stage node before reaching remote taps.
   Retain the output-node order when it provides clearer passive and sensing trees.
@@ -61,7 +63,9 @@ pilot's current branch height into a general placement rule.
 
 1. Trace main signal, compensation, feedback and shared bias end to end.
 2. Challenge each bend, reversal and broad gap against an actual obstacle or
-   reading need. Compare moving taps, labels, receivers and local groups.
+   reading need. Compare moving taps, labels, receivers and local groups. For an
+   LDO, try a compact sensing-to-input path before an outside corridor. Do not
+   extend the return merely to preserve a previous template.
 3. Shorten or straighten routes without introducing symbol penetration, unclear
    joins or text crowding. Retain useful local D–G branches and shared-node shapes.
 4. Render the actual native project at fit and reading sizes, then verify saved

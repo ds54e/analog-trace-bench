@@ -55,9 +55,13 @@ For native drawing changes:
    identify the matching motif before placing individual parts. Anchor its source
    midpoint, local diode closure, receiving gate and owning passive endpoints.
    Circuit comments such as “folded” are hypotheses, not placement instructions.
-3. **Route and simplify.** Keep local D–G ties, shared gates and the main loop
-   traceable. Challenge unnecessary gaps and bends; move parts or labels before
-   adding detours. Avoid symbol penetration and ambiguous intersections.
+3. **Route and simplify.** Keep local D–G ties, shared gates, internal bias
+   controls and the main loop traceable through continuous wires. Internal names
+   annotate those wires; they do not replace connections. Apply the ATB profile
+   for its explicit supply/port exceptions and owner-selected visual reference.
+   Challenge unnecessary gaps and bends; move related parts or labels before
+   adding detours. An outer feedback return is an option, not a required template.
+   Avoid symbol penetration and ambiguous intersections.
 4. **Apply the display profile.** Keep readable text sizes and clear label owners.
    Format native display annotations separately from exact device parameters.
    Keep native drawing density separate from the requested page display size.
@@ -68,8 +72,9 @@ For native drawing changes:
 6. **Review the rendered result.** Inspect fit view and reading size, including
    actual value strings, current paths, feedback, crossings and label clearance.
    Check the target page when applicable. Report unavailable browser checks.
-   Reject a fallback that leaves the principal stages, load mirror or compensation
-   connected only by names. A component inventory is not a finished schematic.
+   Reject a fallback that leaves the principal stages, load mirror, compensation
+   or internal bias linked only by names. Trace each bias generator to its receiving
+   gates as well as the signal path. A component inventory is not a finished schematic.
    Compare before and after at the same intended page width. Judge whether a
    reader can recognize the circuit motifs and trace their relationships before
    considering area, length or bends. If the redraw substantially shrinks the

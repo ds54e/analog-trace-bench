@@ -19,6 +19,37 @@ preferences and current pilot constraints, not general analog-drawing standards.
 - Draw VSS as a horizontal port, as used for OTA VDD; keep supply labels
   beside their actual port and preserve their named external terminals.
 
+## Internal wiring and the owner-selected reference
+
+The owner selected [OTA-FIXED / Sol 6 / Run 1](../../../site/schematics/ota-fixed-sky130-sol-6-r1/schematic.svg)
+as a good composition on 2026-10-13. Its actual native image was inspected from
+the published `c1b1aa66` artifacts. The common VDD rail is above and VSS below.
+XM1/XM2 form a symmetric pair under XM3/XM4, with XMtl centered underneath.
+Adjacent XMbn visibly connects to both XMtl and output sink XM8 through one
+continuous bias network. The XM7/XM8 output stage is distinct on the right.
+The n1 wire reaches XM7.G directly, with a short Cc–Rz branch to VOUT; Cc is 4p
+and Rz is 2.2k. The na/n1/ntl names annotate existing wires.
+
+- Wire internal signals and bias controls continuously, including auxiliary bias
+  generators and every receiving gate. Repeated names must not skip an internal
+  connection. Preserve external ports and agreed VIN/VDD/VSS supply symbols.
+- Place related bias blocks near their consumers. Correct placement before
+  substituting a long wire for a label jump. Keep local diode closures visible.
+- Keep LDO sensing, feedback and compensation paths short and meaningful. Try
+  aligning the sensing tap with its receiver and compare input/load orientation
+  before committing to an outside return. A perimeter route needs a visible
+  circuit-specific obstacle or clarity benefit; it is not mandatory.
+- Compare recognizable groups, useful whitespace and both native dimensions at
+  the same displayed width. Do not shrink one dimension at the expense of the
+  other or of text readability.
+- Reuse these relationships only for actual matching topology. The example's
+  PMOS-driven output does not authorize changing a current-subtracting OTA,
+  a cascoded branch, or an LDO's actual reference and sensing networks.
+
+This preference supersedes earlier acceptance of auxiliary internal name-only
+links or unnecessarily extended feedback returns. Earlier image reviews are
+historical observations, not evidence that all current drawings meet this rule.
+
 ## Diagram labels and exact parameters
 
 Show passive values to about two significant digits using short SI prefixes.

@@ -85,7 +85,9 @@ XM6.G and the compensation branch. The two receiving branches flank the input
 pair. XMNA's diode closure stays local and the shared mirror gates use a distinct
 lower corridor. One plain crossing of the tail stem remains away from its source
 junction. V1 feeds NMOS XM6; XM7 remains controlled by VBP. The series branch is
-V1–RZ–NZ–CC–VOUT. Only auxiliary bias controls use named remote connections.
+V1–RZ–NZ–CC–VOUT. This published revision still uses named remote auxiliary
+bias controls; the owner subsequently rejected that presentation. Those links
+remain a correction task, not a reusable accepted wiring motif.
 
 The follow-up left these input, subtracting and bias motifs intact. It shortened
 the V1-to-XM6 intergroup connection, series-compensation span and output stub.
@@ -94,6 +96,16 @@ Displayed text is about 1.4% larger than the original, rather than 7.7% smaller.
 Astra and the tools-disabled Opus advisor inspected actual page-width images and
 found no necessary remaining OTA geometry correction. Small compensation values
 still benefit from the existing full-size SVG access.
+
+## Subsequent owner correction
+
+On 2026-10-13 the owner rejected skipped internal connections and unnecessarily
+long LDO wiring, and selected OTA-FIXED / Sol 6 / Run 1 as the visual reference.
+Follow the [current ATB profile](atb-profile.md#internal-wiring-and-the-owner-selected-reference):
+continuous internal signal and bias wires, functional grouping, useful whitespace,
+compact meaningful paths and balanced width/height. This supersedes the earlier
+visual dispositions above. It does not change the frozen electrical contracts
+or claim a new geometry correction has already been implemented.
 
 ## Transferable rule and acceptance boundary
 
