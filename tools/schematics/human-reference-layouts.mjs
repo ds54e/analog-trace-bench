@@ -1,9 +1,10 @@
-/** Source-specific drawings anchored to recognizable motifs: two representatives
- * and four guarded converter OTAs. Public figure relationships are recorded in the
- * schematic skill; these routes follow ATB's own ordered terminals, not a
- * reference circuit's electrical data. */
+/** Source-specific drawings anchored to recognizable motifs: two representatives,
+ * four guarded converter OTAs and two guarded complementary-input OTAs. Public
+ * figure relationships are recorded in the schematic skill; these routes follow
+ * ATB's own ordered terminals, not a reference circuit's electrical data. */
 export function humanReferenceLayout(id, ds) {
   if (converterOtas[id]) return converterOta(id, ds);
+  if (complementaryOtas[id]) return complementaryOta(id, ds);
   if (id !== "ldo-core-sky130-astra-r1" &&
       id !== "ota-precision-sky130-sonnet-5-5-r2") return null;
   const ldo = id.startsWith("ldo-");
@@ -394,6 +395,181 @@ function converterOta(id, ds) {
         c.boundLabel("vss","ss-ref",40 - g.ref,-12,"middle");
         c.boundLabel("ibias","ib-drain",g.ibias - g.ref,-12,"middle");
       }
+    },
+  };
+}
+
+/** Rail-to-rail OTAs whose NMOS and PMOS input pairs each drive their own mirror
+ * load into one shared gain node; that node drives a PMOS output against an
+ * IBIAS-mirrored NMOS sink, and a PMOS diode/NMOS sink converter biases the
+ * PMOS tail. Neither the ten-MOS converter family nor the current-subtracting
+ * OTA. Each frozen source lists every device, kind and ordered pin including B,
+ * so a changed, extra or missing device fails here. otaDevices carries no model
+ * or parameter text; the native importer and frozen-source contracts retain the
+ * exact models, values, W/L, nf and m, which differ between the two runs. */
+const complementaryOtas = {
+  "ota-wide-sky130-haiku-r2": {
+    devices: [
+      ["XMREF","n","ibias ibias vss vss"], ["XMTN","n","tn ibias vss vss"],
+      ["XMNO","n","vout ibias vss vss"], ["XMPD","p","vbp vbp vdd vdd"],
+      ["XMNB","n","vbp ibias vss vss"], ["XMTP","p","tp vbp vdd vdd"],
+      ["XMN1","n","dn1 vinn tn vss"], ["XMN2","n","v1 vinp tn vss"],
+      ["XMPA","p","dn1 dn1 vdd vdd"], ["XMPB","p","v1 dn1 vdd vdd"],
+      ["XMP1","p","dp1 vinn tp vdd"], ["XMP2","p","v1 vinp tp vdd"],
+      ["XMNA","n","dp1 dp1 vss vss"], ["XMNC","n","v1 dp1 vss vss"],
+      ["XMO","p","vout v1 vdd vdd"], ["CC","c","v1 nz"], ["RZ","r","nz vout"],
+    ],
+    roles: { ref:"XMREF", nTail:"XMTN", sink:"XMNO", convP:"XMPD", convN:"XMNB", pTail:"XMTP",
+      n1:"XMN1", n2:"XMN2", pDiode:"XMPA", pLoad:"XMPB", p1:"XMP1", p2:"XMP2",
+      nDiode:"XMNA", nLoad:"XMNC", out:"XMO", cc:"CC", rz:"RZ" },
+  },
+  "ota-wide-sky130-haiku-r3": {
+    devices: [
+      ["Xb0","n","ibias ibias vss vss"], ["Xtn","n","ntn ibias vss vss"],
+      ["Xsk","n","vout ibias vss vss"], ["Xnr","n","vbp ibias vss vss"],
+      ["Xpr","p","vbp vbp vdd vdd"], ["Xtp","p","ntp vbp vdd vdd"],
+      ["Xn1","n","d1n vinn ntn vss"], ["Xn2","n","nx vinp ntn vss"],
+      ["Xm3","p","d1n d1n vdd vdd"], ["Xm4","p","nx d1n vdd vdd"],
+      ["Xp1","p","d1p vinn ntp vdd"], ["Xp2","p","nx vinp ntp vdd"],
+      ["Xm5","n","d1p d1p vss vss"], ["Xm6","n","nx d1p vss vss"],
+      ["Xo","p","vout nx vdd vdd"], ["Cc","c","nx nz"], ["Rz","r","nz vout"],
+    ],
+    roles: { ref:"Xb0", nTail:"Xtn", sink:"Xsk", convP:"Xpr", convN:"Xnr", pTail:"Xtp",
+      n1:"Xn1", n2:"Xn2", pDiode:"Xm3", pLoad:"Xm4", p1:"Xp1", p2:"Xp2",
+      nDiode:"Xm5", nLoad:"Xm6", out:"Xo", cc:"Cc", rz:"Rz" },
+  },
+};
+
+// Columns run from the bias edge through VINN, the pair/tail columns, the gain
+// riser and VINP to the output; rows run from VDD to VSS.
+const complementaryGrid = {
+  port: 20, conv: 60, vinnPort: 120, ibPort: 130, vinn: 160, ref: 180, trunkTap: 270,
+  left: 250, tail: 330, right: 410, riser: 500, vinp: 560, tap: 600, vinpPort: 620,
+  cc: 640, rz: 710, out: 760, voutPort: 820,
+  vdd: 60, top: 110, pBar: 160, pPair: 200, nMirror: 280, ssBar: 320, gain: 340,
+  ddBar: 360, pMirror: 400, comp: 420, nPair: 480, outTap: 500, nBar: 520,
+  ibias: 560, bottom: 600, trunk: 640, vss: 670,
+};
+
+function complementaryOta(id, ds) {
+  const spec = complementaryOtas[id], g = complementaryGrid, R = spec.roles;
+  if (ds.length !== spec.devices.length || ds.some((d, i) => d.ref !== spec.devices[i][0] ||
+      d.kind !== spec.devices[i][1] || d.pins.join(" ") !== spec.devices[i][2]))
+    throw Error("Unreviewed complementary OTA source graph " + id);
+  const dev = ref => ds.find(d => d.ref === ref);
+  const [tn, tp, dn, dp, gain, bias, nz] = [dev(R.nTail).pins[0], dev(R.pTail).pins[0],
+    dev(R.pDiode).pins[0], dev(R.nDiode).pins[0], dev(R.pLoad).pins[0], dev(R.convP).pins[0], dev(R.cc).pins[1]];
+  const motif = {
+    ref: "n ibias ibias vss vss", nTail: `n ${tn} ibias vss vss`, sink: "n vout ibias vss vss",
+    convP: `p ${bias} ${bias} vdd vdd`, convN: `n ${bias} ibias vss vss`, pTail: `p ${tp} ${bias} vdd vdd`,
+    n1: `n ${dn} vinn ${tn} vss`, n2: `n ${gain} vinp ${tn} vss`,
+    pDiode: `p ${dn} ${dn} vdd vdd`, pLoad: `p ${gain} ${dn} vdd vdd`,
+    p1: `p ${dp} vinn ${tp} vdd`, p2: `p ${gain} vinp ${tp} vdd`,
+    nDiode: `n ${dp} ${dp} vss vss`, nLoad: `n ${gain} ${dp} vss vss`,
+    out: `p vout ${gain} vdd vdd`, cc: `c ${gain} ${nz}`, rz: `r ${nz} vout`,
+  };
+  for (const [role, want] of Object.entries(motif))
+    if (!dev(R[role]) || dev(R[role]).kind + " " + dev(R[role]).pins.join(" ") !== want)
+      throw Error("Complementary OTA motif mismatch " + id + " " + role);
+  const owned = Object.values(R);
+  if (new Set([tn, tp, dn, dp, gain, bias, nz, "vdd", "vss", "vout", "ibias", "vinp", "vinn"]).size !== 13 ||
+      new Set(owned).size !== ds.length || ds.some(d => !owned.includes(d.ref)))
+    throw Error("Complementary OTA ownership mismatch " + id);
+  // The motif fixes gain–CC–NZ–RZ–VOUT order, so rotation 270 puts each pin 1 on the left.
+  const p = (role, pin) => R[role] + "." + pin;
+  return {
+    id, strategy: "connected-stages",
+    continuousNets: [...new Set(ds.flatMap(d => d.pins))].filter(n => !["vdd","vss"].includes(n)).sort(),
+    title: "Transistor-level OTA",
+    description: "Complementary input pairs, each with its own mirror load, drive one shared gain node. The PMOS pair and tail hang from VDD beside the converter diode that biases the tail; the NMOS pair and tail sit above VSS beside the IBIAS reference, which also biases the converter and output sinks. The gain node drives the PMOS output stage and the submitted series compensation.",
+    body_note: "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
+    devices: {
+      [R.convP]: [g.conv + 10, g.top, "horizontal"], [R.pTail]: [g.tail - 10, g.top],
+      [R.p1]: [g.left - 10, g.pPair], [R.p2]: [g.right + 10, g.pPair, "horizontal"],
+      [R.nDiode]: [g.left + 10, g.nMirror, "horizontal"], [R.nLoad]: [g.right - 10, g.nMirror],
+      [R.pDiode]: [g.left + 10, g.pMirror, "horizontal"], [R.pLoad]: [g.right - 10, g.pMirror],
+      [R.n1]: [g.left - 10, g.nPair], [R.n2]: [g.right + 10, g.nPair, "horizontal"],
+      [R.convN]: [g.conv + 10, g.ibias, "horizontal"],
+      [R.ref]: [g.ref + 10, g.bottom, "horizontal"], [R.nTail]: [g.tail - 10, g.bottom],
+      [R.out]: [g.out - 10, g.gain], [R.sink]: [g.out - 10, g.trunk],
+      [R.cc]: [g.cc, g.comp, 270], [R.rz]: [g.rz, g.comp, 270],
+    },
+    ports: { VDD: [g.port, g.vdd], VSS: [g.port, g.vss], IBIAS: [g.ibPort, g.ibias - 20, 90],
+      VINN: [g.vinnPort, g.pPair], VINP: [g.vinpPort, g.pPair, 180], VOUT: [g.voutPort, g.outTap, 180] },
+    draw(c) {
+      const j = (key, net, x, y) => c.j(key, net, x, y), w = (net, a, b, bends = []) => c.w(net, a, b, bends);
+      const chain = (net, keys) => keys.reduce((a, b) => (w(net, a, b), b));
+      // Both tails, their bias generators and the output stage hang from the
+      // shared rails; this page contract names the supplies beside their ports.
+      j("dd-conv","vdd",g.conv,g.vdd); j("dd-tail","vdd",g.tail,g.vdd);
+      chain("vdd", ["@VDD","dd-conv","dd-tail"]); w("vdd","dd-tail",p("out","S"),[[g.out, g.vdd]]);
+      w("vdd",p("convP","S"),"dd-conv"); w("vdd",p("pTail","S"),"dd-tail");
+      c.boundLabel("vdd","dd-conv",g.port - g.conv,-12,"middle");
+      j("ss-conv","vss",g.conv,g.vss); j("ss-ref","vss",g.ref,g.vss); j("ss-tail","vss",g.tail,g.vss);
+      chain("vss", ["@VSS","ss-conv","ss-ref","ss-tail"]); w("vss","ss-tail",p("sink","S"),[[g.out, g.vss]]);
+      w("vss",p("convN","S"),"ss-conv"); w("vss",p("ref","S"),"ss-ref"); w("vss",p("nTail","S"),"ss-tail");
+      c.boundLabel("vss","ss-conv",g.port - g.conv,-12,"middle");
+      // The two load mirrors meet back to back. Local supply bars keep their
+      // sources explicit without wrapping either half around the other.
+      j("ss-bar","vss",g.tail,g.ssBar); j("dd-bar","vdd",g.tail,g.ddBar);
+      w("vss",p("nDiode","S"),"ss-bar",[[g.left, g.ssBar]]); w("vss",p("nLoad","S"),"ss-bar",[[g.right, g.ssBar]]);
+      w("vdd",p("pDiode","S"),"dd-bar",[[g.left, g.ddBar]]); w("vdd",p("pLoad","S"),"dd-bar",[[g.right, g.ddBar]]);
+      c.boundLabel("vss","ss-bar",0,-8,"middle"); c.boundLabel("vdd","dd-bar",0,20,"middle");
+      // PMOS pair under its tail, over an NMOS mirror with a local diode closure.
+      j("tp-bar",tp,g.tail,g.pBar);
+      w(tp,p("pTail","D"),"tp-bar");
+      w(tp,p("p1","S"),"tp-bar",[[g.left, g.pBar]]); w(tp,p("p2","S"),"tp-bar",[[g.right, g.pBar]]);
+      j("dp-drain",dp,g.left,g.pPair + 40); j("dp-gates",dp,g.tail,g.nMirror);
+      w(dp,p("p1","D"),"dp-drain"); w(dp,"dp-drain",p("nDiode","D"));
+      w(dp,"dp-drain","dp-gates",[[g.tail, g.pPair + 40]]);
+      w(dp,p("nDiode","G"),"dp-gates"); w(dp,"dp-gates",p("nLoad","G"));
+      // NMOS pair under a PMOS mirror, above its centered tail.
+      j("dn-drain",dn,g.left,g.pMirror + 40); j("dn-gates",dn,g.tail,g.pMirror);
+      w(dn,p("pDiode","D"),"dn-drain"); w(dn,"dn-drain",p("n1","D"));
+      w(dn,"dn-drain","dn-gates",[[g.tail, g.pMirror + 40]]);
+      w(dn,p("pDiode","G"),"dn-gates"); w(dn,"dn-gates",p("pLoad","G"));
+      j("tn-bar",tn,g.tail,g.nBar);
+      w(tn,p("n1","S"),"tn-bar",[[g.left, g.nBar]]); w(tn,p("n2","S"),"tn-bar",[[g.right, g.nBar]]);
+      w(tn,"tn-bar",p("nTail","D"));
+      c.boundLabel(tp,"tp-bar",8,-10,"start"); c.boundLabel(tn,"tn-bar",8,20,"start");
+      // Each input trunk reaches its gate in both pairs.
+      j("vinn-tap","vinn",g.vinn,g.pPair); j("vinp-tap","vinp",g.vinp,g.pPair);
+      w("vinn","@VINN","vinn-tap"); w("vinn","vinn-tap",p("p1","G"));
+      w("vinn","vinn-tap",p("n1","G"),[[g.vinn, g.nPair]]);
+      w("vinp","@VINP","vinp-tap"); w("vinp","vinp-tap",p("p2","G"));
+      w("vinp","vinp-tap",p("n2","G"),[[g.vinp, g.nPair]]);
+      // Both mirror outputs join one gain riser. Its single plain crossing of
+      // the VINP trunk reaches the PMOS output gate and the series compensation.
+      j("gain-p",gain,g.right,g.pPair + 40); j("gain-n",gain,g.right,g.pMirror + 40);
+      j("gain-riser",gain,g.riser,g.gain); j("gain-tap",gain,g.tap,g.gain);
+      w(gain,p("p2","D"),"gain-p"); w(gain,"gain-p",p("nLoad","D"));
+      w(gain,p("pLoad","D"),"gain-n"); w(gain,"gain-n",p("n2","D"));
+      w(gain,"gain-p","gain-riser",[[g.riser, g.pPair + 40]]);
+      w(gain,"gain-n","gain-riser",[[g.riser, g.pMirror + 40]]);
+      w(gain,"gain-riser","gain-tap"); w(gain,"gain-tap",p("out","G"));
+      w(gain,"gain-tap",p("cc","1"),[[g.tap, g.comp]]);
+      w(nz,p("cc","2"),p("rz","1"));
+      c.boundLabel(gain,"gain-tap",8,-10,"start");
+      j("out-comp","vout",g.out,g.comp); j("out-port","vout",g.out,g.outTap);
+      w("vout",p("out","D"),"out-comp"); w("vout",p("rz","2"),"out-comp");
+      w("vout","out-comp","out-port"); w("vout","out-port",p("sink","D")); w("vout","out-port","@VOUT");
+      // The converter diode mirrors into the PMOS tail on the upper rail; its
+      // drain descends the bias edge to the IBIAS-driven converter sink.
+      j("vbp-drain",bias,g.conv,g.top + 40); j("vbp-gates",bias,g.conv + 50,g.top); j("vbp-label",bias,g.conv,g.gain);
+      w(bias,p("convP","D"),"vbp-drain"); w(bias,"vbp-drain","vbp-gates",[[g.conv + 50, g.top + 40]]);
+      w(bias,p("convP","G"),"vbp-gates"); w(bias,"vbp-gates",p("pTail","G"));
+      w(bias,"vbp-drain","vbp-label"); w(bias,"vbp-label",p("convN","D"));
+      c.boundLabel(bias,"vbp-label",8,5,"start");
+      // The IBIAS reference sits beside the NMOS tail. Its drain feeds the port
+      // and converter sink; its gate trunk feeds the tail and, beneath the
+      // tail's source stub, the output sink.
+      j("ib-port","ibias",g.ibPort,g.ibias); j("ib-drain","ibias",g.ref,g.ibias);
+      j("ib-gates","ibias",g.ref + 50,g.bottom); j("ib-trunk","ibias",g.trunkTap,g.bottom);
+      w("ibias",p("convN","G"),"ib-port"); w("ibias","@IBIAS","ib-port"); w("ibias","ib-port","ib-drain");
+      w("ibias",p("ref","D"),"ib-drain"); w("ibias","ib-drain","ib-gates",[[g.ref + 50, g.ibias]]);
+      w("ibias",p("ref","G"),"ib-gates"); w("ibias","ib-gates","ib-trunk");
+      w("ibias","ib-trunk",p("nTail","G")); w("ibias","ib-trunk",p("sink","G"),[[g.trunkTap, g.trunk]]);
+      c.boundLabel("ibias","ib-port",0,-40,"middle");
     },
   };
 }

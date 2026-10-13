@@ -136,6 +136,17 @@ supply exception is an explicit layout choice, not a transferable internal-wire
 shortcut. Individual native, fitted and actual desktop/narrow images support
 these observations; the remaining drawings still need their own source review.
 
+WIDE/Haiku Runs 2 and 3 retain both complementary input pairs with their own
+mirrors and tails. Ordering the PMOS group above the NMOS group puts each tail
+near its supply and bias receiver. Both driven branches join one shared gain
+riser; compensation stays beside the PMOS-driven output. The converter diode
+and sink occupy the same bias-edge current path, each beside its actual receiver.
+The IBIAS reference is beside the lower tail. Its output-sink trunk crosses the
+open tail-source stub, and the shared gain wire crosses the VINP trunk away from
+gate pins and junctions. Full native and fitted images were inspected separately
+for both source parameter sets. Width is nearly unchanged and height is 98 units
+shorter; those bounds describe the reviewed result rather than proving clarity.
+
 ## Transferable rule and acceptance boundary
 
 Recognize and anchor motifs before routing between them. Preserve corresponding

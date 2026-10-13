@@ -44,7 +44,7 @@ preferences there instead of duplicating them in this repository guide.
 | `tools/schematics/ota-stage-placement.mjs` | Align source-matched complementary inputs and loaded mirror transfer stages; attach remote signal shunts and feed-forward parts beside their nodes. |
 | `tools/schematics/ota-review-labels.mjs` | Keep reviewed passive annotation offsets separate from electrical values and device placement. |
 | `tools/schematics/ldo-layouts.mjs`, `ldo-case-refinements.mjs` | Derive LDO input branches, gate drivers, pass stages, sensing and compensation from each submission, with explicit refinements for complex topologies. |
-| `tools/schematics/human-reference-layouts.mjs` | Core/Astra Run 1 LDO, Precision/Sonnet 5.5 Run 2 OTA and four guarded NMOS-output converter-core OTA variants. Anchor source-matched motifs and author their critical routes explicitly. |
+| `tools/schematics/human-reference-layouts.mjs` | Core/Astra Run 1 LDO, Precision/Sonnet 5.5 Run 2 OTA, four guarded NMOS-output converter-core OTA variants and two complementary-input OTA cases. Anchor source-matched motifs and author their critical routes explicitly. |
 | `tools/schematics/ldo-direct-pass-motifs.mjs` | Reviewed seven-MOS direct-pass LDO families with VIN-fed diode bias, a plain divider and optional VOUT–FB capacitor; frozen-source and complete ordered-pin guards limit reuse. |
 | `tools/schematics/ota-passive-variants.mjs` | Four ordinary eight-MOS two-stage sources with a local IBIAS–VSS, mirror-node–VSS or VDD–IBIAS capacitor; reuse the existing matched core and retain each capacitor's actual endpoints. |
 | `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
@@ -178,7 +178,7 @@ The physical-route inventory of published `c1b1aa66` found 67 OTA drawings with
 non-supply nets split into name-connected components; LDO internal nets were
 physically continuous. This is a coverage inventory, not a wire-length acceptance
 metric. The Precision/Sonnet 5.5 Run 2 correction now physically joins both VBP and
-IBIAS. Four further source-matched converter-core OTA corrections leave 62
+IBIAS. Four converter-core and two complementary-input OTA corrections leave 60
 other OTA drawings with such links. Its converter sink faces
 its receiving bias trunk while retaining its D/S column. The actual current-
 subtracting core, ordered compensation branch and other functional groups stay
@@ -203,6 +203,19 @@ exception rather than an internal label jump. All four actual native, fitted,
 desktop and narrow views were checked. The original importer preserves exact
 models and values; the layout API's pin guards do not claim to validate values
 it does not receive. Frozen-source electrical checks remain a separate gate.
+
+WIDE/Haiku Runs 2 and 3 share a complete fifteen-MOS complementary-input graph
+with a gain–capacitor–resistor–VOUT branch. Their separately guarded sources
+retain their own dimensions, multiplicities, references and values. The PMOS
+pair, upper tail and NMOS mirror form one complete group; the NMOS pair, lower
+tail and PMOS mirror form the other. Both driven branches join the actual shared
+gain riser. The upper converter diode is beside the PMOS tail; the lower
+converter sink and IBIAS reference sit beside the NMOS tail. One continuous
+converter current path and the lower bias trunk replace the former remote
+controls. Local VDD/VSS load bars are permitted supply annotations, not internal
+signal jumps. Actual native and fitted images show nearly unchanged width and
+98 units less height, with unchanged native text. These two cases do not establish
+a generic complementary-input layout or complete the remaining OTA review.
 
 ## Regenerate native drawings
 

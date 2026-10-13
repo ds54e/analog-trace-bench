@@ -1807,30 +1807,30 @@
     {
       "run_id": "ota-wide-sky130-haiku-r2",
       "title": "Transistor-level OTA",
-      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Complementary input pairs, each with its own mirror load, drive one shared gain node. The PMOS pair and tail hang from VDD beside the converter diode that biases the tail; the NMOS pair and tail sit above VSS beside the IBIAS reference, which also biases the converter and output sinks. The gain node drives the PMOS output stage and the submitted series compensation.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "c58eca2c446c2289a6ee99e4253d1dacc7af0f677493e1d3e9fd7f7beb22226d",
       "files": {
-        "schematic.svg": "4526208ce743e01f12cad770a6cfa028a6303fbc601f4dc40da56336bc398bdc",
-        "project.icproj.json": "01546a2de258eacbf056e077cd6eb31812b6c7ab5e9b4020cfcf869259870177",
+        "schematic.svg": "9ee96f58b54a2b3917e3d92f6f5e9c8d68504f813eead8b795a00fc4caf5fffa",
+        "project.icproj.json": "47344240a9eadb1825e4a717ceb6839abe894cede16e040915813aeb4de96afa",
         "submitted.spice": "c58eca2c446c2289a6ee99e4253d1dacc7af0f677493e1d3e9fd7f7beb22226d",
         "exported.spice": "0a9610508e0077bd262b5c4338d27021d3335b85a377c0d145210291b9837e5e",
-        "verification.json": "b4af35426d391d3b3d81e637b9a69f9b398f4c4b860ab2b9de666c164bfba0c2"
+        "verification.json": "e634d9569d997fea1fdc6dcfb2d10c95965962f26f5203acac719947f2d1729b"
       },
       "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-wide-sky130-haiku-r3",
       "title": "Transistor-level OTA",
-      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Complementary input pairs, each with its own mirror load, drive one shared gain node. The PMOS pair and tail hang from VDD beside the converter diode that biases the tail; the NMOS pair and tail sit above VSS beside the IBIAS reference, which also biases the converter and output sinks. The gain node drives the PMOS output stage and the submitted series compensation.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "aa2ed4f74852f75b8d134a6683a76e1bf82225e7be298aa286e146c69cd571b8",
       "files": {
-        "schematic.svg": "3e53e2b1814bcd33c5950e9edb8ced239d99d850eea0e0ba30f360834d5ce9f3",
-        "project.icproj.json": "1dae1d1a89c041add744c813c4c28bd6561f4e1e1bc0a3548a78174009145f88",
+        "schematic.svg": "7a67d11ceb6913bb8b41532df295625967bc60c5411daf0340a1024c2ecbf6b5",
+        "project.icproj.json": "37da8284db13d0eefebeda927ca73105c6c766864d57d3eff5e98238adc9f80b",
         "submitted.spice": "aa2ed4f74852f75b8d134a6683a76e1bf82225e7be298aa286e146c69cd571b8",
         "exported.spice": "19a3fb7f203ef0e598be328f551ed26aeb367e2a742a950c020e6e0cbcdf5166",
-        "verification.json": "fd67639d52d60c73e43dc4e2785dbea3c1897561c9526f486dc366ef4e2acef5"
+        "verification.json": "16af36ed8b0bd73f14de791bac0a90f8fc19a7fa67a807dde6fdeb5d21acde11"
       },
       "layout_strategy": "connected-stages"
     },

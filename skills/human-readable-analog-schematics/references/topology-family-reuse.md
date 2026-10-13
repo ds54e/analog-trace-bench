@@ -60,6 +60,15 @@ fail. The layout API supplies no model or parameter strings; unchanged native
 import and independent frozen-source contracts preserve those exact properties.
 Do not describe these pin guards as raw-source hash or value validation.
 
+WIDE/Haiku Runs 2 and 3 additionally share a complete seventeen-device graph:
+fifteen MOS devices, then a gain–capacitor–resistor–VOUT branch. Both complementary
+input pairs have their own mirror load and rail-side tail; their driven branches
+join the same gain node. That node drives a PMOS output, with an IBIAS-controlled
+NMOS sink. A PMOS diode/NMOS sink converter controls the PMOS tail. Match all
+ordered pins and the complete expected reference/kind list separately for each
+run before using the scoped complementary recipe in the same extension.
+Their dimensions and multiplicities differ materially and remain source-derived.
+
 ## Reading-size lessons from actual images
 
 For the Core/Astra representative, shortening unused output/injection stubs and
@@ -80,6 +89,15 @@ Staggering the upper converter and output row clears long references without
 widening the whole canvas. The RC order and gain shunts remain source-specific.
 Both native and fitted images were reviewed individually, then actual desktop
 and narrow pages were checked with the unchanged representatives as controls.
+
+For the WIDE/Haiku pair, putting the PMOS-input group above the NMOS-input group
+places each tail beside its rail and corresponding bias receiver. Each pair,
+tail and mirror remains recognizable; one gain riser joins both complete groups.
+The converter diode faces the upper tail, while its sink and the IBIAS reference
+face the lower tail's bias trunk. Local load-mirror supply bars avoid routing one
+input block's supply through the other block. These are supply exceptions only;
+all internal controls remain physically wired. Review the entire converter
+current path and both plain crossings, not just the smaller height.
 
 Review a simple member, each passive endpoint variant and a long-reference or
 unusual-polarity member at native and actual page sizes. Inspect all changed

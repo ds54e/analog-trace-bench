@@ -78,10 +78,12 @@
     "continuous_signal_nets": [
       "d1n",
       "d1p",
+      "ibias",
       "ntn",
       "ntp",
       "nx",
       "nz",
+      "vbp",
       "vinn",
       "vinp",
       "vout"
