@@ -1,7 +1,8 @@
-import { refineOtaCase } from "./ota-case-refinements.mjs";
+import { refineOtaCase, refineOtaBiasComposition } from "./ota-case-refinements.mjs";
 import { routeDrawing } from "./orthogonal-router.mjs";
 import { composeConnectedOta } from "./ota-composition.mjs";
 import { reviewOtaDrawing } from "./ota-review-labels.mjs";
+import { alignComplementaryInputs, alignLoadedMirrorStage } from "./ota-stage-placement.mjs";
 const supply = (n) => ["vdd", "vss", "ibias"].includes(n);
 /** Connectivity-derived placements for the DRIVE, PRECISION and WIDE families.
  * Differential branches and their tails form the input blocks; remaining
@@ -147,6 +148,7 @@ export function connectedOtaLayout(id, ds, portNames, base) {
     }
     cursor = Math.max(...Object.values(devices).map((p) => p[0])) + 230;
   }
+  alignComplementaryInputs(ds, devices, mods, mirrorPairs);
   // Main non-input stacks first; put the output stage last.
   const rest = base.modules
     .filter((m) => !m.pair)
@@ -418,6 +420,7 @@ export function connectedOtaLayout(id, ds, portNames, base) {
     ];
   }
   refineOtaCase(id, ds, devices);
+  alignLoadedMirrorStage(ds, devices, mods);
   // Apply the same pin-preserving mirror rule after exceptional placements.
   const gateRows = new Map();
   for (const d of mos.filter(
@@ -505,7 +508,13 @@ export function connectedOtaLayout(id, ds, portNames, base) {
         upper = d.pins.includes("vdd")
           ? "vdd"
           : d.pins.find((n) => n !== "vss");
-      devices[r] = [bx + 150, by + 70 + i * 130, d.pins[0] === upper ? 0 : 180];
+      const rail = d.pins.includes("vdd") ? "vdd" : "vss",
+        node = d.pins.find((n) => n !== rail),
+        owner = order.findIndex(({ d }) => "np".includes(d.kind) &&
+          d.pins[0] === node && d.kind === (rail === "vdd" ? "p" : "n")),
+        capY = owner < 0 ? 70 : owner * 110 + (rail === "vdd" ? 40 : 0);
+      // Align the return with a clear drain tap rather than the sink's name.
+      devices[r] = [bx + 150, by + capY + i * 130, d.pins[0] === upper ? 0 : 180];
       sections[r] = "bias-" + mods.length;
       used.add(r);
     });
@@ -523,6 +532,7 @@ export function connectedOtaLayout(id, ds, portNames, base) {
     if (m.kind === "bias")
       for (const r of m.refs) sections[r] = "bias-" + mods.indexOf(m);
   composeConnectedOta(ds, devices, mods, auxiliaryNets);
+  refineOtaBiasComposition(id, devices);
   if (id === "ota-wide-sky130-astra-r2") {
     // Give the local BP reference its own label pocket beside the signal
     // riser. Keep the complete bias stack together and within the footprint.
@@ -622,18 +632,6 @@ export function connectedOtaLayout(id, ds, portNames, base) {
         id === "ota-wide-sky130-astra-r3"
           ? {
               ...c,
-              j(key, net, x, y) {
-                // Separate the PN mirror take-off from the crossing PP return.
-                // Both branch corners move together, preserving a straight run
-                // and leaving three grid steps to either neighbouring PP wire.
-                if (
-                  net === "pn" &&
-                  y === devices.Xpln[1] - 50 &&
-                  (x === devices.Xpln[0] + 40 || x === devices.Xplo[0] - 110)
-                )
-                  y += 20;
-                c.j(key, net, x, y);
-              },
               boundLabel(net, key, dx, dy, align) {
                 const p = c.point(key),
                   tail = devices.Xnt;
@@ -655,16 +653,20 @@ export function connectedOtaLayout(id, ds, portNames, base) {
           : c;
       routeDrawing(
         reviewOtaDrawing(id, drawing, devices),
-        ds.map((d) =>
-          (id === "ota-drive-sky130-sol-6-r1" && d.ref === "XINN") ||
+        ds.map((d) => ({ ...d, labelWidth: c.referenceWidth(d.ref) / 10,
+          ...((id === "ota-drive-sky130-sol-6-r1" && d.ref === "XINN") ||
           (id === "ota-wide-sky130-astra-r2" && d.ref === "XNSC")
-            ? { ...d, labelClearance: 1 }
-            : d,
-        ),
+            ? { labelClearance: 1 } : {}) })),
         devices,
         ports,
         sections,
         auxiliaryNets,
+        { preferDeviceRoots: true, separateInputNets: true,
+          supplyLabelWidthAllowance: 12, supplyLabelClearance: 2,
+          netClearanceZones: id === "ota-wide-sky130-astra-r3" ? {
+            pn: [[devices.Xpln[0] + 60, devices.Xpln[1] - 60,
+              devices.Xplo[0] - 130, devices.Xpln[1] - 40]],
+          } : undefined },
       );
     },
   };

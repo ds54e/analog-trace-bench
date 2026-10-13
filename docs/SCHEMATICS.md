@@ -40,6 +40,8 @@ preferences there instead of duplicating them in this repository guide.
 | `tools/schematics/orthogonal-router.mjs` | Route continuous signal trees with reserved symbols, labels and terminal escapes; retain local auxiliary bias connections. |
 | `tools/schematics/ota-free-layouts.mjs` | Reviewed per-submission FREE recipes for degeneration, cascodes, folded branches and the level-shifted PMOS input case; keep principal paths continuous. |
 | `tools/schematics/ota-composition.mjs` | Contract unused strips and place intact auxiliary current paths near their consumers while preserving signal corridors. |
+| `tools/schematics/layout-spacing.mjs` | Contract placement intervals while reserving full references and terminal escapes; keep symbol and text sizes unchanged. |
+| `tools/schematics/ota-stage-placement.mjs` | Align source-matched complementary inputs and loaded mirror transfer stages; attach remote signal shunts and feed-forward parts beside their nodes. |
 | `tools/schematics/ota-review-labels.mjs` | Keep reviewed passive annotation offsets separate from electrical values and device placement. |
 | `tools/schematics/ldo-layouts.mjs`, `ldo-case-refinements.mjs` | Derive LDO input branches, gate drivers, pass stages, sensing and compensation from each submission, with explicit refinements for complex topologies. |
 | `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
@@ -187,6 +189,12 @@ defaults, orthogonal geometry, expected rounded label strings, native unrouted
 connections and diagnostics. It exports and compares exact ordered external
 ports, D/G/S/B or passive pin order, models, values, W/L, nf and m. All 219 drawings
 must pass the exact source/export and saved-project electrical contracts.
+The pinned ordinary export puts global power terminals first. Its comparison
+therefore records one external port-order difference for each drawing, with
+equal topology and no device, connection, model or parameter differences.
+That ordinary export is not an interchangeable positional DUT interface. The
+checked `exported.spice` uses `groundPin: "global"`, preserves the submitted
+terminal order and is the file used by the exact electrical contract gate.
 Two sources use expressions the pinned native comparator cannot resolve:
 `ota-drive-sky130-sonnet-5-5-r3` uses numeric `.param` constants, and
 `ldo-low-voltage-sky130-astra-r1` uses literal resistor arithmetic. Their native

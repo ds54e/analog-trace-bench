@@ -1,3 +1,5 @@
+import { compactPlacement } from "./layout-spacing.mjs";
+import { attachSignalPassives } from "./ota-stage-placement.mjs";
 /** Geometry-only composition for connected OTA drawings.
  * Keep existing branch symmetry and stage membership, contract unused strips,
  * then place complete auxiliary current paths beside their actual consumers.
@@ -102,6 +104,9 @@ export function composeConnectedOta(ds, devices, mods, auxiliaryNets) {
   };
   const overlaps = (a, b) =>
     a.x1 < b.x2 && a.x2 > b.x1 && a.y1 < b.y2 && a.y2 > b.y1;
+  const originalMainBounds = bounds(main.map((d) => d.ref));
+  compactPlacement(main, devices);
+  attachSignalPassives(ds, devices, main, bounds, overlaps);
   const mainBounds = bounds(main.map((d) => d.ref));
   const occupied = main.map((d) => bounds([d.ref], 25));
 
@@ -157,7 +162,25 @@ export function composeConnectedOta(ds, devices, mods, auxiliaryNets) {
           const distance = Math.abs(p[0] - q[0]) + Math.abs(p[1] - q[1]);
           if (!edge || distance < edge.distance) edge = { a, b, distance };
         }
-      occupied.push(bounds([edge.a, edge.b], 20));
+      const p = devices[edge.a], q = devices[edge.b];
+      if (Math.abs(p[0] - q[0]) <= 120 || Math.abs(p[1] - q[1]) <= 120) {
+        occupied.push(bounds([edge.a, edge.b], 20));
+      } else {
+        // A long diagonal endpoint pair needs two wire corridors, not an
+        // exclusion rectangle covering all the unused space between them.
+        // Keep the clear L orientation; actual native routing still verifies
+        // every terminal and may choose another clear shared tree.
+        const horizontal = (y) => ({ x1: Math.min(p[0], q[0]) - 30,
+          x2: Math.max(p[0], q[0]) + 30, y1: y - 40, y2: y + 40 });
+        const vertical = (x) => ({ x1: x - 40, x2: x + 40,
+          y1: Math.min(p[1], q[1]) - 30, y2: Math.max(p[1], q[1]) + 30 });
+        const alternatives = [[horizontal(p[1]), vertical(q[0])],
+          [vertical(p[0]), horizontal(q[1])]];
+        const penalty = (corridors) => corridors.reduce((sum, c) =>
+          sum + occupied.filter((b) => overlaps(c, b)).length, 0);
+        alternatives.sort((a, b) => penalty(a) - penalty(b));
+        occupied.push(...alternatives[0]);
+      }
       tree.push(edge.b);
       pending.delete(edge.b);
     }
@@ -194,7 +217,9 @@ export function composeConnectedOta(ds, devices, mods, auxiliaryNets) {
       : mainBounds.y2;
     let best;
     const height = box.y2 - box.y1;
-    const rightLimit = mainBounds.x2 + 60;
+    // A width-only cap can force a short bias path into a much taller sheet.
+    // Reuse the pre-contraction width allowance when it avoids that trade-off.
+    const rightLimit = Math.max(mainBounds.x2, originalMainBounds.x2) + 60;
     // Candidate edges follow a 10-unit routing grid. Search the nearby sheet,
     // including beneath a short output stage and beside taller folded branches.
     const maxX = Math.ceil((mainBounds.x2 + 320) / 20) * 20;

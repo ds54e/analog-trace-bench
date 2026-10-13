@@ -1,6 +1,23 @@
 /** Small source-specific refinements for parallel branches, sensing pairs and
  * input networks which do not have a unique maximal series-chain placement.
  * These are geometry only: terminal direction/order remains source-derived. */
+export function refineOtaBiasComposition(id, devices) {
+  if (id === "ota-precision-sky130-deepseek-r3") {
+    // The reference pair fits beside its output consumers. A conservative
+    // signal-corridor envelope otherwise pushes it below the whole amplifier.
+    const x = devices.XMLOAD[0] - 170, y = devices.XMLOADC[1] + 70;
+    devices.XMREF2[0] = devices.XMREF[0] = x;
+    devices.XMREF2[1] = y;
+    devices.XMREF[1] = y + 110;
+  }
+  if (id === "ota-precision-sky130-luna-6-r3") {
+    // Keep the independent IBIAS diode on the nearby lower bias row, rather
+    // than extending the page solely to accommodate one device.
+    devices.XMNREF[0] = devices.XMPREF[0] - 220;
+    devices.XMNREF[1] = devices.XMNREFP[1] + 30;
+  }
+}
+
 export function refineOtaCase(id, ds, devices) {
   const mos = (refs, x, y, mirror = false, dy = 110) =>
     refs.split(" ").forEach((r, i) => {

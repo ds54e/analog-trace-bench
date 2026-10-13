@@ -3,6 +3,7 @@
 import { otaDevices } from "./ota-layouts.mjs";
 import { routeDrawing } from "./orthogonal-router.mjs";
 import { refineLdoCase } from "./ldo-case-refinements.mjs";
+import { compactPlacement, placementRegions } from "./layout-spacing.mjs";
 const supplies = new Set(["vin", "vss"]);
 const mos = (d) => "np".includes(d.kind);
 const top = (d) => d.pins[d.kind === "p" ? 2 : 0];
@@ -181,6 +182,11 @@ export function buildLdoLayout(id, source) {
     }
     const col = index % 2,
       row = Math.floor(index / 2);
+    const nameWidth = (d) => d.ref.length * 10.4;
+    const insideWidth = (arm) => Math.max(...arm.filter((d) =>
+      d.kind === p.pair[0].kind).map(nameWidth));
+    const pitch = Math.max(180, Math.ceil((insideWidth(arms[0]) +
+      insideWidth(arms[1]) + 60) / 20) * 20);
     const baseX = 340 + col * 640,
       baseY = 180 + row * 720;
     const upper = Math.max(...p.pair.map((d, i) => arms[i].indexOf(d)));
@@ -196,7 +202,7 @@ export function buildLdoLayout(id, source) {
       ch.forEach((d, k) => {
         put(
           d,
-          baseX + i * 220,
+          baseX + i * pitch,
           yPair + (k - ch.indexOf(p.pair[i])) * 120,
           i === 1,
           block.kind + index,
@@ -206,13 +212,13 @@ export function buildLdoLayout(id, source) {
       // Mirror gates face one another, while the D/S branch axes stay fixed.
       for (const d of ch.filter((d) => d.kind !== p.pair[0].kind))
         ((devices[d.ref][2] = i === 0 ? "horizontal" : undefined),
-          (devices[d.ref][0] = baseX + i * 220 + (i === 0 ? 10 : -10)));
+          (devices[d.ref][0] = baseX + i * pitch + (i === 0 ? 10 : -10)));
     });
     const sign = p.pair[0].kind === "n" ? 1 : -1;
     p.link.resistors.forEach((r, i) => {
       putPassive(
         r,
-        baseX + i * 220,
+        baseX + i * pitch,
         yPair + sign * 90,
         sign > 0 ? p.pair[i].pins[2] : p.link.net,
         false,
@@ -231,7 +237,7 @@ export function buildLdoLayout(id, source) {
       ch.forEach((d, k) => {
         put(
           d,
-          baseX + 110 + j * 150,
+          baseX + pitch / 2 + j * 150,
           ty + (k - ch.indexOf(t)) * 120,
           false,
           block.kind + index,
@@ -249,7 +255,7 @@ export function buildLdoLayout(id, source) {
       if (r) {
         putPassive(
           r,
-          baseX + 110,
+          baseX + pitch / 2,
           yPair + sign * (p.link.resistors.length ? 240 : 150),
           sign > 0 ? p.link.net : r.pins.find((n) => supplies.has(n)),
           false,
@@ -268,6 +274,29 @@ export function buildLdoLayout(id, source) {
       ...block.refs.map((r) => devices[r][1] + 100),
     );
   });
+  // A shared drain can break the maximal series-chain detector. Recover
+  // source-matched load mirrors beside the actual input branch rather than
+  // treating the missing mirror leg as a remote stage or bias island.
+  for (const block of blocks.filter((b) => b.pair)) {
+    const pair = block.pair;
+    const loads = pair.map((input) => transistors.filter((d) =>
+      d.kind !== input.kind && d.pins[0] === input.pins[0] &&
+      supplies.has(d.pins[2])));
+    const a = loads[0].find((d) => loads[1].some((q) =>
+      q.pins[1] === d.pins[1] && q.pins[2] === d.pins[2] &&
+      [d.pins[0], q.pins[0]].includes(d.pins[1])));
+    const b = a && loads[1].find((d) => d.pins[1] === a.pins[1] &&
+      d.pins[2] === a.pins[2]);
+    if (!a || !b) continue;
+    [a, b].forEach((d, i) => {
+      if (used.has(d.ref)) return;
+      const input = devices[pair[i].ref],
+        axis = input[0] + (input[2] === "horizontal" ? -10 : 10);
+      put(d, axis, input[1] + (pair[i].kind === "n" ? -120 : 120),
+        i === 0, block.kind);
+      block.refs.push(d.ref);
+    });
+  }
   // Extend stages in gate order from the error amplifier toward the pass gate.
   const signalNets = new Set(
     blocks.flatMap((b) =>
@@ -300,7 +329,13 @@ export function buildLdoLayout(id, source) {
       stageX = 810;
       stageRow++;
     }
-    const y = 180 + stageRow * 650;
+    const driven = ch.findIndex((d) => signalNets.has(d.pins[1]) && !supplies.has(d.pins[1]));
+    const inputNet = driven >= 0 ? ch[driven].pins[1] : null;
+    const taps = inputNet ? transistors.filter((d) => used.has(d.ref) &&
+      d.pins[0] === inputNet).map((d) => devices[d.ref][1] + (d.kind === "n" ? -40 : 40)) : [];
+    const y = taps.length && stageRow === 0
+      ? grid(taps.reduce((sum, yy) => sum + yy, 0) / taps.length - driven * 140)
+      : 180 + stageRow * 650;
     ch.forEach((d, i) => put(d, stageX, y + i * 140, false, "stage" + index));
     blocks.push({ refs: ch.map((d) => d.ref), kind: "stage" });
     mainRight = Math.max(mainRight, stageX + 80);
@@ -309,7 +344,7 @@ export function buildLdoLayout(id, source) {
   });
   // Place the independent bias paths against the amplifier and near their
   // receiving gates. Every bias-control net is subsequently physically wired.
-  auxChains.forEach((ch, index) => {
+  auxChains.filter((ch) => !ch.some((d) => ends(d).includes("vout"))).forEach((ch, index) => {
     const x = index === 0 ? 140 : 160 + ((index - 1) % 5) * 220;
     const y =
       index === 0 ? 180 : mainBottom + 130 + Math.floor((index - 1) / 5) * 420;
@@ -325,10 +360,20 @@ export function buildLdoLayout(id, source) {
       d,
       passX + (i % 2) * 180,
       passY + Math.floor(i / 2) * 150,
-      false,
+      passes.length > 1 && passes.every((p) => p.pins[1] === d.pins[1]) && i % 2 === 0,
       "pass",
     ),
   );
+  auxChains.filter((ch) => ch.some((d) => ends(d).includes("vout")))
+    .forEach((ch, index) => {
+      const y = passY + 150;
+      const x = [passX - 260 - index * 180, passX + 220 + index * 180,
+        passX - 440 - index * 180, passX + 400 + index * 180].find((axis) =>
+        ch.every((d, i) => Object.values(devices).every((p) =>
+          Math.abs(p[0] - axis) >= 150 || Math.abs(p[1] - y - i * 140) >= 110)));
+      if (x === undefined) throw Error("No nearby output sensing placement " + id);
+      ch.forEach((d, i) => put(d, x, y + i * 140, false, "output-sensing"));
+    });
   // The actual output divider stays on the pass-drain axis. Intermediate taps
   // and parallel feed-forward capacitors retain their exact source endpoints.
   const gates = new Set(transistors.map((d) => d.pins[1]));
@@ -465,9 +510,15 @@ export function buildLdoLayout(id, source) {
             y + (horizontal ? 0 : i * 120),
           ]);
           if (
-            ps.some(([px, py]) =>
-              occupied(px, py, horizontal ? 110 : 125, horizontal ? 105 : 90),
-            )
+            ps.some(([px, py], i) => {
+              const boxes = placementRegions(ch[i], [px, py, horizontal ? 270 : 0]);
+              return ds.filter((d) => used.has(d.ref)).some((d) => {
+                const regions = placementRegions(d, devices[d.ref]);
+                return boxes.some((box) => regions.some((other) =>
+                  box.x1 < other.x2 + 10 && box.x2 + 10 > other.x1 &&
+                  box.y1 < other.y2 + 10 && box.y2 + 10 > other.y1));
+              });
+            })
           )
             continue;
           const score =
@@ -567,6 +618,7 @@ export function buildLdoLayout(id, source) {
     sections.XSR = "reference-follower";
     sections.XSF = "feedback-follower";
   }
+  compactPlacement(ds, devices);
   refineLdoCase(id, ds, devices, sections);
   if (id === "ldo-always-on-sky130-luna-6-r3") {
     // The compensating branch's fixed vertical terminal escape otherwise
@@ -604,8 +656,8 @@ export function buildLdoLayout(id, source) {
   const ports = {};
   const safePort = (preferred, direction) => {
     const choices = [];
-    for (const dy of [0, -40, 40, -80, 80, -120, 120])
-      for (const dx of [0, -40, 40, -80, 80, -120, 120, -180, 180]) {
+    for (const dy of [0, -40, 40, -80, 80, -120, 120, -160, 160, -200, 200])
+      for (const dx of [0, -40, 40, -80, 80, -120, 120, -180, 180, -220, 220, -260, 260]) {
         const x = preferred[0] + dx,
           y = preferred[1] + dy;
         if (x < 40 || y < 30) continue;
@@ -623,7 +675,9 @@ export function buildLdoLayout(id, source) {
             return (
               x + 42 > left &&
               x - 42 < right &&
-              Math.abs(y - p[1]) < (horizontal ? 75 : 55)
+              // Port names sit above the terminal. Reserve the neighboring
+              // device's pin and escape too, not just its body/reference.
+              Math.abs(y - p[1]) < (horizontal ? 75 : mos(d) ? 80 : 100)
             );
           })
         )
@@ -723,6 +777,8 @@ export function buildLdoLayout(id, source) {
           supplyLabelWidthAllowance: 5,
           supplyLabelClearance: 4,
           requireClearSupplyLabels: true,
+          preferDeviceRoots: true,
+          deviceRootMinTerminals: 0,
           netClearanceZones:
             id === "ldo-always-on-sky130-sol-6-r1"
               ? { fb: [[300, 300, 650, 550]] }

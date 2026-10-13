@@ -10,10 +10,20 @@ not proof of their electrical correctness.
   at different heights. Align an intervening R/C with the endpoints where useful.
 - Use a shared trunk with short branches for multi-terminal nets. Do not route
   each terminal separately toward an arbitrary center or duplicate one net's wire.
+- Source declaration order need not choose the routing tree's root. Compare a
+  local diode/drain root for a shared stage node before reaching remote taps.
+  Retain the output-node order when it provides clearer passive and sensing trees.
+- Keep shared complementary-input trunks distinct. One required perpendicular
+  crossing is preferable to a long pair of tightly spaced parallel staircases.
+- Attach supply shunts and direct input-to-output feed-forward parts near their
+  actual nodes before accepting a bottom inventory row and a long return path.
 - Check that a common gate trunk does not penetrate a symbol or touch a foreign
   terminal. Reconsider mirroring, device height or trunk position first.
 - Move conflicting text before adding detours. Include full passive display strings
   when checking adjacent MOS names; widen only the locally competing interval.
+  Inspect italic overhangs and displayed subscripts at their actual anchors.
+  Recheck text against visible wires after automatic label-overlap recovery;
+  clearing a label-to-label collision can move the text onto another conductor.
 - If a rail meets an existing terminal exactly, end the native route there rather
   than adding a coincident junction and a zero-length connecting segment.
 

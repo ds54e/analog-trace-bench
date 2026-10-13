@@ -94,6 +94,42 @@ def source_endpoints(devices):
 
 
 class SubmittedSchematics(unittest.TestCase):
+    def test_shared_drain_fanout_keeps_load_mirrors_with_their_inputs(self):
+        folder = ROOT / 'site/schematics/ldo-core-sky130-sol-6-r2'
+        project = json.loads((folder / 'project.icproj.json').read_text())
+        document = next(d for d in project['documents'] if d['id'] == project['topDocumentId'])
+        positions = endpoint_positions(project, document)
+        # These source-matched loads formerly became a detached bottom bias
+        # island and a remote stage when shared drains broke the chain detector.
+        for load, input_device, above in [('XPM2', 'XNR', True), ('XNM2', 'XPR', False)]:
+            with self.subTest(load=load):
+                self.assertEqual(positions[(load, 'D')][0], positions[(input_device, 'D')][0])
+                self.assertEqual(positions[(load, 'D')][1] < positions[(input_device, 'D')][1], above)
+
+    def test_complementary_input_ports_use_aligned_gate_trunks(self):
+        cases = {
+            'ota-wide-sky130-deepseek-r1': [('XM1', 'XM8'), ('XM2', 'XM7')],
+            'ota-wide-sky130-luna-6-r3': [('XNIREF', 'XPIREF'), ('XNIOUT', 'XPIOUT')],
+        }
+        for run_id, pairs in cases.items():
+            project = json.loads((ROOT / 'site/schematics' / run_id / 'project.icproj.json').read_text())
+            document = next(d for d in project['documents'] if d['id'] == project['topDocumentId'])
+            positions = endpoint_positions(project, document)
+            for upper, lower in pairs:
+                with self.subTest(run=run_id, gate=upper):
+                    self.assertEqual(positions[(upper, 'G')][0], positions[(lower, 'G')][0])
+
+    def test_port_feedforward_resistor_is_near_its_input_and_output(self):
+        run_id = 'ota-wide-sky130-luna-6-r3'
+        project = json.loads((ROOT / 'site/schematics' / run_id / 'project.icproj.json').read_text())
+        document = next(d for d in project['documents'] if d['id'] == project['topDocumentId'])
+        instances = {i['id']: i for i in document['instances']}
+        input_y = instances['XNIOUT']['coordinate'][1]
+        output_y = instances['XPO']['coordinate'][1]
+        feed_y = instances['RFF']['coordinate'][1]
+        # The old bottom-row placement returned around the whole input stack.
+        self.assertLessEqual(feed_y, max(input_y, output_y) + 160)
+
     def test_all_ota_and_ldo_runs_match_frozen_submissions_and_keep_spice_bytes(self):
         drawings = schematics.load_drawings(ROOT)
         catalog = json.loads((ROOT / 'site/data/runs.json').read_text())

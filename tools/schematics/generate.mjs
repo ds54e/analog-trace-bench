@@ -666,7 +666,7 @@ for (const layout of layouts) {
         // Standalone SVG uses DejaVu Sans when Metropolis is unavailable.
         // The native Metropolis advance table is narrower than that fallback;
         // retain the native font size and reserve the observed fallback width.
-        const fallbackScale = layout.strategy === "connected-ldo" ? 1.15 : 1;
+        const fallbackScale = ["connected-ldo", "connected-stages"].includes(layout.strategy) ? 1.15 : 1;
         return (
           Math.max(
             measured.width,
@@ -696,6 +696,15 @@ for (const layout of layouts) {
       let x = mir ? -20 : 20,
         y = 5,
         align = mir ? "end" : "start";
+      // The fallback font has italic overhang at the anchor edge. Leave a
+      // visible gap beside the local gate/diode escape; the router already
+      // reserves eight extra units beyond the measured reference ink.
+      if (layout.strategy === "connected-stages") x += mir ? -6 : 6;
+      if ((layout.id === "ota-wide-sky130-luna-6-r1" && ref === "XMPLD_R") ||
+          (layout.id === "ota-wide-sky130-sonnet-5-5-r1" && ref === "XMmca"))
+        // These displayed references have a subscript extending below the
+        // ordinary reference baseline. Keep it clear of the local gate tie.
+        y -= 6;
       if (layout.strategy === "reviewed-free" && mir && ref.includes("_")) {
         x = -40;
         y = -2;
@@ -763,8 +772,11 @@ for (const layout of layouts) {
         output &&
         layout.strategy === "connected-stages" &&
         i.placement.rotation !== 180;
-      const dx = output && !leftOutput ? 16 : 0,
-        dy = output && !leftOutput ? 5 : -12;
+      // Connected-stage port reservations sit above the port. Use that
+      // pocket for VOUT too, rather than placing its text across a return.
+      const sideOutput = output && !leftOutput && layout.strategy !== "connected-stages";
+      const dx = sideOutput ? 16 : 0,
+        dy = sideOutput ? 5 : -12;
       annotation(
         "instance-label",
         {

@@ -43,6 +43,24 @@ Use the ATB profile for its presentation preferences.
   stage when that keeps the relationship clear. A mandatory bottom row can leave
   isolated islands and large empty corridors. Keep signal and feedback corridors
   open when comparing candidate positions.
+- Reserve the actual wire corridors between distant endpoints. A rectangle
+  spanning a diagonal connection can exclude a large empty region and force
+  unrelated bias circuits into bottom islands. Inspect candidate pockets against
+  actual routed wires after placement.
+- A maximal series-chain detector can split a load mirror at a shared drain.
+  Recover the source-matched mirror relationship before classifying the detached
+  device as a stage or bias block. Put output-sensing devices beside their actual
+  output and feedback nodes.
+- Size paired branch spacing from the names that face the interior. Place long
+  names and fixed terminal escapes before contracting gaps. Center-only spacing
+  can leave a passive terminal starting inside a neighboring reference label.
+- Reserve separate body, text and terminal-escape regions when choosing nearby
+  passive slots. A single broad rectangle can reject usable corners and recreate
+  the whitespace it was meant to remove. Include the local rail label of each
+  supply-connected passive in that placement budget.
+- Compare complementary input blocks by their actual gate-net identities.
+  Reflecting a complete source-matched block can align shared inputs and remove
+  a crossover ladder; preserve each device's pin identities and local current path.
 - For suitable LDOs, compare a compact error-amplifier-to-pass-stage arrangement
   with sensing directly below the output. Preserve any real intermediate buffer.
   ATB's exact R1/R2/CFF placement belongs to its profile, not a universal rule.

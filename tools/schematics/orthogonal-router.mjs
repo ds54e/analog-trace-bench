@@ -150,6 +150,21 @@ export function routeDrawing(
       ey: p.y + 2 * p.dy,
     }));
     const todo = [...escaped];
+    if (options.preferDeviceRoots && ps.length >= (options.deviceRootMinTerminals ?? 6) && !auxiliaryNets.has(ps[0].net) && ps[0].net !== "vout") {
+      // Build a local shared-drain tree before reaching remote ports or
+      // passive taps. Source declaration order is not a geometric root.
+      const drains = todo.filter((p) => p.key.endsWith(".D"));
+      const diodes = drains.filter((p) => todo.some((q) =>
+        q.key === p.key.slice(0, -1) + "G"));
+      const candidates = diodes.length ? diodes : drains;
+      if (candidates.length) {
+        const score = (p) => todo.reduce((sum, q) =>
+          sum + Math.abs(p.ex - q.ex) + Math.abs(p.ey - q.ey), 0);
+        candidates.sort((a, b) => score(a) - score(b));
+        const at = todo.indexOf(candidates[0]);
+        todo.unshift(...todo.splice(at, 1));
+      }
+    }
     const seed = todo.shift();
     function escape(p) {
       for (let i = 0; i < 2; i++)
@@ -308,6 +323,19 @@ export function routeDrawing(
             }
           }
           if (!valid) continue;
+          if (options.separateInputNets && /^vin_?[pn]$/.test(net)) {
+            // Shared input ports of complementary pairs need distinct trunks.
+            // A perpendicular crossing stays legal; close parallel ladders do not.
+            for (let distance = 1; distance <= 3 && valid; distance++) {
+              const offsets = d < 2 ? [[0, distance], [0, -distance]]
+                : [[distance, 0], [-distance, 0]];
+              for (const [ax, ay] of offsets)
+                for (const [other, used] of at(x + ax, y + ay) ?? [])
+                  if (other !== net && /^vin_?[pn]$/.test(other) &&
+                    (used.has(d) || used.has(opposite(d)))) valid = false;
+            }
+          }
+          if (!valid) continue;
           for (const [other, used] of there ?? []) {
             if (other === net) {
               if (used.size >= 3 || (!tree.has(k) && used.size)) valid = false;
@@ -339,7 +367,16 @@ export function routeDrawing(
           push({ x, y, d, g, key, f: g + heuristic(x, y) });
         }
       }
-      if (!found) throw Error("No route " + net + " " + p.key);
+      if (!found) {
+        if (process.env.ATB_ROUTE_DEBUG) console.log("route-start-obstacles", net,
+          p.key, start, dirs.map(([dx, dy]) => ({
+            point: [start[0] + dx, start[1] + dy],
+            blocked: blocked(start[0] + dx, start[1] + dy),
+            reserved: reserved.get(coord(start[0] + dx, start[1] + dy)),
+            occupied: [...(at(start[0] + dx, start[1] + dy)?.keys() ?? [])],
+          })));
+        throw Error("No route " + net + " " + p.key);
+      }
       const path = [];
       let k = found.key;
       while (k) {
