@@ -1,0 +1,13 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CC NC VIN 25p
+R1 VOUT FB 25k
+R2 FB VSS 25k
+RC GATE NC 120k
+RT TAIL VSS 3k
+XM1 N3 FB TAIL VSS sky130_fd_pr__nfet_01v8 l=4 w=100 m=4
+XM2 GATE VREF TAIL VSS sky130_fd_pr__nfet_01v8 l=4 w=100 m=4
+XM3 N3 N3 VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=100 m=1
+XM4 GATE N3 VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=100 m=1
+XMP VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=100 m=3
+.ends DUT

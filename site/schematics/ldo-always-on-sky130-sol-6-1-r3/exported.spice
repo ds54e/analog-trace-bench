@@ -1,0 +1,13 @@
+
+.subckt DUT VIN VOUT VSS VREF
+RBIAS BIAS VSS 4meg
+RFBB FB VSS 3meg
+RFBT VOUT FB 3meg
+XBIAS BIAS BIAS VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=1 nf=1 m=1
+XINF GATE VREF TAIL VIN sky130_fd_pr__pfet_01v8 l=0.5 w=40 nf=1 m=1
+XINR MIR FB TAIL VIN sky130_fd_pr__pfet_01v8 l=0.5 w=40 nf=1 m=1
+XMIR1 MIR MIR VSS VSS sky130_fd_pr__nfet_01v8 l=2 w=1 nf=1 m=1
+XMIR2 GATE MIR VSS VSS sky130_fd_pr__nfet_01v8 l=2 w=1 nf=1 m=1
+XPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 l=0.5 w=30 nf=1 m=1
+XTAIL TAIL BIAS VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=1 nf=1 m=2
+.ends DUT

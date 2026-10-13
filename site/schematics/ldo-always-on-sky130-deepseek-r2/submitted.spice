@@ -1,0 +1,28 @@
+* LDO-ALWAYS-ON-SKY130 DUT v4
+* Small PMOS pass direct-driven by NMOS-input 5T OTA.
+* Tail = fixed NMOS sink (R/diode ref) + adaptive sink from pass-current sense.
+* Feedback: R divider with matched capacitive divider (no tap pole), VOUT/2 vs VREF.
+.subckt DUT VIN VOUT VSS VREF
+* --- pass device (PMOS, source at VIN, drain at VOUT, gate = OTA out) ---
+XMP1 VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=12 L=0.15
+* --- pass current sense (1:57) ---
+XMPS NS G VIN VIN sky130_fd_pr__pfet_01v8 W=0.42 L=0.3
+* --- sense diode and adaptive tail sink ---
+XMNS NS NS VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=0.5
+XMNT STAIL NS VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=0.5
+* --- fixed tail sink reference (R + diode) and mirror ---
+RF VIN NB 2e6
+XMND NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=0.5
+XMNF STAIL NB VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=0.5
+* --- OTA input pair (long channel for gain) ---
+XM1 D1 VFB STAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5
+XM2 G VREF STAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5
+* --- OTA PMOS mirror load ---
+XM3 D1 D1 VIN VIN sky130_fd_pr__pfet_01v8 W=6 L=1
+XM4 G D1 VIN VIN sky130_fd_pr__pfet_01v8 W=6 L=1
+* --- feedback divider with capacitive divider (ratio 1/2) ---
+R1 VOUT VFB 2e6
+R2 VFB VSS 2e6
+C1 VOUT VFB 2e-12
+C2 VFB VSS 2e-12
+.ends DUT

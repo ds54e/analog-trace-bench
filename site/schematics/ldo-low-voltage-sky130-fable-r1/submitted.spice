@@ -1,0 +1,30 @@
+* LDO: FVF fast loop + 2-stage error amp, sky130 1v8 devices
+.subckt DUT VIN VOUT VSS VREF
+* ---------- bias: NMOS diode + resistor from VIN (~10uA) ----------
+RB VIN NB 70k
+XMB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=1
+* PMOS bias diode fed by NMOS mirror (3uA)
+XMNB PB NB VSS VSS sky130_fd_pr__nfet_01v8 W=3 L=1 nf=1 m=1
+XMPB PB PB VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=2 nf=1 m=1
+* ---------- feedback divider ----------
+RF1 VOUT FB 100k
+RF2 FB VSS 100k
+* ---------- error amp stage 1: NMOS pair, PMOS mirror ----------
+XMT TAIL NB VSS VSS sky130_fd_pr__nfet_01v8 W=3 L=1 nf=1 m=1
+XM1 N1 FB TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.3 nf=1 m=2
+XM2 V1 VREF TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.3 nf=1 m=2
+XM3 N1 N1 VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=2 nf=1 m=1
+XM4 V1 N1 VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=2 nf=1 m=1
+* ---------- error amp stage 2: NMOS CS with PMOS current load ----------
+XM5 VC V1 VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=1
+XM6 VC PB VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=2 nf=1 m=1
+CC V1 CZ 2p
+RZ CZ VC 10k
+* ---------- fast loop: common-gate PMOS MC, gate node G ----------
+XMC G VC VOUT VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 nf=1 m=2
+RG G VSS 20k
+XMIB G NB VSS VSS sky130_fd_pr__nfet_01v8 W=45 L=1 nf=1 m=1
+XMD G G VIN VIN sky130_fd_pr__pfet_01v8 W=3 L=0.15 nf=1 m=1
+* ---------- pass device ----------
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 nf=1 m=3
+.ends DUT

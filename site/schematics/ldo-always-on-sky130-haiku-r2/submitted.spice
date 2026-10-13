@@ -1,0 +1,13 @@
+* Always-on LDO: 5T NMOS-input error amp, PMOS pass device, resistive feedback
+.subckt DUT VIN VOUT VSS VREF
+RT VOUT FB 4meg
+RB2 FB VSS 4meg
+XMP VOUT NOUT VIN VIN sky130_fd_pr__pfet_01v8 W=32 L=0.5 nf=1 m=1
+XM1 ND1 FB NT VSS sky130_fd_pr__nfet_01v8 W=10 L=0.6 nf=1 m=1
+XM2 NOUT VREF NT VSS sky130_fd_pr__nfet_01v8 W=10 L=0.6 nf=1 m=1
+XM3 ND1 ND1 VIN VIN sky130_fd_pr__pfet_01v8 W=4 L=0.6 nf=1 m=1
+XM4 NOUT ND1 VIN VIN sky130_fd_pr__pfet_01v8 W=4 L=0.6 nf=1 m=1
+XMT NT NB VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1 nf=1 m=1
+XMB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1 nf=1 m=1
+RBIAS VIN NB 1.8meg
+.ends DUT

@@ -1,0 +1,22 @@
+* Always-on LDO, sky130
+* Single-stage NMOS-input OTA directly drives a small PMOS pass device.
+* Output-pole-dominant compensation by the external 10-100 nF capacitor;
+* small pass gate capacitance keeps the gate pole well above the loop UGF.
+.subckt DUT VIN VOUT VSS VREF
+* fixed bias reference: resistor from VIN into NMOS diode (~0.1 uA)
+RB VIN NB 10meg
+XMNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=2 nf=1 m=1
+* tail current source (4x reference)
+XMT1 TAIL NB VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=2 nf=1 m=4
+* error amplifier: FB on diode side, VREF on output side
+XM1 D1 FB TAIL VSS sky130_fd_pr__nfet_01v8 W=20 L=0.5 nf=1 m=1
+XM2 G VREF TAIL VSS sky130_fd_pr__nfet_01v8 W=20 L=0.5 nf=1 m=1
+XM3 D1 D1 VIN VIN sky130_fd_pr__pfet_01v8 W=1 L=0.5 nf=1 m=1
+XM4 G D1 VIN VIN sky130_fd_pr__pfet_01v8 W=1 L=0.5 nf=1 m=1
+* pass device
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=15 L=0.15 nf=1 m=1
+* feedback divider, ratio trimmed to centre the systematic OTA offset
+RT VOUT FB 1.9844meg
+RBOT FB VSS 2meg
+CFF VOUT FB 100f
+.ends DUT

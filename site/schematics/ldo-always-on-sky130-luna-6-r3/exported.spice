@@ -1,0 +1,18 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CCOMP n_drive VSS 1p
+CCOMPZ n_z VOUT 5p
+RBIAS p_bias VSS 2.7meg
+RFBDN VFB VSS 2.7meg
+RFBUP VOUT VFB 2.7meg
+RZ n_drive n_z 10meg
+XMNBREF n_bias n_bias VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=5
+XMNFB n_left VFB n_tail VSS sky130_fd_pr__nfet_01v8 l=1 w=10
+XMNREF n_drive VREF n_tail VSS sky130_fd_pr__nfet_01v8 l=1 w=10
+XMNTAIL n_tail n_bias VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=12
+XMPASS VOUT n_drive VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=100
+XMPBIAS n_bias p_bias VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=5
+XMPLOADOUT n_drive n_left VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=10
+XMPLOADREF n_left n_left VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=10
+XMPREF p_bias p_bias VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=5
+.ends DUT

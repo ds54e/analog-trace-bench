@@ -1,0 +1,27 @@
+* LDO: low-common-mode mirror OTA and PMOS pass element
+.subckt DUT VIN VOUT VSS VREF
+RFB1 VOUT FB 117.6k
+RFB2 FB VSS 30k
+RR1 VREF REF 900k
+RR2 REF VSS 600k
+CR REF VSS 5p
+* Bias transferred through complementary mirrors
+RB VIN NB 130k
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=1
+XNB2 PB NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=1
+XPB PB PB VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=1
+XPT TAIL PB VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=1 nf=1 m=6
+* PMOS differential input, symmetric diode loads
+XPI1 N1 FB TAIL VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=8
+XPI2 N2 REF TAIL VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=8
+XN1 N1 N1 VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=1 nf=1 m=1
+XN2 N2 N2 VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=1 nf=1 m=1
+XN3 GATE N1 VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=1 nf=1 m=1
+XN4 P1 N2 VSS VSS sky130_fd_pr__nfet_01v8 W=50 L=1 nf=1 m=1
+XP1 P1 P1 VIN VIN sky130_fd_pr__pfet_01v8 W=50.0 L=0.5 nf=1 m=2
+XP2 GATE P1 VIN VIN sky130_fd_pr__pfet_01v8 W=50.0 L=0.5 nf=1 m=2
+XPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 nf=1 m=4
+RZ GATE CZ 20k
+CC CZ VOUT 4p
+CFF VOUT FB 10p
+.ends DUT

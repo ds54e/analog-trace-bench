@@ -1,0 +1,24 @@
+.subckt DUT VIN VOUT VSS VREF
+* pass device
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=1
+* error amp (PMOS pair, NMOS mirror, PMOS tail)
+XM1 na VREF st VIN sky130_fd_pr__pfet_01v8 W=20 L=0.2 m=1
+XM2 nb VFB st VIN sky130_fd_pr__pfet_01v8 W=20 L=0.2 m=1
+XM3 na na VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 m=1
+XM4 nb na VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 m=1
+XM5 st nbp VIN VIN sky130_fd_pr__pfet_01v8 W=20 L=0.5 m=1
+* gate driver
+XMN VG nb VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=0.5 m=1
+XMP2 VG nb VIN VIN sky130_fd_pr__pfet_01v8 W=0.42 L=1 m=1
+* bias
+RB VIN nbias 470k
+XM8 nbias nbias VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 m=1
+XM9 nbp nbias VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 m=2
+XM6 nbp nbp VIN VIN sky130_fd_pr__pfet_01v8 W=20 L=1 m=1
+* feedback divider
+R1 VOUT VFB 106.5k
+R2 VFB VSS 100k
+RPU VIN VG 47k
+RZ VG nm 10k
+CZ nm VOUT 5p
+.ends DUT

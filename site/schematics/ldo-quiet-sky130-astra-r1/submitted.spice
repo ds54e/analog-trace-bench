@@ -1,0 +1,27 @@
+* Cascoded PMOS error amplifier with a current-mirror pass stage
+.subckt DUT VIN VOUT VSS VREF
+RREF VREF VR 14.975k
+RFB1 VOUT FB 29.9k
+RFB2 FB VSS 30k
+RBIAS VIN BN 200k
+XBN BN BN VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 nf=1 m=1
+XBN2 BP BN VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=2 nf=1 m=1
+XBP BP BP VIN VIN sky130_fd_pr__pfet_01v8 w=10 l=2 nf=1 m=1
+XTAIL T BP VIN VIN sky130_fd_pr__pfet_01v8 w=80 l=2 nf=1 m=1
+XIR0 PR VR T VIN sky130_fd_pr__pfet_01v8 w=100 l=0.24 nf=1 m=32
+XIR1 PR VR T VIN sky130_fd_pr__pfet_01v8 w=100 l=0.24 nf=1 m=32
+XIF0 PF FB T VIN sky130_fd_pr__pfet_01v8 w=100 l=0.24 nf=1 m=32
+XIF1 PF FB T VIN sky130_fd_pr__pfet_01v8 w=100 l=0.24 nf=1 m=32
+XIRC NR VSS PR VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=8
+XIFC EA VSS PF VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=8
+XNR ND1 NR VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=16 nf=1 m=1
+XNRC NR BN ND1 VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=4
+XNO ND2 NR VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=16 nf=1 m=1
+XNOC EA BN ND2 VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=4
+RCOMP EA NC 130k
+CCOMP NC VSS 80p
+CFEED EA VSS 10p
+XDRV GP EA VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 nf=1 m=1
+XPD GP GP VIN VIN sky130_fd_pr__pfet_01v8 w=50 l=0.5 nf=1 m=1
+XPASS VOUT GP VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=12
+.ends DUT

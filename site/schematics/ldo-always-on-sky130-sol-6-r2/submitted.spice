@@ -1,0 +1,14 @@
+.subckt DUT VIN VOUT VSS VREF
+* NMOS input pair with a PMOS mirror load, giving a high pass-gate swing
+RBIAS VIN NB 2.4meg
+XBIAS NB NB VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XTAIL NT NB VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=1 m=1
+XINP PD VOUTFB NT VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XINM PG VREF NT VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XPM1 PD PD VIN VIN sky130_fd_pr__pfet_01v8 w=2 l=1 m=1
+XPM2 PG PD VIN VIN sky130_fd_pr__pfet_01v8 w=2 l=1 m=1
+XPASS VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 w=80 l=0.15 m=2
+RTOP VOUT VOUTFB 3meg
+RBOT VOUTFB VSS 3meg
+CGATE PG VSS 0.25p
+.ends DUT

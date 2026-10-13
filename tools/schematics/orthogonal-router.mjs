@@ -1,6 +1,14 @@
 /** Manhattan trees for source-bound drawings. Routes reserve symbols, text,
  * terminal escapes and existing foreign wires; only plain crossings are legal. */
-export function routeDrawing(c, ds, devices, ports, sections, auxiliaryNets) {
+export function routeDrawing(
+  c,
+  ds,
+  devices,
+  ports,
+  sections,
+  auxiliaryNets,
+  options = {},
+) {
   const step = 10,
     coord = (x, y) => `${x},${y}`;
   const points = new Map(),
@@ -27,11 +35,11 @@ export function routeDrawing(c, ds, devices, ports, sections, auxiliaryNets) {
       mir = rot === "horizontal",
       mos = "np".includes(d.kind);
     obstacles.push({ x1: x - 1.8, x2: x + 1.8, y1: y - 1.8, y2: y + 1.8 });
-    const width = Math.max(3, d.ref.length) * 0.9 + 0.5;
+    const width = d.labelWidth ?? Math.max(3, d.ref.length) * 0.9 + 0.5;
     if (mos)
       obstacles.push({
-        x1: mir ? x - 2 - width : x + 2,
-        x2: mir ? x - 2 : x + 2 + width,
+        x1: mir ? x - 2 - width : x + 2 - (d.labelClearance ?? 0),
+        x2: mir ? x - 2 + (d.labelClearance ?? 0) : x + 2 + width,
         y1: y - 1.1,
         y2: y + 0.8,
       });
@@ -126,6 +134,14 @@ export function routeDrawing(c, ds, devices, ports, sections, auxiliaryNets) {
     put(net, ...b, opposite(d));
   }
   function connect(net, ps) {
+    // Source-specific visual corridors can keep one control net away from a
+    // nearby rail or unrelated gate without imposing a global routing style.
+    const zones = (options.netClearanceZones?.[net] ?? []).map((b) => ({
+      x1: b[0] / step,
+      y1: b[1] / step,
+      x2: b[2] / step,
+      y2: b[3] / step,
+    }));
     const tree = new Set();
     // Each pin has a two-grid escape, keeping crossings away from symbols.
     const escaped = ps.map((p) => ({
@@ -267,6 +283,9 @@ export function routeDrawing(c, ds, devices, ports, sections, auxiliaryNets) {
             x > maxX ||
             y > maxY ||
             blocked(x, y) ||
+            zones.some(
+              (b) => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2,
+            ) ||
             (reserved.has(k) && reserved.get(k) !== net)
           )
             continue;
@@ -442,7 +461,8 @@ export function routeDrawing(c, ds, devices, ports, sections, auxiliaryNets) {
     const x = p.ex,
       y = p.ey,
       key = endpoint(group, x, y);
-    const width = net.length * 9 + 4;
+    const width = net.length * 9 + 4 + (options.supplyLabelWidthAllowance ?? 0);
+    const clearance = (options.supplyLabelClearance ?? 0) / step;
     const candidates = [];
     for (const dy of [-10, 18, -24, 32, -38, 46])
       for (const side of [p.dx < 0 ? -1 : 1, p.dx < 0 ? 1 : -1])
@@ -453,10 +473,11 @@ export function routeDrawing(c, ds, devices, ports, sections, auxiliaryNets) {
             align: side < 0 ? "end" : "start",
           });
     const clear = (l) => {
-      const x1 = x + (l.dx + (l.align === "end" ? -width : 0)) / step,
-        x2 = x1 + width / step,
-        y1 = y + (l.dy - 14) / step,
-        y2 = y + (l.dy + 2) / step;
+      const x1 =
+          x + (l.dx + (l.align === "end" ? -width : 0)) / step - clearance,
+        x2 = x1 + width / step + 2 * clearance,
+        y1 = y + (l.dy - 14) / step - clearance,
+        y2 = y + (l.dy + 2) / step + clearance;
       if (
         obstacles.some((b) => b.x1 < x2 && b.x2 > x1 && b.y1 < y2 && b.y2 > y1)
       )
@@ -478,7 +499,10 @@ export function routeDrawing(c, ds, devices, ports, sections, auxiliaryNets) {
         }
       return true;
     };
-    const l = candidates.find(clear) ?? candidates[0];
+    const clearCandidate = candidates.find(clear);
+    if (!clearCandidate && options.requireClearSupplyLabels)
+      throw Error("No clear supply label: " + group + " at " + p.key);
+    const l = clearCandidate ?? candidates[0];
     c.boundLabel(net, key, l.dx, l.dy, l.align);
     const x1 = x + (l.dx + (l.align === "end" ? -width : 0)) / step;
     obstacles.push({

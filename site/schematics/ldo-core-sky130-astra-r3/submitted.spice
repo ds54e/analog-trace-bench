@@ -1,0 +1,20 @@
+* Current-mirror error amplifier with PMOS pass stage
+.subckt DUT VIN VOUT VSS VREF
+Rtop VOUT FB 296k
+Rbot FB VSS 300k
+Rbias PB VSS 400k
+Xbias PB PB VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=1 nf=1 m=1
+Xtail TAIL PB VIN VIN sky130_fd_pr__pfet_01v8 w=70 l=1 nf=1 m=2
+Xfb NF FB TAIL VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=1
+Xref NR VREF TAIL VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=1
+Xnf NF NF VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 nf=1 m=1
+Xnr NR NR VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 nf=1 m=1
+Xng GP NF VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 nf=1 m=1
+Xnp NP NR VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 nf=1 m=1
+Xpd NP NP VIN VIN sky130_fd_pr__pfet_01v8 w=5 l=0.5 nf=1 m=1
+Xpg GP NP VIN VIN sky130_fd_pr__pfet_01v8 w=5 l=0.5 nf=1 m=1
+Xpass VOUT GP VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=2
+Rcomp NR CZ 1k
+Ccomp CZ VOUT 1p
+Cff VOUT FB 1p
+.ends DUT

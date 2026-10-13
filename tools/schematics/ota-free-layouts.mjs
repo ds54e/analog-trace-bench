@@ -48,7 +48,7 @@ const recipes = {
     type: "two-stage",
   },
   "luna-6-r2": {
-    pairSpacing: 220, // Clear both long cascode references without moving one label up.
+    pairSpacing: 280, // Give both inward-facing long references their own label space.
     chains: [
       ["XMPCREF", "XMPREF", "XMNCP", "XMINP"],
       ["XMPCLOAD", "XMPLOAD", "XMNCN", "XMINN"],
@@ -65,6 +65,8 @@ const recipes = {
     type: "cascode",
   },
   "sol-6-1-r2": {
+    biasPlacement: "cascode-pockets",
+    pairSpacing: 200,
     chains: [
       ["XPD", "XPCD", "XCASN", "XINN"],
       ["XPM", "XPCM", "XCASP", "XINP"],
@@ -84,6 +86,7 @@ const recipes = {
     type: "cascode",
   },
   "deepseek-r3": {
+    biasPlacement: "cascode-pockets",
     chains: [
       ["XM3", "XM5", "XM7", "XM1"],
       ["XM4", "XM6", "XM8", "XM2"],
@@ -139,6 +142,8 @@ const recipes = {
     type: "folded",
   },
   "sonnet-5-5-r3": {
+    biasPlacement: "folded-pockets",
+    ibiasOffset: 80,
     input: ["XM1", "XM2"],
     top: ["XM3", "XM4"],
     folds: [
@@ -158,6 +163,9 @@ const recipes = {
     type: "folded",
   },
   "sol-6-r1": {
+    biasPlacement: "folded-pockets",
+    pairSpacing: 200,
+    refOffset: 20,
     input: ["XNINP", "XNINN"],
     top: ["XPCS1", "XPCS2"],
     folds: [
@@ -239,7 +247,7 @@ export function reviewedFreeLayout(id, ds, portNames) {
           : 180,
     ];
   };
-  const chain = (refs, x, y, mirror = false) => {
+  const chain = (refs, x, y, mirror = false, pitch = 110) => {
     refs.forEach((ref, i) => {
       const previous = i ? byRef.get(refs[i - 1]) : null;
       const topNet = previous
@@ -257,7 +265,7 @@ export function reviewedFreeLayout(id, ds, portNames) {
       position(
         ref,
         x + ("np".includes(byRef.get(ref).kind) ? 0 : mirror ? -10 : 10),
-        y + i * 110,
+        y + i * pitch,
         mirror,
         topNet,
       );
@@ -279,12 +287,26 @@ export function reviewedFreeLayout(id, ds, portNames) {
       links.push([a.ref + "." + pa, b.ref + "." + pb]);
     }
   };
-  const left = r.type === "pmos-input" ? 360 : r.type === "folded" ? 320 : 220,
-    right = left + (r.pairSpacing ?? 160);
+  const biasCount = r.bias?.length ?? 0;
+  // Tall telescopic branches leave room for their reference bank alongside
+  // them. Folded and level-shifted circuits have different useful vacancies.
+  const left =
+      r.type === "pmos-input"
+        ? 360
+        : r.type === "folded"
+          ? 320
+          : r.type === "cascode"
+            ? r.biasPlacement === "cascode-pockets"
+              ? 300
+              : 120 + biasCount * 160
+            : 220,
+    right = left + (r.pairSpacing ?? 160),
+    foldOffset = 180;
+  const biasBanks = new Map();
   let floor;
   if (r.type === "folded") {
-    const foldLeft = left - 180,
-      foldRight = right + 180;
+    const foldLeft = left - foldOffset,
+      foldRight = right + foldOffset;
     position(r.input[0], left, 240);
     position(r.input[1], right, 240, true);
     [foldLeft, foldRight].forEach((x, i) => {
@@ -314,21 +336,83 @@ export function reviewedFreeLayout(id, ds, portNames) {
       devices[ch[1]][1] = 430;
     });
   } else {
-    chain(r.chains[0], left, 110);
-    chain(r.chains[1], right, 110, true);
+    const pitch =
+      r.type === "cascode" ? 100 : r.chains[0].length === 3 ? 90 : 110;
+    chain(r.chains[0], left, 110, false, pitch);
+    chain(r.chains[1], right, 110, true, pitch);
     const longest = Math.max(...r.chains.map((ch) => ch.length));
-    position(r.tail, (left + right) / 2, 110 + longest * 110 + 30);
-    floor = 110 + longest * 110 + 110;
+    position(r.tail, (left + right) / 2, 110 + longest * pitch + 20);
+    floor = devices[r.tail][1] + 60;
   }
-  (r.bias ?? []).forEach((ch, i) => chain(ch, 100 + i * 160, floor + 160));
-  const outX = right + (r.type === "folded" ? 540 : 290);
+  (r.bias ?? []).forEach((ch, i) => {
+    let x,
+      y,
+      pitch = 100,
+      bankKey = "default",
+      integrated = false;
+    if (r.biasPlacement === "cascode-pockets") {
+      bankKey = i === 0 ? "reference" : "lower-controls";
+      integrated = i > 0;
+      x = i === 0 ? 100 : right + (biasCount === 3 ? 60 + (i - 1) * 160 : 150);
+      y = i === 0 ? 110 : biasCount === 3 ? 510 : 450;
+    } else if (r.biasPlacement === "folded-pockets") {
+      bankKey = i === 0 ? "output-side-reference" : "lower-controls";
+      x = i === 0 ? right + 360 : left - 60 + (i - 1) * 220;
+      y = i === 0 ? 380 : 640;
+      pitch = i === 0 ? 100 : 80;
+    } else if (r.type === "cascode") {
+      x = 100 + i * 160;
+      y = 110;
+    } else if (r.type === "folded") {
+      // Below the second stage, or beside a single-stage folded core.
+      x = right + (r.output ? 310 : 360) + i * 160;
+      y = r.output ? 410 : 110;
+    } else if (r.type === "pmos-input") {
+      x = 80;
+      y = 110;
+    } else {
+      // The PMOS reference sits in the open lower half of the second stage.
+      x = right + 150;
+      y = 310;
+    }
+    chain(ch, x, y, false, pitch);
+    if (!biasBanks.has(bankKey))
+      biasBanks.set(bankKey, {
+        refs: [],
+        vddY: y - 60,
+        vssY: 0,
+        integrated:
+          integrated ||
+          r.type === "two-stage" ||
+          (r.type === "folded" && !!r.output),
+      });
+    const bank = biasBanks.get(bankKey);
+    bank.refs.push(...ch);
+    bank.vssY = Math.max(bank.vssY, y + (ch.length - 1) * pitch + 60);
+  });
+  const outX =
+    right +
+    (r.biasPlacement === "cascode-pockets"
+      ? biasCount === 3
+        ? 340
+        : 290
+      : r.type === "folded"
+        ? biasCount > 1
+          ? 610
+          : 530
+        : r.type === "two-stage" && r.shunt
+          ? 430
+          : r.type === "two-stage" && biasCount
+            ? 340
+            : 290);
   if (r.output) {
     position(r.output[0], outX, 170);
     position(r.output[1], outX, floor - 20);
   }
   position(
     r.ref,
-    left - (r.followers ? 200 : r.type === "folded" ? 60 : 110),
+    left -
+      (r.refOffset ?? (r.followers ? 200 : r.type === "folded" ? 60 : 110)),
     byRef.get(r.tail).kind === "n" ? devices[r.tail][1] : floor - 110,
     true,
   );
@@ -350,27 +434,29 @@ export function reviewedFreeLayout(id, ds, portNames) {
     devices[amp][1] = gainY;
     devices[r.output[nOutput ? 0 : 1]][1] = nOutput
       ? compY - 40
-      : Math.max(compY + 90, devices[r.tail][1] + 70);
+      : r.biasPlacement === "cascode-pockets"
+        ? 680
+        : Math.max(compY + 90, devices[r.tail][1] + 70);
   }
   if (r.compensation) {
     const [a, b] = r.compensation;
     const dn = byRef.get(gainD.ref).pins[0];
     position(
       a,
-      right + (r.type === "folded" ? 290 : r.followers ? 130 : 110),
+      right + (r.type === "folded" ? 310 : r.followers ? 130 : 110),
       compY,
       false,
       dn,
     );
     const mid = byRef.get(a).pins.find((n) => n !== dn);
-    position(b, right + (r.type === "folded" ? 400 : 220), compY, false, mid);
+    position(b, right + (r.type === "folded" ? 420 : 220), compY, false, mid);
     devices[a][2] = byRef.get(a).pins[0] === dn ? 270 : 90;
     devices[b][2] = byRef.get(b).pins[0] === mid ? 270 : 90;
   }
   if (r.shunt)
     position(
       r.shunt,
-      r.output ? right + 90 : right + 270,
+      r.output ? right + 290 : right + foldOffset + 90,
       floor - 80,
       false,
       byRef.get(r.shunt).pins.find((n) => n !== "vss"),
@@ -389,13 +475,29 @@ export function reviewedFreeLayout(id, ds, portNames) {
         " " +
         ds.filter((d) => !devices[d.ref]).map((d) => d.ref),
     );
+  const mainVssY = Math.max(
+    floor + 30,
+    ...ds
+      .filter((d) => !r.bias?.flat().includes(d.ref))
+      .flatMap((d) =>
+        d.pins.some((net, i) => net === "vss" && i !== 1 && i !== 3)
+          ? [devices[d.ref][1] + 60]
+          : [],
+      ),
+    ...[...biasBanks.values()]
+      .filter((bank) => bank.integrated)
+      .map((bank) => bank.vssY),
+  );
+  for (const bank of biasBanks.values())
+    if (bank.integrated) bank.vssY = mainVssY;
+  const railX = r.type === "cascode" ? left - 160 : 40;
   const ports = {};
   const name = (n) =>
     portNames.find((p) => p.toLowerCase().replace("_", "") === n);
-  ports[name("vdd")] = [40, 50];
-  ports[name("vss")] = [40, floor + 60];
+  ports[name("vdd")] = [r.type === "cascode" ? left - 70 : railX, 50];
+  ports[name("vss")] = [railX, mainVssY];
   ports[name("ibias")] = [
-    devices[r.ref][0] - (r.type === "folded" ? 50 : 90),
+    devices[r.ref][0] - (r.ibiasOffset ?? (r.type === "folded" ? 50 : 90)),
     devices[r.ref][1] - 40,
   ];
   r.input.forEach((ref, i) => {
@@ -420,7 +522,7 @@ export function reviewedFreeLayout(id, ds, portNames) {
     );
   const outputKey = r.output ? r.output[0] + ".D" : r.gain;
   ports[name("vout")] = [
-    r.output ? outX + 90 : right + 270,
+    r.output ? outX + 90 : right + (r.type === "folded" ? foldOffset + 90 : 90),
     r.output ? gainY + (nOutput ? -30 : 50) : gainY,
     180,
   ];
@@ -528,17 +630,21 @@ export function reviewedFreeLayout(id, ds, portNames) {
       }
       // Supply rails connect to real branches; ports are never a detached legend.
       const auxiliary = new Set((r.bias ?? []).flat());
+      const supplyGroups = [
+        {
+          refs: ds.filter((d) => !auxiliary.has(d.ref)).map((d) => d.ref),
+          vddY: 50,
+          vssY: mainVssY,
+          main: true,
+        },
+        ...biasBanks.values(),
+      ];
       for (const supply of ["vdd", "vss"])
-        for (const isAux of [false, true]) {
-          const group = ds.filter((d) => auxiliary.has(d.ref) === isAux);
+        for (const bank of supplyGroups) {
+          const group = bank.refs.map((ref) => byRef.get(ref));
           if (!group.length) continue;
-          const y = isAux
-            ? supply === "vdd"
-              ? floor + 100
-              : floor + 160 + Math.max(...r.bias.map((ch) => ch.length)) * 110
-            : supply === "vdd"
-              ? 50
-              : floor + 60;
+          const isAux = !bank.main;
+          const y = supply === "vdd" ? bank.vddY : bank.vssY;
           const keys = group.flatMap((d) =>
             "np".includes(d.kind)
               ? ["D", "S"]
@@ -719,6 +825,17 @@ export function reviewedFreeLayout(id, ds, portNames) {
           const dy = gate || horizontal ? 0 : p.y > pos[1] ? 30 : -30;
           const t = j(net, p.x + dx, p.y + dy);
           wire(key, t);
+          // The output shunt occupies the left of this short reference gate
+          // stub. Put its label below the stub, clear of the capacitor lead.
+          if (
+            r.biasPlacement === "folded-pockets" &&
+            r.shunt &&
+            d.ref === r.bias[0][1] &&
+            gate
+          ) {
+            labels.push({ net, t, dx: -5, dy: 25, align: "start" });
+            continue;
+          }
           labels.push({
             net,
             t,

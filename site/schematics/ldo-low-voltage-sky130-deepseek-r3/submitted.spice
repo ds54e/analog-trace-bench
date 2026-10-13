@@ -1,0 +1,23 @@
+* LDO final (best measured): PMOS pass with direct gate drive, PMOS diff pair with
+* current-source tail, NMOS mirror load, series-RC (nulling-resistor) Miller compensation,
+* low-impedance 1:1 feedback divider.  Pair L=0.25 suppresses DIBL load-dependent offset.
+.subckt DUT VIN VOUT VSS VREF
+* --- pass device (source=VIN, gate=G, drain=VOUT) ---
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 nf=1 m=3
+* --- input pair: M1 gate=VFB (left, mirror side), M2 gate=VREF (right -> gate node) ---
+XM1 D1 VFB S VIN sky130_fd_pr__pfet_01v8 W=50 L=0.25 nf=1 m=1
+XM2 G VREF S VIN sky130_fd_pr__pfet_01v8 W=50 L=0.25 nf=1 m=1
+* --- tail PMOS current source (mirror of bias leg) ---
+XMT S VB VIN VIN sky130_fd_pr__pfet_01v8 W=50 L=0.5 nf=1 m=1
+XMB VB VB VIN VIN sky130_fd_pr__pfet_01v8 W=50 L=0.5 nf=1 m=1
+RB VB VSS 12k
+* --- NMOS mirror load ---
+XM3 D1 D1 VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=0.5 nf=1 m=1
+XM4 G D1 VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=0.5 nf=1 m=1
+* --- compensation: Miller cap with series nulling resistor ---
+CC G NC1 20p
+RC NC1 VOUT 10k
+* --- feedback divider (1:1, low impedance: fast loop, small gate swing) ---
+R1 VOUT VFB 7.5k
+R2 VFB VSS 7.5k
+.ends DUT

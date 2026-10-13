@@ -1,0 +1,23 @@
+.subckt DUT VIN VOUT VSS VREF
+Xpass VOUT ctrl VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=4
+
+* Feedback divider trimmed near 0.995 V; reference midpoint is 0.25 V.
+Rfb_hi VOUT fb 14.9k
+Rfb_lo fb VSS 5k
+Rref_hi VREF refhalf 1meg
+Rref_lo refhalf VSS 1meg
+
+* PMOS differential pair and 2:1 NMOS current mirror output.
+Rsrc1 VIN ps1 4k
+Rsrc2 VIN ps2 2k
+Xp1 nd1 fb ps1 VIN sky130_fd_pr__pfet_01v8 w=30 l=1
+Xp2 ctrl refhalf ps2 VIN sky130_fd_pr__pfet_01v8 w=30 l=1 m=2
+Xn1 nd1 nd1 VSS VSS sky130_fd_pr__nfet_01v8 w=30 l=1
+Xn2 ctrl nd1 VSS VSS sky130_fd_pr__nfet_01v8 w=30 l=1 m=2
+
+Cc ctrl VSS 0.2p
+Rcomp ctrl cfeed 5k
+Ccomp cfeed VOUT 5p
+Rcomp_fb VOUT ffb 1
+Ccomp_fb ffb fb 22p
+.ends DUT

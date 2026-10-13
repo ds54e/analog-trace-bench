@@ -1,0 +1,23 @@
+* Always-on LDO: PMOS pass, PMOS-input OTA, current-mirror gate drive, adaptive tail
+.subckt DUT VIN VOUT VSS VREF
+* pass device (W/L = 1000) and its 1:50 diode-connected gate driver
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=87.5 L=0.35 nf=1 m=4
+XMD G G VIN VIN sky130_fd_pr__pfet_01v8 W=7 L=0.35 nf=1 m=1
+* load-sense copy feeding the error-amp tail (adaptive bias)
+XMS T G VIN VIN sky130_fd_pr__pfet_01v8 W=7 L=0.35 nf=1 m=1
+* NMOS driver pulling the pass gate
+XMB G X VSS VSS sky130_fd_pr__nfet_01v8 W=3 L=1 nf=1 m=1
+* error amplifier: PMOS pair, NMOS mirror load
+XM1 A VREF T VIN sky130_fd_pr__pfet_01v8 W=10 L=0.5 nf=1 m=4
+XM2 X FB T VIN sky130_fd_pr__pfet_01v8 W=10 L=0.5 nf=1 m=4
+XM3 A A VSS VSS sky130_fd_pr__nfet_01v8 W=3 L=1 nf=1 m=1
+XM4 X A VSS VSS sky130_fd_pr__nfet_01v8 W=3 L=1 nf=1 m=1
+* minimum tail bias from VIN-referenced resistor bias
+XM5 T PB VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=2 nf=1 m=4
+XMPB PB PB VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=2 nf=1 m=1
+RB PB VSS 10meg
+* feedback divider with feed-forward capacitor
+R1 VOUT FB 3meg
+R2 FB VSS 3meg
+CFF VOUT FB 1p
+.ends DUT

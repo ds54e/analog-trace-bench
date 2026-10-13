@@ -1,0 +1,16 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CZ NZ VSS 15p
+R1 VOUT VFB 12meg
+R2 VFB VSS 12meg
+RA PG VSS 43meg
+RB VIN NBIAS 5.5meg
+RZ PG NZ 2meg
+X1 N1 VFB TAIL VSS sky130_fd_pr__nfet_01v8 l=1 w=20
+X2 PG VREF TAIL VSS sky130_fd_pr__nfet_01v8 l=1 w=20
+X3 N1 N1 VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=10
+X4 PG N1 VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=11
+X5 TAIL NBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=60
+XNB NBIAS NBIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=10
+XPASS VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=40
+.ends DUT

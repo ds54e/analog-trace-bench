@@ -1,5 +1,6 @@
-/** Native source-bound OTA drawings and the reviewed LDO pilot; no simulation. */
+/** Native source-bound OTA and LDO drawings; no simulation. */
 import { buildOtaLayout } from "./ota-layouts.mjs";
+import { buildLdoLayout } from "./ldo-layouts.mjs";
 import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
 import { resolve, join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -295,13 +296,36 @@ for (const task of catalog.tasks.filter((t) => t.id.startsWith("OTA-")))
       buildOtaLayout(run.id, await submittedSource(run.id), layouts[0]),
     );
   }
+for (const task of catalog.tasks.filter((t) => t.id.startsWith("LDO-")))
+  for (const run of task.runs) {
+    if (layouts.some((l) => l.id === run.id)) continue;
+    layouts.push(buildLdoLayout(run.id, await submittedSource(run.id)));
+  }
 const selected = process.env.ATB_SCHEMATIC_RUN;
+const shouldRender = (layout) =>
+  !selected ||
+  (selected.endsWith("*")
+    ? layout.id.startsWith(selected.slice(0, -1))
+    : layout.id === selected);
+if (selected && !layouts.some(shouldRender))
+  throw Error("No schematic run matches " + selected);
 
 function hash(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
 }
 import { createHash } from "node:crypto";
 function display(raw) {
+  if (/^\{[\d.\s()+*/-]+\}$/.test(raw)) {
+    raw = execFileSync(
+      "python3",
+      [
+        "-c",
+        "import sys;sys.path.insert(0,'tools');import schematics;print(float(schematics.constant_value(sys.argv[1])))",
+        raw,
+      ],
+      { cwd: root, encoding: "utf8" },
+    ).trim();
+  }
   const match = raw.match(
     /^([+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?)(meg|[tgkmunpf])?$/i,
   );
@@ -445,483 +469,567 @@ function verifySavedWiring(project, continuousNets = []) {
   return checkedPins;
 }
 
+const previewFailures = [];
 for (const layout of layouts) {
-  if (selected && layout.id !== selected) continue;
-  const source = await submittedSource(layout.id);
-  const imported = await a.importSpiceSources(
-    [{ path: "submitted.spice", bytes: new TextEncoder().encode(source) }],
-    "submitted.spice",
-  );
-  if (!imported.successful || imported.diagnostics.length)
-    throw new Error(JSON.stringify(imported.diagnostics));
-  const p = imported.project,
-    d = p.documents.find((d) => d.id === p.topDocumentId);
-  p.name = layout.title;
-  d.sourceStatus = "geometry-only-changed";
-  const resolver = a.createProjectSymbolResolver(p, a.builtInSymbols);
-  const devices = new Map(
-    d.instances.filter((i) => i.reference).map((i) => [i.reference, i]),
-  );
-  const ports = new Map(
-    d.netlist.terminals.map((t) => [
-      t.name,
-      d.instances.find((i) => i.id === t.interfaceInstanceIds[0]),
-    ]),
-  );
-  const nets = new Map(
-    d.connectivityEvidence
-      .filter((e) => e.kind === "net-name-hint")
-      .flatMap((e) => [
-        [e.sourceName, e.netId],
-        [e.sourceName.toLowerCase(), e.netId],
+  if (!shouldRender(layout)) continue;
+  try {
+    const source = await submittedSource(layout.id);
+    const imported = await a.importSpiceSources(
+      [{ path: "submitted.spice", bytes: new TextEncoder().encode(source) }],
+      "submitted.spice",
+    );
+    if (!imported.successful || imported.diagnostics.length)
+      throw new Error(JSON.stringify(imported.diagnostics));
+    const p = imported.project,
+      d = p.documents.find((d) => d.id === p.topDocumentId);
+    p.name = layout.title;
+    d.sourceStatus = "geometry-only-changed";
+    const resolver = a.createProjectSymbolResolver(p, a.builtInSymbols);
+    const devices = new Map(
+      d.instances.filter((i) => i.reference).map((i) => [i.reference, i]),
+    );
+    const ports = new Map(
+      d.netlist.terminals.map((t) => [
+        t.name,
+        d.instances.find((i) => i.id === t.interfaceInstanceIds[0]),
       ]),
-  );
-  function place(i, arr) {
-    const [x, y, mode] = arr;
-    i.placement = {
-      position: { x, y },
-      rotation: typeof mode === "number" ? mode : 0,
-      mirror: typeof mode === "string" ? mode : "none",
-    };
-  }
-  for (const [name, pos] of Object.entries(layout.devices)) {
-    if (!devices.has(name))
-      throw new Error("Missing device " + name + " " + layout.id);
-    place(devices.get(name), pos);
-  }
-  for (const [name, pos] of Object.entries(layout.ports)) {
-    if (!ports.has(name))
-      throw new Error("Missing port " + name + " " + layout.id);
-    place(ports.get(name), pos);
-  }
-  d.routes = [];
-  d.junctions = [];
-  d.annotations = [];
-  let serial = 0;
-  const id = (kind) => `atb-${kind}-${++serial}`;
-  const junctions = new Map();
-  const endpoint = (key) => {
-    if (junctions.has(key))
-      return { kind: "junction", junctionId: junctions.get(key).id };
-    if (key.startsWith("@"))
-      return {
-        kind: "terminal",
-        instanceId: ports.get(key.slice(1)).id,
-        pinName: "P",
+    );
+    const nets = new Map(
+      d.connectivityEvidence
+        .filter((e) => e.kind === "net-name-hint")
+        .flatMap((e) => [
+          [e.sourceName, e.netId],
+          [e.sourceName.toLowerCase(), e.netId],
+        ]),
+    );
+    function place(i, arr) {
+      const [x, y, mode] = arr;
+      i.placement = {
+        position: { x, y },
+        rotation: typeof mode === "number" ? mode : 0,
+        mirror: typeof mode === "string" ? mode : "none",
       };
-    const [ref, pinName] = key.split(".");
-    return { kind: "terminal", instanceId: devices.get(ref).id, pinName };
-  };
-  const point = (e) => a.resolveEndpointPoint(d, resolver, e);
-  function j(key, net, x, y) {
-    const item = {
-      id: id("junction"),
-      netId: nets.get(net),
-      position: { x, y },
+    }
+    for (const [name, pos] of Object.entries(layout.devices)) {
+      if (!devices.has(name))
+        throw new Error("Missing device " + name + " " + layout.id);
+      place(devices.get(name), pos);
+    }
+    for (const [name, pos] of Object.entries(layout.ports)) {
+      if (!ports.has(name))
+        throw new Error("Missing port " + name + " " + layout.id);
+      place(ports.get(name), pos);
+    }
+    d.routes = [];
+    d.junctions = [];
+    d.annotations = [];
+    let serial = 0;
+    const id = (kind) => `atb-${kind}-${++serial}`;
+    const junctions = new Map();
+    const endpoint = (key) => {
+      if (junctions.has(key))
+        return { kind: "junction", junctionId: junctions.get(key).id };
+      if (key.startsWith("@"))
+        return {
+          kind: "terminal",
+          instanceId: ports.get(key.slice(1)).id,
+          pinName: "P",
+        };
+      const [ref, pinName] = key.split(".");
+      return { kind: "terminal", instanceId: devices.get(ref).id, pinName };
     };
-    d.junctions.push(item);
-    junctions.set(key, item);
-  }
-  function w(net, from, to, bends = [], color) {
-    const start = endpoint(from),
-      end = endpoint(to);
-    const endPoint = point(end);
-    if (
-      bends.length &&
-      bends.at(-1)[0] === endPoint.x &&
-      bends.at(-1)[1] === endPoint.y
-    )
-      bends = bends.slice(0, -1);
-    const route = {
-      id: id("route"),
-      netId: nets.get(net),
-      start,
-      legs: [
-        ...bends.map(([x, y]) => ({
-          id: id("leg"),
-          to: { kind: "bend", bendId: id("bend"), position: { x, y } },
-          mode: "manual",
-        })),
+    const point = (e) => a.resolveEndpointPoint(d, resolver, e);
+    function j(key, net, x, y) {
+      const item = {
+        id: id("junction"),
+        netId: nets.get(net),
+        position: { x, y },
+      };
+      d.junctions.push(item);
+      junctions.set(key, item);
+    }
+    function w(net, from, to, bends = [], color) {
+      const start = endpoint(from),
+        end = endpoint(to);
+      const endPoint = point(end);
+      if (
+        bends.length &&
+        bends.at(-1)[0] === endPoint.x &&
+        bends.at(-1)[1] === endPoint.y
+      )
+        bends = bends.slice(0, -1);
+      const route = {
+        id: id("route"),
+        netId: nets.get(net),
+        start,
+        legs: [
+          ...bends.map(([x, y]) => ({
+            id: id("leg"),
+            to: { kind: "bend", bendId: id("bend"), position: { x, y } },
+            mode: "manual",
+          })),
+          {
+            id: id("leg"),
+            to: { kind: "endpoint", endpoint: end },
+            mode: "manual",
+          },
+        ],
+      };
+      if (color) route.styleOverride = { color };
+      d.routes.push(route);
+    }
+    function annotation(kind, anchor, text, binding, alignment = "start") {
+      const item = {
+        id: id("annotation"),
+        kind,
+        anchor,
+        alignment,
+        rotation: 0,
+        locked: false,
+      };
+      if (binding) item.binding = binding;
+      else item.content = { runs: [{ kind: "text", value: text }] };
+      d.annotations.push(item);
+      return item;
+    }
+    function label(net, x, y) {
+      const netId = nets.get(net);
+      const sourceName = d.connectivityEvidence.find(
+        (e) => e.kind === "net-name-hint" && e.netId === netId,
+      ).sourceName;
+      const n = annotation(
+        "net-label",
+        { kind: "free", position: { x, y } },
+        null,
+        { kind: "net-name", netId },
+      );
+      n.netId = netId;
+      d.connectivityEvidence.push({
+        id: id("claim"),
+        kind: "name-claim",
+        netId,
+        name: sourceName,
+        owner: { kind: "net-label", annotationId: n.id },
+        scope: "local",
+      });
+    }
+    function boundLabel(net, key, x, y, alignment) {
+      const target = junctions.get(key),
+        netId = nets.get(net);
+      const sourceName = d.connectivityEvidence.find(
+        (e) => e.kind === "net-name-hint" && e.netId === netId,
+      ).sourceName;
+      const item = annotation(
+        "net-label",
         {
-          id: id("leg"),
-          to: { kind: "endpoint", endpoint: end },
-          mode: "manual",
+          kind: "object",
+          objectId: target.id,
+          localOffset: { x, y },
+          fallbackPosition: {
+            x: target.position.x + x,
+            y: target.position.y + y,
+          },
         },
-      ],
-    };
-    if (color) route.styleOverride = { color };
-    d.routes.push(route);
-  }
-  function annotation(kind, anchor, text, binding, alignment = "start") {
-    const item = {
-      id: id("annotation"),
-      kind,
-      anchor,
-      alignment,
-      rotation: 0,
-      locked: false,
-    };
-    if (binding) item.binding = binding;
-    else item.content = { runs: [{ kind: "text", value: text }] };
-    d.annotations.push(item);
-    return item;
-  }
-  function label(net, x, y) {
-    const netId = nets.get(net);
-    const sourceName = d.connectivityEvidence.find(
-      (e) => e.kind === "net-name-hint" && e.netId === netId,
-    ).sourceName;
-    const n = annotation(
-      "net-label",
-      { kind: "free", position: { x, y } },
-      null,
-      { kind: "net-name", netId },
-    );
-    n.netId = netId;
-    d.connectivityEvidence.push({
-      id: id("claim"),
-      kind: "name-claim",
-      netId,
-      name: sourceName,
-      owner: { kind: "net-label", annotationId: n.id },
-      scope: "local",
-    });
-  }
-  function boundLabel(net, key, x, y, alignment) {
-    const target = junctions.get(key),
-      netId = nets.get(net);
-    const sourceName = d.connectivityEvidence.find(
-      (e) => e.kind === "net-name-hint" && e.netId === netId,
-    ).sourceName;
-    const item = annotation(
-      "net-label",
-      {
-        kind: "object",
-        objectId: target.id,
-        localOffset: { x, y },
-        fallbackPosition: {
-          x: target.position.x + x,
-          y: target.position.y + y,
-        },
-      },
-      null,
-      { kind: "net-name", netId },
-      alignment,
-    );
-    item.netId = netId;
-    d.connectivityEvidence.push({
-      id: id("claim"),
-      kind: "name-claim",
-      netId,
-      name: sourceName,
-      owner: { kind: "net-label", annotationId: item.id },
-      scope: "local",
-    });
-  }
-  layout.draw({
-    j,
-    w,
-    label,
-    boundLabel,
-    point: (key) => {
-      const value = point(endpoint(key));
-      if (!value)
-        throw new Error(
-          "Unresolved " +
-            key +
-            " " +
-            JSON.stringify(devices.get(key.split(".")[0])),
+        null,
+        { kind: "net-name", netId },
+        alignment,
+      );
+      item.netId = netId;
+      d.connectivityEvidence.push({
+        id: id("claim"),
+        kind: "name-claim",
+        netId,
+        name: sourceName,
+        owner: { kind: "net-label", annotationId: item.id },
+        scope: "local",
+      });
+    }
+    layout.draw({
+      j,
+      w,
+      label,
+      boundLabel,
+      referenceWidth: (ref) => {
+        const text = a.resolveAnnotationText(d, {
+          binding: {
+            kind: "instance-reference",
+            instanceId: devices.get(ref).id,
+          },
+        });
+        const measured = a.measureLabelText(
+          text,
+          a.richTextMetrics(a.razaviTextbookProfile, "label", 1, {
+            bold: true,
+            italic: true,
+          }),
         );
-      return value;
-    },
-  });
-  for (const [ref, i] of devices) {
-    const pos = i.placement.position,
-      mir = i.placement.mirror === "horizontal";
-    let x = mir ? -20 : 20,
-      y = 5,
-      align = mir ? "end" : "start";
-    if (layout.strategy === "reviewed-free" && mir && ref.includes("_")) {
-      x = -40;
-      y = -2;
-    }
-    if (["resistor", "capacitor"].includes(i.symbolId)) {
-      const horizontal = i.placement.rotation % 180 !== 0;
-      x = horizontal ? 0 : 16;
-      y = horizontal ? -32 : -4;
-      align = horizontal ? "middle" : "start";
-      annotation(
-        "instance-label",
-        {
-          kind: "object",
-          objectId: i.id,
-          localOffset: { x, y },
-          fallbackPosition: { x: pos.x + x, y: pos.y + y },
-        },
-        null,
-        { kind: "instance-reference", instanceId: i.id },
-        align,
-      );
-      annotation(
-        "instance-value",
-        {
-          kind: "object",
-          objectId: i.id,
-          localOffset: { x, y: y + 18 },
-          fallbackPosition: { x: pos.x + x, y: pos.y + y + 18 },
-        },
-        display(i.netlist.parameters.value),
-        null,
-        align,
-      );
-    } else
-      annotation(
-        "instance-label",
-        {
-          kind: "object",
-          objectId: i.id,
-          localOffset: { x, y },
-          fallbackPosition: { x: pos.x + x, y: pos.y + y },
-        },
-        null,
-        { kind: "instance-reference", instanceId: i.id },
-        align,
-      );
-  }
-  for (const t of d.netlist.terminals) {
-    if (
-      layout.strategy === "current-path-groups" ||
-      (layout.strategy === "connected-stages" &&
-        ["vdd", "vss", "ibias"].includes(t.name.toLowerCase()))
-    )
-      continue;
-    const i = ports.get(t.name),
-      pos = i.placement.position;
-    const output = t.name.toLowerCase() === "vout";
-    const dx = output ? 16 : 0,
-      dy = output ? 5 : -12;
-    annotation(
-      "instance-label",
-      {
-        kind: "object",
-        objectId: i.id,
-        localOffset: { x: dx, y: dy },
-        fallbackPosition: { x: pos.x + dx, y: pos.y + dy },
+        // Standalone SVG uses DejaVu Sans when Metropolis is unavailable.
+        // The native Metropolis advance table is narrower than that fallback;
+        // retain the native font size and reserve the observed fallback width.
+        const fallbackScale = layout.strategy === "connected-ldo" ? 1.15 : 1;
+        return (
+          Math.max(
+            measured.width,
+            ...measured.lines.map((line) =>
+              line.ink ? line.ink.right - line.ink.left : 0,
+            ),
+          ) *
+            fallbackScale +
+          8
+        );
       },
-      null,
-      { kind: "cell-terminal-name", terminalId: t.id },
-      dx < 0 ? "end" : dx ? "start" : "middle",
-    );
-  }
-  const out = join(root, "site/schematics", layout.id);
-  await mkdir(out, { recursive: true });
-  await writeFile(join(out, "submitted.spice"), source);
-  const serialized = a.serializeProject(p);
-  await writeFile(
-    join(out, "project.icproj.json"),
-    layout.strategy
-      ? JSON.stringify(JSON.parse(serialized)) + "\n"
-      : serialized,
-  );
-  let reopened = a.parseProject(
-    await readFile(join(out, "project.icproj.json"), "utf8"),
-  );
-  if (layout.strategy) {
-    // Use the native measured overlap report to move text, never shrink it.
-    // Object-bound net labels keep their electrical anchors while text moves.
-    for (let attempt = 0; attempt < 40; attempt++) {
-      const diag = a.diagnoseProject(
-        reopened,
-        a.createProjectSymbolResolver(reopened, a.builtInSymbols),
-      );
-      const collision = diag.find((v) => v.code === "VISUAL_LABEL_OVERLAP");
-      if (!collision) break;
-      const ids = [
-        collision.primary.objectId,
-        ...collision.related.map((v) => v.objectId),
-      ];
-      const doc = reopened.documents[0];
-      const labels = doc.annotations.filter(
-        (n) => ids.includes(n.id) && n.anchor.kind === "object",
-      );
-      const item = labels.find((n) => n.kind === "net-label") ?? labels[0];
-      if (!item) throw new Error("Uneditable label overlap " + layout.id);
-      item.anchor.localOffset.y -= 24;
-      item.anchor.fallbackPosition.y -= 24;
+      point: (key) => {
+        const value = point(endpoint(key));
+        if (!value)
+          throw new Error(
+            "Unresolved " +
+              key +
+              " " +
+              JSON.stringify(devices.get(key.split(".")[0])),
+          );
+        return value;
+      },
+    });
+    for (const [ref, i] of devices) {
+      const pos = i.placement.position,
+        mir = i.placement.mirror === "horizontal";
+      let x = mir ? -20 : 20,
+        y = 5,
+        align = mir ? "end" : "start";
+      if (layout.strategy === "reviewed-free" && mir && ref.includes("_")) {
+        x = -40;
+        y = -2;
+      }
+      if (["resistor", "capacitor"].includes(i.symbolId)) {
+        const horizontal = i.placement.rotation % 180 !== 0;
+        x = horizontal ? 0 : 16;
+        y = horizontal ? -32 : -4;
+        align = horizontal ? "middle" : "start";
+        const label = layout.passiveLabels?.[ref];
+        if (label) {
+          x = label.x;
+          y = label.y;
+          align = label.align;
+        }
+        annotation(
+          "instance-label",
+          {
+            kind: "object",
+            objectId: i.id,
+            localOffset: { x, y },
+            fallbackPosition: { x: pos.x + x, y: pos.y + y },
+          },
+          null,
+          { kind: "instance-reference", instanceId: i.id },
+          align,
+        );
+        annotation(
+          "instance-value",
+          {
+            kind: "object",
+            objectId: i.id,
+            localOffset: { x, y: y + 18 },
+            fallbackPosition: { x: pos.x + x, y: pos.y + y + 18 },
+          },
+          display(i.netlist.parameters.value),
+          null,
+          align,
+        );
+      } else
+        annotation(
+          "instance-label",
+          {
+            kind: "object",
+            objectId: i.id,
+            localOffset: { x, y },
+            fallbackPosition: { x: pos.x + x, y: pos.y + y },
+          },
+          null,
+          { kind: "instance-reference", instanceId: i.id },
+          align,
+        );
     }
+    for (const t of d.netlist.terminals) {
+      if (
+        layout.strategy === "current-path-groups" ||
+        (["connected-stages", "connected-ldo"].includes(layout.strategy) &&
+          ["vin", "vdd", "vss", "ibias"].includes(t.name.toLowerCase()))
+      )
+        continue;
+      const i = ports.get(t.name),
+        pos = i.placement.position;
+      const output = t.name.toLowerCase() === "vout";
+      const leftOutput =
+        output &&
+        layout.strategy === "connected-stages" &&
+        i.placement.rotation !== 180;
+      const dx = output && !leftOutput ? 16 : 0,
+        dy = output && !leftOutput ? 5 : -12;
+      annotation(
+        "instance-label",
+        {
+          kind: "object",
+          objectId: i.id,
+          localOffset: { x: dx, y: dy },
+          fallbackPosition: { x: pos.x + dx, y: pos.y + dy },
+        },
+        null,
+        { kind: "cell-terminal-name", terminalId: t.id },
+        dx < 0 ? "end" : dx ? "start" : "middle",
+      );
+    }
+    const out = join(root, "site/schematics", layout.id);
+    await mkdir(out, { recursive: true });
+    await writeFile(join(out, "submitted.spice"), source);
+    const serialized = a.serializeProject(p);
     await writeFile(
       join(out, "project.icproj.json"),
-      JSON.stringify(JSON.parse(a.serializeProject(reopened))) + "\n",
+      layout.strategy
+        ? JSON.stringify(JSON.parse(serialized)) + "\n"
+        : serialized,
     );
-    reopened = a.parseProject(
+    let reopened = a.parseProject(
       await readFile(join(out, "project.icproj.json"), "utf8"),
     );
-  }
-  const checkedPins = verifySavedWiring(reopened, layout.continuousNets);
-  for (const i of reopened.documents[0].instances.filter((i) =>
-    ["resistor", "capacitor"].includes(i.symbolId),
-  )) {
-    const values = reopened.documents[0].annotations.filter(
-      (n) =>
-        n.kind === "instance-value" &&
-        n.anchor.kind === "object" &&
-        n.anchor.objectId === i.id,
+    if (layout.strategy) {
+      // Use the native measured overlap report to move text, never shrink it.
+      // Object-bound net labels keep their electrical anchors while text moves.
+      for (let attempt = 0; attempt < 40; attempt++) {
+        const diag = a.diagnoseProject(
+          reopened,
+          a.createProjectSymbolResolver(reopened, a.builtInSymbols),
+        );
+        const collision = diag.find((v) => v.code === "VISUAL_LABEL_OVERLAP");
+        if (!collision) break;
+        const ids = [
+          collision.primary.objectId,
+          ...collision.related.map((v) => v.objectId),
+        ];
+        const doc = reopened.documents[0];
+        const labels = doc.annotations.filter(
+          (n) => ids.includes(n.id) && n.anchor.kind === "object",
+        );
+        const item = labels.find((n) => n.kind === "net-label") ?? labels[0];
+        if (!item) throw new Error("Uneditable label overlap " + layout.id);
+        item.anchor.localOffset.y -= 24;
+        item.anchor.fallbackPosition.y -= 24;
+      }
+      await writeFile(
+        join(out, "project.icproj.json"),
+        JSON.stringify(JSON.parse(a.serializeProject(reopened))) + "\n",
+      );
+      reopened = a.parseProject(
+        await readFile(join(out, "project.icproj.json"), "utf8"),
+      );
+    }
+    const checkedPins = verifySavedWiring(reopened, layout.continuousNets);
+    for (const i of reopened.documents[0].instances.filter((i) =>
+      ["resistor", "capacitor"].includes(i.symbolId),
+    )) {
+      const values = reopened.documents[0].annotations.filter(
+        (n) =>
+          n.kind === "instance-value" &&
+          n.anchor.kind === "object" &&
+          n.anchor.objectId === i.id,
+      );
+      if (
+        values.length !== 1 ||
+        a
+          .resolveAnnotationText(reopened.documents[0], values[0])
+          .runs.map((r) => r.value ?? "")
+          .join("") !== display(i.netlist.parameters.value)
+      )
+        throw new Error("Saved display value differs: " + i.reference);
+    }
+    const exported = a.createDesignNetlistExport(reopened, {
+      format: "spice",
+      groundPin: "global",
+    });
+    if (exported.status !== "ready" || exported.diagnostics.length)
+      throw new Error(JSON.stringify(exported.diagnostics));
+    const comparison = await a.compareNetlists(exported.file.text, source);
+    let resolvedComparison;
+    const independent = execFileSync(
+      "python3",
+      [
+        "-c",
+        "import sys,json;sys.path.insert(0,'tools');import schematics;a,b=json.load(sys.stdin);assert schematics.contract(a)==schematics.contract(b);print(json.dumps([schematics.resolved_spice(a),schematics.resolved_spice(b)]))",
+      ],
+      {
+        cwd: root,
+        input: JSON.stringify([source, exported.file.text]),
+        encoding: "utf8",
+      },
+    );
+    if (comparison.status !== "match") {
+      if (
+        comparison.status !== "inconclusive" ||
+        !/\.param|\{[\d.\s()+*/-]+\}/i.test(source)
+      )
+        throw new Error(JSON.stringify(comparison));
+      const [left, right] = JSON.parse(independent);
+      resolvedComparison = await a.compareNetlists(left, right);
+      if (resolvedComparison.status !== "match")
+        throw new Error(JSON.stringify(resolvedComparison));
+    }
+    const ordinaryExport = a.createDesignNetlistExport(reopened, {
+      format: "spice",
+    });
+    if (ordinaryExport.status !== "ready")
+      throw new Error("Default export blocked");
+    const ordinaryComparison = await a.compareNetlists(
+      ordinaryExport.file.text,
+      source,
     );
     if (
-      values.length !== 1 ||
-      a
-        .resolveAnnotationText(reopened.documents[0], values[0])
-        .runs.map((r) => r.value ?? "")
-        .join("") !== display(i.netlist.parameters.value)
+      ordinaryComparison.topology !== "equal" ||
+      ordinaryComparison.differences.some((d) => d.kind !== "port-order")
     )
-      throw new Error("Saved display value differs: " + i.reference);
-  }
-  const exported = a.createDesignNetlistExport(reopened, {
-    format: "spice",
-    groundPin: "global",
-  });
-  if (exported.status !== "ready" || exported.diagnostics.length)
-    throw new Error(JSON.stringify(exported.diagnostics));
-  const comparison = await a.compareNetlists(exported.file.text, source);
-  let resolvedComparison;
-  const independent = execFileSync(
-    "python3",
-    [
-      "-c",
-      "import sys,json;sys.path.insert(0,'tools');import schematics;a,b=json.load(sys.stdin);assert schematics.contract(a)==schematics.contract(b);print(json.dumps([schematics.resolved_spice(a),schematics.resolved_spice(b)]))",
-    ],
-    {
-      cwd: root,
-      input: JSON.stringify([source, exported.file.text]),
-      encoding: "utf8",
-    },
-  );
-  if (comparison.status !== "match") {
-    if (comparison.status !== "inconclusive" || !source.includes(".param"))
-      throw new Error(JSON.stringify(comparison));
-    const [left, right] = JSON.parse(independent);
-    resolvedComparison = await a.compareNetlists(left, right);
-    if (resolvedComparison.status !== "match")
-      throw new Error(JSON.stringify(resolvedComparison));
-  }
-  const ordinaryExport = a.createDesignNetlistExport(reopened, {
-    format: "spice",
-  });
-  if (ordinaryExport.status !== "ready")
-    throw new Error("Default export blocked");
-  const ordinaryComparison = await a.compareNetlists(
-    ordinaryExport.file.text,
-    source,
-  );
-  if (
-    ordinaryComparison.topology !== "equal" ||
-    ordinaryComparison.differences.some((d) => d.kind !== "port-order")
-  )
-    throw new Error(
-      "Unexpected default-export difference: " +
-        JSON.stringify(ordinaryComparison),
+      throw new Error(
+        "Unexpected default-export difference: " +
+          JSON.stringify(ordinaryComparison),
+      );
+    const nativeIndex = a.buildProjectConnectivityIndex(
+      reopened,
+      a.createProjectSymbolResolver(reopened, a.builtInSymbols),
     );
-  const nativeIndex = a.buildProjectConnectivityIndex(
-    reopened,
-    a.createProjectSymbolResolver(reopened, a.builtInSymbols),
-  );
-  const unrouted = [...nativeIndex.documents.values()].flatMap(
-    (d) => d.routingGuidance,
-  );
-  if (unrouted.length)
-    throw new Error("Native unrouted connections: " + unrouted.length);
-  const diagnostics = a.diagnoseProject(
-    reopened,
-    a.createProjectSymbolResolver(reopened, a.builtInSymbols),
-  );
-  if (diagnostics.length && selected)
+    const unrouted = [...nativeIndex.documents.values()].flatMap(
+      (d) => d.routingGuidance,
+    );
+    if (unrouted.length)
+      throw new Error("Native unrouted connections: " + unrouted.length);
+    const diagnostics = a.diagnoseProject(
+      reopened,
+      a.createProjectSymbolResolver(reopened, a.builtInSymbols),
+    );
+    const sourceBoundDiagnostics =
+      layout.id === "ldo-low-voltage-sky130-deepseek-r2"
+        ? [
+            {
+              code: "ERC_UNCONNECTED_PIN",
+              reference: "XM5",
+              pin: "D",
+              net: "S1",
+              reason:
+                "The submitted drain net S1 has one non-body terminal; the native drawing preserves this source-open terminal.",
+            },
+          ]
+        : [];
+    const sourceDiagnosticAllowed =
+      sourceBoundDiagnostics.length === 1 &&
+      diagnostics.length === 1 &&
+      diagnostics[0].code === "ERC_UNCONNECTED_PIN" &&
+      diagnostics[0].parameters?.instanceId === "XM5" &&
+      diagnostics[0].parameters?.pinName === "D";
+    if (diagnostics.length && selected && !sourceDiagnosticAllowed)
+      await writeFile(
+        join(out, "preview.svg"),
+        a.renderDocumentSvg(
+          reopened.documents[0],
+          a.createProjectSymbolResolver(reopened, a.builtInSymbols),
+          { margin: 20 },
+        ),
+      );
+    if (diagnostics.length && !sourceDiagnosticAllowed)
+      throw new Error(
+        "Native diagnostics " + layout.id + ": " + JSON.stringify(diagnostics),
+      );
+    const svgOptions = { margin: 20 };
+    const svg = a.renderDocumentSvg(
+      reopened.documents[0],
+      a.createProjectSymbolResolver(reopened, a.builtInSymbols),
+      svgOptions,
+    );
+    await writeFile(join(out, "schematic.svg"), svg);
+    await writeFile(join(out, "exported.spice"), exported.file.text);
+    const verification = {
+      source_sha256: hash(source),
+      generator: manifest.generator,
+      native_reopen: true,
+      svg_export_options: svgOptions,
+      native_comparison: comparison,
+      export_options: { format: "spice", groundPin: "global" },
+      ordinary_export_comparison: ordinaryComparison,
+      visible_wiring: {
+        status: "connected",
+        checked_non_body_pins: checkedPins,
+        checked_from: "saved-and-reopened-project",
+        ...(layout.continuousNets
+          ? { continuous_signal_nets: layout.continuousNets }
+          : {}),
+      },
+      body_defaults_checked: true,
+      saved_display_values_checked: true,
+      passive_display_significant_digits: 2,
+      native_unrouted_connections: unrouted.length,
+      native_diagnostics: diagnostics,
+      simulation_run: false,
+      ...(sourceBoundDiagnostics.length
+        ? { source_bound_diagnostics: sourceBoundDiagnostics }
+        : {}),
+    };
+    if (resolvedComparison) {
+      verification.resolved_native_comparison = resolvedComparison;
+      verification.numeric_constants_checked = true;
+    }
+    if (
+      [
+        "current-path-groups",
+        "reviewed-free",
+        "connected-stages",
+        "connected-ldo",
+      ].includes(layout.strategy)
+    )
+      verification.visible_wiring.named_connections_checked = true;
     await writeFile(
-      join(out, "preview.svg"),
-      a.renderDocumentSvg(
-        reopened.documents[0],
-        a.createProjectSymbolResolver(reopened, a.builtInSymbols),
-        { margin: 20 },
+      join(out, "verification.json"),
+      JSON.stringify(verification, null, 2) + "\n",
+    );
+    const files = [
+      "schematic.svg",
+      "project.icproj.json",
+      "submitted.spice",
+      "exported.spice",
+      "verification.json",
+    ];
+    const hashes = Object.fromEntries(
+      await Promise.all(
+        files.map(async (name) => [
+          name,
+          hash(await readFile(join(out, name))),
+        ]),
       ),
     );
-  if (diagnostics.length)
-    throw new Error(
-      "Native diagnostics " + layout.id + ": " + JSON.stringify(diagnostics),
-    );
-  const svgOptions = { margin: 20 };
-  const svg = a.renderDocumentSvg(
-    reopened.documents[0],
-    a.createProjectSymbolResolver(reopened, a.builtInSymbols),
-    svgOptions,
-  );
-  await writeFile(join(out, "schematic.svg"), svg);
-  await writeFile(join(out, "exported.spice"), exported.file.text);
-  const verification = {
-    source_sha256: hash(source),
-    generator: manifest.generator,
-    native_reopen: true,
-    svg_export_options: svgOptions,
-    native_comparison: comparison,
-    export_options: { format: "spice", groundPin: "global" },
-    ordinary_export_comparison: ordinaryComparison,
-    visible_wiring: {
-      status: "connected",
-      checked_non_body_pins: checkedPins,
-      checked_from: "saved-and-reopened-project",
-      ...(layout.continuousNets
-        ? { continuous_signal_nets: layout.continuousNets }
+    manifest.drawings.push({
+      run_id: layout.id,
+      title: layout.title,
+      description: layout.description,
+      body_note: layout.body_note,
+      source_sha256: hash(source),
+      files: hashes,
+      ...(layout.strategy ? { layout_strategy: layout.strategy } : {}),
+      ...(layout.strategy === "current-path-groups"
+        ? {
+            reading_min_width: Math.ceil(
+              +svg.match(/viewBox="[^ ]+ [^ ]+ ([^ ]+)/)[1] * 0.8,
+            ),
+          }
         : {}),
-    },
-    body_defaults_checked: true,
-    saved_display_values_checked: true,
-    passive_display_significant_digits: 2,
-    native_unrouted_connections: unrouted.length,
-    native_diagnostics: diagnostics,
-    simulation_run: false,
-  };
-  if (resolvedComparison) {
-    verification.resolved_native_comparison = resolvedComparison;
-    verification.numeric_constants_checked = true;
+    });
+    console.log(
+      layout.id,
+      comparison.status,
+      checkedPins,
+      "visible pins wired",
+    );
+  } catch (error) {
+    if (!selected || !process.env.ATB_SCHEMATIC_KEEP_GOING) throw error;
+    previewFailures.push({ run_id: layout.id, error: error.message });
+    console.error("PREVIEW FAILED", layout.id, error.message);
   }
-  if (
-    ["current-path-groups", "reviewed-free", "connected-stages"].includes(
-      layout.strategy,
-    )
-  )
-    verification.visible_wiring.named_connections_checked = true;
-  await writeFile(
-    join(out, "verification.json"),
-    JSON.stringify(verification, null, 2) + "\n",
-  );
-  const files = [
-    "schematic.svg",
-    "project.icproj.json",
-    "submitted.spice",
-    "exported.spice",
-    "verification.json",
-  ];
-  const hashes = Object.fromEntries(
-    await Promise.all(
-      files.map(async (name) => [name, hash(await readFile(join(out, name)))]),
-    ),
-  );
-  manifest.drawings.push({
-    run_id: layout.id,
-    title: layout.title,
-    description: layout.description,
-    body_note: layout.body_note,
-    source_sha256: hash(source),
-    files: hashes,
-    ...(layout.strategy ? { layout_strategy: layout.strategy } : {}),
-    ...(layout.strategy === "current-path-groups"
-      ? {
-          reading_min_width: Math.ceil(
-            +svg.match(/viewBox="[^ ]+ [^ ]+ ([^ ]+)/)[1] * 0.8,
-          ),
-        }
-      : {}),
-  });
-  console.log(layout.id, comparison.status, checkedPins, "visible pins wired");
 }
+if (previewFailures.length)
+  throw Error(JSON.stringify(previewFailures, null, 2));
 if (selected) {
   console.log("Selected-run preview; drawing index was not replaced.");
 } else {

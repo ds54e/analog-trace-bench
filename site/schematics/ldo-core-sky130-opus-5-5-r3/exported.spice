@@ -1,0 +1,29 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CC2 FB FBD 1p
+CFF VOUT FB 1p
+CPD VIN SPD 10p
+CZ NZ VSS 1.5p
+R1 VOUT FB 400k
+R2 FB VSS 400k
+RB VIN NB 330k
+RC1 VREF VRD 1meg
+RC2 FB FBD 800k
+RG G VIN 80k
+RPD VIN SPD 3k
+RS NS VSS 1.5k
+RZ E NZ 60k
+XLA NA NA VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=4 nf=1 m=1
+XLB E NA VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=4 nf=1 m=1
+XMA NA VRD NT VIN sky130_fd_pr__pfet_01v8 l=0.5 w=20 nf=1 m=4
+XMB E FBD NT VIN sky130_fd_pr__pfet_01v8 l=0.5 w=20 nf=1 m=4
+XMD G E NS VSS sky130_fd_pr__nfet_01v8 l=0.5 w=10 nf=1 m=1
+XMNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=2 nf=1 m=8
+XMNP NPB NB VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=2 nf=1 m=8
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=20 nf=1 m=32
+XMPB NPB NPB VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=4 nf=1 m=1
+XMS1 VRD NB VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=2 nf=1 m=1
+XMS2 FBD NB VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=2 nf=1 m=1
+XPD G G SPD VIN sky130_fd_pr__pfet_01v8 l=0.15 w=10 nf=1 m=1
+XPT NT NPB VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=4 nf=1 m=6
+.ends DUT

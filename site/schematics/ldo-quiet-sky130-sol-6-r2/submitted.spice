@@ -1,0 +1,16 @@
+* NMOS input LDO with PMOS pass
+.subckt DUT VIN VOUT VSS VREF
+XPASS VOUT G VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=32
+RFT VOUT FB 29600
+RFB FB VSS 30000
+CFB VOUT FB 100p
+* NMOS tail bias
+RNB VIN NB 100000
+XNBIAS NB NB VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 m=1
+XNTAIL ST NB VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 m=1
+* Differential pair and PMOS active load
+XNIN1 NA FB ST VSS sky130_fd_pr__nfet_01v8 w=100 l=2 m=4
+XNIN2 G VREF ST VSS sky130_fd_pr__nfet_01v8 w=100 l=2 m=4
+XPLOAD1 NA NA VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=2 m=1
+XPLOAD2 G NA VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=2 m=1
+.ends DUT

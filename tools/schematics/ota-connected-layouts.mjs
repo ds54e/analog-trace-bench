@@ -1,5 +1,7 @@
 import { refineOtaCase } from "./ota-case-refinements.mjs";
 import { routeDrawing } from "./orthogonal-router.mjs";
+import { composeConnectedOta } from "./ota-composition.mjs";
+import { reviewOtaDrawing } from "./ota-review-labels.mjs";
 const supply = (n) => ["vdd", "vss", "ibias"].includes(n);
 /** Connectivity-derived placements for the DRIVE, PRECISION and WIDE families.
  * Differential branches and their tails form the input blocks; remaining
@@ -520,6 +522,12 @@ export function connectedOtaLayout(id, ds, portNames, base) {
   for (const m of mods)
     if (m.kind === "bias")
       for (const r of m.refs) sections[r] = "bias-" + mods.indexOf(m);
+  composeConnectedOta(ds, devices, mods, auxiliaryNets);
+  if (id === "ota-wide-sky130-astra-r2") {
+    // Give the local BP reference its own label pocket beside the signal
+    // riser. Keep the complete bias stack together and within the footprint.
+    for (const ref of ["XBP", "RBPC", "XBPDRV"]) devices[ref][0] -= 70;
+  }
   // Keep named rails local to each recognizable functional block.
   for (const m of mods)
     if (m.kind !== "bias")
@@ -562,10 +570,31 @@ export function connectedOtaLayout(id, ds, portNames, base) {
         ) ?? ds.find((d) => d.pins.includes(net));
       const p = devices[d.ref],
         mir = p[2] === "horizontal" || ("rc".includes(d.kind) && p[2] === 90);
+      // A left-hand folded output leaves through the outside of its branch.
+      // Sending it into the input pair crowds VOUT against an input-port label.
+      const leftOutput =
+        net === "vout" &&
+        p[0] <
+          Math.min(
+            ...pairMods.flatMap((m) => m.pair.map((r) => devices[r][0])),
+          ) -
+            60;
+      const outputShunts = ds.filter(
+        (q) =>
+          "rc".includes(q.kind) &&
+          q.pins.includes("vout") &&
+          q.pins.includes("vss"),
+      );
+      const outX = leftOutput
+        ? Math.max(20, p[0] - 110)
+        : Math.max(p[0] + 110, ...outputShunts.map((q) => devices[q.ref][0]));
       ports[name] =
         net === "vout"
-          ? [p[0] + 110, p[1] + (d.kind === "p" ? 40 : -40), 180]
+          ? [outX, p[1] + (d.kind === "p" ? 40 : -40), leftOutput ? 0 : 180]
           : [p[0] + (mir ? 70 : -70), p[1], mir ? 180 : 0];
+      if (id === "ota-wide-sky130-astra-r3" && net === "vinp")
+        // Join the existing input trunk above the nearby PP mirror return.
+        ports[name][1] -= 40;
     }
   }
   return {
@@ -578,12 +607,65 @@ export function connectedOtaLayout(id, ds, portNames, base) {
     ].sort(),
     devices,
     ports,
+    // This divider sits beside the output return. Keep RBOT's name/value
+    // together on its clear side instead of letting VSS cross the value text.
+    passiveLabels:
+      id === "ota-precision-sky130-sol-6-r2"
+        ? { RBOT: { x: -16, y: -4, align: "end" } }
+        : undefined,
     title: "Transistor-level OTA",
     description:
       "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
     body_note: base.body_note,
     draw(c) {
-      routeDrawing(c, ds, devices, ports, sections, auxiliaryNets);
+      const drawing =
+        id === "ota-wide-sky130-astra-r3"
+          ? {
+              ...c,
+              j(key, net, x, y) {
+                // Separate the PN mirror take-off from the crossing PP return.
+                // Both branch corners move together, preserving a straight run
+                // and leaving three grid steps to either neighbouring PP wire.
+                if (
+                  net === "pn" &&
+                  y === devices.Xpln[1] - 50 &&
+                  (x === devices.Xpln[0] + 40 || x === devices.Xplo[0] - 110)
+                )
+                  y += 20;
+                c.j(key, net, x, y);
+              },
+              boundLabel(net, key, dx, dy, align) {
+                const p = c.point(key),
+                  tail = devices.Xnt;
+                // These opposite-polarity tails share the centre line. Put the
+                // lower-rail label on its left so VSS and the nearby VDD text have
+                // distinct owners without changing either current path.
+                if (
+                  net === "vss" &&
+                  Math.abs(p.x - tail[0]) <= 20 &&
+                  p.y > tail[1] &&
+                  p.y < tail[1] + 70
+                ) {
+                  dx = -8;
+                  align = "end";
+                }
+                c.boundLabel(net, key, dx, dy, align);
+              },
+            }
+          : c;
+      routeDrawing(
+        reviewOtaDrawing(id, drawing, devices),
+        ds.map((d) =>
+          (id === "ota-drive-sky130-sol-6-r1" && d.ref === "XINN") ||
+          (id === "ota-wide-sky130-astra-r2" && d.ref === "XNSC")
+            ? { ...d, labelClearance: 1 }
+            : d,
+        ),
+        devices,
+        ports,
+        sections,
+        auxiliaryNets,
+      );
     },
   };
 }

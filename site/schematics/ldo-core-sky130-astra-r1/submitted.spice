@@ -1,0 +1,30 @@
+* Continuous-time SKY130 LDO, nominal output 1.2 V from a 0.6 V reference.
+* MOS W and L are in micrometres under the pinned PDK scale.
+.subckt DUT VIN VOUT VSS VREF
+* Resistor-fed bias and a 3:1 NMOS tail-current mirror.
+RBIAS VIN BIAS 150k
+XNBIAS BIAS BIAS VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XNTAIL TAIL BIAS VSS VSS sky130_fd_pr__nfet_01v8 w=30 l=1 nf=1 m=1
+* NMOS differential input stage with PMOS mirror load.
+XNFB N1 FB TAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+XNREF GATE REF TAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+XP1 N1 N1 VIN VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5 nf=1 m=1
+XP2 GATE N1 VIN VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5 nf=1 m=1
+* Three parallel pass devices provide low-supply headroom at 2 mA.
+XPPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=3
+* Matched supply terms place both inputs near 0.84--0.96 V.
+* The small divider offset centers the finite-gain DC error across corners.
+RREF1 VIN REF 1.4meg
+RREF2 REF VREF 600k
+RFB1 VOUT FB 149k
+RFB2 FB VSS 151.013513513514k
+RFB3 VIN FB 175k
+* Fast output feedback, series-RC compensation, and reference bypass.
+CFF VOUT FB 1p
+RCOMP VOUT CM 50k
+CCOMP CM GATE 0.3p
+CREF REF VREF 5p
+* Match the supply response of the input-divider paths.
+RREFAC VIN RAC 40k
+CREFAC RAC REF 2.2p
+.ends DUT

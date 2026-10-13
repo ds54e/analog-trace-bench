@@ -1,0 +1,16 @@
+* PMOS LDO with an NMOS input differential amplifier.
+.subckt DUT VIN VOUT VSS VREF
+RFB1 VOUT FB 148k
+RFB2 FB VSS 150k
+RBIAS VIN BN 180k
+XNBIAS BN BN VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XNTAIL NT BN VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=1 nf=1 m=1
+XNIN1 N1 FB NT VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=1
+XNIN2 GATE VREF NT VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=1
+XPLOAD1 N1 N1 VIN VIN sky130_fd_pr__pfet_01v8 w=10 l=1 nf=1 m=1
+XPLOAD2 GATE N1 VIN VIN sky130_fd_pr__pfet_01v8 w=10 l=1 nf=1 m=1
+XPPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+RCOMP VOUT CZ 45k
+CCOMP CZ GATE 2p
+CFF VOUT FB 2p
+.ends DUT

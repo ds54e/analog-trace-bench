@@ -168,6 +168,27 @@ export function refineOtaCase(id, ds, devices) {
     passive("RZ", 1000, 390, "o1", true);
     passive("CC", 1110, 390, "oz", true);
   }
+  if (id === "ota-wide-sky130-astra-r2") {
+    // Both input pairs share VINP/VINN and sum into G. Stack the PMOS pair
+    // beneath the folded NMOS pair; keep the DNC-controlled sink at G with
+    // its diode mate rather than treating it as a separate later stage.
+    mos("XNFT2 XNFC2", 160, 160, false, 140);
+    mos("XNFT1 XNFC1", 820, 160, true, 140);
+    mos("XNN", 380, 300);
+    mos("XNP", 600, 300, true);
+    mos("XNT", 490, 440);
+    mos("XNSC", 180, 440, true);
+    mos("XNDC", 800, 440);
+    mos("XPT", 490, 540);
+    mos("XPN", 380, 650);
+    mos("XPP", 600, 650, true);
+    mos("XPL2", 400, 760, true);
+    mos("XPL1", 580, 760);
+    mos("XOUTP", 1240, 300);
+    mos("XOUTN", 1240, 480);
+    passive("RC", 1000, 400, "g", true);
+    passive("CC", 1110, 400, "cc", true);
+  }
   if (id === "ota-wide-sky130-astra-r3") {
     mos("Xnloadp Xnfoldp", 160, 160, false, 140);
     mos("Xnloadn Xnfoldn", 820, 160, true, 140);
@@ -178,7 +199,9 @@ export function refineOtaCase(id, ds, devices) {
     mos("Xpin", 600, 650, true);
     mos("Xpt", 490, 540);
     mos("Xcasplp Xplp", 160, 650);
-    mos("Xcaspln Xpln", 820, 650, true);
+    // Offset the diode/mirror column from the incoming fold axis so its
+    // local D-G tie and the input-drain T are visibly distinct.
+    mos("Xcaspln Xpln", 860, 650, true);
     mos("Xpfd Xcaspfd", 1080, 160);
     mos("Xcaspfold Xpfold", 1080, 650);
     mos("Xpfo Xcaspfo", 1340, 160);

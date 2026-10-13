@@ -1,0 +1,13 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CC CZ VIN 10p
+RFB1 VOUT FB 19.9k
+RFB2 FB VSS 20k
+RTAIL TS VSS 5k
+RZ PG CZ 60k
+XNI1 PD FB TS VSS sky130_fd_pr__nfet_01v8 l=1 w=100 nf=1 m=16
+XNI2 PG VREF TS VSS sky130_fd_pr__nfet_01v8 l=1 w=100 nf=1 m=16
+XPM1 PD PD VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=100 nf=1 m=2
+XPM2 PG PD VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=100 nf=1 m=2
+XPP VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=100 nf=1 m=3
+.ends DUT

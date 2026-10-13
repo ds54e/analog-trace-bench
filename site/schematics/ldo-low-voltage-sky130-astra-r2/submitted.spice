@@ -1,0 +1,18 @@
+* Two-stage PMOS-input, current-mirror power LDO.
+.subckt DUT VIN VOUT VSS VREF
+RREF1 VREF VR 1meg
+RREF2 VR VSS 250k
+RFB1 VOUT FB 89.5k
+RFB2 FB VSS 10k
+CFF VOUT FB 5p
+RTAIL VIN PT 4k
+XPR ND VR PT VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=2
+XPF EA FB PT VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=2
+XND ND ND VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 nf=1 m=1
+XNO EA ND VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 nf=1 m=1
+XDRV PG EA VSS VSS sky130_fd_pr__nfet_01v8 w=32 l=0.5 nf=1 m=1
+XPD PG PG VIN VIN sky130_fd_pr__pfet_01v8 w=13 l=0.15 nf=1 m=1
+XPP VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+RCOMP EA EC 10k
+CCOMP EC PG 0.2p
+.ends DUT

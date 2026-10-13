@@ -1,0 +1,34 @@
+.subckt DUT VIN VOUT VSS VREF
+* PMOS pass element
+XMPASS VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=32
+
+* 1:1 output feedback divider
+RFB1 VOUT VFB 49.8k
+RFB2 VFB VSS 47.5k
+XMPFF VFF VREF VOUT VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15
+RFF VFF VFB 600k
+RFG1 VIN VFFG 8meg
+RFG2 VFFG VREF 2meg
+XMPFFLINE VFFLINE VFFG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=1 m=2
+RFFLINE VFFLINE VFB 400k
+
+* Resistor-biased PMOS mirror sets the differential-pair tail current
+XMPREF PBIAS PBIAS VIN VIN sky130_fd_pr__pfet_01v8 w=10 l=0.5
+RPBIAS PBIAS VSS 180k
+XMPTAIL PS PBIAS VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=2
+
+* PMOS differential pair and NMOS mirror load
+XMPREFIN NL VREF PS VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=8
+XMPFBIN X VFB PS VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=8
+XMNLOAD1 NL NL VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5
+XMNLOAD2 X NL VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5
+
+* NMOS gate sink and passive pull-up
+XMNDRIVE VG X VSS VSS sky130_fd_pr__nfet_01v8 w=18.8 l=0.15
+RGPULL VIN VG 12k
+
+* Miller compensation with a zero-setting resistor and output feed-forward
+RZ X COMP 17.5k
+CCOMP COMP VG 0.52p
+CFF VOUT VFB 29.48p
+.ends DUT

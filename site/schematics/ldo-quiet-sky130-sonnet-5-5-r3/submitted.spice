@@ -1,0 +1,22 @@
+* topology H: PMOS second stage
+.subckt DUT VIN VOUT VSS VREF
+R1 VOUT FB 24k
+R2 FB VSS 24k
+CFF VOUT FB 5p
+XMB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=1
+RB VIN NB 250k
+XMT TAIL NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=5
+XM1 D FB TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=6 nf=1 m=4
+XM2 E VREF TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=6 nf=1 m=4
+XM3 D D VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=2 nf=1 m=2
+XM4 E D VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=2 nf=1 m=2
+RSP VIN SCP 0.1k
+XMC H E SCP VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=1
+XMN H H VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=1
+XMBL H NB VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 nf=1 m=4
+XMN2 G H VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=1
+XMD G G VIN VIN sky130_fd_pr__pfet_01v8 W=40 L=0.4 nf=1 m=1
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.4 nf=1 m=16
+RZ E EZ 100k
+CZ EZ VIN 15p
+.ends DUT

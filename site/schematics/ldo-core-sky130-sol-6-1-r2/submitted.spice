@@ -1,0 +1,48 @@
+* Folded current-output continuous-time LDO.
+.subckt DUT VIN VOUT VSS VREF
+RFBT VOUT FB 301k
+RFBB FB VSS 300k
+CFF VOUT FB 1p
+* Regulated bias uses a quarter-reference resistor voltage.
+XPBIAS PB PB VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=1 nf=1 m=1
+XTAIL PT PB VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=1 nf=1 m=3
+RSFB PT PSFB 5k
+RSREF PT PSREF 5k
+XINFB DNFB FB PSFB VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+XINREF DNREF VREF PSREF VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+XNFB NF DNFB VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+XNCFB DNFB NC NF VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+XNREF NR DNREF VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+XNCREF DNREF NC NR VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+XNFOLD NI DNREF VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+XNCFOLD PU NC NI VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+XPUPREF PR PU VIN VIN sky130_fd_pr__pfet_01v8 w=8 l=0.5 nf=1 m=1
+XPCREF PU PC PR VIN sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+XPUP PO PU VIN VIN sky130_fd_pr__pfet_01v8 w=8 l=0.5 nf=1 m=5
+XPCOUT PG PC PO VIN sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=5
+XNDOWN NO DNFB VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=5
+XNCDOWN PG NC NO VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=5
+RLEAD PG GC 90k
+CGCOMP GC VSS 3.5p
+XPASS VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+RPC PC VSS 750k
+XPCB PC PC VIN VIN sky130_fd_pr__pfet_01v8 w=0.84 l=1 nf=1 m=1
+XNCBIAS NC PB VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=1 nf=1 m=1
+XNCB NC NC VSS VSS sky130_fd_pr__nfet_01v8 w=0.6 l=0.5 nf=1 m=1
+CNC NC VSS 0.5p
+CPC PC VIN 0.5p
+RMILL PG MC 15k
+CMILL MC VOUT 0.65p
+
+RBDT VREF BREF 3meg
+RBDB BREF VSS 1meg
+CBREF BREF VSS 0.3p
+RBSET BS VSS 47k
+XBSET PB BA BS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.15 nf=1 m=1
+RBTAIL VIN BT 1meg
+XBA1 BA BS BT VIN sky130_fd_pr__pfet_01v8 w=4 l=1 nf=1 m=1
+XBA2 BD BREF BT VIN sky130_fd_pr__pfet_01v8 w=4 l=1 nf=1 m=1
+XBN1 BD BD VSS VSS sky130_fd_pr__nfet_01v8 w=2 l=2 nf=1 m=1
+XBN2 BA BD VSS VSS sky130_fd_pr__nfet_01v8 w=2 l=2 nf=1 m=1
+CBAC BA VSS 1p
+.ends DUT

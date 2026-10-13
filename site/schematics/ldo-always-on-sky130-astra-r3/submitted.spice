@@ -1,0 +1,22 @@
+* Continuous-time LDO, differential error amplifier with load-tracking bias
+.subckt DUT VIN VOUT VSS VREF
+* Slight setpoint centering balances finite-gain error over load and PVT.
+RFBT VOUT FB 2.015meg
+RFBB FB VSS 2meg
+CFF VOUT FB 1p
+* Low-current reference and NMOS bias mirror
+RB VIN BN 8meg
+XNB BN BN VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=2 nf=1 m=1
+XNT TAIL BN VSS VSS sky130_fd_pr__nfet_01v8 W=6 L=2 nf=1 m=1
+* Bias increases with pass current
+XPA BA G VIN VIN sky130_fd_pr__pfet_01v8 W=0.5 L=0.75 nf=1 m=1
+XNA BA BA VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=2 nf=1 m=1
+XNAT TAIL BA VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=2 nf=1 m=1
+* NMOS differential input and PMOS mirror load
+XNF D FB TAIL VSS sky130_fd_pr__nfet_01v8 W=12 L=0.3 nf=1 m=1
+XNR G VREF TAIL VSS sky130_fd_pr__nfet_01v8 W=12 L=0.3 nf=1 m=1
+XPL D D VIN VIN sky130_fd_pr__pfet_01v8 W=0.5 L=0.5 nf=1 m=1
+XPR G D VIN VIN sky130_fd_pr__pfet_01v8 W=0.5 L=0.5 nf=1 m=1
+* PMOS series pass element
+XPP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=30 L=0.5 nf=1 m=1
+.ends DUT

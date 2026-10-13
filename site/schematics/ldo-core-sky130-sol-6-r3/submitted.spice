@@ -1,0 +1,20 @@
+.subckt DUT VIN VOUT VSS VREF
+* Series PMOS pass device
+XPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=2
+* Equal supply common mode on reference and feedback inputs
+RVRVIN VIN VR 1.51meg
+RVRREF VR VREF 0.5meg
+RFVIN VIN VH 4meg
+RFOUT VOUT VH 2.666666666666667meg
+RFVSS VH VSS 2.666666666666667meg
+* Resistor biased NMOS differential amplifier
+RBIAS VIN NB 140k
+XNBIAS NB NB VSS VSS sky130_fd_pr__nfet_01v8 w=4 l=1 m=1
+XNTAIL SRC NB VSS VSS sky130_fd_pr__nfet_01v8 w=16 l=1 m=1
+XNL DL VH SRC VSS sky130_fd_pr__nfet_01v8 w=30 l=0.5 m=1
+XNR GATE VR SRC VSS sky130_fd_pr__nfet_01v8 w=30 l=0.5 m=1
+XPL DL DL VIN VIN sky130_fd_pr__pfet_01v8 w=60 l=1 m=1
+XPR GATE DL VIN VIN sky130_fd_pr__pfet_01v8 w=60 l=1 m=1
+* Loop lead and compensation
+CFF VOUT VH 1p
+.ends DUT

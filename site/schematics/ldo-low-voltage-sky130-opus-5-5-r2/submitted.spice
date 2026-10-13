@@ -1,0 +1,46 @@
+.subckt DUT VIN VOUT VSS VREF
+RB VIN nb 140k
+XNB nb nb VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1 nf=1 m=1
+XNT tf nb VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1 nf=1 m=2
+XF1 d1 vs tf VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 nf=1 m=2
+XF2 d2 fa tf VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 nf=1 m=2
+XP1 d1 d1 VIN VIN sky130_fd_pr__pfet_01v8 W=30 L=0.15 nf=1 m=1
+XP2 d2 d2 VIN VIN sky130_fd_pr__pfet_01v8 W=30 L=0.15 nf=1 m=1
+XP2O g d2 VIN VIN sky130_fd_pr__pfet_01v8 W=30 L=0.15 nf=1 m=4
+XP1O d3 d1 VIN VIN sky130_fd_pr__pfet_01v8 W=30 L=0.15 nf=1 m=4
+XN3 d3 d3 VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=0.5 nf=1 m=4
+XN3O g d3 VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=0.5 nf=1 m=4
+XS1 e2 VREF ts VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=10
+XS2 e1 fb ts VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=10
+XR vs VREF tr VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=30
+RTR tr VSS 67k
+RTS ts VSS 100k
+XS3 e1 e1 VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.15 nf=1 m=1
+XS4 e2 e1 VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.15 nf=1 m=1
+XY vs e2 VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.15 nf=1 m=3
+RM vs em 200k
+CM em e2 2p
+RA VOUT fa 50k
+RBD fa fb 50k
+RC fb VSS 100k
+CFF VOUT fa 5p
+RZ g nz 62k
+CZ nz VIN 17p
+XMP VOUT g VIN VIN sky130_fd_pr__pfet_01v8 W=20 L=0.15 nf=1 m=15
+XBR1 rp nb VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=4 nf=1 m=1
+XBRP rp rp VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=0.15 nf=1 m=1
+RX1 rp gx 2meg
+CX1 VOUT gx 1p
+XBX dx gx VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=0.15 nf=1 m=1
+XBY dx dx VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=0.5 nf=1 m=1
+XBD g dx VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=0.5 nf=1 m=10
+XBR2 rn rn VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=0.5 nf=1 m=1
+XBRP2 rn rp2 VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=0.15 nf=1 m=1
+XBRP3 rp2 rp2 VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=0.15 nf=1 m=1
+XBR3 rp2 nb VSS VSS sky130_fd_pr__nfet_01v8 W=1 L=4 nf=1 m=1
+RX2 rn gu 2meg
+CX2 VOUT gu 1p
+XBU du gu VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=0.5 nf=1 m=1
+XBV du du VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=0.15 nf=1 m=1
+XBUP g du VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=0.15 nf=1 m=10
+.ends DUT

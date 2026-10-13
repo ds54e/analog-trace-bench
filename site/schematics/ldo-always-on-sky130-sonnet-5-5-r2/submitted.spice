@@ -1,0 +1,22 @@
+* LDO v1: NMOS-input 5T OTA + PMOS pass, adaptive bias from pass-current replica
+.subckt DUT VIN VOUT VSS VREF
+
+* feedback divider
+RTOP VOUT VFB 2.4meg
+RBOT VFB VSS 2.4meg
+
+* pass device
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=0.6 nf=1 m=25
+
+* error amplifier (VFB on diode side, VREF on output side)
+XM1 NA VFB NT VSS sky130_fd_pr__nfet_01v8 W=10 L=0.45 nf=1 m=2
+XM2 VG VREF NT VSS sky130_fd_pr__nfet_01v8 W=10 L=0.45 nf=1 m=2
+XM3 NA NA VIN VIN sky130_fd_pr__pfet_01v8 W=5 L=0.45 nf=1 m=2
+XM4 VG NA VIN VIN sky130_fd_pr__pfet_01v8 W=5 L=0.45 nf=1 m=2
+XMT NT VBN VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=2 nf=1 m=2
+
+* bias: fixed resistor branch plus replica of pass current
+RB VIN VBN 2.5meg
+XMD VBN VBN VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=2 nf=1 m=2
+XMS VBN VG VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=0.72 nf=1 m=1
+.ends DUT

@@ -1,0 +1,15 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CCOMP ncc VOUT 5p
+RBIAS VIN nbias 100k
+RFB VOUT fb 20k
+RFBLO fb VSS 20k
+RNULL drv ncc 1meg
+XBIAS nbias nbias VSS VSS sky130_fd_pr__nfet_01v8 l=4 w=20 nf=1 m=1
+XLOADFB nfb nfb VIN VIN sky130_fd_pr__pfet_01v8 l=6 w=30 nf=1 m=1
+XLOADREF drv nfb VIN VIN sky130_fd_pr__pfet_01v8 l=6 w=30 nf=1 m=1
+XNFB nfb fb ntail VSS sky130_fd_pr__nfet_01v8 l=6 w=90 nf=1 m=1
+XNREF drv VREF ntail VSS sky130_fd_pr__nfet_01v8 l=6 w=90 nf=1 m=1
+XPASS VOUT drv VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=100 nf=1 m=4
+XTAIL ntail nbias VSS VSS sky130_fd_pr__nfet_01v8 l=4 w=20 nf=1 m=1
+.ends DUT

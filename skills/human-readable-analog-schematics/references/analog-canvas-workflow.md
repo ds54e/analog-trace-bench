@@ -1,8 +1,8 @@
 # Native Analog Canvas verification
 
-Verified for ATB's 121 OTA runs and LDO pilot with Analog Canvas 0.9.2, commit
+Verified for ATB's 121 OTA runs and 98 LDO runs with Analog Canvas 0.9.2, commit
 [`37bccd4012764dce53b34927fa606c6f430296a2`](https://github.com/cascode-ai/analog-canvas/tree/37bccd4012764dce53b34927fa606c6f430296a2),
-on 2026-10-12. Recheck API names and export/display behavior when changing versions.
+on 2026-10-13. Recheck API names and export/display behavior when changing versions.
 For ATB, read `docs/SCHEMATICS.md` for installation and regeneration. Outside ATB,
 use the installed runtime's supported interfaces rather than assuming that the
 pilot generator or bridge exists.
@@ -75,12 +75,21 @@ Use a SPICE-aware numeric parser: suffixes are case-insensitive and `M` is milli
 Preserve unsupported expressions until their comparison is deliberately supported.
 The ATB constant-only case retains its inconclusive native comparison and adds
 a separate native comparison after resolving declared numeric `{name}` values.
-An independent parser also checks declarations, ordered pins and values; it
-rejects arithmetic, aliases, duplicate declarations and unknown names. Preserve
-expressions in saved artifacts. Compare omitted SKY130 nf/m to one while
+An independent parser also checks declarations, ordered pins and exact values;
+it rejects aliases, duplicate declarations, unknown names and arithmetic outside
+the explicitly bounded literal subset below. Preserve expressions in saved artifacts. Compare omitted SKY130 nf/m to one while
 retaining every explicit multiplier.
 A topology grade alone is insufficient; the pinned `compareNetlists` output also
-checks interface order and parameters.
+checks interface order and parameters. ATB additionally accepts bounded literal
+arithmetic with exact rational comparison. Keep the original expression in the
+source, project and checked export; evaluated numbers are comparison/display
+views only. Bound both syntax and numeric magnitude before evaluation.
+
+An authoritative submission may itself contain an open pin. Preserve that fact
+and its native diagnostic. A drawing exception needs proof of the exact source
+singleton, endpoint and diagnostic, plus a visible open terminal; never waive all
+unconnected-pin warnings or connect the pin merely to obtain zero diagnostics.
+ATB's one recorded exception is documented in `docs/SCHEMATICS.md`.
 
 ## Export-order limitation
 

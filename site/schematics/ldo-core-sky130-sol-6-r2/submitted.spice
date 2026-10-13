@@ -1,0 +1,20 @@
+* Complementary-input continuous-time LDO with MOS-diode trim.
+.subckt DUT VIN VOUT VSS VREF
+RFBT VOUT FB 300k
+RFBB FB VSS 296k
+CFF VOUT FB 3.8p
+XNCOMP VOUT VOUT FB VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.5
+RPT VIN PT 2meg
+XPF NDI FB PT VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5
+XPR GATE VREF PT VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5
+XNM1 NDI NDI VSS VSS sky130_fd_pr__nfet_01v8 w=5 l=1
+XNM2 GATE NDI VSS VSS sky130_fd_pr__nfet_01v8 w=5 l=1
+RNT NT VSS 3.2k
+XNF PDI FB NT VSS sky130_fd_pr__nfet_01v8 w=100 l=0.18 m=4
+XNR GATE VREF NT VSS sky130_fd_pr__nfet_01v8 w=100 l=0.18 m=4
+XPM1 PDI PDI VIN VIN sky130_fd_pr__pfet_01v8 w=2.5 l=0.5
+XPM2 GATE PDI VIN VIN sky130_fd_pr__pfet_01v8 w=4 l=0.5
+XPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.155 m=2
+XPASSA VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=30 l=0.155
+CCOMP GATE VOUT 0.4p
+.ends DUT

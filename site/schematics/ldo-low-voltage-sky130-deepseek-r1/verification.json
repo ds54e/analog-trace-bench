@@ -1,0 +1,93 @@
+{
+  "source_sha256": "65864b37060bcd8fc22f1ccedfcc7e4da2a20bd9dbf63d91bc60f6576a241d69",
+  "generator": {
+    "name": "Analog Canvas",
+    "version": "0.9.2",
+    "commit": "37bccd4012764dce53b34927fa606c6f430296a2"
+  },
+  "native_reopen": true,
+  "svg_export_options": {
+    "margin": 20
+  },
+  "native_comparison": {
+    "status": "match",
+    "summary": "equal",
+    "topology": "equal",
+    "counts": {
+      "interface": 0,
+      "device": 0,
+      "target": 0,
+      "declaration": 0,
+      "connection": 0,
+      "scope": 0,
+      "port-order": 0,
+      "binding": 0,
+      "parameter": 0
+    },
+    "reasons": [],
+    "differences": []
+  },
+  "export_options": {
+    "format": "spice",
+    "groundPin": "global"
+  },
+  "ordinary_export_comparison": {
+    "status": "mismatch",
+    "summary": "topology equal; 1 port-order difference",
+    "topology": "equal",
+    "counts": {
+      "interface": 0,
+      "device": 0,
+      "target": 0,
+      "declaration": 0,
+      "connection": 0,
+      "scope": 0,
+      "port-order": 1,
+      "binding": 0,
+      "parameter": 0
+    },
+    "reasons": [],
+    "differences": [
+      {
+        "kind": "port-order",
+        "cell": "DUT",
+        "object": "ports",
+        "expected": [
+          "vin",
+          "vout",
+          "vss",
+          "vref"
+        ],
+        "actual": [
+          "vss",
+          "vin",
+          "vout",
+          "vref"
+        ]
+      }
+    ]
+  },
+  "visible_wiring": {
+    "status": "connected",
+    "checked_non_body_pins": 48,
+    "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "a",
+      "f",
+      "nrz",
+      "tailn",
+      "vbn",
+      "vfb",
+      "vg",
+      "vout",
+      "vref"
+    ],
+    "named_connections_checked": true
+  },
+  "body_defaults_checked": true,
+  "saved_display_values_checked": true,
+  "passive_display_significant_digits": 2,
+  "native_unrouted_connections": 0,
+  "native_diagnostics": [],
+  "simulation_run": false
+}

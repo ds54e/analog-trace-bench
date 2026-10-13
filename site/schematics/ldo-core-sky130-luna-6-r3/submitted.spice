@@ -1,0 +1,16 @@
+* SKY130 PMOS-pass LDO with directly driven pass gate
+.subckt DUT VIN VOUT VSS VREF
+RBIAS VIN NBIAS 100k
+XMBIAS NBIAS NBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=40 l=0.5
+XMT NTAIL NBIAS VSS VSS sky130_fd_pr__nfet_01v8 w=80 l=0.5 m=2
+XMFB NX VFB NTAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=0.5
+XMREF NG VREF NTAIL VSS sky130_fd_pr__nfet_01v8 w=40 l=0.5
+XMPD NX NX VIN VIN sky130_fd_pr__pfet_01v8 w=10 l=0.5
+XMPM NG NX VIN VIN sky130_fd_pr__pfet_01v8 w=10 l=0.5
+XMPASS VOUT NG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=4
+RFT VOUT VFB 990k
+RFB VFB VSS 1meg
+CFF VOUT VFB 13p
+RCOMP NG NCOMP 50k
+CCOMP NCOMP VOUT 6p
+.ends DUT

@@ -1,0 +1,18 @@
+* LDO: NMOS-input 5T OTA (resistor tail) + PMOS pass device, external-cap dominant pole
+.subckt DUT VIN VOUT VSS VREF
+* feedback divider 2:1
+R1 VOUT FB 25k
+R2 FB VSS 25k
+* NMOS input pair in weak inversion (long L for high gm*ro -> PSRR, low 1/f), resistor tail
+XM1 N3 FB TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=4 m=4
+XM2 GATE VREF TAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=4 m=4
+RT TAIL VSS 3k
+* PMOS current mirror load
+XM3 N3 N3 VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=1 m=1
+XM4 GATE N3 VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=1 m=1
+* lag network to VIN (gain shaping, HF gate tracks VIN)
+RC GATE NC 120k
+CC NC VIN 25p
+* pass device
+XMP VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=3
+.ends DUT

@@ -1,0 +1,13 @@
+* Always-on LDO: single-stage OTA drives PMOS pass device; divider feedback
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=9 L=0.15 nf=1 m=1
+XM3 NA NA VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=2 nf=1 m=1
+XM4 VG NA VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=2 nf=1 m=1
+XM1 NA VFB VS VSS sky130_fd_pr__nfet_01v8 W=18 L=0.3 nf=1 m=1
+XM2 VG VREF VS VSS sky130_fd_pr__nfet_01v8 W=18 L=0.3 nf=1 m=1
+XM5 VS VB VSS VSS sky130_fd_pr__nfet_01v8 W=30 L=0.15 nf=1 m=1
+XM6 VB VB VSS VSS sky130_fd_pr__nfet_01v8 W=15 L=0.15 nf=1 m=1
+RB VIN VB 3.3meg
+RT VOUT VFB 3meg
+RBOT VFB VSS 3meg
+.ends DUT

@@ -1,0 +1,23 @@
+.subckt DUT VIN VOUT VSS VREF
+* Matched dividers compare VREF/2 with approximately VOUT/4
+RREFTOP VREF RP 500k
+RREFBOT RP VSS 500k
+RFBTOP VOUT FB 1.503meg
+RFBBOT FB VSS 500k
+RBLEED VOUT VSS 33k
+* Shared PMOS current reference and mirrored bias devices
+XPBIAS PB PB VIN VIN sky130_fd_pr__pfet_01v8 w=5 l=0.15
+RBIAS PB VSS 30k
+XPTAIL TAIL PB VIN VIN sky130_fd_pr__pfet_01v8 w=10 l=0.15
+XPPULL G PB VIN VIN sky130_fd_pr__pfet_01v8 w=3.6 l=0.15
+* PMOS input pair with NMOS mirror load
+XPREF MIR RP TAIL VIN sky130_fd_pr__pfet_01v8 w=38 l=0.19
+XPFB X FB TAIL VIN sky130_fd_pr__pfet_01v8 w=38 l=0.19
+XNBIAS MIR MIR VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5
+XNMIR X MIR VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5
+* Common-source gate driver and large low-dropout PMOS pass device
+XNDRV G X VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5
+XPASS VOUT G VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=4
+CFAS G VOUT 10p
+CMIR VOUT MIR 1.15p
+.ends DUT

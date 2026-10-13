@@ -1,0 +1,20 @@
+* NMOS-input continuous-time LDO.
+.subckt DUT VIN VOUT VSS VREF
+RB VIN BN 750k
+XBN BN BN VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XT S BN VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=2
+XIF DF FB S VSS sky130_fd_pr__nfet_01v8 w=100 l=0.15 nf=1 m=4
+XIR DR VREF S VSS sky130_fd_pr__nfet_01v8 w=100 l=0.15 nf=1 m=4
+RCU VIN BC 360k
+RCL BC VSS 640k
+XCF D BC DF VSS sky130_fd_pr__nfet_01v8 w=5 l=0.15 nf=1 m=1
+XCR G BC DR VSS sky130_fd_pr__nfet_01v8 w=5 l=0.15 nf=1 m=1
+XPD D D VIN VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5 nf=1 m=1
+XPG G D VIN VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5 nf=1 m=1
+XP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=3
+RFT VOUT FB 59.1k
+RFB FB VSS 60k
+CFF VOUT FB 0.8p
+RZ G Z 20k
+CC Z VOUT 0.2p
+.ends DUT

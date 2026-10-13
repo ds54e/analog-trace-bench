@@ -1,0 +1,21 @@
+* NMOS error amplifier with resistive common-mode translation
+.subckt DUT VIN VOUT VSS VREF
+RREFV VIN VR 550k
+RREFR VREF VR 300k
+RREFG VR VSS 1.1meg
+RFBV VIN FB {550000/3}
+RFBO VOUT FB {200000/1.008}
+RFBG FB VSS {55000/(0.425-0.275*0.008)}
+CFF VOUT FB 10p
+CREF VR VSS 5p
+RBIAS VIN NB 120k
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=2 nf=1 m=1
+XTAIL TAIL NB VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=2
+XIN1 N1 FB TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=4
+XIN2 PG VR TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=4
+XPM1 N1 N1 VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=4
+XPM2 PG N1 VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=4
+XPASS VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+RCOMP PG CM 5k
+CCOMP CM VOUT 3p
+.ends DUT

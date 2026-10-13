@@ -1,0 +1,16 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CCOMP CZ GATE 2p
+CFF VOUT FB 2p
+RBIAS VIN BN 180k
+RCOMP VOUT CZ 45k
+RFB1 VOUT FB 148k
+RFB2 FB VSS 150k
+XNBIAS BN BN VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=10 nf=1 m=1
+XNIN1 N1 FB NT VSS sky130_fd_pr__nfet_01v8 l=0.5 w=100 nf=1 m=1
+XNIN2 GATE VREF NT VSS sky130_fd_pr__nfet_01v8 l=0.5 w=100 nf=1 m=1
+XNTAIL NT BN VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=40 nf=1 m=1
+XPLOAD1 N1 N1 VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=10 nf=1 m=1
+XPLOAD2 GATE N1 VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=10 nf=1 m=1
+XPPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=100 nf=1 m=4
+.ends DUT

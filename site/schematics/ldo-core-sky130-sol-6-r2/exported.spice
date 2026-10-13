@@ -1,0 +1,20 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CCOMP GATE VOUT 0.4p
+CFF VOUT FB 3.8p
+RFBB FB VSS 296k
+RFBT VOUT FB 300k
+RNT NT VSS 3.2k
+RPT VIN PT 2meg
+XNCOMP VOUT VOUT FB VSS sky130_fd_pr__nfet_01v8 l=0.5 w=0.42
+XNF PDI FB NT VSS sky130_fd_pr__nfet_01v8 l=0.18 w=100 m=4
+XNM1 NDI NDI VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=5
+XNM2 GATE NDI VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=5
+XNR GATE VREF NT VSS sky130_fd_pr__nfet_01v8 l=0.18 w=100 m=4
+XPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 l=0.155 w=100 m=2
+XPASSA VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 l=0.155 w=30
+XPF NDI FB PT VIN sky130_fd_pr__pfet_01v8 l=0.5 w=100
+XPM1 PDI PDI VIN VIN sky130_fd_pr__pfet_01v8 l=0.5 w=2.5
+XPM2 GATE PDI VIN VIN sky130_fd_pr__pfet_01v8 l=0.5 w=4
+XPR GATE VREF PT VIN sky130_fd_pr__pfet_01v8 l=0.5 w=100
+.ends DUT

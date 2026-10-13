@@ -1,0 +1,35 @@
+* LDO v3: down-shifted PMOS-input PI error amp -> degenerated NMOS driver -> replica-diode PMOS pass
+.subckt DUT VIN VOUT VSS VREF
+* bias reference: unit NMOS W=2 L=1
+RB VIN NB 330k
+XMNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=1 nf=1 m=8
+XMNP NPB NB VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=1 nf=1 m=8
+XMPB NPB NPB VIN VIN sky130_fd_pr__pfet_01v8 W=4 L=1 nf=1 m=1
+XPT NT NPB VIN VIN sky130_fd_pr__pfet_01v8 W=4 L=1 nf=1 m=6
+* matched level-shift sinks (unit devices, 1/MB of reference)
+XMS1 VRD NB VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=1 nf=1 m=1
+XMS2 FBD NB VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=1 nf=1 m=1
+RC1 VREF VRD 1meg
+RC2 FB FBD 800k
+CC2 FB FBD 1p
+* feedback divider
+R1 VOUT FB 400k
+R2 FB VSS 400k
+CFF VOUT FB 1p
+* PMOS input pair, NMOS mirror load (E rises when VOUT falls)
+XMA NA VRD NT VIN sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=4
+XMB E FBD NT VIN sky130_fd_pr__pfet_01v8 W=20 L=0.5 nf=1 m=4
+XLA NA NA VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1 nf=1 m=1
+XLB E NA VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1 nf=1 m=1
+* PI network
+RZ E NZ 60k
+CZ NZ VSS 1.5p
+* degenerated NMOS driver into pass-gate node G
+XMD G E NS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 nf=1 m=1
+RS NS VSS 1.5k
+RG G VIN 80k
+XPD G G SPD VIN sky130_fd_pr__pfet_01v8 W=10 L=0.15 nf=1 m=1
+RPD VIN SPD 3k
+CPD VIN SPD 10p
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=20 L=0.15 nf=1 m=32
+.ends DUT

@@ -1,0 +1,19 @@
+* Two-stage PMOS-input low-voltage LDO
+.subckt DUT VIN VOUT VSS VREF
+RFT VOUT FB 100k
+RFB FB VSS 17.647k
+CINPUT VOUT FB 1p
+CFEED VOUT NR 0.5p
+RRT VREF REFG 7meg
+RRB REFG VSS 3meg
+RTAIL VIN TAIL 11k
+XPREF NR REFG TAIL VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=8
+XPFB AMP FB TAIL VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=8
+XNREF NR NR VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+XNFB AMP NR VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 m=1
+RPU VIN GATE 20k
+CAMP AMP VSS 1p
+RLOCAL VOUT GATE 22k
+XNDRIVE GATE AMP VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.15 m=1
+XPPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=3
+.ends DUT

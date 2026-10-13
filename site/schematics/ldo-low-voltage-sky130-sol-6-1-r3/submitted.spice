@@ -1,0 +1,32 @@
+* Low-voltage PMOS LDO with capacitive local feedback around error amplifier
+.subckt DUT VIN VOUT VSS VREF
+* Matched input level shifting: 0.3 VIN + 0.7 VREF at equilibrium
+RREFH VIN IR 700k
+RREFL VREF IR 300k
+RFBH VIN IFB 700k
+RFBOUT VOUT IFB 600k
+RFBLO IFB VSS 600k
+CREFH VIN IR 2.4p
+CREFL VREF IR 5.6p
+CFBH VIN IFB 2.4p
+CFBOUT VOUT IFB 3.6p
+CFBLO IFB VSS 2p
+* Resistor-fed current reference and fivefold tail mirror
+RB VIN NB 85k
+XNB NB NB VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XTAIL NS NB VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1 nf=1 m=1
+* Load-dependent auxiliary tail current
+XSENSE NA GP VIN VIN sky130_fd_pr__pfet_01v8 w=3 l=0.15 nf=1 m=1
+XAB NA NA VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XBOOST NS NA VSS VSS sky130_fd_pr__nfet_01v8 w=30 l=1 nf=1 m=1
+* NMOS pair and PMOS current-mirror load
+XFB ND IFB NS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=1
+XREF GP IR NS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=1
+XPL ND ND VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.25 nf=1 m=4
+XPR GP ND VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.25 nf=1 m=4
+* Local AC feedback limits high-frequency gain while preserving DC precision
+CLOCAL GP IR 0.4p
+* Pass transistor and output discharge path
+XPASS VOUT GP VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+RBLEED VOUT VSS 50k
+.ends DUT

@@ -1,0 +1,25 @@
+* LDO v8: final candidate
+.subckt DUT VIN VOUT VSS VREF
+R1 VOUT FB 14.99k
+R2 FB VSS 15k
+* cascode bias
+RB1 VIN CB 1.92meg
+RB2 CB VREF 480k
+* error amp
+XM1 S1 FB T VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=4
+XM2 S2 VREF T VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=4
+XMC1 D1 CB S1 VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 nf=1 m=1
+XMC2 X CB S2 VSS sky130_fd_pr__nfet_01v8 W=100 L=0.5 nf=1 m=1
+RT T VSS 7.5k
+XM3 D1 D1 VIN VIN sky130_fd_pr__pfet_01v8 W=84 L=0.35 nf=1 m=2
+XM4 X D1 VIN VIN sky130_fd_pr__pfet_01v8 W=84 L=0.35 nf=1 m=2
+* driver chain
+XMD Y X VIN VIN sky130_fd_pr__pfet_01v8 W=11.2 L=0.35 nf=1 m=1
+XMND Y Y VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=2 nf=1 m=1
+XMN PG Y VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=2 nf=1 m=32
+XMPD PG PG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.35 nf=1 m=4
+XMP1 VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.35 nf=1 m=32
+XMP2 VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.35 nf=1 m=32
+XMP3 VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.35 nf=1 m=32
+XMP4 VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.35 nf=1 m=32
+.ends DUT

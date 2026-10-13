@@ -1,0 +1,35 @@
+* LDO-LOW-VOLTAGE-SKY130
+* PMOS pass device, 5T PMOS-input error amp with NMOS mirror,
+* reference and feedback scaled x2/x4, Miller+feedforward cap GA->VOUT,
+* resistor-diode bias, resistive preload.
+.subckt DUT VIN VOUT VSS VREF
+
+* --- pass device (effective W/L ~ 21300) ---
+XMP0 VOUT GA VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=32
+
+* --- compensation / feedforward ---
+CC GA VOUT 30p
+
+* --- feedback divider : VOUT/4 ---
+RFA VOUT FB 600k
+RFB FB VSS 200k
+
+* --- reference divider : VREF/2 ---
+RVA VREF VR 1meg
+RVB VR VSS 1meg
+
+* --- error amp : PMOS pair (sources at S1) + NMOS mirror load ---
+XM1 D1 FB VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+XM2 GA VR VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+XM3 D1 D1 VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=0.5 nf=1 m=1
+XM4 GA D1 VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=0.5 nf=1 m=1
+
+* --- bias : diode PMOS + resistor ; tail current source ---
+RB NB VSS 200k
+XM6 NB NB VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=1
+XM5 S1 NB VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=0.5 nf=1 m=8
+
+* --- preload ---
+RL VOUT VSS 20k
+
+.ends DUT

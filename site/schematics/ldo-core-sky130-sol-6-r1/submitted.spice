@@ -1,0 +1,25 @@
+* PMOS-pass LDO with complementary current-mirror gate drive
+.subckt DUT VIN VOUT VSS VREF
+RFBT VOUT FB 597k
+RFBB FB VSS 200k
+CFF VOUT FB 0.5p
+RVR1 VREF VR 350k
+RVR2 VR VSS 350k
+XPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=1
+RZ GATE CZ 50k
+CCOMP CZ VOUT 0.2p
+RBN VIN NB 190k
+XBN NB NB VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 m=1
+XBS BIAS NB VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 m=1
+XBIAS BIAS BIAS VIN VIN sky130_fd_pr__pfet_01v8 w=4 l=1 m=1
+RSTAIL VIN VTS 2k
+XTAIL VS BIAS VTS VIN sky130_fd_pr__pfet_01v8 w=8 l=1 m=2
+XINFB NDI FB VS VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5 m=1
+XINRF NRI VR VS VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5 m=1
+XNMDI NDI NDI VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 m=1
+XNMSK GATE NDI VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 m=1
+XNRDI NRI NRI VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 m=1
+XNRMR PDI NRI VSS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 m=1
+XPUDI PDI PDI VIN VIN sky130_fd_pr__pfet_01v8 w=4 l=1 m=1
+XPUSR GATE PDI VIN VIN sky130_fd_pr__pfet_01v8 w=4 l=1 m=1
+.ends DUT

@@ -1,0 +1,15 @@
+* LDO v10: 5T error amplifier (15 uA tail, 16 um PMOS load), wide NMOS source-follower buffer with 11 uA sink, 30 um PMOS pass device
+.subckt DUT VIN VOUT VSS VREF
+RTOP VOUT FB 100k
+RBOT FB VSS 100k
+RB VIN VB 130k
+XMB VB VB VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=0.5 nf=1 m=1
+XMT VT VB VSS VSS sky130_fd_pr__nfet_01v8 W=8 L=0.5 nf=1 m=1
+XMFS VG VB VSS VSS sky130_fd_pr__nfet_01v8 W=6 L=0.5 nf=1 m=1
+XM1 D1 FB VT VSS sky130_fd_pr__nfet_01v8 W=2.5 L=0.5 nf=1 m=1
+XM2 VA VREF VT VSS sky130_fd_pr__nfet_01v8 W=2.5 L=0.5 nf=1 m=1
+XM3 D1 D1 VIN VIN sky130_fd_pr__pfet_01v8 W=16 L=0.5 nf=1 m=1
+XM4 VA D1 VIN VIN sky130_fd_pr__pfet_01v8 W=16 L=0.5 nf=1 m=1
+XMF VIN VA VG VSS sky130_fd_pr__nfet_01v8 W=10 L=0.15 nf=1 m=1
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=30 L=0.15 nf=1 m=1
+.ends DUT

@@ -1,0 +1,27 @@
+.subckt DUT VIN VOUT VSS VREF
+* Large PMOS pass device
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 w=60 l=0.25
+RPU VIN VG 50meg
+
+* Half-scale output feedback, high resistance to limit minimum-load overhead
+RFB1 VOUT VFB 10meg
+RFB2 VFB VSS 10meg
+RBLEED VOUT VSS 3.3meg
+
+* NMOS differential pair: low VFB pulls VG down and increases pass current
+XMNR VG VREF TAIL VSS sky130_fd_pr__nfet_01v8 w=10 l=2
+XMNF VD VFB TAIL VSS sky130_fd_pr__nfet_01v8 w=10 l=2
+
+* PMOS current-mirror load
+XMPD VD VD VIN VIN sky130_fd_pr__pfet_01v8 w=1 l=2
+XMPM VG VD VIN VIN sky130_fd_pr__pfet_01v8 w=1 l=2
+
+* Resistor-set, mirrored tail bias
+RBIAS VIN BIAS 4.4meg
+XMB BIAS BIAS VSS VSS sky130_fd_pr__nfet_01v8 w=2 l=1
+XMT TAIL BIAS VSS VSS sky130_fd_pr__nfet_01v8 w=9 l=1
+
+* Miller compensation with a series zero
+RCOMP VG VC 10k
+CCOMP VC VOUT 2p
+.ends DUT

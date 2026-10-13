@@ -1,0 +1,24 @@
+* LDO-QUIET-SKY130 DUT v7 (divider trimmed to center systematic offset)
+* PMOS pass + NMOS-input 5T OTA (resistive tail), output-pole dominant loop
+.subckt DUT VIN VOUT VSS VREF
+
+* Feedback divider: k = R2/(R1+R2) ~ 0.5021 (centers OTA systematic offset)
+R1 VOUT FB 23.8k
+R2 FB VSS 24k
+
+* Error amplifier: large NMOS pair (low flicker / high gm)
+XM1 ND1 FB NT VSS sky130_fd_pr__nfet_01v8 W=100 L=1.9 nf=1 m=2
+XM2 ND2 VREF NT VSS sky130_fd_pr__nfet_01v8 W=100 L=1.9 nf=1 m=2
+RT NT VSS 1.5k
+XM3 ND1 ND1 VIN VIN sky130_fd_pr__pfet_01v8 W=50 L=1.9 nf=1
+XM4 ND2 ND1 VIN VIN sky130_fd_pr__pfet_01v8 W=50 L=1.9 nf=1
+
+* Pass device
+XMP VOUT ND2 VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.16 nf=1 m=5
+
+* Compensation: RC shelf at gate + VIN feedforward for 1MHz PSRR
+RSH ND2 NCM 250k
+CSH NCM VSS 2.5p
+CFF VIN ND2 2p
+
+.ends DUT

@@ -1,0 +1,20 @@
+.subckt DUT VIN VOUT VSS VREF
+* Low-current replica bias and NMOS differential error stage.
+RBIAS VIN NBIAS 1.4meg
+XBIAS NBIAS NBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1
+XTAIL NTAIL NBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=1
+XINP NMIR FB NTAIL VSS sky130_fd_pr__nfet_01v8 W=8 L=1
+XINM NGATE VREF NTAIL VSS sky130_fd_pr__nfet_01v8 W=8 L=1
+XLOAD1 NMIR NMIR VIN VIN sky130_fd_pr__pfet_01v8 W=4 L=1
+XLOAD2 NGATE NMIR VIN VIN sky130_fd_pr__pfet_01v8 W=4 L=1
+* Quiet midpoint bias sets the active-discharge threshold.
+* Shunt conducts as the pass control rises on overvoltage.
+* PMOS high-side pass FET; ratio supports low-headroom heavy load.
+XPASS VOUT NGATE VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.25 m=4
+* High-value feedback divider targets 1.2 V from the 0.6 V reference.
+RFB1 VOUT FB 10meg
+RFB2 FB VSS 10meg
+* Miller/feed-forward compensation across the pass device control path.
+CCOMP NGATE VOUT 1p
+CFF VOUT FB 1p
+.ends DUT

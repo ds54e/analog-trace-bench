@@ -1,0 +1,20 @@
+.subckt DUT VIN VOUT VSS VREF
+XPASS VOUT drv VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+
+RFB VOUT fb 20k
+RFBLO fb VSS 20k
+
+* NMOS tail bias and differential input pair
+RBIAS VIN nbias 100k
+XBIAS nbias nbias VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=4 nf=1 m=1
+XTAIL ntail nbias VSS VSS sky130_fd_pr__nfet_01v8 w=20 l=4 nf=1 m=1
+XNREF drv VREF ntail VSS sky130_fd_pr__nfet_01v8 w=90 l=6 nf=1 m=1
+XNFB nfb fb ntail VSS sky130_fd_pr__nfet_01v8 w=90 l=6 nf=1 m=1
+
+* PMOS mirror load; VREF branch drives the pass gate
+XLOADFB nfb nfb VIN VIN sky130_fd_pr__pfet_01v8 w=30 l=6 nf=1 m=1
+XLOADREF drv nfb VIN VIN sky130_fd_pr__pfet_01v8 w=30 l=6 nf=1 m=1
+
+RNULL drv ncc 1meg
+CCOMP ncc VOUT 5p
+.ends DUT

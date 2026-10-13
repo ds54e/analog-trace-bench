@@ -1,0 +1,26 @@
+* LDO core: single-stage 5T OTA (NMOS input pair, PMOS mirror load) driving
+* a PMOS pass device. Miller compensation Cc=12p with series nulling resistor
+* RZ=25k (LHP zero). Bias: VOUT-referenced resistor + diode, mirrored 1:20.
+.subckt DUT VIN VOUT VSS VREF
+* --- pass device (PMOS, source at VIN) ---
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=5
+* --- error amp input pair (NMOS), FB on non-inverting (mirror-diode) side ---
+XM1 A1 VFB VS1 VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5
+XM2 VG VREF VS1 VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5
+* --- tail current mirror ---
+XM5 VS1 NB VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 m=20
+* --- PMOS mirror load ---
+XM3 A1 A1 VIN VIN sky130_fd_pr__pfet_01v8 w=30 l=1
+XM4 VG A1 VIN VIN sky130_fd_pr__pfet_01v8 w=30 l=1
+* --- bias: VOUT-referenced resistor + diode ---
+XM7 NB NB VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1
+RB VOUT NB 320k
+* --- start-up / gate pulldown ---
+RST VG VSS 10meg
+* --- feedback divider ---
+R1D VOUT VFB 300k
+R2D VFB VSS 300k
+* --- Miller compensation with nulling resistor ---
+CC VG NC1 12p
+RZ NC1 VOUT 25k
+.ends DUT

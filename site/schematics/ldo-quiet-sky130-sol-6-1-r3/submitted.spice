@@ -1,0 +1,28 @@
+* Low-noise PMOS LDO, matched input level shifters
+.subckt DUT VIN VOUT VSS VREF
+RFB1 VOUT FB 20k
+RFB2 FB VSS 20k
+CFB VOUT FB 47p
+* Matched source followers move the comparator common mode down
+XSR VIN VREF SR VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=32
+XSF VIN FB SF VSS sky130_fd_pr__nfet_01v8 w=100 l=0.5 nf=1 m=32
+RSR SR VSS 25k
+RSF SF VSS 25k
+* Wide weak-inversion bias mirror
+RB PB VSS 210k
+XPB PB PB VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=1
+XPT TS PB VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=8
+* Error amplifier
+XPI1 ND SR TS VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=8
+XPI2 EA SF TS VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=8
+XNL1 ND ND VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=10 nf=1 m=1
+XNL2 EA ND VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=10 nf=1 m=1
+* Adaptive gate driver and pass device
+XDR PG EA VSS VSS sky130_fd_pr__nfet_01v8 w=30 l=0.5 nf=1 m=1
+XREP PG PG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=1
+XPASS VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=24
+* Frequency shaping and supply feedthrough filtering
+RCOMP EA CZ 200k
+CCOMP CZ VSS 50p
+CEA EA VSS 3p
+.ends DUT

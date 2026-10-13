@@ -1,0 +1,26 @@
+* LDO-LOW-VOLTAGE-SKY130 final DUT
+* continuous-time PMOS-pass LDO:
+*  - NMOS-input single-stage error amp (mirror load), input pair L=0.4um
+*  - 21333-sq PMOS pass device (minimises gate drive swing)
+*  - Miller compensation 22p + 3k nulling resistor, 4p feed-forward cap
+*  - load-proportional adaptive tail bias (fast transient slew)
+*  - 13k pre-load resistor (reduces current step ratio / sets light-load gm)
+.subckt DUT VIN VOUT VSS VREF
+XM0 VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=32
+XM1 A VFB TAILN VSS sky130_fd_pr__nfet_01v8 W=9.4 L=0.4 m=32
+XM2 VG VREF TAILN VSS sky130_fd_pr__nfet_01v8 W=9.4 L=0.4 m=32
+XM3 A A VIN VIN sky130_fd_pr__pfet_01v8 W=7 L=0.5 m=16
+XM4 VG A VIN VIN sky130_fd_pr__pfet_01v8 W=7 L=0.5 m=16
+XM5 TAILN VBN VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 m=16
+XM6 VBN VBN VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 m=16
+RBIAS VIN VBN 280k
+XM7 F VG VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.5 m=20
+XM8 F F VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 m=8
+XM9 TAILN F VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 m=24
+RFB1 VOUT VFB 50k
+CFF VOUT VFB 4p
+RFB2 VFB VSS 50k
+CC VG NRZ 22p
+RZ NRZ VOUT 3k
+RBL VOUT VSS 13k
+.ends DUT

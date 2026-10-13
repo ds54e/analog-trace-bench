@@ -1,0 +1,23 @@
+
+.subckt DUT VIN VOUT VSS VREF
+C3 CASC VSS 20p
+CF3 S3 VIN 30p
+CF4 S4 VIN 30p
+R1 VOUT VFB 29.8k
+R2 VFB VSS 30k
+R3 VIN CASC 100k
+R4 CASC VSS 200k
+RB VIN NB 85k
+RF3 VIN S3 20k
+RF4 VIN S4 20k
+RS1 S1 S 2k
+RS2 S2 S 2k
+XM1 A VFB S1 VSS sky130_fd_pr__nfet_01v8 l=0.5 w=100 m=6
+XM2 X VREF S2 VSS sky130_fd_pr__nfet_01v8 l=0.5 w=100 m=6
+XM3 A A S3 VIN sky130_fd_pr__pfet_01v8 l=0.25 w=16 m=14
+XM4 GATE A S4 VIN sky130_fd_pr__pfet_01v8 l=0.25 w=12.6 m=12
+XMB NB NB VSS VSS sky130_fd_pr__nfet_01v8 l=0.5 w=9
+XMC GATE CASC X VSS sky130_fd_pr__nfet_01v8 l=4 w=24 m=3
+XMP VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 l=0.16 w=53.6 m=7
+XMT S NB VSS VSS sky130_fd_pr__nfet_01v8 l=0.5 w=27
+.ends DUT

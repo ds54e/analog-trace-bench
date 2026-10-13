@@ -41,8 +41,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
       "files": {
-        "schematic.svg": "5f17e6fad0f5d292d6191a4cdf52aa855e4857ed8e98f91a9eeb9b9b960f5308",
-        "project.icproj.json": "9fce9282b4a6fa75a2b13b1ff68cf154892d4a458afe82e9eaa126cf094adb46",
+        "schematic.svg": "bcd527a30815be24f46a33ad79123e4611dd384daeefa04e1dd0e824be73c59b",
+        "project.icproj.json": "a8c1a1c1bbeb7dc8316583a95d6530dc3fe72dbaab6d438337a3a5e10f0a15d9",
         "submitted.spice": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
         "exported.spice": "b96d9bb39a867731ea478c1d24bdce0872d7fb9bfbfa32d0b5057d2dc42e28ae",
         "verification.json": "c50c794ba7be18c3b8d1c7f05964ed351c94c7e104f876f43b418bcea9f8fa7f"
@@ -56,8 +56,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "7c4e04fd498950b7853c681cfe72bf042c2fcc97705c777dfb1ab061e768b451",
       "files": {
-        "schematic.svg": "2744b2a0dfb9fe4b19ff890cb654736926daae09635ee018b3c067edc38da630",
-        "project.icproj.json": "93afdcc6d8bad23fdbcd1a5dad56027eb7c382df1cc963b9ab13997fe93ad354",
+        "schematic.svg": "2ea0987d4d664edbf5097a9dad5710a5bfd286db1e5fd8b4fb5340285f7be1b6",
+        "project.icproj.json": "e9bccd65eb083fa18a46f40cb6f79ceb9e65fa0c5be5dbfdf951cde32b840dc7",
         "submitted.spice": "7c4e04fd498950b7853c681cfe72bf042c2fcc97705c777dfb1ab061e768b451",
         "exported.spice": "501a24eacf447a506b647e9a57fec6627b21851949101f10dd8941bdb10fa0e3",
         "verification.json": "6d72db07c6f1b63bae94876a8972220173ce2442bcec3b2264564193b5a27e5d"
@@ -71,8 +71,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "c1d4f6b986a8ff86b682b7a2da2a0e39764649adb35e202ed1c6e4e177a1e202",
       "files": {
-        "schematic.svg": "dce374e2fb38b765afcb849b32474efff0599668cf552392536b4878484b61ad",
-        "project.icproj.json": "d7dee152b1092a1237b7b7c683746ee2b39f217fe90852442807bc6f6bb01d0d",
+        "schematic.svg": "2b057db221784735946839066596a3adfe17f432172fb2ca50161c951129ac8c",
+        "project.icproj.json": "204036e64672e8532c231b076cd982cb030cf0f9abd09a738f459c8aebe3d2f5",
         "submitted.spice": "c1d4f6b986a8ff86b682b7a2da2a0e39764649adb35e202ed1c6e4e177a1e202",
         "exported.spice": "008bc2197d667ed4e6121c4d031e0e3c1b76dceb5810342a20b20cd15acce346",
         "verification.json": "02f0afcb8147cda8b57d42549f306980f62fd70d09bf5e2bbfde5792201e6717"
@@ -101,8 +101,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "f816d903d46e8f187147af43b9e2f8193362526110e24d64b16d50601526d614",
       "files": {
-        "schematic.svg": "a23c78183396cb599b0688896895f1abfb689ef55eb763e0412ad6b882256813",
-        "project.icproj.json": "e7c502d32dcd5d962b20abf3151658b21a4fe9b38ad401dcdb1f2e933d948e58",
+        "schematic.svg": "7ae84cd5e8c93d4285e42885204ad35eefdcb5f87c4cf5e24f600f8ede86acfd",
+        "project.icproj.json": "84e205ed0801fe9fbf2f98d30bd2cd04e1bf56bc75ff39cde961291639c94013",
         "submitted.spice": "f816d903d46e8f187147af43b9e2f8193362526110e24d64b16d50601526d614",
         "exported.spice": "52c540957413106661cdf2ec23087a062144b673d04bc327e86dcf3c3749b393",
         "verification.json": "ee39dc85b3e31fe9715b03806179f7b66f24b2d8cc597261348cf76ffbb68109"
@@ -116,8 +116,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "b1c34606fd2f9c7ff9e6b7be924cf54f79cb2ef89057659d11c9eac3ece8ee74",
       "files": {
-        "schematic.svg": "f6bc13494a2c674ab29e1428d028abd89c9b2fa6569a7714b16d7702a1cc2706",
-        "project.icproj.json": "b091a7715ff72debe666d4ab94be9dfda356fbd7a80a1b64214f0d01b41cf6de",
+        "schematic.svg": "123c3f0fcaec8728904ae89178d38331146e7bf9beaa9cd7bbb5af0dfbbfd81d",
+        "project.icproj.json": "08b6bcc4f5cfccecaefd19f001a41bb7149af61813952ddcd784feb6f27d6057",
         "submitted.spice": "b1c34606fd2f9c7ff9e6b7be924cf54f79cb2ef89057659d11c9eac3ece8ee74",
         "exported.spice": "69949a3eed3d43a43d748675fb5a4c5b69ca21a8b4526c7e136c7e69f92e9c6f",
         "verification.json": "6ab3964adb8fc7ae86b39bb3303dd26bc64bc7a754cefdc74d5bbc84184dadd5"
@@ -131,8 +131,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0c8c73785a4ffccbe3b6cd9b2c5b618ffb2edd07529a90b6f92f2e9efa45f16d",
       "files": {
-        "schematic.svg": "c1032055fa2b6cc6ae79c51b0514cf135ac7e17c9b2f6aaebf790382e1366745",
-        "project.icproj.json": "01691b74e39e45ce24deec8a59c76dacf6735cd13d81cdbe8805bccc01dea8ed",
+        "schematic.svg": "98bdc4d0f33fb2710b15205e7ff37f2a5cae5c149dd4ebc5555b0a41a4b2546d",
+        "project.icproj.json": "e0e55fffd1e017ab89737c07d3f9d43db10b0cbd6296cf543c1f4b8f0c4eec1d",
         "submitted.spice": "0c8c73785a4ffccbe3b6cd9b2c5b618ffb2edd07529a90b6f92f2e9efa45f16d",
         "exported.spice": "af1b63713c50a570656bbfc4ac2720d653efab8e9c53ad35e4e36c68032d208b",
         "verification.json": "2221b6ae337da06eb049d004cd87e39db320b0ce1196bb683a80e0dcc2794c7f"
@@ -176,8 +176,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4d87de80bed335ac7df1023f0a532b64346de6207bf4a25fa0ae2af830e04721",
       "files": {
-        "schematic.svg": "e6332e77443e54cc329475ba4a3fad2e251f33a35548e6b0ae4325814972b5af",
-        "project.icproj.json": "fb79015ab9146d3abfc92e16dbd7b86c888cab683283de428c0136a3eeb9e460",
+        "schematic.svg": "d16a7d2124eac9acdb43f84fac24a50b4ccdf4606ea333db894bf533e97181a0",
+        "project.icproj.json": "f8c6bfa50260cd40512bbc2ed661c391af9f611c867f158d2b0e7ec02e052613",
         "submitted.spice": "4d87de80bed335ac7df1023f0a532b64346de6207bf4a25fa0ae2af830e04721",
         "exported.spice": "db599934f24741364452603473e25f6fa9286f12971a4daa4adaccfccf2094bb",
         "verification.json": "df061c37d9abfa608ac95218078aa45a5a61041fcebb4a63a22fa88a38baf313"
@@ -191,8 +191,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "b1efbbc9bb0141a450991723f07ebe4ce42ea1a9317ea4e9ca24e020af13d2ee",
       "files": {
-        "schematic.svg": "a69bb8ecc3dfa239630db2c4051e3deac71628e6d1f52518108321119961e530",
-        "project.icproj.json": "fd5571bb42783a60ef4df54d4211c53e42c59cae596997827344161e9ae32100",
+        "schematic.svg": "aeeb7572fbf876234d980200b817c20a219aabb2ff23092f425240e5ea81482e",
+        "project.icproj.json": "920a43e80a855f1827c097fa24420f1f4d2372967671f85a3927c02078d6394c",
         "submitted.spice": "b1efbbc9bb0141a450991723f07ebe4ce42ea1a9317ea4e9ca24e020af13d2ee",
         "exported.spice": "8dc40b3540e23a7eced77686757493f89e83b9c52af5ce18eb79eb3ec55cd21c",
         "verification.json": "b4fcd5d912181148c7237746c15aed553a9bf6d410cc564b805ec17bf463fcfb"
@@ -206,8 +206,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "5e157bc9cd85aa420a072e68e897f3a0bae11fe6fbb3b74a320a8a32f1b62074",
       "files": {
-        "schematic.svg": "4b192bddd933a02b82778e812247e3d241ff1c1fb4f63f8daad304cdf2a6c404",
-        "project.icproj.json": "99778fe01d14928022e79a68a5e036913e8baf60d7a8a0bcd50d0260214dcf0e",
+        "schematic.svg": "73016e81ba777dfa81d7908d246583f3a3808affb46334144145f7b43144cd0d",
+        "project.icproj.json": "0bb503315cdcfe4f08a9b074c2ab395304acb4c10ac136a1239401a4041c8ed9",
         "submitted.spice": "5e157bc9cd85aa420a072e68e897f3a0bae11fe6fbb3b74a320a8a32f1b62074",
         "exported.spice": "716df9abf49c0c8d338bfb902c4e0f1fdbf5493c29d45aea9fda0c29bbf04a3b",
         "verification.json": "16140e732f247db251fcab1ba1569abcbfde5f145d5caa744aa33fc09b0dfd12"
@@ -221,8 +221,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "880a148d0cf388eb34518922c3cd5a9bb07eab5bbdcc4de7e0c3d78f96c2ec40",
       "files": {
-        "schematic.svg": "b83d423a86cdea5ccb4624228ac4c6467d35b18f97f3491550b7818b66d2cebd",
-        "project.icproj.json": "0c4705107425a59b0b562787387820500a299a9af9073854b8f93bb83f1f646d",
+        "schematic.svg": "23c49cbf7f1041e1371efe8085cc83105085f8a13e72d3961fe7ac782e5a63a0",
+        "project.icproj.json": "5035190c693ed880dfab69442adc9f50e68daee2bd2b6e51a82c58119f1f1b72",
         "submitted.spice": "880a148d0cf388eb34518922c3cd5a9bb07eab5bbdcc4de7e0c3d78f96c2ec40",
         "exported.spice": "210bd5ff5584c23598710e793f10ed4c0c05b614e1615d1e66f376afece3cfe6",
         "verification.json": "6a01ef776ca6d0e82d7c6b962cdcc7be8282c184dc991bbeaebc29933cb7a04c"
@@ -236,8 +236,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4a2a805c92f1c595c8920dd73850064ade4349e84e5a3c3d83d59fccae6b4abc",
       "files": {
-        "schematic.svg": "274055abe481d8976bfc698f4535b6bd9ed123ee6ca3e5b1d0a6a22a49427758",
-        "project.icproj.json": "dbb53b487ee1266bebd4f6234031990977d8c06581f5964d10a042ff063a6eab",
+        "schematic.svg": "d90a97d282fb0dec44dbf572e8a24a3d1bacf7600e9d6e283b579914915f4d2f",
+        "project.icproj.json": "2548a2967a106e7df1b0bf0a6da25448c696155052e8d22b56a286fc85cf6223",
         "submitted.spice": "4a2a805c92f1c595c8920dd73850064ade4349e84e5a3c3d83d59fccae6b4abc",
         "exported.spice": "46eaa1ba695849d79882e4e160dabe36a68653cf22649d41b8321c8bcc7d94e6",
         "verification.json": "cc5efad275d9199e3bdc4c071cac8418be79d92e54f47a5e1593bd4d771ceee1"
@@ -251,8 +251,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "ddf04048587d175c592e9ea1d8dff24994679b2afccf666ff9c7b65c7eea4712",
       "files": {
-        "schematic.svg": "18767f4cb5cc49fb479de003bcc44c6689fd60762cc4a4316eb645ac458e0249",
-        "project.icproj.json": "63e4110d82cdd101ebaa72a9ac20ff0046cb0b1fdaf9e6d686fdda5f5385ebd5",
+        "schematic.svg": "a1500c689a943d8fbe7a089f3ff2e99c86a65ce15ef03a8e291ee828dd242ea4",
+        "project.icproj.json": "f9f057230ac6b5d85bfa55ae3c822392ed1210b33f5e344e5113f1dd66cf0e3f",
         "submitted.spice": "ddf04048587d175c592e9ea1d8dff24994679b2afccf666ff9c7b65c7eea4712",
         "exported.spice": "0d4960a47e1da04c5225f8401dec760144b24adf4aa1705b8333d2f1dfd7a771",
         "verification.json": "b7bd719fecec1edd58c901fdc7917b5a02f1f85fa9bcefe317d1ec0907f9a58a"
@@ -266,8 +266,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "8de3b79376fe92dc73a0ebcfa7d690532af04ac1cca66e342ed25c43ba07aa35",
       "files": {
-        "schematic.svg": "92b981a46e831fe2215f213415145898c3e776b9c608bf76a6002bd5d5f51168",
-        "project.icproj.json": "104731a8d5396fb8dd35ab3d8e6ecfa57da04a10b9fdbea1b3c7f958f20310c6",
+        "schematic.svg": "d4243a79ac08c4ea399d74eb713ca80cca397efbb0f57145e077cee2359b47fb",
+        "project.icproj.json": "20e53ce4ac76ff88bba05533767f02c3a6d5ab6b109db75641527542fb77b6b5",
         "submitted.spice": "8de3b79376fe92dc73a0ebcfa7d690532af04ac1cca66e342ed25c43ba07aa35",
         "exported.spice": "1bbb32ab4983e521bb0dfcd17496d60c41567bfbe2d29ecdcf226ec9e7a82124",
         "verification.json": "ddb3fe660f812671743d630ddce35e1170fd1251180f6ed9faae265ba20a1f5f"
@@ -296,8 +296,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "779b24d3ba5eef213d7fbab2d7f4d96ed17e8ff119ee5786c508c1d62448236b",
       "files": {
-        "schematic.svg": "474c8a9057f8441e5f95c7046b37af02cd50940c2b7cdfcefb7d44eeedd6b0b4",
-        "project.icproj.json": "975a4180fcb85ef1c26544c798519ca4af959b43e1a04ab6da13f687a20fba75",
+        "schematic.svg": "11eb31c7657d912046bb9ba5ee98e75caa7957d3ecd03677e106c7ea712d8143",
+        "project.icproj.json": "a821623aef7fef0ee97664686ca6d1a16d38461b175746392513c13c00b84e40",
         "submitted.spice": "779b24d3ba5eef213d7fbab2d7f4d96ed17e8ff119ee5786c508c1d62448236b",
         "exported.spice": "93d64ba5289dfb72071fa83c19a14f6c4c2ed78e4ee9b046944517cd30cb7d9b",
         "verification.json": "6314d2dca999037d78da69259aceb4785921cb762c958097abfb5321d248661b"
@@ -326,8 +326,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "128179008604a5c96fbebd54376a17bfef2506124c330c62f29a617ed0ba2611",
       "files": {
-        "schematic.svg": "5ba223279d8eb5132089d2587252120adeb1e2a29ce44f27d803ffab6c183e60",
-        "project.icproj.json": "f009cb0d5c21f86f9c8fb2e623acdb62482cf7f32f174641cb68557410e20667",
+        "schematic.svg": "100fc261e77d052a0c91267d9fb7928dfe274cb2fbfed9543ba356d8d096860d",
+        "project.icproj.json": "5adcb4235b68fd43c5f4639bf4c7c089ec9eee77fbe0459f1800acbc0944e838",
         "submitted.spice": "128179008604a5c96fbebd54376a17bfef2506124c330c62f29a617ed0ba2611",
         "exported.spice": "446ade3b7eb1d82cba030628fd806907b46cf007e7fb348b905ac10802ab73a3",
         "verification.json": "33a6d87a33d9d41db6310e12d6f974662cb3c86ca986c1d6457cc137c8e90c8a"
@@ -341,8 +341,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0e470a2cdd3dd289f4b87c3155ac03bcda6975490439e3f0b97f4641de84350c",
       "files": {
-        "schematic.svg": "5b1473c0f2ae019489c87f0ddfe3b5d08b67b6e148479b79de8c1f566a1b3644",
-        "project.icproj.json": "10d4f20a125ee4194e64e1c60b52128a661b7092b0a9971ac288b6ffa7044eff",
+        "schematic.svg": "319f109fa1e3ef13da674bcbb9119a7385aaa4cb077a224d3ae06751e7168549",
+        "project.icproj.json": "1010f9ae240203db1d5668ee90f1e735442688b599dba0f2706d9aa6a3c43b0f",
         "submitted.spice": "0e470a2cdd3dd289f4b87c3155ac03bcda6975490439e3f0b97f4641de84350c",
         "exported.spice": "27e0c593aae74e6bb46d1eec374ebae41ff39ea0928fc3ad75c202f5b9a969a1",
         "verification.json": "5970dceb4e5a064bb6541d20d01eee0d6801239a33729b0ab84dfb8d056910a4"
@@ -776,8 +776,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "c90dac4f170360856dfdc4e93174bde1a1c165c912c98e662292ac8c97c5fd18",
       "files": {
-        "schematic.svg": "2d4ba9ddfd706adc20dc311260ba7422373aa66ce179013e65982e796e3bd7c7",
-        "project.icproj.json": "410b01f06893d082c0b2f531d46a3fd99b9e5c36c7a23a3864cc2831234c2740",
+        "schematic.svg": "f77fc1be6bce96bb8ddfe1f2b51977d041eac5355235d3e05150b89bef340a29",
+        "project.icproj.json": "536922ba0585a5a3605462bfc13f71c7253becd786e9b8a558c724c7df6173ad",
         "submitted.spice": "c90dac4f170360856dfdc4e93174bde1a1c165c912c98e662292ac8c97c5fd18",
         "exported.spice": "3708becdd175dcc025cbc5fa7800204682a7b3388060af89c0e83e3ea52c8dcc",
         "verification.json": "e414c8842c51efc22589a488c3ddb6cd4b15b04c10f3ea597958fc5d2f3378bf"
@@ -821,8 +821,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "b69440c30011285beef0fa5dec4db37ed49020004b046c2f738250b7103274bd",
       "files": {
-        "schematic.svg": "2c9cf6ae1b42198bb19697b155724362546255785533e75d4a3f4b0d0558674a",
-        "project.icproj.json": "1fb0ac2d06694ffff24372e550f820d6b1e5c5eb96dbbc14804866e0d1edebd8",
+        "schematic.svg": "0230679a8e10f75c871c6689d8ec23b74ca3c3c6b1c29b1952e3c1d15010da49",
+        "project.icproj.json": "82b38cd983153ce555e8a109363fd9079f57f3e128538bb368b5359dc99172cc",
         "submitted.spice": "b69440c30011285beef0fa5dec4db37ed49020004b046c2f738250b7103274bd",
         "exported.spice": "bb234d94e0d890deae8e17774c0a4c2a5cba5e4078e1ebc362471d5266f3ef32",
         "verification.json": "31ad83db0e7c8a32e901971b68d1b1a2271b73b60daabc8fc7e8be86e680925e"
@@ -896,8 +896,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "09cb99dfb85da801667b7bc2e52d97fb18589c694dd9f50a9f51bf40a4bc4250",
       "files": {
-        "schematic.svg": "73f7da2946cb4af2b1880428918a4f74b040eceada1b6e7237ed5a2d44bc0ef7",
-        "project.icproj.json": "cd63c0975fe6b03fea4d6f6e0ec38a1a1d12c2b5fd9be73e5236044cffb4cf09",
+        "schematic.svg": "5be883a9b2fe9f2039e66a88d93d54bac0e2d6ac35a21a9af27edbbe96f10518",
+        "project.icproj.json": "d90a97f33f577b265cea1bd33b925a9e67f31a3b40ae99b3c9f18cda5961d932",
         "submitted.spice": "09cb99dfb85da801667b7bc2e52d97fb18589c694dd9f50a9f51bf40a4bc4250",
         "exported.spice": "ab434246ad6d4a0cf2d964cea024755b6f2ec6b7b6991777ef63e9b9a922df8d",
         "verification.json": "4e9359271e7f9e2e581e0f1e0e176b9bf82488aed81979f7965b095e8b211a92"
@@ -911,8 +911,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "bb2387524fb463d14cb38451bcaffacc2b8465f7d50d4a33c43cd7c5d58a827a",
       "files": {
-        "schematic.svg": "3e4599d6d9c7a1884fb1ee4e91c16683a83bf10d86e908b59cb61bdd38921513",
-        "project.icproj.json": "bb2d96c9c5c6d82f58184ed42355ee7ab96eefb25e00ab7ce72a216fd14d90b1",
+        "schematic.svg": "3f16cc352e0a21bcb0c71f2a150a1f65b2a0099faa3fcf7d1205c0cf2318dd92",
+        "project.icproj.json": "51704fc67697ba619123d0b954d53eb89ee49bf9ec571f33f7b91a59d37f92ac",
         "submitted.spice": "bb2387524fb463d14cb38451bcaffacc2b8465f7d50d4a33c43cd7c5d58a827a",
         "exported.spice": "95d5ab04b137a38047fc9957f6ffea8ab4e69de298630604fe085df530170e2f",
         "verification.json": "37dcb8f2cfd0c35d6ded6e45afd68eca91616207b50ec5b62567b2c7c6873297"
@@ -941,8 +941,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "23e6d62fa7885be60658926bc3c2039be7caaa07af2a887a6b99de8f3c4a88ce",
       "files": {
-        "schematic.svg": "73e6b212d143cd9155ed36ae493bd708e013ff1c20314e6eb4a8a64d796bc840",
-        "project.icproj.json": "48149e4618326a92cd21d67fcd705b22e5ad648c819709dbbb8d979ed8906e03",
+        "schematic.svg": "c956d8342748d967afc13417ebe193c3d17cc9c5146827f01483d51ac69dbe63",
+        "project.icproj.json": "af8bdc49aaafdbd8906e4178cc465a26e416618ae1ef9ad09a9cfd9ae828ecdc",
         "submitted.spice": "23e6d62fa7885be60658926bc3c2039be7caaa07af2a887a6b99de8f3c4a88ce",
         "exported.spice": "f6682daf187a9da80b8fd2eb34f8b2f43a617d278c8e3b1607683f02b1f6e2db",
         "verification.json": "03fdb36ab8dee8dd0441e450179131dbd3d32c76543d78d3aef0e011e30bc7a0"
@@ -956,8 +956,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "3d217aff7328ad2053cd526bb26ae54b5477639863c5f620d96ff4ef731be830",
       "files": {
-        "schematic.svg": "e4f34557190f25828f560d802697d2285e78350461064111c355b56e23658f0a",
-        "project.icproj.json": "8b38c083c169c4481e65522406d7de0d9d4401ec0a8a1a9542cd454a387f6bf3",
+        "schematic.svg": "6ce0b2f5096261512c8f5259eb27580239f89201658e8978fdf26f9c804b4c82",
+        "project.icproj.json": "84487bf883123aac743561d0794867516a8e3af22ed095c7550601aa1652105e",
         "submitted.spice": "3d217aff7328ad2053cd526bb26ae54b5477639863c5f620d96ff4ef731be830",
         "exported.spice": "544e3d24ec191c983a1182be5cfade720a40f2ff4536c589e5791517a641649a",
         "verification.json": "ad82d0ca81bdf2563cb94ea62a61a6b9ce50f3045082473a367856ab8c7f87a0"
@@ -986,8 +986,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "990b36eceafc69542b48dafda64036208a8ff2a0ba5c6ded7d1c97e73f23adad",
       "files": {
-        "schematic.svg": "93666dac9d86974b923018631c9b6e5778ad3a9170ba66915665ccc364ff3e50",
-        "project.icproj.json": "f6fcddb14c47ad25528e91f1ece91206c23812a7a13cc40f422c6ab0546aa07f",
+        "schematic.svg": "c6fcd456ee3971b39307dded61d9fcaa65b0f72d2088d126fa9bfbd704fc38d7",
+        "project.icproj.json": "07fba375b1239ea907844f4d51cbaf3194a352c6f2a373267cc65050a85b6937",
         "submitted.spice": "990b36eceafc69542b48dafda64036208a8ff2a0ba5c6ded7d1c97e73f23adad",
         "exported.spice": "cb0e101f1a4f50ee66b894343fee06558a6a45010e1dae90bbee1c428cd2932a",
         "verification.json": "544a15b3847858a328699bacf5006c07dc8a8d16518edfaaf70aaaab399911bd"
@@ -1016,8 +1016,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "e52ab601d3d068652d3b08efd2b41872fb1f9611ddec8cd4f095d01b042f8c3e",
       "files": {
-        "schematic.svg": "efa007f4dc1c1ebbdea07dc61d49a8b7c51d881638ab3bfa8d1c95c927a9ed69",
-        "project.icproj.json": "50a56f44a64f7d07bb7b2a41a766a459ac7bb7a11accb05fbd537d0eb0a12169",
+        "schematic.svg": "0af1690f7bd5029479769b71f154e131c454991ced9d9ea85782c5518557d0b7",
+        "project.icproj.json": "450003edcc3a8cd62a852ca22c1266e71b01f50926afa45e22c0fe472e11cfa3",
         "submitted.spice": "e52ab601d3d068652d3b08efd2b41872fb1f9611ddec8cd4f095d01b042f8c3e",
         "exported.spice": "8793bc507015d020ea71ff98ee325c2d5d90c061071667cc6b14e99a6a7f4006",
         "verification.json": "5c2e8ded4068af24e6d64b88c93a51fb478ec543b8ff5efb7db139b83261ac57"
@@ -1031,8 +1031,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "cead40307836caa9b394b9770a6f0a94f07f0a802b9784fa0341ef0f130e4f01",
       "files": {
-        "schematic.svg": "cc1dbfd59609aea9166b25bffa1d287fc4e6da44d6c026fafa86893844683564",
-        "project.icproj.json": "59c22868abf191e1b32336c7bd5b8c0b32e0dace5dd8280725968be868dd48a4",
+        "schematic.svg": "413e29e2fc0f42f9e9cc817deed743a9a6dc0b82763309d6df9e0652760c6719",
+        "project.icproj.json": "97014d959a41765de61124f50a95b7840a8f1f7561143fde027b4f82c65496cb",
         "submitted.spice": "cead40307836caa9b394b9770a6f0a94f07f0a802b9784fa0341ef0f130e4f01",
         "exported.spice": "6d6a7ba4c34e1163de4fd07eac80bfbe46051ee85961751dbf1a69bb841b6f15",
         "verification.json": "992e43b86da78d213820065cabd9e89d0d4a8723917d125e68874a9bd82e37c3"
@@ -1046,8 +1046,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "1fa0574df94974ab9d8ebfe28e8b2cd846ee6ea03fadf438d70a1344bd5a6324",
       "files": {
-        "schematic.svg": "1a7e6608148c2da15f92836e2354373d9ca76b116a6efbeeafbaa3c086331e97",
-        "project.icproj.json": "7d65acfbfcd812ed2b48f84bf5d8660b909032c7e090d377055ffa95b2ba7dcf",
+        "schematic.svg": "d0da04f1758f8c1a291f846aad43dd2a5dfb49032768668fb3e950ea104cf21c",
+        "project.icproj.json": "4cc9136afe90975ac06415a44447464cee8c5c87da63f408c7ce5bbbc2c95441",
         "submitted.spice": "1fa0574df94974ab9d8ebfe28e8b2cd846ee6ea03fadf438d70a1344bd5a6324",
         "exported.spice": "d3c355df3b1da8445e50c0917ee76f4812da6867121d5614d04362e28d35cd70",
         "verification.json": "940867904244584c926a13bf793430122b8c71e21bbd3898f5f19f63054952f5"
@@ -1091,8 +1091,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact parameters remain in the native project.",
       "source_sha256": "460c7b3023620fd74a428d3e955238ea9e100cd0658aa7515c2b1f5787bbf0e2",
       "files": {
-        "schematic.svg": "713ca138b8b3f4ce2388bc0da0722c867422e7104366686e383071df08009396",
-        "project.icproj.json": "8b8a05f1e167e0b49d62a4879cc948683e4b21898535ce99edcf75b593748838",
+        "schematic.svg": "2f427ab5aad5d102585503776a8069ee7897070fa4abb6584e718603e0a19c30",
+        "project.icproj.json": "731908b5420ce15a528d97868c5fde51675734575266529b3bb66dbbeb7e9d81",
         "submitted.spice": "460c7b3023620fd74a428d3e955238ea9e100cd0658aa7515c2b1f5787bbf0e2",
         "exported.spice": "96a4a2d917a909253c172e467a003a25af621bef26defd83a31b6cd295560138",
         "verification.json": "1f5fd75775529ab94517826430f99229d8509809953db24b972c0b985349e967"
@@ -1106,8 +1106,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "9125be74bf9dfe1326f99c52ea38aa2540c6445ad2c2860268f38164570d4276",
       "files": {
-        "schematic.svg": "507f2a33d1de595501a9f853cd19c22a407be95859f08e311f97f259d6b0b4eb",
-        "project.icproj.json": "72b5d45d7d6d8e0b0994c323935601067664b7ae4bb51cfa680adbd761a747c8",
+        "schematic.svg": "62ed02972830fdc4cb6da12a69899bf9a242249cccb60522d388c8fd64018885",
+        "project.icproj.json": "44f3a530a6863df44567740dbe43b4e8a6a82eb021101188067ac2de2d2956c2",
         "submitted.spice": "9125be74bf9dfe1326f99c52ea38aa2540c6445ad2c2860268f38164570d4276",
         "exported.spice": "09a2efaa7986bd04a5cbc4557f03bf45b60feb36f9d2d45374ac689366728085",
         "verification.json": "b85b1b3e8d7ed3a89b1812cc77f6e6f866bded90ac7247f435f790633c6ccada"
@@ -1121,8 +1121,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "86a6b4bba5bd0116d4fe964d1f681f5adf0d7538fc1f4eb125f3f840151ad458",
       "files": {
-        "schematic.svg": "132d93564cb1969e309d59be713e340e010aa888e14a2a3fcb34138d11235740",
-        "project.icproj.json": "d60f03ba0386a05910fc6f97d4de807a6ca49c80abf601d481f3577ab46ab830",
+        "schematic.svg": "d8962b299ee3526c7c8c496ab9bb12dab97dcb48c8ef3c3a2f6f4f26ff236b35",
+        "project.icproj.json": "97986ec7219010f8010a88a3d6c63c34bccffb774bd68876ff9e61a91b93f380",
         "submitted.spice": "86a6b4bba5bd0116d4fe964d1f681f5adf0d7538fc1f4eb125f3f840151ad458",
         "exported.spice": "ee7106429154814d95183fbd3358d3e5f141e581f8f302ce8cad846921c621c8",
         "verification.json": "e6dd57ef481dc6924a8c06e41f2d75ff1e8b8230ff8e08d04abb6fb60cf149db"
@@ -1136,8 +1136,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "25e5df8f2078a218db099d676da0f5d43516200e8a781f61c1ac903d4dcc4a4b",
       "files": {
-        "schematic.svg": "e9775ad01f259c1aa4a6b834e47d60ac8355e36c4ff18b8d5d6a2275943de4e9",
-        "project.icproj.json": "7f963d176b99babc04520de46c289bc0b6870834d33ff5146a5f2013cd1befab",
+        "schematic.svg": "5c9c075990f11cbb39c4a2501a56314b1e426ad50b7e9bdc64b8580b418ec75f",
+        "project.icproj.json": "78612cdad142631f650d5423ee8831de5f82476be04408df1a1e2fc56b4c8c9b",
         "submitted.spice": "25e5df8f2078a218db099d676da0f5d43516200e8a781f61c1ac903d4dcc4a4b",
         "exported.spice": "6799adf274f582d735db8bd9d70bf1d9989338979c7e5bbd25a0e6dc5a7aec15",
         "verification.json": "2f2b68cdd6d52026db4f1dde3bae69b4a9cee25f0a70a5f6086963792686c647"
@@ -1151,8 +1151,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "719ae2e205cc62b0741bb5f4d728f3ab07fe03d2330f63fb73b34e356245b1de",
       "files": {
-        "schematic.svg": "35b915565875bc0b4215b30bf075562b731f88271fa65224ea6d7227f3ec29aa",
-        "project.icproj.json": "7e89f0a22771fea91499433a883b3c3a94177b67e27cf99a68187ffcd18dabd8",
+        "schematic.svg": "0bf02a8e2af7889d054f348dde5771fb87d1e00f5c2bdd22c11d983b7e63d89d",
+        "project.icproj.json": "054432729a0cb9d067f951685efe5a266729469c24114827b2f087cce8684a2b",
         "submitted.spice": "719ae2e205cc62b0741bb5f4d728f3ab07fe03d2330f63fb73b34e356245b1de",
         "exported.spice": "1e5032372630ef6ae836eba80c3bc0fe9ed9c1a34078fa91219f3fbdaf337614",
         "verification.json": "fba61cd9fb432989acfef5bfcc6ffb2733a105f26a7789f76c9009f42f5d79cc"
@@ -1166,8 +1166,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0e4dbcb8a374da0dda0c4e0b5fe347f847c1866efe5baa6b9784f8e3af705d68",
       "files": {
-        "schematic.svg": "573d1c5de8711e9f426834c9bd57dd479b8ec1c5390af42dc310b742a8081ad7",
-        "project.icproj.json": "4ec9e314ebb63697ffb876b8043c99a6ef637c3d9daa3f420941fdff0744ced8",
+        "schematic.svg": "b769e5c48443cd93abc1d17b32ff82fbb6131ad1c52f8225540a817ee7796b69",
+        "project.icproj.json": "d0af4307168e7650dc751a1d372f79e3339448ed06b1fdd1826020f83c12ccaf",
         "submitted.spice": "0e4dbcb8a374da0dda0c4e0b5fe347f847c1866efe5baa6b9784f8e3af705d68",
         "exported.spice": "089226d20b481ca2471cdf8fad120ad3a65524227095d957ca19fe81c7910ce9",
         "verification.json": "f00ba6d009ebd1a0b7b843ddcaa4b947907aaef348a05079361153ccb4d69b93"
@@ -1181,8 +1181,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "ed1917b53be6330bcb5f1fd91402243e9c07652361144b528070800b5c27302d",
       "files": {
-        "schematic.svg": "7abc3539cc1acdde10e3e9d573b74a73a715ab9a66c082649a34ffc8ed2f3bab",
-        "project.icproj.json": "728ba20d47db64eb3f979d5bf7db7792af680fb7a1186549bf3b62d5a0788370",
+        "schematic.svg": "23a1e01a4406371e69455ff632338520e13ca8e01a8e2ddcb2be1921e470822b",
+        "project.icproj.json": "1567f3f8346eb3399f053ccb969152dff337896ffef8fb9dcd2611d89851e7bf",
         "submitted.spice": "ed1917b53be6330bcb5f1fd91402243e9c07652361144b528070800b5c27302d",
         "exported.spice": "bf568053216a7032bbf776027d6c5e5e2202006ac2982a75a27976f0a40e5307",
         "verification.json": "9c1b4d34b868d87f61a1e10a80e937210e711087c6235159906b246312b33fba"
@@ -1196,8 +1196,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "b3902d50f0d24e0f8fc1aa4b5b97fb42d5e4ed419481c4a4dfa54a03f6ecc16f",
       "files": {
-        "schematic.svg": "399233d2abc3fb83c0b54ed5f91cf7f2ace08e399e73f16462e420d9083bb249",
-        "project.icproj.json": "66e0e4c3888ba8fd60762aebe02c072eda568719340c4045f40784599d863ddb",
+        "schematic.svg": "a2caa146d20afeba3574d5f1dbbaab349a64ed0ce35bb71ffe6f954c8b3a265f",
+        "project.icproj.json": "424717798d01539cb99f306d0a2c4c97881468eb6f7dc371cf746f03e7d66993",
         "submitted.spice": "b3902d50f0d24e0f8fc1aa4b5b97fb42d5e4ed419481c4a4dfa54a03f6ecc16f",
         "exported.spice": "f08a4441b4a3f56dcfa1553ce57972ebb60540f7afad4ead54b085ef11874527",
         "verification.json": "68bef01086d281bd3699e12366295a949ecbb943b76cb6cd2eea93915b6d980c"
@@ -1211,8 +1211,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "27d96f623117934758e3b66fc72ae4d09b2f6b5cf974b2b2fb193c0b8edad3d4",
       "files": {
-        "schematic.svg": "dc1832b415c0eb55e63992e265c0da2ab5c951242f9be3e3111490e755882268",
-        "project.icproj.json": "398052b266f0d2ffe0e66ee10f28e677280c46acf6e716eafbda53338f417245",
+        "schematic.svg": "d933b4e20de703f6eb7d2dcd3ea5dbe939bf153f63d0a6d8b8ecc926e3a71daa",
+        "project.icproj.json": "23fb7e5747f4796052b69d6e4ee8cde86772806a25e014774f5f491f039643db",
         "submitted.spice": "27d96f623117934758e3b66fc72ae4d09b2f6b5cf974b2b2fb193c0b8edad3d4",
         "exported.spice": "ac82259cac9d142b17f62325405b6c74859d49469a370926472f9451b3d7cd2c",
         "verification.json": "16d51bdeec79d64a9806126e910a7457e7f6545fbb5dcc501d990471b953961c"
@@ -1226,8 +1226,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0149a1f8f41830e293da91448c3b8d2ee3a6384618cc753ebe943772b29b6fb0",
       "files": {
-        "schematic.svg": "7f82b2ebb8fc7e1074325f2a04709cce784eddfbba721b4ffca92c11d05d1554",
-        "project.icproj.json": "8c71f7a53f6dadebdee5be118933ba4ce02cfad9449a10df6f2938b74a5cd446",
+        "schematic.svg": "f96aea53e98af86e598296b8ecc07ea1a4843b44ee00b5faca33eb40eb60b407",
+        "project.icproj.json": "d5a9d748953613ebbdba8a4dc4e8338c88804827ffd4e62eed6e673704fe2962",
         "submitted.spice": "0149a1f8f41830e293da91448c3b8d2ee3a6384618cc753ebe943772b29b6fb0",
         "exported.spice": "f83ce0999797c333165367fbc461dc700debaf757b5466a6030b903cf49bd67e",
         "verification.json": "67a40b44ed65e9d1b7942276cf84d371aaa8af5dd8b19a2f459b30dfe13fd13a"
@@ -1241,8 +1241,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0b962601813a1e3eb3564a5e503daf91d1e78f7b6324c85dc85c71883ff68fbb",
       "files": {
-        "schematic.svg": "1b62e8f8b548f44dbd6d04676a64422334aa28556104abf56cd3f09601f32ab0",
-        "project.icproj.json": "13e02ecc5a8ab7d696b34a940b6087b68ecc22c11edd1a56e6470af8e6483fc4",
+        "schematic.svg": "62c966fc38b979e19bd1e8d0b471c150173e179fb30fc5af674db0df0fbc127c",
+        "project.icproj.json": "9b21eb58126d0db4dccc813be8aa2ba2170993c14e8f5cf4a0f64b9f9c1b47d7",
         "submitted.spice": "0b962601813a1e3eb3564a5e503daf91d1e78f7b6324c85dc85c71883ff68fbb",
         "exported.spice": "5e54e9738c9bece9f1042e292af130f42bea5d8341bddb54838c2cf0f2b1c37f",
         "verification.json": "437bd4024b9bb3c5c1d2926a60d48b91f12baa52356c6246f593a1038d19b0f8"
@@ -1256,8 +1256,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "1e0f6eac7a8466e3c0000219a36f97106080b0b2751b6af72bd2e1cfa1d1ae3f",
       "files": {
-        "schematic.svg": "522e33de7abca5d657168e559c1d7d987874fae26028c291b43d157c7d8429cc",
-        "project.icproj.json": "a2cde3cac87a23ca00df68eb00e19e29ba24c68fd64ebc44e993d610d48c6197",
+        "schematic.svg": "1236026e2ccada8b21b78dd1ced90fbd46da0c30e7edb8c3d1b77dcbbe70a85a",
+        "project.icproj.json": "7ae115290448b4f99df196d65b5e0a9eaba355ac0465c86523fa1dbda8255671",
         "submitted.spice": "1e0f6eac7a8466e3c0000219a36f97106080b0b2751b6af72bd2e1cfa1d1ae3f",
         "exported.spice": "d77b623cd16651e211bf7d0835a48cb620e5cbb79aee0998e6607b69bb1e7295",
         "verification.json": "4e514bac29a2e81b6c5fbcc3e695a7c130e4e0b50d8b6940502799ea90b5e4af"
@@ -1271,8 +1271,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
       "files": {
-        "schematic.svg": "e28b130da3fc01a09ebfc78a03f518ad021cb9bf5006d6381b08d33813f49798",
-        "project.icproj.json": "6ee3ba59c5ffdc24a3b495943e36dfc9a81a5663cfc0c18ca3eaac16de23e328",
+        "schematic.svg": "7e6b186221b3311fbed67b5fa5f0e08f58d8dfce285275526dc86d4cb1d08ac4",
+        "project.icproj.json": "323e1f92925fac0a261fa9b0488970ffa33e3a695818139795ab06a600855c02",
         "submitted.spice": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
         "exported.spice": "c97e05f339f6be39bd11ef7e6822a6bfce84a0bdd72cbb614f848267bac5d2ac",
         "verification.json": "7b4d7e3869e27af07539e21467ac119e77c086d7250c798c111ef929cde6df17"
@@ -1286,8 +1286,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "10de5a3d6b74ae31480e47f00aaec48a9102160f65a9de2fc7794fc8d487e568",
       "files": {
-        "schematic.svg": "590df67a8832935c81c7bc4b7d41f75628de36717e6a92e20f12301718b15127",
-        "project.icproj.json": "8b4a6a0de58c00faca1e4cc463d534365b5e46670ab494e0244fc393011bd46d",
+        "schematic.svg": "fe93b4d58863cc3e83f65db8b8756bb402a3b1a17bcfb32c084206e0b05c4705",
+        "project.icproj.json": "8a78dee55ce6070fea472f9ec10d3d24737e170a4114c7ce419798d993b0b689",
         "submitted.spice": "10de5a3d6b74ae31480e47f00aaec48a9102160f65a9de2fc7794fc8d487e568",
         "exported.spice": "377355a4df3dc82bcccbecbb8eab16d22d9a1104d626a2d16104e37a51146058",
         "verification.json": "e9f4c8fa20d0b54f2ce578b3c2212f5deca857c836b921205ad541952dcf8efc"
@@ -1301,8 +1301,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "7aa1c7e58caadc952317fa1e80f4a310989d8e8e520c0e0776562898f38636db",
       "files": {
-        "schematic.svg": "54d0265ca8d177daa830375ea9dbbd42802ab1005b7d1ca6daee8969aa88c5f5",
-        "project.icproj.json": "1fe55605bb2e7167ec8cd88d91041d636ea6cf26a1491a4fe90a8600b042ab4f",
+        "schematic.svg": "4d5aee5316d8fb34da242eacf59fd1e7208d9f34b1096450a031515089962bce",
+        "project.icproj.json": "4a8001a043155271267cac39c53ba8342e34bdc3a8c7f19d8ade1792390dbe9e",
         "submitted.spice": "7aa1c7e58caadc952317fa1e80f4a310989d8e8e520c0e0776562898f38636db",
         "exported.spice": "36704560e5d0c62b262f624e560358e94590887ead918fbae7e47b79f5ea8d91",
         "verification.json": "6e0493e0603da5e35f00fbff5768e1cce0cd8a03639d520daf5740ee10554616"
@@ -1316,8 +1316,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "7f64f5d0750caacbb664ec988b29b07aa15a956e440f284e91164d1107d2a3ab",
       "files": {
-        "schematic.svg": "ecacacd466f27fa3cb0995810b58cab51117f581cef36648d32394236e9aae75",
-        "project.icproj.json": "43f4e02b0333dcc457071fe97d4a834100ec5be739dd84d2bbce3b13716ea07c",
+        "schematic.svg": "db31451422a87a70b8ec88d8ada27f67dcc6fb9b381b6fd590ae842672541a79",
+        "project.icproj.json": "9484abe6f9ed3032c1a360d9a346e1eb106c389738e5f5178362563f8423bd22",
         "submitted.spice": "7f64f5d0750caacbb664ec988b29b07aa15a956e440f284e91164d1107d2a3ab",
         "exported.spice": "064d53dfcce9938e18c8666485da52dd734cd1c8eb6a6aae1925f5562753bf2e",
         "verification.json": "cea8b72a5664f5d81290e0cbad500a55d804411c4e6108a0553ea05237466666"
@@ -1331,8 +1331,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "5322f6d1f71b99eb453a4ed0f10e112d5b371b7f477313f54ec43ce079264068",
       "files": {
-        "schematic.svg": "f38cc5d05caa6704925c390958e3d054addc039a684880a65eb11bb11ca85097",
-        "project.icproj.json": "643533c35cd5d6bbaf6604c69364eec5628bcf729704b98da9281a49f4bdc8f3",
+        "schematic.svg": "7fc78c68b500cc47d1f232640631634b50fd45f9bfff1649d922265b44f0c918",
+        "project.icproj.json": "1de5e38259df9afc0c024ef7b7686763e75d9bfb6c672df1e25f3c5d26561317",
         "submitted.spice": "5322f6d1f71b99eb453a4ed0f10e112d5b371b7f477313f54ec43ce079264068",
         "exported.spice": "4f626ce1241a077cea99892f3c59a2364d157d909c123ae6449113eb9a491254",
         "verification.json": "68a72182995ebba15b896f6b20e90ee3eee8c4f5d8dc1f2d1df0937767ba452f"
@@ -1346,8 +1346,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "551ddaf9d95d0811c20f2f462fb624490c8d6c41558efc3143cd964f25f589bb",
       "files": {
-        "schematic.svg": "3e1344d8d111231bc761d1b2dc7f25f4c1975ad86f6c79c2884cdf978ab763ac",
-        "project.icproj.json": "4e53308bb6a602d261cd37d193da762a0840772d555f2f1b7d61f6eaeb28ec6c",
+        "schematic.svg": "2ad300501af59e26e80f3c3b7cd9becfca2780a3f936882feb748b88db6701ad",
+        "project.icproj.json": "c624c5758abb341c078fa0cad06ba2cd3702165310448b6f561aa830d2e37b7a",
         "submitted.spice": "551ddaf9d95d0811c20f2f462fb624490c8d6c41558efc3143cd964f25f589bb",
         "exported.spice": "6293411d6660e0687e691abd9b944f17b0d328dc9b8ff1a9364e7f7919947c5c",
         "verification.json": "be91bda62cf1ceddd963554a47e2d02d60dffdf955570d09c45520009077cc65"
@@ -1376,8 +1376,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "c5868578e7fb8de136efdba7c2adf5e803e6e0680cda6b6a5300dbc5a1a8bf5b",
       "files": {
-        "schematic.svg": "d2d66f8d0425ecef4c949a7b87e0cdf889501eb67f588b6a4da4702a40b85f3b",
-        "project.icproj.json": "f182b454e516aced4cf9042ca385a4e4450bd9fc9b98fc3f054a4cdcf6b5c1ee",
+        "schematic.svg": "6323067cc3989660c7101a4624aec9194116a81a55b3446fb965fdafe15f9552",
+        "project.icproj.json": "b44152a8db10cfeebff9053f3a839490fda48cbd91dc6e5735b04dd40a536895",
         "submitted.spice": "c5868578e7fb8de136efdba7c2adf5e803e6e0680cda6b6a5300dbc5a1a8bf5b",
         "exported.spice": "2e95a0fbcda7c5932737dd6861796a717d16bef35f3bccfb71198042990ca391",
         "verification.json": "c81d78e0b3cc9a71a1c2aa3eab9a4d8a1f10ee28021c483e0068c0b4a01ec325"
@@ -1391,8 +1391,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "0682bbb4d95981353ee1af96504512618d88460b19d124253134c1d32e4a77bf",
       "files": {
-        "schematic.svg": "e7b122363055581656a10c7a4376edbd954e226ae7f2b480d2622eee3bb3afef",
-        "project.icproj.json": "271a1684cef1f3514a74a5f863523e8431e46a696c1dd1339bc6f2d20ed78233",
+        "schematic.svg": "0d1e6256db3150b820ac3b6e18e8d06f6460eda6729f569fd607b59296e55144",
+        "project.icproj.json": "5e3ddc6b188fdf98bda119441bd9ad47cb34b15266376d2dbf836ea73dac8ba7",
         "submitted.spice": "0682bbb4d95981353ee1af96504512618d88460b19d124253134c1d32e4a77bf",
         "exported.spice": "0a65720a3a0f773632c126e2ce5f7b56749546183d6470cfbf6cb6fc51e1c9b8",
         "verification.json": "0e467f5185ca7473ad5676e792a34511698e5b521a0730df8dd484e1a7648d87"
@@ -1406,8 +1406,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "ba56d8f2b25cf5bddb7a31cdbe13e20a87d82736411a2a7632c6582e487e41da",
       "files": {
-        "schematic.svg": "1426077b0d64c17dd253f5171801e080cc006b60188c71b8d5cf425cb81d2076",
-        "project.icproj.json": "9d981cf84afe6b7b2132ea4a0b56c5fc81385a5333fc2a68271e09188c2d5386",
+        "schematic.svg": "bb062801b7e18ce843a48869bc4a3c380f537bd22594b192ad20068e09ff4897",
+        "project.icproj.json": "680ff480b5c70a9c2a731337ed3a6736f9857d106a466e4c6fdc04d735206421",
         "submitted.spice": "ba56d8f2b25cf5bddb7a31cdbe13e20a87d82736411a2a7632c6582e487e41da",
         "exported.spice": "afb32687414bab0a35c5114290f8d3ad86c238cc269acf41ee3785b4264a8b30",
         "verification.json": "4ea791c26c67681294b6df5b702637762dbce96d77d9a73346bd6532a90ef997"
@@ -1466,8 +1466,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "dc21891ea51a9fbceb247bd7ec55d8fa51e1ccc439e097021378b3c6701aa329",
       "files": {
-        "schematic.svg": "599f806ad4079b92ed0e5cb80acbdd87b053382c8c0c61d79f52a7b0b64f5c7d",
-        "project.icproj.json": "204fd96a7958d11f8aaa3f6d1c7a9f5bdd8520564eaa5d6925529f9f274ff8bd",
+        "schematic.svg": "abecefbfc0004cd76f6b713a1e1b2c656ae7e68f7fff80376aa68016df4f9fd5",
+        "project.icproj.json": "e968f06d60c8f3418c66a703c1b2789071e8e580dc6cdfb17b695c64e965c371",
         "submitted.spice": "dc21891ea51a9fbceb247bd7ec55d8fa51e1ccc439e097021378b3c6701aa329",
         "exported.spice": "429378c82cd90b2e8aef7c69661ceaf21fa437cd1eb37fa75aa2681bf980cbb8",
         "verification.json": "0e281a49daddddf0dc8e7f35cd5d6c62c6bec2eac4688bfdefee98631c0e5950"
@@ -1481,8 +1481,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "fb5c99ecd0dbaadf40bc847db21e642ff7014934f58e86ca0dfa0c4c16eb58bf",
       "files": {
-        "schematic.svg": "9678ddb57b924880f40200eb8f7fab361aa50f153c7c45d23aa3c203c370d3ef",
-        "project.icproj.json": "6337ff5a377fb6b845d07f83a8b59409c971aade66c5276a1f48809aa0b8475e",
+        "schematic.svg": "a9ebd100f9e7e88ab23f9bc74be77a59f6d59b4a3910770200c38a583cea9f34",
+        "project.icproj.json": "444641badeef6030864ac8bad69b54a5c0c479443a2677020218e4725449c6fe",
         "submitted.spice": "fb5c99ecd0dbaadf40bc847db21e642ff7014934f58e86ca0dfa0c4c16eb58bf",
         "exported.spice": "b76b5eaf8f2569244b6429528cec72188d8ba4dae513830b9bfd7c99450e0525",
         "verification.json": "b04b4d7b378a3db5e72480bcb501297ff0ce889e29ce1435ebe33821edf1d7c9"
@@ -1496,8 +1496,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "df36c5a00114936aca3bdaeaeb9c2f4ca49daec5ece44f0b4fef9da53026475c",
       "files": {
-        "schematic.svg": "66f814d62955b3fe8c1eb25d64ad03e883a11763cfa381827dc47087d8202257",
-        "project.icproj.json": "88fefd1c36e5fb23b4f5d11b75b244eb1e76ffb3b40482deae6d676771d2fb7c",
+        "schematic.svg": "f33092233902c3c5028e5683b4ff24a852b7c58841de25d3793a332e56f8bf9a",
+        "project.icproj.json": "f0890e8bfc32069e1c79d0062763b15a69e88fa91d8c0345df3f28e4fdd8ee43",
         "submitted.spice": "df36c5a00114936aca3bdaeaeb9c2f4ca49daec5ece44f0b4fef9da53026475c",
         "exported.spice": "b2bd412b5ea1dfd1628dc54f3d9d05ad2cab1a86c8d3636892fca8a7b89e773d",
         "verification.json": "4cdd7a4fef476f68f9f53413963ebc2f937bef3e60e3e7e11ba463ae12e2f463"
@@ -1511,8 +1511,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "03537d1719d3d8ef19cba89840c4e79936656a9dbc1d01969e8fea447885f96c",
       "files": {
-        "schematic.svg": "e9a862c5fab259b8b28e2c2a65162ca4d4cebcb25f64a61f3583d132d478ad97",
-        "project.icproj.json": "b95349c8e1071ff6b2484eb96da560c7c332eaf8382a88658b98411cf473ff39",
+        "schematic.svg": "a41373963b6a9476b65308150bf3e33259e424eeef254419c7357091169d2103",
+        "project.icproj.json": "de96abb10b01b38523e6a5aee3794c18f14edd5d7ce401da58617afb22809406",
         "submitted.spice": "03537d1719d3d8ef19cba89840c4e79936656a9dbc1d01969e8fea447885f96c",
         "exported.spice": "ce9e65fde49f57c8023804563a71df7d3e3f07cec272098ef5122311b0999b27",
         "verification.json": "790dfeffc6470c32f46ace1c0add93f07555aa7ff530afc50e9c21db288ed095"
@@ -1526,8 +1526,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "cad506a938aef40d4451de759537d7fd5359ab2ea13af7eea34df6959b2681a0",
       "files": {
-        "schematic.svg": "e19f48ec6dcfacccfceea3c41c3799c871d6690a917d9bd55cb1295125375055",
-        "project.icproj.json": "7e60c898e3275185c998fc90acd241defd2b407cf004b752cdc9ddd7c641b773",
+        "schematic.svg": "cdaa187be59fe40116eeadaccad604ee93bbd67da05e25a574d5ced4c31b21a0",
+        "project.icproj.json": "2e91e0a112cf4f3d9c47c7096b2e16663e86866263d5e906011213815da3d540",
         "submitted.spice": "cad506a938aef40d4451de759537d7fd5359ab2ea13af7eea34df6959b2681a0",
         "exported.spice": "2dea48d195a8436f709251fecf64a4de5d518443eebdf05dabf6adda3d0df17d",
         "verification.json": "f318fccf343567814a57e0390ef93dd3ffe5256df474486c10cdef4e3d14965b"
@@ -1541,8 +1541,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "84bfda7b09b49dfdda0c419db57ee0beffac079e79d78b56aa41243973e1e0b2",
       "files": {
-        "schematic.svg": "9050fdc74ef0f00047be57fde21950017c9c5ae7b37de5d59e6a7e0962dc8c21",
-        "project.icproj.json": "3bf8a88961c49914d1dd3381011d49a53036a46aa03250407460d12d56dcb905",
+        "schematic.svg": "2540a069c2ea4231f265bc22af7360e8e622d6ecf343e32df4778ca767fdc557",
+        "project.icproj.json": "c69da8ca26235b542873ce5bf890b3df93508c94fc5b8963d16cf893c9e2dfd9",
         "submitted.spice": "84bfda7b09b49dfdda0c419db57ee0beffac079e79d78b56aa41243973e1e0b2",
         "exported.spice": "a74693c8a31b3dfe9f82d5a49bef18a8b1b813294719162e8d2282316eeb93e0",
         "verification.json": "cf33392ec72fcc067edb4229be47f558b176f1055d23ca2a8d4f34b29e3838c7"
@@ -1556,8 +1556,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4eec9d9c93ea0ce9226bcd3beae6a13f3d3a96642a7639b17c837c8df29c24e1",
       "files": {
-        "schematic.svg": "6076b3d706131993d2c71216f86698ac4d3613ae9b3f384e796f7eb4b19cba6b",
-        "project.icproj.json": "32a21cc4be1c9ef99b7eec9823d7831bee5ec8ba8988c47adfb4249421302c83",
+        "schematic.svg": "31e50b92fb3c128878ced79c55614b06d86d306c7942b3ff7e6ac6dd42051f9a",
+        "project.icproj.json": "e2bdd330113bbdf2ee360ec9b7c6bd071a4c8a8851060961c0c2312718fc26c0",
         "submitted.spice": "4eec9d9c93ea0ce9226bcd3beae6a13f3d3a96642a7639b17c837c8df29c24e1",
         "exported.spice": "e9c3e156bc6012e12900a814061936646892b6313b40b11cd6125eb160de4a44",
         "verification.json": "9ed062cdb0fc7eab2de2a03ec399a94b627c6a5800e24bbeb7dff046ea897527"
@@ -1571,8 +1571,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "bb8b3aeb7077af51ed811fbd22e0528b0217b37d7a1c51e18b2365ec1f80d9e7",
       "files": {
-        "schematic.svg": "a623394da714bedda531ba2e6dfd3df6aa75715ccb70a0e71d3caec99a027a82",
-        "project.icproj.json": "939bfc8e07888f811ffe22741171b19fc1a7ba0fb1219b18162dc2f72a241007",
+        "schematic.svg": "f380d8f96dfeb5ece36c82e8c50e1196a3794dd7433c51210782b14503adaa81",
+        "project.icproj.json": "8aa5136446ab40ff9f50545d3149e6d1e5c25bd319f03ef28081af2787149e7a",
         "submitted.spice": "bb8b3aeb7077af51ed811fbd22e0528b0217b37d7a1c51e18b2365ec1f80d9e7",
         "exported.spice": "fbb658f3e585df99788aa6e102fecf098c9d5f64738af176867c8f1ddf3b06a2",
         "verification.json": "8e5b69cff1910ec0f27ad6a68fe03a119027dbba5ac21998ebe1de1a233bcb4e"
@@ -1586,8 +1586,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "cd7625c4f10a6550825e4d591b7b2bbda65adaf6f10c24d496527ba358796c19",
       "files": {
-        "schematic.svg": "2873ccc8c2f8886dcea8e6eabe1e5966b9c9957606f4b8a174edf99cb974ab5f",
-        "project.icproj.json": "53dc8f334fa4b8496a7fc0ff77ea417cf255e330a510eaa01a165d5349517559",
+        "schematic.svg": "a958b58e1163c6ccdf80d29555368506ee8d75652297a690cbad9cbc4469e948",
+        "project.icproj.json": "4771a56f3808ba7ceb62799929b2306cacc6167a196d30c515ead6030c1248fd",
         "submitted.spice": "cd7625c4f10a6550825e4d591b7b2bbda65adaf6f10c24d496527ba358796c19",
         "exported.spice": "95678ea9b118acf1ab9072e7dddb458368284ec7531d6d03ebd2b2fb95ee9309",
         "verification.json": "666c737a15e879b968ec1ef0013bf5a44cc613ada42ab4ad361be50e692e8d38"
@@ -1601,8 +1601,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "39166e5e4fa6d91ce462f71861c91cabea13f101e71570e0163dbdb63b218ff7",
       "files": {
-        "schematic.svg": "16c5b63daade0c96da8b1487eae0d08f96e2cfee57df239f84d3a41933158445",
-        "project.icproj.json": "a6289a8670e676fb60e1ba64201ae8a7fb7cb471b45ec20a58cba2570bb5af2e",
+        "schematic.svg": "ea78fce49e50b9b58f150e5d1378e95027025117faced3c41c24de588a1d6f1b",
+        "project.icproj.json": "29a3854d387cded19f9c2662063b20101914256df7df4f4baba891049460efec",
         "submitted.spice": "39166e5e4fa6d91ce462f71861c91cabea13f101e71570e0163dbdb63b218ff7",
         "exported.spice": "a480ae762bcbac52fe9b1ed7e1639daefba57c43403a4a4702fda6e2f36456e7",
         "verification.json": "aa914657d3ae73c8e49e0e0db8a769e008d97b46cac6ac467a8fb65ecfd102e2"
@@ -1616,8 +1616,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "319ea520dbb84c830c583a058ea4dd3b469ec292b5f6c30e3d78f09f6e220d35",
       "files": {
-        "schematic.svg": "ce2824b601a701b925d190aa62cd7c90bbbb3ceeaf72315ed8ebbce1f507fc07",
-        "project.icproj.json": "22887aff8d1c071a009708f48f941811dd5fcbcd4e030c8d9c8e9d168b56b8b7",
+        "schematic.svg": "63ca72a672b5d70abd98774c7731527e0f88d092bc98fb8a449e01d2193ebd5e",
+        "project.icproj.json": "88af765d27995498c87477685a544989cdc3b43191984b6b7646db79f90c2ff2",
         "submitted.spice": "319ea520dbb84c830c583a058ea4dd3b469ec292b5f6c30e3d78f09f6e220d35",
         "exported.spice": "3438f86d14e3efa07af93b2f268ef9702cbfc389bb87660a887529ef58f533a2",
         "verification.json": "ad7aa349a1eb32789e1349efc35bbc6c02cacabdcb0d4cae71ba96f3826346cc"
@@ -1631,8 +1631,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "7ec19b05f087df757064a83d3892c432dc4e3fa545da13ea406e43e1d09d14a1",
       "files": {
-        "schematic.svg": "29b2a01d13bd758717c2d3b27248669890971a40fae3c896cdf177c6c977e72b",
-        "project.icproj.json": "4af8d0744539ea702cf6e8a67c414cc360fb4f5e2e8272ce27a67a01ee742515",
+        "schematic.svg": "cb32a8770df02f6563c4b8d73495d12fdd59f14d957acecd6b0d22d32b1d38d4",
+        "project.icproj.json": "6fa1da3b878b31af6ba36e02691a935f299fb8ffa739a4874f168451e4296487",
         "submitted.spice": "7ec19b05f087df757064a83d3892c432dc4e3fa545da13ea406e43e1d09d14a1",
         "exported.spice": "66f22e778bf4aeb51a66e60783f258bd4eac4dd7e1843bcac838fffa3159ad11",
         "verification.json": "9ededb1027a9b040003aa9afdbaf2743f3f5fea3b7feb6630c9dafabf623dcbf"
@@ -1646,8 +1646,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "fde1be3a580d486c499673c9c9e5b09a60d5fb154bfbf6b47a75d68f1430e20a",
       "files": {
-        "schematic.svg": "2fd3d61a7fd208d21799c6445f1746b31fadcad929e2e02263c8d489f3dbe877",
-        "project.icproj.json": "8a0359ca4771731d42853fdd5b99df7bf6d5fe1ad881a4ebfe48cc2c17511c6a",
+        "schematic.svg": "1cb5272d67884b053b0fa4f24ee7cf7441fc65b66140b4342fc5ff49805aeba0",
+        "project.icproj.json": "b50b6284868667f9edd78009fbaefabd8162ab8ecf8c36cd09fd1c216de164c5",
         "submitted.spice": "fde1be3a580d486c499673c9c9e5b09a60d5fb154bfbf6b47a75d68f1430e20a",
         "exported.spice": "c15671dd9215744e614313e86d68e21362c80552cde974506af7ae8177e01220",
         "verification.json": "c1043503b6d9f2aec6333834416f2eacbca8beecaff8de92e04a5cb74678a8b0"
@@ -1661,8 +1661,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "426fa2a3802dbb59cfffa4d991231f27facfbc1f469e0a340c79d00f1515b4b6",
       "files": {
-        "schematic.svg": "916d3983176b64d7230f3a75e93aa456ed850b7732c5f86bd051a4bc1390a8b4",
-        "project.icproj.json": "c15c502032327c586ffd336cceb996e57a4c1ead57c0449123e0311ba1c51b88",
+        "schematic.svg": "05a387d1ea8fcad699f59044642828b6a00028f1f06408e167f2337d8b9ddc9d",
+        "project.icproj.json": "61188a9bd00fd940d2b2e5cf177018a9e10ee396b73ec6cc25fcb7184c4041aa",
         "submitted.spice": "426fa2a3802dbb59cfffa4d991231f27facfbc1f469e0a340c79d00f1515b4b6",
         "exported.spice": "357b138b1f81dc05c9956b6fd28ce46d9da245046d3b7c4f2b298d0da1f74df7",
         "verification.json": "48dc2db782e9b9ad38349ba1f0b4789cae8b5077f5d7cb8dabab3f119f331f54"
@@ -1676,8 +1676,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "c8c9ce68e3cc751bbeec3f20a7d670a6a4c5b5107f8573679f16b5e13b4f0df6",
       "files": {
-        "schematic.svg": "acff9430e29706dad4d59835cafa1672b28de1e82415dcb7c29cb0fd14e0169a",
-        "project.icproj.json": "f7ab4e49206dd78828870d53749ad080a10adaccd4b1761ed7102f7664579415",
+        "schematic.svg": "2dc36c59101f1ec3ce5b05158ebd17d66361311dcf94e1d69f3c0068517a1af3",
+        "project.icproj.json": "81539bd9d991577e69d40b7aea71cb82679af82e7210e2d081d17112d62f666a",
         "submitted.spice": "c8c9ce68e3cc751bbeec3f20a7d670a6a4c5b5107f8573679f16b5e13b4f0df6",
         "exported.spice": "1012f0404ab89567c8574087736ef2741472db4108cef91e5da893119582c8e3",
         "verification.json": "6d9e8097d963c9327bdc2b6fdfb20f3a1f70688f80b87d2302fb681166acdbc6"
@@ -1691,8 +1691,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "5aebe25996e28743576870730a10e823b97060931afdf17e564618f85ee14ba2",
       "files": {
-        "schematic.svg": "4a1e16c1481ba51a181dcb1f704ad97625b5f9fbb6217967443ab4d48dd17e14",
-        "project.icproj.json": "8ff321ffcb6967863dc84298c2adc2f62b489b973c0dd8964d69bafbfd0757f1",
+        "schematic.svg": "410b0c2c5b81cde42ea1fa8c2ab2c9de87da3273cf54d2a9a0feb183c735f699",
+        "project.icproj.json": "7eafe2fb92545aac07a6c8498a1a93f2a08028e7ccc0653a98e09b3518c3b6ad",
         "submitted.spice": "5aebe25996e28743576870730a10e823b97060931afdf17e564618f85ee14ba2",
         "exported.spice": "c8a054fb28a7fdb93c82508fe8b14698cee734cd527e4295309de1650c085959",
         "verification.json": "baadf1a3a49362dc350a84cece368babaaca929e9c74c3aec35544cc5491c335"
@@ -1706,8 +1706,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "1b6c69ffc4bc32acf8ed922d037e4a5907e9aee2a51603ff01819ba8990ded73",
       "files": {
-        "schematic.svg": "51e80bf81fc053731d6ace0508811aa0865b4ffff30b136aec517f4d0d07e888",
-        "project.icproj.json": "b6a1853d1bc0bb3f20fd2afd3d93881cff9d0f37994c8c49c686ddbe33f30a85",
+        "schematic.svg": "dcc254fe2bd854c5c7173cfa155f0e58fc0c287f3b12e2691219b4708356bd12",
+        "project.icproj.json": "2fb8177044f080f6748bd801fe49226dc4e0275415d1f62b836dd88e0765b0d0",
         "submitted.spice": "1b6c69ffc4bc32acf8ed922d037e4a5907e9aee2a51603ff01819ba8990ded73",
         "exported.spice": "cf1943504166b01a6cdc4480cc9bd8b1f85f8b74b9b71d7be516247d8fa10d9d",
         "verification.json": "0cc28735784282c5dc05fcd1fcb3b667c2da8f5c63e5f494077fe4e7e7d8e5fc"
@@ -1721,8 +1721,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "34b7c34ecea890a7198d4b0ee2b0f303f4fe4261176a0edee249ebb167f06152",
       "files": {
-        "schematic.svg": "717aaa7760a121cefbc9b27e4a0bdd2c7df11b92ecd2682e8d9f70cb2b84786c",
-        "project.icproj.json": "400695d2f1ba8e795b79e4603a9284b092a1a9b056f1ad8f641adeeeeedde632",
+        "schematic.svg": "c8adef14b40adc967ef3d12eabc77b12f59727f56a4c80a859c97ea498afcb5a",
+        "project.icproj.json": "4cfa0f15de50b318f835d9c85bc2c8ebd275134b0fe9b88fe1f8aedf39c2cf49",
         "submitted.spice": "34b7c34ecea890a7198d4b0ee2b0f303f4fe4261176a0edee249ebb167f06152",
         "exported.spice": "2c9483659eb1251b871757abe976648799b6f235afda05a1e1fbfd282ac9fc6d",
         "verification.json": "af4c719811076d247439b00271a5efebe1e58e2fd6b399c744f1ee226fae03e1"
@@ -1736,8 +1736,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "b286c522b54d9168676dd8d9e5d0fe886844ed2ac42872a54412a8df200e1ff5",
       "files": {
-        "schematic.svg": "10252866084d7c49a77efe29e755409332b2250e719995ec432757a4effba96f",
-        "project.icproj.json": "834dfe97bab79d79946958414f08a633541f3c297bf10f711c955be327b7d755",
+        "schematic.svg": "dd5067b31126d88182c0cf2bb7f702a9e9b219fedd734a6be0285706b6fa305a",
+        "project.icproj.json": "242700b79055b657e5e787ef670d1fbe8b8b8bafa76934efe18fb171947ee9e4",
         "submitted.spice": "b286c522b54d9168676dd8d9e5d0fe886844ed2ac42872a54412a8df200e1ff5",
         "exported.spice": "9002835eb7f99ebaf81cd4c701400fe7e310d33b5fd0026dd2fcd6bcd1e2644e",
         "verification.json": "5dfe07a86d9f465df9440ab6811ea5ccec236113968edcec1a27ae7a1aaf0f57"
@@ -1751,8 +1751,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "4ad3fd670495d2f3e4f05d3bbcd0e7fee93b3f1745e01ff40d72ff5e8c01a3ce",
       "files": {
-        "schematic.svg": "21b8f29b4669b757ae0e327be2b473cac2b9fb8294a5be5f2ae3840fc2e99058",
-        "project.icproj.json": "ea8fa0ed89ad5bd419e8e020df8b495319c171663f0a0c9d8dde7a2163c0b7e7",
+        "schematic.svg": "dc3e390d2e5ccf4a4ef95aea1841dfdfb50b7e7b9380fb539afd2ea8b3b964a1",
+        "project.icproj.json": "44fed6799800119205fea2babe4d93fceeb6256565bf7c8b47dbc74e8c94c8d9",
         "submitted.spice": "4ad3fd670495d2f3e4f05d3bbcd0e7fee93b3f1745e01ff40d72ff5e8c01a3ce",
         "exported.spice": "56521f2a2227f7e1fb71a2cb57b714125da94d59a24f76603272eae0505cfe78",
         "verification.json": "4669ca004178c65170034a0e8f9ce73523f5ddd0817639a5d5b4790f40da7664"
@@ -1766,8 +1766,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "d668db450254db2ecd44cdb949217b39f2b0df5ce5be1b1849feeca948754de9",
       "files": {
-        "schematic.svg": "438a4dd83d82a9beef3bdd4cb7a9c41df5fa84daa915d1590111a37d4ab77401",
-        "project.icproj.json": "a59363e2f309675584fc41e874b54cd69bb8fc10f38c0d022a606d33a5a6b06a",
+        "schematic.svg": "724248b9287f06626cf2b21883896acf03789514eda814c5b55110aeea2599c7",
+        "project.icproj.json": "a901e4cc7e2ff1ae38b766f65211cfe45a3a2e34ef0c32589d8a2465c5793f7b",
         "submitted.spice": "d668db450254db2ecd44cdb949217b39f2b0df5ce5be1b1849feeca948754de9",
         "exported.spice": "3c93c889c1ea60ac0dd345d3909ac37d8450ff04428e57ee2be92da113975858",
         "verification.json": "5a9c4e7b491e248302a1bae50bee222acab921974d04917cfae937ca454b8848"
@@ -1781,8 +1781,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "1b9980e6fc4f1d4adfe4ac6784205f4e09d01a7660578971f884bd1a058d089a",
       "files": {
-        "schematic.svg": "6f77d276032f0a4f84fe07b6c932e7b04620d146d07c01d40d360e6aff6e7bf3",
-        "project.icproj.json": "2db0b809e4b11e8e9b00ddd3e82c4e1246e413c10597623f3144bc0369fa81be",
+        "schematic.svg": "ed6a8cccac3c95eb45a85595342206b800454e99de5f2517e1326388c404f238",
+        "project.icproj.json": "1927ae06e01b095f1c363bf4ee877bad125a6d634343ee88ac160b6d9b426548",
         "submitted.spice": "1b9980e6fc4f1d4adfe4ac6784205f4e09d01a7660578971f884bd1a058d089a",
         "exported.spice": "993a9648ab01ea9ba8240ef80dafd5a4ac6e97f38514cec460364b055bbbf54f",
         "verification.json": "267a4ce24d84d83d2d0c564fc8fdd36c7cda3b1d83c99d5bf1a96f23e36bf471"
@@ -1796,8 +1796,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "edd404f2da13e56aa6800cfd3350d77579fe72ae15a0f644056fb7a5e1d278e2",
       "files": {
-        "schematic.svg": "63e6c05ce0a9677278d0b26c9bf089d6b53f555ed1fba6955fbdf707e5141eda",
-        "project.icproj.json": "bd9c8b1b01cc374d10b12a3bac5c0ff314329112192a88fb220062b4f4c5ec6f",
+        "schematic.svg": "9abf8bf0d13f54fa54aff36715a753dc410fc3978388f612294423760b3e47ba",
+        "project.icproj.json": "fbf077ae7171fed96d5a7811baeace68a96487ac8fc8318adbfe4ee1c2dcefe3",
         "submitted.spice": "edd404f2da13e56aa6800cfd3350d77579fe72ae15a0f644056fb7a5e1d278e2",
         "exported.spice": "ba0b76cd2463e00093d5c5cef71da88ac96acb6982372f38dd9a714e00af218a",
         "verification.json": "619c4de828b159ee43423728be21afd7f9e97e6fbf4a14765d58bad36ce57180"
@@ -1811,8 +1811,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "c58eca2c446c2289a6ee99e4253d1dacc7af0f677493e1d3e9fd7f7beb22226d",
       "files": {
-        "schematic.svg": "76e54e00966d61c652ca5a2181d007da2e58d929da30123e65533b4b9ca212f4",
-        "project.icproj.json": "48bf9522df2111bcdbb64ae3effedf2f04fe236b0e1da423ace42141d4491feb",
+        "schematic.svg": "1516c166e4ce4c0d2adab1f3a72bd1740b7170643f6fe3375cba2ff1c5c0d496",
+        "project.icproj.json": "e50be06d9f7d030af9a0310c33ecb0a480268133fe31dc4ca3ae21ac0183d6a9",
         "submitted.spice": "c58eca2c446c2289a6ee99e4253d1dacc7af0f677493e1d3e9fd7f7beb22226d",
         "exported.spice": "0a9610508e0077bd262b5c4338d27021d3335b85a377c0d145210291b9837e5e",
         "verification.json": "b4af35426d391d3b3d81e637b9a69f9b398f4c4b860ab2b9de666c164bfba0c2"
@@ -1826,13 +1826,1468 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
       "source_sha256": "aa2ed4f74852f75b8d134a6683a76e1bf82225e7be298aa286e146c69cd571b8",
       "files": {
-        "schematic.svg": "52bc05c1f521dfeacf4f93ab982251d5db75206bef4a0ef30b035aa8e9988289",
-        "project.icproj.json": "5001d1c4c225cdd2e1482470b15d127e597f3f3d080346f318d40381088b087f",
+        "schematic.svg": "87614b53a6024cfe0b9e8598fd36eea3d1ff29762a9013fcc2e9a9589fed51dd",
+        "project.icproj.json": "85c1aad0d022a1afb4d5eb658ae7970bfcf2756d2b978edc4595d7525cc78b17",
         "submitted.spice": "aa2ed4f74852f75b8d134a6683a76e1bf82225e7be298aa286e146c69cd571b8",
         "exported.spice": "19a3fb7f203ef0e598be328f551ed26aeb367e2a742a950c020e6e0cbcdf5166",
         "verification.json": "fd67639d52d60c73e43dc4e2785dbea3c1897561c9526f486dc366ef4e2acef5"
       },
       "layout_strategy": "connected-stages"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-opus-5-5-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "dc13b27106f0af059a362a2ea962d8d280c8100faaf4045903a4a86297059c22",
+      "files": {
+        "schematic.svg": "836f989de2f3c0f92c7765c6c2ac8b2257034634071f7950f5fdc38e82da1685",
+        "project.icproj.json": "1f7d2a549811357bb4f73ad5d5d72a67872c622f1bbea3e7098906d3d19e913f",
+        "submitted.spice": "dc13b27106f0af059a362a2ea962d8d280c8100faaf4045903a4a86297059c22",
+        "exported.spice": "589ec35b4ec5d4fb57093a89a87847a5c6c56e10cefcd67b82ffad7d7093a28c",
+        "verification.json": "de71f23f9d13a2a81016ba2b574541645fc6f7bba0ffb7b9618e6029f31ad134"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-astra-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "61eed336f602f60125d9eb4777a8220d5f3d932ff212c7b9c0b1842709193578",
+      "files": {
+        "schematic.svg": "00bcd058bd24685717fe50220f511bd5af246e6e66cd67e9aaae005cc901e910",
+        "project.icproj.json": "f318695e6a563b8220b16050c71eaa42ad61d90dd2736ea193552d155b7c2cdd",
+        "submitted.spice": "61eed336f602f60125d9eb4777a8220d5f3d932ff212c7b9c0b1842709193578",
+        "exported.spice": "b62f291c6a12228568a81950112fdeaf1fa806b606a1104d8fb3a9d115ced02f",
+        "verification.json": "a1ef76ef8048725b15cdf6eacab2e2491e0046f1a7126ab828529fb78e3590ba"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-sonnet-5-5-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "7c439cede06ec2660a410a9ebcb8c64b6515b3779c3f5b517f90421702bfe4d1",
+      "files": {
+        "schematic.svg": "a6bd45a1fd07a683f653fd316f602304576f93bc13e09039f9cf40b57776d47e",
+        "project.icproj.json": "e43d1499068a3a6af65ae83708bb4477a4e77c09296a713653abb24931c65888",
+        "submitted.spice": "7c439cede06ec2660a410a9ebcb8c64b6515b3779c3f5b517f90421702bfe4d1",
+        "exported.spice": "56e0332bfdb9e2ee064d31be4597b7fb299a827e355c9c47ebf44e643d058373",
+        "verification.json": "0900dd015d1ffc9242f7cf84b94548f21b64a69724c3dcd6f70a2620a37879d8"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-sol-6-1-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "d6bd1a255ee93a938265ecaf48fbfea213e4a4f146db135bfebf2aaf0e234a87",
+      "files": {
+        "schematic.svg": "b459786f049437e5d884bebd755437b828d567fc9cc6752fe0a67f6cde15d330",
+        "project.icproj.json": "a3128d48cc0849670d7dec9f258d116bf4cc5b8e23a05dc20d52a90eb45aa70c",
+        "submitted.spice": "d6bd1a255ee93a938265ecaf48fbfea213e4a4f146db135bfebf2aaf0e234a87",
+        "exported.spice": "9ae13cfdc136307a0a8064d8e68666e39d4dae73080e4de84d1043496a5b35fd",
+        "verification.json": "ab0cf912dd8f29f0cbfe4fdbe79b0426d264bb61070cc4006ac4d2ed95d16142"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-luna-6-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "2cdc72f3571370f3e0fed34773037ba6909a0a1bcf80fffacecaa94b09e47407",
+      "files": {
+        "schematic.svg": "4299136d47aac7dd5032c8c6ed21ab25b493c1f78a9562c5de08dd890f51b2c6",
+        "project.icproj.json": "866ccd2b6d5c12dcd7ead636561c801d99205f9b18b781310f0a39d8341d0f72",
+        "submitted.spice": "2cdc72f3571370f3e0fed34773037ba6909a0a1bcf80fffacecaa94b09e47407",
+        "exported.spice": "5b2ec64003a1c9897a7c3325f025451737032f392f3455788075d6bfdfe340b9",
+        "verification.json": "7429aa8af224e7337ba5ff882a36a231c27437dd9c22d346f350233369c4cc20"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-sol-6-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "d85ca5b6f368d19af11cb944a2f20032bc8a1e75635f55b2dd57710b1bd718f3",
+      "files": {
+        "schematic.svg": "f01e6a53c5cbbda8dc33fab29835c68f3dbfb0419efff2c8c4ed87b0ff1ddb4d",
+        "project.icproj.json": "a81620d61bcb9316c2211b13fd9adafd4ad53a2bca80968a9f21be1fc1ad250d",
+        "submitted.spice": "d85ca5b6f368d19af11cb944a2f20032bc8a1e75635f55b2dd57710b1bd718f3",
+        "exported.spice": "044a624cc75c1b39dc9e89412dd7cd897426b8a8fa473cdb5584381c299bc3b9",
+        "verification.json": "43e3b13d8cbb98e525b38f2664131f25d82fb719faff77e94a9688ebc79e77e0"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-deepseek-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "19c578d3fc7918ea908892aef376a8cdaa4710096be3e2905fa1b4183dc77e9c",
+      "files": {
+        "schematic.svg": "f1a3cac4c1a3f4b6580c22ac79d3f5ab6477436fc1ea1d39c47f8ebfba672986",
+        "project.icproj.json": "d13a687b55f7aec31624d8a7efc35515073a572309b6681cd549cd33f55ba392",
+        "submitted.spice": "19c578d3fc7918ea908892aef376a8cdaa4710096be3e2905fa1b4183dc77e9c",
+        "exported.spice": "9ed56bfe1344ce4fd9a4e9a69e82cbbad63ca4a29855ac7813a376a03c3af1dd",
+        "verification.json": "a87258f5b22a32170f2efd595d9643375e589ab43cca61ecbabc682cf9b952e4"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-astra-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "9cae7684c48c7b3b407a0c489808919d60864a0c71dd68a398c7a791502d86a0",
+      "files": {
+        "schematic.svg": "9ada64968332f3114ee9872258d7d179affa1115828a9fe7c5eeabee1322735f",
+        "project.icproj.json": "97ae4708f3ab55c342d89c1c41062b60fa86d45af26563c7d688e511fccb027b",
+        "submitted.spice": "9cae7684c48c7b3b407a0c489808919d60864a0c71dd68a398c7a791502d86a0",
+        "exported.spice": "a46c2b6092c14eb34d1d4279f31b49bab4035ef7ecd06a8b73f7610b2d996d2c",
+        "verification.json": "de8fe8c7f7dd21dfee259834ff37b66215bb335ee4d4fb2a668eefd2a55b1a35"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-astra-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "79dbe2a2420f79a0455a60888710e2462cfe7a30bed52c7f4dc296e9607962c9",
+      "files": {
+        "schematic.svg": "509d3124ae95774b5b0098f37158a654f0145ca4b17225056e1add38de6aa44d",
+        "project.icproj.json": "3b2b30f649b6b5b232b2b2ea5543c5b1a888d009ca0b7ab4c79dc1961ea3b66a",
+        "submitted.spice": "79dbe2a2420f79a0455a60888710e2462cfe7a30bed52c7f4dc296e9607962c9",
+        "exported.spice": "df7d2daa1ab269f5332e69e218df971dee52963263293737188091bc5a508160",
+        "verification.json": "d5b29facbb9a1352a1976059cf5dca1d44d46410e38ad0c9c6c7dff7b3eda91a"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-opus-5-5-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "206ae333350c120e01396117592325f72add3063d7ba5878b6b368694f797a90",
+      "files": {
+        "schematic.svg": "448384278fbfef1a78648619d2eb7279cb14357cb86a3b961efa1b77b384704c",
+        "project.icproj.json": "35d509214d2cb1e510c16368fb69a6a3b72e7f0d041e158d6491a8f4ed4dcb76",
+        "submitted.spice": "206ae333350c120e01396117592325f72add3063d7ba5878b6b368694f797a90",
+        "exported.spice": "68ac5740485c09c44eb8330257eae988a98f619985d232aab994c4c7b37cf41a",
+        "verification.json": "4c5e6a155ef17b4a369039da2add2482be34076d3c2d104183826c1de58f7c62"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-opus-5-5-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "6d75bd1991bfc5ee3120700ad783e3dcd07f210ec71500d2e52fd6ebd16bc5ef",
+      "files": {
+        "schematic.svg": "bc76d67234c59ffcd1563676f6e1a9a134b7a611d8a05c999d5b02536b3345e9",
+        "project.icproj.json": "20f52345379e2dfaba034e159838a5465a1b2b6206ae489618994ffde6fe8d50",
+        "submitted.spice": "6d75bd1991bfc5ee3120700ad783e3dcd07f210ec71500d2e52fd6ebd16bc5ef",
+        "exported.spice": "6dc6cd9f237b1e029d9337738a6a579640aff134a1e5da4d8477e40a31ddc6fa",
+        "verification.json": "8a4d81d6ee436126e4ede2ba077879c178084df5cdc27322cd9852bc8a48a8c3"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-sonnet-5-5-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "b6c823a5c2b2a804d83cbb3ef35bc6d9117733378ea5e345151f215653ed9b30",
+      "files": {
+        "schematic.svg": "05f953775197f604c9bed44a706fef027b386f0e1348cfb34150ac2741b822e5",
+        "project.icproj.json": "dcb0bf7592ad21df4449a5dd284fccf0a0b3e56f8be2e968012039634ea7be60",
+        "submitted.spice": "b6c823a5c2b2a804d83cbb3ef35bc6d9117733378ea5e345151f215653ed9b30",
+        "exported.spice": "13a557ead3783e50b857206dbc303080966e280bff09d7683e429fe4e9052485",
+        "verification.json": "ab9ed7441a22faa9ea993aa9c190783a00054655da16266202aa5d65c479dc86"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-sonnet-5-5-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "8bd90eb45415f0c7ffee7e138bd66c38952041740f2b5de6cb199f08dd9bee87",
+      "files": {
+        "schematic.svg": "bc8c3a6460f527bcccaa1d0237dc3ef0d498f636be6b93eac83c6c769fe7608a",
+        "project.icproj.json": "08054c19c0a8522a8564e348f46b8d82a4bfc76b75d5391a38275c04799df872",
+        "submitted.spice": "8bd90eb45415f0c7ffee7e138bd66c38952041740f2b5de6cb199f08dd9bee87",
+        "exported.spice": "57cb735696bab00a3977c1592e9bbde242039a581283f3b526972d935d7e42c7",
+        "verification.json": "e22a558ccb0e175b269da5ca119671afcb98b2c7b4bdf09920c32e02e86940b8"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-sol-6-1-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "fc35fc3926fab6d1e5227a1513bc93997bbcaf8e4d3551e79bbca10a3a54b9f4",
+      "files": {
+        "schematic.svg": "f8a48fca229d763579df0754c7181e6df46f18a481f5a9d66efb201fc0c8b8a4",
+        "project.icproj.json": "272bd63ae5f59682284508798c3a9f4de9b7dc748b73133c946768524a374888",
+        "submitted.spice": "fc35fc3926fab6d1e5227a1513bc93997bbcaf8e4d3551e79bbca10a3a54b9f4",
+        "exported.spice": "1d90ab4bbcc15b9cf27b5f7b8d435b6b4f7ab057f819fc832c285356abe7e42c",
+        "verification.json": "b1c24567abc76ba9b1d6b89120947ff406564ca6ff11dc2e122bd4b201142aac"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-sol-6-1-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "79c4d1ea412a2fd7d741a89c3ab3119c8b0c1a8fe4ddc8fe329771b8e22fe9dc",
+      "files": {
+        "schematic.svg": "abb2c450e9f460c56269a1618411bd22d5f7bf46535423454684dee294fc9587",
+        "project.icproj.json": "3916bf83a0b018013271867dd55d610ea2216d605fd4da564e469ac14965371a",
+        "submitted.spice": "79c4d1ea412a2fd7d741a89c3ab3119c8b0c1a8fe4ddc8fe329771b8e22fe9dc",
+        "exported.spice": "5d43efa0d18fe844d116f8237cf9f6690953cc91d2433211985fa7ef2e4c2809",
+        "verification.json": "8a34ba1c9b02c54dbcc37969b7842c632ed881a05e0cf0b20b66b4381b006885"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-luna-6-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "1bc89b85366696b7bbec1df0de61018c6f3c22ae86cc9b221a22f96ad690b041",
+      "files": {
+        "schematic.svg": "324b8ff30ca44c7a01e3d13afbb8859603b64bdbec2b4ebd0d14f878980456a3",
+        "project.icproj.json": "2162ead4be74d8d7d8ed27212ff54e7c142819d996221a8da0373dac702577c4",
+        "submitted.spice": "1bc89b85366696b7bbec1df0de61018c6f3c22ae86cc9b221a22f96ad690b041",
+        "exported.spice": "357705137878445c583a8d9186342660f8773f38fec47f9a48b6f3a5497c38b0",
+        "verification.json": "2e581f2a65880f9f011a8b6b28844e4bb250c00fdd56d509a24b85032a80ef43"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-luna-6-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "0b1823fbc71f4d7d028b5a45bca8d2f892660b573ab61d353b18677fec8a3bb0",
+      "files": {
+        "schematic.svg": "17f82d25273bcf886baaaa393f92d485d9f6b1150c9dd500401a3783017f0ba4",
+        "project.icproj.json": "97400a988b56c1b509102c32551df0ce105452f31ccaa0cf33c8ee0765b7e5fb",
+        "submitted.spice": "0b1823fbc71f4d7d028b5a45bca8d2f892660b573ab61d353b18677fec8a3bb0",
+        "exported.spice": "94febb2042003bfe779712131c6ce3e39f7c44b605c64f570d38391b57fa8827",
+        "verification.json": "482f735eb0c916d79495d06fb909525e6df6144060124d93768406e8f31a6566"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-sol-6-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "9dcea75261181bf3e2588ef07db2ed887a95f22598628ea2d020a2457db5bb4f",
+      "files": {
+        "schematic.svg": "e9e9c7205a31ad23bed03adaa8c6cfb7f67d7b895160ef09a3025b0b20804be7",
+        "project.icproj.json": "2dcd04bc31fbc0d362f1b598213f931768a8de57d9e8eea93ca44d6fe5987858",
+        "submitted.spice": "9dcea75261181bf3e2588ef07db2ed887a95f22598628ea2d020a2457db5bb4f",
+        "exported.spice": "6493cf727e9549541181f385335bb71ff6bb9d889ef1a089b698b7f238faf4a4",
+        "verification.json": "b22976e734117ba8f426e2bc406a78a04513d6aac078ae3df43888959af2d348"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-sol-6-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "c3fdd16bae2c16816f8929aeccfaa7ef1e9505cd24206677b9c10932efbd6efd",
+      "files": {
+        "schematic.svg": "5dc208c20cac06f9010a085d7b6519d5a24e8a457959f45a219c583666adac9a",
+        "project.icproj.json": "86effa78618cfa8786d99764b6b2c9fba42cf93f1a5a1b027d7ca041799687a1",
+        "submitted.spice": "c3fdd16bae2c16816f8929aeccfaa7ef1e9505cd24206677b9c10932efbd6efd",
+        "exported.spice": "0e11c51e38426530e61e17f01d721600b837c042da6a281f1e967f8b23ab43ed",
+        "verification.json": "b140f509b6d06407b28c0b8ea0068bb3f3f38b502c8ace1094375abf9ad3c8c5"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-deepseek-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "075c0027be1c16ccacee81dad91b27812bf8f2e1a1616cd0a3aee429af10f6c6",
+      "files": {
+        "schematic.svg": "755980fa3290fbc4e923a7728d9601e8916cbca054a21b55b7f6523e520245d6",
+        "project.icproj.json": "72a466b84cd12bae086a0c1e6bfff341afc3b2eddc33bb87aa135267bd180da1",
+        "submitted.spice": "075c0027be1c16ccacee81dad91b27812bf8f2e1a1616cd0a3aee429af10f6c6",
+        "exported.spice": "02c5be8da06a2f2c0132ecb3ebb3771eac96e79cca27f052ffc9e9b210b6892e",
+        "verification.json": "deb29df9462e2dce98074f46eebecad387548636d602e0cd6ad968ef6ae9e851"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-deepseek-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "d39e4d45809a0c1f375b4d8872d0c04dd359ce1d45d9b492c2c79f22c4bd1f6c",
+      "files": {
+        "schematic.svg": "846b6da624ab7852b036d68737a55989d8147e091ce389459a20659dce1edcfd",
+        "project.icproj.json": "2c5acdd915abd283d7b51385974ddb52de439ffede4dbc8a750892044936347a",
+        "submitted.spice": "d39e4d45809a0c1f375b4d8872d0c04dd359ce1d45d9b492c2c79f22c4bd1f6c",
+        "exported.spice": "a9e79d82e5873c47f8605131ceeaa185c4e256505942747d8972192caa8516ad",
+        "verification.json": "ab758a6ac6bf36e271c1eb05747fc26f2433907b6cc51e42b4c9f4c4543aed10"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-haiku-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "9551ed1629b192e382193254504b66c5e19e84879c72b12b479f93bc73d1eb0a",
+      "files": {
+        "schematic.svg": "35e1d2d2359952b031d83d56876688bf64b66591f63839dede72ca32879c40bf",
+        "project.icproj.json": "089db7132c7f22a6ad6444757c75845149807316a66f510c4de3e52216243c5c",
+        "submitted.spice": "9551ed1629b192e382193254504b66c5e19e84879c72b12b479f93bc73d1eb0a",
+        "exported.spice": "ce650c4b14fc5f61d621d811d6744fde365270a4b1dd50515d179450c73bda9a",
+        "verification.json": "ab7888f9b65d448eb63ddb8f0836c4299e5cd15d966b329db19dcd6d57cacca3"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-haiku-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "2afd3833599e520283365c2fab0d7ca6feeb9c9410f0a02702ac6b23d188b4c5",
+      "files": {
+        "schematic.svg": "7e3786c8f2d746ddf6df7a81f43c13451f112fe3148aec89302e8a8c88a79c7e",
+        "project.icproj.json": "793f8921ad7062be51bfd641bc77e956a9c5806a3f09caf97fcb4ba78264716a",
+        "submitted.spice": "2afd3833599e520283365c2fab0d7ca6feeb9c9410f0a02702ac6b23d188b4c5",
+        "exported.spice": "ad0029bdd10461f74547b9a36e89144d09e7891ab4cde047cc2150abdf8e3e8a",
+        "verification.json": "3f9a2c761379fe13b1de630d51f7f91a532875ee03361617eb4047001095a4a6"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-always-on-sky130-haiku-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "ecf5b0630b633269ba65f8f031cdf5d64d690b976e25ed9d4b15abf59646b820",
+      "files": {
+        "schematic.svg": "93dedaa9c51ee2401a3908e7a197da8d8f110e59a7e1d00d6028dd7512229d4b",
+        "project.icproj.json": "769bfe5b44fb8bdbc0ee94c2ff74e0eb7f531eae248bcdd44317167fb022c1f9",
+        "submitted.spice": "ecf5b0630b633269ba65f8f031cdf5d64d690b976e25ed9d4b15abf59646b820",
+        "exported.spice": "592802c7132fef50db193e4f743309eb092e8d054dc40098297e3274702173db",
+        "verification.json": "085d070687da4a8c5f099a5baa18a3c83fb944c4452ace0654fb18a8a2879c0c"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-opus-5-5-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "b36fadf1b9a7df0b4ed70c468e4021f7d1822ad15199e5947ccab59b0efc4327",
+      "files": {
+        "schematic.svg": "12295092e8aa8de8ac894195a0de037862fe5fe491fdf8dda8c92fb6d1db369b",
+        "project.icproj.json": "e42eef0da4dd357d821e485e886474ad76b8575fc29ac11dbd2d4d0c573d64fe",
+        "submitted.spice": "b36fadf1b9a7df0b4ed70c468e4021f7d1822ad15199e5947ccab59b0efc4327",
+        "exported.spice": "c671f68fc152b9c7be1347fdd3ddc17fae9799d532b09a64c2e44487cd9a24df",
+        "verification.json": "69d3418df9b86a29b95ca48b2cd20e844bca3bcb9ab4746ff99dcffbec7730e6"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-astra-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "e7e6a46bb08980dbab65ac7b48b5b87c5b0c9bcd0154fbad094afef81ac35315",
+      "files": {
+        "schematic.svg": "68b362402d46136d0bf2a44bbce423fc392e042fdfcd1b6bee076ec8c9d973d6",
+        "project.icproj.json": "521f236e46aaf6b7e49ecd07956b590a4f86ce30a7ce061119fc36afa5e5aadc",
+        "submitted.spice": "e7e6a46bb08980dbab65ac7b48b5b87c5b0c9bcd0154fbad094afef81ac35315",
+        "exported.spice": "bbe1c1a824a5b324810892a687bf7e93131704cefa5228c74b083140f6e646f2",
+        "verification.json": "390a9e35da5cee1fb197029c5ca4588e28412ee63caaf881b5ff4fb9bb48225a"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-sol-6-1-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "88297caa1002affda967ca171fd3e3c6272cbd0da9513d2baaf1cec2e635ab3f",
+      "files": {
+        "schematic.svg": "ae63a135a2d38e41a60b13e9e35afd382f509c62b89ed570f8d0d9d1523bcf3b",
+        "project.icproj.json": "0d41acbcbb94824c9cd7f13c2434060ce27b7b8eda269a81e09bec5b3293ba77",
+        "submitted.spice": "88297caa1002affda967ca171fd3e3c6272cbd0da9513d2baaf1cec2e635ab3f",
+        "exported.spice": "9e262572ffdc4f8741b25be8c89f71f4adc54425fbccd10794484b2d95906b71",
+        "verification.json": "e5d430c2e291a270b1a923d6ec38fbdc7b8b747857a9ac53f7dc2ed80b1a2d30"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-luna-6-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "fdabc8a6a5ca060912e760270c070ed665bd923fa256925bb5a0019c0c1ccf8b",
+      "files": {
+        "schematic.svg": "9f29b02032cf6b7bd4959294330f3c78fce4f6ef79fb62137a9372ffa00e20df",
+        "project.icproj.json": "8377dc178a9690f222687ca7f76910334ff702affa5b849568c3e5adacdc80a0",
+        "submitted.spice": "fdabc8a6a5ca060912e760270c070ed665bd923fa256925bb5a0019c0c1ccf8b",
+        "exported.spice": "76a12286fbd6f9d74d91b0c719146eb17a852a0c1d7ae3df855682b61fffab2d",
+        "verification.json": "1b9a607306e9557eebbc171e4e84fcf6bc569047ccf2e2b08a0f1c1e3b3a39e6"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-sol-6-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "3a528aa8d6f67dd8fa240b467906b7b523185e598822e584135aae531ab7dfcb",
+      "files": {
+        "schematic.svg": "db3ee7684d977b72143250ee003fcf11642f950ae4e07a9af6cf97b227074162",
+        "project.icproj.json": "185725397cc7df5bffff33c15fabba96724d9edb68da5a6e8076c8409db1132f",
+        "submitted.spice": "3a528aa8d6f67dd8fa240b467906b7b523185e598822e584135aae531ab7dfcb",
+        "exported.spice": "26dd424e4a1220e716d8f229913b0ed0d023cff36808f82855fe40c92f033c4d",
+        "verification.json": "c6ce73d71e19bbf59341bd7ce49ab2dc4f0f745943bf830e3c83cde305a2628e"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-deepseek-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "44a466fdea2e8a04ed0128959e368ea2a2c121e6a41cfa7ac33436b91eb55335",
+      "files": {
+        "schematic.svg": "66d6afc0ec300ca41f22b1de972027fb2ff90033a31c5934412eeb3bc1ca91af",
+        "project.icproj.json": "fc706a194091a7440cb866542ef02d1ef83f5dc7ef0ca78f9fb718a0c4d8c77a",
+        "submitted.spice": "44a466fdea2e8a04ed0128959e368ea2a2c121e6a41cfa7ac33436b91eb55335",
+        "exported.spice": "c27f91e9d74361950fe675029d796b088b0aeba0141244c106a73f0be79053e7",
+        "verification.json": "02d912f537d3e62fdc4edcaaae49783ef087da2118234f56f37a7c7068f1db90"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-astra-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "f8e7d761e63ded76e4e5d8f6afdffde8efebae21498c5560a2b065ae401bf008",
+      "files": {
+        "schematic.svg": "ae69ce24e6b650a2fc62271ba37e5605f4364302bf2d05371d422ba8a00361eb",
+        "project.icproj.json": "58d1d6f52f418993ba0391c69b6a90507769ee963e4f898f61b16f1eeaee1ab0",
+        "submitted.spice": "f8e7d761e63ded76e4e5d8f6afdffde8efebae21498c5560a2b065ae401bf008",
+        "exported.spice": "acc086f46eac81188dc46e1e55270584d09ea4d92a47766513c2b088f3e4ddfa",
+        "verification.json": "5c0e4a94ed3b2431ec82e070f62b99019d027b6f8955a638e4e3f026d4a2872b"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-astra-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "5988a4611ad2bcc5d1fe125cd2311db51e5a264ad0169b874009396e15acc034",
+      "files": {
+        "schematic.svg": "69334d8fbca12cda6c336c05f4790b3ed409fa76522f572624722dbb680c3a1e",
+        "project.icproj.json": "ed7c2e6dcd8cf41b7483b31d80f9a1e61cad3aea1121b540bc3c56091c11d67f",
+        "submitted.spice": "5988a4611ad2bcc5d1fe125cd2311db51e5a264ad0169b874009396e15acc034",
+        "exported.spice": "9620b1335e02c5a6f2028b3e07cfe9c38c4d32877656d402b5688b1f974983c0",
+        "verification.json": "08ce1f97f88d54323ff6746cae2f981d586540fadd90f31ab56f70483f714bb8"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-opus-5-5-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "8d554e922aeb87bed5403c3917097573f1d4778841115b2016e60acc6dacd1bf",
+      "files": {
+        "schematic.svg": "eed1831bc6bc045cc1ad69670b2299b6f746263df1f10ce1f26388084e889934",
+        "project.icproj.json": "90fbdcf2b924c706733a30435faa060b9a22a4209cec11f55d6a0fb5848034a5",
+        "submitted.spice": "8d554e922aeb87bed5403c3917097573f1d4778841115b2016e60acc6dacd1bf",
+        "exported.spice": "ed835a71c5dfb228ac608d952cfa12b6d508acbb995621b220f9c8201ab1596d",
+        "verification.json": "8708dee03cac2463dd413a2577c1c34ba0e659c9c0bda55b839253d0e29bc552"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-opus-5-5-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "f0449c9bc1e638da4389a4b20b6d8af453c5eb4988e4a1c567da1458fdf74849",
+      "files": {
+        "schematic.svg": "a9e5725ee070f4da03372012d06d17605bdae63f40c84b7bbeaa2e60b2e728a3",
+        "project.icproj.json": "eb87b0db200ee0e97888a4e4665d26f393963bdd439084ac33470c0e55447d74",
+        "submitted.spice": "f0449c9bc1e638da4389a4b20b6d8af453c5eb4988e4a1c567da1458fdf74849",
+        "exported.spice": "d0892ebb18eed40b28a5f74d74ce600ff2100ac61525981b9e3ab5f2c7aec2bb",
+        "verification.json": "7cf115496d0bcdd80f17ea118c406a59b293ebee3537bc9b770ade2a561ff90b"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-sonnet-5-5-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "aa2055d26e69b5ccf68fe5159332da847bce0ea1308d253f0c6eb50181a40bcc",
+      "files": {
+        "schematic.svg": "69c5978b95c8e248246272744987a6c7d65af099f9f47c47204e64b8f83ee611",
+        "project.icproj.json": "73ef555f6265aa290adb7e5a4c634210d3675eca2c560118a6fc52286d5383c9",
+        "submitted.spice": "aa2055d26e69b5ccf68fe5159332da847bce0ea1308d253f0c6eb50181a40bcc",
+        "exported.spice": "3477987c38c0415a0a1ceac237ea143eb8303ab6b86a858299acae619434fc09",
+        "verification.json": "24a6b23e278ba1dfaec6bc285ddaef91ef8f0a0df391383f3c7e6821e9e9243f"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-sonnet-5-5-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "0fe1ee28d9bb9d2f74db64ccd99037c8bad9aaf4795e8fbe7921d6feb4251530",
+      "files": {
+        "schematic.svg": "2832521f82a75e601973c1f9e67f94b4742367a4aa658254ad198ed06b2a9050",
+        "project.icproj.json": "bc95d2974a2728737ef846446ef4c6f95ff075715c8048ce033be989cb847fac",
+        "submitted.spice": "0fe1ee28d9bb9d2f74db64ccd99037c8bad9aaf4795e8fbe7921d6feb4251530",
+        "exported.spice": "57209c91b30b9902ccdd375bf2d475d57c624f3a73d92d708aaa4493f131680d",
+        "verification.json": "8ee74b6f408f0cf4b96ea5afcce0a561db43f8bb2d94759836bc619aaf3b7ef2"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-sol-6-1-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "03bd18c2dec1d72ed0e6df1fb5b2d12e70fd886db8ab103f17d69737b70a3180",
+      "files": {
+        "schematic.svg": "ff362358bc4d1db3c07173022c0d653bca515cb2976463b8faefafa98db5d9c2",
+        "project.icproj.json": "c40b37cbb659b27e80c8a126dd45fc10b86574321344179f02c4091ec0046235",
+        "submitted.spice": "03bd18c2dec1d72ed0e6df1fb5b2d12e70fd886db8ab103f17d69737b70a3180",
+        "exported.spice": "1e9ad8dd2055c26eb41ff67abbe59627c5982a183aacc6e20cb34c2c963250d8",
+        "verification.json": "772dc014ad1df5c083465a2394306a16cef7bf35591a6c927a20470ec1574783"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-sol-6-1-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "7b2a06800744d1d6e05b1462bb745bdec963342a9549cd163ec9e8532a1ea2f4",
+      "files": {
+        "schematic.svg": "0e3fa39c04bb6de1687bd1a64cdb2d17b6f83bcc3b36a5009ffbdee9cdd3a139",
+        "project.icproj.json": "0f9cdbadc8b017c3eb720ced5f1ccd3f95b2acff03ee9aeeb51399f16c960053",
+        "submitted.spice": "7b2a06800744d1d6e05b1462bb745bdec963342a9549cd163ec9e8532a1ea2f4",
+        "exported.spice": "aa25e8e0e21a25eb62b56a2a2442e7508caea76723c2019fcf47421d7c151831",
+        "verification.json": "653a981c9f474ba68f4ce96996fdd943c7b4888b5d4ca4f8bc3fe7610671c8a9"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-luna-6-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "b0bd7733519fd401391ed16afa47fbe1b6acaed95754c0eb3ac8b4844908ef50",
+      "files": {
+        "schematic.svg": "a8b265bc0bb472631c2caa77ed0422629277aae06ce181f25a7cc4796e1260ab",
+        "project.icproj.json": "57e95481091abc538c7654536b4b63e6abad388c844e1e7d1c5b8b9ef3680955",
+        "submitted.spice": "b0bd7733519fd401391ed16afa47fbe1b6acaed95754c0eb3ac8b4844908ef50",
+        "exported.spice": "387fce726312d4d230f1d5747ce56413146b30434720a5d8ac6533327078e3c0",
+        "verification.json": "748a837436868643cbd6f147f16071174b869d99a5731457e7efe2df367da279"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-luna-6-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "72285b2e1e8e49d2bdcb355b8ea233906eae0f929f2997b05989bd6bb3d977fe",
+      "files": {
+        "schematic.svg": "e79128fbd6ec9bb95e3b8af504d86c30b0d66926713bd52e2b2392db7c5e0911",
+        "project.icproj.json": "4ff58adf9f29c4aae90aaf875bb58bfe8be3703e9f440c207f2957afda5bc606",
+        "submitted.spice": "72285b2e1e8e49d2bdcb355b8ea233906eae0f929f2997b05989bd6bb3d977fe",
+        "exported.spice": "dff9adcd7e86304e33ef0d4c197f13b685903bfc33add0f70aa16c4df1096920",
+        "verification.json": "5445f326e211ed146e83c04a6c55899257f39005fd1c3df2aa3a4322bafdc38d"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-sol-6-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "2d83fc90d93a3a0c53191f19f496f0bf04cdaa6a3cd62a00a6296ad0851d72c7",
+      "files": {
+        "schematic.svg": "dcd4bc6c060dba28715c175eec08d026bdaea4d98aab4b227638ae4ff4a882f8",
+        "project.icproj.json": "b64735c75ad4dcf3b0d5e646beda9dfc9ea1a95cc098be5dc6387a70ba6734ab",
+        "submitted.spice": "2d83fc90d93a3a0c53191f19f496f0bf04cdaa6a3cd62a00a6296ad0851d72c7",
+        "exported.spice": "337c7658958ac93263bbfd82c633d8df98fef3bb1cf06d7fa950321e92efd3d9",
+        "verification.json": "ab6333ac091c1595db45323ad19597f090c5535c949fb1ebe61de333648b3272"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-sol-6-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "80f8128212a4c74c58daa2d91ae9454285f44e18e6c8d9ba87ec509d05ed45b2",
+      "files": {
+        "schematic.svg": "7652b609f2a3da665ebc93eb2b6547f0e151ad09290fb132c2ece93348450764",
+        "project.icproj.json": "456edc95b41081d4df0550913cff5bc996ccd541fde267c13861b08e530dd137",
+        "submitted.spice": "80f8128212a4c74c58daa2d91ae9454285f44e18e6c8d9ba87ec509d05ed45b2",
+        "exported.spice": "8c3330e48bca4c9e6071b0f4d5d380eede784047adc42fe4a654223cd4abac5c",
+        "verification.json": "7dfb3a10ed49ca3d7c8bbdc04c576819751c697e8f1d5b91fcd7733bcc284172"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-deepseek-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "27eecd4386c9d5bbfb8b6c86fa317461c74340c2f0c7dbe57ce8c31cd75c96ea",
+      "files": {
+        "schematic.svg": "080e91a7eb05d00c1b888669c97f924a2d988b210bd98f067771bd7a25cd3b56",
+        "project.icproj.json": "ee8965f8142f1952048bbd0fdd95c4914b4a030facc8e15c6150cc92afbb8163",
+        "submitted.spice": "27eecd4386c9d5bbfb8b6c86fa317461c74340c2f0c7dbe57ce8c31cd75c96ea",
+        "exported.spice": "e6b167c5d1c5e3b310a5be3949636dbabdac7729259aaa14dbb12cbbb8b2a230",
+        "verification.json": "1e7fa838e066ecbc920b7d94a3be120a3bc7d69af10565d5d42eb73e7874bcf8"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-deepseek-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "cf8f9f87c43c77cd703b046f93148317411efb109aeb22984eb21057f282e36a",
+      "files": {
+        "schematic.svg": "ffe7a79eef52c503b4a4248893f60ae71392b109d1e076561f6db21d4c8167a0",
+        "project.icproj.json": "05251cfd995793aa3489be48ecd418cb5396ce7539bba3ca13c8223ee7ac1782",
+        "submitted.spice": "cf8f9f87c43c77cd703b046f93148317411efb109aeb22984eb21057f282e36a",
+        "exported.spice": "6bd9a5c084f8fcf111c4e8e84000efbea56dc757a0deff334cff683d54ad8340",
+        "verification.json": "0f752651c775e92fc917fd9ac81d4dcbfda2f1d8fae8253222c5e9509b40c54e"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-haiku-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "227b4ff4f9aade027e82a6139ea6bb9fc5c00f0d73c9d7cbb101cfcdb661aab0",
+      "files": {
+        "schematic.svg": "51479deacea5d33302189f9ca603f8492c1998c308e56b3a85a01b4541f4a5ed",
+        "project.icproj.json": "4558ceea37de1ef7b62e2f3d91e7b8ad6ab1a62fa712904cbf227254f3161bdb",
+        "submitted.spice": "227b4ff4f9aade027e82a6139ea6bb9fc5c00f0d73c9d7cbb101cfcdb661aab0",
+        "exported.spice": "529bc423a24ed495391cc1a2a29d57c1c52800aa5263d9e103f633df5dacf5c2",
+        "verification.json": "2551960bc08cd49e7f13b06f85f880bd4b527c411ae580c74bf48e4f59d7c850"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-haiku-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "8c302ea4105c72ed086c7e0e27c6a44e78515238c3ff9d11639afb4b455caee8",
+      "files": {
+        "schematic.svg": "3d8f13f79c8e4b35e93163eb5837f0514e3a562e462c6078767ed4bdef413c2f",
+        "project.icproj.json": "0d18d5bdd859fb7b67fda6f9866449fdb3d26317396d61a4628c284d2d979167",
+        "submitted.spice": "8c302ea4105c72ed086c7e0e27c6a44e78515238c3ff9d11639afb4b455caee8",
+        "exported.spice": "ecf64951898441f1b51f4ff427cb0d38938af9798c1e0398b70b50ceeef8fc28",
+        "verification.json": "8ba9eb8fab5f5b4e0530554e1c9b9d5f5a0e08d15e6cc340ebf2067c0aa951ab"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-core-sky130-haiku-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "a8124a7c9e53b3b85960f813431dadf2195c655aebceb282d93ccaaa8b6744b7",
+      "files": {
+        "schematic.svg": "dcdf3e87de7e05a1959d912a1a4f14609bb75a261d602db413e3cc0329466c7b",
+        "project.icproj.json": "baf39c369c53bc4389aeca44fe13b53a017edba060777a24bd9dd10e616cb268",
+        "submitted.spice": "a8124a7c9e53b3b85960f813431dadf2195c655aebceb282d93ccaaa8b6744b7",
+        "exported.spice": "ed42e73b1e6cdb7f1403e30b1aa793e38edb88a294b29c92bd5dc3fae8302a24",
+        "verification.json": "f50282f3d820e7bba7baff72310aa90418d1c5f99b52b7b0147f39c5d1df41eb"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-opus-5-5-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "ea81ea5f46587bbaf5f1aea608fb6f81bccdeb7fec1544dcf72f47f36f4b8021",
+      "files": {
+        "schematic.svg": "9767bdaae4737eef4e9eb4bf4717c1490c39a3396bfcbb3d895467cbf8520ac4",
+        "project.icproj.json": "5597889d9a3b58e2a0767f002a28407f678a6b993b349ed8dcb9fee7c94dfa0a",
+        "submitted.spice": "ea81ea5f46587bbaf5f1aea608fb6f81bccdeb7fec1544dcf72f47f36f4b8021",
+        "exported.spice": "052cb2dd362219884888aa3fbde4ae34e1f382d2f9a5a3a6a0b2f3594e08314c",
+        "verification.json": "33b9c33ace4572dfebd7085499f0266b4f15eb793894df435ae08a96ebca6073"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-astra-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "e25d24b05975baa3605c8b1417bdd4aed7e4b951c119279c5e0ef41ad3deb680",
+      "files": {
+        "schematic.svg": "a3219f1eb9cb280f392e36fd5ff02e72d0637977bfaa986b06a3e7222a0a5d20",
+        "project.icproj.json": "e24e094b25406470d71181e7c605e10214a1a6b5f2b54b7d2d3388b143cc49ce",
+        "submitted.spice": "e25d24b05975baa3605c8b1417bdd4aed7e4b951c119279c5e0ef41ad3deb680",
+        "exported.spice": "a0346ece58d830f7227655d85cedebbd5529daf1da471faaf8a1c869926d3898",
+        "verification.json": "192d89c38791f29310e3e09a0f0d16259d91f7bd2e302108af09914f985cb8aa"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-sonnet-5-5-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "096e56177364b5f5e92528836eeec6c1e8d3081a451e96d502eee1aca7c6f487",
+      "files": {
+        "schematic.svg": "5143fb00b9f98bebb7217748cc16779c7fff24eef6708914ab6301f9ca89215d",
+        "project.icproj.json": "a0d63713f5d523e4e7fcb9792c2c67e57a0b08d84bd9096af514783822570050",
+        "submitted.spice": "096e56177364b5f5e92528836eeec6c1e8d3081a451e96d502eee1aca7c6f487",
+        "exported.spice": "c9737d5780bd3705908454043915b04b2b72a66c3eae7f4a7d8f4f8ec6c9a875",
+        "verification.json": "cf18940239621c0b7f77cc272522576cf6abd65a5f796285251fb73008bba12b"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-sol-6-1-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "8c244d48e95c83edaafb363e24d3b7d46f4b5ab0ddb615221afd02aa07f1bce5",
+      "files": {
+        "schematic.svg": "2569f0060b01539b66bc66b77944049671abec418c7b0f010b70a14e444a3a7b",
+        "project.icproj.json": "033382212b718783072703574c801e42fb17bdb6040ebda88ec30ece94a68c65",
+        "submitted.spice": "8c244d48e95c83edaafb363e24d3b7d46f4b5ab0ddb615221afd02aa07f1bce5",
+        "exported.spice": "4cc1005823dcd4bfdbca86b640d61d62fff449a67ce83662ab30650388ecbd0c",
+        "verification.json": "79424faeb478b6d2caf8abb1a934797a918f19aa4ba4db99b7f87b08e1573edc"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-luna-6-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "d8cce84300bbed9ab07a4c30ce28d9f5cc1195ad72ccf248f6ff54c54a2f11f2",
+      "files": {
+        "schematic.svg": "c36237ca62907175f3548e045eadfb7a842018daf24722dfeb2445c87e420bb7",
+        "project.icproj.json": "e3b452ee1c38816739ca995a2b9e838ffed7adb08d4ef4ebe9b85dc1e4efecc0",
+        "submitted.spice": "d8cce84300bbed9ab07a4c30ce28d9f5cc1195ad72ccf248f6ff54c54a2f11f2",
+        "exported.spice": "4810f7db65e7b738822787248f5aa0fa38f5270a8d26b82e08e9327242d542a5",
+        "verification.json": "c420708e2cbe9fb5c95ef08d6b0bdaebecf4b61d491e4a7394bc54e72178007c"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-sol-6-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "4084b2040bbf1fc00131a50d73faf59aa548f81e21c6478dc23e1a2e3224da60",
+      "files": {
+        "schematic.svg": "ec8934e8f132fbf384075444399f25ca453e96f2daf44ecdc8e612122de1969d",
+        "project.icproj.json": "22821b67ebe2fcf45fd33ff06c5ad04608a726bd01e190e2d97b661105effbd4",
+        "submitted.spice": "4084b2040bbf1fc00131a50d73faf59aa548f81e21c6478dc23e1a2e3224da60",
+        "exported.spice": "66b92cd6a3530201a8cb695f81a2c04cb133b28c5c2d40b586a7a3d513be7708",
+        "verification.json": "644397f2b33a5760701d08943d4e06ebb3127b62173ac054dc0779c976dba661"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-deepseek-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "65864b37060bcd8fc22f1ccedfcc7e4da2a20bd9dbf63d91bc60f6576a241d69",
+      "files": {
+        "schematic.svg": "8c67358aa366a5909a961073bdfa60ca6734ad6755420463b52a1c0b14985c2a",
+        "project.icproj.json": "f377f5702e6835e6e63fa6762271ebf7ba1a115c7ed3cce494e71b6d23a5b5b3",
+        "submitted.spice": "65864b37060bcd8fc22f1ccedfcc7e4da2a20bd9dbf63d91bc60f6576a241d69",
+        "exported.spice": "7eee17ad51311a00f69b1d90610c4c6d8b55ce089b096e469b2cc616de905b00",
+        "verification.json": "d6820cf81689c248522a7d394e971e0b274f0c7cb459702a13ba979d3797e2ef"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-astra-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "0cab1c338096f00978427242a9a08d7a718ca7e780da8e6e66e00457ec846573",
+      "files": {
+        "schematic.svg": "7530fafbedf9101025fcd59845367d843b2f2fb53bb461760aa77d39a4102bfd",
+        "project.icproj.json": "307c1736f40f83ba9be45033e321bed633ce4f0dae44d2114e7453f602d3cc62",
+        "submitted.spice": "0cab1c338096f00978427242a9a08d7a718ca7e780da8e6e66e00457ec846573",
+        "exported.spice": "0c8a8b8a2458568e1d90f699e89eb24f809af9d1d72663d5124e95c906813ea8",
+        "verification.json": "0d664b368cab09cd891047b95743adc1a6c6763dede0cf16be233523a36c5b32"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-astra-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "450c5000de2437931d586c29695fcd30f588025ee13f660935e90dd677fc17d7",
+      "files": {
+        "schematic.svg": "0006db2b94e7fa48da99faa7988f20b411b342c230960f17953a1c29e47319dd",
+        "project.icproj.json": "31a555311caf3513ce5c5697ef45984e0169de30dbc84baff288755645004a94",
+        "submitted.spice": "450c5000de2437931d586c29695fcd30f588025ee13f660935e90dd677fc17d7",
+        "exported.spice": "5cd98e41d555754e75f6ef6af368842d4337d99113ca10281e73069789ddb080",
+        "verification.json": "226956daef03f5b718271f9ea26069791080b50c1d4b2526e510202de5f8b3b5"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-opus-5-5-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "a17a4aff92b4bfb640cbc7606e83dd8ccebdd088c42520e8e909459c085343c4",
+      "files": {
+        "schematic.svg": "69912c2dce368a1ee707c89b2d99c051db55c04af41cf8ff26046c2e2c909f84",
+        "project.icproj.json": "a7ebb42945532184c9b57eff43c3f91e8b8df6f61a2036367772f4ff97582d7d",
+        "submitted.spice": "a17a4aff92b4bfb640cbc7606e83dd8ccebdd088c42520e8e909459c085343c4",
+        "exported.spice": "0195910ac90fce87ec02e58e9748dd3057bb3ed899f9c2662a8a3523110aae6f",
+        "verification.json": "e2eaf21b774480a189bab260e365b4b2d75dcc8a29cd36dd05a974b582a10f1f"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-opus-5-5-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "4dbbb34b1a7f8ab28bf9408649457c1bf61c4876ee466b243113081195942233",
+      "files": {
+        "schematic.svg": "7cea280e97dc8c8a6b4543a5811504124dc3d7122a55bf9ccf7f03f120008991",
+        "project.icproj.json": "52790e1339b4fa458008eec23f80e2df6684450084943d0949b3935ebae86af8",
+        "submitted.spice": "4dbbb34b1a7f8ab28bf9408649457c1bf61c4876ee466b243113081195942233",
+        "exported.spice": "1bbbd7b97d2f628be02aa54d28cc1ed39015946a5cdd6dadc7bb14e8f0513b37",
+        "verification.json": "03065ae283bac9b21b87de2b878252453f7d562cc7fc79a896d0628ef2ee9eb9"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-sonnet-5-5-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "f8e7f3d5c0e0da1df9cb34fdb8541a44e9713e7c6674c8b19b77437ea65d9180",
+      "files": {
+        "schematic.svg": "ef57f0029fbfefd1f6dde46382d4178fa42eacb5e27875b684a15f771b0db5e2",
+        "project.icproj.json": "e1a3a7a260c275b02ccbb31baee57443863821ed9445b78e7deb9a1072f3bea5",
+        "submitted.spice": "f8e7f3d5c0e0da1df9cb34fdb8541a44e9713e7c6674c8b19b77437ea65d9180",
+        "exported.spice": "b87b383bf7db4ae4ccfa35632979501fdebdaf4ef0f135e912507315321cca37",
+        "verification.json": "5ca1157ac87b02fe721344ddfc950fac8e3f3bc583cea3ea1e7628a2ee493e7d"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-sonnet-5-5-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "986a1e9d60023ea0358763235d311ab1b4bdfab52de12ca96997ebcb895d69ab",
+      "files": {
+        "schematic.svg": "cc12a14ffb7502720552222a9ec42687a91e374945bd2750f4f06be32d0c5047",
+        "project.icproj.json": "447df8ca93e08d21324145b264270e2f3648a05e7c5a438858f6725fc7c1b041",
+        "submitted.spice": "986a1e9d60023ea0358763235d311ab1b4bdfab52de12ca96997ebcb895d69ab",
+        "exported.spice": "69d30ec8d06ee5d155983db4c3137b862a360c403e40853dcece925a1334a985",
+        "verification.json": "36056d1772af87b91b4867d02c28f33c33ac4f262ad24f9d9bff140b73be8451"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-sol-6-1-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "c87211fc4e8537f3db55ec2962f0a95b366fb45c2f4d53b54005d04d5108be80",
+      "files": {
+        "schematic.svg": "b6f70d48001b2538fc9bbeff674ac4e32539b33c02636fc49f409231516b3be4",
+        "project.icproj.json": "9501faf01d7cb755cff5bb5e35be24962a4c0d8bcccfbe017354e01086cfc1eb",
+        "submitted.spice": "c87211fc4e8537f3db55ec2962f0a95b366fb45c2f4d53b54005d04d5108be80",
+        "exported.spice": "a49566f736c51d3cf2118df61c344ee928802fc68612e903a5d4ee8aac4c1c1a",
+        "verification.json": "6cdf8e91fb063c52274bbeb6dfc4506813143212a4580db1175c498275d0b2d6"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-sol-6-1-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "18869bfd1c120b7e2726d5432a70116e2d1ed7ddf50d2356fb888fdf27590568",
+      "files": {
+        "schematic.svg": "722765bd23da71eaad200ce5295fe3bc6bdedade3d1dadbb9eb72de83f0bb22c",
+        "project.icproj.json": "6476d2bb1ecef4561612c074a8b59cc9fb0357d2b77b72cb4b7973d5b2fd9e1e",
+        "submitted.spice": "18869bfd1c120b7e2726d5432a70116e2d1ed7ddf50d2356fb888fdf27590568",
+        "exported.spice": "f988916b8e5f01b163cd0c978a0c3105837371eefc683e09786d587394925fdc",
+        "verification.json": "e4e68ae2505db0eabd83817c8cbabda0b05859a472cbc342cdce7bd5756083c7"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-luna-6-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "15ea2bbac1216175236d22072d0c6b684e8763f63f16f6770a5339781cdb3d3f",
+      "files": {
+        "schematic.svg": "8ee17ad80ac26f2c08f0e87c54de4f40a2ec09ba0c708ccf4778f3482f88a45d",
+        "project.icproj.json": "7ccfff103cbc9b0d0c5d1e5bc86a714dfafab6e8914dfb637a4e8a6c53432489",
+        "submitted.spice": "15ea2bbac1216175236d22072d0c6b684e8763f63f16f6770a5339781cdb3d3f",
+        "exported.spice": "65c1abca38f555f58fe2eebf976a8ee41ba15a3c2f5ac27e5af638efcbaf0d02",
+        "verification.json": "9310ec53a0a791f05a77676d96e95d0f61a167837990981d33d617b980e0c734"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-luna-6-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "0642b02dede435f1b626e3d9b3be5fbf9a9687d7e0c02c94e785957c714e07a0",
+      "files": {
+        "schematic.svg": "8b59e1af6308a35c3eb32089bf8d1dc14f4a05ac55a46311ed3c0e3bbbb884cb",
+        "project.icproj.json": "585586c6518dd7bfa25924c745dddc5504d56853c48e0d0be3fc7c15e1d6c52e",
+        "submitted.spice": "0642b02dede435f1b626e3d9b3be5fbf9a9687d7e0c02c94e785957c714e07a0",
+        "exported.spice": "144a66092f7c61e62d20035721d6e15f53175e10335753388b73c3a189a0dfbc",
+        "verification.json": "6f57480842f4cc0ebec187a6287cde31486e22491f44fcc002a88361136c8bd1"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-sol-6-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "c5a615bff276d54d709da74923dab2f692be8404428e967708b0eab9dda85a8d",
+      "files": {
+        "schematic.svg": "4f69d058d0cae7b83199b0b65f035abbf8c1c178a84687db7359e13903ff601d",
+        "project.icproj.json": "bdb359b49a488a6ce48202d8395027e217da135b1d77ab839f2b602ced329667",
+        "submitted.spice": "c5a615bff276d54d709da74923dab2f692be8404428e967708b0eab9dda85a8d",
+        "exported.spice": "ee3ba8617a376bc7c2b52ce9989271b0c565080b74b96fb30d8426052e140336",
+        "verification.json": "d5a0f57c1c7e57c6e00a1fcbec4808927fa482b5e48fa80a3b7eaa1c34466f70"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-sol-6-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "eb12bec6652ad142d4b102be5517ec9ebc781a9ab72af3c53ce721595ccc0c79",
+      "files": {
+        "schematic.svg": "1039606bcf7dcca4c04327f7102f01ad1f9aa4d59c4d6433a2db7d101acff88d",
+        "project.icproj.json": "4abc97c1ed199d0440a5de6428fc4353f6980738eaf29fb545a984b5c7acc425",
+        "submitted.spice": "eb12bec6652ad142d4b102be5517ec9ebc781a9ab72af3c53ce721595ccc0c79",
+        "exported.spice": "9731838c0dbd8f710143ee43c67997f7548b3ac0a3900592820afeaeb857ad22",
+        "verification.json": "ff5e424431a00c89ad675a99535141e0f15515d6c920a8230acf1bf51bcb26d1"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-deepseek-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "3cc416e20b5890f83bdf831c12e0550453231a51b8979df3b56ba509bbfe0634",
+      "files": {
+        "schematic.svg": "fa6815ca376a2069e0572361d7cbd3ee01a08e808a008a4edd40a7813b07575e",
+        "project.icproj.json": "c5bdaa48016ffd6c06e413c774f3127c217c4b7dcff6409908c86c4bf6959db0",
+        "submitted.spice": "3cc416e20b5890f83bdf831c12e0550453231a51b8979df3b56ba509bbfe0634",
+        "exported.spice": "7142cd353638def0e30f05f98c8ad3230328c9bcb2db9c2ef1a11379dc79db71",
+        "verification.json": "8459bd4b03350fae954cc6c66f0f3462c5744b82d05f507766557e4e22bf2d58"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-deepseek-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "61ef4f1178aca058a42928854106a6143258cbb13d7e478f627ff12dc3502e65",
+      "files": {
+        "schematic.svg": "bf181083a261b47d1a8c0b5c1ca0ae7a5c0440b5b823e13e427e721051200acc",
+        "project.icproj.json": "52ffd486bc2e9e56aeed36b65e94be52c56c115700f572c20a6d5b5e47de59e1",
+        "submitted.spice": "61ef4f1178aca058a42928854106a6143258cbb13d7e478f627ff12dc3502e65",
+        "exported.spice": "ea8732c61ee0c5e6c42597631cfcd90ad883de7ddca98f90c56f500a5af3b9f9",
+        "verification.json": "eba0d863e7ac93fd0d1501b5a7507e0cca9308c7288bda804b41154da7bcb3b5"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-fable-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "b458ff3b4376ede817167ebb344f14a2db76f1a0b8f908f5d6304ab0f546d406",
+      "files": {
+        "schematic.svg": "73945d00b09d4347f5d01ea3d89c82e84cb805276794e0a2654f21ea6e71d8fe",
+        "project.icproj.json": "5f583b0441b66f41d095068b6efa87cc216c5757b5f5d28006e98fee1ed59a44",
+        "submitted.spice": "b458ff3b4376ede817167ebb344f14a2db76f1a0b8f908f5d6304ab0f546d406",
+        "exported.spice": "136c3782bebb97eff0507f09eea99da215bbca96619bbe383d88a87f354d9909",
+        "verification.json": "8ab7049c83e0097265b191a5b733c408251c4465b3ee525ae4de0bc32df4eaaa"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-haiku-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "97c6f4f6c7198c3a62da51f9a800354b39ab5550d70b36d58518abfa0da78ddd",
+      "files": {
+        "schematic.svg": "3bfc7fd114395756e6fc6448c70cdfb90500329c8327c442f8a49d99f9c53321",
+        "project.icproj.json": "ae99e29d2d79ad454b1960d8d3692f27aa02c1c7f3a10bd0e8376c4ccf29855e",
+        "submitted.spice": "97c6f4f6c7198c3a62da51f9a800354b39ab5550d70b36d58518abfa0da78ddd",
+        "exported.spice": "9abf6000454174186a3c12c018424996ffa87080d1c279e2e2bc934493343ad6",
+        "verification.json": "a7c9ae08ed775354e9addc80ae90c2a6ee2e220781fb3f651bd0268e02113a5b"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-haiku-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "1bb5e3557eb99143cd5b89f9f21be4f90e6ed45763cd73613c8ad1c5ace6604b",
+      "files": {
+        "schematic.svg": "71c0ddda831d344227012b8aff8f0ed7a82a643cf19b92766c82b6dd6d44c454",
+        "project.icproj.json": "7b0c40698edfcdf4c6cbb4414bedf63c0b75499fa73b43a4b1ee979d9475cffb",
+        "submitted.spice": "1bb5e3557eb99143cd5b89f9f21be4f90e6ed45763cd73613c8ad1c5ace6604b",
+        "exported.spice": "2a06c24e3c43597c6c92f27b321ca04c81908d0470e9ec7f9d8506c13ade7190",
+        "verification.json": "2b64e8b2c6b4673e83de702c729bd83e72bbb2a6b438ebf962a51544d724968b"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-low-voltage-sky130-haiku-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "db610d1ad75ad87b623104325a4aafd7497bddd04849d7d4626f2b9b7d3bf853",
+      "files": {
+        "schematic.svg": "11a55e0334d1ffe245b1bd09e4906f3086300e0e127cd21ca3c6d8494266b1e0",
+        "project.icproj.json": "6f70261c41ad2b3989e877bbb77d13279ddb3f6c0e30547f5de82e5271fe5818",
+        "submitted.spice": "db610d1ad75ad87b623104325a4aafd7497bddd04849d7d4626f2b9b7d3bf853",
+        "exported.spice": "f6b7da112acc9f94b57123eb71dd703f62e7a3923cd63aaaa105766126eb83d7",
+        "verification.json": "930188989755dd1b462e2caf491e9bbe80c0bf06e15f05e77fd2d872be667039"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-opus-5-5-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "004719ea585cfea32159c6a3f820db7690bc0f0433a5241323e9ffd8f025f5d4",
+      "files": {
+        "schematic.svg": "1d1b2c20cba6ee86d847c65ddc238c9af1134ae125f74caf6cacd6595ffe97dd",
+        "project.icproj.json": "37326fa89682166243f51203863364570a05fabd53862f63d08b1b3ab6abe9eb",
+        "submitted.spice": "004719ea585cfea32159c6a3f820db7690bc0f0433a5241323e9ffd8f025f5d4",
+        "exported.spice": "071a9af145cd56776031329c41d4c8c70aa48b7006117c56d6f31d15866ece8d",
+        "verification.json": "46191623b0dabbc623d8769450de8c88c7906379b456c436c94d9b8f92933f14"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-astra-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "9b4a3f53581f471be9e0114de22663bf3e6160ed5f2ed70750e52880cd62a82e",
+      "files": {
+        "schematic.svg": "63cc0edc973170cf9061819024fa94bf4c5a03bfad0ba3b2bd7ba2456e98a2e1",
+        "project.icproj.json": "b6b11e2bab5d114f13192ee6ff97171eb609d0fda35336fa5e57b3547550fc8d",
+        "submitted.spice": "9b4a3f53581f471be9e0114de22663bf3e6160ed5f2ed70750e52880cd62a82e",
+        "exported.spice": "ac6521d0ee1c960945736c13fa12bfbbce60f0af4ecbb4ec2d646998f8c5db78",
+        "verification.json": "1f24966d746fafd7519be91bdb0febe0fafb975647b456c180d9f1bc5e85cd18"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-sonnet-5-5-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "b1daa8695d441cd9f9164e2480ae45deb504cb7ce1d8a32a71992be3cc24b9c4",
+      "files": {
+        "schematic.svg": "a557cfbfd28fcc70759cec398a538866a3a36a52c97bd62b502a2ced52f95d71",
+        "project.icproj.json": "90ce7e40b9662c40225e5b71c0dbc04f08c879a421e9350d35122479bb580c45",
+        "submitted.spice": "b1daa8695d441cd9f9164e2480ae45deb504cb7ce1d8a32a71992be3cc24b9c4",
+        "exported.spice": "8ad4cfcc7cad99114b33a9f84b51436d5eed4fc4b9c95dd82f043b41988ba1f5",
+        "verification.json": "77460d9858a26c6992499449b8bbe4fa3575a4d54647e03994e282a2fd55b604"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-sol-6-1-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "44504065b5a4f53e9bba8693075246a86a0ca218982ad0d3d1264e00cded9bbc",
+      "files": {
+        "schematic.svg": "ad24773c1eefda316f28dafee85e8bf672b9de5dafb014d3d131cbe328878d40",
+        "project.icproj.json": "3718941447b4848da924c30422dc5a7e22dd31f313f43f8b6a30324d64c0df46",
+        "submitted.spice": "44504065b5a4f53e9bba8693075246a86a0ca218982ad0d3d1264e00cded9bbc",
+        "exported.spice": "601c1c58c638ac8aa96070212adcfa4510a7f7bd8bc33b8c1a3b394fb826dae6",
+        "verification.json": "5a76f68983d03e6c626fe49d04363eb2810f5a9871d8e3454ff000709bab0a7d"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-luna-6-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "95844e8694f8735559727c5485aa828dea3a9edad04df8a628e2322c9884db81",
+      "files": {
+        "schematic.svg": "7699413d229e074ceef679c840ee137ed50a098cfdd96796e7ee40e5427d0e70",
+        "project.icproj.json": "cd41996bbec68cfafd01d4801646e9cadc27a2135f610b37df1c94a6919a33ce",
+        "submitted.spice": "95844e8694f8735559727c5485aa828dea3a9edad04df8a628e2322c9884db81",
+        "exported.spice": "4d1ff16d11078650fd940caf3c63a13905af25fe040da4451821da7545dcf3c1",
+        "verification.json": "722072ea46f19bf9a8d125a45f0b86305e6cd8a2bec3d6733b1a1a61f6468851"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-sol-6-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "4950f56719baa64a1ff29cfdb9220f25360d08a5e049327dcfb1a31238abf89c",
+      "files": {
+        "schematic.svg": "25b2bde4f64712f58baf7c8eaac81265dd1a3cb61abd89ec25f66c552f8ab695",
+        "project.icproj.json": "462d4c44c47bda5385dca3889cc6a6b773a6705d099dd72303302f4f6057a744",
+        "submitted.spice": "4950f56719baa64a1ff29cfdb9220f25360d08a5e049327dcfb1a31238abf89c",
+        "exported.spice": "66cc74716502f8fbb75861c9f35db720d7e5a2a5bcfe136164a129ed0dfb8298",
+        "verification.json": "44a44bfac9d2d9bc691b5692331c2ea779b6e4ab9d2b523bf7d9c71957bfefe1"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-deepseek-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "9e8a61ce856a9b0adb95d62a5e6ff80d31a711e8ca783a4327fc23e2a2b51089",
+      "files": {
+        "schematic.svg": "9f73dfdfc183a45b686342fe75f73ebce2517ab827b6599ddc89ec00d73bbdb8",
+        "project.icproj.json": "ec8289a60f4f696177883bb7e1d99c59139d99b3efe0dbda892fa3deb97bafd9",
+        "submitted.spice": "9e8a61ce856a9b0adb95d62a5e6ff80d31a711e8ca783a4327fc23e2a2b51089",
+        "exported.spice": "cbdded7f579ccca749a3b7af9fae678d08847404bafd71a9c7eb689b2d729be3",
+        "verification.json": "31b0f88c12e8c4dc3fc3f527cb94e39f3f1aa9a63d07d93c18716feb9093fe14"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-astra-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "107e200cdfd9a9c5a2580890ef724ef3abcb822973f83bcb1c06e9023f155ead",
+      "files": {
+        "schematic.svg": "bbd1e7d6cdaf1181dde5bc3e96f12e9c386a597965c270ca37af5e6032f5fefb",
+        "project.icproj.json": "a1d01a3dcbb51b715359437e72cc67cd81c5cbbdff128d83cc477bc1775bb8da",
+        "submitted.spice": "107e200cdfd9a9c5a2580890ef724ef3abcb822973f83bcb1c06e9023f155ead",
+        "exported.spice": "6115bc87f3876ca15961719c4c820127c8eb0faaf3fc250392bb9a52bf665e2b",
+        "verification.json": "3ddd0519a9b41fd4939e713e84d088e04cecd41f7b4971bfb5d3ddbfda7dd76a"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-astra-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "b9f7124f195803e8b8dcb77e386ae97f3fc889f6b354b5e44abb0205794c375c",
+      "files": {
+        "schematic.svg": "fa39da142c5cf6bfadb2ff498d6940f987f5b53b211aa14cf7dbff72ad9f99fa",
+        "project.icproj.json": "fb6c1960cb6642f0607cebcc24e39e3e9bf41981a498f9749fe49dbe0e5b0819",
+        "submitted.spice": "b9f7124f195803e8b8dcb77e386ae97f3fc889f6b354b5e44abb0205794c375c",
+        "exported.spice": "6e9c8e697e39f808f2f3badc0fe2398507f5847e655590ba5f877c3a61908672",
+        "verification.json": "3e3d5a154f517980a1928346ebf51e1d684cba61a1cd8357eebb1d07b36c9aeb"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-opus-5-5-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "56c91e559f71ef16a9f7ec6d17ab11d3b04617205d3dd03836e26c31bce4a600",
+      "files": {
+        "schematic.svg": "634a0edac7204bd59920b82c17543b37fb6ae965ed9609156ac6e7e88ff0fd78",
+        "project.icproj.json": "c0cf298298c26d5b6b821523539e2f42183385e08670507ad45996a90574064b",
+        "submitted.spice": "56c91e559f71ef16a9f7ec6d17ab11d3b04617205d3dd03836e26c31bce4a600",
+        "exported.spice": "6b833e90e2b7aed08dcaaae1e51ab2d3aa2169eb500f4b7d0b6a8d390b3dc926",
+        "verification.json": "df7b3c3fa6d1bae2960bdb77b269b7e02d8259515a1ff98cb142a1027345539e"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-opus-5-5-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "40b55bdc6be5d4d43c36a8637ea0b43899432edd1e6f8fa5f2205ba6584aac43",
+      "files": {
+        "schematic.svg": "2420ed3a7cb6f40dc75ac8a060b1b40a9ab5d24caf33d772f09679e266724feb",
+        "project.icproj.json": "8b64727c3bc0ace0751dda29f9eb8cfa13b5eed746bf4c8e42d2a9fb7eed7f64",
+        "submitted.spice": "40b55bdc6be5d4d43c36a8637ea0b43899432edd1e6f8fa5f2205ba6584aac43",
+        "exported.spice": "754a22ce4eb8d3f4fd1194796bafe5ac53669c2747c6cc4bc32cfb283b832a3d",
+        "verification.json": "28ce0dfadbb1fe709ae05a9c793b7e32c8274f231b2318dd9828d85199a21664"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-sonnet-5-5-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "1e44d0133b049cae81b45a6d03b10df2f8738ccc1377a3c8238bca55f4c75c70",
+      "files": {
+        "schematic.svg": "f0efd087ec889594dab54f7bd5bb328c63c21046b1e776089ca40ec94bbf37e3",
+        "project.icproj.json": "3cf2e06ea3116f3966e4f3054d71cd6a263bae8f4e4906da781e7f992e2f5f10",
+        "submitted.spice": "1e44d0133b049cae81b45a6d03b10df2f8738ccc1377a3c8238bca55f4c75c70",
+        "exported.spice": "c8e4cbb7d6d4c7cdfeb32be84474b6de520e9d40fe5be6cdb6f62f05ddfcc623",
+        "verification.json": "3f336bc4bfbcdd5c5a82a5e2bf32fb25efd9c60f736f5911b92ee5de90d07c24"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-sonnet-5-5-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "29da2a2ab6ae83109976984446d5bc86b8466a8cbd80ea48655b69c6dab75208",
+      "files": {
+        "schematic.svg": "9494ed206e5395ef5a67e9260d44ce9e48ea6d3231d7119ba8387c4101a5f81b",
+        "project.icproj.json": "62b4c7c214b3dcef0f1322af249553d268d8b58849d2ba66a72a6cbca73601d4",
+        "submitted.spice": "29da2a2ab6ae83109976984446d5bc86b8466a8cbd80ea48655b69c6dab75208",
+        "exported.spice": "f18f9a052d21b0da4ae889bf4bea4c5f648235c1800896fd6faec195fc8643b8",
+        "verification.json": "f6f5786151bb9999608941bd9f64224a17dcda8fbf9043bc2e47a298c573ccc4"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-sol-6-1-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "6c7a6aaf7a7dfb45766a3af2acd0debbedae048cb02c52c55646fb39217a18d5",
+      "files": {
+        "schematic.svg": "bc16fb257b1dbf8f3a1563a6c2e87945d1f916a8968a9662da6923d7300ad92a",
+        "project.icproj.json": "17d9e126cca3237ab76628780f6029f59250122495f1f31a68a89a671e5a73c9",
+        "submitted.spice": "6c7a6aaf7a7dfb45766a3af2acd0debbedae048cb02c52c55646fb39217a18d5",
+        "exported.spice": "4d2657364b03828c593a7fbc9aa182dd64dc19d76ba8eeb7154301532793af81",
+        "verification.json": "899f839135c9eeb86b39ca6f73b27c62bc6af22379d8a83e396f4b7a5c5fac79"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-sol-6-1-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "510c4e0d9ae6945c31e84f5043f0ee3f0b0ee19b72111d5469865cc13bf1de47",
+      "files": {
+        "schematic.svg": "834aec4f73613043cb1aef58e6465169c4acd0d76c4a82d9332c47929534af6f",
+        "project.icproj.json": "00e82b5b4592f55f5255dc7ec2c38529411373b9042616facb9bdef3e33e493c",
+        "submitted.spice": "510c4e0d9ae6945c31e84f5043f0ee3f0b0ee19b72111d5469865cc13bf1de47",
+        "exported.spice": "94f2da52d960190008019de5953742ad39f3ed316c5f42179faa0ccbc12e9104",
+        "verification.json": "2cf78bd6ff13c86764b16f3e8a6ff437c9bfcdd4050754b8ae4f60491203a064"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-luna-6-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "39d0da5cfcafdd42a94af99c7c623366f094115496751a8c3e22eb6ec4c03629",
+      "files": {
+        "schematic.svg": "4b9809b8a8276ada93b757f8e4c9c338fbaa215b562dd32b424c447422261d72",
+        "project.icproj.json": "cb879a25db34330a0f58d2d90cc2318661a9f6a0d49cfa1196896d91e4727cac",
+        "submitted.spice": "39d0da5cfcafdd42a94af99c7c623366f094115496751a8c3e22eb6ec4c03629",
+        "exported.spice": "bb24fe68f529c096238186bb7bb372df473c705e53cfe0a752664bb5c1b1d9b7",
+        "verification.json": "5fa15483cd655f8c3d923be15aa72868a1e5190fc14230fde50756a1ceb190bd"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-luna-6-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "4a908d420e01466bfd84e57785a1e75968bb5e6bcaaaa2fa52d3bc9d46f09d1d",
+      "files": {
+        "schematic.svg": "8ce7995cb3415959df831b0c4cf24fdab4d47095af6907ca12673168b1a0c4d0",
+        "project.icproj.json": "61d341a3105ddc28bb40f669bbae5464f312522952e76bc9bd5bf4bc2f85bba2",
+        "submitted.spice": "4a908d420e01466bfd84e57785a1e75968bb5e6bcaaaa2fa52d3bc9d46f09d1d",
+        "exported.spice": "0b55a9cc1192bc098054cfa5cd0846b1de9edfa7e9d32857e964d381f9f5356e",
+        "verification.json": "64f7789e8f0ee1c782aeca4805db641559e9c2d3f7cf7c418c8280147ca05f8e"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-sol-6-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "3ec18cbc21c806c7c1d9f7e40416f3fa67ac356686d116e1a8a734c802cdca82",
+      "files": {
+        "schematic.svg": "1637f450fc27528e2ebd8ed58f6dc9737009aae1421f5a83b6228037a9cc4d7a",
+        "project.icproj.json": "585068dc6b8e282f716b25945a6855dcf7034fb649c571d4954f982e7ca1b8f4",
+        "submitted.spice": "3ec18cbc21c806c7c1d9f7e40416f3fa67ac356686d116e1a8a734c802cdca82",
+        "exported.spice": "93b055b869e739408f3a1cd70dc9bbf529d3712acbce345f5d15e293325c4b4c",
+        "verification.json": "6976feb129d016d71693bf5be5baada6e6a282e2dbf814f8190e59d4f874f975"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-sol-6-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "5b51de0d608827faa93635b15f72bc55c3e57bf87330afcfebcfd4cbd2fa09aa",
+      "files": {
+        "schematic.svg": "95988dac7ea389b8d4e445f4a0df6e00a37d0c1ef3a09f50ba52f9232d62500d",
+        "project.icproj.json": "bc5f074f9603c3fec0528374a0d3c1a9ea05186f2c816b4db655f0bf87bb9102",
+        "submitted.spice": "5b51de0d608827faa93635b15f72bc55c3e57bf87330afcfebcfd4cbd2fa09aa",
+        "exported.spice": "1d868f2d6ec94f5dd94aac20d2923286568fbbaf42e92c9a345d1f11a6d3b0c7",
+        "verification.json": "53273e9b1c30ac6b8dcd8a262286078341dcb13580eaebcf171a987acf80b650"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-deepseek-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "6b307d5f8a496629e7831923bdbdb939f73fd42d920868ddb8ebce6a6f5dbdd4",
+      "files": {
+        "schematic.svg": "e7db0fe06723e789460459b7c04b1cbea2fe6a54205f37cb9b37f2a5710f766d",
+        "project.icproj.json": "fb826b799c4e4a508b53f6920176ab33077b040b27f907ce626e8cddb8aa0e46",
+        "submitted.spice": "6b307d5f8a496629e7831923bdbdb939f73fd42d920868ddb8ebce6a6f5dbdd4",
+        "exported.spice": "909100d7bd22441ccea8bb6066ddea9fa322712a46ab828544b2e325d42fcd1c",
+        "verification.json": "98534e346594796900474ca147d1ee9b9b8ac09c5fb8a2a40292649ec0e1f2b5"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-deepseek-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "9e4abfaf3ac63fd52bc07f7ac2a3f00e12d53b3bc1c6ac86521f36c5830a7200",
+      "files": {
+        "schematic.svg": "120a8ade97bae01ee993acba1786bddd5b5848c7f586e2d9e334ebfd97088697",
+        "project.icproj.json": "f63004f6181ae02fa975e4578946e96b0fc8919e560b121f8678c7f7bc70a39f",
+        "submitted.spice": "9e4abfaf3ac63fd52bc07f7ac2a3f00e12d53b3bc1c6ac86521f36c5830a7200",
+        "exported.spice": "08691b3229f62ca81f484602c076638160ee487758286f44425c1143703709ae",
+        "verification.json": "56d4da0ccc45cc6a25df34833bd782c6bc8887cfd8688beac743d65bcfcffa96"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-fable-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "e201bdf5bd7135a53e57b5b8ab3ec9b6f8cfd72857da7e42584991bb13db93d1",
+      "files": {
+        "schematic.svg": "71f895c3035588966c999bfa946eba2a3dce6e904293c58cbc8434be7450a6b8",
+        "project.icproj.json": "38ab4a9dd7fdcbeb5d5365a728dbd559b3fdf935a90f9e46f07bf979940abdf5",
+        "submitted.spice": "e201bdf5bd7135a53e57b5b8ab3ec9b6f8cfd72857da7e42584991bb13db93d1",
+        "exported.spice": "335633d144a6c97e288e9c6fde13fb1d483c8e0557b84310fe908ed515fbd2c4",
+        "verification.json": "980c956e52acde91a2cc487bef04188e200f046775d75787e29fb2c33a864075"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-haiku-r1",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "307fd46360e8625fec75121ec9e553bf617b4a3bbebbb1b1aa4a98d96f4c417f",
+      "files": {
+        "schematic.svg": "9dce2b1a5c3a45908303a4f962785522f1958b7fd6a2292db7eb0de44d00fa1b",
+        "project.icproj.json": "3e65eb370998d17f502b1b0e714119ad25c46efd9136016a9d810bb63f143abe",
+        "submitted.spice": "307fd46360e8625fec75121ec9e553bf617b4a3bbebbb1b1aa4a98d96f4c417f",
+        "exported.spice": "2d9b853adcf9c7974f1f52c684efc91e73c0907702e48543b6a2634fe2bdd6e9",
+        "verification.json": "69a7a2eedd090f5bcf4a60c650e458ef86cb85e992b529f0298405dd23277b62"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-haiku-r2",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "6ab899cbb7fd0d613109d702ac070969fde563a6eeb2b1c346fa9e9a27806acf",
+      "files": {
+        "schematic.svg": "8657d8a6419ee1d01d1ee46ce2186cd0b3abadb61fcadfddea1b99e01ec39de3",
+        "project.icproj.json": "a939829e253a7aa5100c16522cb9abde36d0e3579f5614e1b6015998b69bbaeb",
+        "submitted.spice": "6ab899cbb7fd0d613109d702ac070969fde563a6eeb2b1c346fa9e9a27806acf",
+        "exported.spice": "597e1e7eaf9dc3fa28fb6f319cf79edae176024c3ece54f0dce23013f2c17b13",
+        "verification.json": "16b26e37cef00124bdcc96e6cf2fae60c523860fe75d17bc1156bcef44daba02"
+      },
+      "layout_strategy": "connected-ldo"
+    },
+    {
+      "run_id": "ldo-quiet-sky130-haiku-r3",
+      "title": "Transistor-level LDO regulator",
+      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "source_sha256": "a5538d1be1944d47057c46993b6d767041dad44b519bc8a6616efa5df3d471e5",
+      "files": {
+        "schematic.svg": "6db449491f8f93368d5bcbc1b800d659710b39176f45f1cbb5b6cc78d7f0473b",
+        "project.icproj.json": "eb53a6662135f7c5f180832e8e81049cf8148c4efdb78f6143eeff9585bf2fe1",
+        "submitted.spice": "a5538d1be1944d47057c46993b6d767041dad44b519bc8a6616efa5df3d471e5",
+        "exported.spice": "2b9ed2758a2045de8d28104e522037c523c6c09cd46cba640ffc3d0d0ef7fca5",
+        "verification.json": "c531524f6a57211cf1b2e71170ac610725304e954b8d70d66f43ed761b5ebb23"
+      },
+      "layout_strategy": "connected-ldo"
     }
   ]
 }

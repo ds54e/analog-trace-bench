@@ -1,0 +1,18 @@
+* Always-on PMOS-pass LDO
+.subckt DUT VIN VOUT VSS VREF
+* Bias diode and current source for the error pair
+XBIAS BIAS BIAS VIN VIN sky130_fd_pr__pfet_01v8 w=2 l=2
+RBIAS BIAS VSS 900k
+XTAIL TAIL BIAS VIN VIN sky130_fd_pr__pfet_01v8 w=2 l=2
+* PMOS differential input, NMOS current-mirror load
+XINFB NDIOD FB TAIL VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5
+XINREF GATE VREF TAIL VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5
+XNLOAD NDIOD NDIOD VSS VSS sky130_fd_pr__nfet_01v8 w=2 l=2
+XNMIR GATE NDIOD VSS VSS sky130_fd_pr__nfet_01v8 w=2 l=2
+* High-side pass device and light-load feedback divider
+XPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=2
+RTOP VOUT FB 4meg
+RBOT FB VSS 4meg
+CCOMP GATE VOUT 0.1p
+CFF VOUT FB 5p
+.ends DUT

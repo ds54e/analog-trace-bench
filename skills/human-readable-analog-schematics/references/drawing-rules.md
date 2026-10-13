@@ -34,9 +34,21 @@ Use the ATB profile for its presentation preferences.
   sizes; review readability again at that display size.
 - Keep supply rails within the branches they serve. Do not draw a huge enclosing
   rail solely to reach remote auxiliary circuits.
+- Compare the complete before/after drawings at the same displayed width, then
+  inspect both native dimensions. A shorter sheet can become harder to read if
+  the extra width shrinks every label in the page. Preserve useful whitespace
+  and group boundaries instead of optimizing width, height or area alone.
+- Place auxiliary bias paths near the branches they control. Move a complete
+  reference or divider as a functional group; use vacant space beside a short
+  stage when that keeps the relationship clear. A mandatory bottom row can leave
+  isolated islands and large empty corridors. Keep signal and feedback corridors
+  open when comparing candidate positions.
 - For suitable LDOs, compare a compact error-amplifier-to-pass-stage arrangement
   with sensing directly below the output. Preserve any real intermediate buffer.
   ATB's exact R1/R2/CFF placement belongs to its profile, not a universal rule.
+  Identify the actual pass device, its gate driver and the sensed node from the
+  source first. An input translator, output-dependent bias branch or compensation
+  return to VIN must retain its own role and endpoints.
 
 ## Expose compensation and feedback
 
@@ -74,7 +86,15 @@ Use the ATB profile for its presentation preferences.
   clearance alone misses text collisions. Native renderer offsets are starting
   points for one tool version, not layout constants.
   Check long reference names too; a compact layout that fits `XM1` may crowd
-  `XINN` or `RCOMP`. Measured diagnostics help, but require rendered review.
+  `XINN` or `RCOMP`. Use the native font metrics when available, including
+  alignment and subscripts. Check the target renderer's font fallback: its glyphs
+  can be wider than native estimated metrics, so reserve a small tested allowance
+  without shrinking text. A name-aligned label can cross an adjacent capacitor
+  lead even when its own gate stub is clear. Check these at reading size; native
+  electrical diagnostics do not establish text clearance. If every label candidate
+  conflicts, revise the local placement instead of silently accepting the first
+  candidate. Inspect near-collinear wire ends and crossings beside junctions at
+  the actual page scale; a legal crossing can still suggest a false connection.
 - Preserve exact parameters, models and body connections. If ordinary body ties
   are hidden, record their convention in supporting data. Draw nonstandard body
   ties explicitly and include all four pins in electrical comparison.

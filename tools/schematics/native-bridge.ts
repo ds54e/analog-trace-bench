@@ -14,6 +14,9 @@ export {
 } from "../../apps/editor/src/headless/artifacts.ts";
 export {
   resolveAnnotationText,
+  measureLabelText,
+  richTextMetrics,
+  razaviTextbookProfile,
   resolveEndpointPoint,
   buildProjectConnectivityIndex,
   diagnoseProject,

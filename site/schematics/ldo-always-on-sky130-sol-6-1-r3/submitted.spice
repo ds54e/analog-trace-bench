@@ -1,0 +1,13 @@
+* Low-current PMOS error amplifier and PMOS series pass device.
+.subckt DUT VIN VOUT VSS VREF
+RFBT VOUT FB 3meg
+RFBB FB VSS 3meg
+RBIAS BIAS VSS 4meg
+XBIAS BIAS BIAS VIN VIN sky130_fd_pr__pfet_01v8 w=1 l=2 nf=1 m=1
+XTAIL TAIL BIAS VIN VIN sky130_fd_pr__pfet_01v8 w=1 l=2 nf=1 m=2
+XINR MIR FB TAIL VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5 nf=1 m=1
+XINF GATE VREF TAIL VIN sky130_fd_pr__pfet_01v8 w=40 l=0.5 nf=1 m=1
+XMIR1 MIR MIR VSS VSS sky130_fd_pr__nfet_01v8 w=1 l=2 nf=1 m=1
+XMIR2 GATE MIR VSS VSS sky130_fd_pr__nfet_01v8 w=1 l=2 nf=1 m=1
+XPASS VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=30 l=0.5 nf=1 m=1
+.ends DUT

@@ -1,0 +1,16 @@
+* LDO generated
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=24 L=0.15 nf=1 m=4
+RA VOUT FB 125000.0
+RB FB VSS 125000.0
+CA VOUT FB 1.5e-12
+CB FB VSS 3e-13
+XM1 D1 FB TAIL VSS sky130_fd_pr__nfet_01v8 W=40 L=0.5 nf=1 m=1
+XM2 G VREF TAIL VSS sky130_fd_pr__nfet_01v8 W=40 L=0.5 nf=1 m=1
+XM3 D1 D1 VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.5 nf=1 m=1
+XM4 G D1 VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=0.5 nf=1 m=1
+XM5 TAIL BN VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=1
+XM6 BN BN VSS VSS sky130_fd_pr__nfet_01v8 W=2.5 L=1 nf=1 m=1
+RBIAS VIN BN 150000.0
+CC VOUT G 1e-13
+.ends DUT

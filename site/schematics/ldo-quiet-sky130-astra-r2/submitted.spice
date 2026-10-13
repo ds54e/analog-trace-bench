@@ -1,0 +1,26 @@
+* Continuous-time 1.2 V PMOS LDO with wide-swing mirror load
+.subckt DUT VIN VOUT VSS VREF
+RFB1 VOUT FB 20k
+RFB2 FB VSS 20k
+* Regulated-output-derived low-current bias
+RB VOUT BN 60k
+XNB BN BN VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=2 nf=1 m=1
+XNT TAIL BN VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=2
+* NMOS differential error amplifier
+XN1 ND FB TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=4
+XN2 GATE VREF TAIL VSS sky130_fd_pr__nfet_01v8 w=100 l=2 nf=1 m=4
+XP1 PS1 ND VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=4
+XP2 PS2 ND VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=4
+* Wide-swing cascode mirror load
+XPC1 ND BC PS1 VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=1
+XPC2 GATE BC PS2 VIN sky130_fd_pr__pfet_01v8 w=100 l=1 nf=1 m=1
+XPCB BC BC VIN VIN sky130_fd_pr__pfet_01v8 w=1 l=1 nf=1 m=1
+XNCB BC BN VSS VSS sky130_fd_pr__nfet_01v8 w=25 l=2 nf=1 m=1
+* PMOS pass device
+XPP VOUT GATE VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+* Series lead compensation for ideal 100 nF to 1 uF output capacitors
+RC GATE COMP 200k
+CC COMP VOUT 80p
+* Supply feedforward reduces high-frequency pass-device VSG modulation
+CFF VIN GATE 5p
+.ends DUT

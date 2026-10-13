@@ -1,0 +1,26 @@
+* x2 {"pass_m": 8, "rc": 8000.0, "cc": 3e-12, "cf": 1e-11, "cy": 5e-12, "alpha": 0.23, "rpar": 24000.0, "rchain": 1000000.0, "dvc": 0.08, "pair_m": 32, "tail_m": 7, "rbt": 75000.0, "m3w": 100, "m3l": 0.25, "casc_m": 12, "pair_l": 0.15, "pass_l": 0.15, "ccas": 3e-12, "dr": 0.055, "rsb": 13000.0, "mb": 4, "pbw": 40, "pbl": 0.25, "rst": 5000000.0, "vb": 1, "rbo": 52000.0, "cnb": 3e-12}
+.subckt DUT VIN VOUT VSS VREF
+XMB nb nb VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=0.5
+RB1 VOUT nb 52000
+CNB nb VSS 3e-12
+RST VIN nb 5e+06
+RA VIN nc 663333
+RBC nc yref 106667
+RDC yref VREF 230000
+CCA nc VSS 3e-12
+CY yref VREF 5e-12
+XMT tail nb VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=0.5 m=7
+XM10 s1 yfb tail VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 m=32
+XM20 s2 yref tail VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 m=32
+XM1C d1 nc s1 VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 m=12
+XM2C g nc s2 VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 m=12
+XM3 d1 d1 VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.25
+XM4 g d1 VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.25
+XMP VOUT g VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=8
+R1 VOUT yfb 59087.8
+R2 yfb VSS 62337.7
+RU VIN yfb 104347.8
+CF VOUT yfb 1e-11
+RC g gc 8000
+CC gc VSS 3e-12
+.ends DUT

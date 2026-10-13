@@ -1,0 +1,25 @@
+* Current-mirror error amplifier, PMOS pass device, and RC compensation.
+.subckt DUT VIN VOUT VSS VREF
+RFB1 VOUT FB 40000
+RFB2 FB VSS 10000
+CFB VOUT FB 10p
+RREF1 VREF REF 600k
+RREF2 REF VSS 400k
+CREF REF VSS 15p
+RB VIN BN 200k
+XBN BN BN VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+XBM BP BN VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=0.5 nf=1 m=1
+XBP BP BP VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=1
+XTAIL S BP VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 nf=1 m=5
+XP1 D1 FB S VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=8
+XP2 D2 REF S VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=8
+XN1 D1 D1 VSS VSS sky130_fd_pr__nfet_01v8 w=35 l=2 nf=1 m=1
+XN2 G D1 VSS VSS sky130_fd_pr__nfet_01v8 w=35 l=2 nf=1 m=3
+XN3 D2 D2 VSS VSS sky130_fd_pr__nfet_01v8 w=35 l=2 nf=1 m=1
+XN4 DP D2 VSS VSS sky130_fd_pr__nfet_01v8 w=35 l=2 nf=1 m=1
+XP3 DP DP VIN VIN sky130_fd_pr__pfet_01v8 w=50 l=0.5 nf=1 m=1
+XP4 G DP VIN VIN sky130_fd_pr__pfet_01v8 w=53 l=0.5 nf=1 m=3
+RCOMP VOUT CC 10000
+CCOMP CC G 1.6p
+XPASS VOUT G VIN VIN sky130_fd_pr__pfet_01v8 w=50 l=0.15 nf=1 m=8
+.ends DUT

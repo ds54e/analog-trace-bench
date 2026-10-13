@@ -1,0 +1,13 @@
+* LDO: NMOS-input error amp, PMOS mirror load, PMOS pass driven directly from the error-amp output
+.subckt DUT VIN VOUT VSS VREF
+R1 VOUT VFB 25k
+R2 VFB VSS 25k
+XM1 ND1 VFB PT VSS sky130_fd_pr__nfet_01v8 W=100 L=1.5 m=2 nf=1
+XM2 VG VREF PT VSS sky130_fd_pr__nfet_01v8 W=100 L=1.5 m=2 nf=1
+XMT PT VBN VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=1 m=1 nf=1
+XNB VBN VBN VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=1 m=1 nf=1
+RBN VIN VBN 60k
+XP1 ND1 ND1 VIN VIN sky130_fd_pr__pfet_01v8 W=40 L=1 m=4 nf=1
+XP2 VG ND1 VIN VIN sky130_fd_pr__pfet_01v8 W=40 L=1 m=4 nf=1
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 W=75 L=0.15 m=7 nf=1
+.ends DUT

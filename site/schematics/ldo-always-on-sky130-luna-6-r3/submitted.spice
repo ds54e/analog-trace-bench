@@ -1,0 +1,21 @@
+.subckt DUT VIN VOUT VSS VREF
+* PMOS resistor-biased reference mirrored into an NMOS diode bias.
+XMPREF p_bias p_bias VIN VIN sky130_fd_pr__pfet_01v8 W=5 L=1
+RBIAS p_bias VSS 2.7meg
+XMPBIAS n_bias p_bias VIN VIN sky130_fd_pr__pfet_01v8 W=5 L=1
+XMNBREF n_bias n_bias VSS VSS sky130_fd_pr__nfet_01v8 W=5 L=1
+* NMOS tail current mirror.
+XMNTAIL n_tail n_bias VSS VSS sky130_fd_pr__nfet_01v8 W=12 L=1
+* NMOS differential pair with direct low-voltage inputs.
+XMNFB n_left VFB n_tail VSS sky130_fd_pr__nfet_01v8 W=10 L=1
+XMNREF n_drive VREF n_tail VSS sky130_fd_pr__nfet_01v8 W=10 L=1
+* PMOS current-mirror load produces a full-swing pass-gate control.
+XMPLOADREF n_left n_left VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=2
+XMPLOADOUT n_drive n_left VIN VIN sky130_fd_pr__pfet_01v8 W=10 L=2
+XMPASS VOUT n_drive VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15
+RFBUP VOUT VFB 2.7meg
+RFBDN VFB VSS 2.7meg
+CCOMP n_drive VSS 1p
+RZ n_drive n_z 10meg
+CCOMPZ n_z VOUT 5p
+.ends DUT

@@ -1,0 +1,17 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CCOMP cnode gate 0.65p
+RBIAS pbias VSS 400k
+RBOT vfb VSS 100k
+RTOP VOUT vfb 100k
+RZ a cnode 36k
+XMPASS VOUT gate VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=100 m=5
+XMPBIAS pbias pbias VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=10
+XMPFB a vfb ptail VIN sky130_fd_pr__pfet_01v8 l=0.5 w=45
+XMPREF ndref VREF ptail VIN sky130_fd_pr__pfet_01v8 l=0.5 w=45
+XMPTAIL ptail pbias VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=100
+XMPUP gate pbias VIN VIN sky130_fd_pr__pfet_01v8 l=1.7 w=100
+XNDRIVE gate a VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=50
+XNOUT a ndref VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=9
+XNREF ndref ndref VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=9
+.ends DUT

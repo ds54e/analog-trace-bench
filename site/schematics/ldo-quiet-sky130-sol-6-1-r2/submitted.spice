@@ -1,0 +1,42 @@
+* Continuous-time LDO with fixed-bias error amplifier and adaptive gate buffer.
+.subckt DUT VIN VOUT VSS VREF
+* Fixed low-overdrive amplifier bias.
+RBA VIN B0 220k
+XB0 B0 B0 VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=1
+* Adaptive buffer bias, including a replica of the power device.
+RBB VIN BN 680k
+XBN BN BN VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=1
+XS BN PG VIN VIN sky130_fd_pr__pfet_01v8 w=2 l=0.15 nf=1 m=1
+XBI BP BN VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=1
+XBP BP BP VIN VIN sky130_fd_pr__pfet_01v8 w=20 l=2 nf=1 m=1
+* NMOS error amplifier with PMOS mirror load.
+XET ES B0 VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=5
+XEF NL FB ES VSS sky130_fd_pr__nfet_01v8 w=100 l=0.18 nf=1 m=16
+XER NR VREF ES VSS sky130_fd_pr__nfet_01v8 w=100 l=0.18 nf=1 m=16
+XEL EN EN VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=5 nf=1 m=2
+XEO EA EN VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=5 nf=1 m=2
+* Cascode pair holds the short-channel input drains at matched voltages.
+RGC VIN GC 1800000
+RGR GC VREF 200000
+XCL EN GC NL VSS sky130_fd_pr__nfet_01v8 w=100 l=0.3 nf=1 m=32
+XCR EA GC NR VSS sky130_fd_pr__nfet_01v8 w=100 l=0.3 nf=1 m=32
+* Complementary unity-gain gate buffer.
+XBT BS BN VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=1 nf=1 m=4
+XBF BM EA BS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.15 nf=1 m=4
+XBR PG PG BS VSS sky130_fd_pr__nfet_01v8 w=100 l=0.15 nf=1 m=4
+XBL BM BM VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+XBO PG BM VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+XPT PS BP VIN VIN sky130_fd_pr__pfet_01v8 w=40 l=2 nf=1 m=1
+XPF PN EA PS VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+XPR PG PG PS VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=4
+XPL PN PN VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+XPO PG PN VSS VSS sky130_fd_pr__nfet_01v8 w=10 l=1 nf=1 m=1
+* Power device and resistive feedback.
+XP VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 nf=1 m=16
+RFH VOUT FB 29.8k
+RFL FB VSS 30k
+* Series lead branch and direct supply tracking at the power gate.
+RC EA EC 80k
+CC EC VIN 60p
+CF PG VIN 40p
+.ends DUT

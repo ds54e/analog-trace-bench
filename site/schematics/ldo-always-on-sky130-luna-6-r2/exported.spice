@@ -1,0 +1,17 @@
+
+.subckt DUT VIN VOUT VSS VREF
+CCOMP VC VOUT 2p
+RBIAS VIN BIAS 4.4meg
+RBLEED VOUT VSS 3.3meg
+RCOMP VG VC 10k
+RFB1 VOUT VFB 10meg
+RFB2 VFB VSS 10meg
+RPU VIN VG 50meg
+XMB BIAS BIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=2
+XMNF VD VFB TAIL VSS sky130_fd_pr__nfet_01v8 l=2 w=10
+XMNR VG VREF TAIL VSS sky130_fd_pr__nfet_01v8 l=2 w=10
+XMP VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 l=0.25 w=60
+XMPD VD VD VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=1
+XMPM VG VD VIN VIN sky130_fd_pr__pfet_01v8 l=2 w=1
+XMT TAIL BIAS VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=9
+.ends DUT

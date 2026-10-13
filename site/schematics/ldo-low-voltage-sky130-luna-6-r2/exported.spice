@@ -1,0 +1,19 @@
+
+.subckt DUT VIN VOUT VSS VREF
+Cc ctrl VSS 0.2p
+Ccomp cfeed VOUT 5p
+Ccomp_fb ffb fb 22p
+Rcomp ctrl cfeed 5k
+Rcomp_fb VOUT ffb 1
+Rfb_hi VOUT fb 14.9k
+Rfb_lo fb VSS 5k
+Rref_hi VREF refhalf 1meg
+Rref_lo refhalf VSS 1meg
+Rsrc1 VIN ps1 4k
+Rsrc2 VIN ps2 2k
+Xn1 nd1 nd1 VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=30
+Xn2 ctrl nd1 VSS VSS sky130_fd_pr__nfet_01v8 l=1 w=30 m=2
+Xp1 nd1 fb ps1 VIN sky130_fd_pr__pfet_01v8 l=1 w=30
+Xp2 ctrl refhalf ps2 VIN sky130_fd_pr__pfet_01v8 l=1 w=30 m=2
+Xpass VOUT ctrl VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=100 m=4
+.ends DUT

@@ -1,0 +1,18 @@
+* LDO v6 (candidate)
+.subckt DUT VIN VOUT VSS VREF
+* pass device PMOS (W/L=400)
+XPASS VOUT VG VIN VIN sky130_fd_pr__pfet_01v8 l=0.15 w=100
+* feedback divider
+RF1 VOUT FB 1.942e6
+RF2 FB VSS 2e6
+* error amp: NMOS input pair + PMOS mirror load (out at VG)
+XM1 N3 FB NT VSS sky130_fd_pr__nfet_01v8 l=0.25 w=60
+XM2 VG VREF NT VSS sky130_fd_pr__nfet_01v8 l=0.25 w=60
+XM3 N3 N3 VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=20
+XM4 VG N3 VIN VIN sky130_fd_pr__pfet_01v8 l=1 w=20
+* tail NMOS (mirror ratio 2 vs XM6)
+XM5 NT NB VSS VSS sky130_fd_pr__nfet_01v8 l=0.5 w=100
+* bias reference: resistor + NMOS diode
+RB1 VIN NB 4e6
+XM6 NB NB VSS VSS sky130_fd_pr__nfet_01v8 l=0.5 w=50
+.ends DUT

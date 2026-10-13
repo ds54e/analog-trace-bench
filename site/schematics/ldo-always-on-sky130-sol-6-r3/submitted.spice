@@ -1,0 +1,18 @@
+* Low-power PMOS LDO
+.subckt DUT VIN VOUT VSS VREF
+* Feedback divider: 0.20 uA at the 1.2 V target
+RFT VOUT FB 3meg
+RFB FB VSS 3meg
+* Supply-derived weak bias and matched tail sink
+RBIAS VIN NB 1.5meg
+XBN NB NB VSS VSS sky130_fd_pr__nfet_01v8 w=2 l=2 m=1
+XTAIL NS NB VSS VSS sky130_fd_pr__nfet_01v8 w=2 l=2 m=1
+* NMOS input pair; the mirror load drives the PMOS gate
+XINFB ND FB NS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 m=1
+XINRF PG VREF NS VSS sky130_fd_pr__nfet_01v8 w=8 l=1 m=1
+XPMD ND ND VIN VIN sky130_fd_pr__pfet_01v8 w=4 l=1 m=1
+XPMO PG ND VIN VIN sky130_fd_pr__pfet_01v8 w=4 l=1 m=1
+* Main pass element and mild output-to-gate compensation
+XPASS VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.25 m=4
+CCOMP PG VOUT 1.5p
+.ends DUT

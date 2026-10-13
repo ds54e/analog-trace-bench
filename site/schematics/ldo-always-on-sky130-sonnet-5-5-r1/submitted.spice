@@ -1,0 +1,13 @@
+* LDO generated pw=12.5 pl=0.25 pm=2
+.subckt DUT VIN VOUT VSS VREF
+XMP VOUT X VIN VIN sky130_fd_pr__pfet_01v8 W=12.5 L=0.25 nf=1 m=2
+R1 VOUT FB 3Meg
+R2 FB VSS 3Meg
+RB VIN NB 5Meg
+XMB NB NB VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=2 nf=1 m=1
+XMT TL NB VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=2 nf=1 m=4
+XM1 A FB TL VSS sky130_fd_pr__nfet_01v8 W=20 L=0.5 nf=1 m=2
+XM2 X VREF TL VSS sky130_fd_pr__nfet_01v8 W=20 L=0.5 nf=1 m=2
+XM3 A A VIN VIN sky130_fd_pr__pfet_01v8 W=4 L=0.5 nf=1 m=1
+XM4 X A VIN VIN sky130_fd_pr__pfet_01v8 W=4 L=0.5 nf=1 m=1
+.ends DUT

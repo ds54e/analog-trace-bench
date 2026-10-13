@@ -1,0 +1,135 @@
+{
+  "source_sha256": "3cc416e20b5890f83bdf831c12e0550453231a51b8979df3b56ba509bbfe0634",
+  "generator": {
+    "name": "Analog Canvas",
+    "version": "0.9.2",
+    "commit": "37bccd4012764dce53b34927fa606c6f430296a2"
+  },
+  "native_reopen": true,
+  "svg_export_options": {
+    "margin": 20
+  },
+  "native_comparison": {
+    "status": "match",
+    "summary": "equal",
+    "topology": "equal",
+    "counts": {
+      "interface": 0,
+      "device": 0,
+      "target": 0,
+      "declaration": 0,
+      "connection": 0,
+      "scope": 0,
+      "port-order": 0,
+      "binding": 0,
+      "parameter": 0
+    },
+    "reasons": [],
+    "differences": []
+  },
+  "export_options": {
+    "format": "spice",
+    "groundPin": "global"
+  },
+  "ordinary_export_comparison": {
+    "status": "mismatch",
+    "summary": "topology equal; 1 port-order difference",
+    "topology": "equal",
+    "counts": {
+      "interface": 0,
+      "device": 0,
+      "target": 0,
+      "declaration": 0,
+      "connection": 0,
+      "scope": 0,
+      "port-order": 1,
+      "binding": 0,
+      "parameter": 0
+    },
+    "reasons": [],
+    "differences": [
+      {
+        "kind": "port-order",
+        "cell": "DUT",
+        "object": "ports",
+        "expected": [
+          "vin",
+          "vout",
+          "vss",
+          "vref"
+        ],
+        "actual": [
+          "vss",
+          "vin",
+          "vout",
+          "vref"
+        ]
+      }
+    ]
+  },
+  "visible_wiring": {
+    "status": "connected",
+    "checked_non_body_pins": 39,
+    "checked_from": "saved-and-reopened-project",
+    "continuous_signal_nets": [
+      "d1",
+      "fb",
+      "ga",
+      "nb",
+      "s1",
+      "vout",
+      "vr",
+      "vref"
+    ],
+    "named_connections_checked": true
+  },
+  "body_defaults_checked": true,
+  "saved_display_values_checked": true,
+  "passive_display_significant_digits": 2,
+  "native_unrouted_connections": 0,
+  "native_diagnostics": [
+    {
+      "id": "erc:unconnected-pin:document-4a59360a5b464835:XM5:D",
+      "domain": "erc",
+      "code": "ERC_UNCONNECTED_PIN",
+      "severity": "warning",
+      "confidence": "high",
+      "gateEligible": false,
+      "message": "Pin XM5.D is the only endpoint on net net-3838ad41f427ada3",
+      "primary": {
+        "documentId": "document-4a59360a5b464835",
+        "hierarchyPath": [],
+        "kind": "terminal",
+        "objectId": "XM5:D",
+        "endpoint": {
+          "kind": "terminal",
+          "instanceId": "XM5",
+          "pinName": "D"
+        }
+      },
+      "related": [
+        {
+          "documentId": "document-4a59360a5b464835",
+          "hierarchyPath": [],
+          "kind": "net",
+          "objectId": "net-3838ad41f427ada3"
+        }
+      ],
+      "parameters": {
+        "instanceId": "XM5",
+        "pinName": "D",
+        "netId": "net-3838ad41f427ada3"
+      }
+    }
+  ],
+  "simulation_run": false,
+  "source_bound_diagnostics": [
+    {
+      "code": "ERC_UNCONNECTED_PIN",
+      "reference": "XM5",
+      "pin": "D",
+      "net": "S1",
+      "reason": "The submitted drain net S1 has one non-body terminal; the native drawing preserves this source-open terminal."
+    }
+  ]
+}

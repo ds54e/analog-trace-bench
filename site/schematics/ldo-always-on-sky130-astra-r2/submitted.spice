@@ -1,0 +1,28 @@
+* Continuous-time PMOS LDO with proportional and integrating error paths
+.subckt DUT VIN VOUT VSS VREF
+* Bias references
+RB VIN BN 12meg
+XBN BN BN VSS VSS sky130_fd_pr__nfet_01v8 W=2 L=2 nf=1 m=1
+* Feedback
+RFT VOUT FB 6meg
+RFB FB VSS 6meg
+* Fast NMOS differential error amplifier
+XFT FT BN VSS VSS sky130_fd_pr__nfet_01v8 W=18 L=2 nf=1 m=1
+XFF FD FB FT VSS sky130_fd_pr__nfet_01v8 W=40 L=1 nf=1 m=1
+XFR PG VREF FT VSS sky130_fd_pr__nfet_01v8 W=40 L=1 nf=1 m=1
+XFL1 FD FD VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=2 nf=1 m=1
+XFL2 PG FD VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=2 nf=1 m=1
+* Slow NMOS differential amplifier and integrating node
+XST ST BN VSS VSS sky130_fd_pr__nfet_01v8 W=8 L=8 nf=1 m=1
+XSF SD FB ST VSS sky130_fd_pr__nfet_01v8 W=10 L=2 nf=1 m=1
+XSR SC VREF ST VSS sky130_fd_pr__nfet_01v8 W=10 L=2 nf=1 m=1
+XSL1 SD SD VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=4 nf=1 m=1
+XSL2 SC SD VIN VIN sky130_fd_pr__pfet_01v8 W=2 L=4 nf=1 m=1
+CI SC VSS 18p
+* Buffered integrator voltage and proportional summing resistor
+XBS VB BN VSS VSS sky130_fd_pr__nfet_01v8 W=4 L=2 nf=1 m=1
+XBF VIN SC VB VSS sky130_fd_pr__nfet_01v8 W=10 L=0.5 nf=1 m=1
+RP PG VB 3meg
+* Pass transistor
+XP VOUT PG VIN VIN sky130_fd_pr__pfet_01v8 W=80 L=0.5 nf=1 m=1
+.ends DUT

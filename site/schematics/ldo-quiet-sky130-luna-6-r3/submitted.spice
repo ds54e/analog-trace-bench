@@ -1,0 +1,13 @@
+.subckt DUT VIN VOUT VSS VREF
+* PMOS high-side pass element, with a low-current single-stage error amplifier.
+RFBH VOUT VFB 25k
+RFBL VFB VSS 25k
+RBIAS VIN NBIAS 360k
+XNB NBIAS NBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=1 nf=1 m=1
+XNT NTAIL NBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=2
+XM1 NDL VFB NTAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=4
+XM2 DRV VREF NTAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=1 nf=1 m=4
+XMP1 NDL NDL VIN VIN sky130_fd_pr__pfet_01v8 W=80 L=2 nf=1 m=1
+XMP2 DRV NDL VIN VIN sky130_fd_pr__pfet_01v8 W=80 L=2 nf=1 m=1
+XPASS VOUT DRV VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=16
+.ends DUT

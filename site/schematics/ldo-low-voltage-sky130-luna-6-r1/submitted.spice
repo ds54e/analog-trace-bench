@@ -1,0 +1,34 @@
+.subckt DUT VIN VOUT VSS VREF
+* PMOS series pass element sized for the 1 mA load at low VIN.
+XPASS VOUT VGATE VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 nf=1 m=32
+
+* Output divider and matched VIN level shifts put the NMOS pair inputs
+* near 0.875 V at regulation while preserving their voltage difference.
+RFTOP VOUT VFB 23k
+RFBOT VFB VSS 47k
+RFSIG VFB FBIN 100k
+RFBIAS VIN FBIN 186k
+RRSIG VREF REFIN 560k
+RRBIAS VIN REFIN 650k
+
+* NMOS differential pair: low FB reduces its branch current, so the
+* PMOS mirror raises NOUT and the gate sink turns the pass device on.
+XNREF NREF REFIN NTAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.25 nf=1 m=1
+XNFB NOUT FBIN NTAIL VSS sky130_fd_pr__nfet_01v8 W=100 L=0.25 nf=1 m=1
+RLOADREF VIN NREF 100k
+RLOADFB VIN NOUT 100k
+
+* Resistor-set NMOS mirror biases the input-pair tail current.
+XNBIAS NBIAS NBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=10 L=2 nf=1 m=1
+RBIASN VIN NBIAS 100k
+XNTAIL NTAIL NBIAS VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=2 nf=1 m=1
+
+* NOUT is high when VOUT is low: the PMOS driver releases VGATE and
+* its pull-down turns the pass element on. High VOUT drives VGATE up.
+XPDRV VGATE NOUT VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 nf=1 m=1
+XNGATE VGATE NOUT VSS VSS sky130_fd_pr__nfet_01v8 W=100 L=0.15 nf=1 m=8
+RBIASG VIN VGATE 100k
+* CCOMP sets the error-node pole; CFF couples output droop to the gate.
+CCOMP NOUT VSS 0.001p
+CFF VOUT VGATE 29.8p
+.ends DUT

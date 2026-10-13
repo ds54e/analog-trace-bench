@@ -272,6 +272,12 @@ pre {
 @media (max-width: 520px) {
   .run-summary caption { padding-inline: 8px; }
 
+  .trace-tool-name {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
   .title-model {
     white-space: normal;
   }

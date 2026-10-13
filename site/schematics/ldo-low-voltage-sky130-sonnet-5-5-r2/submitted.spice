@@ -1,0 +1,25 @@
+* PMOS pair
+.subckt DUT VIN VOUT VSS VREF
+XMB NB NB VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=1
+RB NB VSS 50k
+XMT TAIL NB TS VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=6
+RS VIN TS 1
+XM1 D1 NRF TAIL VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=2
+XM2 X NFB TAIL VIN sky130_fd_pr__pfet_01v8 W=100 L=0.5 m=2
+XM3 D1 D1 VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=1.0 m=2
+XM4 X D1 VSS VSS sky130_fd_pr__nfet_01v8 W=40 L=1.0 m=2
+XMN2 G X VSS VSS sky130_fd_pr__nfet_01v8 W=20 L=0.5 m=1
+XMD G G VIN VIN sky130_fd_pr__pfet_01v8 W=15 L=0.15 m=1
+XMP VOUT G VIN VIN sky130_fd_pr__pfet_01v8 W=100 L=0.15 m=6
+R1 VOUT NFB 6.667meg
+R2 NFB VSS 1.176meg
+R3 VREF NRF 3.333meg
+R4 NRF VSS 1.4393meg
+C1 VOUT NFB 0.6p
+C2 NFB VSS 1.0p
+C3 VREF NRF 0.6p
+C4 NRF VSS 1.4p
+RZ X NZ 100k
+CZ NZ VSS 0.1p
+
+.ends DUT

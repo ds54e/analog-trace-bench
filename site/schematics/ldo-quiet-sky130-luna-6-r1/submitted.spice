@@ -1,0 +1,18 @@
+.subckt DUT VIN VOUT VSS VREF
+* Output-referenced resistive pull-up for the PMOS pass gate
+RPGUP VOUT PGATE 8k
+* Reference-driven NMOS tail current sink
+XTAIL NT VREF VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=8 m=8
+* Feedback divider sets approximately 1.198 V for a 0.6 V reference
+RFTOP VOUT FB 149.4k
+RFBOT FB VSS 150k
+CFF VOUT FB 10p
+* Ground-referenced NMOS differential pair with PMOS mirror load
+XNMREF D1 VREF NT VSS sky130_fd_pr__nfet_01v8 w=100 l=5
+XNMFDB D2 FB NT VSS sky130_fd_pr__nfet_01v8 w=100 l=5
+XPMREF D1 D1 VIN VIN sky130_fd_pr__pfet_01v8 w=50 l=2
+XPMOUT D2 D1 VIN VIN sky130_fd_pr__pfet_01v8 w=50 l=2
+* Error stage pulls the pass gate down against the output-referenced pull-up.
+XDRV PGATE D2 VSS VSS sky130_fd_pr__nfet_01v8 w=100 l=2
+XPASS VOUT PGATE VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.5 m=12
+.ends DUT

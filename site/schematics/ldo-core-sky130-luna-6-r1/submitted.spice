@@ -1,0 +1,26 @@
+.subckt DUT VIN VOUT VSS VREF
+* Short-channel PMOS pass bank
+XMPASS VOUT gate VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=0.15 m=5
+
+* Resistor-set PMOS bias and 10:1 tail current mirror
+XMPBIAS pbias pbias VIN VIN sky130_fd_pr__pfet_01v8 w=10 l=2
+RBIAS pbias VSS 400k
+XMPTAIL ptail pbias VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=2
+
+* PMOS differential feedback pair with NMOS mirror load
+XMPREF ndref VREF ptail VIN sky130_fd_pr__pfet_01v8 w=45 l=0.5
+XMPFB a vfb ptail VIN sky130_fd_pr__pfet_01v8 w=45 l=0.5
+XNREF ndref ndref VSS VSS sky130_fd_pr__nfet_01v8 w=9 l=1
+XNOUT a ndref VSS VSS sky130_fd_pr__nfet_01v8 w=9 l=1
+
+* Class-A pass-gate driver: bias-mirrored PMOS source and error-controlled NMOS sink
+XMPUP gate pbias VIN VIN sky130_fd_pr__pfet_01v8 w=100 l=1.7
+XNDRIVE gate a VSS VSS sky130_fd_pr__nfet_01v8 w=50 l=1
+
+
+* Output feedback divider and Miller compensation with a series zero
+RTOP VOUT vfb 100k
+RBOT vfb VSS 100k
+RZ a cnode 36k
+CCOMP cnode gate 0.65p
+.ends DUT

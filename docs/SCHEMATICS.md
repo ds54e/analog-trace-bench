@@ -1,6 +1,6 @@
 # Submitted circuit drawings
 
-All 121 OTA runs and the LDO pilot show their submitted circuit immediately below
+All 121 OTA runs and 98 LDO runs show their submitted circuit immediately below
 the Run selector and before Run & evaluation. Submitted SPICE stays in the
 original Final submission article:
 
@@ -8,7 +8,8 @@ original Final submission article:
 |---|---|
 | OTA-DRIVE / FIXED / FREE / PRECISION | 24 each |
 | OTA-WIDE | 25 |
-| LDO-CORE / Sonnet 5.5 / Run 1 | 1 |
+| LDO-ALWAYS-ON / CORE | 24 each |
+| LDO-LOW-VOLTAGE / QUIET | 25 each |
 
 Drawings are derived documentation. Submission bytes, canonical trace fragments,
 evaluation files and recorded results remain authoritative. Drawing generation
@@ -38,6 +39,9 @@ preferences there instead of duplicating them in this repository guide.
 | `tools/schematics/ota-connected-layouts.mjs`, `ota-case-refinements.mjs` | Place DRIVE, PRECISION and WIDE stages, mirrors, complementary pairs, parallel branches and input networks. |
 | `tools/schematics/orthogonal-router.mjs` | Route continuous signal trees with reserved symbols, labels and terminal escapes; retain local auxiliary bias connections. |
 | `tools/schematics/ota-free-layouts.mjs` | Reviewed per-submission FREE recipes for degeneration, cascodes, folded branches and the level-shifted PMOS input case; keep principal paths continuous. |
+| `tools/schematics/ota-composition.mjs` | Contract unused strips and place intact auxiliary current paths near their consumers while preserving signal corridors. |
+| `tools/schematics/ota-review-labels.mjs` | Keep reviewed passive annotation offsets separate from electrical values and device placement. |
+| `tools/schematics/ldo-layouts.mjs`, `ldo-case-refinements.mjs` | Derive LDO input branches, gate drivers, pass stages, sensing and compensation from each submission, with explicit refinements for complex topologies. |
 | `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
 | `tools/build_traces.py`, `tools/templates/trace.html` | Bind the figure to its run, before the summary tables; preserve the final SPICE article. |
 | `site/assets/trace.css` | Use 60% figure width and a 408 px minimum capped at the available width; preserve image aspect ratio and scroll below 408 px. |
@@ -52,6 +56,8 @@ not modify native geometry, text sizes or parameters. Native SVG export uses a
 The first diagram loads eagerly. Run links select a complete run panel, so the
 diagram follows the chosen run. VSS ports use a horizontal orientation like OTA
 VDD; native projects and exports retain the VSS interface identity.
+Every diagram opens its same hash-versioned SVG when clicked, including simple
+two-stage circuits and the original pilots. The link adds no visible caption.
 
 After publication, reload affected pages and check both layout and the image URL's
 SVG hash. A completed deployment does not prove that a browser has loaded the
@@ -69,7 +75,7 @@ Each `site/schematics/<run-id>/` directory contains:
 | `exported.spice` | Checked structural export from the reopened project. |
 | `verification.json` | Comparisons, export/display settings, route/body checks and diagnostics. |
 
-The recipe reads the catalog's OTA submissions individually and retains the two
+The recipe reads the catalog's OTA and LDO submissions individually and retains the two
 reviewed pilot layouts. It does not reproduce later GUI edits or accept arbitrary
 netlists. It reuses the two-stage layout only after matching actual ordered-pin
 connections, including RC order. Larger circuits retain vertical stacks and
@@ -80,8 +86,8 @@ for literal labels, saved cell defaults and pinned export behavior.
 
 OTA-FREE has 13 source-matched two-stage drawings and 11 case-reviewed recipes.
 The latter replace the initial grouped fallback: the signal path, load mirror,
-tail and compensation use continuous native wires. Auxiliary bias branches sit
-below the main circuit and use bound labels for remote controls and supplies.
+tail and compensation use continuous native wires. Auxiliary bias branches sit near their consumers, beside or below the main
+circuit, and use bound labels for remote controls and supplies.
 The reviewed FREE figures show the complete drawing within the 60% frame and
 open the native SVG when clicked, without a caption or link text. Their native
 artifacts retain full text and symbol sizes. Coordinates belong to the recipes.
@@ -97,7 +103,10 @@ Folded branches flank their input pair; complementary pairs share vertically
 aligned input routes where their topology permits. Mirror gates face one another
 without changing the drain/source axes. Compensation is beside its actual output
 stage; input filters, parallel tails and unusual sensing branches have explicit
-case refinements. Auxiliary bias branches remain below the signal circuit.
+case refinements. Auxiliary bias branches are placed near their consumers in
+available space. Complete local current paths move together. Compare width and
+height as well as the full image at its actual page width; smaller area alone is
+not acceptance.
 
 The orthogonal router reserves native symbol bodies, full reference/value text,
 port bodies and terminal escapes. It builds shared trees, penalizes bends and
@@ -113,6 +122,20 @@ Like the reviewed FREE figures, these 61 figures show the whole drawing in the
 60% frame and open the same hash-versioned native SVG on click. Use that view for
 reading dense circuits at native text size. The 12 already matched drawings and
 both accepted pilots keep their existing geometry.
+
+The 97 added LDO drawings preserve all non-supply nets as continuous physical
+routes. They identify the submitted pass device, its driving stages and actual
+sensing network; they do not assume every regulator has the pilot's topology.
+Input translators, regulated bias loops, folded current paths, compensation and
+parallel pass instances remain explicit. The retained LDO pilot keeps its accepted
+geometry, including its original VIN orientation; the added LDOs use horizontal
+VIN and VSS ports.
+
+The added LDO layouts reserve measured native reference widths with a tested
+allowance for the browser's fallback font. Supply labels require a clear placement;
+generation fails when none is available. Case-specific routing corridors separate
+close feedback and bias paths without changing the source terminal positions.
+These options supplement actual glyph and wire inspection at page size.
 
 ## Regenerate native drawings
 
@@ -140,7 +163,7 @@ python3 -m unittest discover -s tests -v
 
 Skip clone/checkout when the cache already has that revision. Pass a different
 native checkout path as the generator's first argument if needed. Generation
-rewrites the 122 artifact directories and drawing index. For a single-run preview:
+rewrites the 219 artifact directories and drawing index. For a single-run preview:
 
 ```sh
 ATB_SCHEMATIC_RUN=ota-free-sky130-sonnet-5-5-r1 node tools/schematics/generate.mjs
@@ -151,22 +174,42 @@ the full set before building or publishing changed drawings. The bridge
 exposes pinned native APIs; no PDK installation or gallery login is required for
 local generation. Live gallery comparison requires separate browser access.
 
+A trailing `*` selects a family for preview, for example
+`ATB_SCHEMATIC_RUN='ldo-*'`. `ATB_SCHEMATIC_KEEP_GOING=1` collects preview failures
+and still exits unsuccessfully if any occur; it never replaces the drawing index.
+Serialize concurrent previews because the generator rebuilds a shared bridge
+output directory. Neither preview mode relaxes electrical or routing checks.
+
 ## Separate verification gates
 
 After saving/reopening, generation checks authored visible routes and bulk
 defaults, orthogonal geometry, expected rounded label strings, native unrouted
 connections and diagnostics. It exports and compares exact ordered external
-ports, D/G/S/B or passive pin order, models, values, W/L, nf and m. The saved
-reports for all 122 drawings record zero unrouted connections and zero native
-diagnostics. The 121 OTA electrical contracts match after reopening. One source
-(`ota-drive-sky130-sonnet-5-5-r3`) uses numeric `.param` constants: the native
-comparison is retained as inconclusive, while a separate literal-value native
-comparison and independent ordered-pin check pass. Definitions and original
-expressions stay in the source, project and export. The parser accepts only
-declared numeric constants referenced as `{name}`; arithmetic and unresolved
-expressions fail. Omitted SKY130 `nf` and `m` compare against defaults of one.
+ports, D/G/S/B or passive pin order, models, values, W/L, nf and m. All 219 drawings
+must pass the exact source/export and saved-project electrical contracts.
+Two sources use expressions the pinned native comparator cannot resolve:
+`ota-drive-sky130-sonnet-5-5-r3` uses numeric `.param` constants, and
+`ldo-low-voltage-sky130-astra-r1` uses literal resistor arithmetic. Their native
+comparisons are retained as inconclusive, while separate literal-value native
+comparisons and independent exact ordered-pin checks pass. Definitions and
+original expressions stay in the source, project and export. The parser accepts declared
+numeric constants referenced as `{name}` and bounded literal arithmetic using
+`+`, `-`, `*`, `/` and parentheses. Arithmetic uses exact rational comparison;
+display rounding and the separate literal native comparison do not replace the
+source expressions. Names inside arithmetic, calls, powers, excessive expression
+size/magnitude and unresolved expressions fail. Omitted SKY130 `nf` and `m`
+compare against defaults of one.
 When reproducing an unchanged recipe, compare regenerated artifact hashes with
 the saved set; matching source/export contracts alone do not prove reproducibility.
+
+The sole source-open terminal is `XM5.D` on `S1` in
+`ldo-low-voltage-sky130-deepseek-r2`. Its visible stub and complete native
+`ERC_UNCONNECTED_PIN` warning are retained. The source-bound exception checks
+the exact run, net, endpoint and diagnostic; it does not permit missing routes
+elsewhere or repair the submitted circuit. Every other native diagnostic remains
+a failure. Tests also derive each LDO's required continuous nets from source and
+check physical route components for foreign-net endpoints independently of the
+native logical netlist.
 
 Review native renders at fit and reading sizes independently. Inspect actual
 page rendering when available, including narrow layouts. Record the browser
@@ -178,7 +221,7 @@ topology and parameters. `verification.json` records this difference separately.
 The supplied checked export uses `{format: 'spice', groundPin: 'global'}` and
 matches the submitted interface order for these two cases. Do not assume that
 ordinary GUI export or this setting always preserves other interfaces. All current
-OTA checked exports were verified individually; ordinary-export results remain
+OTA and LDO checked exports are verified individually; ordinary-export results remain
 in each report.
 
 ## Site integration and additional runs
@@ -194,7 +237,7 @@ For an additional run, read its actual circuit, author/review the native project
 retain source/export/check artifacts and register the verified drawing. Extend
 the recipe only when reproducible generation is required. The independent parser
 accepts one subcircuit, the reviewed SKY130 four-terminal X calls, numeric R/C
-values/parameters and the limited numeric constants above. Add deliberate support before using hierarchy, other expressions
+values/parameters and the bounded constants above. Add deliberate support before using hierarchy, other expressions
 or other devices; unsupported constructs must not silently pass.
 
 For instructions-only maintenance, check references and build the site without
