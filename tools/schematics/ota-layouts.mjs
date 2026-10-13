@@ -3,6 +3,7 @@
 const canon = (s) => s.toLowerCase().replace(/^vin_([pn])$/, "vin$1");
 import { connectedOtaLayout } from "./ota-connected-layouts.mjs";
 import { reviewedFreeLayout } from "./ota-free-layouts.mjs";
+import { humanReferenceLayout } from "./human-reference-layouts.mjs";
 
 export function otaDevices(source) {
   return source
@@ -657,6 +658,8 @@ export function buildOtaLayout(id, source, template) {
       .split(/\s+/);
   const p = header.findIndex((s) => s.toLowerCase() === "params:"),
     ports = header.slice(2, p < 0 ? undefined : p);
+  const human = humanReferenceLayout(id, ds);
+  if (human) return human;
   const reviewed =
     reviewedFreeLayout(id, ds, ports) ??
     twoStage(id, source, template, ds, ports);

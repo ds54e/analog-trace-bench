@@ -44,6 +44,7 @@ preferences there instead of duplicating them in this repository guide.
 | `tools/schematics/ota-stage-placement.mjs` | Align source-matched complementary inputs and loaded mirror transfer stages; attach remote signal shunts and feed-forward parts beside their nodes. |
 | `tools/schematics/ota-review-labels.mjs` | Keep reviewed passive annotation offsets separate from electrical values and device placement. |
 | `tools/schematics/ldo-layouts.mjs`, `ldo-case-refinements.mjs` | Derive LDO input branches, gate drivers, pass stages, sensing and compensation from each submission, with explicit refinements for complex topologies. |
+| `tools/schematics/human-reference-layouts.mjs` | Two source-specific reference-led comparisons: Core/Astra Run 1 LDO and Precision/Sonnet 5.5 Run 2 OTA. Anchor motifs and author their critical routes explicitly. |
 | `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
 | `tools/build_traces.py`, `tools/templates/trace.html` | Bind the figure to its run, before the summary tables; preserve the final SPICE article. |
 | `site/assets/trace.css` | Use 60% figure width and a 408 px minimum capped at the available width; preserve image aspect ratio and scroll below 408 px. |
@@ -119,6 +120,16 @@ The reopened-project check separately verifies each recorded
 name-based connections. The site tests independently trace those routes, local
 diodes and every external port in the saved JSON. These checks supplement visual
 review; they do not establish readability by themselves.
+
+The two human-reference comparisons deliberately bypass generic placement and
+routing for their own complete drawings. They reuse the same native importer,
+renderer, exact values, body defaults and electrical checks. The LDO shows its
+actual VIN–REF–VREF ladder and separate sensing injection; the OTA retains its
+current-subtracting mirror branches without inventing a cascode receiver. See
+[Human reference motifs](../skills/human-readable-analog-schematics/references/human-reference-motifs.md)
+for the inspected public sources, separately attributed Gallery observations,
+specific electrical limits and before/after visual review gate. This limited
+comparison is not a catalog-wide layout generalization.
 
 Like the reviewed FREE figures, these 61 figures show the whole drawing in the
 60% frame and open the same hash-versioned native SVG on click. Use that view for

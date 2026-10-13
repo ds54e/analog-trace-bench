@@ -4,6 +4,7 @@ import { otaDevices } from "./ota-layouts.mjs";
 import { routeDrawing } from "./orthogonal-router.mjs";
 import { refineLdoCase } from "./ldo-case-refinements.mjs";
 import { compactPlacement, placementRegions } from "./layout-spacing.mjs";
+import { humanReferenceLayout } from "./human-reference-layouts.mjs";
 const supplies = new Set(["vin", "vss"]);
 const mos = (d) => "np".includes(d.kind);
 const top = (d) => d.pins[d.kind === "p" ? 2 : 0];
@@ -14,6 +15,8 @@ const grid = (n) => Math.round(n / 10) * 10;
 export function buildLdoLayout(id, source) {
   const ds = otaDevices(source),
     byRef = new Map(ds.map((d) => [d.ref, d]));
+  const human = humanReferenceLayout(id, ds);
+  if (human) return human;
   const portNames = source
     .split(/\r?\n/)
     .find((s) => /^\s*\.subckt/i.test(s))

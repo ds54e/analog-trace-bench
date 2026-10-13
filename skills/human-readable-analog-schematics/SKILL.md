@@ -30,6 +30,7 @@ Choose the smallest scope that satisfies the request:
 | Wiring or placement refinement | [Routing refinement](references/routing-refinement.md) |
 | Analog Canvas import, save, render or export | [Native workflow](references/analog-canvas-workflow.md) |
 | Select or compare a visual motif | [Gallery evidence](references/gallery-evidence.md) |
+| Human-drawn reference comparison and representative corrections | [Human reference motifs](references/human-reference-motifs.md) |
 | ATB submitted-circuit presentation | [ATB profile](references/atb-profile.md) |
 | Review or update this skill | [Acceptance cases](references/acceptance.md) |
 
@@ -49,6 +50,10 @@ For native drawing changes:
    compensation and feedback. Group related parts, preserve local symmetry and
    expose the main current paths. Match sending taps to receiving pins. Reuse a
    motif only after matching connections; equal device counts or names are insufficient.
+   For a reference-led redraw, inspect actual primary-source figure pixels and
+   identify the matching motif before placing individual parts. Anchor its source
+   midpoint, local diode closure, receiving gate and owning passive endpoints.
+   Circuit comments such as “folded” are hypotheses, not placement instructions.
 3. **Route and simplify.** Keep local D–G ties, shared gates and the main loop
    traceable. Challenge unnecessary gaps and bends; move parts or labels before
    adding detours. Avoid symbol penetration and ambiguous intersections.
@@ -64,6 +69,13 @@ For native drawing changes:
    Check the target page when applicable. Report unavailable browser checks.
    Reject a fallback that leaves the principal stages, load mirror or compensation
    connected only by names. A component inventory is not a finished schematic.
+   Compare before and after at the same intended page width. Judge whether a
+   reader can recognize the circuit motifs and trace their relationships before
+   considering area, length or bends. If the redraw substantially shrinks the
+   displayed labels, revise spacing between intact groups or explicitly retain it
+   as a comparison draft. Do not declare that trade-off solved by a matching netlist.
+   Develop a few source-specific examples first; generalize only relationships
+   that survived actual image review, retaining their topology limits.
 
 For page-only changes, use the repository's site build and validation, then inspect
 the published page at the requested size. Check that the current SVG is loaded;

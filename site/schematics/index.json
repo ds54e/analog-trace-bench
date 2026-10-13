@@ -1267,12 +1267,12 @@
     {
       "run_id": "ota-precision-sky130-sonnet-5-5-r2",
       "title": "Transistor-level OTA",
-      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "Centered differential pair and tail, paired current-subtracting mirror branches, a direct NMOS second-stage handoff and local series compensation. No cascode receiver is inferred.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
       "files": {
-        "schematic.svg": "6d9380611ddc564573d9ef023c1bd34c5a79364ef6b8bd06880d45a932771eee",
-        "project.icproj.json": "0f419c5c0a3e2fffa50c275d40d1eebc006f061db369dba8b135225630c5ead0",
+        "schematic.svg": "6a31a914fbcf0dfcf22014ba5f623c6b7497f7379fc6f62a5e295010138e0f28",
+        "project.icproj.json": "096fba43b9f42387feaeb23912f34bedeb105707865d31b58377789c5a57bef0",
         "submitted.spice": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
         "exported.spice": "c97e05f339f6be39bd11ef7e6822a6bfce84a0bdd72cbb614f848267bac5d2ac",
         "verification.json": "7b4d7e3869e27af07539e21467ac119e77c086d7250c798c111ef929cde6df17"
@@ -2212,12 +2212,12 @@
     {
       "run_id": "ldo-core-sky130-astra-r1",
       "title": "Transistor-level LDO regulator",
-      "description": "Source-matched error amplifier, pass stage, feedback divider, compensation and bias paths with continuous native wiring.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
+      "description": "Centered mirror-loaded error amplifier, local current bias, grouped supply-matching reference ladder, explicit compensation and outer feedback return.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VIN. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "e7e6a46bb08980dbab65ac7b48b5b87c5b0c9bcd0154fbad094afef81ac35315",
       "files": {
-        "schematic.svg": "d60e370850936548bd43ffc029d4ab08d6b6f475d6fafcf45e0398240aed0b1a",
-        "project.icproj.json": "0e261e381f5cb00158ae0c7ed3c50dcc00ddd4f539e91772d86a2e280423639b",
+        "schematic.svg": "1fa620a70fa9b2e2f307d97db04e330c90a651d953f8b080ec5740e7eb7d8a1e",
+        "project.icproj.json": "8d1f65316fd03c538e81519b8f4b9522dc31c76d29930c47ff445514be1e793a",
         "submitted.spice": "e7e6a46bb08980dbab65ac7b48b5b87c5b0c9bcd0154fbad094afef81ac35315",
         "exported.spice": "bbe1c1a824a5b324810892a687bf7e93131704cefa5228c74b083140f6e646f2",
         "verification.json": "390a9e35da5cee1fb197029c5ca4588e28412ee63caaf881b5ff4fb9bb48225a"
