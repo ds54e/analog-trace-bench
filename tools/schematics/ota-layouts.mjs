@@ -4,6 +4,7 @@ const canon = (s) => s.toLowerCase().replace(/^vin_([pn])$/, "vin$1");
 import { connectedOtaLayout } from "./ota-connected-layouts.mjs";
 import { reviewedFreeLayout } from "./ota-free-layouts.mjs";
 import { humanReferenceLayout } from "./human-reference-layouts.mjs";
+import { ordinaryOtaPassiveVariant } from "./ota-passive-variants.mjs";
 
 export function otaDevices(source) {
   return source
@@ -662,6 +663,8 @@ export function buildOtaLayout(id, source, template) {
   if (human) return human;
   const reviewed =
     reviewedFreeLayout(id, ds, ports) ??
+    ordinaryOtaPassiveVariant(id, source, ds, ports,
+      (coreDs) => twoStage(id, source, template, coreDs, ports)) ??
     twoStage(id, source, template, ds, ports);
   if (reviewed) return reviewed;
   const base = currentPaths(id, source, ds, ports);

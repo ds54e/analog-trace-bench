@@ -45,6 +45,8 @@ preferences there instead of duplicating them in this repository guide.
 | `tools/schematics/ota-review-labels.mjs` | Keep reviewed passive annotation offsets separate from electrical values and device placement. |
 | `tools/schematics/ldo-layouts.mjs`, `ldo-case-refinements.mjs` | Derive LDO input branches, gate drivers, pass stages, sensing and compensation from each submission, with explicit refinements for complex topologies. |
 | `tools/schematics/human-reference-layouts.mjs` | Two source-specific reference-led comparisons: Core/Astra Run 1 LDO and Precision/Sonnet 5.5 Run 2 OTA. Anchor motifs and author their critical routes explicitly. |
+| `tools/schematics/ldo-direct-pass-motifs.mjs` | Reviewed seven-MOS direct-pass LDO families with VIN-fed diode bias, a plain divider and optional VOUT–FB capacitor; frozen-source and complete ordered-pin guards limit reuse. |
+| `tools/schematics/ota-passive-variants.mjs` | Four ordinary eight-MOS two-stage sources with a local IBIAS–VSS, mirror-node–VSS or VDD–IBIAS capacitor; reuse the existing matched core and retain each capacitor's actual endpoints. |
 | `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
 | `tools/build_traces.py`, `tools/templates/trace.html` | Bind the figure to its run, before the summary tables; preserve the final SPICE article. |
 | `site/assets/trace.css` | Use 60% figure width and a 408 px minimum capped at the available width; preserve image aspect ratio and scroll below 408 px. |
@@ -129,7 +131,15 @@ current-subtracting mirror branches without inventing a cascode receiver. See
 [Human reference motifs](../skills/human-readable-analog-schematics/references/human-reference-motifs.md)
 for the inspected public sources, separately attributed Gallery observations,
 specific electrical limits and before/after visual review gate. This limited
-comparison is not a catalog-wide layout generalization.
+comparison is not a catalog-wide layout generalization. Its follow-up resolves
+the earlier reading-size loss by shortening unused leads and intergroup gaps,
+with unchanged native text and intact motifs. A separate
+[topology-family inventory](../skills/human-readable-analog-schematics/references/topology-family-reuse.md)
+limits wider reuse to 12 simple direct-pass LDOs and four ordinary two-stage
+OTA passive variants. Other 201 drawings retain their existing recipes and
+geometry, including both original pilots. Complete graph matching found no
+other clone of either source-specific representative; larger or differently
+connected passive/transistor networks remain separate cases.
 
 Like the reviewed FREE figures, these 61 figures show the whole drawing in the
 60% frame and open the same hash-versioned native SVG on click. Use that view for

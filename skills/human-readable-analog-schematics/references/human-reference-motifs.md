@@ -34,8 +34,9 @@ The filter means “not marked AI-generated”; it is not proof of human authors
 
 ## Two source-specific ATB comparisons
 
-These are local representative drafts from published `4ce4d788`, not a claim that
-the remaining catalog was redrawn or that the owner accepted every new layout.
+These are local representatives developed from published `4ce4d788`. The first
+drafts were saved at `a04028a`; the subsequent reading-size correction is described
+below. Technical review does not establish owner acceptance.
 Their editable recipes are in
 [human-reference-layouts.mjs](../../../tools/schematics/human-reference-layouts.mjs).
 
@@ -59,6 +60,22 @@ text size and the adjacent CREFAC/FB words. The next draft tightened space betwe
 intact motifs, moved FB onto its sensing trunk and preserved label sizes. This
 is a visual comparison gate, not permission to compress every circuit uniformly.
 
+The follow-up compared actual 624-pixel SVG views. It shortened the unused VOUT
+and sensing-injection stubs, moved the complete bias branch nearer the tail and
+trimmed surplus leads in the lower reference ladder and outer return. Native
+size changed from 1091×848 to 981×758, versus the original 971×776. Displayed
+text is about 1% smaller than the original, rather than 11%. Actual image review
+confirmed the recovered label readability without reducing native font sizes.
+
+A tools-disabled Opus review on the owner's existing Max/Standard route accepted
+the grouping but found that the first shortened feedback rise still looked like
+part of the bias diode. Astra checked the actual pin and symbol coordinates and
+moved that rise onto the receiving input gate's axis, with a plain crossing in
+the open bias-trunk span. Fresh native and page-width pixels showed a separate
+feedback return with no symbol or label contact. This observation supports the
+routing rule about crossing association; the measured separation is not a
+universal spacing requirement.
+
 ### Precision / Sonnet 5.5 / Run 2 OTA
 
 The [drawing](../../../site/schematics/ota-precision-sky130-sonnet-5-5-r2/schematic.svg)
@@ -69,6 +86,14 @@ pair. XMNA's diode closure stays local and the shared mirror gates use a distinc
 lower corridor. One plain crossing of the tail stem remains away from its source
 junction. V1 feeds NMOS XM6; XM7 remains controlled by VBP. The series branch is
 V1–RZ–NZ–CC–VOUT. Only auxiliary bias controls use named remote connections.
+
+The follow-up left these input, subtracting and bias motifs intact. It shortened
+the V1-to-XM6 intergroup connection, series-compensation span and output stub.
+Native size changed from 1237×565 to 1127×565, versus the original 1142×576.
+Displayed text is about 1.4% larger than the original, rather than 7.7% smaller.
+Astra and the tools-disabled Opus advisor inspected actual page-width images and
+found no necessary remaining OTA geometry correction. Small compensation values
+still benefit from the existing full-size SVG access.
 
 ## Transferable rule and acceptance boundary
 
@@ -85,3 +110,9 @@ draft when a functional improvement introduces a new text/wire ambiguity or an
 unacceptable reading-size loss. Area and bend statistics may describe the result;
 they cannot establish acceptance. Generalize only a source-matched relationship
 that survived this visual review, not a comment, device count or geometric score.
+
+The [topology-family reuse](topology-family-reuse.md) inventory separates named
+MOS motifs from complete passive graphs. It records why ordinary OTA shunts and
+simple direct-pass LDOs can reuse their own verified motifs, while translated
+references, extra transistor stages and this unique current-subtracting OTA
+remain separate source-specific layouts.

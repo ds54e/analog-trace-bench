@@ -76,6 +76,7 @@
     "checked_non_body_pins": 36,
     "checked_from": "saved-and-reopened-project",
     "continuous_signal_nets": [
+      "ibias",
       "n1",
       "nc",
       "nd",

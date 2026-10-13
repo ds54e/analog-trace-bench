@@ -38,6 +38,11 @@ Use the ATB profile for its presentation preferences.
   inspect both native dimensions. A shorter sheet can become harder to read if
   the extra width shrinks every label in the page. Preserve useful whitespace
   and group boundaries instead of optimizing width, height or area alone.
+- Before narrowing a functional group, challenge unused output stubs, the lead
+  space around passives and the gap to the receiving stage. A shorter intergroup
+  connection can recover page-size text without disturbing a recognizable motif.
+  Review width and height together; describe the actual reading-size result
+  rather than applying a universal canvas cutoff.
 - Place auxiliary bias paths near the branches they control. Move a complete
   reference or divider as a functional group; use vacant space beside a short
   stage when that keeps the relationship clear. A mandatory bottom row can leave

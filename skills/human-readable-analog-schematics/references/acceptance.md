@@ -19,6 +19,7 @@ invocation. Keep electrical and visual outcomes independently assessable.
 | Draw VSS horizontally like VDD. | Change the native port presentation and label position; preserve the named interface and exact source contract. |
 | Some OTA-FREE drawings look unfinished. | Review every affected run; replace fragmented principal paths with case-matched continuous wiring, while checking exact source fidelity separately. |
 | These schematics look unnatural; use human-drawn examples from the internet and Gallery. | Inspect actual accessible reference figures and current target images. Match motifs to ordered source pins, prepare a few representative before/after drawings, judge branch ownership and intended reading size, and preserve exact contracts before generalizing. Distinguish personally inspected pixels from delegated Gallery evidence and obtain authorized access rather than bypassing sign-in. |
+| Resolve the representative reading-size loss, then generalize to matching families. | Compare actual equal-page-width images; shorten unused leads and gaps while preserving groups. Enumerate source-matched cores and passive graph variants, preserve accepted and unmatched cases, and inspect each eligible variant and long-name outlier before wider reuse. |
 | Consolidate the drawing skill and documentation. | Update instructions only; do not redraw accepted circuits or alter run evidence. |
 | Run an OTA AC simulation, place a PCB, or make a decorative circuit image. | Do not implicitly select this drawing skill for the unrelated task. |
 

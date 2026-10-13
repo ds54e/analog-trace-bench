@@ -5,6 +5,7 @@ import { routeDrawing } from "./orthogonal-router.mjs";
 import { refineLdoCase } from "./ldo-case-refinements.mjs";
 import { compactPlacement, placementRegions } from "./layout-spacing.mjs";
 import { humanReferenceLayout } from "./human-reference-layouts.mjs";
+import { directPassLdoMotif } from "./ldo-direct-pass-motifs.mjs";
 const supplies = new Set(["vin", "vss"]);
 const mos = (d) => "np".includes(d.kind);
 const top = (d) => d.pins[d.kind === "p" ? 2 : 0];
@@ -17,6 +18,8 @@ export function buildLdoLayout(id, source) {
     byRef = new Map(ds.map((d) => [d.ref, d]));
   const human = humanReferenceLayout(id, ds);
   if (human) return human;
+  const motif = directPassLdoMotif(id, source, ds);
+  if (motif) return motif;
   const portNames = source
     .split(/\r?\n/)
     .find((s) => /^\s*\.subckt/i.test(s))

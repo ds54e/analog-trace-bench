@@ -34,6 +34,12 @@ Use only enough separation to make the dots distinct; do not enlarge the whole
 component spacing. Maintain the divider's common vertical axis and offset its
 CFF/FB taps locally. Do not transform a foreign-net crossing into a T-connection.
 
+A plain crossing beside a local diode-closure dot can still look like part of
+that closure at page size. Compare a crossing in the open middle of the trunk,
+or an outside return, while checking the actual receiving gate and symbol body.
+Keep the crossing away from a junction by visual judgment; do not turn one
+reviewed separation into a universal distance rule.
+
 Reduce unconnected crossings through placement. Use one consistent no-dot
 crossing convention for those that remain. Consider a short diagonal only when
 it explains a symmetric cross-coupling clearly and the target tool supports it.

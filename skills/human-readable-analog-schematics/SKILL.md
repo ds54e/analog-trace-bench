@@ -31,6 +31,7 @@ Choose the smallest scope that satisfies the request:
 | Analog Canvas import, save, render or export | [Native workflow](references/analog-canvas-workflow.md) |
 | Select or compare a visual motif | [Gallery evidence](references/gallery-evidence.md) |
 | Human-drawn reference comparison and representative corrections | [Human reference motifs](references/human-reference-motifs.md) |
+| Apply a reviewed motif to a topology family | [Topology family reuse](references/topology-family-reuse.md) |
 | ATB submitted-circuit presentation | [ATB profile](references/atb-profile.md) |
 | Review or update this skill | [Acceptance cases](references/acceptance.md) |
 
@@ -76,6 +77,10 @@ For native drawing changes:
    as a comparison draft. Do not declare that trade-off solved by a matching netlist.
    Develop a few source-specific examples first; generalize only relationships
    that survived actual image review, retaining their topology limits.
+   Inventory eligible source graphs before wider application. A matching MOS core
+   does not imply matching bias, reference, compensation or sensing passives.
+   Keep accepted examples and unmatched graphs unchanged; review representatives
+   of each passive variant, input polarity and long-reference outlier.
 
 For page-only changes, use the repository's site build and validation, then inspect
 the published page at the requested size. Check that the current SVG is loaded;
