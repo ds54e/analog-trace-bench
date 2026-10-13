@@ -2212,12 +2212,12 @@
     {
       "run_id": "ldo-core-sky130-astra-r1",
       "title": "Transistor-level LDO regulator",
-      "description": "Centered mirror-loaded error amplifier, local current bias, grouped supply-matching reference ladder, explicit compensation and outer feedback return.",
+      "description": "Centered mirror-loaded error amplifier, local current bias, grouped supply-matching reference ladder, explicit compensation and a direct feedback return above the reference ladder.",
       "body_note": "NFET bodies → VSS; PFET bodies → VIN. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "e7e6a46bb08980dbab65ac7b48b5b87c5b0c9bcd0154fbad094afef81ac35315",
       "files": {
-        "schematic.svg": "741f7cfcbc7f5290cd42ce6b02fd83e959a36877c87f82ea33a1f50ce1c9a8bb",
-        "project.icproj.json": "0be947a2d6358067899ce649489942280699dfcf0218ce0146ed70fd4a0e78d5",
+        "schematic.svg": "e0db4205c8d8841ab05d3b9fc01e2dccdb4b139c1f6369584589a63d48f86d58",
+        "project.icproj.json": "5659a67e3fd49f90b8ee146a2027e9459b469de07bdf3ef2d19664f8f64ba111",
         "submitted.spice": "e7e6a46bb08980dbab65ac7b48b5b87c5b0c9bcd0154fbad094afef81ac35315",
         "exported.spice": "bbe1c1a824a5b324810892a687bf7e93131704cefa5228c74b083140f6e646f2",
         "verification.json": "390a9e35da5cee1fb197029c5ca4588e28412ee63caaf881b5ff4fb9bb48225a"

@@ -52,8 +52,9 @@ The reference network is a two-section parallel ladder:
 
 REF visibly feeds XNREF. CREF is not grounded. The pass gate/output branch is
 GATE–CCOMP–CM–RCOMP–VOUT. CFF bypasses RFB1; RFB3 independently injects VIN into
-FB. XPPASS remains one instance with its exact multiplicity. The lower FB return
-keeps this complete network outside the amplifier motifs.
+FB. XPPASS remains one instance with its exact multiplicity. The published
+`c1b1aa66` lower FB return enclosed the reference ladder. The current local
+correction returns above that ladder, through an open amplifier corridor.
 
 Image review rejected the first wider draft's approximately 20% loss of displayed
 text size and the adjacent CREFAC/FB words. The next draft tightened space between
@@ -75,6 +76,16 @@ the open bias-trunk span. Fresh native and page-width pixels showed a separate
 feedback return with no symbol or label contact. This observation supports the
 routing rule about crossing association; the measured separation is not a
 universal spacing requirement.
+
+The owner-directed Opus correction removes the lower perimeter. Its FB path
+crosses the REF riser and the open tail stem, away from pins and shared-source
+dots. The bias/tail group moves together; the source bar and complete reference
+ladder retain their source roles. The AC column moves inward to clear the full
+RREFAC/CREFAC strings and CFF text. Actual native, 624-pixel and desktop/narrow
+images were checked separately from all 219 electrical contracts. The FB return
+is 880 instead of 1,240 units; total routed FB length is 1,300 instead of 1,660.
+Native width is unchanged and height is almost unchanged. These describe this
+source-specific result, not a universal spacing or wire-length acceptance rule.
 
 ### Precision / Sonnet 5.5 / Run 2 OTA
 

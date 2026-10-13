@@ -181,8 +181,11 @@ metric. The Precision/Sonnet 5.5 Run 2 correction now physically joins both VBP 
 IBIAS, leaving 66 other OTA drawings with such links. Its converter sink faces
 its receiving bias trunk while retaining its D/S column. The actual current-
 subtracting core, ordered compensation branch and other functional groups stay
-intact. Both bias nets are included in the physical-continuity gate. The stretched
-representative LDO feedback routes remain unresolved. Submission bytes and
+intact. Both bias nets are included in the physical-continuity gate. The Core/Astra
+Run 1 LDO now uses a shorter inner FB return above its actual reference ladder,
+with separate crossings of REF and the tail stem. Its complete passive network
+and exact source contract are preserved; other LDO routes await case review.
+Submission bytes and
 page presentation are preserved; earlier review acceptance does not imply
 compliance with the owner's subsequent preference.
 

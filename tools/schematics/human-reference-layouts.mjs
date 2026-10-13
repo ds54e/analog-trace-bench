@@ -14,21 +14,21 @@ function coreLdo(id, continuousNets) {
   const layout = {
     id, strategy: "connected-ldo", continuousNets,
     title: "Transistor-level LDO regulator",
-    description: "Centered mirror-loaded error amplifier, local current bias, grouped supply-matching reference ladder, explicit compensation and outer feedback return.",
+    description: "Centered mirror-loaded error amplifier, local current bias, grouped supply-matching reference ladder, explicit compensation and a direct feedback return above the reference ladder.",
     body_note: "NFET bodies → VSS; PFET bodies → VIN. Exact source devices, bulk defaults and parameters are retained in the native project.",
     devices: {
-      RBIAS: [140, 300], XNBIAS: [150, 420, "horizontal"],
-      XNTAIL: [430, 420],
+      RBIAS: [140, 340], XNBIAS: [150, 460, "horizontal"],
+      XNTAIL: [430, 460],
       XP1: [350, 140, "horizontal"], XP2: [530, 140],
       XNFB: [330, 280], XNREF: [550, 280, "horizontal"],
       XPPASS: [1040, 220],
       CCOMP: [840, 310, 90], RCOMP: [960, 310, 90],
       RFB1: [1050, 430], RFB2: [1050, 650],
       CFF: [930, 430], RFB3: [1170, 530],
-      RREF1: [660, 500], RREFAC: [820, 440], CREFAC: [820, 530],
-      RREF2: [660, 650], CREF: [820, 650],
+      RREF1: [660, 530], RREFAC: [820, 470], CREFAC: [820, 560],
+      RREF2: [660, 680], CREF: [820, 680],
     },
-    ports: { VIN: [80, 60], VSS: [80, 580], VREF: [580, 710], VOUT: [1190, 290, 180] },
+    ports: { VIN: [80, 60], VSS: [80, 580], VREF: [580, 740], VOUT: [1190, 290, 180] },
     passiveLabels: { RBIAS: { x: -16, y: -4, align: "end" } },
     draw(c) {
       const j = (key, net, x, y) => c.j(key, net, x, y);
@@ -46,16 +46,16 @@ function coreLdo(id, continuousNets) {
       w("vss","XNBIAS.S","vss-bias"); w("vss","XNTAIL.S","vss-tail");
       c.boundLabel("vss","vss-bias",-50,-12,"middle");
       // The diode reference and its receiving tail share their gate row.
-      j("bias-drain","bias",140,360); j("bias-dg","bias",200,420);
+      j("bias-drain","bias",140,400); j("bias-dg","bias",200,460);
       w("bias","RBIAS.2","bias-drain"); w("bias","bias-drain","XNBIAS.D");
-      w("bias","bias-drain","bias-dg",[[200,360]]);
+      w("bias","bias-drain","bias-dg",[[200,400]]);
       w("bias","XNBIAS.G","bias-dg"); w("bias","bias-dg","XNTAIL.G");
       // Symmetric input/load columns with a genuinely centered tail tap.
       j("n1-drain","n1",340,210); j("n1-gates","n1",400,140);
       w("n1","XP1.D","n1-drain"); w("n1","n1-drain","XNFB.D");
       w("n1","XP1.G","n1-gates"); w("n1","n1-gates","XP2.G");
       w("n1","n1-gates","n1-drain",[[400,210]]);
-      j("tail-left","tail",340,360); j("tail-center","tail",440,360); j("tail-right","tail",540,360);
+      j("tail-left","tail",340,340); j("tail-center","tail",440,340); j("tail-right","tail",540,340);
       w("tail","XNFB.S","tail-left"); w("tail","tail-left","tail-center");
       w("tail","tail-center","tail-right"); w("tail","tail-right","XNREF.S");
       w("tail","tail-center","XNTAIL.D");
@@ -74,7 +74,9 @@ function coreLdo(id, continuousNets) {
       w("fb","RFB1.2","fb-divider"); w("fb","fb-divider","fb-injection");
       w("fb","fb-injection","RFB2.1"); w("fb","fb-divider","fb-cap");
       w("fb","CFF.2","fb-cap"); w("fb","fb-injection","RFB3.2",[[1170,570]]);
-      w("fb","fb-cap","XNFB.G",[[890,540],[890,750],[230,750],[230,280]]);
+      // FB rises beside CFF, passes above the reference ladder and between the
+      // tail bar and XNTAIL, crossing only the REF riser and the tail stem.
+      w("fb","fb-cap","XNFB.G",[[890,540],[890,370],[220,370],[220,280]]);
       c.boundLabel("fb","fb-divider",-12,-12,"end");
       j("fb-vin","vin",1170,480); w("vin","fb-vin","RFB3.1");
       c.boundLabel("vin","fb-vin",8,-10,"start");
@@ -82,17 +84,17 @@ function coreLdo(id, continuousNets) {
       c.boundLabel("vss","fb-vss",-8,-10,"end");
       // Reference ladder: two VIN→REF legs above two REF→VREF legs.
       // CREF bypasses RREF2, not ground. The series AC leg keeps RAC explicit.
-      j("ref-vin","vin",660,390); j("ref-vin-ac","vin",820,390);
+      j("ref-vin","vin",660,420); j("ref-vin-ac","vin",820,420);
       w("vin","ref-vin","ref-vin-ac"); w("vin","ref-vin","RREF1.1");
       w("vin","ref-vin-ac","RREFAC.1"); c.boundLabel("vin","ref-vin",8,-12,"start");
       w("rac","RREFAC.2","CREFAC.1");
-      j("ref-input","ref",660,560); j("ref-center","ref",660,580); j("ref-ac","ref",820,580);
+      j("ref-input","ref",660,590); j("ref-center","ref",660,610); j("ref-ac","ref",820,610);
       w("ref","RREF1.2","ref-input"); w("ref","ref-input","ref-center"); w("ref","ref-center","ref-ac");
       w("ref","CREFAC.2","ref-ac"); w("ref","ref-center","RREF2.1");
       w("ref","ref-ac","CREF.1");
-      w("ref","ref-input","XNREF.G",[[620,560],[620,280]]);
+      w("ref","ref-input","XNREF.G",[[620,590],[620,280]]);
       c.boundLabel("ref","ref-input",8,-12,"start");
-      j("ref-bottom","vref",660,710); j("ref-cap-bottom","vref",820,710);
+      j("ref-bottom","vref",660,740); j("ref-cap-bottom","vref",820,740);
       w("vref","RREF2.2","ref-bottom"); w("vref","ref-bottom","ref-cap-bottom");
       w("vref","CREF.2","ref-cap-bottom"); w("vref","ref-bottom","@VREF");
     },
@@ -100,12 +102,13 @@ function coreLdo(id, continuousNets) {
   // Reviewed column slots keep the complete input, reference and sensing
   // motifs intact. This is not a global density or equal-gap transformation:
   // the reference ladder moves as a group, while its input riser and the
-  // compensation branch retain separate corridors above it.
+  // compensation branch retain separate corridors above it. The narrowed AC
+  // column leaves the FB riser clear of RREFAC/CREFAC and CFF text.
   const columns = new Map([
-    [80,100], [140,150], [150,160], [200,210], [230,270],
+    [80,100], [140,150], [150,160], [200,210], [220,240], [230,270],
     [330,290], [340,300], [350,310], [400,360], [430,370],
     [440,380], [530,450], [540,460], [550,470], [580,480],
-    [620,520], [660,560], [800,650], [820,720], [840,690],
+    [620,520], [660,560], [800,650], [820,690], [840,690],
     [890,800], [930,830], [960,810], [1040,890], [1050,900],
     [1170,960], [1190,960],
   ]);
