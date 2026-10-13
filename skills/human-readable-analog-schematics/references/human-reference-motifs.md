@@ -85,9 +85,15 @@ XM6.G and the compensation branch. The two receiving branches flank the input
 pair. XMNA's diode closure stays local and the shared mirror gates use a distinct
 lower corridor. One plain crossing of the tail stem remains away from its source
 junction. V1 feeds NMOS XM6; XM7 remains controlled by VBP. The series branch is
-V1–RZ–NZ–CC–VOUT. This published revision still uses named remote auxiliary
-bias controls; the owner subsequently rejected that presentation. Those links
-remain a correction task, not a reusable accepted wiring motif.
+V1–RZ–NZ–CC–VOUT. The published `c1b1aa66` revision used named remote auxiliary
+bias controls, which the owner subsequently rejected. The local correction joins
+VBP from the converter to all three receiving gates through one physical tree
+and connects converter IBIAS to the reference/tail gate trunk. The converter
+sink is mirrored while keeping its D/S column; its gate faces the receiving
+trunk. One VBP annotation remains on that wire. The IBIAS port taps the lower
+trunk, with its circle separated from the junction dot. Both bias nets now
+participate in the reopened-project physical-continuity check. This is a
+source-specific correction, not a new topology or a catalog-wide completion.
 
 The follow-up left these input, subtracting and bias motifs intact. It shortened
 the V1-to-XM6 intergroup connection, series-compensation span and output stub.
@@ -105,7 +111,8 @@ Follow the [current ATB profile](atb-profile.md#internal-wiring-and-the-owner-se
 continuous internal signal and bias wires, functional grouping, useful whitespace,
 compact meaningful paths and balanced width/height. This supersedes the earlier
 visual dispositions above. It does not change the frozen electrical contracts
-or claim a new geometry correction has already been implemented.
+or imply that the still-unmodified LDOs and remaining OTA drawings already
+meet the new preference.
 
 ## Transferable rule and acceptance boundary
 

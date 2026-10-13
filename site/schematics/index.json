@@ -1271,11 +1271,11 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
       "files": {
-        "schematic.svg": "f327e8fbdebd5b437d2d2bfa8f3f83267f7945c5c387e8956eefd6c0aec83ca4",
-        "project.icproj.json": "e75ece6e830a225f133688fedeccd0eec090b47ff9cefc76e836115ae6a79736",
+        "schematic.svg": "7094d51be85dc9dbb81f3f48e79accd7f52bc19f6c08ad732be773a56fc373ca",
+        "project.icproj.json": "a0711d226028542e4e7e4ef5d7013a6876a6ecdf400750fb9505d45048cd3b7d",
         "submitted.spice": "1c79573bdc9c4b6d58f478b5191c6d19a670b2b0615a1daa48fb5c72479cc2f5",
         "exported.spice": "c97e05f339f6be39bd11ef7e6822a6bfce84a0bdd72cbb614f848267bac5d2ac",
-        "verification.json": "7b4d7e3869e27af07539e21467ac119e77c086d7250c798c111ef929cde6df17"
+        "verification.json": "1e0753f532c355a0e79889d70f6e599b0f9dad39c980bb79649198250530c0d2"
       },
       "layout_strategy": "connected-stages"
     },

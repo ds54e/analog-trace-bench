@@ -6,7 +6,7 @@ export function humanReferenceLayout(id, ds) {
       id !== "ota-precision-sky130-sonnet-5-5-r2") return null;
   const ldo = id.startsWith("ldo-");
   const continuousNets = [...new Set(ds.flatMap(d => d.pins)
-    .filter(n => !(ldo ? ["vin", "vss"] : ["vdd", "vss", "ibias", "vbp"]).includes(n)))].sort();
+    .filter(n => !(ldo ? ["vin", "vss"] : ["vdd", "vss"]).includes(n)))].sort();
   return ldo ? coreLdo(id, continuousNets) : subtractingOta(id, continuousNets);
 }
 
@@ -131,9 +131,9 @@ function subtractingOta(id, continuousNets) {
       XMNA: [230,390,"horizontal"], XMNB: [750,390],
       XM7: [980,140], XM6: [980,300],
       RZ: [860,220,270], CC: [960,220,270],
-      XM0: [290,460,"horizontal"], XMPD: [110,180,"horizontal"], XMB1: [90,350],
+      XM0: [290,460,"horizontal"], XMPD: [110,180,"horizontal"], XMB1: [110,350,"horizontal"],
     },
-    ports: { VINN:[320,280], VINP:[640,280,180], VOUT:[1060,240,180], VDD:[80,60], VSS:[80,550], IBIAS:[330,510] },
+    ports: { VINN:[320,280], VINP:[640,280,180], VOUT:[1060,240,180], VDD:[80,60], VSS:[80,550], IBIAS:[330,510,90] },
     draw(c) {
       const j=(key,net,x,y)=>c.j(key,net,x,y), w=(net,a,b,bends=[])=>c.w(net,a,b,bends);
       for(const [key,x] of [["dd-left",220],["dd-right",760],["dd-out",990]]) j(key,"vdd",x,60);
@@ -165,21 +165,25 @@ function subtractingOta(id, continuousNets) {
       j("out-comp","vout",990,220); j("out-port","vout",990,240);
       w("vout","XM7.D","out-comp"); w("vout","out-comp","CC.2");
       w("vout","out-comp","out-port"); w("vout","out-port","XM6.D"); w("vout","out-port","@VOUT");
-      // VBP is a bias control, not the signal that drives XM6.
-      j("vbp-loads","vbp",480,140); w("vbp","XMPA.G","vbp-loads"); w("vbp","vbp-loads","XMPB.G");
-      c.boundLabel("vbp","vbp-loads",0,-14,"middle");
-      j("vbp-output","vbp",930,140); w("vbp","vbp-output","XM7.G"); c.boundLabel("vbp","vbp-output",-8,-10,"end");
-      // Tail reference is next to the tail. Only the auxiliary converter uses
-      // named remote controls, retaining its complete local current path.
-      j("ibias-dg","ibias",340,460); j("ibias-tail","ibias",380,460); j("ibias-port","ibias",380,510);
+      // VBP is a bias control, not the signal that drives XM6. One upper bus
+      // carries the converter diode voltage to the load pair and output source.
+      j("conv-vbp","vbp",100,250); j("conv-gate","vbp",144,180);
+      w("vbp","XMPD.D","conv-vbp"); w("vbp","conv-vbp","XMB1.D");
+      w("vbp","XMPD.G","conv-gate"); w("vbp","conv-gate","conv-vbp",[[144,250]]);
+      j("vbp-bus","vbp",480,80); j("vbp-loads","vbp",480,140);
+      w("vbp","conv-gate","vbp-bus",[[144,80]]); w("vbp","vbp-bus","vbp-loads");
+      w("vbp","XMPA.G","vbp-loads"); w("vbp","vbp-loads","XMPB.G");
+      w("vbp","vbp-bus","XM7.G",[[930,80],[930,140]]);
+      c.boundLabel("vbp","vbp-loads",8,-10,"start");
+      // Tail reference is next to the tail; the converter sink's gate joins the
+      // XM0/XM5 gate node along the lower corridor, where the IBIAS port taps it.
+      j("ibias-dg","ibias",340,460); j("ibias-tail","ibias",380,460); j("ibias-port","ibias",330,530);
       w("ibias","XM0.D","ibias-dg",[[280,420],[340,420]]); w("ibias","XM0.G","ibias-dg");
       w("ibias","ibias-dg","ibias-tail"); w("ibias","ibias-tail","XM5.G");
-      w("ibias","ibias-tail","ibias-port"); w("ibias","@IBIAS","ibias-port");
-      c.boundLabel("ibias","ibias-port",-50,-12,"middle");
+      w("ibias","XMB1.G","ibias-port",[[144,350],[144,530]]);
+      w("ibias","ibias-port","ibias-tail",[[380,530]]); w("ibias","@IBIAS","ibias-port");
+      c.boundLabel("ibias","ibias-port",0,-40,"middle");
       j("conv-vdd","vdd",100,110); w("vdd","conv-vdd","XMPD.S"); c.boundLabel("vdd","conv-vdd",-8,-10,"end");
-      j("conv-vbp","vbp",100,250); w("vbp","XMPD.D","conv-vbp"); w("vbp","conv-vbp","XMB1.D");
-      w("vbp","XMPD.G","conv-vbp",[[160,180],[160,250]]); c.boundLabel("vbp","conv-vbp",-8,-10,"end");
-      j("conv-ibias","ibias",50,350); w("ibias","conv-ibias","XMB1.G"); c.boundLabel("ibias","conv-ibias",-8,-10,"end");
       j("conv-vss","vss",100,430); w("vss","XMB1.S","conv-vss"); c.boundLabel("vss","conv-vss",-8,-10,"end");
     },
   };

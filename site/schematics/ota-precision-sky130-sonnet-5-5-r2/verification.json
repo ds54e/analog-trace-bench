@@ -77,9 +77,11 @@
     "checked_from": "saved-and-reopened-project",
     "continuous_signal_nets": [
       "fa",
+      "ibias",
       "nt",
       "nz",
       "v1",
+      "vbp",
       "vinn",
       "vinp",
       "vout"

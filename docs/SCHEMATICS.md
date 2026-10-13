@@ -177,9 +177,12 @@ records internal wire-first routing and compact meaningful LDO feedback.
 The physical-route inventory of published `c1b1aa66` found 67 OTA drawings with
 non-supply nets split into name-connected components; LDO internal nets were
 physically continuous. This is a coverage inventory, not a wire-length acceptance
-metric. Those OTA links and the stretched representative LDO feedback routes
-remain unresolved. No new internal-wiring geometry correction is included in
-this instructions-only update. All 219 native drawings, submission bytes and
+metric. The Precision/Sonnet 5.5 Run 2 correction now physically joins both VBP and
+IBIAS, leaving 66 other OTA drawings with such links. Its converter sink faces
+its receiving bias trunk while retaining its D/S column. The actual current-
+subtracting core, ordered compensation branch and other functional groups stay
+intact. Both bias nets are included in the physical-continuity gate. The stretched
+representative LDO feedback routes remain unresolved. Submission bytes and
 page presentation are preserved; earlier review acceptance does not imply
 compliance with the owner's subsequent preference.
 
