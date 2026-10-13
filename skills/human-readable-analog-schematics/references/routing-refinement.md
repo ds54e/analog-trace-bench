@@ -36,6 +36,14 @@ Use only enough separation to make the dots distinct; do not enlarge the whole
 component spacing. Maintain the divider's common vertical axis and offset its
 CFF/FB taps locally. Do not transform a foreign-net crossing into a T-connection.
 
+A new branch can form a four-way join inside an existing mandatory terminal
+escape, even when moving its remote bias generator does not change that join.
+For a source-specific recipe, the existing router's net-clearance zones can
+protect the offending interior cell while leaving both the actual endpoint and
+escaped search seed accessible. Check the resulting T-junctions and physical
+continuity on the reopened project. Do not remove a pin, invent a junction or
+weaken the four-way check to make a candidate pass.
+
 A plain crossing beside a local diode-closure dot can still look like part of
 that closure at page size. Compare a crossing in the open middle of the trunk,
 or an outside return, while checking the actual receiving gate and symbol body.

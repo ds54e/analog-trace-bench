@@ -60,6 +60,12 @@ Adjust for symbol shape, rotation, actual fonts and text width.
    power-label virtual edges. Bind labels to routed junctions, preserve source
    spelling and local scope, and verify names resolve to the intended nets.
    Imported logical membership alone does not prove visible connectivity.
+   In ATB's recipe bridge, `boundLabel` expects a junction key registered by
+   `c.j`, rather than a pin or port selector. A router wrapper may record its
+   actual junctions and bind an annotation to one of those anchors; do not add
+   an unattached junction merely to satisfy the label helper. Selecting the
+   nearest junction is only a starting point: inspect the resolved text against
+   every visible wire, including a neighbouring control and the port's own loop.
 3. Resolve reopened passive labels and compare them with expected formatted text.
 4. Export SPICE and compare cell name, ordered external ports, references,
    ordered pins including B, models, values/expressions, W/L, nf and m. Do not

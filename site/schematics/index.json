@@ -1117,30 +1117,30 @@
     {
       "run_id": "ota-precision-sky130-astra-r1",
       "title": "Transistor-level OTA",
-      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "NMOS-input folded-cascode OTA with a wide-swing NMOS mirror, continuous internal bias controls and complete nearby reference/converter paths.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, values, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "86a6b4bba5bd0116d4fe964d1f681f5adf0d7538fc1f4eb125f3f840151ad458",
       "files": {
-        "schematic.svg": "c41e2040e8a8ce17242f2203312ffdc9d0fcdc45ef3bbe110ea321a479e673c3",
-        "project.icproj.json": "3808c2bdf56c2981b3611735d2c6a19f4f1cdbc931405188437951c1c5592621",
+        "schematic.svg": "71ec3059d44b66ed63d70a2fac5ece4197cab083d401e0113b87a885062ec473",
+        "project.icproj.json": "2c0e7440aa9a9794559dc6a0597ea0ec94301a445fe081eac82a0c63193432a6",
         "submitted.spice": "86a6b4bba5bd0116d4fe964d1f681f5adf0d7538fc1f4eb125f3f840151ad458",
         "exported.spice": "ee7106429154814d95183fbd3358d3e5f141e581f8f302ce8cad846921c621c8",
-        "verification.json": "e6dd57ef481dc6924a8c06e41f2d75ff1e8b8230ff8e08d04abb6fb60cf149db"
+        "verification.json": "224d9515344773e4c99c7d4d02b57ec94270416ce15d8814ca1b326970bf7155"
       },
       "layout_strategy": "connected-stages"
     },
     {
       "run_id": "ota-precision-sky130-sonnet-5-5-r1",
       "title": "Transistor-level OTA",
-      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "NMOS-input folded-cascode OTA with a wide-swing NMOS mirror, continuous internal bias controls and complete nearby reference/converter paths. The submitted output column is on the right.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, values, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "25e5df8f2078a218db099d676da0f5d43516200e8a781f61c1ac903d4dcc4a4b",
       "files": {
-        "schematic.svg": "12fd1a4d85a6dab2d742d965f598646f7340f3cbd164966fd7c2a460495c3823",
-        "project.icproj.json": "d32550f62f2d2a976d4ed4dd2a77c86416936b38add4a9c0304fe5d51383e994",
+        "schematic.svg": "8a44dafcc50b084801cfd0921f22d23895cc016504548e0b9e91f6ec87112403",
+        "project.icproj.json": "450af430c4008f13788c9202593e04514b5ef7bf678e2f53e0035efb7e2038c0",
         "submitted.spice": "25e5df8f2078a218db099d676da0f5d43516200e8a781f61c1ac903d4dcc4a4b",
         "exported.spice": "6799adf274f582d735db8bd9d70bf1d9989338979c7e5bbd25a0e6dc5a7aec15",
-        "verification.json": "2f2b68cdd6d52026db4f1dde3bae69b4a9cee25f0a70a5f6086963792686c647"
+        "verification.json": "66d43931fe92f258655b36bfba301a9d4abd10bf4c89e6ddfee77e5eee0e98fa"
       },
       "layout_strategy": "connected-stages"
     },

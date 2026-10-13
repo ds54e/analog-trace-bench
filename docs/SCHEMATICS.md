@@ -44,7 +44,7 @@ preferences there instead of duplicating them in this repository guide.
 | `tools/schematics/ota-stage-placement.mjs` | Align source-matched complementary inputs and loaded mirror transfer stages; attach remote signal shunts and feed-forward parts beside their nodes. |
 | `tools/schematics/ota-review-labels.mjs` | Keep reviewed passive annotation offsets separate from electrical values and device placement. |
 | `tools/schematics/ldo-layouts.mjs`, `ldo-case-refinements.mjs` | Derive LDO input branches, gate drivers, pass stages, sensing and compensation from each submission, with explicit refinements for complex topologies. |
-| `tools/schematics/human-reference-layouts.mjs` | Core/Astra Run 1 LDO, Precision/Sonnet 5.5 Run 2 OTA, four guarded NMOS-output converter-core OTA variants and two complementary-input OTA cases. Anchor source-matched motifs and author their critical routes explicitly. |
+| `tools/schematics/human-reference-layouts.mjs` | Core/Astra Run 1 LDO, Precision/Sonnet 5.5 Run 2 OTA, four guarded NMOS-output converter-core OTA variants, two complementary-input OTA cases and two folded-cascode OTA cases. Anchor source-matched motifs and author their critical routes explicitly. |
 | `tools/schematics/ldo-direct-pass-motifs.mjs` | Reviewed seven-MOS direct-pass LDO families with VIN-fed diode bias, a plain divider and optional VOUT–FB capacitor; frozen-source and complete ordered-pin guards limit reuse. |
 | `tools/schematics/ota-passive-variants.mjs` | Four ordinary eight-MOS two-stage sources with a local IBIAS–VSS, mirror-node–VSS or VDD–IBIAS capacitor; reuse the existing matched core and retain each capacitor's actual endpoints. |
 | `tools/schematics.py` | Validate source-bound artifacts and render the image-only figure with accessible alt text. |
@@ -178,8 +178,8 @@ The physical-route inventory of published `c1b1aa66` found 67 OTA drawings with
 non-supply nets split into name-connected components; LDO internal nets were
 physically continuous. This is a coverage inventory, not a wire-length acceptance
 metric. The Precision/Sonnet 5.5 Run 2 correction now physically joins both VBP and
-IBIAS. Four converter-core and two complementary-input OTA corrections leave 60
-other OTA drawings with such links. Its converter sink faces
+IBIAS. Four converter-core, two complementary-input and two folded-cascode OTA
+corrections leave 58 other OTA drawings with such links. Its converter sink faces
 its receiving bias trunk while retaining its D/S column. The actual current-
 subtracting core, ordered compensation branch and other functional groups stay
 intact. Both bias nets are included in the physical-continuity gate. The Core/Astra
@@ -216,6 +216,19 @@ controls. Local VDD/VSS load bars are permitted supply annotations, not internal
 signal jumps. Actual native and fitted images show nearly unchanged width and
 98 units less height, with unchanged native text. These two cases do not establish
 a generic complementary-input layout or complete the remaining OTA review.
+
+PRECISION/Astra Run 1 and PRECISION/Sonnet 5.5 Run 1 have the same complete
+eighteen-MOS folded-cascode/wide-swing-mirror graph, with a supply-to-PMOS-source
+resistor, an NMOS-source-to-VSS resistor and a VOUT-to-VSS capacitor. They retain
+separate ordered reference/kind/pin guards and exact source parameters. Their
+PB/PC/NC generators move as whole current paths beside or above the folded
+branches; the reference and IBIAS port sit near the actual tail. Every internal
+control is wired. The input source midpoint uses resolved D/S axes, including
+mirroring offsets. Sonnet reflects the whole placement to retain its right-hand
+output and gives its longer NC names a separate slot. Native and fitted image
+review caught a label inside a diode loop and a generator reference pressed
+against the output column; local annotation and complete-branch moves cleared
+both. These sources have output shunts, not an invented Miller stage or RC.
 
 ## Regenerate native drawings
 

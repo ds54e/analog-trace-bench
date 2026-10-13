@@ -69,6 +69,19 @@ ordered pins and the complete expected reference/kind list separately for each
 run before using the scoped complementary recipe in the same extension.
 Their dimensions and multiplicities differ materially and remain source-derived.
 
+PRECISION/Astra Run 1 and PRECISION/Sonnet 5.5 Run 1 share a complete
+eighteen-MOS folded-cascode graph with three passives: a supply resistor before
+the PMOS cascode-reference source, a resistor below the NMOS cascode-reference
+source and a VOUT-to-VSS shunt capacitor. Their PB/PC/NC equivalents each retain
+their whole generating current path. They are not Miller two-stage circuits.
+The two exact sources have separate whole ordered reference/kind/pin guards;
+their values, W/L and multiplicities remain source-derived. Horizontal reflection
+keeps Sonnet's output on the right while preserving each resolved MOS pin axis
+and passive pin order. Recheck annotations and routing for the new source: its
+longer bias name did not fit inside the same diode closure, and its generator
+reference needed a local branch shift to clear the output column. Complete graph
+eligibility does not establish identical label clearance or routing trees.
+
 ## Reading-size lessons from actual images
 
 For the Core/Astra representative, shortening unused output/injection stubs and

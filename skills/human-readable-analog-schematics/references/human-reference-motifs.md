@@ -147,6 +147,18 @@ gate pins and junctions. Full native and fitted images were inspected separately
 for both source parameter sets. Width is nearly unchanged and height is 98 units
 shorter; those bounds describe the reviewed result rather than proving clarity.
 
+The two PRECISION Run 1 folded-cascode cases retain both folded columns, the
+NMOS input pair, its actual source midpoint and the wide-swing NMOS mirror.
+The PB converter, resistor-offset PC converter and resistor-offset NC reference
+are complete nearby current paths; the IBIAS diode and external port sit below
+the tail. All controls are physical wires. Source-specific gate-escape clearance
+zones avoid a four-way junction without weakening route checks. Sonnet's complete
+reflection keeps VOUT on the right. Actual native/624-pixel review found that its
+longer VBNC name intersected the diode-loop upright and XMPBN crowded the output
+column. Moving the annotation outside the loop and the complete NC branch a
+small distance outward cleared both while retaining full text and a straight
+output column. This is a local source-specific lesson, not a uniform bias-row rule.
+
 ## Transferable rule and acceptance boundary
 
 Recognize and anchor motifs before routing between them. Preserve corresponding

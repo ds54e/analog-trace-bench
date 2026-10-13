@@ -1,8 +1,13 @@
+import { routeDrawing } from "./orthogonal-router.mjs";
+
 /** Source-specific drawings anchored to recognizable motifs: two representatives,
- * four guarded converter OTAs and two guarded complementary-input OTAs. Public
+ * four guarded converter OTAs, two complementary-input OTAs and two guarded
+ * folded-cascode OTAs. Public
  * figure relationships are recorded in the schematic skill; these routes follow
  * ATB's own ordered terminals, not a reference circuit's electrical data. */
 export function humanReferenceLayout(id, ds) {
+  if (id === "ota-precision-sky130-astra-r1") return precisionAstraFoldedOta(id, ds);
+  if (id === "ota-precision-sky130-sonnet-5-5-r1") return precisionSonnetFoldedOta(id, ds);
   if (converterOtas[id]) return converterOta(id, ds);
   if (complementaryOtas[id]) return complementaryOta(id, ds);
   if (id !== "ldo-core-sky130-astra-r1" &&
@@ -570,6 +575,111 @@ function complementaryOta(id, ds) {
       w("ibias",p("ref","G"),"ib-gates"); w("ibias","ib-gates","ib-trunk");
       w("ibias","ib-trunk",p("nTail","G")); w("ibias","ib-trunk",p("sink","G"),[[g.trunkTap, g.trunk]]);
       c.boundLabel("ibias","ib-port",0,-40,"middle");
+    },
+  };
+}
+
+// Source-matched eighteen-MOS folded cascodes with their complete three-passive
+// networks. Whole ordered pin guards admit only these two sources; models and
+// parameters remain native-imported and independently frozen-source checked.
+function precisionAstraFoldedOta(id, ds) {
+  const expected = [["XNR","n","ibias ibias vss vss"],["XNT","n","tail ibias vss vss"],["XINP","n","fp vinp tail vss"],["XINN","n","fn vinn tail vss"],["XNBP","n","pb ibias vss vss"],["XPR","p","pb pb vdd vdd"],["XPTP","p","fp pb vdd vdd"],["XPTN","p","fn pb vdd vdd"],["RPC","r","vdd pcs"],["XPCREF","p","pc pc pcs vdd"],["XNPC","n","pc ibias vss vss"],["XPCP","p","mir pc fp vdd"],["XPCN","p","vout pc fn vdd"],["XPNC","p","nc pb vdd vdd"],["XNCREF","n","nc nc ncs vss"],["RNC","r","ncs vss"],["XNCP","n","mir nc nl vss"],["XNCN","n","vout nc nr vss"],["XNLP","n","nl mir vss vss"],["XNLN","n","nr mir vss vss"],["CDOM","c","vout vss"]];
+  if (id !== "ota-precision-sky130-astra-r1" || ds.length !== expected.length ||
+      ds.some((d,i) => d.ref !== expected[i][0] || d.kind !== expected[i][1] || d.pins.join(" ") !== expected[i][2]))
+    throw Error("Unreviewed PRECISION Astra ordered source graph " + id);
+  const devices = {"XNR":[360,580,"horizontal"],"XNT":[430,430,0],"XINP":[550,290,"horizontal"],"XINN":[330,290,0],"XNBP":[100,220,"horizontal"],"XPR":[80,110,0],"XPTP":[680,160,0],"XPTN":[180,160,"horizontal"],"RPC":[430,20,0],"XPCREF":[420,130,0],"XNPC":[420,240,0],"XPCP":[680,290,0],"XPCN":[180,290,"horizontal"],"XPNC":[80,460,0],"XNCREF":[100,560,"horizontal"],"RNC":[90,670,0],"XNCP":[680,400,0],"XNCN":[180,400,"horizontal"],"XNLP":[680,510,0],"XNLN":[180,510,"horizontal"],"CDOM":[290,410,0]};
+  const ports = {"VINP":[620,290,180],"VINN":[260,290,0],"VOUT":[70,330,0],"VDD":[580,100,0],"VSS":[580,570,0],"IBIAS":[400,630,0]};
+  const sections = {};
+  for (const ref of ["XPTN","XPCN","XNCN","XNLN","CDOM"]) sections[ref]="left-folded";
+  for (const ref of ["XPTP","XPCP","XNCP","XNLP"]) sections[ref]="right-folded";
+  for (const ref of ["XINP","XINN","XNT"]) sections[ref]="pair";
+  for (const ref of ["XPR","XNBP"]) sections[ref]="pb-generator";
+  for (const ref of ["RPC","XPCREF","XNPC"]) sections[ref]="pc-generator";
+  for (const ref of ["XPNC","XNCREF","RNC"]) sections[ref]="nc-generator";
+  sections.XNR="reference";
+  sections["@VINP"]=sections["@VINN"]="pair";
+  sections["@VOUT"]="left-folded";
+  sections["@VDD"]=sections["@VSS"]="right-folded";
+  sections["@IBIAS"]="reference";
+  const auxiliaryNets = new Set(["vdd","vss"]);
+  return {
+    id, strategy:"connected-stages", title:"Transistor-level OTA",
+    description:"NMOS-input folded-cascode OTA with a wide-swing NMOS mirror, continuous internal bias controls and complete nearby reference/converter paths.",
+    body_note:"NFET bodies → VSS; PFET bodies → VDD. Exact source devices, values, bulk defaults and parameters are retained in the native project.",
+    devices, ports,
+    continuousNets:[...new Set(ds.flatMap(d=>d.pins))].filter(n=>!auxiliaryNets.has(n)).sort(),
+    draw(c) {
+      const routedAnchors = new Map();
+      const drawing = {...c, j(key, net, x, y) {
+        c.j(key, net, x, y);
+        if (!routedAnchors.has(net)) routedAnchors.set(net, []);
+        routedAnchors.get(net).push({key,x,y});
+      }};
+      routeDrawing(drawing, ds.map(d=>({...d,labelWidth:c.referenceWidth(d.ref)/10})), devices, ports, sections,
+        auxiliaryNets, {preferDeviceRoots:true,separateInputNets:true,supplyLabelWidthAllowance:12,supplyLabelClearance:2,
+          netClearanceZones:{pc:[[645,285,655,295],[205,285,215,295]]}});
+      const annotate = (net, near, dx, dy, align) => {
+        const p = c.point(near);
+        const candidates = routedAnchors.get(net) ?? [];
+        if (!candidates.length) throw Error("No routed junction for annotation " + net);
+        const nearest = [...candidates].sort((a,b)=>(Math.abs(a.x-p.x)+Math.abs(a.y-p.y))-(Math.abs(b.x-p.x)+Math.abs(b.y-p.y)))[0];
+        c.boundLabel(net, nearest.key, dx, dy, align);
+      };
+      annotate("ibias", "@IBIAS", -20, 18, "middle");
+      annotate("pb", "XPR.D", -8, 18, "end");
+      annotate("pc", "XPCREF.D", 8, 36, "start");
+      annotate("nc", "XNCREF.D", 8, 18, "start");
+    },
+  };
+}
+
+function precisionSonnetFoldedOta(id, ds) {
+  const expected = [["XMB0","n","ibias ibias vss vss"],["XM5","n","tail ibias vss vss"],["XMNP0","n","vbp ibias vss vss"],["XMNPB","n","vbpc ibias vss vss"],["XMP0","p","vbp vbp vdd vdd"],["XMPB","p","vbpc vbpc sb vdd"],["RPB","r","vdd sb"],["XMPBN","p","vbnc vbp vdd vdd"],["XMNB3","n","vbnc vbnc rbt vss"],["RB","r","rbt vss"],["XM1","n","f1 vinp tail vss"],["XM2","n","f2 vinn tail vss"],["XMS1","p","f1 vbp vdd vdd"],["XMS2","p","f2 vbp vdd vdd"],["XMC1","p","a vbpc f1 vdd"],["XMC2","p","vout vbpc f2 vdd"],["XMQ3","n","a vbnc e1 vss"],["XMQ4","n","vout vbnc e2 vss"],["XMQ1","n","e1 a vss vss"],["XMQ2","n","e2 a vss vss"],["CEXT","c","vout vss"]];
+  if (id !== "ota-precision-sky130-sonnet-5-5-r1" || ds.length !== expected.length ||
+      ds.some((d,i) => d.ref !== expected[i][0] || d.kind !== expected[i][1] || d.pins.join(" ") !== expected[i][2]))
+    throw Error("Unreviewed PRECISION Sonnet ordered source graph " + id);
+  const devices = {"XMB0":[500,580,0],"XM5":[430,430,"horizontal"],"XM1":[310,290,0],"XM2":[530,290,"horizontal"],"XMNP0":[760,220,0],"XMP0":[780,110,"horizontal"],"XMS1":[180,160,"horizontal"],"XMS2":[680,160,0],"RPB":[430,20,0],"XMPB":[440,130,"horizontal"],"XMNPB":[440,240,"horizontal"],"XMC1":[180,290,"horizontal"],"XMC2":[680,290,0],"XMPBN":[810,460,"horizontal"],"XMNB3":[790,560,0],"RB":[800,670,0],"XMQ3":[180,400,"horizontal"],"XMQ4":[680,400,0],"XMQ1":[180,510,"horizontal"],"XMQ2":[680,510,0],"CEXT":[570,410,0]};
+  const ports = {"VINP":[240,290,0],"VINN":[600,290,180],"VOUT":[790,330,180],"VDD":[280,100,180],"VSS":[280,570,180],"IBIAS":[460,630,180]};
+  const sections = {};
+  for (const ref of ["XMS2","XMC2","XMQ4","XMQ2","CEXT"]) sections[ref]="left-folded";
+  for (const ref of ["XMS1","XMC1","XMQ3","XMQ1"]) sections[ref]="right-folded";
+  for (const ref of ["XM1","XM2","XM5"]) sections[ref]="pair";
+  for (const ref of ["XMP0","XMNP0"]) sections[ref]="vbp-generator";
+  for (const ref of ["RPB","XMPB","XMNPB"]) sections[ref]="vbpc-generator";
+  for (const ref of ["XMPBN","XMNB3","RB"]) sections[ref]="vbnc-generator";
+  sections.XMB0="reference";
+  sections["@VINP"]=sections["@VINN"]="pair";
+  sections["@VOUT"]="left-folded";
+  sections["@VDD"]=sections["@VSS"]="right-folded";
+  sections["@IBIAS"]="reference";
+  const auxiliaryNets = new Set(["vdd","vss"]);
+  return {
+    id, strategy:"connected-stages", title:"Transistor-level OTA",
+    description:"NMOS-input folded-cascode OTA with a wide-swing NMOS mirror, continuous internal bias controls and complete nearby reference/converter paths. The submitted output column is on the right.",
+    body_note:"NFET bodies → VSS; PFET bodies → VDD. Exact source devices, values, bulk defaults and parameters are retained in the native project.",
+    devices, ports,
+    continuousNets:[...new Set(ds.flatMap(d=>d.pins))].filter(n=>!auxiliaryNets.has(n)).sort(),
+    draw(c) {
+      const routedAnchors = new Map();
+      const drawing = {...c, j(key, net, x, y) {
+        c.j(key, net, x, y);
+        if (!routedAnchors.has(net)) routedAnchors.set(net, []);
+        routedAnchors.get(net).push({key,x,y});
+      }};
+      routeDrawing(drawing, ds.map(d=>({...d,labelWidth:c.referenceWidth(d.ref)/10})), devices, ports, sections,
+        auxiliaryNets, {preferDeviceRoots:true,separateInputNets:true,supplyLabelWidthAllowance:12,supplyLabelClearance:2,
+          netClearanceZones:{vbpc:[[645,285,655,295],[205,285,215,295]],vbnc:[[645,395,655,405],[205,395,215,405]]}});
+      const annotate = (net, near, dx, dy, align) => {
+        const p = c.point(near);
+        const candidates = routedAnchors.get(net) ?? [];
+        if (!candidates.length) throw Error("No routed junction for annotation " + net);
+        const nearest = [...candidates].sort((a,b)=>(Math.abs(a.x-p.x)+Math.abs(a.y-p.y))-(Math.abs(b.x-p.x)+Math.abs(b.y-p.y)))[0];
+        c.boundLabel(net, nearest.key, dx, dy, align);
+      };
+      annotate("ibias", "@IBIAS", 20, 18, "middle");
+      annotate("vbp", "XMP0.D", 8, 18, "start");
+      annotate("vbpc", "XMPB.D", -8, 36, "end");
+      annotate("vbnc", "XMNB3.D", 8, 8, "start");
     },
   };
 }

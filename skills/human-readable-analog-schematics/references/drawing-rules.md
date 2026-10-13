@@ -93,7 +93,9 @@ Use the ATB profile for its presentation preferences.
   branch. In a cascoded mirror, show the actual drain that controls the shared
   gates, including any intervening cascode. Detached labels on each stage can
   preserve connectivity while concealing the circuit's operation.
-- Put external ports at the branches they serve. A separate row of short,
+- Put external ports at the branches they serve. Include the auxiliary bias
+  port when moving its reference branch; retaining a remote old port can leave
+  a long empty perimeter after the devices themselves are grouped correctly. A separate row of short,
   name-connected port stubs can look like an unfinished drawing. Compare a
   lower auxiliary-bias row when side-by-side bias branches make the main circuit
   excessively wide; keep both its current path and links to receiving gates

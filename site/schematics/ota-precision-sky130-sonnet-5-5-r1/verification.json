@@ -81,7 +81,13 @@
       "e2",
       "f1",
       "f2",
+      "ibias",
+      "rbt",
+      "sb",
       "tail",
+      "vbnc",
+      "vbp",
+      "vbpc",
       "vinn",
       "vinp",
       "vout"
