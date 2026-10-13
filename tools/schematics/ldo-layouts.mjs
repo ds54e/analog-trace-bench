@@ -760,8 +760,22 @@ export function buildLdoLayout(id, source) {
     body_note:
       "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
     draw(c) {
+      const drawing = id === "ldo-quiet-sky130-deepseek-r3" ? {
+        ...c,
+        boundLabel(net, key, dx, dy, align) {
+          const p = c.point(key), vin = c.point("R3.1");
+          if (net === "vin" && p.x === vin.x - 20 && p.y === vin.y) {
+            // Lift the local supply tip above the nearby GATE corner so the
+            // word identifies R3's own terminal, rather than that signal wire.
+            const labelKey = "r3-vin-label-tip";
+            c.j(labelKey, net, p.x, p.y - 30);
+            c.w(net, key, labelKey);
+            c.boundLabel(net, labelKey, -8, -10, "end");
+          } else c.boundLabel(net, key, dx, dy, align);
+        },
+      } : c;
       routeDrawing(
-        c,
+        drawing,
         ds.map((d) => ({
           ...d,
           labelWidth: c.referenceWidth(d.ref) / 10,

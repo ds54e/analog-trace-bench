@@ -3221,8 +3221,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VIN. Saved bulk defaults omit standard body wires; exact device parameters remain in source and native project.",
       "source_sha256": "9e4abfaf3ac63fd52bc07f7ac2a3f00e12d53b3bc1c6ac86521f36c5830a7200",
       "files": {
-        "schematic.svg": "1abfabe8b3b1c4b68cbf022b63f45269e408a34ef8a66b7857f617160f37ba7d",
-        "project.icproj.json": "6378b81249874e452804391967dc21a8202cc5722a6511cd6e86988f83a1d106",
+        "schematic.svg": "9228c64c0770e4900df7ebe20cde43b45bbaa0a1cec3f0db74ba27e5777f499d",
+        "project.icproj.json": "5fddcee7ee152642b0f3012a5b0effb43e670f4dc9c2eb85e6f33b1b76f51bd3",
         "submitted.spice": "9e4abfaf3ac63fd52bc07f7ac2a3f00e12d53b3bc1c6ac86521f36c5830a7200",
         "exported.spice": "08691b3229f62ca81f484602c076638160ee487758286f44425c1143703709ae",
         "verification.json": "56d4da0ccc45cc6a25df34833bd782c6bc8887cfd8688beac743d65bcfcffa96"
