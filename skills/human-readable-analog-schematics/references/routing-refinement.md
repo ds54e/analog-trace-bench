@@ -56,6 +56,17 @@ it explains a symmetric cross-coupling clearly and the target tool supports it.
 Count real directional branches, not mere route segments: splitting a straight
 line does not create a bend or a junction.
 
+A local device move can also move a nearby automatically routed bias return.
+Recheck the new wire and label positions in the reopened image: raising a tail
+device may leave the control bus close to its source stub, with the supply label
+appearing to name the bus. Compare actual new clearance and label ownership;
+clearance from the previous route does not establish an improvement.
+
+Keep every declared external port when acting on an image advisor's feedback.
+A floating-looking supply port calls for clearer placement, labeling or a visible
+connection to the same supply node. Preserve its named interface terminal and
+the applicable profile's power-label exceptions, then recheck the boundary.
+
 ## Separate drain trunks from local D–G ties
 
 Joining the same electrical node at different places changes how a circuit reads.
