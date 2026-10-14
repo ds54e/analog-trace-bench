@@ -76,6 +76,7 @@
     "checked_non_body_pins": 70,
     "checked_from": "saved-and-reopened-project",
     "continuous_signal_nets": [
+      "ibias",
       "n1",
       "n2",
       "nm",
@@ -84,9 +85,14 @@
       "q7",
       "q8",
       "tail",
+      "vbnc",
+      "vbp",
+      "vbpc",
       "vinn",
       "vinp",
-      "vout"
+      "vout",
+      "xn",
+      "xp"
     ],
     "named_connections_checked": true
   },

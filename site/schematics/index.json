@@ -37,15 +37,15 @@
     {
       "run_id": "ota-drive-sky130-opus-5-5-r1",
       "title": "Transistor-level OTA",
-      "description": "Continuous differential, mirror, interstage and compensation wiring; auxiliary bias controls use native bound labels.",
-      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Saved cell defaults omit standard body wires. Display values are rounded; source and export retain exact values.",
+      "description": "NMOS-input symmetrical current-mirror OTA with cascoded PMOS sourcing and wide-swing NMOS sinking branches, complete nearby cascode-bias paths and a local reference.",
+      "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, values, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
       "files": {
-        "schematic.svg": "2f5d9293f88bc08e3e87861a99703b944b11a74ec42600d40d43c9c403cba311",
-        "project.icproj.json": "c271ed716f1bdaf1c449575250cc438e361e56e0b56e3208206a7b773a6fc066",
+        "schematic.svg": "f188acd3147a23d69cd6e6fef9a2f87a442505507a631ddc51425ee8f9d4ca29",
+        "project.icproj.json": "f39bdfbab299fae0fd9b69b4451ac93d91d35ed041ecbfd9734676d9ac3e0988",
         "submitted.spice": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
         "exported.spice": "b96d9bb39a867731ea478c1d24bdce0872d7fb9bfbfa32d0b5057d2dc42e28ae",
-        "verification.json": "c50c794ba7be18c3b8d1c7f05964ed351c94c7e104f876f43b418bcea9f8fa7f"
+        "verification.json": "7b9cf324358ecbb6b6a286a389bd823476efe35d01d8df94b625d5a92551a100"
       },
       "layout_strategy": "connected-stages"
     },

@@ -90,6 +90,13 @@ pilot's current branch height into a general placement rule.
 4. Render the actual native project at fit and reading sizes, then verify saved
    and reopened connectivity and values separately.
 
+Require successful generation and matching native instance poses before reviewing
+a new image. A previous native project can still pass the electrical comparison
+after a layout generation fails. Mark retained images as stale in that case;
+compare the current recipe's device coordinates with the reopened project before
+submitting a fresh image review. Check that an advisor identifies the actual
+changed device, and keep unresolved findings open when it discusses another one.
+
 Do not accept a diagram solely because diagnostics, bend count or total wire
 length look favorable. Explain a remaining detour by its specific constraint,
 not a general prohibition on labels or crossings.
