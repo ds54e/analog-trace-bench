@@ -41,8 +41,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, values, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
       "files": {
-        "schematic.svg": "f188acd3147a23d69cd6e6fef9a2f87a442505507a631ddc51425ee8f9d4ca29",
-        "project.icproj.json": "f39bdfbab299fae0fd9b69b4451ac93d91d35ed041ecbfd9734676d9ac3e0988",
+        "schematic.svg": "35925565bbd4666f91784ae4a27771afd51e9fb970e30180457b56732c6db0e5",
+        "project.icproj.json": "cc7809ec40d41932bd107d0c93651f892de480528d4dd1c8d6b67c715091ed4b",
         "submitted.spice": "4ab9de9ae0f5e8730c7bd8b4474481d9bd77147f98e076536ae29cc62d85da6a",
         "exported.spice": "b96d9bb39a867731ea478c1d24bdce0872d7fb9bfbfa32d0b5057d2dc42e28ae",
         "verification.json": "7b9cf324358ecbb6b6a286a389bd823476efe35d01d8df94b625d5a92551a100"
@@ -191,8 +191,8 @@
       "body_note": "NFET bodies → VSS; PFET bodies → VDD. Exact source devices, values, bulk defaults and parameters are retained in the native project.",
       "source_sha256": "b1efbbc9bb0141a450991723f07ebe4ce42ea1a9317ea4e9ca24e020af13d2ee",
       "files": {
-        "schematic.svg": "76434d70cd89b6b9157960fc8f502798ecfe0487f0da456e4c92c7e9523028f7",
-        "project.icproj.json": "c54de03f8a4621dcd7cee1250cae010d3cfdb0249a95776825e8f7b6ac2968a5",
+        "schematic.svg": "194566ae78c81c2e54c1ef94aa30c36fb8461f248e054edc512a38a6329c5b5e",
+        "project.icproj.json": "52279d8dc0542d378ce47169e81987d892eeb08697af2917e507dd9a1176631d",
         "submitted.spice": "b1efbbc9bb0141a450991723f07ebe4ce42ea1a9317ea4e9ca24e020af13d2ee",
         "exported.spice": "8dc40b3540e23a7eced77686757493f89e83b9c52af5ce18eb79eb3ec55cd21c",
         "verification.json": "fd35540d4859690277577cbc918feec3febb9419ee81243fe17037972b52a34e"

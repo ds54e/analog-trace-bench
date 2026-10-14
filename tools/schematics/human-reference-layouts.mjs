@@ -692,8 +692,8 @@ function driveOpusR1MirrorOta(id, ds) {
   if (id !== "ota-drive-sky130-opus-5-5-r1" || ds.length !== expected.length ||
       ds.some((d,i) => d.ref !== expected[i][0] || d.kind !== expected[i][1] || d.pins.join(" ") !== expected[i][2]))
     throw Error("Unreviewed DRIVE Opus Run1 ordered source graph " + id);
-  const devices = {"XB0":[360,580,"horizontal"],"XT":[430,400,0],"XM1":[330,290,0],"XM2":[550,290,"horizontal"],"XM3":[330,160,0],"XM5":[180,160,"horizontal"],"XM4":[550,160,"horizontal"],"XM6":[680,160,0],"XM5C":[180,290,"horizontal"],"XM6C":[680,290,0],"XM7C":[160,400,0],"XM7":[180,510,"horizontal"],"XM8C":[680,400,0],"XM8":[680,510,0],"XBN1":[290,680,"horizontal"],"XBP0":[270,570,0],"XBP1":[50,460,0],"XBNC":[70,560,"horizontal"],"RN":[60,670,0],"XBN2":[880,400,0],"XBPC":[880,290,0],"RP":[890,180,0]};
-  const ports = {"VINP":[600,290,180],"VINN":[280,290,0],"VOUT":[780,330,180],"VDD":[580,100,0],"VSS":[750,550,180],"IBIAS":[400,630,0]};
+  const devices = {"XB0":[430,450,"horizontal"],"XT":[430,370,0],"XM1":[330,290,0],"XM2":[550,290,"horizontal"],"XM3":[330,160,0],"XM5":[180,160,"horizontal"],"XM4":[550,160,"horizontal"],"XM6":[680,160,0],"XM5C":[180,290,"horizontal"],"XM6C":[680,290,0],"XM7C":[180,400,"horizontal"],"XM7":[180,510,"horizontal"],"XM8C":[680,400,0],"XM8":[680,510,0],"XBN1":[290,630,"horizontal"],"XBP0":[270,570,0],"XBP1":[50,260,0],"XBNC":[70,350,"horizontal"],"RN":[60,420,0],"XBN2":[830,400,0],"XBPC":[830,290,0],"RP":[840,180,0]};
+  const ports = {"VINP":[600,290,180],"VINN":[280,290,0],"VOUT":[740,330,180],"VDD":[580,100,0],"VSS":[750,550,180],"IBIAS":[360,550,0]};
   const sections = {};
   for (const ref of ["XM3","XM5"]) sections[ref]="left-load-mirror";
   for (const ref of ["XM4","XM6"]) sections[ref]="right-load-mirror";
@@ -718,14 +718,21 @@ function driveOpusR1MirrorOta(id, ds) {
     continuousNets:[...new Set(ds.flatMap(d=>d.pins))].filter(n=>!auxiliaryNets.has(n)).sort(),
     draw(c) {
       const routedAnchors = new Map();
-      const drawing = {...c, j(key, net, x, y) {
+      const drawing = {...c, boundLabel(net, key, dx, dy, align) {
+        const p = c.point(key), pb = c.point("XBP0.S"), tail = c.point("XT.S");
+        if (net === "vdd" && Math.abs(p.x-pb.x)+Math.abs(p.y-pb.y) < 80)
+          return c.boundLabel(net, key, pb.x-p.x-12, pb.y-p.y-8, "end");
+        if (net === "vss" && Math.abs(p.x-tail.x)+Math.abs(p.y-tail.y) < 80)
+          return c.boundLabel(net, key, tail.x-p.x+28, tail.y-p.y-4, "start");
+        return c.boundLabel(net, key, dx, dy, align);
+      }, j(key, net, x, y) {
         c.j(key, net, x, y);
         if (!routedAnchors.has(net)) routedAnchors.set(net, []);
         routedAnchors.get(net).push({key,x,y});
       }};
       routeDrawing(drawing, ds.map(d=>({...d,labelWidth:c.referenceWidth(d.ref)/10})), devices, ports, sections,
         auxiliaryNets, {preferDeviceRoots:true,separateInputNets:true,supplyLabelWidthAllowance:12,supplyLabelClearance:2,
-          netClearanceZones:{ibias:[[750,0,815,565]],vbpc:[[645,285,655,295],[205,285,215,295]],vbnc:[[645,395,655,405],[205,395,215,405],[150,0,630,450],[95,555,105,565]]}});
+          netClearanceZones:{vbpc:[[645,285,655,295],[205,285,215,295]],vbnc:[[645,395,655,405],[205,395,215,405],[95,345,105,355]]}});
       const annotate = (net, near, dx, dy, align) => {
         const p = c.point(near);
         const candidates = routedAnchors.get(net) ?? [];
@@ -746,8 +753,8 @@ function driveOpusR3MirrorOta(id, ds) {
   if (id !== "ota-drive-sky130-opus-5-5-r3" || ds.length !== expected.length ||
       ds.some((d,i) => d.ref !== expected[i][0] || d.kind !== expected[i][1] || d.pins.join(" ") !== expected[i][2]))
     throw Error("Unreviewed DRIVE Opus Run1 ordered source graph " + id);
-  const devices = {"XNB0":[360,580,"horizontal"],"XNT":[430,400,0],"X1B":[330,290,0],"X1A":[550,290,"horizontal"],"XPDB":[330,160,0],"XPOB":[180,160,"horizontal"],"XPDA":[550,160,"horizontal"],"XPOA":[680,160,0],"XPCB":[180,290,"horizontal"],"XPCA":[680,290,0],"XNCA":[160,400,0],"XN3A":[180,510,"horizontal"],"XNCB":[680,400,0],"XN3B":[680,510,0],"XNB1":[290,680,"horizontal"],"XPB0":[270,570,0],"XPB2":[50,460,0],"XNB3":[70,560,"horizontal"],"RN":[60,670,0],"XNB2":[880,400,0],"XPB1":[880,290,0],"RP":[890,180,0]};
-  const ports = {"VINP":[600,290,180],"VINN":[280,290,0],"VOUT":[780,330,180],"VDD":[580,100,0],"VSS":[750,550,180],"IBIAS":[400,630,0]};
+  const devices = {"XNB0":[530,410,"horizontal"],"XNT":[450,370,"horizontal"],"X1B":[330,290,0],"X1A":[550,290,"horizontal"],"XPDB":[330,160,0],"XPOB":[180,160,"horizontal"],"XPDA":[550,160,"horizontal"],"XPOA":[680,160,0],"XPCB":[180,290,"horizontal"],"XPCA":[680,290,0],"XNCA":[180,400,"horizontal"],"XN3A":[180,510,"horizontal"],"XNCB":[680,400,0],"XN3B":[680,510,0],"XNB1":[290,630,"horizontal"],"XPB0":[270,570,0],"XPB2":[50,260,0],"XNB3":[70,350,"horizontal"],"RN":[60,420,0],"XNB2":[830,400,0],"XPB1":[830,290,0],"RP":[840,180,0]};
+  const ports = {"VINP":[600,290,180],"VINN":[280,290,0],"VOUT":[740,330,180],"VDD":[580,100,0],"VSS":[750,550,180],"IBIAS":[360,550,0]};
   const sections = {};
   for (const ref of ["XPDB","XPOB"]) sections[ref]="left-load-mirror";
   for (const ref of ["XPDA","XPOA"]) sections[ref]="right-load-mirror";
@@ -772,7 +779,14 @@ function driveOpusR3MirrorOta(id, ds) {
     continuousNets:[...new Set(ds.flatMap(d=>d.pins))].filter(n=>!auxiliaryNets.has(n)).sort(),
     draw(c) {
       const routedAnchors = new Map();
-      const drawing = {...c, j(key, net, x, y) {
+      const drawing = {...c, boundLabel(net, key, dx, dy, align) {
+        const p = c.point(key), pb = c.point("XPB0.S"), tail = c.point("XNT.S");
+        if (net === "vdd" && Math.abs(p.x-pb.x)+Math.abs(p.y-pb.y) < 80)
+          return c.boundLabel(net, key, pb.x-p.x-12, pb.y-p.y-8, "end");
+        if (net === "vss" && Math.abs(p.x-tail.x)+Math.abs(p.y-tail.y) < 80)
+          return c.boundLabel(net, key, tail.x-p.x-20, tail.y-p.y+10, "end");
+        return c.boundLabel(net, key, dx, dy, align);
+      }, j(key, net, x, y) {
         c.j(key, net, x, y);
         if (!routedAnchors.has(net)) routedAnchors.set(net, []);
         routedAnchors.get(net).push({key,x,y});
@@ -780,7 +794,7 @@ function driveOpusR3MirrorOta(id, ds) {
       const routingDevices = ["XNB0", "XNT", "X1B", "X1A", "XPDB", "XPOB", "XPDA", "XPOA", "XPCB", "XPCA", "XNCA", "XN3A", "XNCB", "XN3B", "XNB1", "XPB0", "XPB2", "XNB3", "RN", "XNB2", "XPB1", "RP"] .map(ref => ds.find(d => d.ref === ref));
       routeDrawing(drawing, routingDevices.map(d=>({...d,labelWidth:c.referenceWidth(d.ref)/10})), devices, ports, sections,
         auxiliaryNets, {preferDeviceRoots:true,separateInputNets:true,supplyLabelWidthAllowance:12,supplyLabelClearance:2,
-          netClearanceZones:{ibias:[[750,0,815,565]],vbpc:[[645,285,655,295],[205,285,215,295]],vbnc:[[645,395,655,405],[205,395,215,405],[150,0,630,450],[95,555,105,565]]}});
+          netClearanceZones:{vbpc:[[645,285,655,295],[205,285,215,295]],vbnc:[[645,395,655,405],[205,395,215,405],[95,345,105,355]]}});
       const annotate = (net, near, dx, dy, align) => {
         const p = c.point(near);
         const candidates = routedAnchors.get(net) ?? [];
@@ -789,7 +803,7 @@ function driveOpusR3MirrorOta(id, ds) {
         c.boundLabel(net, nearest.key, dx, dy, align);
       };
       annotate("ibias", "@IBIAS", -20, 18, "middle");
-      annotate("vbp0", "XPB0.D", -8, 18, "end");
+      annotate("vbp0", "XPB0.D", 16, 8, "start");
       annotate("vbpc", "XPB1.D", 8, 36, "start");
       annotate("vbnc", "XNB3.D", -8, 8, "end");
     },

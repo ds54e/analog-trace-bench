@@ -78,6 +78,32 @@ In the ATB LDO, `RB VOUT NB` returns to the RS–XMB drain trunk, while
 Compare aligned taps/RB placement before routing a long return; do not turn the
 pilot's current branch height into a general placement rule.
 
+## Preserve shared-bus corridors while compacting bias
+
+Check resolved pins and mandatory terminal escapes before moving a tail closer
+to its input pair. Closer body centers can create an up-and-down source-bus jog
+when the escaped endpoints no longer share a row. Align the actual escape seeds
+and review the resulting shared bus; do not choose spacing from body centers alone.
+
+Shortening a complete bias branch can put its current path across a mirror or
+cascode-control bus. In the DRIVE refinement, that produced two large bottom
+rectangles despite a smaller placement box. Restore a clear bus corridor, turn
+a receiving gate inward where appropriate while retaining its resolved D/S axis,
+and move the complete generating path before accepting the shorter branch pitch.
+Move small junction safeguards with the actual relocated gate; an obsolete broad
+reservation can block a newly placed pin or force an unnecessary detour.
+
+Keep supply-label ownership visible at reading size. The native drawing helper's
+`boundLabel` accepts an existing junction key, not a device-pin key. Retain that
+same-net junction and compute the display offset from the intended source pin
+when a remote automatic label floats away. Inspect actual glyphs against nearby
+bus lines and references; correct binding alone does not prevent misattribution.
+
+Record the owner's latest image criticism even after an earlier review accepted
+the drawing. Ask for a whole-image verdict against the published image at the
+same width, and retain any remaining detours or whitespace in the result. Local
+delta acceptance, reduced dimensions and exact connectivity are separate facts.
+
 ## Simplification pass
 
 1. Trace main signal, compensation, feedback and shared bias end to end.
