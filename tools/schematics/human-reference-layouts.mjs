@@ -6,6 +6,8 @@ import { routeDrawing } from "./orthogonal-router.mjs";
  * figure relationships are recorded in the schematic skill; these routes follow
  * ATB's own ordered terminals, not a reference circuit's electrical data. */
 export function humanReferenceLayout(id, ds) {
+  if (id === "ota-drive-sky130-sonnet-5-5-r3") return driveSonnetR3MirrorOta(id, ds);
+  if (id === "ota-drive-sky130-opus-5-5-r3") return driveOpusR3MirrorOta(id, ds);
   if (id === "ota-drive-sky130-opus-5-5-r1") return driveOpusR1MirrorOta(id, ds);
   if (id === "ota-precision-sky130-astra-r1") return precisionAstraFoldedOta(id, ds);
   if (id === "ota-precision-sky130-sonnet-5-5-r1") return precisionSonnetFoldedOta(id, ds);
@@ -735,6 +737,116 @@ function driveOpusR1MirrorOta(id, ds) {
       annotate("vbp", "XBP0.D", -8, 18, "end");
       annotate("vbpc", "XBPC.D", 8, 36, "start");
       annotate("vbnc", "XBNC.D", -8, 8, "end");
+    },
+  };
+}
+
+function driveOpusR3MirrorOta(id, ds) {
+  const expected = [["XNB0","n","ibias ibias vss vss"],["XNT","n","tail ibias vss vss"],["XNB1","n","vbp0 ibias vss vss"],["XNB2","n","vbpc ibias vss vss"],["XPB0","p","vbp0 vbp0 vdd vdd"],["XPB2","p","vbnc vbp0 vdd vdd"],["RP","r","vdd pbs"],["XPB1","p","vbpc vbpc pbs vdd"],["XNB3","n","vbnc vbnc nbs vss"],["RN","r","nbs vss"],["X1A","n","da vinp tail vss"],["X1B","n","db vinn tail vss"],["XPDA","p","da da vdd vdd"],["XPDB","p","db db vdd vdd"],["XPOA","p","xa da vdd vdd"],["XPOB","p","xb db vdd vdd"],["XPCA","p","vout vbpc xa vdd"],["XPCB","p","nd vbpc xb vdd"],["XNCA","n","nd vbnc ya vss"],["XN3A","n","ya nd vss vss"],["XNCB","n","vout vbnc yb vss"],["XN3B","n","yb nd vss vss"]];
+  if (id !== "ota-drive-sky130-opus-5-5-r3" || ds.length !== expected.length ||
+      ds.some((d,i) => d.ref !== expected[i][0] || d.kind !== expected[i][1] || d.pins.join(" ") !== expected[i][2]))
+    throw Error("Unreviewed DRIVE Opus Run1 ordered source graph " + id);
+  const devices = {"XNB0":[360,580,"horizontal"],"XNT":[430,400,0],"X1B":[330,290,0],"X1A":[550,290,"horizontal"],"XPDB":[330,160,0],"XPOB":[180,160,"horizontal"],"XPDA":[550,160,"horizontal"],"XPOA":[680,160,0],"XPCB":[180,290,"horizontal"],"XPCA":[680,290,0],"XNCA":[160,400,0],"XN3A":[180,510,"horizontal"],"XNCB":[680,400,0],"XN3B":[680,510,0],"XNB1":[290,680,"horizontal"],"XPB0":[270,570,0],"XPB2":[50,460,0],"XNB3":[70,560,"horizontal"],"RN":[60,670,0],"XNB2":[880,400,0],"XPB1":[880,290,0],"RP":[890,180,0]};
+  const ports = {"VINP":[600,290,180],"VINN":[280,290,0],"VOUT":[780,330,180],"VDD":[580,100,0],"VSS":[750,550,180],"IBIAS":[400,630,0]};
+  const sections = {};
+  for (const ref of ["XPDB","XPOB"]) sections[ref]="left-load-mirror";
+  for (const ref of ["XPDA","XPOA"]) sections[ref]="right-load-mirror";
+  for (const ref of ["XPCB","XNCA","XN3A"]) sections[ref]="sink-mirror";
+  for (const ref of ["XPCA","XNCB","XN3B"]) sections[ref]="output";
+  for (const ref of ["X1B","X1A","XNT"]) sections[ref]="pair";
+  for (const ref of ["XPB0","XNB1"]) sections[ref]="pb-generator";
+  for (const ref of ["RP","XPB1","XNB2"]) sections[ref]="pc-generator";
+  for (const ref of ["XPB2","XNB3","RN"]) sections[ref]="nc-generator";
+  sections.XNB0="reference";
+  sections["@VINP"]=sections["@VINN"]="pair";
+  sections["@VOUT"]="output";
+  sections["@VDD"]="right-load-mirror";
+  sections["@VSS"]="output";
+  sections["@IBIAS"]="reference";
+  const auxiliaryNets = new Set(["vdd","vss"]);
+  return {
+    id, strategy:"connected-stages", title:"Transistor-level OTA",
+    description:"NMOS-input symmetrical current-mirror OTA with cascoded PMOS sourcing and wide-swing NMOS sinking branches, complete nearby cascode-bias paths and a local reference.",
+    body_note:"NFET bodies → VSS; PFET bodies → VDD. Exact source devices, values, bulk defaults and parameters are retained in the native project.",
+    devices, ports,
+    continuousNets:[...new Set(ds.flatMap(d=>d.pins))].filter(n=>!auxiliaryNets.has(n)).sort(),
+    draw(c) {
+      const routedAnchors = new Map();
+      const drawing = {...c, j(key, net, x, y) {
+        c.j(key, net, x, y);
+        if (!routedAnchors.has(net)) routedAnchors.set(net, []);
+        routedAnchors.get(net).push({key,x,y});
+      }};
+      const routingDevices = ["XNB0", "XNT", "X1B", "X1A", "XPDB", "XPOB", "XPDA", "XPOA", "XPCB", "XPCA", "XNCA", "XN3A", "XNCB", "XN3B", "XNB1", "XPB0", "XPB2", "XNB3", "RN", "XNB2", "XPB1", "RP"] .map(ref => ds.find(d => d.ref === ref));
+      routeDrawing(drawing, routingDevices.map(d=>({...d,labelWidth:c.referenceWidth(d.ref)/10})), devices, ports, sections,
+        auxiliaryNets, {preferDeviceRoots:true,separateInputNets:true,supplyLabelWidthAllowance:12,supplyLabelClearance:2,
+          netClearanceZones:{ibias:[[750,0,815,565]],vbpc:[[645,285,655,295],[205,285,215,295]],vbnc:[[645,395,655,405],[205,395,215,405],[150,0,630,450],[95,555,105,565]]}});
+      const annotate = (net, near, dx, dy, align) => {
+        const p = c.point(near);
+        const candidates = routedAnchors.get(net) ?? [];
+        if (!candidates.length) throw Error("No routed junction for annotation " + net);
+        const nearest = [...candidates].sort((a,b)=>(Math.abs(a.x-p.x)+Math.abs(a.y-p.y))-(Math.abs(b.x-p.x)+Math.abs(b.y-p.y)))[0];
+        c.boundLabel(net, nearest.key, dx, dy, align);
+      };
+      annotate("ibias", "@IBIAS", -20, 18, "middle");
+      annotate("vbp0", "XPB0.D", -8, 18, "end");
+      annotate("vbpc", "XPB1.D", 8, 36, "start");
+      annotate("vbnc", "XNB3.D", -8, 8, "end");
+    },
+  };
+}
+
+function driveSonnetR3MirrorOta(id, ds) {
+  const expected = [["XMN0","n","ibias ibias vss vss"],["XMNS1","n","vp ibias vss vss"],["XMNS3","n","vbp ibias vss vss"],["XMP0","p","vp vp vdd vdd"],["XMPS2","p","vbn vp vdd vdd"],["XMNB","n","vbn vbn sn vss"],["RN","r","sn vss"],["RP","r","vdd sp"],["XMPB","p","vbp vbp sp vdd"],["XM9","n","ts ibias vss vss"],["XM1","n","n3 vinp ts vss"],["XM2","n","n4 vinn ts vss"],["XM3","p","n3 n3 vdd vdd"],["XM4","p","n4 n4 vdd vdd"],["XM6","p","x6 n3 vdd vdd"],["XM6C","p","vout vbp x6 vdd"],["XM5","p","x5 n4 vdd vdd"],["XM5C","p","n7 vbp x5 vdd"],["XM7C","n","n7 vbn x7 vss"],["XM7","n","x7 n7 vss vss"],["XM8C","n","vout vbn x8 vss"],["XM8","n","x8 n7 vss vss"]];
+  if (id !== "ota-drive-sky130-sonnet-5-5-r3" || ds.length !== expected.length ||
+      ds.some((d,i) => d.ref !== expected[i][0] || d.kind !== expected[i][1] || d.pins.join(" ") !== expected[i][2]))
+    throw Error("Unreviewed DRIVE Opus Run1 ordered source graph " + id);
+  const devices = {"XMN0":[360,580,"horizontal"],"XM9":[430,400,0],"XM2":[330,290,0],"XM1":[550,290,"horizontal"],"XM4":[330,160,0],"XM5":[180,160,"horizontal"],"XM3":[550,160,"horizontal"],"XM6":[680,160,0],"XM5C":[180,290,"horizontal"],"XM6C":[680,290,0],"XM7C":[160,400,0],"XM7":[180,510,"horizontal"],"XM8C":[680,400,0],"XM8":[680,510,0],"XMNS1":[290,680,"horizontal"],"XMP0":[270,570,0],"XMPS2":[50,460,0],"XMNB":[70,560,"horizontal"],"RN":[60,670,0],"XMNS3":[880,400,0],"XMPB":[880,290,0],"RP":[890,180,0]};
+  const ports = {"VINP":[600,290,180],"VINN":[280,290,0],"VOUT":[780,330,180],"VDD":[580,100,0],"VSS":[750,550,180],"IBIAS":[400,630,0]};
+  const sections = {};
+  for (const ref of ["XM4","XM5"]) sections[ref]="left-load-mirror";
+  for (const ref of ["XM3","XM6"]) sections[ref]="right-load-mirror";
+  for (const ref of ["XM5C","XM7C","XM7"]) sections[ref]="sink-mirror";
+  for (const ref of ["XM6C","XM8C","XM8"]) sections[ref]="output";
+  for (const ref of ["XM2","XM1","XM9"]) sections[ref]="pair";
+  for (const ref of ["XMP0","XMNS1"]) sections[ref]="pb-generator";
+  for (const ref of ["RP","XMPB","XMNS3"]) sections[ref]="pc-generator";
+  for (const ref of ["XMPS2","XMNB","RN"]) sections[ref]="nc-generator";
+  sections.XMN0="reference";
+  sections["@VINP"]=sections["@VINN"]="pair";
+  sections["@VOUT"]="output";
+  sections["@VDD"]="right-load-mirror";
+  sections["@VSS"]="output";
+  sections["@IBIAS"]="reference";
+  const auxiliaryNets = new Set(["vdd","vss"]);
+  return {
+    id, strategy:"connected-stages", title:"Transistor-level OTA",
+    description:"NMOS-input symmetrical current-mirror OTA with cascoded PMOS sourcing and wide-swing NMOS sinking branches, complete nearby cascode-bias paths and a local reference.",
+    body_note:"NFET bodies → VSS; PFET bodies → VDD. Exact source devices, values, bulk defaults and parameters are retained in the native project.",
+    devices, ports,
+    continuousNets:[...new Set(ds.flatMap(d=>d.pins))].filter(n=>!auxiliaryNets.has(n)).sort(),
+    draw(c) {
+      const routedAnchors = new Map();
+      const drawing = {...c, j(key, net, x, y) {
+        c.j(key, net, x, y);
+        if (!routedAnchors.has(net)) routedAnchors.set(net, []);
+        routedAnchors.get(net).push({key,x,y});
+      }};
+      const routingDevices = ["XMN0", "XM9", "XM2", "XM1", "XM4", "XM5", "XM3", "XM6", "XM5C", "XM6C", "XM7C", "XM7", "XM8C", "XM8", "XMNS1", "XMP0", "XMPS2", "XMNB", "RN", "XMNS3", "XMPB", "RP"] .map(ref => ds.find(d => d.ref === ref));
+      routeDrawing(drawing, routingDevices.map(d=>({...d,labelWidth:c.referenceWidth(d.ref)/10})), devices, ports, sections,
+        auxiliaryNets, {preferDeviceRoots:true,separateInputNets:true,supplyLabelWidthAllowance:12,supplyLabelClearance:2,
+          netClearanceZones:{ibias:[[750,0,815,565]],vbp:[[645,285,655,295],[205,285,215,295]],vbn:[[645,395,655,405],[205,395,215,405],[150,0,630,450],[95,555,105,565]]}});
+      const annotate = (net, near, dx, dy, align) => {
+        const p = c.point(near);
+        const candidates = routedAnchors.get(net) ?? [];
+        if (!candidates.length) throw Error("No routed junction for annotation " + net);
+        const nearest = [...candidates].sort((a,b)=>(Math.abs(a.x-p.x)+Math.abs(a.y-p.y))-(Math.abs(b.x-p.x)+Math.abs(b.y-p.y)))[0];
+        c.boundLabel(net, nearest.key, dx, dy, align);
+      };
+      annotate("ibias", "@IBIAS", -20, 18, "middle");
+      annotate("vp", "XMP0.D", -8, 18, "end");
+      annotate("vbp", "XMPB.D", 8, 36, "start");
+      annotate("vbn", "XMNB.D", -8, 8, "end");
     },
   };
 }

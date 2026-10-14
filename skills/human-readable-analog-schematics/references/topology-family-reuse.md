@@ -82,6 +82,20 @@ longer bias name did not fit inside the same diode closure, and its generator
 reference needed a local branch shift to clear the output column. Complete graph
 eligibility does not establish identical label clearance or routing trees.
 
+DRIVE/Opus 5.5 Runs 1 and 3 and DRIVE/Sonnet 5.5 Run 3 share a complete
+twenty-MOS, two-resistor current-mirror graph: NMOS input pair, own PMOS diode
+loads and outer mirrors, PMOS cascodes, a wide-swing NMOS sink mirror, and three
+complete bias paths, two containing resistor offsets. Each exact source retains
+its own whole ordered reference/kind/D/G/S/B and resistor-endpoint guard. Keep
+their differing resistor values, W/L, nf/m and Sonnet's `lm`/`lc` expressions
+source-derived; a topology match does not authorize copying parameters.
+
+A sibling's source declaration order can differ from the reviewed representative.
+Use an explicitly matched role order for routing-tree construction when needed,
+while preserving the source order and native electrical declarations. Recheck
+the actual target names and rendered values: longer references can change the
+router's text reservations even when every device position is retained.
+
 ## Reading-size lessons from actual images
 
 For the Core/Astra representative, shortening unused output/injection stubs and
