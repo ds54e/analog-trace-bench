@@ -104,6 +104,13 @@ the drawing. Ask for a whole-image verdict against the published image at the
 same width, and retain any remaining detours or whitespace in the result. Local
 delta acceptance, reduced dimensions and exact connectivity are separate facts.
 
+Recheck a matched sibling with its own reference strings and actual display
+values. The DRIVE Sonnet case retained longer bias names and parameter
+expressions while reusing the reviewed current-path relationships; that still
+required a new native image and a separate whole-image verdict. Image advisors
+can misname a generator or a net. Use their observations to assess readability,
+and verify any proposed electrical interpretation against the submitted source.
+
 ## Simplification pass
 
 1. Trace main signal, compensation, feedback and shared bias end to end.

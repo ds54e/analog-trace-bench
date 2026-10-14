@@ -815,8 +815,8 @@ function driveSonnetR3MirrorOta(id, ds) {
   if (id !== "ota-drive-sky130-sonnet-5-5-r3" || ds.length !== expected.length ||
       ds.some((d,i) => d.ref !== expected[i][0] || d.kind !== expected[i][1] || d.pins.join(" ") !== expected[i][2]))
     throw Error("Unreviewed DRIVE Opus Run1 ordered source graph " + id);
-  const devices = {"XMN0":[360,580,"horizontal"],"XM9":[430,400,0],"XM2":[330,290,0],"XM1":[550,290,"horizontal"],"XM4":[330,160,0],"XM5":[180,160,"horizontal"],"XM3":[550,160,"horizontal"],"XM6":[680,160,0],"XM5C":[180,290,"horizontal"],"XM6C":[680,290,0],"XM7C":[160,400,0],"XM7":[180,510,"horizontal"],"XM8C":[680,400,0],"XM8":[680,510,0],"XMNS1":[290,680,"horizontal"],"XMP0":[270,570,0],"XMPS2":[50,460,0],"XMNB":[70,560,"horizontal"],"RN":[60,670,0],"XMNS3":[880,400,0],"XMPB":[880,290,0],"RP":[890,180,0]};
-  const ports = {"VINP":[600,290,180],"VINN":[280,290,0],"VOUT":[780,330,180],"VDD":[580,100,0],"VSS":[750,550,180],"IBIAS":[400,630,0]};
+  const devices = {"XMN0":[530,410,"horizontal"],"XM9":[450,370,"horizontal"],"XM2":[330,290,0],"XM1":[550,290,"horizontal"],"XM4":[330,160,0],"XM5":[180,160,"horizontal"],"XM3":[550,160,"horizontal"],"XM6":[680,160,0],"XM5C":[180,290,"horizontal"],"XM6C":[680,290,0],"XM7C":[180,400,"horizontal"],"XM7":[180,510,"horizontal"],"XM8C":[680,400,0],"XM8":[680,510,0],"XMNS1":[290,630,"horizontal"],"XMP0":[270,570,0],"XMPS2":[50,260,0],"XMNB":[70,350,"horizontal"],"RN":[60,420,0],"XMNS3":[830,400,0],"XMPB":[830,290,0],"RP":[840,180,0]};
+  const ports = {"VINP":[600,290,180],"VINN":[280,290,0],"VOUT":[740,330,180],"VDD":[580,100,0],"VSS":[750,550,180],"IBIAS":[360,550,0]};
   const sections = {};
   for (const ref of ["XM4","XM5"]) sections[ref]="left-load-mirror";
   for (const ref of ["XM3","XM6"]) sections[ref]="right-load-mirror";
@@ -841,7 +841,14 @@ function driveSonnetR3MirrorOta(id, ds) {
     continuousNets:[...new Set(ds.flatMap(d=>d.pins))].filter(n=>!auxiliaryNets.has(n)).sort(),
     draw(c) {
       const routedAnchors = new Map();
-      const drawing = {...c, j(key, net, x, y) {
+      const drawing = {...c, boundLabel(net, key, dx, dy, align) {
+        const p = c.point(key), pb = c.point("XMP0.S"), tail = c.point("XM9.S");
+        if (net === "vdd" && Math.abs(p.x-pb.x)+Math.abs(p.y-pb.y) < 80)
+          return c.boundLabel(net, key, pb.x-p.x-12, pb.y-p.y-8, "end");
+        if (net === "vss" && Math.abs(p.x-tail.x)+Math.abs(p.y-tail.y) < 80)
+          return c.boundLabel(net, key, tail.x-p.x-20, tail.y-p.y+10, "end");
+        return c.boundLabel(net, key, dx, dy, align);
+      }, j(key, net, x, y) {
         c.j(key, net, x, y);
         if (!routedAnchors.has(net)) routedAnchors.set(net, []);
         routedAnchors.get(net).push({key,x,y});
@@ -849,7 +856,7 @@ function driveSonnetR3MirrorOta(id, ds) {
       const routingDevices = ["XMN0", "XM9", "XM2", "XM1", "XM4", "XM5", "XM3", "XM6", "XM5C", "XM6C", "XM7C", "XM7", "XM8C", "XM8", "XMNS1", "XMP0", "XMPS2", "XMNB", "RN", "XMNS3", "XMPB", "RP"] .map(ref => ds.find(d => d.ref === ref));
       routeDrawing(drawing, routingDevices.map(d=>({...d,labelWidth:c.referenceWidth(d.ref)/10})), devices, ports, sections,
         auxiliaryNets, {preferDeviceRoots:true,separateInputNets:true,supplyLabelWidthAllowance:12,supplyLabelClearance:2,
-          netClearanceZones:{ibias:[[750,0,815,565]],vbp:[[645,285,655,295],[205,285,215,295]],vbn:[[645,395,655,405],[205,395,215,405],[150,0,630,450],[95,555,105,565]]}});
+          netClearanceZones:{vbp:[[645,285,655,295],[205,285,215,295]],vbn:[[645,395,655,405],[205,395,215,405],[95,345,105,355]]}});
       const annotate = (net, near, dx, dy, align) => {
         const p = c.point(near);
         const candidates = routedAnchors.get(net) ?? [];
@@ -858,7 +865,7 @@ function driveSonnetR3MirrorOta(id, ds) {
         c.boundLabel(net, nearest.key, dx, dy, align);
       };
       annotate("ibias", "@IBIAS", -20, 18, "middle");
-      annotate("vp", "XMP0.D", -8, 18, "end");
+      annotate("vp", "XMP0.D", 16, 8, "start");
       annotate("vbp", "XMPB.D", 8, 36, "start");
       annotate("vbn", "XMNB.D", -8, 8, "end");
     },
